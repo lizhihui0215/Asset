@@ -11,5 +11,5 @@ import Foundation
 public typealias ViewCompletionHandler = () -> Void
 
 class BaseViewModel {
-    
+    let cache = CacheManager.default
 }

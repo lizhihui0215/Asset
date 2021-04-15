@@ -12,17 +12,23 @@ struct CacheManager {
     enum Cache {
         case userDefault
     }
-    public static let `default` = CacheManager()
+    public static let `default` = CacheManager(cache: .userDefault)
     
-    func cache(key: String, for type: Cache = .userDefault, value: Encodable) {
-        switch type {
+    private let cache: Cache
+    
+    init(cache: Cache) {
+        self.cache = cache
+    }
+    
+    func put(key: String, value: Encodable) {
+        switch cache {
         case .userDefault:
             UserDefaults.standard.setValue(value, forKey: key)
         }
     }
     
-    func cache<T>(key: String, for type: Cache) -> T? {
-        switch type {
+    func get<T>(key: String) -> T? {
+        switch cache {
         case .userDefault:
             return UserDefaults.standard.value(forKey: key) as? T
         }

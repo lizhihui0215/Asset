@@ -13,12 +13,13 @@ class LoginViewModel: BaseViewModel {
     private let loginRequest = LoginRequest()
     
     func login(username: String, password: String)  {
-        loginRequest.login(username: username, password: password) { result in
+        loginRequest.login(username: username, password: password) { [weak self] result in
+            guard let `self` = self else { return }
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let credential):
-                CacheManager.default.cache(key: "credential", value: credential)
+                `self`.cache.put(key: "credential", value: credential)
             }
         }
     }
