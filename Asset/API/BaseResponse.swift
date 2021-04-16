@@ -8,8 +8,8 @@
 
 import Foundation
 protocol BaseResponse: Decodable {
-    associatedtype Model
-    var status: Int { get }
-    var msg: String { get }
-    var data: Model? { get }
+    associatedtype Model: Decodable
+    var status: Int { get set }
+    var msg: String { get set }
+    var data: Model? { get set }
 }

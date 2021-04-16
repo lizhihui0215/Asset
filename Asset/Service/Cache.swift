@@ -8,27 +8,26 @@
 
 import Foundation
 
-struct CacheManager {
-    enum Cache {
+struct Cache {
+    enum Option {
         case userDefault
     }
-    public static let `default` = CacheManager(cache: .userDefault)
+
+    private let option: Option
     
-    private let cache: Cache
-    
-    init(cache: Cache) {
-        self.cache = cache
+    init(option: Option) {
+        self.option = option
     }
     
     func put(key: String, value: Encodable) {
-        switch cache {
+        switch option {
         case .userDefault:
             UserDefaults.standard.setValue(value, forKey: key)
         }
     }
     
     func get<T>(key: String) -> T? {
-        switch cache {
+        switch option {
         case .userDefault:
             return UserDefaults.standard.value(forKey: key) as? T
         }

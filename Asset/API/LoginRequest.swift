@@ -9,8 +9,8 @@
 import Foundation
 
 struct LoginRequest: BaseRequest {
-    func login(username: String, password: String, completionHandler: @escaping ModelCompletionHandler<Credential?>) {
-        let parameter = LoginParameter(userAccount: username, userPwd: password, appType: Device.current.type.rawValue)
+    func login(username: String, password: String, completionHandler: @escaping APICompletionHandler<Credential?>) {
+        let parameter = LoginParameter(userAccount: username, userPwd: password, appType: .ios)
         sendRequest(of: LoginResponse.self,
                     router: .login(parameter),
                     completionHandler: completionHandler)
@@ -20,13 +20,13 @@ struct LoginRequest: BaseRequest {
 struct LoginParameter: Encodable  {
     let userAccount: String?
     let userPwd: String?
-    let appType: String?
+    let appType: App.`Type`
 }
 
 struct LoginResponse: BaseResponse {
-    let status: Int = 0
-    let data: Credential?
-    let msg: String = ""
+    var status: Int = 0
+    var msg: String = ""
+    var data: Credential?
 }
 
 struct Credential: Codable {

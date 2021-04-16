@@ -13,7 +13,7 @@ enum Router: URLRequestConvertible {
     case login(LoginParameter)
     
     var baseURL: URL {
-        return URL(string: "https://152.136.255.61")!
+        return URL(string: "https://152.136.255.61/eam-ms")!
     }
     
     var method: HTTPMethod {

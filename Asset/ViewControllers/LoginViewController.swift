@@ -12,8 +12,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    let viewModel = LoginViewModel()
+
+    lazy var viewModel: LoginViewModel = {
+        return LoginViewModel(request: .init(), action: self)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,9 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        self.viewModel.login(username: self.usernameTextField.text ?? "", password: self.passwordTextField.text ?? "")
+        self.viewModel.login(username: self.usernameTextField.aem.text,
+                             password: self.usernameTextField.aem.text) { result in
+                             }
     }
 }
 

@@ -11,6 +11,8 @@ import Alamofire
 
 typealias CompletionHandler<T: BaseResponse> = (AFDataResponse<T>) -> Void
 
+typealias ASTDataResponse<Success> = DataResponse<Success, Error>
+
 class NetworkManager {
     public static let `default` = NetworkManager()
     
@@ -40,11 +42,16 @@ class NetworkManager {
     
     func sendRequest<T: BaseResponse>(of type: T.Type = T.self,
                                       router: Router,
-                                      completionHandler: @escaping (AFDataResponse<T>) -> Void) {
-        let transformErrorPreprocessor = TransformErrorPreprocessor<T>()
-        session.request(router).responseDecodable(of: T.self,
-                                                  dataPreprocessor: transformErrorPreprocessor,
-                                                  completionHandler: completionHandler)
+                                      completionHandler: @escaping (ASTDataResponse<T>) -> Void) {
+        session.request(router).responseDecodable(of: T.self) { response in
+            let response: ASTDataResponse<T> = response.tryMap { response in
+                if response.status != 0 {
+                    throw AEMError.ServerError.responseFailed(reason: response.msg)
+                }
+                return response
+            }
+            completionHandler(response)
+        }
     }
     
 }

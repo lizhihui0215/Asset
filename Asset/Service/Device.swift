@@ -8,15 +8,10 @@
 
 import Foundation
 
-struct Device {
-    
-    enum AppType: String {
+
+
+struct App {
+    public enum `Type`: String, Encodable {
         case ios = "2"
     }
-    
-    public static let current = Device()
-    
-    public let type = AppType.ios
-    
-    
 }

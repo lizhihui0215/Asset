@@ -11,7 +11,7 @@ import Alamofire
 
 typealias APIResult<Success> = Result<Success, Error>
 
-typealias ModelCompletionHandler<Success> = (APIResult<Success>) -> Void
+typealias APICompletionHandler<Success> = (APIResult<Success>) -> Void
 
 protocol BaseRequest {
     var apiClient: NetworkManager { get }
