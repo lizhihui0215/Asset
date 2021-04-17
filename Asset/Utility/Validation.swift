@@ -33,11 +33,11 @@ struct StringValidator: Validator {
         }
     }
 
-    func `is`(type: `Type`) -> Bool {
+    func `is`(type: Type) -> Bool {
         type.validate()
     }
 
-    func not(type: `Type`) -> Bool {
+    func not(type: Type) -> Bool {
         return !type.validate()
     }
 }

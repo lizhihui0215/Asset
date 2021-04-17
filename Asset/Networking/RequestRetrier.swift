@@ -6,11 +6,14 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 class RequestRetrier: Alamofire.RequestRetrier {
-    func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
+    func retry(_: Request,
+               for _: Session,
+               dueTo _: Error,
+               completion: @escaping (RetryResult) -> Void) {
         completion(.doNotRetry)
     }
 }

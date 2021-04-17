@@ -3,8 +3,8 @@
 // Copyright (c) 2021 ZhiHui.Li. All rights reserved.
 //
 
-import UIKit
 import PKHUD
+import UIKit
 
 extension UIViewController {
     func startLoadingIndicator() {
@@ -17,7 +17,7 @@ extension UIViewController {
 
     func alert(title: String = "", message: String? = nil, handler: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismiss = UIAlertAction(title: "OK", style: .default) { action in
+        let dismiss = UIAlertAction(title: "OK", style: .default) { _ in
             guard let handler = handler else { return }
             handler()
         }

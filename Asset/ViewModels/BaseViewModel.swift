@@ -26,19 +26,19 @@ class BaseViewModel<T: UIViewController, R: BaseRequest>: Validation {
         self.action = action
     }
 
-    func handApiError(router: Router, error: Error) {
+    func handApiError(router _: Router, error: Error) {
         action.alert(message: error.recoverySuggestion)
     }
 
-    func apiStart(router: Router) {
+    func apiStart(router _: Router) {
         action.startLoadingIndicator()
     }
 
-    func apiFinished(router: Router) {
+    func apiFinished(router _: Router) {
         action.stopLoadingIndicator()
     }
 
-    func valid(router: Router) throws {}
+    func valid(router _: Router) throws {}
 }
 
 extension BaseViewModel {
@@ -48,12 +48,12 @@ extension BaseViewModel {
         do {
             try valid(router: router)
         } catch {
-            self.handApiError(router: router, error: error); return
+            handApiError(router: router, error: error); return
         }
 
         apiStart(router: router)
         request.sendRequest(of: type, router: router) { [weak self] result in
-            guard let `self` = self else { return }
+            guard let self = self else { return }
             do {
                 let result = try result.get()
                 completionHandler(.success(result))
@@ -64,5 +64,3 @@ extension BaseViewModel {
         }
     }
 }
-
-

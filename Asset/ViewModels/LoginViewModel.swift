@@ -9,12 +9,12 @@
 import Foundation
 
 class LoginViewModel: BaseViewModel<LoginViewController, LoginRequest> {
-
-    func login(username: String, password: String,completionHandler: @escaping ViewModelCompletionHandler<Credential?>)  {
+    func login(username: String, password: String,
+               completionHandler: @escaping ViewModelCompletionHandler<Credential?>) {
         let loginParameter = LoginParameter(userAccount: username, userPwd: password, appType: .ios)
         api(of: LoginResponse.self,
             router: .login(loginParameter)) { [weak self] result in
-            guard let `self` = self, let credential = try? result.get() else { return }
+            guard let self = self, let credential = try? result.get() else { return }
             `self`.cache.put(key: "credential", value: credential)
             completionHandler(result)
         }

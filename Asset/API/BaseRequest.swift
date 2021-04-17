@@ -6,8 +6,8 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 typealias APIResult<Success> = Result<Success, Error>
 
@@ -15,7 +15,7 @@ typealias APICompletionHandler<Success> = (APIResult<Success>) -> Void
 
 protocol BaseRequest {
     var apiClient: NetworkManager { get }
-    
+
     func sendRequest<T: BaseResponse>(of type: T.Type,
                                       router: Router,
                                       completionHandler: @escaping (APIResult<T.Model?>) -> Void)
@@ -25,7 +25,7 @@ extension BaseRequest {
     var apiClient: NetworkManager {
         return NetworkManager.default
     }
-    
+
     public func sendRequest<T: BaseResponse>(of type: T.Type = T.self,
                                              router: Router,
                                              completionHandler: @escaping (APIResult<T.Model?>) -> Void) {

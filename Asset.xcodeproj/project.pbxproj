@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		469EA1E4B76D35DF1914E903 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA7D5589988661F72393A /* Defaultable.swift */; };
+		469EA59B794826EAD3C4BEA0 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA6315A06A81356F5C6A4 /* App.swift */; };
 		469EA6A33FD120FB5BC48FA3 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA574E8B671DADAE37BF6 /* BaseViewModel.swift */; };
 		469EA8D94124A8976B4C308C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EAA61F9885288FE89B6F9 /* UIViewController+Extension.swift */; };
 		469EAA79220E6A536CCE7120 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA902D3DDA6EBDD35EE34 /* Validation.swift */; };
@@ -27,7 +28,6 @@
 		9C6D433E2627252F00FEC466 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D433D2627252F00FEC466 /* NetworkManager.swift */; };
 		9C6D434B262731DB00FEC466 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D434A262731DB00FEC466 /* BaseRequest.swift */; };
 		9C6D434D2627320D00FEC466 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D434C2627320D00FEC466 /* LoginRequest.swift */; };
-		9C6D43502627335400FEC466 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D434F2627335400FEC466 /* Device.swift */; };
 		9C9247692629DAB700975AF2 /* UINavigationItem+BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9247682629DAB700975AF2 /* UINavigationItem+BarButtonItem.swift */; };
 		9C9247732629DE4300975AF2 /* AEMExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9247722629DE4200975AF2 /* AEMExtended.swift */; };
 		9CBBDFF3262748FC00CC6294 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBDFF2262748FC00CC6294 /* LoginViewModel.swift */; };
@@ -133,6 +133,7 @@
 
 /* Begin PBXFileReference section */
 		469EA574E8B671DADAE37BF6 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		469EA6315A06A81356F5C6A4 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		469EA7D5589988661F72393A /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		469EA902D3DDA6EBDD35EE34 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		469EAA61F9885288FE89B6F9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -160,7 +161,6 @@
 		9C6D4341262727C300FEC466 /* MJRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MJRefresh.framework; sourceTree = "<group>"; };
 		9C6D434A262731DB00FEC466 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		9C6D434C2627320D00FEC466 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
-		9C6D434F2627335400FEC466 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		9C9247682629DAB700975AF2 /* UINavigationItem+BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+BarButtonItem.swift"; sourceTree = "<group>"; };
 		9C9247722629DE4200975AF2 /* AEMExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEMExtended.swift; sourceTree = "<group>"; };
 		9CBBDFF2262748FC00CC6294 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -229,16 +229,17 @@
 		9C6D42FA2627146600FEC466 /* Asset */ = {
 			isa = PBXGroup;
 			children = (
+				469EA6315A06A81356F5C6A4 /* App.swift */,
+				9C6D42FB2627146600FEC466 /* AppDelegate.swift */,
+				9C6D42FD2627146600FEC466 /* SceneDelegate.swift */,
+				9C6D432D262714E200FEC466 /* Views */,
+				9C6D432E262714E600FEC466 /* ViewModels */,
+				9C6D432C262714DB00FEC466 /* ViewControllers */,
 				9C9247712629DE2A00975AF2 /* Utility */,
-				9CBBDFFD2628614F00CC6294 /* Resources */,
 				9C6D434E2627334200FEC466 /* Service */,
 				9C6D4349262731C100FEC466 /* API */,
 				9C6D433C2627250E00FEC466 /* Networking */,
-				9C6D432C262714DB00FEC466 /* ViewControllers */,
-				9C6D432D262714E200FEC466 /* Views */,
-				9C6D432E262714E600FEC466 /* ViewModels */,
-				9C6D42FB2627146600FEC466 /* AppDelegate.swift */,
-				9C6D42FD2627146600FEC466 /* SceneDelegate.swift */,
+				9CBBDFFD2628614F00CC6294 /* Resources */,
 				9C6D43012627146600FEC466 /* Main.storyboard */,
 				9C6D43042627146E00FEC466 /* Assets.xcassets */,
 				9C6D43062627146E00FEC466 /* LaunchScreen.storyboard */,
@@ -356,7 +357,6 @@
 		9C6D434E2627334200FEC466 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				9C6D434F2627335400FEC466 /* Device.swift */,
 				9CF7E75D2627449D00407D37 /* Cache.swift */,
 			);
 			path = Service;
@@ -415,6 +415,7 @@
 				9C6D42F52627146600FEC466 /* Frameworks */,
 				9C6D42F62627146600FEC466 /* Resources */,
 				9CBBDFF826274A0200CC6294 /* Embed Frameworks */,
+				9C82B695262ADCB900D841AE /* Format Code */,
 			);
 			buildRules = (
 			);
@@ -590,6 +591,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9C82B695262ADCB900D841AE /* Format Code */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Format Code";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bin/scripts/format-code.sh Asset\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9C6D42F42627146600FEC466 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -604,7 +626,6 @@
 				9CBBE008262873AF00CC6294 /* BaseResponse.swift in Sources */,
 				9C6D43002627146600FEC466 /* LoginViewController.swift in Sources */,
 				9CBBE00C2628811500CC6294 /* APIRouter.swift in Sources */,
-				9C6D43502627335400FEC466 /* Device.swift in Sources */,
 				9CF4FD5F2629E1D400205AC2 /* UITextField+Extension.swift in Sources */,
 				9CBBE00326286DFB00CC6294 /* RequestRetrier.swift in Sources */,
 				9C6D433726271F2F00FEC466 /* ServiceViewController.swift in Sources */,
@@ -623,6 +644,7 @@
 				469EA1E4B76D35DF1914E903 /* Defaultable.swift in Sources */,
 				469EA6A33FD120FB5BC48FA3 /* BaseViewModel.swift in Sources */,
 				469EAA79220E6A536CCE7120 /* Validation.swift in Sources */,
+				469EA59B794826EAD3C4BEA0 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

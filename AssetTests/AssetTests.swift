@@ -6,11 +6,10 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
-import XCTest
 @testable import Asset
+import XCTest
 
 class AssetTests: XCTestCase {
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -26,9 +25,8 @@ class AssetTests: XCTestCase {
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

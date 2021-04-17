@@ -9,24 +9,22 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var usernameTextField: UITextField!
-    
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet var usernameTextField: UITextField!
+
+    @IBOutlet var passwordTextField: UITextField!
 
     lazy var viewModel: LoginViewModel = {
-        return LoginViewModel(request: .init(), action: self)
+        LoginViewModel(request: .init(), action: self)
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
-    
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
-        self.viewModel.login(username: self.usernameTextField.aem.text,
-                             password: self.usernameTextField.aem.text) { result in
-                             }
+
+    @IBAction func loginButtonTapped(_: UIButton) {
+        viewModel.login(username: usernameTextField.aem.text,
+                        password: usernameTextField.aem.text) { _ in
+        }
     }
 }
-

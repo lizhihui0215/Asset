@@ -1,5 +1,5 @@
 //
-//  Device.swift
+//  App.swift
 //  Asset
 //
 //  Created by ZhiHui.Li on 2021/4/14.
@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-
 
 struct App {
     public enum `Type`: String, Encodable {

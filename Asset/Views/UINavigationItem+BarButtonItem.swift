@@ -12,7 +12,7 @@ extension UINavigationItem {
     enum LeftBarButtonStyle {
         case back
     }
-    
+
     func setLeftBarButton(using style: LeftBarButtonStyle) {
         switch style {
         case .back:

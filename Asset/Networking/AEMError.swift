@@ -6,8 +6,8 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 extension AFError {
     public var isAEMServerError: Bool {
@@ -16,17 +16,17 @@ extension AFError {
             case AEMError.ServerError.responseFailed = customError {
             return true
         }
-        
+
         return false
     }
-    
+
     func asAEMError() -> Error {
         if case .responseSerializationFailed(let reason) = self,
             case .customSerializationFailed(let customError) = reason,
             case AEMError.ServerError.responseFailed = customError {
             return customError
         }
-        
+
         return self
     }
 }
@@ -60,7 +60,7 @@ public enum AEMError: Error {
     public enum ServerError: Error {
         case responseFailed(reason: String)
     }
-    
+
     public enum UIError: Error {
         case usernameEmpty
         case passwordEmpty
@@ -69,7 +69,7 @@ public enum AEMError: Error {
 
 extension AFError {
     public var recoverySuggestion: String? {
-        return self.errorDescription
+        return errorDescription
     }
 }
 
@@ -99,14 +99,14 @@ extension AEMError.ServerError: LocalizedError {
             return reason
         }
     }
-    
+
     public var failureReason: String? {
         switch self {
         case .responseFailed(let reason):
             return reason
         }
     }
-    
+
     public var recoverySuggestion: String? {
         switch self {
         case .responseFailed(let reason):

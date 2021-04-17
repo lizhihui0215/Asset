@@ -10,7 +10,9 @@ import Alamofire
 import Foundation
 
 class RequestAdaptor: RequestAdapter {
-    func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
+    func adapt(_ urlRequest: URLRequest,
+               for _: Session,
+               completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var urlRequest = urlRequest
         urlRequest.headers.add(.authorization(bearerToken: "accessToken"))
         completion(.success(urlRequest))

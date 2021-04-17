@@ -17,7 +17,7 @@ struct LoginRequest: BaseRequest {
     }
 }
 
-struct LoginParameter: Encodable  {
+struct LoginParameter: Encodable {
     let userAccount: String?
     let userPwd: String?
     let appType: App.`Type`
@@ -37,4 +37,3 @@ struct Credential: Codable {
     let userOrgId: String
     let userCityId: String
 }
-
