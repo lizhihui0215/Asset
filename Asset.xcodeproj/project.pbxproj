@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		469EA1E4B76D35DF1914E903 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA7D5589988661F72393A /* Defaultable.swift */; };
+		469EA6A33FD120FB5BC48FA3 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA574E8B671DADAE37BF6 /* BaseViewModel.swift */; };
 		469EA8D94124A8976B4C308C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EAA61F9885288FE89B6F9 /* UIViewController+Extension.swift */; };
+		469EAA79220E6A536CCE7120 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA902D3DDA6EBDD35EE34 /* Validation.swift */; };
 		9C6D42FC2627146600FEC466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D42FB2627146600FEC466 /* AppDelegate.swift */; };
 		9C6D42FE2627146600FEC466 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D42FD2627146600FEC466 /* SceneDelegate.swift */; };
 		9C6D43002627146600FEC466 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D42FF2627146600FEC466 /* LoginViewController.swift */; };
@@ -28,7 +31,6 @@
 		9C9247692629DAB700975AF2 /* UINavigationItem+BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9247682629DAB700975AF2 /* UINavigationItem+BarButtonItem.swift */; };
 		9C9247732629DE4300975AF2 /* AEMExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9247722629DE4200975AF2 /* AEMExtended.swift */; };
 		9CBBDFF3262748FC00CC6294 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBDFF2262748FC00CC6294 /* LoginViewModel.swift */; };
-		9CBBDFF52627493E00CC6294 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBDFF42627493E00CC6294 /* BaseViewModel.swift */; };
 		9CBBDFF626274A0200CC6294 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6D433F2627279100FEC466 /* PKHUD.framework */; };
 		9CBBDFF726274A0200CC6294 /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6D433F2627279100FEC466 /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CBBDFF926274A1900CC6294 /* MJRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6D4341262727C300FEC466 /* MJRefresh.framework */; };
@@ -130,6 +132,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		469EA574E8B671DADAE37BF6 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		469EA7D5589988661F72393A /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
+		469EA902D3DDA6EBDD35EE34 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		469EAA61F9885288FE89B6F9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		9C6D42F82627146600FEC466 /* Asset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C6D42FB2627146600FEC466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,7 +164,6 @@
 		9C9247682629DAB700975AF2 /* UINavigationItem+BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+BarButtonItem.swift"; sourceTree = "<group>"; };
 		9C9247722629DE4200975AF2 /* AEMExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEMExtended.swift; sourceTree = "<group>"; };
 		9CBBDFF2262748FC00CC6294 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		9CBBDFF42627493E00CC6294 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		9CBBDFFE2628616900CC6294 /* eam-ms-client.cer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "eam-ms-client.cer"; sourceTree = "<group>"; };
 		9CBBE0002628654700CC6294 /* RequestAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAdaptor.swift; sourceTree = "<group>"; };
 		9CBBE00226286DFB00CC6294 /* RequestRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRetrier.swift; sourceTree = "<group>"; };
@@ -295,8 +299,8 @@
 		9C6D432E262714E600FEC466 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				9CBBDFF42627493E00CC6294 /* BaseViewModel.swift */,
 				9CBBDFF2262748FC00CC6294 /* LoginViewModel.swift */,
+				469EA574E8B671DADAE37BF6 /* BaseViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -363,6 +367,8 @@
 			children = (
 				9C9247722629DE4200975AF2 /* AEMExtended.swift */,
 				9CF4FD5D2629E1BE00205AC2 /* Extensions */,
+				469EA7D5589988661F72393A /* Defaultable.swift */,
+				469EA902D3DDA6EBDD35EE34 /* Validation.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -609,12 +615,14 @@
 				9C6D433B26271F4400FEC466 /* MineViewController.swift in Sources */,
 				9C6D42FC2627146600FEC466 /* AppDelegate.swift in Sources */,
 				9C6D433226271E5F00FEC466 /* TabBarViewController.swift in Sources */,
-				9CBBDFF52627493E00CC6294 /* BaseViewModel.swift in Sources */,
 				9C6D42FE2627146600FEC466 /* SceneDelegate.swift in Sources */,
 				9CD4E067262895B5000A51A1 /* NetworkActivityLogger.swift in Sources */,
 				9C6D433926271F3B00FEC466 /* AssetViewController.swift in Sources */,
 				9C6D434D2627320D00FEC466 /* LoginRequest.swift in Sources */,
 				469EA8D94124A8976B4C308C /* UIViewController+Extension.swift in Sources */,
+				469EA1E4B76D35DF1914E903 /* Defaultable.swift in Sources */,
+				469EA6A33FD120FB5BC48FA3 /* BaseViewModel.swift in Sources */,
+				469EAA79220E6A536CCE7120 /* Validation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

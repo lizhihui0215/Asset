@@ -36,6 +36,10 @@ extension Error {
         self as? AEMError.ServerError
     }
 
+    public var asAEMUIError: AEMError.UIError? {
+        self as? AEMError.UIError
+    }
+
     public var recoverySuggestion: String? {
         if let suggestion = self.asAFError?.recoverySuggestion {
             return suggestion
@@ -45,6 +49,9 @@ extension Error {
             return suggestion
         }
 
+        if let suggestion = self.asAEMUIError?.recoverySuggestion {
+            return suggestion
+        }
         return nil
     }
 }
@@ -55,13 +62,33 @@ public enum AEMError: Error {
     }
     
     public enum UIError: Error {
-        
+        case usernameEmpty
+        case passwordEmpty
     }
 }
 
 extension AFError {
     public var recoverySuggestion: String? {
         return self.errorDescription
+    }
+}
+
+extension AEMError.UIError: LocalizedError {
+    public var errorDescription: String? {
+        return failureReason
+    }
+
+    public var recoverySuggestion: String? {
+        return failureReason
+    }
+
+    public var failureReason: String? {
+        switch self {
+        case .usernameEmpty:
+            return "用户名不能为空！"
+        case .passwordEmpty:
+            return "密码不能为空！"
+        }
     }
 }
 

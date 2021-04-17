@@ -11,11 +11,11 @@ import Alamofire
 
 typealias CompletionHandler<T: BaseResponse> = (AFDataResponse<T>) -> Void
 
-typealias ASTDataResponse<Success> = DataResponse<Success, Error>
+typealias AEMDataResponse<Success> = DataResponse<Success, Error>
 
 class NetworkManager {
     public static let `default` = NetworkManager()
-    
+
     private var session: Session
     
     private static var evaluators: [String : ServerTrustEvaluating] {
@@ -39,12 +39,12 @@ class NetworkManager {
         let composite = Interceptor(interceptors: [adapterAndRetrier])
         self.session = Session(interceptor: composite, serverTrustManager: NetworkManager.serverTrustManager)
     }
-    
+
     func sendRequest<T: BaseResponse>(of type: T.Type = T.self,
                                       router: Router,
-                                      completionHandler: @escaping (ASTDataResponse<T>) -> Void) {
+                                      completionHandler: @escaping (AEMDataResponse<T>) -> Void) {
         session.request(router).responseDecodable(of: T.self) { response in
-            let response: ASTDataResponse<T> = response.tryMap { response in
+            let response: AEMDataResponse<T> = response.tryMap { response in
                 if response.status != 0 {
                     throw AEMError.ServerError.responseFailed(reason: response.msg)
                 }

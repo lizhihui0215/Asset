@@ -12,12 +12,25 @@ class LoginViewModel: BaseViewModel<LoginViewController, LoginRequest> {
 
     func login(username: String, password: String,completionHandler: @escaping ViewModelCompletionHandler<Credential?>)  {
         let loginParameter = LoginParameter(userAccount: username, userPwd: password, appType: .ios)
-
         api(of: LoginResponse.self,
             router: .login(loginParameter)) { [weak self] result in
             guard let `self` = self, let credential = try? result.get() else { return }
             `self`.cache.put(key: "credential", value: credential)
             completionHandler(result)
         }
+    }
+
+    override func valid(router: Router) throws {
+        if case .login(let parameter) = router {
+            guard self.validator.not(type: .empty(string: parameter.userAccount)) else {
+                throw AEMError.UIError.usernameEmpty
+            }
+
+            guard self.validator.not(type: .empty(string: parameter.userPwd)) else {
+                throw AEMError.UIError.passwordEmpty
+            }
+        }
+
+        return try super.valid(router: router)
     }
 }
