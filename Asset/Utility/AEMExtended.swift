@@ -1,4 +1,3 @@
-
 //
 //  File.swift
 //  Asset
@@ -43,5 +42,15 @@ extension AEMExtended {
     public var aem: AEMExtension<Self> {
         get { AEMExtension(self) }
         set {}
+    }
+}
+
+extension AEMExtension where ExtendedType: Encodable {
+    public var jsonString: String {
+        guard let content = try? JSONEncoder().encode(self.type) else {
+            return ""
+        }
+
+        return String(data: content, encoding: .utf8) ?? ""
     }
 }

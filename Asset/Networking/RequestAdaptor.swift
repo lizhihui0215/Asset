@@ -14,7 +14,7 @@ class RequestAdaptor: RequestAdapter {
                for _: Session,
                completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var urlRequest = urlRequest
-        urlRequest.headers.add(.authorization(bearerToken: "accessToken"))
+        urlRequest.headers.add(.appInfo(App.$info.value))
         completion(.success(urlRequest))
     }
 }

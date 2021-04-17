@@ -13,6 +13,12 @@ typealias APIResult<Success> = Result<Success, Error>
 
 typealias APICompletionHandler<Success> = (APIResult<Success>) -> Void
 
+extension HTTPHeader {
+    public static func appInfo(_ value: [String: String]) -> HTTPHeader {
+        HTTPHeader(name: "Accept-Encoding", value: value.aem.jsonString)
+    }
+}
+
 protocol BaseRequest {
     var apiClient: NetworkManager { get }
 
