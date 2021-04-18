@@ -6,29 +6,33 @@
 import Foundation
 
 @propertyWrapper
-final class Info<T> {
-    private var value: T
+struct Info<T> {
+    private var info: T
 
     init(_ value: T) {
-        self.value = value
+        info = value
     }
 
     /// The contained value. Unsafe for anything more than direct read or write.
     var wrappedValue: T {
-        get { value }
-        set { value = newValue }
+        get { info }
+        set { info = newValue }
     }
 
     var projectedValue: Info<T> { self }
 
     init(wrappedValue: T) {
-        value = wrappedValue
+        info = wrappedValue
     }
 }
 
 extension Info where T == App {
     var value: [String: String] {
-        return ["version": value.version,
-                "osName": value.osName]
+        return ["appVersionCode": info.version,
+                "appVersionName": info.build,
+                "deviceBrand": info.brand,
+                "systemLanguage": info.systemLanguage,
+                "systemModel": info.build,
+                "systemVersion": info.osVersion]
     }
 }

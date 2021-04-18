@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EAC783A44972C349C0389 /* Device.swift */; };
 		469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA61540B02723A9DAED3E /* UIViewController+Extension.swift */; };
 		469EA1E4B76D35DF1914E903 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA7D5589988661F72393A /* Defaultable.swift */; };
 		469EA59B794826EAD3C4BEA0 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA6315A06A81356F5C6A4 /* App.swift */; };
@@ -14,6 +15,7 @@
 		469EAA79220E6A536CCE7120 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA902D3DDA6EBDD35EE34 /* Validation.swift */; };
 		469EAB583E973CB73F84796C /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA21A2AFE56567ECE31AF /* Info.swift */; };
 		469EAB900959138C826A8219 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EAABC3A4472BEFFB74D01 /* UITextField+Extension.swift */; };
+		469EAFA49A619A25BFE3D886 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EAB2A7D2D50BB07ADF111 /* Keys.swift */; };
 		469EAFAB12D64273E473DD67 /* Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA1FCF25D4B2B9F7CD71F /* Convertable.swift */; };
 		9C6D42FC2627146600FEC466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D42FB2627146600FEC466 /* AppDelegate.swift */; };
 		9C6D42FE2627146600FEC466 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D42FD2627146600FEC466 /* SceneDelegate.swift */; };
@@ -143,6 +145,8 @@
 		469EA7D5589988661F72393A /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		469EA902D3DDA6EBDD35EE34 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		469EAABC3A4472BEFFB74D01 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		469EAB2A7D2D50BB07ADF111 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		469EAC783A44972C349C0389 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		9C6D42F82627146600FEC466 /* Asset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C6D42FB2627146600FEC466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C6D42FD2627146600FEC466 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 				469EAABC3A4472BEFFB74D01 /* UITextField+Extension.swift */,
 				469EA61540B02723A9DAED3E /* UIViewController+Extension.swift */,
 				9C82B6AB262B631A00D841AE /* Dictionary+Extension.swift */,
+				469EAB2A7D2D50BB07ADF111 /* Keys.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -317,8 +322,8 @@
 		9C6D432E262714E600FEC466 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				9CBBDFF2262748FC00CC6294 /* LoginViewModel.swift */,
 				469EA574E8B671DADAE37BF6 /* BaseViewModel.swift */,
+				9CBBDFF2262748FC00CC6294 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				9CF7E75D2627449D00407D37 /* Cache.swift */,
+				469EAC783A44972C349C0389 /* Device.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -657,6 +663,8 @@
 				469EAFAB12D64273E473DD67 /* Convertable.swift in Sources */,
 				469EAB900959138C826A8219 /* UITextField+Extension.swift in Sources */,
 				469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */,
+				469EAFA49A619A25BFE3D886 /* Keys.swift in Sources */,
+				469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,7 +847,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.Asset;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.Asset;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -860,7 +868,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.Asset;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.Asset;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -880,7 +888,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.AssetTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.AssetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -901,7 +909,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.AssetTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.AssetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -920,7 +928,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.AssetUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.AssetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -939,7 +947,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.AssetUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.AssetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

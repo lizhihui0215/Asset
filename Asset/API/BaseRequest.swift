@@ -15,7 +15,11 @@ typealias APICompletionHandler<Success> = (APIResult<Success>) -> Void
 
 extension HTTPHeader {
     public static func appInfo(_ value: [String: String]) -> HTTPHeader {
-        HTTPHeader(name: "Accept-Encoding", value: value.aem.jsonString)
+        HTTPHeader(name: "appInfo", value: value.aem.jsonString)
+    }
+
+    public static func userToken(_ value: String) -> HTTPHeader {
+        HTTPHeader(name: "userToken", value: value)
     }
 }
 

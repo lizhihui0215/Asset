@@ -13,8 +13,10 @@ class RequestAdaptor: RequestAdapter {
     func adapt(_ urlRequest: URLRequest,
                for _: Session,
                completion: @escaping (Result<URLRequest, Error>) -> Void) {
+//        guard urlRequest.url?.absoluteURL.path.hasPrefix(<#T##prefix: String##String#>)
+
         var urlRequest = urlRequest
-        urlRequest.headers.add(.appInfo(App.$info.value))
+        urlRequest.headers.add(.appInfo(app.$info.value))
         completion(.success(urlRequest))
     }
 }

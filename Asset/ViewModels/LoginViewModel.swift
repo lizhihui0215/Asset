@@ -13,9 +13,9 @@ class LoginViewModel: BaseViewModel<LoginViewController, LoginRequest> {
                completionHandler: @escaping ViewModelCompletionHandler<Credential?>) {
         let loginParameter = LoginParameter(userAccount: username, userPwd: password, appType: .ios)
         api(of: LoginResponse.self,
-            router: .login(loginParameter)) { [weak self] result in
-            guard let self = self, let credential = try? result.get() else { return }
-            `self`.cache.put(key: "credential", value: credential)
+            router: .login(loginParameter)) { result in
+            guard let credential = try? result.get() else { return }
+//            app.add(credential: credential)
             completionHandler(result)
         }
     }

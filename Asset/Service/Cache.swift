@@ -33,3 +33,18 @@ struct Cache {
         }
     }
 }
+
+@propertyWrapper
+struct UserDefault<T> {
+    let key: App.Keys
+    let defaultValue: T
+
+    var wrappedValue: T {
+        get {
+            (UserDefaults.standard.object(forKey: key.rawValue) as? T) ?? defaultValue
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: key.rawValue)
+        }
+    }
+}
