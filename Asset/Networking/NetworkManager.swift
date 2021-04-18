@@ -41,7 +41,7 @@ class NetworkManager {
     }
 
     func sendRequest<T: BaseResponse>(of _: T.Type = T.self,
-                                      router: Router,
+                                      router: APIRouter,
                                       completionHandler: @escaping (AEMDataResponse<T>) -> Void) {
         session.request(router).responseDecodable(of: T.self) { response in
             let response: AEMDataResponse<T> = response.tryMap { response in

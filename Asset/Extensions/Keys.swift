@@ -10,3 +10,7 @@ protocol Keys {
 }
 
 extension App.Keys: Keys {}
+
+extension APIRouter.Keys: Keys {}
+
+extension APIRouter.Keys.Path: Keys {}

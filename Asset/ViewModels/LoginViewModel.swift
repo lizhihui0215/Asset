@@ -6,21 +6,23 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
+import CryptoSwift
 import Foundation
 
 class LoginViewModel: BaseViewModel<LoginViewController, LoginRequest> {
-    func login(username: String, password: String,
+    func login(username: String,
+               password: String,
                completionHandler: @escaping ViewModelCompletionHandler<Credential?>) {
-        let loginParameter = LoginParameter(userAccount: username, userPwd: password, appType: .ios)
+        let loginParameter = LoginParameter(userAccount: username, userPwd: password.md5())
         api(of: LoginResponse.self,
             router: .login(loginParameter)) { result in
             guard let credential = try? result.get() else { return }
-//            app.add(credential: credential)
+            app.add(credential: credential)
             completionHandler(result)
         }
     }
 
-    override func valid(router: Router) throws {
+    override func valid(router: APIRouter) throws {
         if case .login(let parameter) = router {
             guard self.validator.not(type: .empty(string: parameter.userAccount)) else {
                 throw AEMError.UIError.usernameEmpty

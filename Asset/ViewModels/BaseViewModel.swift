@@ -26,24 +26,24 @@ class BaseViewModel<T: UIViewController, R: BaseRequest>: Validation {
         self.action = action
     }
 
-    func handApiError(router _: Router, error: Error) {
+    func handApiError(router _: APIRouter, error: Error) {
         action.alert(message: error.recoverySuggestion)
     }
 
-    func apiStart(router _: Router) {
+    func apiStart(router _: APIRouter) {
         action.startLoadingIndicator()
     }
 
-    func apiFinished(router _: Router) {
+    func apiFinished(router _: APIRouter) {
         action.stopLoadingIndicator()
     }
 
-    func valid(router _: Router) throws {}
+    func valid(router _: APIRouter) throws {}
 }
 
 extension BaseViewModel {
     func api<T: BaseResponse>(of type: T.Type = T.self,
-                              router: Router,
+                              router: APIRouter,
                               completionHandler: @escaping ViewModelCompletionHandler<T.Model?>) {
         do {
             try valid(router: router)

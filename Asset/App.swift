@@ -8,9 +8,9 @@
 
 import Foundation
 
-var app: App = App()
+let app: App = App()
 
-public struct App {
+public final class App {
     enum Keys: String {
         case credential
         case baseURL
@@ -22,8 +22,14 @@ public struct App {
         case ios = "2"
     }
 
-    @Info(app)
-    var info: App
+    lazy var info: [String: String] = {
+        ["appVersionCode": self.version,
+         "appVersionName": self.build,
+         "deviceBrand": self.brand,
+         "systemLanguage": self.systemLanguage,
+         "systemModel": self.build,
+         "systemVersion": self.osVersion]
+    }()
 
     @UserDefault(key: Keys.credential, defaultValue: nil)
     private(set) var credential: Credential?
@@ -76,7 +82,7 @@ public struct App {
 }
 
 extension App {
-    mutating func add(credential: Credential) {
+    func add(credential: Credential) {
         self.credential = credential
     }
 }

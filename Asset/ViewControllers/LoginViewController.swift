@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginButtonTapped(_: UIButton) {
         viewModel.login(username: usernameTextField.aem.text,
-                        password: usernameTextField.aem.text) { _ in
+                        password: passwordTextField.aem.text) { _ in
         }
     }
 }

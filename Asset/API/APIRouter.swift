@@ -9,7 +9,7 @@
 import Alamofire
 import Foundation
 
-enum Router: URLRequestConvertible {
+enum APIRouter: URLRequestConvertible {
     case login(LoginParameter)
 
     var baseURL: URL {
@@ -22,14 +22,14 @@ enum Router: URLRequestConvertible {
         }
     }
 
-    var path: String {
+    var path: Keys.Path {
         switch self {
-        case .login: return "/appSys/login"
+        case .login: return .login
         }
     }
 
     func asURLRequest() throws -> URLRequest {
-        let url = baseURL.appendingPathComponent(path)
+        let url = baseURL.appendingPathComponent(path.rawValue)
         var request = URLRequest(url: url)
         request.method = method
 
@@ -39,5 +39,15 @@ enum Router: URLRequestConvertible {
         }
 
         return request
+    }
+}
+
+extension APIRouter {
+    enum Keys: String {
+        case login
+
+        enum Path: String {
+            case login = "/appSys/login"
+        }
     }
 }

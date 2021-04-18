@@ -8,17 +8,7 @@ import Foundation
 protocol Validation {
     associatedtype V: Validator
     var validator: V { get set }
-    func valid(router: Router) throws
-}
-
-protocol Validator: Defaultable {}
-
-extension Validator {
-    public static var defaultValidator: StringValidator { StringValidator() }
-    static var defaultValue: Self {
-        // swiftlint:disable:next force_cast
-        return Self.defaultValidator as! Self
-    }
+    func valid(router: APIRouter) throws
 }
 
 struct StringValidator: Validator {

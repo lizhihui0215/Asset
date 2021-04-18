@@ -27,7 +27,7 @@ protocol BaseRequest {
     var apiClient: NetworkManager { get }
 
     func sendRequest<T: BaseResponse>(of type: T.Type,
-                                      router: Router,
+                                      router: APIRouter,
                                       completionHandler: @escaping (APIResult<T.Model?>) -> Void)
 }
 
@@ -37,7 +37,7 @@ extension BaseRequest {
     }
 
     public func sendRequest<T: BaseResponse>(of type: T.Type = T.self,
-                                             router: Router,
+                                             router: APIRouter,
                                              completionHandler: @escaping (APIResult<T.Model?>) -> Void) {
         apiClient.sendRequest(of: type, router: router) { response in
             do {

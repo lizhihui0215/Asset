@@ -8,3 +8,13 @@ import Foundation
 protocol Defaultable {
     static var defaultValue: Self { get }
 }
+
+protocol Validator: Defaultable {}
+
+extension Validator {
+    public static var defaultValidator: StringValidator { StringValidator() }
+    static var defaultValue: Self {
+        // swiftlint:disable:next force_cast
+        return Self.defaultValidator as! Self
+    }
+}
