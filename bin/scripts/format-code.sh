@@ -6,7 +6,7 @@ if [ "$1" == "" ]; then
 fi
 
 if which swiftformat >/dev/null; then
-  swiftformat $1 --stripunusedargs closure-only --patternlet inline #--exclude $1/Assets/SwiftGen,Axis_UI/Assets
+  swiftformat $1 --stripunusedargs closure-only --patternlet inline --exclude $1/Resources/
 else
   echo "warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat"
 fi

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2683819E262EE1C000F6C23F /* IB-Segues+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683819A262EE1BF00F6C23F /* IB-Segues+Generated.swift */; };
+		2683819F262EE1C000F6C23F /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683819B262EE1BF00F6C23F /* Strings+Generated.swift */; };
+		268381A1262EE1C000F6C23F /* IB-Scenes+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683819D262EE1BF00F6C23F /* IB-Scenes+Generated.swift */; };
+		268381A9262EE39100F6C23F /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268381A8262EE39100F6C23F /* XCAssets+Generated.swift */; };
 		26A053B8262EAB02000F27C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A0538B262EAAE5000F27C3 /* Alamofire.framework */; };
 		26A053B9262EAB02000F27C3 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26A0538B262EAAE5000F27C3 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26A053BC262EAB09000F27C3 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A053AA262EAAF4000F27C3 /* CryptoSwift.framework */; };
@@ -174,6 +178,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2683819A262EE1BF00F6C23F /* IB-Segues+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IB-Segues+Generated.swift"; sourceTree = "<group>"; };
+		2683819B262EE1BF00F6C23F /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		2683819D262EE1BF00F6C23F /* IB-Scenes+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IB-Scenes+Generated.swift"; sourceTree = "<group>"; };
+		268381A8262EE39100F6C23F /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		26A05380262EAAE5000F27C3 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../../../Study/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		26A053A1262EAAF4000F27C3 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = ../../../Study/CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		26A053C2262EADCF000F27C3 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PKHUD.framework; sourceTree = "<group>"; };
@@ -256,6 +264,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26838199262EE1BF00F6C23F /* SwiftGenerated */ = {
+			isa = PBXGroup;
+			children = (
+				268381A8262EE39100F6C23F /* XCAssets+Generated.swift */,
+				2683819A262EE1BF00F6C23F /* IB-Segues+Generated.swift */,
+				2683819B262EE1BF00F6C23F /* Strings+Generated.swift */,
+				2683819D262EE1BF00F6C23F /* IB-Scenes+Generated.swift */,
+			);
+			path = SwiftGenerated;
+			sourceTree = "<group>";
+		};
 		26A05381262EAAE5000F27C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +348,7 @@
 				9C6D4349262731C100FEC466 /* API */,
 				9C6D433C2627250E00FEC466 /* Networking */,
 				9CBBDFFD2628614F00CC6294 /* Resources */,
+				26838199262EE1BF00F6C23F /* SwiftGenerated */,
 				9C6D43012627146600FEC466 /* Main.storyboard */,
 				9C6D43062627146E00FEC466 /* LaunchScreen.storyboard */,
 			);
@@ -486,6 +506,7 @@
 				9C6D42F62627146600FEC466 /* Resources */,
 				9CBBDFF826274A0200CC6294 /* Embed Frameworks */,
 				9C82B695262ADCB900D841AE /* Format Code */,
+				26F89628262ED19E00976042 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -703,6 +724,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		26F89628262ED19E00976042 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bin/scripts/swiftgen.sh\n";
+		};
 		9C82B695262ADCB900D841AE /* Format Code */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -729,6 +767,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CF7E75E2627449E00407D37 /* Cache.swift in Sources */,
+				268381A9262EE39100F6C23F /* XCAssets+Generated.swift in Sources */,
 				9C9247692629DAB700975AF2 /* UINavigationItem+BarButtonItem.swift in Sources */,
 				9C6D434B262731DB00FEC466 /* BaseRequest.swift in Sources */,
 				9CBBE00526286EF500CC6294 /* TransformErrorPreprocessor.swift in Sources */,
@@ -753,11 +792,14 @@
 				9C6D434D2627320D00FEC466 /* LoginRequest.swift in Sources */,
 				469EA1E4B76D35DF1914E903 /* Defaultable.swift in Sources */,
 				469EA6A33FD120FB5BC48FA3 /* BaseViewModel.swift in Sources */,
+				2683819F262EE1C000F6C23F /* Strings+Generated.swift in Sources */,
 				469EAA79220E6A536CCE7120 /* Validation.swift in Sources */,
+				2683819E262EE1C000F6C23F /* IB-Segues+Generated.swift in Sources */,
 				469EA59B794826EAD3C4BEA0 /* App.swift in Sources */,
 				469EAB583E973CB73F84796C /* Info.swift in Sources */,
 				469EAFAB12D64273E473DD67 /* Convertable.swift in Sources */,
 				469EAB900959138C826A8219 /* UITextField+Extension.swift in Sources */,
+				268381A1262EE1C000F6C23F /* IB-Scenes+Generated.swift in Sources */,
 				469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */,
 				469EAFA49A619A25BFE3D886 /* Keys.swift in Sources */,
 				469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */,
@@ -958,6 +1000,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.Asset;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_GEN_INPUT = Asset;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -979,6 +1022,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.Asset;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_GEN_INPUT = Asset;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
