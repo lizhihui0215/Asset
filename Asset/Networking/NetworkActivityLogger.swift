@@ -88,10 +88,10 @@ public class NetworkActivityLogger {
     @objc private func requestDidStart(notification: Notification) {
         queue.async {
             guard let dataRequest = notification.request as? DataRequest,
-                let task = dataRequest.task,
-                let request = task.originalRequest,
-                let httpMethod = request.httpMethod,
-                let requestURL = request.url
+                  let task = dataRequest.task,
+                  let request = task.originalRequest,
+                  let httpMethod = request.httpMethod,
+                  let requestURL = request.url
             else {
                 return
             }
@@ -122,11 +122,11 @@ public class NetworkActivityLogger {
     @objc private func requestDidFinish(notification: Notification) {
         queue.async {
             guard let dataRequest = notification.request as? DataRequest,
-                let task = dataRequest.task,
-                let metrics = dataRequest.metrics,
-                let request = task.originalRequest,
-                let httpMethod = request.httpMethod,
-                let requestURL = request.url
+                  let task = dataRequest.task,
+                  let metrics = dataRequest.metrics,
+                  let request = task.originalRequest,
+                  let httpMethod = request.httpMethod,
+                  let requestURL = request.url
             else {
                 return
             }

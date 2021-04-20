@@ -13,7 +13,8 @@ class RequestRetrier: Alamofire.RequestRetrier {
     func retry(_: Request,
                for _: Session,
                dueTo _: Error,
-               completion: @escaping (RetryResult) -> Void) {
+               completion: @escaping (RetryResult) -> Void)
+    {
         completion(.doNotRetry)
     }
 }

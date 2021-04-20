@@ -6,13 +6,13 @@ if [ "$1" == "" ]; then
 fi
 
 if which swiftformat >/dev/null; then
-  swiftformat $1 --stripunusedargs closure-only --patternlet inline
+  swiftformat $1 --stripunusedargs closure-only --patternlet inline #--exclude $1/Assets/SwiftGen,Axis_UI/Assets
 else
-  echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+  echo "warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat"
 fi
 
 if which swiftlint >/dev/null; then
-  swiftlint lint --path $1 --config ../.swiftlint.yml
+  swiftlint lint --path $1 --config ./.swiftlint.yml
 else
   echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
 fi

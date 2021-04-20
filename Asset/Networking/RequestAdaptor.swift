@@ -12,7 +12,8 @@ import Foundation
 class RequestAdaptor: RequestAdapter {
     func adapt(_ urlRequest: URLRequest,
                for _: Session,
-               completion: @escaping (Result<URLRequest, Error>) -> Void) {
+               completion: @escaping (Result<URLRequest, Error>) -> Void)
+    {
         var urlRequest = urlRequest
         urlRequest.headers.add(.appInfo(app.info))
 

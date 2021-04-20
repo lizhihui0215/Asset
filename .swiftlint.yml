@@ -4,6 +4,7 @@ disabled_rules:
   - identifier_name
   - line_length
   - todo
+  - opening_brace
   - notification_center_detachment
   - cyclomatic_complexity
   - trailing_comma

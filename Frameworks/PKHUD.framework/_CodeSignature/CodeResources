@@ -6,11 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		GK110uYQwGNViFPQCzN/WBU+G/Y=
+		zZsunfcQxFKfQRfqm2c7r9Txk/E=
 		</data>
 		<key>Headers/PKHUD-Swift.h</key>
 		<data>
-		gz72uIqmTvQ1MP95Ach4dVbJoow=
+		x6N7tBlsi0PrnMIPpgwIM39NPPU=
 		</data>
 		<key>Headers/PKHUD.h</key>
 		<data>
@@ -18,23 +18,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UcowWTJkX7smzUocO5dNZmyPeUM=
+		YTalt8P40KS24TYwXEszVQTlg6A=
+		</data>
+		<key>Modules/PKHUD.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
+		<data>
+		OgAtbp3M7/Gu4fGgmfvwXZ2o1Hk=
+		</data>
+		<key>Modules/PKHUD.swiftmodule/Project/x86_64.swiftsourceinfo</key>
+		<data>
+		OgAtbp3M7/Gu4fGgmfvwXZ2o1Hk=
 		</data>
 		<key>Modules/PKHUD.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		/Wkgh7YzhEjbkesoBOW7PmP+kw0=
+		yy9yI27SL90wemNwkkv+rA+/AvE=
 		</data>
 		<key>Modules/PKHUD.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		kP7nwcCLbH9RacOflsk3KiV3FPA=
+		zfCZOCdmOYjZV7MI/Tf/evPnXEg=
 		</data>
 		<key>Modules/PKHUD.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		/Wkgh7YzhEjbkesoBOW7PmP+kw0=
+		yy9yI27SL90wemNwkkv+rA+/AvE=
 		</data>
 		<key>Modules/PKHUD.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		kP7nwcCLbH9RacOflsk3KiV3FPA=
+		zfCZOCdmOYjZV7MI/Tf/evPnXEg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -47,22 +55,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GK110uYQwGNViFPQCzN/WBU+G/Y=
+			zZsunfcQxFKfQRfqm2c7r9Txk/E=
 			</data>
 			<key>hash2</key>
 			<data>
-			np3uzQ6mAuvm2u0zuuM9UOZiCImJ+K0f22Ldt7fkCCs=
+			uk2RUFdwEfyEQojGIPS+7sTDtIb03B3a9YqUnj0NUnM=
 			</data>
 		</dict>
 		<key>Headers/PKHUD-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gz72uIqmTvQ1MP95Ach4dVbJoow=
+			x6N7tBlsi0PrnMIPpgwIM39NPPU=
 			</data>
 			<key>hash2</key>
 			<data>
-			MWsu7as1YrZk/AjQy9M1nVqoeh+rh6gakGb18DuK2X8=
+			fx30bCQkE6DRUj+HFaiBQWfk0nnZXv2anRBcUzChsno=
 			</data>
 		</dict>
 		<key>Headers/PKHUD.h</key>
@@ -76,48 +84,70 @@
 			wOfrnuCQsAhzY1lgDqrLxlXjaB/UKBOitF/XEVMTx5E=
 			</data>
 		</dict>
+		<key>Modules/PKHUD.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OgAtbp3M7/Gu4fGgmfvwXZ2o1Hk=
+			</data>
+			<key>hash2</key>
+			<data>
+			YAgop6wKgxofxoBR0DNyEwXSMXO7j8okelBfgeeGcJk=
+			</data>
+		</dict>
+		<key>Modules/PKHUD.swiftmodule/Project/x86_64.swiftsourceinfo</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OgAtbp3M7/Gu4fGgmfvwXZ2o1Hk=
+			</data>
+			<key>hash2</key>
+			<data>
+			YAgop6wKgxofxoBR0DNyEwXSMXO7j8okelBfgeeGcJk=
+			</data>
+		</dict>
 		<key>Modules/PKHUD.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/Wkgh7YzhEjbkesoBOW7PmP+kw0=
+			yy9yI27SL90wemNwkkv+rA+/AvE=
 			</data>
 			<key>hash2</key>
 			<data>
-			V4++GUl7R6f++7zYjF+Oyw0OCfRagxP/V5Ss/lEf2DA=
+			2/wfD5+AtbOSI2MkxfpYfBOpHq3joE7k8iXsEUc429E=
 			</data>
 		</dict>
 		<key>Modules/PKHUD.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kP7nwcCLbH9RacOflsk3KiV3FPA=
+			zfCZOCdmOYjZV7MI/Tf/evPnXEg=
 			</data>
 			<key>hash2</key>
 			<data>
-			3tUU4e65bjehdgyNxUv93DIti3/7VHVFaM3DWXUfsMw=
+			ANimSs2oh/Y6OrqFzC4nuvTIeIcI1UiG50axdW+TZ/A=
 			</data>
 		</dict>
 		<key>Modules/PKHUD.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/Wkgh7YzhEjbkesoBOW7PmP+kw0=
+			yy9yI27SL90wemNwkkv+rA+/AvE=
 			</data>
 			<key>hash2</key>
 			<data>
-			V4++GUl7R6f++7zYjF+Oyw0OCfRagxP/V5Ss/lEf2DA=
+			2/wfD5+AtbOSI2MkxfpYfBOpHq3joE7k8iXsEUc429E=
 			</data>
 		</dict>
 		<key>Modules/PKHUD.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kP7nwcCLbH9RacOflsk3KiV3FPA=
+			zfCZOCdmOYjZV7MI/Tf/evPnXEg=
 			</data>
 			<key>hash2</key>
 			<data>
-			3tUU4e65bjehdgyNxUv93DIti3/7VHVFaM3DWXUfsMw=
+			ANimSs2oh/Y6OrqFzC4nuvTIeIcI1UiG50axdW+TZ/A=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

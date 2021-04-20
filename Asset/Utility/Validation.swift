@@ -29,6 +29,6 @@ struct StringValidator: Validator {
     }
 
     func not(type: Type) -> Bool {
-        return !type.validate()
+        !type.validate()
     }
 }

@@ -44,7 +44,8 @@ class BaseViewModel<T: UIViewController, R: BaseRequest>: Validation {
 extension BaseViewModel {
     func api<T: BaseResponse>(of type: T.Type = T.self,
                               router: APIRouter,
-                              completionHandler: @escaping ViewModelCompletionHandler<T.Model?>) {
+                              completionHandler: @escaping ViewModelCompletionHandler<T.Model?>)
+    {
         do {
             try valid(router: router)
         } catch {

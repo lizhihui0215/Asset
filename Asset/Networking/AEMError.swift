@@ -12,8 +12,9 @@ import Foundation
 extension AFError {
     public var isAEMServerError: Bool {
         if case .responseSerializationFailed(let reason) = self,
-            case .customSerializationFailed(let customError) = reason,
-            case AEMError.ServerError.responseFailed = customError {
+           case .customSerializationFailed(let customError) = reason,
+           case AEMError.ServerError.responseFailed = customError
+        {
             return true
         }
 
@@ -22,8 +23,9 @@ extension AFError {
 
     func asAEMError() -> Error {
         if case .responseSerializationFailed(let reason) = self,
-            case .customSerializationFailed(let customError) = reason,
-            case AEMError.ServerError.responseFailed = customError {
+           case .customSerializationFailed(let customError) = reason,
+           case AEMError.ServerError.responseFailed = customError
+        {
             return customError
         }
 
@@ -31,25 +33,25 @@ extension AFError {
     }
 }
 
-extension Error {
-    public var asAEMServerError: AEMError.ServerError? {
+public extension Error {
+    var asAEMServerError: AEMError.ServerError? {
         self as? AEMError.ServerError
     }
 
-    public var asAEMUIError: AEMError.UIError? {
+    var asAEMUIError: AEMError.UIError? {
         self as? AEMError.UIError
     }
 
-    public var recoverySuggestion: String? {
-        if let suggestion = self.asAFError?.recoverySuggestion {
+    var recoverySuggestion: String? {
+        if let suggestion = asAFError?.recoverySuggestion {
             return suggestion
         }
 
-        if let suggestion = self.asAEMServerError?.recoverySuggestion {
+        if let suggestion = asAEMServerError?.recoverySuggestion {
             return suggestion
         }
 
-        if let suggestion = self.asAEMUIError?.recoverySuggestion {
+        if let suggestion = asAEMUIError?.recoverySuggestion {
             return suggestion
         }
         return nil
@@ -67,19 +69,19 @@ public enum AEMError: Error {
     }
 }
 
-extension AFError {
-    public var recoverySuggestion: String? {
-        return errorDescription
+public extension AFError {
+    var recoverySuggestion: String? {
+        errorDescription
     }
 }
 
 extension AEMError.UIError: LocalizedError {
     public var errorDescription: String? {
-        return failureReason
+        failureReason
     }
 
     public var recoverySuggestion: String? {
-        return failureReason
+        failureReason
     }
 
     public var failureReason: String? {

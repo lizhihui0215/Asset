@@ -10,8 +10,8 @@ import UIKit
 
 extension UITextField: AEMExtended {}
 
-extension AEMExtension where ExtendedType: UITextField {
-    public var text: String {
-        return type.text ?? ""
+public extension AEMExtension where ExtendedType: UITextField {
+    var text: String {
+        type.text ?? ""
     }
 }

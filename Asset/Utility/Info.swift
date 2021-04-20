@@ -28,11 +28,11 @@ struct Info<T> {
 
 extension Info where T == App {
     var value: [String: String] {
-        return ["appVersionCode": info.version,
-                "appVersionName": info.build,
-                "deviceBrand": info.brand,
-                "systemLanguage": info.systemLanguage,
-                "systemModel": info.build,
-                "systemVersion": info.osVersion]
+        ["appVersionCode": info.version,
+         "appVersionName": info.build,
+         "deviceBrand": info.brand,
+         "systemLanguage": info.systemLanguage,
+         "systemModel": info.build,
+         "systemVersion": info.osVersion]
     }
 }

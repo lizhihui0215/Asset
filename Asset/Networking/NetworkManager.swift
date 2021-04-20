@@ -19,19 +19,19 @@ class NetworkManager {
     private var session: Session
 
     private static var evaluators: [String: ServerTrustEvaluating] {
-        return ["152.136.255.61": DisabledTrustEvaluator()]
+        ["152.136.255.61": DisabledTrustEvaluator()]
     }
 
     private static var serverTrustManager: ServerTrustManager {
-        return ServerTrustManager(evaluators: evaluators)
+        ServerTrustManager(evaluators: evaluators)
     }
 
     private static var adapter: RequestAdaptor {
-        return RequestAdaptor()
+        RequestAdaptor()
     }
 
     private static var retrier: RequestRetrier {
-        return RequestRetrier()
+        RequestRetrier()
     }
 
     init() {
@@ -42,7 +42,8 @@ class NetworkManager {
 
     func sendRequest<T: BaseResponse>(of _: T.Type = T.self,
                                       router: APIRouter,
-                                      completionHandler: @escaping (AEMDataResponse<T>) -> Void) {
+                                      completionHandler: @escaping (AEMDataResponse<T>) -> Void)
+    {
         session.request(router).responseDecodable(of: T.self) { response in
             let response: AEMDataResponse<T> = response.tryMap { response in
                 if response.status != 0 {

@@ -346,7 +346,7 @@ public enum Device {
 
     /// Returns a `Device` representing the current device this software runs on.
     public static var current: Device {
-        return Device.mapToDevice(identifier: Device.identifier)
+        Device.mapToDevice(identifier: Device.identifier)
     }
 
     /// Gets the identifier from the system, such as "iPhone7,1".
@@ -650,91 +650,91 @@ public enum Device {
     #if os(iOS)
         /// All iPods
         public static var allPods: [Device] {
-            return [.iPodTouch5, .iPodTouch6, .iPodTouch7]
+            [.iPodTouch5, .iPodTouch6, .iPodTouch7]
         }
 
         /// All iPhones
         public static var allPhones: [Device] {
-            return [.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhoneSE2, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax]
+            [.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhoneSE2, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax]
         }
 
         /// All iPads
         public static var allPads: [Device] {
-            return [.iPad2, .iPad3, .iPad4, .iPadAir, .iPadAir2, .iPad5, .iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini, .iPadMini2, .iPadMini3, .iPadMini4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
+            [.iPad2, .iPad3, .iPad4, .iPadAir, .iPadAir2, .iPad5, .iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini, .iPadMini2, .iPadMini3, .iPadMini4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
         }
 
         /// All X-Series Devices
         @available(*, deprecated, renamed: "allDevicesWithSensorHousing")
         public static var allXSeriesDevices: [Device] {
-            return [.iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax]
+            [.iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax]
         }
 
         /// All Plus and Max-Sized Devices
         public static var allPlusSizedDevices: [Device] {
-            return [.iPhone6Plus, .iPhone6sPlus, .iPhone7Plus, .iPhone8Plus, .iPhoneXSMax, .iPhone11ProMax, .iPhone12ProMax]
+            [.iPhone6Plus, .iPhone6sPlus, .iPhone7Plus, .iPhone8Plus, .iPhoneXSMax, .iPhone11ProMax, .iPhone12ProMax]
         }
 
         /// All Pro Devices
         public static var allProDevices: [Device] {
-            return [.iPhone11Pro, .iPhone11ProMax, .iPhone12Pro, .iPhone12ProMax, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
+            [.iPhone11Pro, .iPhone11ProMax, .iPhone12Pro, .iPhone12ProMax, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
         }
 
         /// All mini Devices
         public static var allMiniDevices: [Device] {
-            return [.iPadMini, .iPadMini2, .iPadMini3, .iPadMini4, .iPadMini5]
+            [.iPadMini, .iPadMini2, .iPadMini3, .iPadMini4, .iPadMini5]
         }
 
         /// All simulator iPods
         public static var allSimulatorPods: [Device] {
-            return allPods.map(Device.simulator)
+            allPods.map(Device.simulator)
         }
 
         /// All simulator iPhones
         public static var allSimulatorPhones: [Device] {
-            return allPhones.map(Device.simulator)
+            allPhones.map(Device.simulator)
         }
 
         /// All simulator iPads
         public static var allSimulatorPads: [Device] {
-            return allPads.map(Device.simulator)
+            allPads.map(Device.simulator)
         }
 
         /// All simulator iPad mini
         public static var allSimulatorMiniDevices: [Device] {
-            return allMiniDevices.map(Device.simulator)
+            allMiniDevices.map(Device.simulator)
         }
 
         /// All simulator X series Devices
         @available(*, deprecated, renamed: "allSimulatorDevicesWithSensorHousing")
         public static var allSimulatorXSeriesDevices: [Device] {
-            return allDevicesWithSensorHousing.map(Device.simulator)
+            allDevicesWithSensorHousing.map(Device.simulator)
         }
 
         /// All simulator Plus and Max-Sized Devices
         public static var allSimulatorPlusSizedDevices: [Device] {
-            return allPlusSizedDevices.map(Device.simulator)
+            allPlusSizedDevices.map(Device.simulator)
         }
 
         /// All simulator Pro Devices
         public static var allSimulatorProDevices: [Device] {
-            return allProDevices.map(Device.simulator)
+            allProDevices.map(Device.simulator)
         }
 
         /// Returns whether the device is an iPod (real or simulator)
         public var isPod: Bool {
-            return isOneOf(Device.allPods) || isOneOf(Device.allSimulatorPods)
+            isOneOf(Device.allPods) || isOneOf(Device.allSimulatorPods)
         }
 
         /// Returns whether the device is an iPhone (real or simulator)
         public var isPhone: Bool {
-            return (isOneOf(Device.allPhones)
+            (isOneOf(Device.allPhones)
                 || isOneOf(Device.allSimulatorPhones)
                 || (UIDevice.current.userInterfaceIdiom == .phone && isCurrent)) && !isPod
         }
 
         /// Returns whether the device is an iPad (real or simulator)
         public var isPad: Bool {
-            return isOneOf(Device.allPads)
+            isOneOf(Device.allPads)
                 || isOneOf(Device.allSimulatorPads)
                 || (UIDevice.current.userInterfaceIdiom == .pad && isCurrent)
         }
@@ -742,13 +742,13 @@ public enum Device {
         /// Returns whether the device is any of the simulator
         /// Useful when there is a need to check and skip running a portion of code (location request or others)
         public var isSimulator: Bool {
-            return isOneOf(Device.allSimulators)
+            isOneOf(Device.allSimulators)
         }
 
         /// If this device is a simulator return the underlying device,
         /// otherwise return `self`.
         public var realDevice: Device {
-            return Device.realDevice(from: self)
+            Device.realDevice(from: self)
         }
 
         public var isZoomed: Bool? {
@@ -763,119 +763,119 @@ public enum Device {
 
         /// All Touch ID Capable Devices
         public static var allTouchIDCapableDevices: [Device] {
-            return [.iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneSE2, .iPadAir2, .iPad5, .iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini3, .iPadMini4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch]
+            [.iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneSE2, .iPadAir2, .iPad5, .iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini3, .iPadMini4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch]
         }
 
         /// All Face ID Capable Devices
         public static var allFaceIDCapableDevices: [Device] {
-            return [.iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
+            [.iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
         }
 
         /// All Devices with Touch ID or Face ID
         public static var allBiometricAuthenticationCapableDevices: [Device] {
-            return [.iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhoneSE2, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPadAir2, .iPad5, .iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini3, .iPadMini4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
+            [.iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhoneSE2, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPadAir2, .iPad5, .iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini3, .iPadMini4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
         }
 
         /// Returns whether or not the device has Touch ID
         public var isTouchIDCapable: Bool {
-            return isOneOf(Device.allTouchIDCapableDevices) || isOneOf(Device.allTouchIDCapableDevices.map(Device.simulator))
+            isOneOf(Device.allTouchIDCapableDevices) || isOneOf(Device.allTouchIDCapableDevices.map(Device.simulator))
         }
 
         /// Returns whether or not the device has Face ID
         public var isFaceIDCapable: Bool {
-            return isOneOf(Device.allFaceIDCapableDevices) || isOneOf(Device.allFaceIDCapableDevices.map(Device.simulator))
+            isOneOf(Device.allFaceIDCapableDevices) || isOneOf(Device.allFaceIDCapableDevices.map(Device.simulator))
         }
 
         /// Returns whether or not the device has any biometric sensor (i.e. Touch ID or Face ID)
         public var hasBiometricSensor: Bool {
-            return isTouchIDCapable || isFaceIDCapable
+            isTouchIDCapable || isFaceIDCapable
         }
 
         /// All devices that feature a sensor housing in the screen
         public static var allDevicesWithSensorHousing: [Device] {
-            return [.iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax]
+            [.iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax]
         }
 
         /// All simulator devices that feature a sensor housing in the screen
         public static var allSimulatorDevicesWithSensorHousing: [Device] {
-            return allDevicesWithSensorHousing.map(Device.simulator)
+            allDevicesWithSensorHousing.map(Device.simulator)
         }
 
         /// Returns whether or not the device has a sensor housing
         public var hasSensorHousing: Bool {
-            return isOneOf(Device.allDevicesWithSensorHousing) || isOneOf(Device.allDevicesWithSensorHousing.map(Device.simulator))
+            isOneOf(Device.allDevicesWithSensorHousing) || isOneOf(Device.allDevicesWithSensorHousing.map(Device.simulator))
         }
 
         /// All devices that feature a screen with rounded corners.
         public static var allDevicesWithRoundedDisplayCorners: [Device] {
-            return [.iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPadAir4, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
+            [.iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPadAir4, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
         }
 
         /// Returns whether or not the device has a screen with rounded corners.
         public var hasRoundedDisplayCorners: Bool {
-            return isOneOf(Device.allDevicesWithRoundedDisplayCorners) || isOneOf(Device.allDevicesWithRoundedDisplayCorners.map(Device.simulator))
+            isOneOf(Device.allDevicesWithRoundedDisplayCorners) || isOneOf(Device.allDevicesWithRoundedDisplayCorners.map(Device.simulator))
         }
 
         /// All devices that have 3D Touch support.
         public static var allDevicesWith3dTouchSupport: [Device] {
-            return [.iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax]
+            [.iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax]
         }
 
         /// Returns whether or not the device has 3D Touch support.
         public var has3dTouchSupport: Bool {
-            return isOneOf(Device.allDevicesWith3dTouchSupport) || isOneOf(Device.allDevicesWith3dTouchSupport.map(Device.simulator))
+            isOneOf(Device.allDevicesWith3dTouchSupport) || isOneOf(Device.allDevicesWith3dTouchSupport.map(Device.simulator))
         }
 
         /// All devices that support wireless charging.
         public static var allDevicesWithWirelessChargingSupport: [Device] {
-            return [.iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhoneSE2, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax]
+            [.iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhoneSE2, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax]
         }
 
         /// Returns whether or not the device supports wireless charging.
         public var supportsWirelessCharging: Bool {
-            return isOneOf(Device.allDevicesWithWirelessChargingSupport) || isOneOf(Device.allDevicesWithWirelessChargingSupport.map(Device.simulator))
+            isOneOf(Device.allDevicesWithWirelessChargingSupport) || isOneOf(Device.allDevicesWithWirelessChargingSupport.map(Device.simulator))
         }
 
         /// All devices that have a LiDAR sensor.
         public static var allDevicesWithALidarSensor: [Device] {
-            return [.iPhone12Pro, .iPhone12ProMax, .iPadPro11Inch2, .iPadPro12Inch4]
+            [.iPhone12Pro, .iPhone12ProMax, .iPadPro11Inch2, .iPadPro12Inch4]
         }
 
         /// Returns whether or not the device has a LiDAR sensor.
         public var hasLidarSensor: Bool {
-            return isOneOf(Device.allDevicesWithALidarSensor) || isOneOf(Device.allDevicesWithALidarSensor.map(Device.simulator))
+            isOneOf(Device.allDevicesWithALidarSensor) || isOneOf(Device.allDevicesWithALidarSensor.map(Device.simulator))
         }
 
     #elseif os(tvOS)
         /// All TVs
         public static var allTVs: [Device] {
-            return [.appleTVHD, .appleTV4K]
+            [.appleTVHD, .appleTV4K]
         }
 
         /// All simulator TVs
         public static var allSimulatorTVs: [Device] {
-            return allTVs.map(Device.simulator)
+            allTVs.map(Device.simulator)
         }
 
     #elseif os(watchOS)
         /// All Watches
         public static var allWatches: [Device] {
-            return [.appleWatchSeries0_38mm, .appleWatchSeries0_42mm, .appleWatchSeries1_38mm, .appleWatchSeries1_42mm, .appleWatchSeries2_38mm, .appleWatchSeries2_42mm, .appleWatchSeries3_38mm, .appleWatchSeries3_42mm, .appleWatchSeries4_40mm, .appleWatchSeries4_44mm, .appleWatchSeries5_40mm, .appleWatchSeries5_44mm, .appleWatchSeries6_40mm, .appleWatchSeries6_44mm, .appleWatchSE_40mm, .appleWatchSE_44mm]
+            [.appleWatchSeries0_38mm, .appleWatchSeries0_42mm, .appleWatchSeries1_38mm, .appleWatchSeries1_42mm, .appleWatchSeries2_38mm, .appleWatchSeries2_42mm, .appleWatchSeries3_38mm, .appleWatchSeries3_42mm, .appleWatchSeries4_40mm, .appleWatchSeries4_44mm, .appleWatchSeries5_40mm, .appleWatchSeries5_44mm, .appleWatchSeries6_40mm, .appleWatchSeries6_44mm, .appleWatchSE_40mm, .appleWatchSE_44mm]
         }
 
         /// All simulator Watches
         public static var allSimulatorWatches: [Device] {
-            return allWatches.map(Device.simulator)
+            allWatches.map(Device.simulator)
         }
 
         /// All watches that have Force Touch support.
         public static var allWatchesWithForceTouchSupport: [Device] {
-            return [.appleWatchSeries0_38mm, .appleWatchSeries0_42mm, .appleWatchSeries1_38mm, .appleWatchSeries1_42mm, .appleWatchSeries2_38mm, .appleWatchSeries2_42mm, .appleWatchSeries3_38mm, .appleWatchSeries3_42mm, .appleWatchSeries4_40mm, .appleWatchSeries4_44mm, .appleWatchSeries5_40mm, .appleWatchSeries5_44mm]
+            [.appleWatchSeries0_38mm, .appleWatchSeries0_42mm, .appleWatchSeries1_38mm, .appleWatchSeries1_42mm, .appleWatchSeries2_38mm, .appleWatchSeries2_42mm, .appleWatchSeries3_38mm, .appleWatchSeries3_42mm, .appleWatchSeries4_40mm, .appleWatchSeries4_44mm, .appleWatchSeries5_40mm, .appleWatchSeries5_44mm]
         }
 
         /// Returns whether or not the device has Force Touch support.
         public var hasForceTouchSupport: Bool {
-            return isOneOf(Device.allWatchesWithForceTouchSupport) || isOneOf(Device.allWatchesWithForceTouchSupport.map(Device.simulator))
+            isOneOf(Device.allWatchesWithForceTouchSupport) || isOneOf(Device.allWatchesWithForceTouchSupport.map(Device.simulator))
         }
     #endif
 
@@ -892,7 +892,7 @@ public enum Device {
 
     /// All simulators
     public static var allSimulators: [Device] {
-        return allRealDevices.map(Device.simulator)
+        allRealDevices.map(Device.simulator)
     }
 
     /**
@@ -921,14 +921,14 @@ public enum Device {
      - returns: Returns whether the current device is one of the passed in ones.
      */
     public func isOneOf(_ devices: [Device]) -> Bool {
-        return devices.contains(self)
+        devices.contains(self)
     }
 
     // MARK: Current Device
 
     /// Whether or not the current device is the current device.
     private var isCurrent: Bool {
-        return self == Device.current
+        self == Device.current
     }
 
     /// The name identifying the device (e.g. "Dennis' iPhone").
@@ -1292,7 +1292,7 @@ extension Device: Equatable {
     ///
     /// - returns: `true` iff the underlying identifier is the same.
     public static func == (lhs: Device, rhs: Device) -> Bool {
-        return lhs.description == rhs.description
+        lhs.description == rhs.description
     }
 }
 
@@ -1300,14 +1300,14 @@ extension Device: Equatable {
 
 #if os(iOS) || os(watchOS)
     @available(iOS 8.0, watchOS 4.0, *)
-    extension Device {
+    public extension Device {
         /**
          This enum describes the state of the battery.
          - Full:      The device is plugged into power and the battery is 100% charged or the device is the iOS Simulator.
          - Charging:  The device is plugged into power and the battery is less than 100% charged.
          - Unplugged: The device is not plugged into power; the battery is discharging.
          */
-        public enum BatteryState: CustomStringConvertible, Equatable {
+        enum BatteryState: CustomStringConvertible, Equatable {
             /// The device is plugged into power and the battery is 100% charged or the device is the iOS Simulator.
             case full
             /// The device is plugged into power and the battery is less than 100% charged.
@@ -1354,7 +1354,7 @@ extension Device: Equatable {
 
             /// The user enabled Low Power mode
             public var lowPowerMode: Bool {
-                return ProcessInfo.processInfo.isLowPowerModeEnabled
+                ProcessInfo.processInfo.isLowPowerModeEnabled
             }
 
             /// Provides a textual representation of the battery state.
@@ -1374,13 +1374,13 @@ extension Device: Equatable {
         }
 
         /// The state of the battery
-        public var batteryState: BatteryState? {
+        var batteryState: BatteryState? {
             guard isCurrent else { return nil }
             return BatteryState()
         }
 
         /// Battery level ranges from 0 (fully discharged) to 100 (100% charged).
-        public var batteryLevel: Int? {
+        var batteryLevel: Int? {
             guard isCurrent else { return nil }
             switch BatteryState() {
             case .charging(let value): return value
@@ -1403,7 +1403,7 @@ extension Device: Equatable {
         ///
         /// - returns: `true` iff they are equal, otherwise `false`
         public static func == (lhs: Device.BatteryState, rhs: Device.BatteryState) -> Bool {
-            return lhs.description == rhs.description
+            lhs.description == rhs.description
         }
 
         /// Compares two battery states.
@@ -1427,7 +1427,7 @@ extension Device: Equatable {
 #endif
 
 #if os(iOS)
-    extension Device {
+    public extension Device {
         // MARK: Orientation
 
         /**
@@ -1435,12 +1435,12 @@ extension Device: Equatable {
          - Landscape: The device is in Landscape Orientation
          - Portrait:  The device is in Portrait Orientation
          */
-        public enum Orientation {
+        enum Orientation {
             case landscape
             case portrait
         }
 
-        public var orientation: Orientation {
+        var orientation: Orientation {
             if UIDevice.current.orientation.isLandscape {
                 return .landscape
             } else {
@@ -1454,37 +1454,37 @@ extension Device: Equatable {
 
     // MARK: DiskSpace
 
-    extension Device {
+    public extension Device {
         /// Return the root url
         ///
         /// - returns: the NSHomeDirectory() url
         private static let rootURL = URL(fileURLWithPath: NSHomeDirectory())
 
         /// The volume’s total capacity in bytes.
-        public static var volumeTotalCapacity: Int? {
-            return (try? Device.rootURL.resourceValues(forKeys: [.volumeTotalCapacityKey]))?.volumeTotalCapacity
+        static var volumeTotalCapacity: Int? {
+            (try? Device.rootURL.resourceValues(forKeys: [.volumeTotalCapacityKey]))?.volumeTotalCapacity
         }
 
         /// The volume’s available capacity in bytes.
-        public static var volumeAvailableCapacity: Int? {
-            return (try? rootURL.resourceValues(forKeys: [.volumeAvailableCapacityKey]))?.volumeAvailableCapacity
+        static var volumeAvailableCapacity: Int? {
+            (try? rootURL.resourceValues(forKeys: [.volumeAvailableCapacityKey]))?.volumeAvailableCapacity
         }
 
         /// The volume’s available capacity in bytes for storing important resources.
         @available(iOS 11.0, *)
-        public static var volumeAvailableCapacityForImportantUsage: Int64? {
-            return (try? rootURL.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey]))?.volumeAvailableCapacityForImportantUsage
+        static var volumeAvailableCapacityForImportantUsage: Int64? {
+            (try? rootURL.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey]))?.volumeAvailableCapacityForImportantUsage
         }
 
         /// The volume’s available capacity in bytes for storing nonessential resources.
         @available(iOS 11.0, *)
-        public static var volumeAvailableCapacityForOpportunisticUsage: Int64? { // swiftlint:disable:this identifier_name
-            return (try? rootURL.resourceValues(forKeys: [.volumeAvailableCapacityForOpportunisticUsageKey]))?.volumeAvailableCapacityForOpportunisticUsage
+        static var volumeAvailableCapacityForOpportunisticUsage: Int64? { // swiftlint:disable:this identifier_name
+            (try? rootURL.resourceValues(forKeys: [.volumeAvailableCapacityForOpportunisticUsageKey]))?.volumeAvailableCapacityForOpportunisticUsage
         }
 
         /// All volumes capacity information in bytes.
         @available(iOS 11.0, *)
-        public static var volumes: [URLResourceKey: Int64]? {
+        static var volumes: [URLResourceKey: Int64]? {
             do {
                 let values = try rootURL.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey,
                                                                   .volumeAvailableCapacityKey,
@@ -1510,13 +1510,13 @@ extension Device: Equatable {
 
     // MARK: Apple Pencil
 
-    extension Device {
+    public extension Device {
         /**
          This option set describes the current Apple Pencils
          - firstGeneration:  1st Generation Apple Pencil
          - secondGeneration: 2nd Generation Apple Pencil
          */
-        public struct ApplePencilSupport: OptionSet {
+        struct ApplePencilSupport: OptionSet {
             public var rawValue: UInt
 
             public init(rawValue: UInt) {
@@ -1528,12 +1528,12 @@ extension Device: Equatable {
         }
 
         /// All Apple Pencil Capable Devices
-        public static var allApplePencilCapableDevices: [Device] {
-            return [.iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
+        static var allApplePencilCapableDevices: [Device] {
+            [.iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
         }
 
         /// Returns supported version of the Apple Pencil
-        public var applePencilSupport: ApplePencilSupport {
+        var applePencilSupport: ApplePencilSupport {
             switch self {
             case .iPad6: return .firstGeneration
             case .iPadAir3: return .firstGeneration
@@ -1560,8 +1560,8 @@ extension Device: Equatable {
 
     // MARK: Cameras
 
-    extension Device {
-        public enum CameraType {
+    public extension Device {
+        enum CameraType {
             @available(*, deprecated, renamed: "wide")
             case normal
 
@@ -1571,7 +1571,7 @@ extension Device: Equatable {
         }
 
         /// Returns an array of the types of cameras the device has
-        public var cameras: [CameraType] {
+        var cameras: [CameraType] {
             switch self {
             case .iPodTouch5: return [.wide]
             case .iPodTouch6: return [.wide]
@@ -1631,55 +1631,55 @@ extension Device: Equatable {
         }
 
         /// All devices that feature a camera
-        public static var allDevicesWithCamera: [Device] {
-            return [.iPodTouch5, .iPodTouch6, .iPodTouch7, .iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhoneSE2, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPad2, .iPad3, .iPad4, .iPadAir, .iPadAir2, .iPad5, .iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini, .iPadMini2, .iPadMini3, .iPadMini4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
+        static var allDevicesWithCamera: [Device] {
+            [.iPodTouch5, .iPodTouch6, .iPodTouch7, .iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhoneSE2, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPad2, .iPad3, .iPad4, .iPadAir, .iPadAir2, .iPad5, .iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini, .iPadMini2, .iPadMini3, .iPadMini4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
         }
 
         /// All devices that feature a normal camera
         @available(*, deprecated, renamed: "allDevicesWithWideCamera")
-        public static var allDevicesWithNormalCamera: [Device] {
-            return Device.allDevicesWithWideCamera
+        static var allDevicesWithNormalCamera: [Device] {
+            Device.allDevicesWithWideCamera
         }
 
         /// All devices that feature a wide camera
-        public static var allDevicesWithWideCamera: [Device] {
-            return [.iPodTouch5, .iPodTouch6, .iPodTouch7, .iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhoneSE2, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPad2, .iPad3, .iPad4, .iPadAir, .iPadAir2, .iPad5, .iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini, .iPadMini2, .iPadMini3, .iPadMini4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
+        static var allDevicesWithWideCamera: [Device] {
+            [.iPodTouch5, .iPodTouch6, .iPodTouch7, .iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhoneXR, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhoneSE2, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPad2, .iPad3, .iPad4, .iPadAir, .iPadAir2, .iPad5, .iPad6, .iPadAir3, .iPad7, .iPad8, .iPadAir4, .iPadMini, .iPadMini2, .iPadMini3, .iPadMini4, .iPadMini5, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch, .iPadPro11Inch, .iPadPro12Inch3, .iPadPro11Inch2, .iPadPro12Inch4]
         }
 
         /// All devices that feature a telephoto camera
-        public static var allDevicesWithTelephotoCamera: [Device] {
-            return [.iPhone7Plus, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhone11Pro, .iPhone11ProMax, .iPhone12Pro, .iPhone12ProMax]
+        static var allDevicesWithTelephotoCamera: [Device] {
+            [.iPhone7Plus, .iPhone8Plus, .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhone11Pro, .iPhone11ProMax, .iPhone12Pro, .iPhone12ProMax]
         }
 
         /// All devices that feature an ultra wide camera
-        public static var allDevicesWithUltraWideCamera: [Device] {
-            return [.iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPadPro11Inch2, .iPadPro12Inch4]
+        static var allDevicesWithUltraWideCamera: [Device] {
+            [.iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPadPro11Inch2, .iPadPro12Inch4]
         }
 
         /// Returns whether or not the current device has a camera
-        public var hasCamera: Bool {
-            return !self.cameras.isEmpty
+        var hasCamera: Bool {
+            !cameras.isEmpty
         }
 
         /// Returns whether or not the current device has a normal camera
         @available(*, deprecated, renamed: "hasWideCamera")
-        public var hasNormalCamera: Bool {
-            return hasWideCamera
+        var hasNormalCamera: Bool {
+            hasWideCamera
         }
 
         /// Returns whether or not the current device has a wide camera
-        public var hasWideCamera: Bool {
-            return self.cameras.contains(.wide)
+        var hasWideCamera: Bool {
+            cameras.contains(.wide)
         }
 
         /// Returns whether or not the current device has a telephoto camera
-        public var hasTelephotoCamera: Bool {
-            return self.cameras.contains(.telephoto)
+        var hasTelephotoCamera: Bool {
+            cameras.contains(.telephoto)
         }
 
         /// Returns whether or not the current device has an ultra wide camera
-        public var hasUltraWideCamera: Bool {
-            return self.cameras.contains(.ultraWide)
+        var hasUltraWideCamera: Bool {
+            cameras.contains(.ultraWide)
         }
     }
 #endif

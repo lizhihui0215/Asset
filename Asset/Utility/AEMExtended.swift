@@ -31,23 +31,23 @@ public protocol AEMExtended {
     var aem: AEMExtension<ExtendedType> { get set }
 }
 
-extension AEMExtended {
+public extension AEMExtended {
     /// Static AEM extension point.
-    public static var aem: AEMExtension<Self>.Type {
+    static var aem: AEMExtension<Self>.Type {
         get { AEMExtension<Self>.self }
         set {}
     }
 
     /// Instance AEM extension point.
-    public var aem: AEMExtension<Self> {
+    var aem: AEMExtension<Self> {
         get { AEMExtension(self) }
         set {}
     }
 }
 
-extension AEMExtension where ExtendedType: Encodable {
-    public var jsonString: String {
-        guard let content = try? JSONEncoder().encode(self.type) else {
+public extension AEMExtension where ExtendedType: Encodable {
+    var jsonString: String {
+        guard let content = try? JSONEncoder().encode(type) else {
             return ""
         }
 

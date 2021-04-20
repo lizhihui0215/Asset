@@ -12,7 +12,8 @@ import Foundation
 class LoginViewModel: BaseViewModel<LoginViewController, LoginRequest> {
     func login(username: String,
                password: String,
-               completionHandler: @escaping ViewModelCompletionHandler<Credential?>) {
+               completionHandler: @escaping ViewModelCompletionHandler<Credential?>)
+    {
         let loginParameter = LoginParameter(userAccount: username, userPwd: password.md5())
         api(of: LoginResponse.self,
             router: .login(loginParameter)) { result in

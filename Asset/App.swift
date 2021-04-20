@@ -8,7 +8,7 @@
 
 import Foundation
 
-let app: App = App()
+let app = App()
 
 public final class App {
     enum Keys: String {
