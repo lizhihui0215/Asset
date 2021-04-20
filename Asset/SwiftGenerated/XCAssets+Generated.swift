@@ -180,6 +180,10 @@ internal enum Image {
   internal enum StartPage {
     internal static let `default` = ImageAsset(name: "Default")
   }
+  internal enum Checkbox {
+    internal static let selected = ImageAsset(name: "selected")
+    internal static let unselected = ImageAsset(name: "unselected")
+  }
   internal static let imgPhoto = ImageAsset(name: "img_photo")
   internal static let printLogo = ImageAsset(name: "print_logo")
 }

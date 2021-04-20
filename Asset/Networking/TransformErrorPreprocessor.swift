@@ -17,10 +17,14 @@ struct TransformErrorPreprocessor<T: BaseResponse>: DataPreprocessor {
     }
 
     public func preprocess(_ data: Data) throws -> Data {
-        guard let response = try? decoder.decode(T.self, from: data), response.status != 0 else {
+        guard let response = try? decoder.decode(T.self, from: data) else {
             return data
         }
 
-        throw AEMError.ServerError.responseFailed(reason: response.msg)
+        guard let status = response.status, status == 0 else {
+            throw AEMError.ServerError.responseFailed(reason: response.msg ?? "")
+        }
+
+        return data
     }
 }

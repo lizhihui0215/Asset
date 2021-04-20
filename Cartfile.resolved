@@ -1,0 +1,4 @@
+github "Alamofire/Alamofire" "5.4.2"
+github "CoderMJLee/MJRefresh" "3.5.1"
+github "krzyzanowskim/CryptoSwift" "1.3.8"
+github "pkluz/PKHUD" "5.4.0"

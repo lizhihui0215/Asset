@@ -46,9 +46,11 @@ class NetworkManager {
     {
         session.request(router).responseDecodable(of: T.self) { response in
             let response: AEMDataResponse<T> = response.tryMap { response in
-                if response.status != 0 {
-                    throw AEMError.ServerError.responseFailed(reason: response.msg)
+
+                guard let status = response.status, status == 0 else {
+                    throw AEMError.ServerError.responseFailed(reason: response.msg ?? "")
                 }
+
                 return response
             }
             completionHandler(response)

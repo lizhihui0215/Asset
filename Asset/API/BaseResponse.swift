@@ -9,7 +9,7 @@
 import Foundation
 protocol BaseResponse: Decodable {
     associatedtype Model: Decodable
-    var status: Int { get set }
-    var msg: String { get set }
+    var status: Int? { get set }
+    var msg: String? { get set }
     var data: Model? { get set }
 }

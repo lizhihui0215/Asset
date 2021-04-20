@@ -24,8 +24,8 @@ struct LoginParameter: Encodable {
 }
 
 struct LoginResponse: BaseResponse {
-    var status: Int = 0
-    var msg: String = ""
+    var status: Int? = 0
+    var msg: String? = ""
     var data: Credential?
 }
 

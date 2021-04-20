@@ -85,4 +85,8 @@ extension App {
     func add(credential: Credential) {
         self.credential = credential
     }
+
+    func setBaseURL(_ url: String) {
+        baseURL = url
+    }
 }

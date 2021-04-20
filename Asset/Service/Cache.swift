@@ -35,16 +35,26 @@ struct Cache {
 }
 
 @propertyWrapper
-struct UserDefault<T> {
-    let key: App.Keys
+struct UserDefault<T: Codable, K: Keys> {
+    let key: K
     let defaultValue: T
 
     var wrappedValue: T {
         get {
-            (UserDefaults.standard.object(forKey: key.rawValue) as? T) ?? defaultValue
+            guard let data = UserDefaults.standard.object(forKey: key.rawValue) as? Data,
+                  let obj = try? JSONDecoder().decode(T.self, from: data)
+            else {
+                return defaultValue
+            }
+
+            return obj
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: key.rawValue)
+            guard let data = try? JSONEncoder().encode(newValue) else {
+                return
+            }
+
+            UserDefaults.standard.set(data, forKey: key.rawValue)
         }
     }
 }
