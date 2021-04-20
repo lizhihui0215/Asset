@@ -12,6 +12,8 @@
 		26A053BC262EAB09000F27C3 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A053AA262EAAF4000F27C3 /* CryptoSwift.framework */; };
 		26A053BD262EAB09000F27C3 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26A053AA262EAAF4000F27C3 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26A053C3262EADD0000F27C3 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A053C2262EADCF000F27C3 /* PKHUD.framework */; };
+		26A0540E262EC3E9000F27C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A0540D262EC3E9000F27C3 /* Assets.xcassets */; };
+		26F8961E262EC94200976042 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26F89620262EC94200976042 /* Localizable.strings */; };
 		469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EAC783A44972C349C0389 /* Device.swift */; };
 		469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA61540B02723A9DAED3E /* UIViewController+Extension.swift */; };
 		469EA1E4B76D35DF1914E903 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA7D5589988661F72393A /* Defaultable.swift */; };
@@ -26,7 +28,6 @@
 		9C6D42FE2627146600FEC466 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D42FD2627146600FEC466 /* SceneDelegate.swift */; };
 		9C6D43002627146600FEC466 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D42FF2627146600FEC466 /* LoginViewController.swift */; };
 		9C6D43032627146600FEC466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C6D43012627146600FEC466 /* Main.storyboard */; };
-		9C6D43052627146E00FEC466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C6D43042627146E00FEC466 /* Assets.xcassets */; };
 		9C6D43082627146E00FEC466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C6D43062627146E00FEC466 /* LaunchScreen.storyboard */; };
 		9C6D43132627146F00FEC466 /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D43122627146F00FEC466 /* AssetTests.swift */; };
 		9C6D431E2627146F00FEC466 /* AssetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D431D2627146F00FEC466 /* AssetUITests.swift */; };
@@ -176,6 +177,9 @@
 		26A05380262EAAE5000F27C3 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../../../Study/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		26A053A1262EAAF4000F27C3 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = ../../../Study/CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		26A053C2262EADCF000F27C3 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PKHUD.framework; sourceTree = "<group>"; };
+		26A0540D262EC3E9000F27C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26F8961F262EC94200976042 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		26F89623262EC94700976042 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		469EA1FCF25D4B2B9F7CD71F /* Convertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertable.swift; sourceTree = "<group>"; };
 		469EA21A2AFE56567ECE31AF /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		469EA574E8B671DADAE37BF6 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -191,7 +195,6 @@
 		9C6D42FD2627146600FEC466 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9C6D42FF2627146600FEC466 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9C6D43022627146600FEC466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9C6D43042627146E00FEC466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C6D43072627146E00FEC466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C6D43092627146E00FEC466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C6D430E2627146F00FEC466 /* AssetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -317,19 +320,17 @@
 				469EA6315A06A81356F5C6A4 /* App.swift */,
 				9C6D42FB2627146600FEC466 /* AppDelegate.swift */,
 				9C6D42FD2627146600FEC466 /* SceneDelegate.swift */,
-				469EACEF432CD0ACF29322EC /* Extensions */,
 				9C6D432D262714E200FEC466 /* Views */,
 				9C6D432E262714E600FEC466 /* ViewModels */,
 				9C6D432C262714DB00FEC466 /* ViewControllers */,
+				469EACEF432CD0ACF29322EC /* Extensions */,
 				9C9247712629DE2A00975AF2 /* Utility */,
 				9C6D434E2627334200FEC466 /* Service */,
 				9C6D4349262731C100FEC466 /* API */,
 				9C6D433C2627250E00FEC466 /* Networking */,
 				9CBBDFFD2628614F00CC6294 /* Resources */,
 				9C6D43012627146600FEC466 /* Main.storyboard */,
-				9C6D43042627146E00FEC466 /* Assets.xcassets */,
 				9C6D43062627146E00FEC466 /* LaunchScreen.storyboard */,
-				9C6D43092627146E00FEC466 /* Info.plist */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -466,6 +467,9 @@
 			isa = PBXGroup;
 			children = (
 				9CBBDFFE2628616900CC6294 /* eam-ms-client.cer */,
+				26A0540D262EC3E9000F27C3 /* Assets.xcassets */,
+				9C6D43092627146E00FEC466 /* Info.plist */,
+				26F89620262EC94200976042 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -535,7 +539,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1110;
-				LastUpgradeCheck = 1110;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = ZhiHui.Li;
 				TargetAttributes = {
 					9C6D42F72627146600FEC466 = {
@@ -553,11 +557,12 @@
 			};
 			buildConfigurationList = 9C6D42F32627146600FEC466 /* Build configuration list for PBXProject "Asset" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 9C6D42EF2627146600FEC466;
 			productRefGroup = 9C6D42F92627146600FEC466 /* Products */;
@@ -673,10 +678,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F8961E262EC94200976042 /* Localizable.strings in Resources */,
 				9C6D43082627146E00FEC466 /* LaunchScreen.storyboard in Resources */,
 				9CBBDFFF2628616A00CC6294 /* eam-ms-client.cer in Resources */,
-				9C6D43052627146E00FEC466 /* Assets.xcassets in Resources */,
 				9C6D43032627146600FEC466 /* Main.storyboard in Resources */,
+				26A0540E262EC3E9000F27C3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +796,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		26F89620262EC94200976042 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26F8961F262EC94200976042 /* zh-Hans */,
+				26F89623262EC94700976042 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		9C6D43012627146600FEC466 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -813,6 +828,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -835,6 +851,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -873,6 +890,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -895,6 +913,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -932,7 +951,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				INFOPLIST_FILE = Asset/Info.plist;
+				INFOPLIST_FILE = Asset/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -953,7 +972,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				INFOPLIST_FILE = Asset/Info.plist;
+				INFOPLIST_FILE = Asset/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
