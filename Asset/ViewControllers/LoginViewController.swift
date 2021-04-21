@@ -17,6 +17,16 @@ class LoginViewController: BaseViewController {
         LoginViewModel(request: LoginRequest(), action: self)
     }()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,7 +34,9 @@ class LoginViewController: BaseViewController {
 
     @IBAction func loginButtonTapped(_: UIButton) {
         viewModel.login(username: usernameTextField.aem.text,
-                        password: passwordTextField.aem.text) { _ in
+                        password: passwordTextField.aem.text) { [weak self] _ in
+            guard let self = self else { return }
+            `self`.perform(segue: StoryboardSegue.Main.toService, sender: self)
         }
     }
 }

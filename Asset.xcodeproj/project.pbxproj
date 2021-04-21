@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260F986E2630A11700A91F00 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260F986C2630A11600A91F00 /* NavigationViewController.swift */; };
+		260F986F2630A11700A91F00 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260F986D2630A11600A91F00 /* TabBarViewController.swift */; };
+		260F98732630A13000A91F00 /* ExchangeRootSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260F98722630A13000A91F00 /* ExchangeRootSegue.swift */; };
 		26530D2F262F187E002BCE55 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26530D2E262F187D002BCE55 /* Coding.swift */; };
 		26530D34262F18C1002BCE55 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26530D33262F18C1002BCE55 /* AnyCodable.swift */; };
 		26530D39262F19DF002BCE55 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26530D38262F19DF002BCE55 /* API.swift */; };
@@ -61,8 +64,6 @@
 		9C6D43082627146E00FEC466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C6D43062627146E00FEC466 /* LaunchScreen.storyboard */; };
 		9C6D43132627146F00FEC466 /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D43122627146F00FEC466 /* AssetTests.swift */; };
 		9C6D431E2627146F00FEC466 /* AssetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D431D2627146F00FEC466 /* AssetUITests.swift */; };
-		9C6D433026271E4000FEC466 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D432F26271E4000FEC466 /* NavigationViewController.swift */; };
-		9C6D433226271E5F00FEC466 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D433126271E5F00FEC466 /* TabBarViewController.swift */; };
 		9C6D433726271F2F00FEC466 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D433626271F2F00FEC466 /* ServiceViewController.swift */; };
 		9C6D433926271F3B00FEC466 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D433826271F3B00FEC466 /* AssetViewController.swift */; };
 		9C6D433B26271F4400FEC466 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D433A26271F4400FEC466 /* MineViewController.swift */; };
@@ -118,6 +119,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		260F986C2630A11600A91F00 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		260F986D2630A11600A91F00 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		260F98722630A13000A91F00 /* ExchangeRootSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRootSegue.swift; sourceTree = "<group>"; };
 		26530D23262F11C4002BCE55 /* MJRefresh.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MJRefresh.xcframework; path = Carthage/Build/MJRefresh.xcframework; sourceTree = "<group>"; };
 		26530D24262F11C4002BCE55 /* PKHUD.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PKHUD.xcframework; path = Carthage/Build/PKHUD.xcframework; sourceTree = "<group>"; };
 		26530D25262F11C5002BCE55 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
@@ -174,8 +178,6 @@
 		9C6D43192627146F00FEC466 /* AssetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C6D431D2627146F00FEC466 /* AssetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetUITests.swift; sourceTree = "<group>"; };
 		9C6D431F2627146F00FEC466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C6D432F26271E4000FEC466 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
-		9C6D433126271E5F00FEC466 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		9C6D433626271F2F00FEC466 /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		9C6D433826271F3B00FEC466 /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
 		9C6D433A26271F4400FEC466 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,8 @@
 		5B875237D41386B4A83DF0A4 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				260F986C2630A11600A91F00 /* NavigationViewController.swift */,
+				260F986D2630A11600A91F00 /* TabBarViewController.swift */,
 				5B875EFF4BC9F18925C4DE0D /* BaseTableViewController.swift */,
 				5B8754D64F2CA20A0D1C351C /* BaseViewController.swift */,
 			);
@@ -385,8 +389,6 @@
 		9C6D432C262714DB00FEC466 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9C6D432F26271E4000FEC466 /* NavigationViewController.swift */,
-				9C6D433126271E5F00FEC466 /* TabBarViewController.swift */,
 				9C6D42FF2627146600FEC466 /* LoginViewController.swift */,
 				9C6D433326271EF500FEC466 /* Service */,
 				9C6D433526271F0500FEC466 /* Asset */,
@@ -480,6 +482,7 @@
 		9C9247712629DE2A00975AF2 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				260F98722630A13000A91F00 /* ExchangeRootSegue.swift */,
 				268AFAA726305BF800A2854B /* LayoutHelpers.swift */,
 				268AFAA626305BF600A2854B /* LayoutOperator.swift */,
 				469EA7D5589988661F72393A /* Defaultable.swift */,
@@ -686,15 +689,17 @@
 				268381A9262EE39100F6C23F /* XCAssets+Generated.swift in Sources */,
 				9C6D434B262731DB00FEC466 /* BaseRequest.swift in Sources */,
 				9CBBE00526286EF500CC6294 /* TransformErrorPreprocessor.swift in Sources */,
-				9C6D433026271E4000FEC466 /* NavigationViewController.swift in Sources */,
 				9CBBE0012628654700CC6294 /* RequestAdaptor.swift in Sources */,
 				9CBBE008262873AF00CC6294 /* BaseResponse.swift in Sources */,
 				9C6D43002627146600FEC466 /* LoginViewController.swift in Sources */,
 				9CBBE00C2628811500CC6294 /* APIRouter.swift in Sources */,
 				9C82B6AC262B631A00D841AE /* Dictionary+Extension.swift in Sources */,
 				9CBBE00326286DFB00CC6294 /* RequestRetrier.swift in Sources */,
+				260F98732630A13000A91F00 /* ExchangeRootSegue.swift in Sources */,
 				9C6D433726271F2F00FEC466 /* ServiceViewController.swift in Sources */,
 				9CBBDFF3262748FC00CC6294 /* LoginViewModel.swift in Sources */,
+				260F986E2630A11700A91F00 /* NavigationViewController.swift in Sources */,
+				260F986F2630A11700A91F00 /* TabBarViewController.swift in Sources */,
 				26530D39262F19DF002BCE55 /* API.swift in Sources */,
 				268AFAA926305BF800A2854B /* LayoutHelpers.swift in Sources */,
 				268AFAA32630588200A2854B /* UIView+Nib.swift in Sources */,
@@ -702,7 +707,6 @@
 				9C6D433E2627252F00FEC466 /* NetworkManager.swift in Sources */,
 				9C6D433B26271F4400FEC466 /* MineViewController.swift in Sources */,
 				9C6D42FC2627146600FEC466 /* AppDelegate.swift in Sources */,
-				9C6D433226271E5F00FEC466 /* TabBarViewController.swift in Sources */,
 				9C6D42FE2627146600FEC466 /* SceneDelegate.swift in Sources */,
 				9CD4E067262895B5000A51A1 /* NetworkActivityLogger.swift in Sources */,
 				268AFAA826305BF800A2854B /* LayoutOperator.swift in Sources */,
