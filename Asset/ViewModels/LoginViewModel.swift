@@ -9,7 +9,7 @@
 import CryptoSwift
 import Foundation
 
-class LoginViewModel: BaseViewModel<LoginViewController, LoginRequest> {
+class LoginViewModel: BaseViewModel<LoginViewController> {
     func login(username: String,
                password: String,
                completionHandler: @escaping ViewModelCompletionHandler<Credential?>)

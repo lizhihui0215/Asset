@@ -5,3 +5,14 @@
   Created by lizhihui on 2021/4/20.
   Copyright © 2021 ZhiHui.Li. All rights reserved.
 */
+
+"projectTransfer" = "工程转资";
+"cycleInventory" = "循环盘点";
+"assetInventory" = "资产盘点";
+"internalDepartmentTransfer" = "部门内调拨";
+"externalDepartmentTransfer" = "部门间调拨";
+"companyTransfer" = "公司间调拨";
+"assetInspection" = "资产巡检";
+"locationModify" = "地点信息修改";
+"notification" = "通知";
+"baseData" = "基础数据";

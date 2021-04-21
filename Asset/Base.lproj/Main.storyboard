@@ -197,7 +197,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CMCCBusinessTaskCell" id="aY5-WR-zEF" customClass="CMCCBusinessTaskCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CMCCBusinessTaskCell" id="aY5-WR-zEF" customClass="ServiceCollectionViewCell" customModule="Asset" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="106" height="106.7"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -216,10 +216,6 @@
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fxB-Ob-Obn">
-                                                    <rect key="frame" x="43" y="43.5" width="20" height="20"/>
-                                                    <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </activityIndicatorView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -227,18 +223,15 @@
                                             <constraint firstItem="WQH-T3-CXR" firstAttribute="leading" secondItem="aY5-WR-zEF" secondAttribute="leading" id="5UD-Vw-8FQ"/>
                                             <constraint firstAttribute="bottom" secondItem="WQH-T3-CXR" secondAttribute="bottom" id="9fg-Jf-Ia3"/>
                                             <constraint firstItem="dKd-rN-U8p" firstAttribute="centerY" secondItem="aY5-WR-zEF" secondAttribute="centerY" constant="-10" id="MeD-2W-6e9"/>
-                                            <constraint firstItem="fxB-Ob-Obn" firstAttribute="centerY" secondItem="aY5-WR-zEF" secondAttribute="centerY" id="Myc-b5-hfB"/>
                                             <constraint firstAttribute="bottom" secondItem="S0B-7X-ZJV" secondAttribute="bottom" constant="18" id="OqI-lb-BDd"/>
-                                            <constraint firstItem="fxB-Ob-Obn" firstAttribute="centerX" secondItem="aY5-WR-zEF" secondAttribute="centerX" id="WHq-Ny-FF9"/>
                                             <constraint firstItem="dKd-rN-U8p" firstAttribute="centerX" secondItem="aY5-WR-zEF" secondAttribute="centerX" id="dm3-V2-th9"/>
                                             <constraint firstItem="WQH-T3-CXR" firstAttribute="top" secondItem="aY5-WR-zEF" secondAttribute="top" id="jXR-ro-OaM"/>
                                             <constraint firstAttribute="trailing" secondItem="WQH-T3-CXR" secondAttribute="trailing" id="s60-rX-vZy"/>
                                             <constraint firstItem="S0B-7X-ZJV" firstAttribute="centerX" secondItem="aY5-WR-zEF" secondAttribute="centerX" id="ywv-b3-MzV"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="activityIndicator" destination="fxB-Ob-Obn" id="sZ1-Le-3uY"/>
-                                            <outlet property="taskImageView" destination="dKd-rN-U8p" id="3Gt-YU-gut"/>
-                                            <outlet property="taskNameLabel" destination="S0B-7X-ZJV" id="lS9-C8-thG"/>
+                                            <outlet property="imageView" destination="dKd-rN-U8p" id="3ns-53-QvX"/>
+                                            <outlet property="nameLabel" destination="S0B-7X-ZJV" id="UJb-Dh-zTK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -257,7 +250,7 @@
                     <navigationItem key="navigationItem" title="任务列表" id="gn2-gq-nDg"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="collectionView" destination="dAY-F9-s9j" id="Hwi-2z-Z66"/>
+                        <outlet property="collectionView" destination="dAY-F9-s9j" id="Ejk-1G-CvD"/>
                         <segue destination="zJW-Zn-2L6" kind="show" id="0hj-3A-71G"/>
                     </connections>
                 </viewController>
@@ -400,55 +393,9 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWt-lO-GWz" userLabel="ServerView" customClass="RadioGroupView" customModule="Asset" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="40"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYz-vS-Aao">
-                                        <rect key="frame" x="10" y="9" width="150" height="22"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78q-tE-4vx">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="iyh-GP-OVe"/>
-                                                </constraints>
-                                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="https" image="unselected">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <state key="selected" image="selected"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ntj-1q-PG2">
-                                                <rect key="frame" x="85" y="0.0" width="65" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="65" id="50c-Og-pMv"/>
-                                                </constraints>
-                                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="http" image="unselected">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <state key="selected" image="selected"/>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="78q-tE-4vx" firstAttribute="leading" secondItem="BYz-vS-Aao" secondAttribute="leading" id="0oV-mn-4R8"/>
-                                            <constraint firstItem="Ntj-1q-PG2" firstAttribute="centerY" secondItem="78q-tE-4vx" secondAttribute="centerY" id="LiO-b8-5N1"/>
-                                            <constraint firstItem="78q-tE-4vx" firstAttribute="top" secondItem="BYz-vS-Aao" secondAttribute="top" id="Py0-jg-sOe"/>
-                                            <constraint firstAttribute="bottom" secondItem="78q-tE-4vx" secondAttribute="bottom" id="Xii-Ld-NLN"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ntj-1q-PG2" secondAttribute="trailing" id="eEH-6a-elx"/>
-                                            <constraint firstItem="Ntj-1q-PG2" firstAttribute="leading" secondItem="78q-tE-4vx" secondAttribute="trailing" constant="5" id="zik-Oh-L9J"/>
-                                        </constraints>
-                                        <connections>
-                                            <outletCollection property="redioButtons" destination="78q-tE-4vx" collectionClass="NSMutableArray" id="UeJ-S9-ISj"/>
-                                            <outletCollection property="redioButtons" destination="Ntj-1q-PG2" collectionClass="NSMutableArray" id="lxS-8Z-ibh"/>
-                                        </connections>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="BYz-vS-Aao" firstAttribute="centerY" secondItem="WWt-lO-GWz" secondAttribute="centerY" id="AdR-Lt-V23"/>
                                     <constraint firstAttribute="height" constant="40" id="Slc-6z-fYx"/>
-                                    <constraint firstItem="BYz-vS-Aao" firstAttribute="leading" secondItem="WWt-lO-GWz" secondAttribute="leading" constant="10" id="yEU-ie-92n"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3oa-Lw-dUy">
@@ -534,8 +481,6 @@
         <image name="login_btn_hightlight" width="179.5" height="37"/>
         <image name="login_input_background" width="298" height="106.5"/>
         <image name="my_task_01" width="46" height="50"/>
-        <image name="selected" width="17" height="17"/>
-        <image name="unselected" width="17" height="17"/>
         <image name="ywg" width="29" height="29"/>
         <image name="ywg_blue" width="29" height="29"/>
         <systemColor name="systemBackgroundColor">

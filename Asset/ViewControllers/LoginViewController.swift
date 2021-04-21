@@ -8,13 +8,13 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     @IBOutlet var usernameTextField: UITextField!
 
     @IBOutlet var passwordTextField: UITextField!
 
     lazy var viewModel: LoginViewModel = {
-        LoginViewModel(request: .init(), action: self)
+        LoginViewModel(request: LoginRequest(), action: self)
     }()
 
     override func viewDidLoad() {

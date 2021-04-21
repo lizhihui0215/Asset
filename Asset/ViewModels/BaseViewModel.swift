@@ -12,16 +12,16 @@ import UIKit
 typealias ViewModelResult<Success> = Result<Success, Error>
 typealias ViewModelCompletionHandler<Success> = (ViewModelResult<Success>) -> Void
 
-class BaseViewModel<T: UIViewController, R: BaseRequest>: Validation {
+class BaseViewModel<T: UIViewController>: Validation {
     typealias Validator = StringValidator
 
-    let request: R
+    let request: BaseRequest
     let action: T
     var validator = Validator.defaultValue
 
     let cache = Cache(option: .userDefault)
 
-    init(request: R, action: T) {
+    init(request: BaseRequest, action: T) {
         self.request = request
         self.action = action
     }

@@ -55,20 +55,9 @@ internal enum Image {
     internal static let imgInformation = ImageAsset(name: "img_information")
     internal static let into2 = ImageAsset(name: "into2")
     internal static let intolining = ImageAsset(name: "intolining")
-    internal static let jc = ImageAsset(name: "jc")
     internal static let location = ImageAsset(name: "location")
     internal static let locationEd = ImageAsset(name: "location_ed")
     internal static let menu = ImageAsset(name: "menu")
-    internal static let myTask01 = ImageAsset(name: "my_task_01")
-    internal static let myTask02 = ImageAsset(name: "my_task_02")
-    internal static let myTask03 = ImageAsset(name: "my_task_03")
-    internal static let myTask04 = ImageAsset(name: "my_task_04")
-    internal static let myTask05 = ImageAsset(name: "my_task_05")
-    internal static let myTask06 = ImageAsset(name: "my_task_06")
-    internal static let myTask07 = ImageAsset(name: "my_task_07")
-    internal static let myTask08 = ImageAsset(name: "my_task_08")
-    internal static let myTask09 = ImageAsset(name: "my_task_09")
-    internal static let myTask19 = ImageAsset(name: "my_task_19")
     internal static let myTaskOutinStorage = ImageAsset(name: "my_task_outinStorage")
     internal static let recall = ImageAsset(name: "recall")
     internal static let `return` = ImageAsset(name: "return")
@@ -177,8 +166,24 @@ internal enum Image {
     internal static let imgSelectOn = ImageAsset(name: "img_select_on")
     internal static let scanline = ImageAsset(name: "scanline")
   }
+  internal enum Service {
+    internal static let assetInspection = ImageAsset(name: "assetInspection")
+    internal static let assetInventory = ImageAsset(name: "assetInventory")
+    internal static let baseData = ImageAsset(name: "baseData")
+    internal static let companyTransfer = ImageAsset(name: "companyTransfer")
+    internal static let cycleInventory = ImageAsset(name: "cycleInventory")
+    internal static let externalDepartmentTransfer = ImageAsset(name: "externalDepartmentTransfer")
+    internal static let internalDepartmentTransfer = ImageAsset(name: "internalDepartmentTransfer")
+    internal static let locationModify = ImageAsset(name: "locationModify")
+    internal static let notification = ImageAsset(name: "notification")
+    internal static let projectTransfer = ImageAsset(name: "projectTransfer")
+  }
   internal enum StartPage {
     internal static let `default` = ImageAsset(name: "Default")
+  }
+  internal enum ZZNoUse {
+    internal static let myTask02 = ImageAsset(name: "my_task_02")
+    internal static let myTask19 = ImageAsset(name: "my_task_19")
   }
   internal enum Checkbox {
     internal static let selected = ImageAsset(name: "selected")
