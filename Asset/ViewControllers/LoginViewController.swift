@@ -29,14 +29,17 @@ class LoginViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        #if DEBUG
+            usernameTextField.text = "wangwenwensh"
+            passwordTextField.text = "1"
+        #endif
     }
 
     @IBAction func loginButtonTapped(_: UIButton) {
         viewModel.login(username: usernameTextField.aem.text,
                         password: passwordTextField.aem.text) { [weak self] _ in
             guard let self = self else { return }
-            `self`.perform(segue: StoryboardSegue.Main.toService, sender: self)
+            `self`.perform(segue: StoryboardSegue.Login.toTab, sender: self)
         }
     }
 }

@@ -12,8 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        NetworkActivityLogger.shared.startLogging()
-        NetworkActivityLogger.shared.level = .debug
+        #if DEBUG
+            NetworkActivityLogger.shared.startLogging()
+            NetworkActivityLogger.shared.level = .debug
+        #endif
 
         return true
     }
@@ -23,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options _: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
-        UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+        let name = app.credential != nil ? "Tab Configuration" : "Default Configuration"
+        return UISceneConfiguration(name: name, sessionRole: connectingSceneSession.role)
     }
 
     func application(_: UIApplication, didDiscardSceneSessions _: Set<UISceneSession>) {

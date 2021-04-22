@@ -12,19 +12,39 @@ import UIKit
 
 // swiftlint:disable explicit_type_interface identifier_name line_length type_body_length type_name
 internal enum StoryboardScene {
+  internal enum Assets: StoryboardType {
+    internal static let storyboardName = "Assets"
+
+    internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: Assets.self)
+  }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
 
     internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: LaunchScreen.self)
   }
-  internal enum Main: StoryboardType {
-    internal static let storyboardName = "Main"
+  internal enum Login: StoryboardType {
+    internal static let storyboardName = "Login"
 
-    internal static let initialScene = InitialSceneType<NavigationViewController>(storyboard: Main.self)
+    internal static let initialScene = InitialSceneType<NavigationViewController>(storyboard: Login.self)
 
-    internal static let loginViewController = SceneType<Asset.LoginViewController>(storyboard: Main.self, identifier: "LoginViewController")
+    internal static let loginViewController = SceneType<Asset.LoginViewController>(storyboard: Login.self, identifier: "LoginViewController")
 
-    internal static let navigationViewController = SceneType<NavigationViewController>(storyboard: Main.self, identifier: "NavigationViewController")
+    internal static let navigationViewController = SceneType<NavigationViewController>(storyboard: Login.self, identifier: "NavigationViewController")
+  }
+  internal enum Mine: StoryboardType {
+    internal static let storyboardName = "Mine"
+
+    internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: Mine.self)
+  }
+  internal enum Service: StoryboardType {
+    internal static let storyboardName = "Service"
+
+    internal static let initialScene = InitialSceneType<Asset.ServiceViewController>(storyboard: Service.self)
+  }
+  internal enum Tab: StoryboardType {
+    internal static let storyboardName = "Tab"
+
+    internal static let initialScene = InitialSceneType<Asset.TabBarViewController>(storyboard: Tab.self)
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
