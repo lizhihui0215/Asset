@@ -11,30 +11,34 @@ import Foundation
 
 enum APIRouter: URLRequestConvertible {
     case login(LoginParameter)
+    case locationList(LocationListParameter)
 
     var baseURL: URL {
-        URL(string: "https://152.136.255.61/eam-ms")!
+        URL(string: API.baseURL)!
     }
 
     var method: HTTPMethod {
         switch self {
-        case .login: return .post
+        case .login, .locationList: return .post
         }
     }
 
-    var path: Keys.Path {
+    var path: String {
         switch self {
-        case .login: return .login
+        case .login: return "\(API.serviceDictionary)/\(Keys.loginPathComponents)"
+        case .locationList: return "\(API.serviceDictionary)/\(Keys.locationListPathComponents)"
         }
     }
 
     func asURLRequest() throws -> URLRequest {
-        let url = baseURL.appendingPathComponent(path.rawValue)
+        let url = baseURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         request.method = method
 
         switch self {
         case .login(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .locationList(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         }
 
@@ -44,10 +48,7 @@ enum APIRouter: URLRequestConvertible {
 
 extension APIRouter {
     enum Keys: String {
-        case login
-
-        enum Path: String {
-            case login = "/appSys/login"
-        }
+        case loginPathComponents = "appSys/login"
+        case locationListPathComponents = "app/location/findByPage"
     }
 }

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--任务列表-->
+        <!--业务管理-->
         <scene sceneID="wSz-zA-EbP">
             <objects>
                 <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="s5B-a4-TaT" customClass="ServiceViewController" customModule="Asset" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,6 +62,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="dKd-rN-U8p" id="3ns-53-QvX"/>
                                             <outlet property="nameLabel" destination="S0B-7X-ZJV" id="UJb-Dh-zTK"/>
+                                            <segue destination="zJW-Zn-2L6" kind="show" identifier="toLocationList" id="vNk-ee-liU"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -76,12 +77,11 @@
                             <constraint firstItem="RSR-G1-cAt" firstAttribute="bottom" secondItem="dAY-F9-s9j" secondAttribute="bottom" id="nzA-od-xP0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="任务列表" id="gn2-gq-nDg"/>
+                    <navigationItem key="navigationItem" title="业务管理" id="gn2-gq-nDg"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="dAY-F9-s9j" id="Ejk-1G-CvD"/>
-                        <segue destination="zJW-Zn-2L6" kind="show" identifier="toAssetList" id="0hj-3A-71G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSQ-uI-Y6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -91,7 +91,7 @@
         <!--任务列表-->
         <scene sceneID="sAk-Kn-n7A">
             <objects>
-                <viewController id="zJW-Zn-2L6" sceneMemberID="viewController">
+                <viewController id="zJW-Zn-2L6" customClass="LocationListViewController" customModule="Asset" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CWO-2C-ePh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XZl-5I-iAy">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="请输入任务编号与名称" translatesAutoresizingMaskIntoConstraints="NO" id="qKu-ux-zpp">
+                                    <searchBar contentMode="redraw" placeholder="请输入地点编码或地点名称" translatesAutoresizingMaskIntoConstraints="NO" id="qKu-ux-zpp">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="2te-bq-d3v"/>
@@ -134,7 +134,7 @@
                                         <rect key="frame" x="0.0" y="85" width="414" height="640"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="62" id="XzT-Ys-qgh">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationListTableViewCell" rowHeight="62" id="XzT-Ys-qgh" customClass="LocationListTableViewCell" customModule="Asset" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="62"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XzT-Ys-qgh" id="e58-GN-rIX">
@@ -172,6 +172,10 @@
                                                         <constraint firstItem="fdB-Z1-ldb" firstAttribute="leading" secondItem="ryr-Nw-gMv" secondAttribute="trailing" constant="5" id="x5F-qx-vKW"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="codeLabel" destination="qfo-Ho-z38" id="Og2-5R-Yty"/>
+                                                    <outlet property="nameLabel" destination="7Im-Sz-FuY" id="HD6-1d-0G7"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -188,6 +192,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="任务列表" id="YrN-Cl-RmE"/>
+                    <connections>
+                        <outlet property="pagingInformationLabel" destination="GS7-gK-94O" id="G5v-P7-2R6"/>
+                        <outlet property="tableView" destination="YwR-zm-GiD" id="srk-7S-Jza"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7G-s4-pMV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

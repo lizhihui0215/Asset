@@ -9,9 +9,9 @@
 import Alamofire
 import Foundation
 
-typealias CompletionHandler<T: BaseResponse> = (AFDataResponse<T>) -> Void
+typealias CompletionHandler<T: DataResponse> = (AFDataResponse<T>) -> Void
 
-typealias AEMDataResponse<Success> = DataResponse<Success, Error>
+typealias AEMDataResponse<Success> = Alamofire.DataResponse<Success, Error>
 
 class NetworkManager {
     public static let `default` = NetworkManager()
@@ -40,15 +40,15 @@ class NetworkManager {
         session = Session(interceptor: composite, serverTrustManager: NetworkManager.serverTrustManager)
     }
 
-    func sendRequest<T: BaseResponse>(of _: T.Type = T.self,
-                                      router: APIRouter,
-                                      completionHandler: @escaping (AEMDataResponse<T>) -> Void)
+    func sendRequest<T: ResponseRepresentable>(of _: T.Type = T.self,
+                                               router: APIRouter,
+                                               completionHandler: @escaping (AEMDataResponse<T>) -> Void)
     {
         session.request(router).responseDecodable(of: T.self) { response in
             let response: AEMDataResponse<T> = response.tryMap { response in
 
-                guard let status = response.status, status == 0 else {
-                    throw AEMError.ServerError.responseFailed(reason: response.msg ?? "")
+                guard response.status == 0 else {
+                    throw AEMError.ServerError.responseFailed(reason: response.msg)
                 }
 
                 return response

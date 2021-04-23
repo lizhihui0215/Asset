@@ -11,8 +11,6 @@ protocol TableViewHeaderRefreshing: AnyObject {
     func footer(_ header: MJRefreshBackNormalFooter, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void)
 }
 
-extension BaseTableViewController: UITableViewDelegate {}
-
 class BaseTableViewController: BaseViewController {
     @IBOutlet var tableView: UITableView!
 
@@ -38,12 +36,16 @@ class BaseTableViewController: BaseViewController {
     var footer: MJRefreshBackNormalFooter? = MJRefreshBackNormalFooter()
     weak var headerRefreshingDelegate: TableViewHeaderRefreshing?
 
-    override func loadView() {
-        super.loadView()
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        isFooterRefreshingEnabled = true
+        isHeaderRefreshingEnabled = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
         tableView.mj_header?.refreshingBlock = { [weak self] in
             guard let self = self,
                   let header = self.header,
@@ -71,3 +73,15 @@ class BaseTableViewController: BaseViewController {
         }
     }
 }
+
+extension BaseTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        UITableViewCell()
+    }
+}
+
+extension BaseTableViewController: UITableViewDelegate {}

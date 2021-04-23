@@ -13,7 +13,6 @@ let app = App()
 public final class App {
     enum Keys: String {
         case credential
-        case baseURL
     }
 
     private var infoDictionary = Bundle.main.infoDictionary
@@ -33,9 +32,6 @@ public final class App {
 
     @UserDefault(key: Keys.credential, defaultValue: nil)
     private(set) var credential: Credential?
-
-    @UserDefault(key: Keys.baseURL, defaultValue: "https://152.136.255.61/eam-ms")
-    private(set) var baseURL: String
 
     public var version: String {
         infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
@@ -84,9 +80,5 @@ public final class App {
 extension App {
     func add(credential: Credential) {
         self.credential = credential
-    }
-
-    func setBaseURL(_ url: String) {
-        baseURL = url
     }
 }

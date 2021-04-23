@@ -7,10 +7,19 @@ import Foundation
 
 protocol Keys {
     var rawValue: String { get }
+    var key: String { get }
 }
+
+extension Keys {
+    var key: String {
+        rawValue
+    }
+}
+
+extension AsyncOperation.State: Keys {}
 
 extension App.Keys: Keys {}
 
 extension APIRouter.Keys: Keys {}
 
-extension APIRouter.Keys.Path: Keys {}
+extension API.Keys: Keys {}

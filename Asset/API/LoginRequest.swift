@@ -8,14 +8,7 @@
 
 import Foundation
 
-struct LoginRequest: BaseRequest {
-    func login(username: String, password: String, completionHandler: @escaping APICompletionHandler<Credential?>) {
-        let parameter = LoginParameter(userAccount: username, userPwd: password)
-        sendRequest(of: LoginResponse.self,
-                    router: .login(parameter),
-                    completionHandler: completionHandler)
-    }
-}
+struct LoginRequest: RequestRepresentable {}
 
 struct LoginParameter: Encodable {
     let userAccount: String?
@@ -23,9 +16,9 @@ struct LoginParameter: Encodable {
     let appType: App.`Type` = .ios
 }
 
-struct LoginResponse: BaseResponse {
-    var status: Int? = 0
-    var msg: String? = ""
+struct LoginResponse: DataResponse {
+    var status: Int = 0
+    var msg: String = ""
     var data: Credential?
 }
 

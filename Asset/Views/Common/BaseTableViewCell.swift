@@ -1,14 +1,14 @@
 //
-// Created by lizhihui on 2021/4/21.
+// Created by lizhihui on 2021/4/22.
 // Copyright (c) 2021 ZhiHui.Li. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-protocol CollectionViewCellConfigurable {
+protocol TableViewCellConfigurable {
     associatedtype ViewModel: ViewModelRepresentable
     func configurationCell(with viewModel: ViewModel)
 }
 
-class BaseCollectionViewCell: UICollectionViewCell {}
+class BaseTableViewCell: UITableViewCell {}

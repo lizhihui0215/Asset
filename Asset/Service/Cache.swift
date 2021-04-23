@@ -39,22 +39,30 @@ struct UserDefault<T: Codable, K: Keys> {
     let key: K
     let defaultValue: T
 
+    init(key: K, defaultValue: T) {
+        self.key = key
+        self.defaultValue = defaultValue
+    }
+
     var wrappedValue: T {
         get {
-            guard let data = UserDefaults.standard.object(forKey: key.rawValue) as? Data,
-                  let obj = try? JSONDecoder().decode(T.self, from: data)
-            else {
+            guard let obj = value(for: key.rawValue) else {
                 return defaultValue
             }
-
             return obj
         }
         set {
-            guard let data = try? JSONEncoder().encode(newValue) else {
-                return
-            }
-
-            UserDefaults.standard.set(data, forKey: key.rawValue)
+            add(data: newValue, to: key.rawValue)
         }
+    }
+
+    func add(data: T, to key: String) {
+        let data = try? JSONEncoder().encode(data)
+        UserDefaults.standard.set(data, forKey: key)
+    }
+
+    func value(for key: String) -> T? {
+        guard let data = UserDefaults.standard.object(forKey: key) as? Data else { return nil }
+        return try? JSONDecoder().decode(T.self, from: data)
     }
 }

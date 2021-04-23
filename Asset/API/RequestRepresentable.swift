@@ -23,20 +23,24 @@ public extension HTTPHeader {
     }
 }
 
-protocol BaseRequest {
+protocol RequestRepresentable {
     var apiClient: NetworkManager { get }
 
-    func sendRequest<T: BaseResponse>(of type: T.Type,
+    func dataRequest<T: DataResponse>(of type: T.Type,
                                       router: APIRouter,
                                       completionHandler: @escaping (APIResult<T.Model?>) -> Void)
+
+    func listRequest<T: PageableResponse>(of type: T.Type,
+                                          router: APIRouter,
+                                          completionHandler: @escaping (APIResult<T>) -> Void)
 }
 
-extension BaseRequest {
+extension RequestRepresentable {
     var apiClient: NetworkManager {
         NetworkManager.default
     }
 
-    public func sendRequest<T: BaseResponse>(of type: T.Type = T.self,
+    public func dataRequest<T: DataResponse>(of type: T.Type = T.self,
                                              router: APIRouter,
                                              completionHandler: @escaping (APIResult<T.Model?>) -> Void)
     {
@@ -44,6 +48,20 @@ extension BaseRequest {
             do {
                 let data = try response.result.get()
                 completionHandler(.success(data.data))
+            } catch {
+                completionHandler(.failure(error))
+            }
+        }
+    }
+
+    func listRequest<T: PageableResponse>(of type: T.Type,
+                                          router: APIRouter,
+                                          completionHandler: @escaping (APIResult<T>) -> Void)
+    {
+        apiClient.sendRequest(of: type, router: router) { response in
+            do {
+                let data = try response.result.get()
+                completionHandler(.success(data))
             } catch {
                 completionHandler(.failure(error))
             }

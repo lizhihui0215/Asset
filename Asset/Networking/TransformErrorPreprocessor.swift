@@ -9,7 +9,7 @@
 import Alamofire
 import Foundation
 
-struct TransformErrorPreprocessor<T: BaseResponse>: DataPreprocessor {
+struct TransformErrorPreprocessor<T: DataResponse>: DataPreprocessor {
     let decoder: DataDecoder
 
     public init(decoder: DataDecoder = JSONDecoder()) {
@@ -21,8 +21,8 @@ struct TransformErrorPreprocessor<T: BaseResponse>: DataPreprocessor {
             return data
         }
 
-        guard let status = response.status, status == 0 else {
-            throw AEMError.ServerError.responseFailed(reason: response.msg ?? "")
+        guard response.status == 0 else {
+            throw AEMError.ServerError.responseFailed(reason: response.msg)
         }
 
         return data

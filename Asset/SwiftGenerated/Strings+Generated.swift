@@ -28,6 +28,10 @@ internal enum L10n {
   internal static let locationModify = L10n.tr("Localizable", "locationModify")
   /// 通知
   internal static let notification = L10n.tr("Localizable", "notification")
+  /// 第%d共有任务%d条
+  internal static func pagingInformationLabelText(_ p1: Int, _ p2: Int) -> String {
+    return L10n.tr("Localizable", "pagingInformationLabelText", p1, p2)
+  }
   /// 工程转资
   internal static let projectTransfer = L10n.tr("Localizable", "projectTransfer")
 }

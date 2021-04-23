@@ -8,7 +8,7 @@ import UIKit
 
 extension UIViewController {
     func startLoadingIndicator() {
-        HUD.show(.progress)
+        HUD.show(.systemActivity)
     }
 
     func stopLoadingIndicator() {
@@ -24,4 +24,6 @@ extension UIViewController {
         alertController.addAction(dismiss)
         present(alertController, animated: true)
     }
+
+    func handler(error: Error) {}
 }

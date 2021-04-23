@@ -9,7 +9,7 @@ import UIKit
 final class ServiceViewModel: ListViewModel<ServiceViewController, DefaultSection<ServiceConfiguration.Service>> {
     let serviceConfiguration = ServiceConfiguration()
 
-    init(request: BaseRequest, action: ServiceViewController) {
+    init(request: RequestRepresentable, action: ServiceViewController) {
         var dataSource: [DefaultSection<ServiceConfiguration.Service>] = [.defaultValue]
         dataSource[0].items.append(contentsOf: serviceConfiguration.services)
         super.init(request: request, action: action, dataSource: dataSource)
@@ -17,7 +17,7 @@ final class ServiceViewModel: ListViewModel<ServiceViewController, DefaultSectio
 
     func serviceViewModelAt(indexPath: IndexPath) -> ServiceCollectionViewCell.ViewModel {
         let item = itemAtIndexPath(indexPath: indexPath)
-        return .init(name: item.title, image: item.image)
+        return .init(cellType: item.convert(), name: item.title, image: item.image)
     }
 }
 

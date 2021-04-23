@@ -187,6 +187,6 @@ extension AnyCodable: ExpressibleByNilLiteral, ExpressibleByBooleanLiteral, Expr
     }
 
     init(dictionaryLiteral elements: (AnyHashable, Any)...) {
-        self.init([AnyHashable: Any](elements, uniquingKeysWith: { first, _ in first }))
+        self.init([AnyHashable: Any](elements) { first, _ in first })
     }
 }

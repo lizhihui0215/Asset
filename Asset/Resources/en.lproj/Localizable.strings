@@ -16,3 +16,4 @@
 "locationModify" = "地点信息修改";
 "notification" = "通知";
 "baseData" = "基础数据";
+"paging_information_label_text" = "sadsad%d, %d";

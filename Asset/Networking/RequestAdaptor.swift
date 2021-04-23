@@ -17,11 +17,9 @@ class RequestAdaptor: RequestAdapter {
         var urlRequest = urlRequest
         urlRequest.headers.add(.appInfo(app.info))
 
-        guard urlRequest.url?.absoluteURL.path.hasPrefix(APIRouter.Keys.Path.login.rawValue) ?? false else {
-            completion(.success(urlRequest)); return
+        if API.isAuthorizationRequired(url: urlRequest.url) {
+            urlRequest.headers.add(.userToken(app.credential?.userToken ?? ""))
         }
-
-        urlRequest.headers.add(.userToken(app.credential?.userToken ?? ""))
 
         completion(.success(urlRequest))
     }

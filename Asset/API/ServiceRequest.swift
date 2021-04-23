@@ -5,4 +5,4 @@
 
 import Foundation
 
-class ServiceRequest: BaseRequest {}
+class ServiceRequest: RequestRepresentable {}

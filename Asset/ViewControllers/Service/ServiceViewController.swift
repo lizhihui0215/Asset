@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ServiceViewController: UIViewController {
+class ServiceViewController: BaseViewController {
     @IBOutlet var collectionView: UICollectionView!
 
     lazy var viewModel: ServiceViewModel = {
@@ -19,6 +19,16 @@ class ServiceViewController: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+}
+
+extension ServiceViewController {
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+    }
+
+    override open func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
     }
 }
 

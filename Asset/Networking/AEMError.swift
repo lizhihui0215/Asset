@@ -59,6 +59,8 @@ public extension Error {
 }
 
 public enum AEMError: Error {
+    case unknown
+
     public enum ServerError: Error {
         case responseFailed(reason: String)
     }
@@ -72,6 +74,23 @@ public enum AEMError: Error {
 public extension AFError {
     var recoverySuggestion: String? {
         errorDescription
+    }
+}
+
+extension AEMError: LocalizedError {
+    public var errorDescription: String? {
+        failureReason
+    }
+
+    public var recoverySuggestion: String? {
+        failureReason
+    }
+
+    public var failureReason: String? {
+        switch self {
+        case .unknown:
+            return "未知错误，请稍后再尝试！"
+        }
     }
 }
 
