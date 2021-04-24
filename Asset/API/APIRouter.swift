@@ -14,7 +14,7 @@ enum APIRouter: URLRequestConvertible {
     case locationList(LocationListParameter)
 
     var baseURL: URL {
-        URL(string: API.baseURL)!
+        URL(string: "\(API.schema)://\(API.domain)/")!
     }
 
     var method: HTTPMethod {

@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NetworkActivityLogger.shared.startLogging()
             NetworkActivityLogger.shared.level = .debug
         #endif
-
         return true
     }
 

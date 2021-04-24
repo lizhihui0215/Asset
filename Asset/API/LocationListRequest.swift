@@ -7,10 +7,11 @@ import Foundation
 
 class LocationListRequest: RequestRepresentable {}
 
-struct LocationListParameter: Encodable {
+struct LocationListParameter: Encodable, Searchable {
     let pageNumber: String
     let pageSize: String
     let regionIdCompany: String
+    var appSearchText: String
 }
 
 struct LocationListResponse: PageableResponse {

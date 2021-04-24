@@ -5,15 +5,21 @@
   Created by lizhihui on 2021/4/20.
   Copyright © 2021 ZhiHui.Li. All rights reserved.
 */
-
-"projectTransfer" = "工程转资";
-"cycleInventory" = "循环盘点";
-"assetInventory" = "资产盘点";
-"internalDepartmentTransfer" = "部门内调拨";
-"externalDepartmentTransfer" = "部门间调拨";
-"companyTransfer" = "公司间调拨";
-"assetInspection" = "资产巡检";
-"locationModify" = "地点信息修改";
-"notification" = "通知";
-"baseData" = "基础数据";
-"paging_information_label_text" = "sadsad%d, %d";
+//******************************************************************************
+// Service
+//******************************************************************************
+"service.name.projectTransfer" = "工程转资";
+"service.name.cycleInventory" = "循环盘点";
+"service.name.assetInventory" = "资产盘点";
+"service.name.internalDepartmentTransfer" = "部门内调拨";
+"service.name.externalDepartmentTransfer" = "部门间调拨";
+"service.name.companyTransfer" = "公司间调拨";
+"service.name.assetInspection" = "资产巡检";
+"service.name.locationModify" = "地点信息修改";
+"service.name.notification" = "通知";
+"service.name.baseData" = "基础数据";
+//******************************************************************************
+// LocationList
+//******************************************************************************
+"locationList.pagingInformation.label.text" = "第%d共有任务%d条";
+"service.error.inDevelopment.message" = "本App不能使用！";

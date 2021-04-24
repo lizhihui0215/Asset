@@ -9,6 +9,7 @@ import UIKit
 
 class LocationListViewController: BaseTableViewController {
     @IBOutlet var pagingInformationLabel: UILabel!
+    @IBOutlet var searchBar: UISearchBar!
 
     lazy var viewModel: LocationListViewModel = {
         LocationListViewModel(request: LocationListRequest(), action: self)
@@ -17,6 +18,7 @@ class LocationListViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         headerRefreshingDelegate = self
+        searchBar.delegate = self
         refreshTable()
     }
 
@@ -24,11 +26,12 @@ class LocationListViewController: BaseTableViewController {
         viewModel.fetchList(isPaging: isPaging) { [weak self] _ in
             guard let self = self else { return }
             `self`.tableView.reloadData()
+            `self`.updatePagingInformation()
         }
     }
 
     func updatePagingInformation() {
-        pagingInformationLabel.text = "第\(viewModel.page)共有任务\(viewModel.total)条"
+        pagingInformationLabel.text = L10n.locationList.pagingInformation.label.text(viewModel.page, viewModel.total)
     }
 }
 
@@ -41,6 +44,13 @@ extension LocationListViewController: TableViewHeaderRefreshing {
     func footer(_ header: MJRefreshBackNormalFooter, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
         refreshTable(isPaging: true)
         completionBlock()
+    }
+}
+
+extension LocationListViewController: UISearchBarDelegate {
+    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        viewModel.appSearchText = searchBar.eam.text
+        refreshTable()
     }
 }
 

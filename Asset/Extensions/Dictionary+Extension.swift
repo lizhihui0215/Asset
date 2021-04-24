@@ -8,4 +8,4 @@
 
 import Foundation
 
-extension Dictionary: AEMExtended {}
+extension Dictionary: EAMExtended {}

@@ -14,7 +14,7 @@ strings:
   inputs:
     - Resources/zh-Hans.lproj
   outputs:
-    - templateName: structured-swift5
+    - templatePath: ./${SWIFT_GEN_INPUT}/SwiftGenerated/Templates/Strings.stencil
       output: Strings+Generated.swift
 
 

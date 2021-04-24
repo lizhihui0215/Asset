@@ -28,7 +28,15 @@ extension ServiceViewController {
     }
 
     override open func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
+        guard let segue = StoryboardSegue.Service(rawValue: identifier) else { return false }
+
+        guard let cell: ServiceCollectionViewCell = segue.associatedCollectionViewCell(from: sender) else { return false }
+
+        guard cell.service.isInDevelopment else { return true }
+
+        alert(message: L10n.service.error.inDevelopment.message)
+
+        return false
     }
 }
 

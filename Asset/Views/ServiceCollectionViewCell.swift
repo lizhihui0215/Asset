@@ -12,7 +12,22 @@ extension ServiceCollectionViewCell: ReuseIdRepresentable {}
 
 class ServiceCollectionViewCell: BaseCollectionViewCell {
     struct ViewModel: ViewModelRepresentable {
-        enum CellType {
+        enum Service {
+            public var isInDevelopment: Bool {
+                switch self {
+                case .projectTransfer: return true
+                case .cycleInventory: return false
+                case .assetInventory: return false
+                case .internalDepartmentTransfer: return true
+                case .externalDepartmentTransfer: return true
+                case .companyTransfer: return true
+                case .assetInspection: return true
+                case .locationModify: return true
+                case .notification: return true
+                case .baseData: return true
+                }
+            }
+
             case projectTransfer
             case cycleInventory
             case assetInventory
@@ -25,12 +40,12 @@ class ServiceCollectionViewCell: BaseCollectionViewCell {
             case baseData
         }
 
-        let cellType: CellType
+        let service: Service
         let name: String
         let image: UIImage?
     }
 
-    var type: ViewModel.CellType = .projectTransfer
+    var service: ViewModel.Service = .projectTransfer
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
 }
@@ -39,6 +54,6 @@ extension ServiceCollectionViewCell: CollectionViewCellConfigurable {
     func configurationCell(with viewModel: ViewModel) {
         nameLabel.text = viewModel.name
         imageView.image = viewModel.image
-        type = viewModel.cellType
+        service = viewModel.service
     }
 }

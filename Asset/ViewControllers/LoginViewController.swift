@@ -36,8 +36,8 @@ class LoginViewController: BaseViewController {
     }
 
     @IBAction func loginButtonTapped(_: UIButton) {
-        viewModel.login(username: usernameTextField.aem.text,
-                        password: passwordTextField.aem.text) { [weak self] _ in
+        viewModel.login(username: usernameTextField.eam.text,
+                        password: passwordTextField.eam.text) { [weak self] _ in
             guard let self = self else { return }
             `self`.perform(segue: StoryboardSegue.Login.toTab, sender: self)
         }

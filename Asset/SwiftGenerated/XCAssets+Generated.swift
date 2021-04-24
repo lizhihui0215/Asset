@@ -55,7 +55,6 @@ internal enum Image {
     internal static let imgInformation = ImageAsset(name: "img_information")
     internal static let into2 = ImageAsset(name: "into2")
     internal static let intolining = ImageAsset(name: "intolining")
-    internal static let location = ImageAsset(name: "location")
     internal static let locationEd = ImageAsset(name: "location_ed")
     internal static let menu = ImageAsset(name: "menu")
     internal static let myTaskOutinStorage = ImageAsset(name: "my_task_outinStorage")
@@ -67,7 +66,6 @@ internal enum Image {
     internal static let tabbg = ImageAsset(name: "tabbg")
     internal static let task = ImageAsset(name: "task")
     internal static let taskbg = ImageAsset(name: "taskbg")
-    internal static let titbg = ImageAsset(name: "titbg")
     internal static let unselect = ImageAsset(name: "unselect")
     internal static let up = ImageAsset(name: "up")
     internal static let ywg = ImageAsset(name: "ywg")
@@ -167,6 +165,9 @@ internal enum Image {
     internal static let scanline = ImageAsset(name: "scanline")
   }
   internal enum Service {
+    internal enum LocationList {
+      internal static let cellBackgroundImage = ImageAsset(name: "cellBackgroundImage")
+    }
     internal static let assetInspection = ImageAsset(name: "assetInspection")
     internal static let assetInventory = ImageAsset(name: "assetInventory")
     internal static let baseData = ImageAsset(name: "baseData")
@@ -174,6 +175,7 @@ internal enum Image {
     internal static let cycleInventory = ImageAsset(name: "cycleInventory")
     internal static let externalDepartmentTransfer = ImageAsset(name: "externalDepartmentTransfer")
     internal static let internalDepartmentTransfer = ImageAsset(name: "internalDepartmentTransfer")
+    internal static let location = ImageAsset(name: "location")
     internal static let locationModify = ImageAsset(name: "locationModify")
     internal static let notification = ImageAsset(name: "notification")
     internal static let projectTransfer = ImageAsset(name: "projectTransfer")

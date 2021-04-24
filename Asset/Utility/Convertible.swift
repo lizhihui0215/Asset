@@ -13,7 +13,7 @@ protocol Convertible {
 extension ServiceConfiguration.Service: Convertible {}
 
 extension Convertible where Self == ServiceConfiguration.Service {
-    func convert() -> ServiceCollectionViewCell.ViewModel.CellType {
+    func convert() -> ServiceCollectionViewCell.ViewModel.Service {
         switch self {
         case .projectTransfer: return .projectTransfer
         case .cycleInventory: return .cycleInventory

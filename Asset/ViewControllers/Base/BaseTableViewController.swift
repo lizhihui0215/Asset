@@ -46,6 +46,9 @@ class BaseTableViewController: BaseViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
+        tableView.mj_header = header
+        tableView.mj_footer = footer
         tableView.mj_header?.refreshingBlock = { [weak self] in
             guard let self = self,
                   let header = self.header,

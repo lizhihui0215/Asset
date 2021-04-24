@@ -13,16 +13,24 @@ protocol Section: Defaultable {
     var header: Header { get set }
 
     var items: [Item] { get set }
+
+    mutating func append(contentsOf: [Item])
+}
+
+extension Section {
+    mutating func append(contentsOf items: [Item]) {
+        self.items.append(contentsOf: items)
+    }
 }
 
 protocol Item {}
 
-struct DefaultItem: Item {
+final class DefaultItem: Item {
     var title = ""
     var image = UIImage()
 }
 
-struct DefaultSection<T: Item>: Section {
+final class DefaultSection<T: Item>: Section {
     var header: Void
     var items: [T]
 
@@ -68,6 +76,16 @@ class ListViewModel<T: UIViewController, S: Section>: BaseViewModel<T> {
 
     func sectionAt(index: Int) -> S {
         dataSource[index]
+    }
+
+    var first: S {
+        guard let first = dataSource.first else {
+            let defaultSection: S = .defaultValue
+            dataSource = [defaultSection]
+            return defaultSection
+        }
+
+        return first
     }
 }
 

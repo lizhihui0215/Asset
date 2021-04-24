@@ -26,11 +26,11 @@ class LoginViewModel: BaseViewModel<LoginViewController> {
     override func valid(router: APIRouter) throws {
         if case .login(let parameter) = router {
             guard self.validator.not(type: .empty(string: parameter.userAccount)) else {
-                throw AEMError.UIError.usernameEmpty
+                throw EAMError.UIError.usernameEmpty
             }
 
             guard self.validator.not(type: .empty(string: parameter.userPwd)) else {
-                throw AEMError.UIError.passwordEmpty
+                throw EAMError.UIError.passwordEmpty
             }
         }
 

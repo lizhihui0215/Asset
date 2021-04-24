@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UITextField: AEMExtended {}
+extension UITextField: EAMExtended {}
 
-public extension AEMExtension where ExtendedType: UITextField {
+public extension EAMExtension where ExtendedType: UITextField {
     var text: String {
         type.text ?? ""
     }

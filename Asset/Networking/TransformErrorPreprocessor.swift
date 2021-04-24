@@ -22,7 +22,7 @@ struct TransformErrorPreprocessor<T: DataResponse>: DataPreprocessor {
         }
 
         guard response.status == 0 else {
-            throw AEMError.ServerError.responseFailed(reason: response.msg)
+            throw EAMError.ServerError.responseFailed(reason: response.msg)
         }
 
         return data

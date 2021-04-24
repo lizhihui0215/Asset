@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct AEMExtension<ExtendedType> {
+public struct EAMExtension<ExtendedType> {
     /// Stores the type or meta-type of any extended type.
     public private(set) var type: ExtendedType
 
@@ -20,32 +20,32 @@ public struct AEMExtension<ExtendedType> {
     }
 }
 
-/// Protocol describing the `af` extension points for AEM extended types.
-public protocol AEMExtended {
+/// Protocol describing the `af` extension points for EAM extended types.
+public protocol EAMExtended {
     /// Type being extended.
     associatedtype ExtendedType
 
-    /// Static AEM extension point.
-    static var aem: AEMExtension<ExtendedType>.Type { get set }
-    /// Instance AEM extension point.
-    var aem: AEMExtension<ExtendedType> { get set }
+    /// Static EAM extension point.
+    static var eam: EAMExtension<ExtendedType>.Type { get set }
+    /// Instance EAM extension point.
+    var eam: EAMExtension<ExtendedType> { get set }
 }
 
-public extension AEMExtended {
-    /// Static AEM extension point.
-    static var aem: AEMExtension<Self>.Type {
-        get { AEMExtension<Self>.self }
+public extension EAMExtended {
+    /// Static EAM extension point.
+    static var eam: EAMExtension<Self>.Type {
+        get { EAMExtension<Self>.self }
         set {}
     }
 
-    /// Instance AEM extension point.
-    var aem: AEMExtension<Self> {
-        get { AEMExtension(self) }
+    /// Instance EAM extension point.
+    var eam: EAMExtension<Self> {
+        get { EAMExtension(self) }
         set {}
     }
 }
 
-public extension AEMExtension where ExtendedType: Encodable {
+public extension EAMExtension where ExtendedType: Encodable {
     var jsonString: String {
         guard let content = try? JSONEncoder().encode(type) else {
             return ""

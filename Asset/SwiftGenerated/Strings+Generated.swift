@@ -10,30 +10,48 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
-  /// 资产巡检
-  internal static let assetInspection = L10n.tr("Localizable", "assetInspection")
-  /// 资产盘点
-  internal static let assetInventory = L10n.tr("Localizable", "assetInventory")
-  /// 基础数据
-  internal static let baseData = L10n.tr("Localizable", "baseData")
-  /// 公司间调拨
-  internal static let companyTransfer = L10n.tr("Localizable", "companyTransfer")
-  /// 循环盘点
-  internal static let cycleInventory = L10n.tr("Localizable", "cycleInventory")
-  /// 部门间调拨
-  internal static let externalDepartmentTransfer = L10n.tr("Localizable", "externalDepartmentTransfer")
-  /// 部门内调拨
-  internal static let internalDepartmentTransfer = L10n.tr("Localizable", "internalDepartmentTransfer")
-  /// 地点信息修改
-  internal static let locationModify = L10n.tr("Localizable", "locationModify")
-  /// 通知
-  internal static let notification = L10n.tr("Localizable", "notification")
-  /// 第%d共有任务%d条
-  internal static func pagingInformationLabelText(_ p1: Int, _ p2: Int) -> String {
-    return L10n.tr("Localizable", "pagingInformationLabelText", p1, p2)
+
+  internal enum locationList {
+    internal enum pagingInformation {
+      internal enum label {
+        /// 第%d共有任务%d条
+        internal static func text(_ p1: Int, _ p2: Int) -> String {
+          return L10n.tr("Localizable", "locationList.pagingInformation.label.text", p1, p2)
+        }
+      }
+    }
   }
-  /// 工程转资
-  internal static let projectTransfer = L10n.tr("Localizable", "projectTransfer")
+
+  internal enum service {
+    internal enum error {
+      internal enum inDevelopment {
+        /// 本App不能使用！
+        internal static let message = L10n.tr("Localizable", "service.error.inDevelopment.message")
+      }
+    }
+    internal enum name {
+      /// 资产巡检
+      internal static let assetInspection = L10n.tr("Localizable", "service.name.assetInspection")
+      /// 资产盘点
+      internal static let assetInventory = L10n.tr("Localizable", "service.name.assetInventory")
+      /// 基础数据
+      internal static let baseData = L10n.tr("Localizable", "service.name.baseData")
+      /// 公司间调拨
+      internal static let companyTransfer = L10n.tr("Localizable", "service.name.companyTransfer")
+      /// 循环盘点
+      internal static let cycleInventory = L10n.tr("Localizable", "service.name.cycleInventory")
+      /// 部门间调拨
+      internal static let externalDepartmentTransfer = L10n.tr("Localizable", "service.name.externalDepartmentTransfer")
+      /// 部门内调拨
+      internal static let internalDepartmentTransfer = L10n.tr("Localizable", "service.name.internalDepartmentTransfer")
+      /// 地点信息修改
+      internal static let locationModify = L10n.tr("Localizable", "service.name.locationModify")
+      /// 通知
+      internal static let notification = L10n.tr("Localizable", "service.name.notification")
+      /// 工程转资
+      internal static let projectTransfer = L10n.tr("Localizable", "service.name.projectTransfer")
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

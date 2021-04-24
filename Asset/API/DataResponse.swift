@@ -50,13 +50,13 @@ extension PageableResponse {
         self.init()
         let container = try decoder.container(keyedBy: CodingKeys.List.self)
         let status: Int = try container.decodeIfPresent(.status) ?? 0
-        let msg: String = try container.decodeIfPresent(.msg) ?? AEMError.unknown.recoverySuggestion ?? ""
+        let msg: String = try container.decodeIfPresent(.msg) ?? ""
         let data: [Model] = try container.decodeIfPresent(.data) ?? []
         let page: String = try container.decodeIfPresent(.page) ?? ""
         let total: String = try container.decodeIfPresent(.total) ?? ""
         let records: String = try container.decodeIfPresent(.records) ?? ""
         self.status = status
-        self.msg = msg
+        self.msg = msg.isEmpty && status != 0 ? EAMError.unknown.recoverySuggestion ?? "" : msg
         self.data = data
         self.page = Int(page) ?? 0
         self.total = Int(total) ?? 0
@@ -69,10 +69,10 @@ extension DataResponse {
         self.init()
         let container = try decoder.container(keyedBy: CodingKeys.Base.self)
         let status: Int = try container.decodeIfPresent(.status) ?? 0
-        let msg: String = try container.decodeIfPresent(.msg) ?? AEMError.unknown.recoverySuggestion ?? ""
+        let msg: String = try container.decodeIfPresent(.msg) ?? ""
         let data: Model? = try container.decodeIfPresent(.data)
         self.status = status
-        self.msg = msg
+        self.msg = msg.isEmpty && status != 0 ? EAMError.unknown.recoverySuggestion ?? "" : msg
         self.data = data
     }
 }

@@ -10,10 +10,10 @@ import Alamofire
 import Foundation
 
 extension AFError {
-    public var isAEMServerError: Bool {
+    public var isEAMServerError: Bool {
         if case .responseSerializationFailed(let reason) = self,
            case .customSerializationFailed(let customError) = reason,
-           case AEMError.ServerError.responseFailed = customError
+           case EAMError.ServerError.responseFailed = customError
         {
             return true
         }
@@ -21,10 +21,10 @@ extension AFError {
         return false
     }
 
-    func asAEMError() -> Error {
+    func asEAMError() -> Error {
         if case .responseSerializationFailed(let reason) = self,
            case .customSerializationFailed(let customError) = reason,
-           case AEMError.ServerError.responseFailed = customError
+           case EAMError.ServerError.responseFailed = customError
         {
             return customError
         }
@@ -34,12 +34,12 @@ extension AFError {
 }
 
 public extension Error {
-    var asAEMServerError: AEMError.ServerError? {
-        self as? AEMError.ServerError
+    var asEAMServerError: EAMError.ServerError? {
+        self as? EAMError.ServerError
     }
 
-    var asAEMUIError: AEMError.UIError? {
-        self as? AEMError.UIError
+    var asEAMUIError: EAMError.UIError? {
+        self as? EAMError.UIError
     }
 
     var recoverySuggestion: String? {
@@ -47,18 +47,18 @@ public extension Error {
             return suggestion
         }
 
-        if let suggestion = asAEMServerError?.recoverySuggestion {
+        if let suggestion = asEAMServerError?.recoverySuggestion {
             return suggestion
         }
 
-        if let suggestion = asAEMUIError?.recoverySuggestion {
+        if let suggestion = asEAMUIError?.recoverySuggestion {
             return suggestion
         }
         return nil
     }
 }
 
-public enum AEMError: Error {
+public enum EAMError: Error {
     case unknown
 
     public enum ServerError: Error {
@@ -77,7 +77,7 @@ public extension AFError {
     }
 }
 
-extension AEMError: LocalizedError {
+extension EAMError: LocalizedError {
     public var errorDescription: String? {
         failureReason
     }
@@ -94,7 +94,7 @@ extension AEMError: LocalizedError {
     }
 }
 
-extension AEMError.UIError: LocalizedError {
+extension EAMError.UIError: LocalizedError {
     public var errorDescription: String? {
         failureReason
     }
@@ -113,7 +113,7 @@ extension AEMError.UIError: LocalizedError {
     }
 }
 
-extension AEMError.ServerError: LocalizedError {
+extension EAMError.ServerError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .responseFailed(let reason):

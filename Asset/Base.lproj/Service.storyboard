@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -91,13 +92,13 @@
         <!--任务列表-->
         <scene sceneID="sAk-Kn-n7A">
             <objects>
-                <viewController id="zJW-Zn-2L6" customClass="LocationListViewController" customModule="Asset" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="zJW-Zn-2L6" customClass="LocationListViewController" customModule="Asset" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CWO-2C-ePh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XZl-5I-iAy">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" placeholder="请输入地点编码或地点名称" translatesAutoresizingMaskIntoConstraints="NO" id="qKu-ux-zpp">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -109,10 +110,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLH-If-fsf">
                                         <rect key="frame" x="0.0" y="44" width="414" height="40"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第1页共有任务168条" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GS7-gK-94O">
-                                                <rect key="frame" x="237" y="10" width="157" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第1页共有任务0条" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GS7-gK-94O">
+                                                <rect key="frame" x="255" y="10" width="139" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="primaryTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -130,46 +131,57 @@
                                             <constraint firstAttribute="height" constant="1" id="wst-Kh-Zza"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YwR-zm-GiD">
-                                        <rect key="frame" x="0.0" y="85" width="414" height="640"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YwR-zm-GiD">
+                                        <rect key="frame" x="0.0" y="85" width="414" height="689"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationListTableViewCell" rowHeight="62" id="XzT-Ys-qgh" customClass="LocationListTableViewCell" customModule="Asset" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="62"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationListTableViewCell" id="XzT-Ys-qgh" customClass="LocationListTableViewCell" customModule="Asset" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="143"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XzT-Ys-qgh" id="e58-GN-rIX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="143"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ryr-Nw-gMv">
-                                                            <rect key="frame" x="5" y="5" width="375" height="52"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="OZd-eb-Yua">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="143"/>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="107.5" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ryr-Nw-gMv">
+                                                            <rect key="frame" x="5" y="5" width="360" height="133"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39238789217892379821" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-Ho-z38">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="195.5" height="16"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" text="39238789217892379821" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-Ho-z38">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="360" height="21"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="21" id="buO-iq-JSK"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="primaryTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Im-Sz-FuY">
-                                                                    <rect key="frame" x="0.0" y="21" width="364" height="31"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市山东神济南市" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Im-Sz-FuY">
+                                                                    <rect key="frame" x="0.0" y="31" width="360" height="102"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="primaryTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="fdB-Z1-ldb">
-                                                            <rect key="frame" x="385" y="17" width="24" height="28.5"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="fdB-Z1-ldb">
+                                                            <rect key="frame" x="370" y="57.5" width="24" height="28.5"/>
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="ryr-Nw-gMv" secondAttribute="bottom" constant="5" id="4yk-yv-wmj"/>
+                                                        <constraint firstItem="OZd-eb-Yua" firstAttribute="leading" secondItem="e58-GN-rIX" secondAttribute="leading" id="DJc-4y-WjC"/>
                                                         <constraint firstItem="fdB-Z1-ldb" firstAttribute="centerY" secondItem="e58-GN-rIX" secondAttribute="centerY" id="Ht2-lF-6m8"/>
-                                                        <constraint firstAttribute="trailing" secondItem="fdB-Z1-ldb" secondAttribute="trailing" constant="5" id="b8f-MV-NGV"/>
+                                                        <constraint firstItem="OZd-eb-Yua" firstAttribute="top" secondItem="e58-GN-rIX" secondAttribute="top" id="V6V-cX-4Pl"/>
+                                                        <constraint firstAttribute="trailing" secondItem="fdB-Z1-ldb" secondAttribute="trailing" constant="20" id="b8f-MV-NGV"/>
                                                         <constraint firstItem="ryr-Nw-gMv" firstAttribute="top" secondItem="e58-GN-rIX" secondAttribute="top" constant="5" id="nMK-W9-AqI"/>
+                                                        <constraint firstAttribute="bottom" secondItem="OZd-eb-Yua" secondAttribute="bottom" id="p5x-I7-qmS"/>
                                                         <constraint firstItem="ryr-Nw-gMv" firstAttribute="leading" secondItem="e58-GN-rIX" secondAttribute="leading" constant="5" id="was-fT-3B1"/>
                                                         <constraint firstItem="fdB-Z1-ldb" firstAttribute="leading" secondItem="ryr-Nw-gMv" secondAttribute="trailing" constant="5" id="x5F-qx-vKW"/>
+                                                        <constraint firstAttribute="trailing" secondItem="OZd-eb-Yua" secondAttribute="trailing" id="y9x-s8-dBj"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -194,6 +206,7 @@
                     <navigationItem key="navigationItem" title="任务列表" id="YrN-Cl-RmE"/>
                     <connections>
                         <outlet property="pagingInformationLabel" destination="GS7-gK-94O" id="G5v-P7-2R6"/>
+                        <outlet property="searchBar" destination="qKu-ux-zpp" id="e8O-9K-uG2"/>
                         <outlet property="tableView" destination="YwR-zm-GiD" id="srk-7S-Jza"/>
                     </connections>
                 </viewController>
@@ -203,9 +216,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cellBackgroundImage" width="320" height="34"/>
         <image name="homeitem_bg_nomor" width="120" height="121"/>
         <image name="location" width="24" height="28.5"/>
         <image name="projectTransfer" width="46" height="50"/>
+        <namedColor name="primaryTextColor">
+            <color red="0.568338473133016" green="0.56737981139204263" blue="0.58412524412587752" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

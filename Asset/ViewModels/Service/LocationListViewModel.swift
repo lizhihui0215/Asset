@@ -6,24 +6,29 @@
 import Foundation
 import UIKit
 
-class LocationListViewModel: PageableViewModel<LocationListViewController, DefaultSection<Location>> {
-    let regionIdCompany = app.credential?.userOrgId ?? ""
+class LocationListViewModel: PageableViewModel<LocationListViewController, DefaultSection<Location>>, Searchable {
+    var appSearchText: String = ""
+    let regionIdCompany = app.credential?.userCityId ?? ""
 
     init(request: RequestRepresentable, action: LocationListViewController) {
         super.init(request: request, action: action, dataSource: [.defaultValue])
     }
 
-    func fetchList(isPaging: Bool = false, completionHandler: @escaping ViewModelCompletionHandler<Location>)
+    func fetchList(isPaging: Bool = false, completionHandler: @escaping ViewModelCompletionHandler<[Location]>)
     {
         self.isPaging = isPaging
         let parameter = LocationListParameter(
             pageNumber: String(page),
             pageSize: String(size),
-            regionIdCompany: regionIdCompany
+            regionIdCompany: regionIdCompany,
+            appSearchText: appSearchText
         )
 
         api(of: LocationListResponse.self,
-            router: .locationList(parameter)) { (_: ViewModelResult<[Location]>) in
+            router: .locationList(parameter)) { [weak self] (result: ViewModelResult<[Location]>) in
+            guard var first = self?.first, let locations = try? result.get() else { return }
+            first.append(contentsOf: locations)
+            completionHandler(.success(locations))
         }
     }
 

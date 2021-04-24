@@ -10,14 +10,14 @@ final class ServiceViewModel: ListViewModel<ServiceViewController, DefaultSectio
     let serviceConfiguration = ServiceConfiguration()
 
     init(request: RequestRepresentable, action: ServiceViewController) {
-        var dataSource: [DefaultSection<ServiceConfiguration.Service>] = [.defaultValue]
+        let dataSource: [DefaultSection<ServiceConfiguration.Service>] = [.defaultValue]
         dataSource[0].items.append(contentsOf: serviceConfiguration.services)
         super.init(request: request, action: action, dataSource: dataSource)
     }
 
     func serviceViewModelAt(indexPath: IndexPath) -> ServiceCollectionViewCell.ViewModel {
         let item = itemAtIndexPath(indexPath: indexPath)
-        return .init(cellType: item.convert(), name: item.title, image: item.image)
+        return .init(service: item.convert(), name: item.name, image: item.image)
     }
 }
 
@@ -34,18 +34,18 @@ struct ServiceConfiguration {
         case notification
         case baseData
 
-        var title: String {
+        var name: String {
             switch self {
-            case .projectTransfer: return L10n.projectTransfer
-            case .cycleInventory: return L10n.cycleInventory
-            case .assetInventory: return L10n.assetInventory
-            case .internalDepartmentTransfer: return L10n.internalDepartmentTransfer
-            case .externalDepartmentTransfer: return L10n.externalDepartmentTransfer
-            case .companyTransfer: return L10n.companyTransfer
-            case .assetInspection: return L10n.assetInspection
-            case .locationModify: return L10n.locationModify
-            case .notification: return L10n.notification
-            case .baseData: return L10n.baseData
+            case .projectTransfer: return L10n.service.name.projectTransfer
+            case .cycleInventory: return L10n.service.name.cycleInventory
+            case .assetInventory: return L10n.service.name.assetInventory
+            case .internalDepartmentTransfer: return L10n.service.name.internalDepartmentTransfer
+            case .externalDepartmentTransfer: return L10n.service.name.externalDepartmentTransfer
+            case .companyTransfer: return L10n.service.name.companyTransfer
+            case .assetInspection: return L10n.service.name.assetInspection
+            case .locationModify: return L10n.service.name.locationModify
+            case .notification: return L10n.service.name.notification
+            case .baseData: return L10n.service.name.baseData
             }
         }
 
