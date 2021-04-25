@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class BaseViewController: AnimatableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 

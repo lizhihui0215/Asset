@@ -15,12 +15,19 @@ internal enum StoryboardScene {
   internal enum Assets: StoryboardType {
     internal static let storyboardName = "Assets"
 
-    internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: Assets.self)
+    internal static let initialScene = InitialSceneType<Asset.AssetViewListController>(storyboard: Assets.self)
+
+    internal static let assetInventoryListViewController = SceneType<Asset.AssetInventoryListViewController>(storyboard: Assets.self, identifier: "AssetInventoryListViewController")
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
 
     internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: LaunchScreen.self)
+  }
+  internal enum Location: StoryboardType {
+    internal static let storyboardName = "Location"
+
+    internal static let initialScene = InitialSceneType<Asset.LocationDetailViewController>(storyboard: Location.self)
   }
   internal enum Login: StoryboardType {
     internal static let storyboardName = "Login"

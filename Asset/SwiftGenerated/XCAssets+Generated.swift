@@ -103,18 +103,8 @@ internal enum Image {
     internal static let xxg = ImageAsset(name: "xxg")
   }
   internal enum Login {
-    internal static let gestureNodeError = ImageAsset(name: "gesture_node_error")
-    internal static let gestureNodeHighlighted = ImageAsset(name: "gesture_node_highlighted")
-    internal static let gestureNodeNormal = ImageAsset(name: "gesture_node_normal")
-    internal static let iconLogin = ImageAsset(name: "icon_login")
-    internal static let iconPassword = ImageAsset(name: "icon_password")
-    internal static let loginBg = ImageAsset(name: "login_bg")
-    internal static let loginBtn = ImageAsset(name: "login_btn")
-    internal static let loginBtnHightlight = ImageAsset(name: "login_btn_hightlight")
-    internal static let loginInputBackground = ImageAsset(name: "login_input_background")
-    internal static let offlineChecked = ImageAsset(name: "offline_checked")
-    internal static let offlineUnchecked = ImageAsset(name: "offline_unchecked")
-    internal static let resetPassword = ImageAsset(name: "reset_password")
+    internal static let passwordIcon = ImageAsset(name: "passwordIcon")
+    internal static let usernameIcon = ImageAsset(name: "usernameIcon")
   }
   internal enum MyCenter {
     internal static let clear = ImageAsset(name: "clear")
@@ -184,15 +174,25 @@ internal enum Image {
     internal static let `default` = ImageAsset(name: "Default")
   }
   internal enum ZZNoUse {
+    internal static let gestureNodeError = ImageAsset(name: "gesture_node_error")
+    internal static let gestureNodeHighlighted = ImageAsset(name: "gesture_node_highlighted")
+    internal static let gestureNodeNormal = ImageAsset(name: "gesture_node_normal")
+    internal static let loginBg = ImageAsset(name: "login_bg")
+    internal static let loginBtn = ImageAsset(name: "login_btn")
+    internal static let loginBtnHightlight = ImageAsset(name: "login_btn_hightlight")
+    internal static let loginInputBackground = ImageAsset(name: "login_input_background")
     internal static let myTask02 = ImageAsset(name: "my_task_02")
     internal static let myTask19 = ImageAsset(name: "my_task_19")
+    internal static let offlineChecked = ImageAsset(name: "offline_checked")
+    internal static let offlineUnchecked = ImageAsset(name: "offline_unchecked")
+    internal static let printLogo = ImageAsset(name: "print_logo")
+    internal static let resetPassword = ImageAsset(name: "reset_password")
   }
   internal enum Checkbox {
     internal static let selected = ImageAsset(name: "selected")
     internal static let unselected = ImageAsset(name: "unselected")
   }
   internal static let imgPhoto = ImageAsset(name: "img_photo")
-  internal static let printLogo = ImageAsset(name: "print_logo")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

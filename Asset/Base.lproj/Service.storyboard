@@ -119,6 +119,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="GS7-gK-94O" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GLH-If-fsf" secondAttribute="leading" constant="20" symbolic="YES" id="Cle-iZ-H4V"/>
                                             <constraint firstAttribute="height" constant="40" id="H9K-zR-Jwh"/>
                                             <constraint firstAttribute="trailing" secondItem="GS7-gK-94O" secondAttribute="trailing" constant="20" id="Vih-DC-WLy"/>
                                             <constraint firstItem="GS7-gK-94O" firstAttribute="centerY" secondItem="GLH-If-fsf" secondAttribute="centerY" id="gva-pH-v3Z"/>
@@ -187,6 +188,7 @@
                                                 <connections>
                                                     <outlet property="codeLabel" destination="qfo-Ho-z38" id="Og2-5R-Yty"/>
                                                     <outlet property="nameLabel" destination="7Im-Sz-FuY" id="HD6-1d-0G7"/>
+                                                    <segue destination="2Iu-Tg-YrZ" kind="show" identifier="toLocationDetail" id="UdF-mN-yhi"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -214,6 +216,16 @@
             </objects>
             <point key="canvasLocation" x="2673.913043478261" y="-269.19642857142856"/>
         </scene>
+        <!--Location-->
+        <scene sceneID="RhI-Jz-SWd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Location" id="2Iu-Tg-YrZ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GpZ-EE-uyI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Qj-w5-9DC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2674" y="226"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cellBackgroundImage" width="320" height="34"/>
@@ -221,7 +233,7 @@
         <image name="location" width="24" height="28.5"/>
         <image name="projectTransfer" width="46" height="50"/>
         <namedColor name="primaryTextColor">
-            <color red="0.568338473133016" green="0.56737981139204263" blue="0.58412524412587752" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.56800001859664917" green="0.56699997186660767" blue="0.58399999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
