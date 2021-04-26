@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         #if DEBUG
             NetworkActivityLogger.shared.startLogging()
-            NetworkActivityLogger.shared.level = .debug
         #endif
         return true
     }

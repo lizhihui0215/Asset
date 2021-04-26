@@ -241,6 +241,8 @@
 		268AFAA926305BF800A2854B /* LayoutHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFAA726305BF800A2854B /* LayoutHelpers.swift */; };
 		26A0540E262EC3E9000F27C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A0540D262EC3E9000F27C3 /* Assets.xcassets */; };
 		26A739EC2631AD8A00CFE3C1 /* LocationListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A739EB2631AD8900CFE3C1 /* LocationListTableViewCell.swift */; };
+		26AB8D4D2636AC1A002E4B95 /* SwiftyBeaver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26AB8D4C2636AC19002E4B95 /* SwiftyBeaver.xcframework */; };
+		26AB8D4E2636AC1A002E4B95 /* SwiftyBeaver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26AB8D4C2636AC19002E4B95 /* SwiftyBeaver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26F8961E262EC94200976042 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26F89620262EC94200976042 /* Localizable.strings */; };
 		469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EAC783A44972C349C0389 /* Device.swift */; };
 		469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA61540B02723A9DAED3E /* UIViewController+Extension.swift */; };
@@ -258,6 +260,7 @@
 		5B8753250AC9CA52BA5D8738 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875CC6E1C44E973900E26F /* String+Extension.swift */; };
 		5B8753990D6BC695C0C544D2 /* ReuseIdRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8756A5EF5ECFD321CEF830 /* ReuseIdRepresentable.swift */; };
 		5B8753F96C95F44989848EA2 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875E4470A01DBEA8CFCA15 /* Keys.swift */; };
+		5B87542855F7A7F56A3E3139 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8750F6B9AD01618BD2CA0E /* Logger.swift */; };
 		5B8754B8A389294CDE27060F /* RadioGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8753E2D9F6AAA61C0208AD /* RadioGroupView.swift */; };
 		5B8754C86DE30046E49B7066 /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875234EAB7404922020237 /* ServiceRequest.swift */; };
 		5B87555446B6DCD102EEFC93 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875021ECEDB917478B8028 /* UISearchBar+Extension.swift */; };
@@ -330,6 +333,7 @@
 			files = (
 				260E34DC26351ED9008CF3DE /* CryptoSwift.xcframework in Embed Frameworks */,
 				260E34DA26351ED7008CF3DE /* Alamofire.xcframework in Embed Frameworks */,
+				26AB8D4E2636AC1A002E4B95 /* SwiftyBeaver.xcframework in Embed Frameworks */,
 				260E34E826351EDE008CF3DE /* PKHUD.xcframework in Embed Frameworks */,
 				260E34E426351EDD008CF3DE /* MJRefresh.xcframework in Embed Frameworks */,
 				260E34F026351EE2008CF3DE /* SwiftScan.xcframework in Embed Frameworks */,
@@ -569,6 +573,7 @@
 		268AFAA726305BF800A2854B /* LayoutHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutHelpers.swift; sourceTree = "<group>"; };
 		26A0540D262EC3E9000F27C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26A739EB2631AD8900CFE3C1 /* LocationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListTableViewCell.swift; sourceTree = "<group>"; };
+		26AB8D4C2636AC19002E4B95 /* SwiftyBeaver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftyBeaver.xcframework; path = Carthage/Build/SwiftyBeaver.xcframework; sourceTree = SOURCE_ROOT; };
 		26F8961F262EC94200976042 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		26F89623262EC94700976042 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		469EA1FCF25D4B2B9F7CD71F /* Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
@@ -581,6 +586,7 @@
 		469EAC783A44972C349C0389 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		5B875021ECEDB917478B8028 /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		5B8750C69CA05D4C0676B691 /* SegueType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SegueType+Extension.swift"; sourceTree = "<group>"; };
+		5B8750F6B9AD01618BD2CA0E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		5B8751BB0A941A1CD5AB7DCC /* EAMExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EAMExtended.swift; sourceTree = "<group>"; };
 		5B8751ECF429CD0BF3D388E1 /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		5B875234EAB7404922020237 /* ServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
@@ -645,6 +651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				260E34D926351ED7008CF3DE /* Alamofire.xcframework in Frameworks */,
+				26AB8D4D2636AC1A002E4B95 /* SwiftyBeaver.xcframework in Frameworks */,
 				260E34EB26351EE1008CF3DE /* SwiftLocation.xcframework in Frameworks */,
 				260E34EF26351EE2008CF3DE /* SwiftScan.xcframework in Frameworks */,
 				260E34F326351EE4008CF3DE /* Swiftstraints.xcframework in Frameworks */,
@@ -1090,6 +1097,7 @@
 		26530D22262F11A3002BCE55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26AB8D4C2636AC19002E4B95 /* SwiftyBeaver.xcframework */,
 				2619956C2635BC120046AF48 /* Siren */,
 				26199531263555A70046AF48 /* CoreLocation.framework */,
 				260E350126351FBB008CF3DE /* IBAnimatable */,
@@ -1358,6 +1366,7 @@
 			children = (
 				9CF7E75D2627449D00407D37 /* Cache.swift */,
 				469EAC783A44972C349C0389 /* Device.swift */,
+				5B8750F6B9AD01618BD2CA0E /* Logger.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1841,6 +1850,7 @@
 				260E35E926351FBB008CF3DE /* GradientMode.swift in Sources */,
 				5B875974DFCBB2F6EEBD848E /* LocationDetailViewModel.swift in Sources */,
 				260E35CC26351FBB008CF3DE /* FlipAnimator.swift in Sources */,
+				5B87542855F7A7F56A3E3139 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
