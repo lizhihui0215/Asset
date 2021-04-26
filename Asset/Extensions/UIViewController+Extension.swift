@@ -7,6 +7,10 @@ import PKHUD
 import UIKit
 
 extension UIViewController {
+    enum Constants {
+        static let alertTitle = ""
+    }
+
     func startLoadingIndicator() {
         HUD.show(.systemActivity)
     }
@@ -15,9 +19,9 @@ extension UIViewController {
         HUD.hide(animated: true)
     }
 
-    func alert(title: String = "", message: String? = nil, handler: (() -> Void)? = nil) {
+    func alert(title: String = App.Constants.Default.string, message: String? = nil, handler: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismiss = UIAlertAction(title: "OK", style: .default) { _ in
+        let dismiss = UIAlertAction(title: Constants.alertTitle, style: .default) { _ in
             guard let handler = handler else { return }
             handler()
         }

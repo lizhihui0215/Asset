@@ -14,12 +14,12 @@ class AsyncOperation: Operation {
 
     private(set) var state: State = .ready {
         willSet {
-            willChangeValue(forKey: state.key)
-            willChangeValue(forKey: newValue.key)
+            willChangeValue(forKey: state.rawValue)
+            willChangeValue(forKey: newValue.rawValue)
         }
         didSet {
-            didChangeValue(forKey: oldValue.key)
-            didChangeValue(forKey: state.key)
+            didChangeValue(forKey: oldValue.rawValue)
+            didChangeValue(forKey: state.rawValue)
         }
     }
 

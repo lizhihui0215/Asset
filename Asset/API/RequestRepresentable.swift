@@ -14,12 +14,21 @@ typealias APIResult<Success> = Result<Success, Error>
 typealias APICompletionHandler<Success> = (APIResult<Success>) -> Void
 
 public extension HTTPHeader {
+    enum Keys: String {
+        case AppInfo = "appInfo"
+        case UserToken = "userToken"
+    }
+
     static func appInfo(_ value: [String: String]) -> HTTPHeader {
-        HTTPHeader(name: "appInfo", value: value.eam.jsonString)
+        HTTPHeader(key: .AppInfo, value: value.eam.JSONString)
     }
 
     static func userToken(_ value: String) -> HTTPHeader {
-        HTTPHeader(name: "userToken", value: value)
+        HTTPHeader(key: .UserToken, value: value)
+    }
+
+    init(key: Keys, value: String) {
+        self.init(name: key.rawValue, value: value)
     }
 }
 

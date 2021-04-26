@@ -11,8 +11,29 @@ import Foundation
 let app = App()
 
 public final class App {
+    enum Constants {
+        enum Default {
+            static let text = ""
+            static let string = ""
+        }
+
+        static let unknown = "Unknown"
+        static let defaultLanguage = "en"
+        static let osName = "iOS"
+        static let brand = "Apple"
+    }
+
     enum Keys: String {
-        case credential
+        case Credential
+
+        enum AppInfo: String {
+            case Version = "appVersionCode"
+            case Build = "appVersionName"
+            case Brand = "deviceBrand"
+            case Language = "systemLanguage"
+            case Model = "systemModel"
+            case OsVersion = "systemVersion"
+        }
     }
 
     private var infoDictionary = Bundle.main.infoDictionary
@@ -22,31 +43,31 @@ public final class App {
     }
 
     lazy var info: [String: String] = {
-        ["appVersionCode": self.version,
-         "appVersionName": self.build,
-         "deviceBrand": self.brand,
-         "systemLanguage": self.systemLanguage,
-         "systemModel": self.build,
-         "systemVersion": self.osVersion]
+        [Keys.AppInfo.Version.rawValue: self.version,
+         Keys.AppInfo.Build.rawValue: self.build,
+         Keys.AppInfo.Brand.rawValue: self.brand,
+         Keys.AppInfo.Language.rawValue: self.systemLanguage,
+         Keys.AppInfo.Model.rawValue: self.build,
+         Keys.AppInfo.OsVersion.rawValue: self.osVersion]
     }()
 
-    @UserDefault(key: Keys.credential, defaultValue: nil)
+    @UserDefault(key: Keys.Credential, defaultValue: nil)
     private(set) var credential: Credential?
 
     public var version: String {
-        infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+        Bundle.version() ?? Constants.unknown
     }
 
     public var build: String {
-        infoDictionary?[kCFBundleVersionKey as String] as? String ?? "Unknown"
+        Bundle.build() ?? Constants.unknown
     }
 
     public var identifier: String {
-        infoDictionary?[kCFBundleIdentifierKey as String] as? String ?? "Unknown"
+        Bundle.identifier() ?? Constants.unknown
     }
 
     public var brand: String {
-        "Apple"
+        Constants.brand
     }
 
     public var model: String {
@@ -54,13 +75,13 @@ public final class App {
     }
 
     public var osName: String {
-        "iOS"
+        Constants.osName
     }
 
     public var executableName: String {
-        (infoDictionary?[kCFBundleExecutableKey as String] as? String) ??
-            (ProcessInfo.processInfo.arguments.first?.split(separator: "/").last.map(String.init)) ??
-            "Unknown"
+        let name = Bundle.bestMatchingAppName()
+        guard name.isEmpty else { return Constants.unknown }
+        return name
     }
 
     public var appLanguage: String {
@@ -68,7 +89,7 @@ public final class App {
     }
 
     public var systemLanguage: String {
-        Locale.current.languageCode ?? "en"
+        Locale.current.languageCode ?? Constants.defaultLanguage
     }
 
     public var osVersion: String {

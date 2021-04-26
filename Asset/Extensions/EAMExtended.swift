@@ -46,11 +46,11 @@ public extension EAMExtended {
 }
 
 public extension EAMExtension where ExtendedType: Encodable {
-    var jsonString: String {
+    var JSONString: String {
         guard let content = try? JSONEncoder().encode(type) else {
-            return ""
+            return App.Constants.Default.string
         }
 
-        return String(data: content, encoding: .utf8) ?? ""
+        return String(data: content, encoding: .utf8) ?? App.Constants.Default.string
     }
 }

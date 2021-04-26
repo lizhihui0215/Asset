@@ -10,6 +10,6 @@ extension UISearchBar: EAMExtended {}
 
 public extension EAMExtension where ExtendedType: UISearchBar {
     var text: String {
-        type.text ?? ""
+        type.text ?? App.Constants.Default.text
     }
 }

@@ -9,9 +9,15 @@
 import Foundation
 struct API {
     enum Keys: String {
-        case schema
-        case baseURL
-        case serviceDictionary
+        case Schema
+        case Domain
+        case ServiceDictionary
+    }
+
+    enum Constants {
+        static let defaultSchema = "https"
+        static let defaultDomain = "152.136.255.61"
+        static let defaultServiceDictionary = "eam-ms"
     }
 
     /// Whether to discard any errors when decoding optional properties
@@ -20,13 +26,13 @@ struct API {
     /// Whether to remove invalid elements instead of throwing when decoding arrays
     public static var safeArrayDecoding = true
 
-    @UserDefault(key: Keys.schema, defaultValue: "https")
+    @UserDefault(key: Keys.Schema, defaultValue: Constants.defaultSchema)
     static var schema: String
 
-    @UserDefault(key: Keys.baseURL, defaultValue: "152.136.255.61")
+    @UserDefault(key: Keys.Domain, defaultValue: Constants.defaultDomain)
     static var domain: String
 
-    @UserDefault(key: Keys.serviceDictionary, defaultValue: "eam-ms")
+    @UserDefault(key: Keys.ServiceDictionary, defaultValue: Constants.defaultServiceDictionary)
     static var serviceDictionary: String
 
     static func isAuthorizationRequired(url: URL?) -> Bool {
@@ -35,6 +41,6 @@ struct API {
     }
 
     private static var unAuthorizations: [String] {
-        ["\(API.serviceDictionary)/\(APIRouter.Keys.loginPathComponents)"]
+        ["\(API.serviceDictionary)/\(APIRouter.Constants.loginPathComponents)"]
     }
 }

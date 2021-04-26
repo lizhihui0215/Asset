@@ -18,15 +18,15 @@ struct LocationListResponse: PageableResponse {
     var total: Int = 0
     var records: Int = 0
     var status: Int = 0
-    var msg: String = ""
+    var msg: String = App.Constants.Default.string
     var page: Int = 0
     var data: [Location] = []
 }
 
 struct Location: Codable {
     var isCheck: Bool = false
-    var locationCode = ""
-    var locationName = ""
+    var locationCode = App.Constants.Default.string
+    var locationName = App.Constants.Default.string
 }
 
 extension Location: Item {}

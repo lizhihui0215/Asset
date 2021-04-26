@@ -12,6 +12,6 @@ extension UITextField: EAMExtended {}
 
 public extension EAMExtension where ExtendedType: UITextField {
     var text: String {
-        type.text ?? ""
+        type.text ?? App.Constants.Default.text
     }
 }

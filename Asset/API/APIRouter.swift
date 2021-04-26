@@ -10,6 +10,11 @@ import Alamofire
 import Foundation
 
 enum APIRouter: URLRequestConvertible {
+    enum Constants {
+        static let loginPathComponents = "appSys/login"
+        static let locationListPathComponents = "app/location/findByPage"
+    }
+
     case login(LoginParameter)
     case locationList(LocationListParameter)
 
@@ -25,8 +30,8 @@ enum APIRouter: URLRequestConvertible {
 
     var path: String {
         switch self {
-        case .login: return "\(API.serviceDictionary)/\(Keys.loginPathComponents)"
-        case .locationList: return "\(API.serviceDictionary)/\(Keys.locationListPathComponents)"
+        case .login: return "\(API.serviceDictionary)/\(Constants.loginPathComponents)"
+        case .locationList: return "\(API.serviceDictionary)/\(Constants.locationListPathComponents)"
         }
     }
 
@@ -43,12 +48,5 @@ enum APIRouter: URLRequestConvertible {
         }
 
         return request
-    }
-}
-
-extension APIRouter {
-    enum Keys: String {
-        case loginPathComponents = "appSys/login"
-        case locationListPathComponents = "app/location/findByPage"
     }
 }

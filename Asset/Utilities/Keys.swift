@@ -16,10 +16,10 @@ extension Keys {
     }
 }
 
-extension AsyncOperation.State: Keys {}
-
 extension App.Keys: Keys {}
 
-extension APIRouter.Keys: Keys {}
+extension App.Keys.AppInfo: Keys {}
 
 extension API.Keys: Keys {}
+
+extension SirenKeys: Keys {}

@@ -9,6 +9,10 @@
 import UIKit
 
 class ServiceViewController: BaseViewController {
+    enum Constants {
+        static let column = 3
+    }
+
     @IBOutlet var collectionView: UICollectionView!
 
     lazy var viewModel: ServiceViewModel = {
@@ -42,7 +46,7 @@ extension ServiceViewController {
 
 extension ServiceViewController: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width / 3.0
+        let width = collectionView.bounds.width / CGFloat(Constants.column)
         return CGSize(width: width, height: width)
     }
 }

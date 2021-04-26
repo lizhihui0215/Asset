@@ -6,7 +6,5 @@
 import Foundation
 
 extension String.StringInterpolation {
-    mutating func appendInterpolation(_ value: APIRouter.Keys) {
-        appendLiteral(value.rawValue)
-    }
+    mutating func appendInterpolation(_ value: APIRouter.Constants) {}
 }
