@@ -207,8 +207,15 @@
 		260FB8742637457A00445BD7 /* JZLocationConverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB86E26373B2600445BD7 /* JZLocationConverter.framework */; };
 		260FB8752637457A00445BD7 /* JZLocationConverter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB86E26373B2600445BD7 /* JZLocationConverter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		260FB8792637472800445BD7 /* GCJ02.json in Resources */ = {isa = PBXBuildFile; fileRef = 260FB8782637472700445BD7 /* GCJ02.json */; };
-		260FB8812637B8DF00445BD7 /* BMKLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8802637B8DF00445BD7 /* BMKLocationKit.framework */; };
-		260FB8822637B8DF00445BD7 /* BMKLocationKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8802637B8DF00445BD7 /* BMKLocationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		260FB8862637B99600445BD7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8852637B99600445BD7 /* SystemConfiguration.framework */; };
+		260FB8882637B9A500445BD7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8872637B9A500445BD7 /* Security.framework */; };
+		260FB88B2637B9B600445BD7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB88A2637B9B600445BD7 /* CoreTelephony.framework */; };
+		260FB8D82637F4AB00445BD7 /* BMKLocationKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8D72637F4AB00445BD7 /* BMKLocationKit.xcframework */; };
+		260FB8D92637F4AB00445BD7 /* BMKLocationKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8D72637F4AB00445BD7 /* BMKLocationKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		260FB8E02637FE3B00445BD7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB88C2637B9C700445BD7 /* libc++.tbd */; };
+		260FB8E32637FE3F00445BD7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8892637B9AF00445BD7 /* libsqlite3.0.tbd */; };
+		260FB8E72637FEBF00445BD7 /* BDLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260FB8E62637FEBF00445BD7 /* BDLocationService.swift */; };
+		260FB8ED2637FEF100445BD7 /* NativeLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260FB8EC2637FEF100445BD7 /* NativeLocationService.swift */; };
 		26108994263406FE00960633 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26108993263406FD00960633 /* Colors.xcassets */; };
 		261089AD26347F3C00960633 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261089AC26347F3C00960633 /* LocationDetailViewController.swift */; };
 		26199532263555A70046AF48 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26199531263555A70046AF48 /* CoreLocation.framework */; };
@@ -275,7 +282,7 @@
 		5B87571C811B8ED7B8C16B56 /* ViewModelRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87570E408C81EEE53FC9C8 /* ViewModelRepresentable.swift */; };
 		5B87574CA078E45AF41FF96D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8754D64F2CA20A0D1C351C /* BaseViewController.swift */; };
 		5B875829091FB1DBFDBA8940 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87534472E43A4C7DC74EE0 /* AsyncOperation.swift */; };
-		5B8758E5D7FC4F86A28985C7 /* BDLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8752511B7EB35F026F1688 /* BDLocationService.swift */; };
+		5B8758E5D7FC4F86A28985C7 /* LocationServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8752511B7EB35F026F1688 /* LocationServiceable.swift */; };
 		5B875937026456B76F05BE86 /* Searchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8759382DC909013C3FA86B /* Searchable.swift */; };
 		5B875974DFCBB2F6EEBD848E /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87586861D7DF5D11213DF1 /* LocationDetailViewModel.swift */; };
 		5B875A8A6BD8D829199B73A6 /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751ECF429CD0BF3D388E1 /* LocationListViewController.swift */; };
@@ -344,8 +351,8 @@
 				260E34E426351EDD008CF3DE /* MJRefresh.xcframework in Embed Frameworks */,
 				260E34F026351EE2008CF3DE /* SwiftScan.xcframework in Embed Frameworks */,
 				260E34F826351EE6008CF3DE /* ZLPhotoBrowser.xcframework in Embed Frameworks */,
-				260FB8822637B8DF00445BD7 /* BMKLocationKit.framework in Embed Frameworks */,
 				260E34F426351EE4008CF3DE /* Swiftstraints.xcframework in Embed Frameworks */,
+				260FB8D92637F4AB00445BD7 /* BMKLocationKit.xcframework in Embed Frameworks */,
 				260E34EC26351EE1008CF3DE /* SwiftLocation.xcframework in Embed Frameworks */,
 				260FB8752637457A00445BD7 /* JZLocationConverter.framework in Embed Frameworks */,
 				260E34E026351EDB008CF3DE /* DropDown.xcframework in Embed Frameworks */,
@@ -546,7 +553,15 @@
 		260F989B2630B45800A91F00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Assets.storyboard; sourceTree = "<group>"; };
 		260FB86E26373B2600445BD7 /* JZLocationConverter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JZLocationConverter.framework; sourceTree = "<group>"; };
 		260FB8782637472700445BD7 /* GCJ02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GCJ02.json; sourceTree = "<group>"; };
-		260FB8802637B8DF00445BD7 /* BMKLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BMKLocationKit.framework; sourceTree = "<group>"; };
+		260FB8852637B99600445BD7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		260FB8872637B9A500445BD7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		260FB8892637B9AF00445BD7 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		260FB88A2637B9B600445BD7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		260FB88C2637B9C700445BD7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		260FB88F2637BB5000445BD7 /* Asset-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Asset-Bridging-Header.h"; sourceTree = "<group>"; };
+		260FB8D72637F4AB00445BD7 /* BMKLocationKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BMKLocationKit.xcframework; sourceTree = "<group>"; };
+		260FB8E62637FEBF00445BD7 /* BDLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDLocationService.swift; sourceTree = "<group>"; };
+		260FB8EC2637FEF100445BD7 /* NativeLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeLocationService.swift; sourceTree = "<group>"; };
 		26108993263406FD00960633 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		261089AC26347F3C00960633 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		26199531263555A70046AF48 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -601,7 +616,7 @@
 		5B8751BB0A941A1CD5AB7DCC /* EAMExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EAMExtended.swift; sourceTree = "<group>"; };
 		5B8751ECF429CD0BF3D388E1 /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		5B875234EAB7404922020237 /* ServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
-		5B8752511B7EB35F026F1688 /* BDLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BDLocationService.swift; sourceTree = "<group>"; };
+		5B8752511B7EB35F026F1688 /* LocationServiceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceable.swift; sourceTree = "<group>"; };
 		5B875251AAC9B3CABA84A00D /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		5B87534472E43A4C7DC74EE0 /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		5B8753E2D9F6AAA61C0208AD /* RadioGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioGroupView.swift; sourceTree = "<group>"; };
@@ -663,15 +678,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				260E34D926351ED7008CF3DE /* Alamofire.xcframework in Frameworks */,
+				260FB8882637B9A500445BD7 /* Security.framework in Frameworks */,
+				260FB8E02637FE3B00445BD7 /* libc++.tbd in Frameworks */,
+				260FB8E32637FE3F00445BD7 /* libsqlite3.0.tbd in Frameworks */,
 				26AB8D4D2636AC1A002E4B95 /* SwiftyBeaver.xcframework in Frameworks */,
 				260FB8742637457A00445BD7 /* JZLocationConverter.framework in Frameworks */,
-				260FB8812637B8DF00445BD7 /* BMKLocationKit.framework in Frameworks */,
+				260FB88B2637B9B600445BD7 /* CoreTelephony.framework in Frameworks */,
 				260E34EB26351EE1008CF3DE /* SwiftLocation.xcframework in Frameworks */,
 				260E34EF26351EE2008CF3DE /* SwiftScan.xcframework in Frameworks */,
 				260E34F326351EE4008CF3DE /* Swiftstraints.xcframework in Frameworks */,
 				260E34E326351EDD008CF3DE /* MJRefresh.xcframework in Frameworks */,
+				260FB8862637B99600445BD7 /* SystemConfiguration.framework in Frameworks */,
 				260E34F726351EE6008CF3DE /* ZLPhotoBrowser.xcframework in Frameworks */,
 				26199532263555A70046AF48 /* CoreLocation.framework in Frameworks */,
+				260FB8D82637F4AB00445BD7 /* BMKLocationKit.xcframework in Frameworks */,
 				260E34E726351EDE008CF3DE /* PKHUD.xcframework in Frameworks */,
 				260E34DB26351ED9008CF3DE /* CryptoSwift.xcframework in Frameworks */,
 				260E34DF26351EDB008CF3DE /* DropDown.xcframework in Frameworks */,
@@ -1111,12 +1131,10 @@
 		26530D22262F11A3002BCE55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				260FB8802637B8DF00445BD7 /* BMKLocationKit.framework */,
-				260FB86E26373B2600445BD7 /* JZLocationConverter.framework */,
+				260FB88C2637B9C700445BD7 /* libc++.tbd */,
+				260FB8892637B9AF00445BD7 /* libsqlite3.0.tbd */,
+				260FB8D72637F4AB00445BD7 /* BMKLocationKit.xcframework */,
 				26AB8D4C2636AC19002E4B95 /* SwiftyBeaver.xcframework */,
-				2619956C2635BC120046AF48 /* Siren */,
-				26199531263555A70046AF48 /* CoreLocation.framework */,
-				260E350126351FBB008CF3DE /* IBAnimatable */,
 				260E34CB26351ED0008CF3DE /* Alamofire.xcframework */,
 				260E34CD26351ED0008CF3DE /* CryptoSwift.xcframework */,
 				260E34C826351ED0008CF3DE /* DropDown.xcframework */,
@@ -1126,6 +1144,13 @@
 				260E34C626351ECF008CF3DE /* SwiftScan.xcframework */,
 				260E34C726351ECF008CF3DE /* Swiftstraints.xcframework */,
 				260E34C926351ED0008CF3DE /* ZLPhotoBrowser.xcframework */,
+				2619956C2635BC120046AF48 /* Siren */,
+				260E350126351FBB008CF3DE /* IBAnimatable */,
+				260FB88A2637B9B600445BD7 /* CoreTelephony.framework */,
+				260FB8872637B9A500445BD7 /* Security.framework */,
+				260FB8852637B99600445BD7 /* SystemConfiguration.framework */,
+				260FB86E26373B2600445BD7 /* JZLocationConverter.framework */,
+				26199531263555A70046AF48 /* CoreLocation.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -1383,7 +1408,9 @@
 				9CF7E75D2627449D00407D37 /* Cache.swift */,
 				469EAC783A44972C349C0389 /* Device.swift */,
 				5B8750F6B9AD01618BD2CA0E /* Logger.swift */,
-				5B8752511B7EB35F026F1688 /* BDLocationService.swift */,
+				5B8752511B7EB35F026F1688 /* LocationServiceable.swift */,
+				260FB8E62637FEBF00445BD7 /* BDLocationService.swift */,
+				260FB8EC2637FEF100445BD7 /* NativeLocationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1419,6 +1446,7 @@
 				9C6D43092627146E00FEC466 /* Info.plist */,
 				26F89620262EC94200976042 /* Localizable.strings */,
 				26108993263406FD00960633 /* Colors.xcassets */,
+				260FB88F2637BB5000445BD7 /* Asset-Bridging-Header.h */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1665,6 +1693,7 @@
 				260E361D26351FBB008CF3DE /* ActivityIndicatorAnimationBallScale.swift in Sources */,
 				260E35F726351FBB008CF3DE /* UIViewControllerExtension.swift in Sources */,
 				260E366626351FBC008CF3DE /* TransitionAnimatable.swift in Sources */,
+				260FB8E72637FEBF00445BD7 /* BDLocationService.swift in Sources */,
 				260E35DE26351FBB008CF3DE /* CornerSide.swift in Sources */,
 				260E360D26351FBB008CF3DE /* ActivityIndicatorFactory.swift in Sources */,
 				260F986F2630A11700A91F00 /* TabBarViewController.swift in Sources */,
@@ -1751,6 +1780,7 @@
 				260E35E526351FBB008CF3DE /* TransitionType.swift in Sources */,
 				469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */,
 				469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */,
+				260FB8ED2637FEF100445BD7 /* NativeLocationService.swift in Sources */,
 				260E35CD26351FBB008CF3DE /* FoldAnimator.swift in Sources */,
 				26530D2F262F187E002BCE55 /* Coding.swift in Sources */,
 				260E363D26351FBC008CF3DE /* AnimatableTableViewCell.swift in Sources */,
@@ -1870,7 +1900,7 @@
 				5B875974DFCBB2F6EEBD848E /* LocationDetailViewModel.swift in Sources */,
 				260E35CC26351FBB008CF3DE /* FlipAnimator.swift in Sources */,
 				5B87542855F7A7F56A3E3139 /* Logger.swift in Sources */,
-				5B8758E5D7FC4F86A28985C7 /* BDLocationService.swift in Sources */,
+				5B8758E5D7FC4F86A28985C7 /* LocationServiceable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2115,9 +2145,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.Asset.cert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_GEN_INPUT = Asset;
+				SWIFT_OBJC_BRIDGING_HEADER = "Asset/Resources/Asset-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2138,9 +2170,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.Asset.cert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_GEN_INPUT = Asset;
+				SWIFT_OBJC_BRIDGING_HEADER = "Asset/Resources/Asset-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

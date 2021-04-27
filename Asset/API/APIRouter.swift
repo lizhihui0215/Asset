@@ -13,12 +13,12 @@ enum APIRouter: URLRequestConvertible {
     enum Constants {
         static let loginPathComponents = "appSys/login"
         static let locationListPathComponents = "app/location/findByPage"
-        static var locationDetailPathComponents = "app/location/getLocation"
+        static var locationDetailByCodePathComponents = "app/location/getLocationByCode"
     }
 
     case login(LoginParameter)
     case locationList(LocationListParameter)
-    case locationDetail(LocationDetailParameter)
+    case locationDetailByCode(LocationDetailParameter)
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -27,7 +27,7 @@ enum APIRouter: URLRequestConvertible {
     var method: HTTPMethod {
         switch self {
         case .login,
-             .locationDetail,
+             .locationDetailByCode,
              .locationList:
             return .post
         }
@@ -37,7 +37,7 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .login: return path(with: Constants.loginPathComponents)
         case .locationList: return path(with: Constants.locationListPathComponents)
-        case .locationDetail: return path(with: Constants.locationDetailPathComponents)
+        case .locationDetailByCode: return path(with: Constants.locationDetailByCodePathComponents)
         }
     }
 
@@ -55,7 +55,7 @@ enum APIRouter: URLRequestConvertible {
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .locationList(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
-        case .locationDetail(let parameters):
+        case .locationDetailByCode(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         }
 

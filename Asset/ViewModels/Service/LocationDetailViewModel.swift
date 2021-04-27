@@ -5,8 +5,6 @@
 
 import CoreLocation
 import Foundation
-import JZLocationConverter
-import SwiftLocation
 
 class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
     private let locationId: String
@@ -46,7 +44,7 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
 
     func fetchLocationDetail(completionHandler: @escaping ViewModelCompletionHandler<LocationDetail?>) {
         api(of: LocationDetailResponse.self,
-            router: .locationDetail(LocationDetailParameter(locationId: locationId))) { [weak self] result in
+            router: .locationDetailByCode(LocationDetailParameter(locationCode: locationId))) { [weak self] result in
             guard let self = self else { return }
             `self`.locationDetail = try? result.get()
             completionHandler(result)
@@ -55,43 +53,5 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
 
     func update(location: CLLocation?, refresh: Bool = false) {
         self.location = location
-    }
-}
-
-extension GPSLocationRequest: EAMExtended {}
-
-public extension EAMExtension where ExtendedType == GPSLocationRequest {
-    @discardableResult
-    func then(queue: DispatchQueue = .main, _ callback: @escaping (Result<CLLocation, LocationError>) -> Void) -> Identifier {
-        type.then { result in
-            switch result {
-            case .success(let result):
-                JZLocationConverter.default.wgs84ToBd09(result.coordinate) { coordinate in
-                    var location: CLLocation
-                    if #available(iOS 13.4, *) {
-                        location = CLLocation(coordinate: coordinate,
-                                              altitude: result.altitude,
-                                              horizontalAccuracy: result.horizontalAccuracy,
-                                              verticalAccuracy: result.verticalAccuracy,
-                                              course: result.course,
-                                              courseAccuracy: result.courseAccuracy,
-                                              speed: result.speed,
-                                              speedAccuracy: result.speedAccuracy,
-                                              timestamp: result.timestamp)
-                    } else {
-                        location = CLLocation(coordinate: coordinate,
-                                              altitude: result.altitude,
-                                              horizontalAccuracy: result.horizontalAccuracy,
-                                              verticalAccuracy: result.verticalAccuracy,
-                                              course: result.course,
-                                              speed: result.speed,
-                                              timestamp: result.timestamp)
-                    }
-                    callback(.success(location))
-                }
-            case .failure(let error):
-                callback(.failure(error))
-            }
-        }
     }
 }

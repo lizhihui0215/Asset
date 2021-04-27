@@ -16,14 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NetworkActivityLogger.shared.startLogging()
         #endif
 
-        JZLocationConverter.start { [weak self] error in
-            guard let `self` = self, let error = error else {
-                log.info("LocationConvert start successfully")
-                return
-            }
-            log.error(error)
-        }
-
         return true
     }
 

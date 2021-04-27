@@ -26,9 +26,9 @@ extension Validator {
 }
 
 extension DefaultSection: Defaultable {
-    public static var defaultValidator: DefaultSection { DefaultSection() }
+    public static var defaultSection: DefaultSection { DefaultSection() }
     static var defaultValue: Self {
         // swiftlint:disable:next force_cast
-        Self.defaultValidator as! Self
+        Self.defaultSection as! Self
     }
 }

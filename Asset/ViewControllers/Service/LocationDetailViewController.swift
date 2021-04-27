@@ -16,7 +16,9 @@ class LocationDetailViewController: BaseViewController {
     @IBOutlet var longitudeLabel: UILabel!
     @IBOutlet var originalLatitudeLabel: UILabel!
     @IBOutlet var latitudeLabel: UILabel!
+
     var viewModel: LocationDetailViewModel!
+    var locationService: BDLocationService = .shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +38,14 @@ class LocationDetailViewController: BaseViewController {
     }
 
     @IBAction func updateLocationCoordinatesTapped(_ sender: UIButton) {
-        SwiftLocation.gpsLocation().eam.then { [weak self] in
-            guard let self = self else { return }
-            `self`.viewModel.update(location: $0.location)
+        locationService.with {
+            let optional = BDLocationService.DBOptional()
+            return optional
+        }.getGPSLocation { [weak self] in
+            guard let self = self, let result = try? $0.get() else { return }
+            `self`.viewModel.update(location: result.location)
             `self`.refreshPage()
-            log.info("GPS Location: ", context: $0.location)
+            log.info("GPS Location: ", context: result.location)
         }
     }
 

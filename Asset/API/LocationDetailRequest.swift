@@ -8,7 +8,7 @@ import Foundation
 struct LocationDetailRequest: RequestRepresentable {}
 
 struct LocationDetailParameter: Encodable {
-    let locationId: String
+    let locationCode: String
 }
 
 struct LocationDetailResponse: DataResponse {

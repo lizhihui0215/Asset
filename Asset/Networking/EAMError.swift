@@ -69,6 +69,14 @@ public enum EAMError: Error {
         case usernameEmpty
         case passwordEmpty
     }
+
+    public enum LocationServiceError: Error {
+        public enum AuthError: Int, Error {
+            case unknown = -1
+            case networkFailed = 1
+            case invalidKey = 2
+        }
+    }
 }
 
 public extension AFError {
@@ -195,5 +203,26 @@ public enum VersionError: LocalizedError {
     /// An easily identifiable prefix for all errors thrown by Siren.
     private static var sirenError: String {
         "[Siren Error]"
+    }
+}
+
+extension EAMError.LocationServiceError.AuthError: LocalizedError {
+    public var errorDescription: String? {
+        failureReason
+    }
+
+    public var recoverySuggestion: String? {
+        failureReason
+    }
+
+    public var failureReason: String? {
+        switch self {
+        case .unknown:
+            return "未知错误，请稍后再尝试！"
+        case .networkFailed:
+            return "因网络鉴权失败"
+        case .invalidKey:
+            return "KEY非法鉴权失败"
+        }
     }
 }
