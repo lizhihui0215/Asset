@@ -34,6 +34,18 @@ class LocationListViewModel: PageableViewModel<LocationListViewController, Defau
 
     func locationViewModelAtIndexPath(indexPath: IndexPath) -> LocationListTableViewCell.ViewModel {
         let location = itemAtIndexPath(indexPath: indexPath)
-        return .init(code: location.locationCode, name: location.locationName, isCheck: location.isCheck)
+        return .init(
+            code: location.locationCode,
+            name: location.locationName,
+            isCheck: location.isCheck,
+            indexPath: indexPath
+        )
+    }
+
+    func locationDetailViewModelAtIndexPath(action: LocationDetailViewController, indexPath: IndexPath) -> LocationDetailViewModel {
+        let location = itemAtIndexPath(indexPath: indexPath)
+        return .init(request: LocationDetailRequest(),
+                     action: action,
+                     locationId: location.locationCode)
     }
 }

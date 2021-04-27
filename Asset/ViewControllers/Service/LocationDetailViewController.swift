@@ -6,6 +6,7 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
+import SwiftLocation
 import UIKit
 
 class LocationDetailViewController: BaseViewController {
@@ -15,18 +16,33 @@ class LocationDetailViewController: BaseViewController {
     @IBOutlet var longitudeLabel: UILabel!
     @IBOutlet var originalLatitudeLabel: UILabel!
     @IBOutlet var latitudeLabel: UILabel!
-
-    lazy var viewModel: LocationDetailViewModel = {
-        LocationDetailViewModel(request: LocationDetailRequest(), action: self)
-    }()
+    var viewModel: LocationDetailViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewModel.fetchLocationDetail { [weak self] _ in
+            guard let self = self else { return }
+            `self`.refreshPage()
+        }
     }
 
-    @IBAction func updateLocationCoordinatesTapped(_ sender: UIButton) {}
+    func refreshPage() {
+        codeLabel.text = viewModel.code
+        nameLabel.text = viewModel.name
+        originalLatitudeLabel.text = viewModel.originalLatitude
+        originalLongitudeLabel.text = viewModel.originalLongitude
+        latitudeLabel.text = viewModel.latitude
+        longitudeLabel.text = viewModel.longitude
+    }
+
+    @IBAction func updateLocationCoordinatesTapped(_ sender: UIButton) {
+        SwiftLocation.gpsLocation().eam.then { [weak self] in
+            guard let self = self else { return }
+            `self`.viewModel.update(location: $0.location)
+            `self`.refreshPage()
+            log.info("GPS Location: ", context: $0.location)
+        }
+    }
 
     @IBAction func saveLocationCoordinatesTapped(_ sender: UIButton) {}
 

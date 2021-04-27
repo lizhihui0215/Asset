@@ -35,7 +35,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="106" height="106.7"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeitem_bg_nomor" translatesAutoresizingMaskIntoConstraints="NO" id="WQH-T3-CXR">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serviceCellBackground" translatesAutoresizingMaskIntoConstraints="NO" id="WQH-T3-CXR">
                                                     <rect key="frame" x="0.0" y="0.0" width="106" height="106.5"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="projectTransfer" translatesAutoresizingMaskIntoConstraints="NO" id="dKd-rN-U8p">
@@ -229,9 +229,9 @@
     </scenes>
     <resources>
         <image name="cellBackgroundImage" width="320" height="34"/>
-        <image name="homeitem_bg_nomor" width="120" height="121"/>
         <image name="location" width="24" height="28.5"/>
         <image name="projectTransfer" width="46" height="50"/>
+        <image name="serviceCellBackground" width="120" height="121"/>
         <namedColor name="primaryTextColor">
             <color red="0.56800001859664917" green="0.56699997186660767" blue="0.58399999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

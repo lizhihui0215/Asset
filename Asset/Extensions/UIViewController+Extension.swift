@@ -8,7 +8,7 @@ import UIKit
 
 extension UIViewController {
     enum Constants {
-        static let alertTitle = ""
+        static let alertTitle = "Ok"
     }
 
     func startLoadingIndicator() {

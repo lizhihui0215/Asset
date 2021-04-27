@@ -15,10 +15,13 @@ class LocationListTableViewCell: BaseTableViewCell {
         let code: String
         let name: String
         let isCheck: Bool
+        let indexPath: IndexPath
     }
 
     @IBOutlet var codeLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
+    var viewModel: ViewModel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,6 +36,7 @@ class LocationListTableViewCell: BaseTableViewCell {
 
 extension LocationListTableViewCell: TableViewCellConfigurable {
     func configurationCell(with viewModel: ViewModel) {
+        self.viewModel = viewModel
         nameLabel.text = viewModel.name
         codeLabel.text = viewModel.code
     }

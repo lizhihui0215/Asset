@@ -27,9 +27,7 @@ class ServiceViewController: BaseViewController {
 }
 
 extension ServiceViewController {
-    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-    }
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
 
     override open func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard let segue = StoryboardSegue.Service(rawValue: identifier) else { return false }

@@ -5,7 +5,7 @@
 
 import Foundation
 
-class LocationListRequest: RequestRepresentable {}
+struct LocationListRequest: RequestRepresentable {}
 
 struct LocationListParameter: Encodable, Searchable {
     let pageNumber: String
@@ -27,6 +27,7 @@ struct Location: Codable {
     var isCheck: Bool = false
     var locationCode = App.Constants.Default.string
     var locationName = App.Constants.Default.string
+    var assetLocationId = ""
 }
 
 extension Location: Item {}

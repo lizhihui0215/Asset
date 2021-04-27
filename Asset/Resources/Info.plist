@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh-Hans</string>
 	<key>CFBundleExecutable</key>
@@ -25,6 +27,18 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>是否允许拍照</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>是否允许访问您的地点信息</string>
+	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
+	<dict/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>我们需要获取您地点信息，去更新资产的所属位置</string>
+    <key>TempRequestFullLocAccuracy</key>
+    <string>当前用户只授予低精度定位权限，需要临时申请全量定位精度等级，获取更高精度定位结果</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>是否允许访问相册</string>
 	<key>RequestsOpenAccess</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

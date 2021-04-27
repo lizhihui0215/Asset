@@ -37,6 +37,8 @@ internal enum Image {
     internal static let `default` = ImageAsset(name: "Default")
   }
   internal enum Login {
+    internal static let loginBackground = ImageAsset(name: "loginBackground")
+    internal static let loginInputBackground = ImageAsset(name: "loginInputBackground")
     internal static let passwordIcon = ImageAsset(name: "passwordIcon")
     internal static let usernameIcon = ImageAsset(name: "usernameIcon")
   }
@@ -60,14 +62,15 @@ internal enum Image {
     internal static let locationModify = ImageAsset(name: "locationModify")
     internal static let notification = ImageAsset(name: "notification")
     internal static let projectTransfer = ImageAsset(name: "projectTransfer")
+    internal static let serviceCellBackground = ImageAsset(name: "serviceCellBackground")
   }
   internal enum Tab {
-    internal static let grzc = ImageAsset(name: "grzc")
-    internal static let grzcBlue = ImageAsset(name: "grzc_blue")
-    internal static let grzx = ImageAsset(name: "grzx")
-    internal static let grzxBlue = ImageAsset(name: "grzx_blue")
-    internal static let ywg = ImageAsset(name: "ywg")
-    internal static let ywgBlue = ImageAsset(name: "ywg_blue")
+    internal static let asset = ImageAsset(name: "asset")
+    internal static let assetSelected = ImageAsset(name: "assetSelected")
+    internal static let mine = ImageAsset(name: "mine")
+    internal static let mineSelected = ImageAsset(name: "mineSelected")
+    internal static let service = ImageAsset(name: "service")
+    internal static let serviceSelected = ImageAsset(name: "serviceSelected")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

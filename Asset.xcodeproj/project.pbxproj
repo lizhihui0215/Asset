@@ -204,6 +204,11 @@
 		260F989D2630B45800A91F00 /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 260F98962630B45700A91F00 /* Mine.storyboard */; };
 		260F989E2630B45800A91F00 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 260F98982630B45800A91F00 /* Tab.storyboard */; };
 		260F989F2630B45800A91F00 /* Assets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 260F989A2630B45800A91F00 /* Assets.storyboard */; };
+		260FB8742637457A00445BD7 /* JZLocationConverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB86E26373B2600445BD7 /* JZLocationConverter.framework */; };
+		260FB8752637457A00445BD7 /* JZLocationConverter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB86E26373B2600445BD7 /* JZLocationConverter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		260FB8792637472800445BD7 /* GCJ02.json in Resources */ = {isa = PBXBuildFile; fileRef = 260FB8782637472700445BD7 /* GCJ02.json */; };
+		260FB8812637B8DF00445BD7 /* BMKLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8802637B8DF00445BD7 /* BMKLocationKit.framework */; };
+		260FB8822637B8DF00445BD7 /* BMKLocationKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8802637B8DF00445BD7 /* BMKLocationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26108994263406FE00960633 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26108993263406FD00960633 /* Colors.xcassets */; };
 		261089AD26347F3C00960633 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261089AC26347F3C00960633 /* LocationDetailViewController.swift */; };
 		26199532263555A70046AF48 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26199531263555A70046AF48 /* CoreLocation.framework */; };
@@ -270,6 +275,7 @@
 		5B87571C811B8ED7B8C16B56 /* ViewModelRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87570E408C81EEE53FC9C8 /* ViewModelRepresentable.swift */; };
 		5B87574CA078E45AF41FF96D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8754D64F2CA20A0D1C351C /* BaseViewController.swift */; };
 		5B875829091FB1DBFDBA8940 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87534472E43A4C7DC74EE0 /* AsyncOperation.swift */; };
+		5B8758E5D7FC4F86A28985C7 /* BDLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8752511B7EB35F026F1688 /* BDLocationService.swift */; };
 		5B875937026456B76F05BE86 /* Searchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8759382DC909013C3FA86B /* Searchable.swift */; };
 		5B875974DFCBB2F6EEBD848E /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87586861D7DF5D11213DF1 /* LocationDetailViewModel.swift */; };
 		5B875A8A6BD8D829199B73A6 /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751ECF429CD0BF3D388E1 /* LocationListViewController.swift */; };
@@ -338,8 +344,10 @@
 				260E34E426351EDD008CF3DE /* MJRefresh.xcframework in Embed Frameworks */,
 				260E34F026351EE2008CF3DE /* SwiftScan.xcframework in Embed Frameworks */,
 				260E34F826351EE6008CF3DE /* ZLPhotoBrowser.xcframework in Embed Frameworks */,
+				260FB8822637B8DF00445BD7 /* BMKLocationKit.framework in Embed Frameworks */,
 				260E34F426351EE4008CF3DE /* Swiftstraints.xcframework in Embed Frameworks */,
 				260E34EC26351EE1008CF3DE /* SwiftLocation.xcframework in Embed Frameworks */,
+				260FB8752637457A00445BD7 /* JZLocationConverter.framework in Embed Frameworks */,
 				260E34E026351EDB008CF3DE /* DropDown.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -536,6 +544,9 @@
 		260F98972630B45700A91F00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Mine.storyboard; sourceTree = "<group>"; };
 		260F98992630B45800A91F00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tab.storyboard; sourceTree = "<group>"; };
 		260F989B2630B45800A91F00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Assets.storyboard; sourceTree = "<group>"; };
+		260FB86E26373B2600445BD7 /* JZLocationConverter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JZLocationConverter.framework; sourceTree = "<group>"; };
+		260FB8782637472700445BD7 /* GCJ02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GCJ02.json; sourceTree = "<group>"; };
+		260FB8802637B8DF00445BD7 /* BMKLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BMKLocationKit.framework; sourceTree = "<group>"; };
 		26108993263406FD00960633 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		261089AC26347F3C00960633 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		26199531263555A70046AF48 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -590,6 +601,7 @@
 		5B8751BB0A941A1CD5AB7DCC /* EAMExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EAMExtended.swift; sourceTree = "<group>"; };
 		5B8751ECF429CD0BF3D388E1 /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		5B875234EAB7404922020237 /* ServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
+		5B8752511B7EB35F026F1688 /* BDLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BDLocationService.swift; sourceTree = "<group>"; };
 		5B875251AAC9B3CABA84A00D /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		5B87534472E43A4C7DC74EE0 /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		5B8753E2D9F6AAA61C0208AD /* RadioGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioGroupView.swift; sourceTree = "<group>"; };
@@ -652,6 +664,8 @@
 			files = (
 				260E34D926351ED7008CF3DE /* Alamofire.xcframework in Frameworks */,
 				26AB8D4D2636AC1A002E4B95 /* SwiftyBeaver.xcframework in Frameworks */,
+				260FB8742637457A00445BD7 /* JZLocationConverter.framework in Frameworks */,
+				260FB8812637B8DF00445BD7 /* BMKLocationKit.framework in Frameworks */,
 				260E34EB26351EE1008CF3DE /* SwiftLocation.xcframework in Frameworks */,
 				260E34EF26351EE2008CF3DE /* SwiftScan.xcframework in Frameworks */,
 				260E34F326351EE4008CF3DE /* Swiftstraints.xcframework in Frameworks */,
@@ -1097,6 +1111,8 @@
 		26530D22262F11A3002BCE55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				260FB8802637B8DF00445BD7 /* BMKLocationKit.framework */,
+				260FB86E26373B2600445BD7 /* JZLocationConverter.framework */,
 				26AB8D4C2636AC19002E4B95 /* SwiftyBeaver.xcframework */,
 				2619956C2635BC120046AF48 /* Siren */,
 				26199531263555A70046AF48 /* CoreLocation.framework */,
@@ -1367,6 +1383,7 @@
 				9CF7E75D2627449D00407D37 /* Cache.swift */,
 				469EAC783A44972C349C0389 /* Device.swift */,
 				5B8750F6B9AD01618BD2CA0E /* Logger.swift */,
+				5B8752511B7EB35F026F1688 /* BDLocationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1396,6 +1413,7 @@
 		9CBBDFFD2628614F00CC6294 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				260FB8782637472700445BD7 /* GCJ02.json */,
 				9CBBDFFE2628616900CC6294 /* eam-ms-client.cer */,
 				26A0540D262EC3E9000F27C3 /* Assets.xcassets */,
 				9C6D43092627146E00FEC466 /* Info.plist */,
@@ -1517,6 +1535,7 @@
 				26F8961E262EC94200976042 /* Localizable.strings in Resources */,
 				260F989F2630B45800A91F00 /* Assets.storyboard in Resources */,
 				26108994263406FE00960633 /* Colors.xcassets in Resources */,
+				260FB8792637472800445BD7 /* GCJ02.json in Resources */,
 				2619955E263575DC0046AF48 /* Location.storyboard in Resources */,
 				260F989E2630B45800A91F00 /* Tab.storyboard in Resources */,
 				9C6D43082627146E00FEC466 /* LaunchScreen.storyboard in Resources */,
@@ -1851,6 +1870,7 @@
 				5B875974DFCBB2F6EEBD848E /* LocationDetailViewModel.swift in Sources */,
 				260E35CC26351FBB008CF3DE /* FlipAnimator.swift in Sources */,
 				5B87542855F7A7F56A3E3139 /* Logger.swift in Sources */,
+				5B8758E5D7FC4F86A28985C7 /* BDLocationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2086,7 +2106,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3P8C7H426Z;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Asset/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2106,7 +2129,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3P8C7H426Z;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Asset/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

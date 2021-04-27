@@ -33,6 +33,21 @@ class LocationListViewController: BaseTableViewController {
     func updatePagingInformation() {
         pagingInformationLabel.text = L10n.locationList.pagingInformation.label.text(viewModel.page, viewModel.total)
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
+        let segue = StoryboardSegue.Service(segue)
+        switch segue {
+        case .toLocationDetail:
+            guard let locationListCell: LocationListTableViewCell = segue?.associatedTableViewCell(from: sender),
+                  let destination = destination as? LocationDetailViewController
+            else {
+                break
+            }
+            destination.viewModel = viewModel.locationDetailViewModelAtIndexPath(action: destination, indexPath: locationListCell.viewModel.indexPath)
+        default: break
+        }
+    }
 }
 
 extension LocationListViewController: TableViewHeaderRefreshing {

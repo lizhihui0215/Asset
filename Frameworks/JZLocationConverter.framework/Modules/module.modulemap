@@ -1,0 +1,11 @@
+framework module JZLocationConverter {
+  umbrella header "JZLocationConverter.h"
+
+  export *
+  module * { export * }
+}
+
+module JZLocationConverter.Swift {
+    header "JZLocationConverter-Swift.h"
+    requires objc
+}

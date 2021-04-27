@@ -248,7 +248,7 @@
         <!--资产检索-->
         <scene sceneID="3ch-b5-6aJ">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="0K0-gU-PrP" customClass="AssetViewListController" customModule="Asset" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0K0-gU-PrP" customClass="AssetViewListController" customModule="Asset" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DTu-gD-U2h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
