@@ -11,6 +11,17 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
 
+  internal enum locationDetail {
+    internal enum saveLocationCoordinate {
+      internal enum success {
+        internal enum alert {
+          /// 更新成功！
+          internal static let message = L10n.tr("Localizable", "locationDetail.saveLocationCoordinate.success.alert.message")
+        }
+      }
+    }
+  }
+
   internal enum locationList {
     internal enum pagingInformation {
       internal enum label {

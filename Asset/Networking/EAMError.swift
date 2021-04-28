@@ -42,6 +42,14 @@ public extension Error {
         self as? EAMError.UIError
     }
 
+    var asLocationServiceError: EAMError.LocationServiceError? {
+        self as? EAMError.LocationServiceError
+    }
+
+    var asLocationServiceAuthError: EAMError.LocationServiceError.AuthError? {
+        self as? EAMError.LocationServiceError.AuthError
+    }
+
     var recoverySuggestion: String? {
         if let suggestion = asAFError?.recoverySuggestion {
             return suggestion
@@ -54,6 +62,15 @@ public extension Error {
         if let suggestion = asEAMUIError?.recoverySuggestion {
             return suggestion
         }
+
+        if let suggestion = asLocationServiceError?.recoverySuggestion {
+            return suggestion
+        }
+
+        if let suggestion = asLocationServiceAuthError?.recoverySuggestion {
+            return suggestion
+        }
+
         return nil
     }
 }
@@ -71,6 +88,8 @@ public enum EAMError: Error {
     }
 
     public enum LocationServiceError: Error {
+        case coordinateEmpty
+
         public enum AuthError: Int, Error {
             case unknown = -1
             case networkFailed = 1
@@ -96,8 +115,7 @@ extension EAMError: LocalizedError {
 
     public var failureReason: String? {
         switch self {
-        case .unknown:
-            return "未知错误，请稍后再尝试！"
+        case .unknown: return "未知错误，请稍后再尝试！"
         }
     }
 }
@@ -113,10 +131,8 @@ extension EAMError.UIError: LocalizedError {
 
     public var failureReason: String? {
         switch self {
-        case .usernameEmpty:
-            return "用户名不能为空！"
-        case .passwordEmpty:
-            return "密码不能为空！"
+        case .usernameEmpty: return "用户名不能为空！"
+        case .passwordEmpty: return "密码不能为空！"
         }
     }
 }
@@ -206,6 +222,22 @@ public enum VersionError: LocalizedError {
     }
 }
 
+extension EAMError.LocationServiceError: LocalizedError {
+    public var errorDescription: String? {
+        failureReason
+    }
+
+    public var recoverySuggestion: String? {
+        failureReason
+    }
+
+    public var failureReason: String? {
+        switch self {
+        case .coordinateEmpty: return "请更新地点经纬度！"
+        }
+    }
+}
+
 extension EAMError.LocationServiceError.AuthError: LocalizedError {
     public var errorDescription: String? {
         failureReason
@@ -217,12 +249,9 @@ extension EAMError.LocationServiceError.AuthError: LocalizedError {
 
     public var failureReason: String? {
         switch self {
-        case .unknown:
-            return "未知错误，请稍后再尝试！"
-        case .networkFailed:
-            return "因网络鉴权失败"
-        case .invalidKey:
-            return "KEY非法鉴权失败"
+        case .unknown: return "未知错误，请稍后再尝试！"
+        case .networkFailed: return "因网络鉴权失败"
+        case .invalidKey: return "KEY非法鉴权失败"
         }
     }
 }

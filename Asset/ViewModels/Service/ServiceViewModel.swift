@@ -51,16 +51,16 @@ struct ServiceConfiguration {
 
         var image: UIImage {
             switch self {
-            case .projectTransfer: return Image.Service.projectTransfer.image
-            case .cycleInventory: return Image.Service.cycleInventory.image
-            case .assetInventory: return Image.Service.assetInventory.image
-            case .internalDepartmentTransfer: return Image.Service.internalDepartmentTransfer.image
-            case .externalDepartmentTransfer: return Image.Service.externalDepartmentTransfer.image
-            case .companyTransfer: return Image.Service.companyTransfer.image
-            case .assetInspection: return Image.Service.assetInspection.image
-            case .locationModify: return Image.Service.locationModify.image
-            case .notification: return Image.Service.notification.image
-            case .baseData: return Image.Service.baseData.image
+            case .projectTransfer: return XCImage.Service.projectTransfer.image
+            case .cycleInventory: return XCImage.Service.cycleInventory.image
+            case .assetInventory: return XCImage.Service.assetInventory.image
+            case .internalDepartmentTransfer: return XCImage.Service.internalDepartmentTransfer.image
+            case .externalDepartmentTransfer: return XCImage.Service.externalDepartmentTransfer.image
+            case .companyTransfer: return XCImage.Service.companyTransfer.image
+            case .assetInspection: return XCImage.Service.assetInspection.image
+            case .locationModify: return XCImage.Service.locationModify.image
+            case .notification: return XCImage.Service.notification.image
+            case .baseData: return XCImage.Service.baseData.image
             }
         }
     }

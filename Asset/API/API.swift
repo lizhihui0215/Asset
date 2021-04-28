@@ -41,6 +41,6 @@ struct API {
     }
 
     private static var unAuthorizations: [String] {
-        ["\(API.serviceDictionary)/\(APIRouter.Constants.loginPathComponents)"]
+        ["\(API.serviceDictionary)/\(APIRouter.Constants.login)"]
     }
 }

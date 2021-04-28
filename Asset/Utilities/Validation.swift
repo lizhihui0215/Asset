@@ -14,12 +14,15 @@ protocol Validation {
 struct StringValidator: Validator {
     enum `Type` {
         case empty(string: String?)
-
+        case same(lhs: String?, rhs: String?)
         func validate() -> Bool {
             switch self {
             case .empty(let string):
                 guard let string = string else { return true }
                 return string.isEmpty
+            case .same(let lhs, let rhs):
+                guard let lhs = lhs, let rhs = rhs else { return false }
+                return lhs == rhs
             }
         }
     }

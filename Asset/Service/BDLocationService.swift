@@ -12,7 +12,7 @@ extension BMKLocation: EAMLocation {}
 
 extension BMKLocationManager: LocationManager {}
 
-class BDLocationService: NSObject, LocationServiceable {
+final class BDLocationService: NSObject, LocationServiceable {
     typealias Manager = BMKLocationManager
 
     typealias O = DBOptional
@@ -30,7 +30,7 @@ class BDLocationService: NSObject, LocationServiceable {
         // 设置是否自动停止位置更新
         var pausesLocationUpdatesAutomatically = false
         // 设置是否允许后台定位
-        var allowsBackgroundLocationUpdates = true
+        var allowsBackgroundLocationUpdates = false
         // 设置位置获取超时时间
         var locationTimeout = 10
         // 设置获取地址信息超时时间
@@ -50,7 +50,12 @@ class BDLocationService: NSObject, LocationServiceable {
         }
     }
 
-    public static let shared = BDLocationService()
+    private static let `default` = BDLocationService()
+
+    public static var shared: Self {
+        // swiftlint:disable:next force_cast
+        `default` as! Self
+    }
 
     var manager: BMKLocationManager
 
@@ -90,15 +95,15 @@ extension BDLocationService: BMKLocationAuthDelegate {
 }
 
 extension BDLocationService: BMKLocationManagerDelegate {
-    open func bmkLocationManager(_ manager: BMKLocationManager, doRequestAlwaysAuthorization locationManager: CLLocationManager) {
+    public func bmkLocationManager(_ manager: BMKLocationManager, doRequestAlwaysAuthorization locationManager: CLLocationManager) {
         log.info("bmkLocationManager doRequestAlwaysAuthorization")
     }
 
-    open func bmkLocationManager(_ manager: BMKLocationManager, didFailWithError error: Error?) {
+    public func bmkLocationManager(_ manager: BMKLocationManager, didFailWithError error: Error?) {
         log.error("bmkLocationManager didFailWithError \(String(describing: error))")
     }
 
-    open func bmkLocationManager(_ manager: BMKLocationManager, didUpdate location: BMKLocation?, orError error: Error?) {
+    public func bmkLocationManager(_ manager: BMKLocationManager, didUpdate location: BMKLocation?, orError error: Error?) {
         if let location = location {
             log.info("bmkLocationManager didUpdate location: \(location)")
         }
@@ -108,19 +113,19 @@ extension BDLocationService: BMKLocationManagerDelegate {
         }
     }
 
-    open func bmkLocationManager(_ manager: BMKLocationManager, didChange status: CLAuthorizationStatus) {
+    public func bmkLocationManager(_ manager: BMKLocationManager, didChange status: CLAuthorizationStatus) {
         log.info("bmkLocationManager didChange status: \(status)")
     }
 
-    open func bmkLocationManagerDidChangeAuthorization(_ manager: BMKLocationManager) {
+    public func bmkLocationManagerDidChangeAuthorization(_ manager: BMKLocationManager) {
         log.info("bmkLocationManager idChangeAuthorization")
     }
 
-    open func bmkLocationManager(_ manager: BMKLocationManager, didUpdate heading: CLHeading?) {
+    public func bmkLocationManager(_ manager: BMKLocationManager, didUpdate heading: CLHeading?) {
         log.info("bmkLocationManager didUpdate heading \(String(describing: heading))")
     }
 
-    open func bmkLocationManager(_ manager: BMKLocationManager, didUpdate state: BMKLocationNetworkState, orError error: Error?) {
+    public func bmkLocationManager(_ manager: BMKLocationManager, didUpdate state: BMKLocationNetworkState, orError error: Error?) {
         log.info("bmkLocationManager didUpdate state \(state)")
 
         if let error = error {

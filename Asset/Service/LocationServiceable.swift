@@ -9,6 +9,7 @@ protocol LocationServiceable {
     associatedtype Manager: LocationManager
     associatedtype O: Optional
     associatedtype L: EAMLocation
+    static var shared: Self { get }
     var manager: Manager { get set }
     init(manager: Manager)
     func with(optional: () -> O) -> Self

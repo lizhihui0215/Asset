@@ -25,10 +25,11 @@ strings:
 xcassets:
   inputs:
     - Resources/Assets.xcassets
+    - Resources/Colors.xcassets
   outputs:
     - templateName: swift5
       params:
-        enumName: Image
+        enumName: XCAssets
         forceProvidesNamespaces: true
       output: XCAssets+Generated.swift
 

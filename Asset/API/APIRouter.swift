@@ -11,14 +11,16 @@ import Foundation
 
 enum APIRouter: URLRequestConvertible {
     enum Constants {
-        static let loginPathComponents = "appSys/login"
-        static let locationListPathComponents = "app/location/findByPage"
-        static var locationDetailByCodePathComponents = "app/location/getLocationByCode"
+        static let login = "appSys/login"
+        static let locationList = "app/location/findByPage"
+        static var locationDetailByCode = "app/location/getLocationByCode"
+        static var updateLocationCoordinate = "app/location/updateLocationInfo"
     }
 
     case login(LoginParameter)
     case locationList(LocationListParameter)
     case locationDetailByCode(LocationDetailParameter)
+    case updateLocationCoordinate(UpdateLocationCoordinateParameter)
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -28,20 +30,22 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .login,
              .locationDetailByCode,
-             .locationList:
+             .locationList,
+             .updateLocationCoordinate:
             return .post
         }
     }
 
     var path: String {
         switch self {
-        case .login: return path(with: Constants.loginPathComponents)
-        case .locationList: return path(with: Constants.locationListPathComponents)
-        case .locationDetailByCode: return path(with: Constants.locationDetailByCodePathComponents)
+        case .login: return pathComponents(with: Constants.login)
+        case .locationList: return pathComponents(with: Constants.locationList)
+        case .locationDetailByCode: return pathComponents(with: Constants.locationDetailByCode)
+        case .updateLocationCoordinate: return pathComponents(with: Constants.updateLocationCoordinate)
         }
     }
 
-    private func path(with pathComponents: String) -> String {
+    private func pathComponents(with pathComponents: String) -> String {
         "\(API.serviceDictionary)/\(pathComponents)"
     }
 
@@ -56,6 +60,8 @@ enum APIRouter: URLRequestConvertible {
         case .locationList(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .locationDetailByCode(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .updateLocationCoordinate(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         }
 
