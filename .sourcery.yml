@@ -3,5 +3,6 @@ sources:
 templates:
   - Asset/SourceryGenerated/Templates/AutoCodable.swifttemplate
   - Asset/SourceryGenerated/Templates/AutoEquatable.stencil
+  - Asset/SourceryGenerated/Templates/AutoMockable.stencil
 output:
   Asset/SourceryGenerated
