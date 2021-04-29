@@ -1,0 +1,7 @@
+sources:
+  - Asset/API/
+templates:
+  - Asset/SourceryGenerated/Templates/AutoCodable.swifttemplate
+  - Asset/SourceryGenerated/Templates/AutoEquatable.stencil
+output:
+  Asset/SourceryGenerated
