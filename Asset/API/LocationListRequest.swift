@@ -22,12 +22,3 @@ struct LocationListResponse: PageableResponse {
     var page: Int = 0
     var data: [Location] = []
 }
-
-struct Location: Codable {
-    var isCheck: Bool = false
-    var locationCode = App.Constants.Default.string
-    var locationName = App.Constants.Default.string
-    var assetLocationId = ""
-}
-
-extension Location: Item {}

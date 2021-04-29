@@ -8,11 +8,6 @@
 
 import Foundation
 
-protocol AutoEquatable {}
-protocol AutoDecodable: Decodable {}
-protocol AutoEncodable: Encodable {}
-protocol AutoCodable: AutoDecodable, AutoEncodable {}
-
 struct AnyCodable {
     let value: Any
 

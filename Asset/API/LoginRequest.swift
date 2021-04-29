@@ -21,12 +21,3 @@ struct LoginResponse: DataResponse {
     var msg: String = App.Constants.Default.string
     var data: Credential?
 }
-
-struct Credential: Codable {
-    let userToken: String
-    let pageSize: String
-    let userOrgName: String
-    let userCityName: String
-    let userOrgId: String
-    let userCityId: String
-}

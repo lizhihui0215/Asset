@@ -1,5 +1,5 @@
 sources:
-  - Asset/API/
+  - Asset/Models/
 templates:
   - Asset/SourceryGenerated/Templates/AutoCodable.swifttemplate
   - Asset/SourceryGenerated/Templates/AutoEquatable.stencil

@@ -13,21 +13,6 @@ extension ServiceCollectionViewCell: ReuseIdRepresentable {}
 class ServiceCollectionViewCell: BaseCollectionViewCell {
     struct ViewModel: ViewModelRepresentable {
         enum Service {
-            public var isInDevelopment: Bool {
-                switch self {
-                case .projectTransfer: return true
-                case .cycleInventory: return false
-                case .assetInventory: return false
-                case .internalDepartmentTransfer: return true
-                case .externalDepartmentTransfer: return true
-                case .companyTransfer: return true
-                case .assetInspection: return true
-                case .locationModify: return true
-                case .notification: return true
-                case .baseData: return true
-                }
-            }
-
             case projectTransfer
             case cycleInventory
             case assetInventory
@@ -55,5 +40,22 @@ extension ServiceCollectionViewCell: CollectionViewCellConfigurable {
         nameLabel.text = viewModel.name
         imageView.image = viewModel.image
         service = viewModel.service
+    }
+}
+
+extension ServiceCollectionViewCell.ViewModel.Service {
+    var isInDevelopment: Bool {
+        switch self {
+        case .projectTransfer: return true
+        case .cycleInventory: return false
+        case .assetInventory: return false
+        case .internalDepartmentTransfer: return true
+        case .externalDepartmentTransfer: return true
+        case .companyTransfer: return true
+        case .assetInspection: return true
+        case .locationModify: return true
+        case .notification: return true
+        case .baseData: return true
+        }
     }
 }
