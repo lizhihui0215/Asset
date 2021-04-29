@@ -232,7 +232,7 @@ private extension PresentationManager {
         if #available(iOS 13.0, *), let windowScene = getFirstForegroundScene() {
             window = UIWindow(windowScene: windowScene)
         } else {
-            window = UIWindow(frame: .zero)
+            window = UIWindow(frame: UIScreen.main.bounds)
         }
 
         window.windowLevel = UIWindow.Level.alert + 1

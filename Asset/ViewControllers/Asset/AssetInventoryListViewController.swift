@@ -6,18 +6,24 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
+import DropDown
 import UIKit
 
 class AssetInventoryListViewController: BaseTableViewController {
     @IBOutlet var pagingInformationLabel: UILabel!
     @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var inventoryStatusButton: UIButton!
+
+    var viewModel: AssetInventoryListViewModel!
+
+    let dropDown = DropDown()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        dropDown.anchorView = inventoryStatusButton
     }
 
+    @IBAction func inventoryButtonTapped(_ sender: UIButton) {}
     /*
      // MARK: - Navigation
 

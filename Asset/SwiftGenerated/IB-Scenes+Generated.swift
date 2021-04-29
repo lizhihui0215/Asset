@@ -16,11 +16,11 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Assets"
 
     internal static let initialScene = InitialSceneType<Asset.AssetViewListController>(storyboard: Assets.self)
-
-    internal static let assetInventoryListViewController = SceneType<Asset.AssetInventoryListViewController>(storyboard: Assets.self, identifier: "AssetInventoryListViewController")
   }
   internal enum Common: StoryboardType {
     internal static let storyboardName = "Common"
+
+    internal static let assetDetailViewController = SceneType<Asset.AssetDetailViewController>(storyboard: Common.self, identifier: "AssetDetailViewController")
 
     internal static let photographViewController = SceneType<Asset.PhotographViewController>(storyboard: Common.self, identifier: "PhotographViewController")
   }
@@ -33,6 +33,8 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Location"
 
     internal static let initialScene = InitialSceneType<Asset.LocationDetailViewController>(storyboard: Location.self)
+
+    internal static let assetInventoryListViewController = SceneType<Asset.AssetInventoryListViewController>(storyboard: Location.self, identifier: "AssetInventoryListViewController")
   }
   internal enum Login: StoryboardType {
     internal static let storyboardName = "Login"

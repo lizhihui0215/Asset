@@ -6,6 +6,7 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
+import DropDown
 import UIKit
 
 @UIApplicationMain
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NetworkActivityLogger.shared.startLogging()
         #endif
         BDLocationService.shared.launchService()
+        DropDown.startListeningToKeyboard()
 
         if #available(iOS 13.0, *) { return true }
         let storyboardName = launchEntranceName()
