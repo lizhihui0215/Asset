@@ -49,3 +49,4 @@ struct LocationDetail: Codable {
 }
 
 extension LocationDetail: Item {}
+extension LocationDetail: AutoEquatable {}

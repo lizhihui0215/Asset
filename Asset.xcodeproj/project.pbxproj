@@ -281,6 +281,7 @@
 		5B8755A79EA9D1A6EC6EED4C /* AssetDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875750B77F6E4A610540B3 /* AssetDetailViewModel.swift */; };
 		5B8755E93A4A9AE1FF0470BB /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875F5EC7D6D354B8CCF388 /* LocationListViewModel.swift */; };
 		5B87562C0F96C697601F6120 /* UINavigationItem+BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87592436C0BC675040207A /* UINavigationItem+BarButtonItem.swift */; };
+		5B8756642A1FE8121E0C3749 /* LocationDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8756CA0572E8165EE7BF98 /* LocationDetailRequest.swift */; };
 		5B87571C811B8ED7B8C16B56 /* ViewModelRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87570E408C81EEE53FC9C8 /* ViewModelRepresentable.swift */; };
 		5B875791FD6C8D52A5FC358C /* AssetInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */; };
 		5B875829091FB1DBFDBA8940 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87534472E43A4C7DC74EE0 /* AsyncOperation.swift */; };
@@ -300,7 +301,6 @@
 		5B875DE8841BA9E8A3C6E9A2 /* UpdateLocationCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87587F55DE950C478C1950 /* UpdateLocationCoordinate.swift */; };
 		5B875ECF6BBE08A269331211 /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875A58870EC13B5100A3BD /* ObjectAssociation.swift */; };
 		5B875EF2619BA9CC70749B6D /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875FFFE8124E29CDDBAF94 /* BaseTableViewCell.swift */; };
-		5B875F4C74C28D87F667DD9A /* LocationDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8758BC008EB814DAA9C50D /* LocationDetailRequest.swift */; };
 		5B875F71B3D46355CCBE7BC0 /* SegueType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8750C69CA05D4C0676B691 /* SegueType+Extension.swift */; };
 		5B875FB2C8453F2EEE391BEB /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875E465D6ABAD6B1D7D145 /* Identifiable.swift */; };
 		9C6D42FC2627146600FEC466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D42FB2627146600FEC466 /* AppDelegate.swift */; };
@@ -630,6 +630,7 @@
 		5B875684196B01E4B5E60BD5 /* AssetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailViewController.swift; sourceTree = "<group>"; };
 		5B875685131D768DDA002A8F /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		5B8756A5EF5ECFD321CEF830 /* ReuseIdRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuseIdRepresentable.swift; sourceTree = "<group>"; };
+		5B8756CA0572E8165EE7BF98 /* LocationDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailRequest.swift; sourceTree = "<group>"; };
 		5B8756E858F73749D54BDFA2 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		5B8757056B7F7DA0803D4211 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		5B87570E408C81EEE53FC9C8 /* ViewModelRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelRepresentable.swift; sourceTree = "<group>"; };
@@ -639,7 +640,6 @@
 		5B8758576E13F3C93BBCF08A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B87586861D7DF5D11213DF1 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
 		5B87587F55DE950C478C1950 /* UpdateLocationCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLocationCoordinate.swift; sourceTree = "<group>"; };
-		5B8758BC008EB814DAA9C50D /* LocationDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailRequest.swift; sourceTree = "<group>"; };
 		5B87592436C0BC675040207A /* UINavigationItem+BarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+BarButtonItem.swift"; sourceTree = "<group>"; };
 		5B8759382DC909013C3FA86B /* Searchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Searchable.swift; sourceTree = "<group>"; };
 		5B87594724E568A83D629900 /* InitialSceneType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InitialSceneType+Extension.swift"; sourceTree = "<group>"; };
@@ -1253,6 +1253,13 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		5B875B157A6E7D8DE210C4F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		5B875BD2EC1D39F94A1A8EDD /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1327,6 +1334,7 @@
 				260F98942630B45700A91F00 /* Service.storyboard */,
 				260F98982630B45800A91F00 /* Tab.storyboard */,
 				9C6D43062627146E00FEC466 /* LaunchScreen.storyboard */,
+				5B875B157A6E7D8DE210C4F1 /* Models */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -1436,9 +1444,9 @@
 				26530D38262F19DF002BCE55 /* API.swift */,
 				5B875234EAB7404922020237 /* ServiceRequest.swift */,
 				5B875E2B31EBA291112B1127 /* LocationListRequest.swift */,
-				5B8758BC008EB814DAA9C50D /* LocationDetailRequest.swift */,
 				5B87587F55DE950C478C1950 /* UpdateLocationCoordinate.swift */,
 				5B875A192F3CF3047BC4AD2E /* PhotographRequest.swift */,
+				5B8756CA0572E8165EE7BF98 /* LocationDetailRequest.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1508,6 +1516,7 @@
 				9C82B695262ADCB900D841AE /* Format Code */,
 				26F89628262ED19E00976042 /* swiftgen */,
 				26DD2184262F2338005C6813 /* Embed Frameworks */,
+				26FF8DE0263A65F1005FF2E4 /* sourcery */,
 			);
 			buildRules = (
 			);
@@ -1655,6 +1664,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "bin/scripts/swiftgen.sh\n";
+		};
+		26FF8DE0263A65F1005FF2E4 /* sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = sourcery;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bin/scripts/sourcery.sh\n";
 		};
 		9C82B695262ADCB900D841AE /* Format Code */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1932,7 +1959,6 @@
 				261995882635BC120046AF48 /* Siren.swift in Sources */,
 				260E361226351FBB008CF3DE /* ActivityIndicatorAnimationBallPulse.swift in Sources */,
 				5B87555446B6DCD102EEFC93 /* UISearchBar+Extension.swift in Sources */,
-				5B875F4C74C28D87F667DD9A /* LocationDetailRequest.swift in Sources */,
 				260E35E926351FBB008CF3DE /* GradientMode.swift in Sources */,
 				5B875974DFCBB2F6EEBD848E /* LocationDetailViewModel.swift in Sources */,
 				260E35CC26351FBB008CF3DE /* FlipAnimator.swift in Sources */,
@@ -1955,6 +1981,7 @@
 				5B8758C38A812D4F5590DF88 /* BaseViewController.swift in Sources */,
 				5B875A583F12B82EDFFFBBEA /* AssetInventoryListViewController.swift in Sources */,
 				5B875791FD6C8D52A5FC358C /* AssetInventoryListViewModel.swift in Sources */,
+				5B8756642A1FE8121E0C3749 /* LocationDetailRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
