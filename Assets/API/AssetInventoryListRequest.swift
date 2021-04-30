@@ -8,6 +8,10 @@ import Foundation
 struct AssetInventoryListRequest: RequestRepresentable {}
 
 struct AssetInventoryListParameter: Encodable, Searchable {
+    let pageNumber: String
+    let pageSize: String
+    let locationId: String
+    let userOrgId: String
     var appSearchText: String
 }
 
@@ -17,5 +21,5 @@ struct AssetInventoryListResponse: PageableResponse {
     var status: Int = 0
     var msg: String = App.Constants.Default.string
     var page: Int = 0
-    var data: [AssetDetail] = []
+    var data: [Asset] = []
 }

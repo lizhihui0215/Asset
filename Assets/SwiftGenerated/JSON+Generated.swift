@@ -11,19 +11,19 @@ import Foundation
 // swiftlint:disable identifier_name line_length type_body_length
 internal enum MockerDataSource {
   internal enum AssetInventoryListResponse {
-    public static let document = objectFromJSON(at: "AssetInventoryListResponse.json")
+    public static let data = objectFromJSON(at: "AssetInventoryListResponse.json")
   }
   internal enum LocationDetailResponse {
-    public static let document = objectFromJSON(at: "LocationDetailResponse.json")
+    public static let data = objectFromJSON(at: "LocationDetailResponse.json")
   }
   internal enum LocationListResponse {
-    public static let document = objectFromJSON(at: "LocationListResponse.json")
+    public static let data = objectFromJSON(at: "LocationListResponse.json")
   }
   internal enum LoginResponse {
-    public static let document = objectFromJSON(at: "LoginResponse.json")
+    public static let data = objectFromJSON(at: "LoginResponse.json")
   }
   internal enum UpdateLocationCoordinateResponse {
-    public static let document = objectFromJSON(at: "UpdateLocationCoordinateResponse.json")
+    public static let data = objectFromJSON(at: "UpdateLocationCoordinateResponse.json")
   }
 }
 

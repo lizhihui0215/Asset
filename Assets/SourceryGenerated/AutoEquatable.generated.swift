@@ -23,9 +23,9 @@ fileprivate func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs:
 
 
 // MARK: - AutoEquatable for classes, protocols, structs
-// MARK: - AssetDetail AutoEquatable
-extension AssetDetail: Equatable {}
-internal func == (lhs: AssetDetail, rhs: AssetDetail) -> Bool {
+// MARK: - Asset AutoEquatable
+extension Asset: Equatable {}
+internal func == (lhs: Asset, rhs: Asset) -> Bool {
     guard lhs.status == rhs.status else { return false }
     guard lhs.code == rhs.code else { return false }
     guard lhs.name == rhs.name else { return false }

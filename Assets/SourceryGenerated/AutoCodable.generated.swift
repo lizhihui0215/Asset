@@ -1,7 +1,7 @@
 // Generated using Sourcery 1.4.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
-extension AssetDetail {
+extension Asset {
 
     enum CodingKeys: String, CodingKey {
         case status
@@ -12,9 +12,9 @@ extension AssetDetail {
     internal init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        status = (try? container.decode(Int.self, forKey: .status)) ?? AssetDetail.defaultStatus
-        code = (try? container.decode(String.self, forKey: .code)) ?? AssetDetail.defaultCode
-        name = (try? container.decode(String.self, forKey: .name)) ?? AssetDetail.defaultName
+        status = (try? container.decode(InventoryType.self, forKey: .status)) ?? Asset.defaultStatus
+        code = (try? container.decode(String.self, forKey: .code)) ?? Asset.defaultCode
+        name = (try? container.decode(String.self, forKey: .name)) ?? Asset.defaultName
     }
 
 }
@@ -39,6 +39,44 @@ extension Credential {
         userCityName = (try? container.decode(String.self, forKey: .userCityName)) ?? Credential.defaultUserCityName
         userOrgId = (try? container.decode(String.self, forKey: .userOrgId)) ?? Credential.defaultUserOrgId
         userCityId = (try? container.decode(String.self, forKey: .userCityId)) ?? Credential.defaultUserCityId
+    }
+
+}
+
+extension InventoryType {
+
+    enum CodingKeys: String, CodingKey {
+        case all
+        case surplus
+        case deficit
+        case nonInventory
+        case inventoried
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+
+        let enumCase = try container.decode(String.self)
+        switch enumCase {
+        case CodingKeys.all.rawValue: self = .all
+        case CodingKeys.surplus.rawValue: self = .surplus
+        case CodingKeys.deficit.rawValue: self = .deficit
+        case CodingKeys.nonInventory.rawValue: self = .nonInventory
+        case CodingKeys.inventoried.rawValue: self = .inventoried
+        default: throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Unknown enum case '\(enumCase)'"))
+        }
+    }
+
+    internal func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+
+        switch self {
+        case .all: try container.encode(CodingKeys.all.rawValue)
+        case .surplus: try container.encode(CodingKeys.surplus.rawValue)
+        case .deficit: try container.encode(CodingKeys.deficit.rawValue)
+        case .nonInventory: try container.encode(CodingKeys.nonInventory.rawValue)
+        case .inventoried: try container.encode(CodingKeys.inventoried.rawValue)
+        }
     }
 
 }

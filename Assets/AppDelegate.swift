@@ -7,6 +7,7 @@
 //
 
 import DropDown
+import IQKeyboardManagerSwift
 import UIKit
 
 @UIApplicationMain
@@ -26,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
         BDLocationService.shared.launchService()
         DropDown.startListeningToKeyboard()
-
+        IQKeyboardManager.shared.enable = true
         if #available(iOS 13.0, *) { return true }
         let storyboardName = launchEntranceName()
         let type = launchStoryboardScenes[storyboardName]!

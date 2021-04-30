@@ -12,7 +12,7 @@ import Foundation
 {% endmacro %}
 {% macro documentBlock file document %}
 
-  public static let document = objectFromJSON(at: "{% call transformPath file.path %}")
+  public static let data = objectFromJSON(at: "{% call transformPath file.path %}")
 
 {% endmacro %}
 

@@ -262,6 +262,8 @@
 		26AB8D4E2636AC1A002E4B95 /* SwiftyBeaver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26AB8D4C2636AC19002E4B95 /* SwiftyBeaver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26AF1D98263C555800F8238B /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26AF1D94263C555800F8238B /* Location.storyboard */; };
 		26AF1D99263C555800F8238B /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26AF1D96263C555800F8238B /* Common.storyboard */; };
+		26DF76CF263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DF76CE263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework */; };
+		26DF76D0263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26DF76CE263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26F8961E262EC94200976042 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26F89620262EC94200976042 /* Localizable.strings */; };
 		469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EAC783A44972C349C0389 /* Device.swift */; };
 		469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA61540B02723A9DAED3E /* UIViewController+Extension.swift */; };
@@ -273,6 +275,7 @@
 		469EAFAB12D64273E473DD67 /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA1FCF25D4B2B9F7CD71F /* Convertible.swift */; };
 		5B87506C613FE5444D867E91 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8757056B7F7DA0803D4211 /* BaseTableViewController.swift */; };
 		5B875075C51BFA6607051AFB /* RadioGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B8756550B7AC7595D075F64 /* RadioGroupView.xib */; };
+		5B87508ADCA70CABE1BE2430 /* InventoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875178140D20A3F5A1B6EB /* InventoryType.swift */; };
 		5B8750AE8B11B2B0CFBE333E /* LocationListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875E2B31EBA291112B1127 /* LocationListRequest.swift */; };
 		5B8750E26BA7E848BE2F6A74 /* UITableView+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875C032AE4F9ED975BA8B1 /* UITableView+Cell.swift */; };
 		5B87516F677729D9615CF868 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8758371F7ACD2BE80839A1 /* ListViewModel.swift */; };
@@ -301,7 +304,7 @@
 		5B875791FD6C8D52A5FC358C /* AssetInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */; };
 		5B8757C6803FECC0791BB29F /* LocationListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B8759E04A1A9555EA96945E /* LocationListResponse.json */; };
 		5B875829091FB1DBFDBA8940 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87534472E43A4C7DC74EE0 /* AsyncOperation.swift */; };
-		5B875840DD8F51749A85FC00 /* AssetDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875EF4CE4A321D6B80DCE4 /* AssetDetail.swift */; };
+		5B875840DD8F51749A85FC00 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875EF4CE4A321D6B80DCE4 /* Asset.swift */; };
 		5B875844E4AD5B17EDF9E8D4 /* AssetInventoryListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B875EF7AAF929C9FD303649 /* AssetInventoryListResponse.json */; };
 		5B8758776CC649B1F024F129 /* APIMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875CFE9E18D6C97C5B56C1 /* APIMocker.swift */; };
 		5B87587EED3B6AAB54CE67D1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875B436721A08B02F46F5A /* TabBarViewController.swift */; };
@@ -374,6 +377,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				26DF76D0263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework in Embed Frameworks */,
 				260E34DC26351ED9008CF3DE /* CryptoSwift.xcframework in Embed Frameworks */,
 				260E34DA26351ED7008CF3DE /* Alamofire.xcframework in Embed Frameworks */,
 				26AB8D4E2636AC1A002E4B95 /* SwiftyBeaver.xcframework in Embed Frameworks */,
@@ -637,6 +641,7 @@
 		26AB8D4C2636AC19002E4B95 /* SwiftyBeaver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftyBeaver.xcframework; path = Carthage/Build/SwiftyBeaver.xcframework; sourceTree = SOURCE_ROOT; };
 		26AF1D95263C555800F8238B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Location.storyboard; sourceTree = "<group>"; };
 		26AF1D97263C555800F8238B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Common.storyboard; sourceTree = "<group>"; };
+		26DF76CE263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = IQKeyboardManagerSwift.xcframework; path = Carthage/Build/IQKeyboardManagerSwift.xcframework; sourceTree = SOURCE_ROOT; };
 		26F8961F262EC94200976042 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		26F89623262EC94700976042 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		469EA1FCF25D4B2B9F7CD71F /* Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
@@ -651,6 +656,7 @@
 		5B875095689EEA83D7E606CC /* LoginResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoginResponse.json; sourceTree = "<group>"; };
 		5B8750C69CA05D4C0676B691 /* SegueType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SegueType+Extension.swift"; sourceTree = "<group>"; };
 		5B8750F6B9AD01618BD2CA0E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		5B875178140D20A3F5A1B6EB /* InventoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryType.swift; sourceTree = "<group>"; };
 		5B8751BB0A941A1CD5AB7DCC /* EAMExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EAMExtended.swift; sourceTree = "<group>"; };
 		5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListViewModel.swift; sourceTree = "<group>"; };
 		5B875234EAB7404922020237 /* ServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
@@ -694,7 +700,7 @@
 		5B875E465D6ABAD6B1D7D145 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		5B875EC61BBD5395886B9E78 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		5B875ED9B37A9D45DB8F37A5 /* Namespaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Namespaces.swift; sourceTree = "<group>"; };
-		5B875EF4CE4A321D6B80DCE4 /* AssetDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetail.swift; sourceTree = "<group>"; };
+		5B875EF4CE4A321D6B80DCE4 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		5B875EF7AAF929C9FD303649 /* AssetInventoryListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetInventoryListResponse.json; sourceTree = "<group>"; };
 		5B875F5EC7D6D354B8CCF388 /* LocationListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
 		5B875F9C53D025D2CD66ABE0 /* UIStoryboardSegue+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboardSegue+Extension.swift"; sourceTree = "<group>"; };
@@ -737,6 +743,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26DF76CF263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework in Frameworks */,
 				260E34D926351ED7008CF3DE /* Alamofire.xcframework in Frameworks */,
 				260FB8882637B9A500445BD7 /* Security.framework in Frameworks */,
 				260FB8E02637FE3B00445BD7 /* libc++.tbd in Frameworks */,
@@ -1184,6 +1191,7 @@
 		26530D22262F11A3002BCE55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26DF76CE263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework */,
 				260FB88C2637B9C700445BD7 /* libc++.tbd */,
 				260FB8892637B9AF00445BD7 /* libsqlite3.0.tbd */,
 				260FB8D72637F4AB00445BD7 /* BMKLocationKit.xcframework */,
@@ -1324,11 +1332,12 @@
 		5B875B157A6E7D8DE210C4F1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5B875178140D20A3F5A1B6EB /* InventoryType.swift */,
 				266D1253263B1D7500B984D6 /* Credential.swift */,
 				266D11CD263AC01B00B984D6 /* Location.swift */,
 				266D11CF263AC01B00B984D6 /* LocationDetail.swift */,
 				266D11D5263AC34700B984D6 /* AutoProtocol.swift */,
-				5B875EF4CE4A321D6B80DCE4 /* AssetDetail.swift */,
+				5B875EF4CE4A321D6B80DCE4 /* Asset.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1403,6 +1412,7 @@
 				266D11B1263ABD9900B984D6 /* SourceryGenerated */,
 				26838199262EE1BF00F6C23F /* SwiftGenerated */,
 				5B875B157A6E7D8DE210C4F1 /* Models */,
+				5B875762FD5BDF2868FAD444 /* Mocker */,
 				9C6D43012627146600FEC466 /* Login.storyboard */,
 				26AF1D96263C555800F8238B /* Common.storyboard */,
 				26AF1D94263C555800F8238B /* Location.storyboard */,
@@ -1411,7 +1421,6 @@
 				260F98942630B45700A91F00 /* Service.storyboard */,
 				260F98982630B45800A91F00 /* Tab.storyboard */,
 				9C6D43062627146E00FEC466 /* LaunchScreen.storyboard */,
-				5B875762FD5BDF2868FAD444 /* Mocker */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -2080,8 +2089,9 @@
 				5B8756642A1FE8121E0C3749 /* LocationDetailRequest.swift in Sources */,
 				5B8758776CC649B1F024F129 /* APIMocker.swift in Sources */,
 				5B875288B44D13922F5117C5 /* UIStoryboardSegue+Extension.swift in Sources */,
-				5B875840DD8F51749A85FC00 /* AssetDetail.swift in Sources */,
+				5B875840DD8F51749A85FC00 /* Asset.swift in Sources */,
 				5B875C8C90295342D7BFEA53 /* AssetInventoryListRequest.swift in Sources */,
+				5B87508ADCA70CABE1BE2430 /* InventoryType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -456,7 +456,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssetInventoryTableViewCell" id="OIZ-3y-l07" customClass="AssetInventoryTableViewCell" customModule="Assets" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AssetInventoryTableViewCell" id="OIZ-3y-l07" customClass="AssetInventoryTableViewCell" customModule="Assets" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="76.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OIZ-3y-l07" id="lMH-SQ-pDO">
@@ -561,6 +561,9 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="codeLabel" destination="R5b-HQ-gcw" id="eOm-pO-GzD"/>
+                                                    <outlet property="nameLabel" destination="Vqj-C0-DXO" id="e11-Vx-GpA"/>
+                                                    <outlet property="statusLabel" destination="LRf-dh-rOt" id="nzf-mk-nCE"/>
                                                     <segue destination="pZZ-4g-qMc" kind="show" id="IF3-Gc-CG9"/>
                                                 </connections>
                                             </tableViewCell>
@@ -589,7 +592,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4u-Eb-qBO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3454" y="494"/>
+            <point key="canvasLocation" x="3453.6231884057975" y="493.52678571428567"/>
         </scene>
     </scenes>
     <designables>

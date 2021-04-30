@@ -7,6 +7,7 @@
 //
 
 import DropDown
+import MJRefresh
 import UIKit
 
 class AssetInventoryListViewController: BaseTableViewController {
@@ -29,6 +30,22 @@ class AssetInventoryListViewController: BaseTableViewController {
             guard let self = self else { return }
             `self`.inventoryStatusButton.setTitle(item, for: .normal)
         }
+
+        headerRefreshingDelegate = self
+        searchBar.delegate = self
+        refreshTable()
+    }
+
+    func refreshTable(isPaging: Bool = false) {
+        viewModel.fetchList(isPaging: isPaging) { [weak self] _ in
+            guard let self = self else { return }
+            `self`.tableView.reloadData()
+            `self`.updatePagingInformation()
+        }
+    }
+
+    func updatePagingInformation() {
+        pagingInformationLabel.text = L10n.locationList.pagingInformation.label.text(viewModel.page, viewModel.total)
     }
 
     @IBAction func inventoryButtonTapped(_ sender: UIButton) {
@@ -45,16 +62,36 @@ class AssetInventoryListViewController: BaseTableViewController {
      */
 }
 
+extension AssetInventoryListViewController: TableViewHeaderRefreshing {
+    func header(_ header: MJRefreshNormalHeader, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
+        refreshTable()
+        completionBlock()
+    }
+
+    func footer(_ header: MJRefreshBackNormalFooter, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
+        refreshTable(isPaging: true)
+        completionBlock()
+    }
+}
+
+extension AssetInventoryListViewController: UISearchBarDelegate {
+    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        viewModel.appSearchText = searchBar.eam.text
+        refreshTable()
+    }
+}
+
 extension AssetInventoryListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: AssetInventoryTableViewCell = tableView.dequeueReusableCell() else {
             return UITableViewCell()
         }
-
+        let viewModel = self.viewModel.assetInventoryCellViewModel(at: indexPath)
+        cell.configurationCell(with: viewModel)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        viewModel.numberOfItemsInSection(section: section)
     }
 }
