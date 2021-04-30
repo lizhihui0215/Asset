@@ -1,8 +1,8 @@
 sources:
-  - Asset/Models/
+  - Assets/Models/
 templates:
-  - Asset/SourceryGenerated/Templates/AutoCodable.swifttemplate
-  - Asset/SourceryGenerated/Templates/AutoEquatable.stencil
-  - Asset/SourceryGenerated/Templates/AutoMockable.stencil
+  - Assets/SourceryGenerated/Templates/AutoCodable.swifttemplate
+  - Assets/SourceryGenerated/Templates/AutoEquatable.stencil
+  - Assets/SourceryGenerated/Templates/AutoMockable.stencil
 output:
-  Asset/SourceryGenerated
+  Assets/SourceryGenerated

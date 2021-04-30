@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  Assets
+
+  Created by lizhihui on 2021/4/20.
+  Copyright © 2021 ZhiHui.Li. All rights reserved.
+*/
+//******************************************************************************
+// Service
+//******************************************************************************
+"service.name.projectTransfer" = "工程转资";
+"service.name.cycleInventory" = "循环盘点";
+"service.name.assetInventory" = "资产盘点";
+"service.name.internalDepartmentTransfer" = "部门内调拨";
+"service.name.externalDepartmentTransfer" = "部门间调拨";
+"service.name.companyTransfer" = "公司间调拨";
+"service.name.assetInspection" = "资产巡检";
+"service.name.locationModify" = "地点信息修改";
+"service.name.notification" = "通知";
+"service.name.baseData" = "基础数据";
+//******************************************************************************
+// LocationList
+//******************************************************************************
+"locationList.pagingInformation.label.text" = "第%d共有任务%d条";
+"service.error.inDevelopment.message" = "本App不能使用！";
+"locationDetail.saveLocationCoordinate.success.alert.message" = "更新成功！";
+//******************************************************************************
+// AssetInventoryList
+//******************************************************************************
+"assetInventoryList.dropDown.options.surplus.title" = "盘赢";
+"assetInventoryList.dropDown.options.deficit.title" = "盘亏";
+"assetInventoryList.dropDown.options.nonInventory.title" = "未盘";
+"assetInventoryList.dropDown.options.inventoried.title" = "已盘";
+"assetInventoryList.dropDown.options.all.title" = "全部";

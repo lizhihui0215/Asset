@@ -6,7 +6,7 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
-@testable import Asset
+@testable import Assets
 import XCTest
 
 class AssetTests: XCTestCase {
