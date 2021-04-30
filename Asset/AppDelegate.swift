@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
             NetworkActivityLogger.shared.startLogging()
         #endif
+        #if MOCK
+            Mocker.shared.registerMockers()
+        #endif
         BDLocationService.shared.launchService()
         DropDown.startListeningToKeyboard()
 

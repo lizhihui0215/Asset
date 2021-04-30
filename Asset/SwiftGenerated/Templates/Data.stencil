@@ -1,0 +1,73 @@
+// swiftlint:disable all
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+
+{% if files %}
+{% set accessModifier %}{% if param.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+import Foundation
+
+// swiftlint:disable superfluous_disable_command
+// swiftlint:disable file_length
+{% macro fileBlock file %}
+  {% call documentBlock file file.document %}
+{% endmacro %}
+{% macro documentBlock file document %}
+
+  public static let document = objectFromJSON(at: "{% call transformPath file.path %}")
+
+{% endmacro %}
+
+
+{% macro transformPath path %}{% filter removeNewlines %}
+  {% if param.preservePath %}
+    {{path}}
+  {% else %}
+    {{path|basename}}
+  {% endif %}
+{% endfilter %}{% endmacro %}
+
+// swiftlint:disable identifier_name line_length type_body_length
+{{accessModifier}} enum {{param.enumName|default:"JSONFiles"}} {
+  {% if files.count > 1 or param.forceFileNameEnum %}
+  {% for file in files %}
+  {{accessModifier}} enum {{file.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:2 %}{% call fileBlock file %}{% endfilter %}
+  }
+  {% endfor %}
+  {% else %}
+  {% call fileBlock files.first %}
+  {% endif %}
+}
+
+// swiftlint:enable identifier_name line_length type_body_length
+
+// MARK: - Implementation Details
+
+private func objectFromJSON(at path: String) -> Data {
+  {% if param.lookupFunction %}
+  guard let url = {{param.lookupFunction}}(path),
+  {% else %}
+  guard let url = {{param.bundle|default:"BundleToken.bundle"}}.url(forResource: path, withExtension: nil),
+  {% endif %}
+    let data = try? Data(contentsOf: url) else {
+    fatalError("Unable to load JSON at path: \(path)")
+  }
+  return data
+}
+
+{% if not param.bundle and not param.lookupFunction %}
+
+// swiftlint:disable convenience_type
+private final class BundleToken {
+  static let bundle: Bundle = {
+    #if SWIFT_PACKAGE
+    return Bundle.module
+    #else
+    return Bundle(for: BundleToken.self)
+    #endif
+  }()
+}
+// swiftlint:enable convenience_type
+{% endif %}
+{% else %}
+// No files found
+{% endif %}

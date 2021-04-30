@@ -1,0 +1,57 @@
+{
+  "page": 2,
+  "total": "198943",
+  "records": 198943,
+  "rows": [
+    {
+      "isCheck": false,
+      "locationCode": "303221BG00000604",
+      "locationName": "山东省济南市天桥区北园街道国贸公寓北向106室清河社区2楼"
+    },
+    {
+      "isCheck": false,
+      "locationCode": "303221BG00000605",
+      "locationName": "山东省济南市市中区共青团路盛唐巷22号济南移动南楼四楼"
+    },
+    {
+      "isCheck": false,
+      "locationCode": "303221BG00000610",
+      "locationName": "山东省济南市槐荫区五里沟街道经三路187号南2楼网维中心"
+    },
+    {
+      "isCheck": false,
+      "locationCode": "303221BG00000611",
+      "locationName": "山东省济南市槐荫区五里沟街道经三路187号北4楼综调中心"
+    },
+    {
+      "isCheck": false,
+      "locationCode": "303221BG00000613",
+      "locationName": "山东省济南市槐荫区经七路187号C座南四楼东侧"
+    },
+    {
+      "isCheck": false,
+      "locationCode": "303221BG00000614",
+      "locationName": "山东省济南市市中区泺源街道盛唐巷22号"
+    },
+    {
+      "isCheck": false,
+      "locationCode": "303221BG00000615",
+      "locationName": "山东省济南市平阴县榆山街道振兴街67号移动公司2楼"
+    },
+    {
+      "isCheck": false,
+      "locationCode": "303221BG00000616",
+      "locationName": "山东省济南市开发区舜华路街道颖秀路2299号高新分公司综合部"
+    },
+    {
+      "isCheck": false,
+      "locationCode": "303221BG00000617",
+      "locationName": "山东省济南市开发区舜华路街道颖秀路2299号高新分公司业务运营部"
+    },
+    {
+      "isCheck": false,
+      "locationCode": "303221BG00000618",
+      "locationName": "山东省济南市开发区舜华路街道颖秀路2299号高新分公司建设维护部"
+    }
+  ]
+}

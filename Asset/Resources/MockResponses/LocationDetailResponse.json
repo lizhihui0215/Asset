@@ -1,0 +1,28 @@
+{
+  "status": 0,
+  "data": {
+    "isCheck": false,
+    "locationId": "8a93ee036d62ef85016dd73f01786879",
+    "regionIdCompany": "8a93e58434103f580134104bb63a0411",
+    "companyName": "山东临沂",
+    "regionIdDept": "8a93e58434103f580134104bb65e041c",
+    "deptName": "临沂罗庄分公司",
+    "regionIdManage": "8a93e58434103f580134104bb68b042a",
+    "locationCode": "303235CK00000081",
+    "locationName": "山东省临沂市罗庄区罗庄街道罗五路北段",
+    "locationClass": "04",
+    "locationClassName": "县(含县级市)",
+    "locationType": "CK",
+    "locationTypeName": "仓库地点",
+    "locationOwner": "ZY",
+    "locationOwnerName": "自有",
+    "province": "山东省",
+    "city": "临沂市",
+    "county": "罗庄区",
+    "town": "罗庄街道",
+    "road": "罗五路",
+    "village": "北段",
+    "enabledFlag": "Y",
+    "effectiveDate": "2019-10-17 09:04:53"
+  }
+}
