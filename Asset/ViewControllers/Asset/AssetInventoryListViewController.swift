@@ -21,9 +21,18 @@ class AssetInventoryListViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dropDown.anchorView = inventoryStatusButton
+        dropDown.textColor = .blue
+        dropDown.dataSource = viewModel.dropDownOptions
+        dropDown.selectionAction = {[weak self] index, s in
+            print("index: \(index) item:\(s)")
+            guard let `self` = self else { return }
+            `self`.dropDown.hide()
+        }
     }
 
-    @IBAction func inventoryButtonTapped(_ sender: UIButton) {}
+    @IBAction func inventoryButtonTapped(_ sender: UIButton) {
+        dropDown.show()
+    }
     /*
      // MARK: - Navigation
 

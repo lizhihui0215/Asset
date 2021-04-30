@@ -11,6 +11,29 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
 
+  internal enum assetInventoryList {
+    internal enum dropDown {
+      internal enum options {
+        internal enum deficit {
+          /// 盘亏
+          internal static let title = L10n.tr("Localizable", "assetInventoryList.dropDown.options.deficit.title")
+        }
+        internal enum inventoried {
+          /// 已盘
+          internal static let title = L10n.tr("Localizable", "assetInventoryList.dropDown.options.inventoried.title")
+        }
+        internal enum nonInventory {
+          /// 未盘
+          internal static let title = L10n.tr("Localizable", "assetInventoryList.dropDown.options.nonInventory.title")
+        }
+        internal enum surplus {
+          /// 盘赢
+          internal static let title = L10n.tr("Localizable", "assetInventoryList.dropDown.options.surplus.title")
+        }
+      }
+    }
+  }
+
   internal enum locationDetail {
     internal enum saveLocationCoordinate {
       internal enum success {

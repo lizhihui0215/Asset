@@ -24,3 +24,10 @@
 "locationList.pagingInformation.label.text" = "第%d共有任务%d条";
 "service.error.inDevelopment.message" = "本App不能使用！";
 "locationDetail.saveLocationCoordinate.success.alert.message" = "更新成功！";
+//******************************************************************************
+// AssetInventoryList
+//******************************************************************************
+"assetInventoryList.dropDown.options.surplus.title" = "盘赢";
+"assetInventoryList.dropDown.options.deficit.title" = "盘亏";
+"assetInventoryList.dropDown.options.nonInventory.title" = "未盘";
+"assetInventoryList.dropDown.options.inventoried.title" = "已盘";
