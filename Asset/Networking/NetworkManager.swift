@@ -8,7 +8,6 @@
 
 import Alamofire
 import Foundation
-import Mocker
 
 typealias CompletionHandler<T: DataResponse> = (AFDataResponse<T>) -> Void
 

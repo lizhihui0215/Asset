@@ -75,6 +75,10 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
         self.location = location
     }
 
+    func assetInventoryListViewModel(action: AssetInventoryListViewController) -> AssetInventoryListViewModel! {
+        .init(request: AssetInventoryListRequest(), action: action, locationId: locationDetail?.locationId ?? "")
+    }
+
     override func valid(router: APIRouter) throws {
         if case .updateLocationCoordinate(let coordinate) = router {
             guard validator.not(type: .empty(string: coordinate.latitude)),

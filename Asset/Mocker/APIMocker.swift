@@ -4,10 +4,9 @@
 //
 
 import Foundation
-import Mocker
 
-final class Mocker {
-    public static let shared = Mocker()
+final class APIMocker {
+    public static let shared = APIMocker()
     private static let locationList = MockerDataSource.LocationListResponse.document
 
     private static let locationDetailByCode = MockerDataSource.LocationDetailResponse.document
@@ -53,16 +52,16 @@ final class Mocker {
 
     var mockers = [
         Mock(router: .login, dataType: .json, statusCode: 200, data: [
-            .post: Mocker.login,
+            .post: APIMocker.login,
         ]),
         Mock(router: .locationList, dataType: .json, statusCode: 200, data: [
-            .post: Mocker.locationList,
+            .post: APIMocker.locationList,
         ]),
         Mock(router: .locationDetailByCode, dataType: .json, statusCode: 200, data: [
-            .post: Mocker.locationDetailByCode,
+            .post: APIMocker.locationDetailByCode,
         ]),
         Mock(router: .updateLocationCoordinate, dataType: .json, statusCode: 200, data: [
-            .post: Mocker.updateLocationCoordinate,
+            .post: APIMocker.updateLocationCoordinate,
         ]),
     ]
 
@@ -72,7 +71,7 @@ final class Mocker {
 }
 
 extension Mock {
-    init(router: Mocker.MockerRouter,
+    init(router: APIMocker.MockerRouter,
          ignoreQuery: Bool = false,
          cacheStoragePolicy: URLCache.StoragePolicy = .notAllowed,
          dataType: Mock.DataType,

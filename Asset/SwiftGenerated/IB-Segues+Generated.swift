@@ -13,6 +13,7 @@ import UIKit
 // swiftlint:disable explicit_type_interface identifier_name line_length type_body_length type_name
 internal enum StoryboardSegue {
   internal enum Location: String, SegueType {
+    case toAssetInventoryList
     case toPhotograph
   }
   internal enum Login: String, SegueType {

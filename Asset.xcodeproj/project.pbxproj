@@ -204,7 +204,6 @@
 		260FB8742637457A00445BD7 /* JZLocationConverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB86E26373B2600445BD7 /* JZLocationConverter.framework */; };
 		260FB8752637457A00445BD7 /* JZLocationConverter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB86E26373B2600445BD7 /* JZLocationConverter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		260FB8792637472800445BD7 /* GCJ02.json in Resources */ = {isa = PBXBuildFile; fileRef = 260FB8782637472700445BD7 /* GCJ02.json */; };
-		260FB8862637B99600445BD7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8852637B99600445BD7 /* SystemConfiguration.framework */; };
 		260FB8882637B9A500445BD7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8872637B9A500445BD7 /* Security.framework */; };
 		260FB88B2637B9B600445BD7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB88A2637B9B600445BD7 /* CoreTelephony.framework */; };
 		260FB8D82637F4AB00445BD7 /* BMKLocationKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8D72637F4AB00445BD7 /* BMKLocationKit.xcframework */; };
@@ -244,13 +243,17 @@
 		266D11D6263AC34700B984D6 /* AutoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D11D5263AC34700B984D6 /* AutoProtocol.swift */; };
 		266D1254263B1D7500B984D6 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D1253263B1D7500B984D6 /* Credential.swift */; };
 		266D125C263B9FE600B984D6 /* AutoCodable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D125B263B9FE500B984D6 /* AutoCodable.generated.swift */; };
-		266D1260263BB0C900B984D6 /* Mocker.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266D125F263BB0C900B984D6 /* Mocker.xcframework */; };
-		266D1261263BB0CA00B984D6 /* Mocker.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266D125F263BB0C900B984D6 /* Mocker.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		266D128D263BBB7A00B984D6 /* JSON+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D128C263BBB7A00B984D6 /* JSON+Generated.swift */; };
+		266D12AE263BF85D00B984D6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8852637B99600445BD7 /* SystemConfiguration.framework */; };
 		2683819E262EE1C000F6C23F /* IB-Segues+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683819A262EE1BF00F6C23F /* IB-Segues+Generated.swift */; };
 		2683819F262EE1C000F6C23F /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683819B262EE1BF00F6C23F /* Strings+Generated.swift */; };
 		268381A1262EE1C000F6C23F /* IB-Scenes+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683819D262EE1BF00F6C23F /* IB-Scenes+Generated.swift */; };
 		268381A9262EE39100F6C23F /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268381A8262EE39100F6C23F /* XCAssets+Generated.swift */; };
+		26845306263C03680058F895 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26845303263C03680058F895 /* Mock.swift */; };
+		26845307263C03680058F895 /* MockingURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26845304263C03680058F895 /* MockingURLProtocol.swift */; };
+		26845308263C03680058F895 /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26845305263C03680058F895 /* Mocker.swift */; };
+		26845316263C40CC0058F895 /* DropDownOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26845315263C40CC0058F895 /* DropDownOptionCell.xib */; };
+		2684531A263C41280058F895 /* DropDownOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26845319263C41280058F895 /* DropDownOptionCell.swift */; };
 		268AFA8D2630182B00A2854B /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFA8C2630182B00A2854B /* ServiceCollectionViewCell.swift */; };
 		268AFAA32630588200A2854B /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFAA22630588200A2854B /* UIView+Nib.swift */; };
 		268AFAA826305BF800A2854B /* LayoutOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFAA626305BF600A2854B /* LayoutOperator.swift */; };
@@ -275,6 +278,7 @@
 		5B87516F677729D9615CF868 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8758371F7ACD2BE80839A1 /* ListViewModel.swift */; };
 		5B8751CD384BE0B14D23B0AA /* PhotographViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875CC5AC026A85E40314A8 /* PhotographViewModel.swift */; };
 		5B87525250C9854244291DA2 /* EAMExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751BB0A941A1CD5AB7DCC /* EAMExtended.swift */; };
+		5B875288B44D13922F5117C5 /* UIStoryboardSegue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875F9C53D025D2CD66ABE0 /* UIStoryboardSegue+Extension.swift */; };
 		5B8752F20225CC31EF9C4B0E /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875EC61BBD5395886B9E78 /* LocationDetailViewController.swift */; };
 		5B8753250AC9CA52BA5D8738 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875CC6E1C44E973900E26F /* String+Extension.swift */; };
 		5B8753990D6BC695C0C544D2 /* ReuseIdRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8756A5EF5ECFD321CEF830 /* ReuseIdRepresentable.swift */; };
@@ -297,7 +301,9 @@
 		5B875791FD6C8D52A5FC358C /* AssetInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */; };
 		5B8757C6803FECC0791BB29F /* LocationListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B8759E04A1A9555EA96945E /* LocationListResponse.json */; };
 		5B875829091FB1DBFDBA8940 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87534472E43A4C7DC74EE0 /* AsyncOperation.swift */; };
-		5B8758776CC649B1F024F129 /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875CFE9E18D6C97C5B56C1 /* Mocker.swift */; };
+		5B875840DD8F51749A85FC00 /* AssetDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875EF4CE4A321D6B80DCE4 /* AssetDetail.swift */; };
+		5B875844E4AD5B17EDF9E8D4 /* AssetInventoryListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B875EF7AAF929C9FD303649 /* AssetInventoryListResponse.json */; };
+		5B8758776CC649B1F024F129 /* APIMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875CFE9E18D6C97C5B56C1 /* APIMocker.swift */; };
 		5B87587EED3B6AAB54CE67D1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875B436721A08B02F46F5A /* TabBarViewController.swift */; };
 		5B8758C38A812D4F5590DF88 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875B7E8DF6E30797805169 /* BaseViewController.swift */; };
 		5B8758E5D7FC4F86A28985C7 /* LocationServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8752511B7EB35F026F1688 /* LocationServiceable.swift */; };
@@ -310,6 +316,7 @@
 		5B875B59734148478C1616CB /* LoginResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B875095689EEA83D7E606CC /* LoginResponse.json */; };
 		5B875B666EE3D884B4DB8D6C /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875251AAC9B3CABA84A00D /* BaseView.swift */; };
 		5B875BC0D6562650E8F070A6 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8758576E13F3C93BBCF08A /* BaseCollectionViewCell.swift */; };
+		5B875C8C90295342D7BFEA53 /* AssetInventoryListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8754A37EA78B899A488A21 /* AssetInventoryListRequest.swift */; };
 		5B875CA6EE28577828759EC1 /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875685131D768DDA002A8F /* LocationListViewController.swift */; };
 		5B875D4EB5122936BE106250 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87573E32FFCB49B7F16C2A /* BaseViewModel.swift */; };
 		5B875DE8841BA9E8A3C6E9A2 /* UpdateLocationCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87587F55DE950C478C1950 /* UpdateLocationCoordinate.swift */; };
@@ -373,7 +380,6 @@
 				260E34E826351EDE008CF3DE /* PKHUD.xcframework in Embed Frameworks */,
 				260E34E426351EDD008CF3DE /* MJRefresh.xcframework in Embed Frameworks */,
 				260E34F026351EE2008CF3DE /* SwiftScan.xcframework in Embed Frameworks */,
-				266D1261263BB0CA00B984D6 /* Mocker.xcframework in Embed Frameworks */,
 				260E34F826351EE6008CF3DE /* ZLPhotoBrowser.xcframework in Embed Frameworks */,
 				260E34F426351EE4008CF3DE /* Swiftstraints.xcframework in Embed Frameworks */,
 				260E34EC26351EE1008CF3DE /* SwiftLocation.xcframework in Embed Frameworks */,
@@ -614,12 +620,16 @@
 		266D11D5263AC34700B984D6 /* AutoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoProtocol.swift; sourceTree = "<group>"; };
 		266D1253263B1D7500B984D6 /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		266D125B263B9FE500B984D6 /* AutoCodable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCodable.generated.swift; sourceTree = "<group>"; };
-		266D125F263BB0C900B984D6 /* Mocker.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Mocker.xcframework; path = Carthage/Build/Mocker.xcframework; sourceTree = SOURCE_ROOT; };
 		266D128C263BBB7A00B984D6 /* JSON+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Generated.swift"; sourceTree = "<group>"; };
 		2683819A262EE1BF00F6C23F /* IB-Segues+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IB-Segues+Generated.swift"; sourceTree = "<group>"; };
 		2683819B262EE1BF00F6C23F /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		2683819D262EE1BF00F6C23F /* IB-Scenes+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IB-Scenes+Generated.swift"; sourceTree = "<group>"; };
 		268381A8262EE39100F6C23F /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		26845303263C03680058F895 /* Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		26845304263C03680058F895 /* MockingURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockingURLProtocol.swift; sourceTree = "<group>"; };
+		26845305263C03680058F895 /* Mocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mocker.swift; path = ../../../Mocker/Sources/Mocker.swift; sourceTree = "<group>"; };
+		26845315263C40CC0058F895 /* DropDownOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownOptionCell.xib; sourceTree = "<group>"; };
+		26845319263C41280058F895 /* DropDownOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownOptionCell.swift; sourceTree = "<group>"; };
 		268AFA8C2630182B00A2854B /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		268AFAA22630588200A2854B /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		268AFAA626305BF600A2854B /* LayoutOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutOperator.swift; sourceTree = "<group>"; };
@@ -651,6 +661,7 @@
 		5B87536BB570F25BEE6D1914 /* UpdateLocationCoordinateResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UpdateLocationCoordinateResponse.json; sourceTree = "<group>"; };
 		5B8753E2D9F6AAA61C0208AD /* RadioGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioGroupView.swift; sourceTree = "<group>"; };
 		5B87542B92201B047700A30B /* ServiceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
+		5B8754A37EA78B899A488A21 /* AssetInventoryListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListRequest.swift; sourceTree = "<group>"; };
 		5B8756550B7AC7595D075F64 /* RadioGroupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioGroupView.xib; sourceTree = "<group>"; };
 		5B875684196B01E4B5E60BD5 /* AssetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailViewController.swift; sourceTree = "<group>"; };
 		5B875685131D768DDA002A8F /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
@@ -677,13 +688,16 @@
 		5B875CC5AC026A85E40314A8 /* PhotographViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotographViewModel.swift; sourceTree = "<group>"; };
 		5B875CC6E1C44E973900E26F /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5B875CE3B0589001B2525E6B /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
-		5B875CFE9E18D6C97C5B56C1 /* Mocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocker.swift; sourceTree = "<group>"; };
+		5B875CFE9E18D6C97C5B56C1 /* APIMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIMocker.swift; sourceTree = "<group>"; };
 		5B875E2B31EBA291112B1127 /* LocationListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListRequest.swift; sourceTree = "<group>"; };
 		5B875E4470A01DBEA8CFCA15 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		5B875E465D6ABAD6B1D7D145 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		5B875EC61BBD5395886B9E78 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		5B875ED9B37A9D45DB8F37A5 /* Namespaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Namespaces.swift; sourceTree = "<group>"; };
+		5B875EF4CE4A321D6B80DCE4 /* AssetDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetail.swift; sourceTree = "<group>"; };
+		5B875EF7AAF929C9FD303649 /* AssetInventoryListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetInventoryListResponse.json; sourceTree = "<group>"; };
 		5B875F5EC7D6D354B8CCF388 /* LocationListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
+		5B875F9C53D025D2CD66ABE0 /* UIStoryboardSegue+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboardSegue+Extension.swift"; sourceTree = "<group>"; };
 		5B875FC0E0C21404B529810E /* LocationDetailResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationDetailResponse.json; sourceTree = "<group>"; };
 		5B875FFFE8124E29CDDBAF94 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		9C6D42F82627146600FEC466 /* Asset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asset.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -728,19 +742,18 @@
 				260FB8E02637FE3B00445BD7 /* libc++.tbd in Frameworks */,
 				260FB8E32637FE3F00445BD7 /* libsqlite3.0.tbd in Frameworks */,
 				26AB8D4D2636AC1A002E4B95 /* SwiftyBeaver.xcframework in Frameworks */,
+				266D12AE263BF85D00B984D6 /* SystemConfiguration.framework in Frameworks */,
 				260FB8742637457A00445BD7 /* JZLocationConverter.framework in Frameworks */,
 				260FB88B2637B9B600445BD7 /* CoreTelephony.framework in Frameworks */,
 				260E34EB26351EE1008CF3DE /* SwiftLocation.xcframework in Frameworks */,
 				260E34EF26351EE2008CF3DE /* SwiftScan.xcframework in Frameworks */,
 				260E34F326351EE4008CF3DE /* Swiftstraints.xcframework in Frameworks */,
 				260E34E326351EDD008CF3DE /* MJRefresh.xcframework in Frameworks */,
-				260FB8862637B99600445BD7 /* SystemConfiguration.framework in Frameworks */,
 				260E34F726351EE6008CF3DE /* ZLPhotoBrowser.xcframework in Frameworks */,
 				26199532263555A70046AF48 /* CoreLocation.framework in Frameworks */,
 				260FB8D82637F4AB00445BD7 /* BMKLocationKit.xcframework in Frameworks */,
 				260E34E726351EDE008CF3DE /* PKHUD.xcframework in Frameworks */,
 				260E34DB26351ED9008CF3DE /* CryptoSwift.xcframework in Frameworks */,
-				266D1260263BB0C900B984D6 /* Mocker.xcframework in Frameworks */,
 				260E34DF26351EDB008CF3DE /* DropDown.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1171,7 +1184,6 @@
 		26530D22262F11A3002BCE55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				266D125F263BB0C900B984D6 /* Mocker.xcframework */,
 				260FB88C2637B9C700445BD7 /* libc++.tbd */,
 				260FB8892637B9AF00445BD7 /* libsqlite3.0.tbd */,
 				260FB8D72637F4AB00445BD7 /* BMKLocationKit.xcframework */,
@@ -1234,6 +1246,7 @@
 				5B8750C69CA05D4C0676B691 /* SegueType+Extension.swift */,
 				5B875021ECEDB917478B8028 /* UISearchBar+Extension.swift */,
 				5B87594724E568A83D629900 /* InitialSceneType+Extension.swift */,
+				5B875F9C53D025D2CD66ABE0 /* UIStoryboardSegue+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1260,7 +1273,10 @@
 		5B875762FD5BDF2868FAD444 /* Mocker */ = {
 			isa = PBXGroup;
 			children = (
-				5B875CFE9E18D6C97C5B56C1 /* Mocker.swift */,
+				26845303263C03680058F895 /* Mock.swift */,
+				26845305263C03680058F895 /* Mocker.swift */,
+				26845304263C03680058F895 /* MockingURLProtocol.swift */,
+				5B875CFE9E18D6C97C5B56C1 /* APIMocker.swift */,
 			);
 			path = Mocker;
 			sourceTree = "<group>";
@@ -1289,6 +1305,7 @@
 				5B8759E04A1A9555EA96945E /* LocationListResponse.json */,
 				5B87536BB570F25BEE6D1914 /* UpdateLocationCoordinateResponse.json */,
 				5B875FC0E0C21404B529810E /* LocationDetailResponse.json */,
+				5B875EF7AAF929C9FD303649 /* AssetInventoryListResponse.json */,
 			);
 			path = MockResponses;
 			sourceTree = "<group>";
@@ -1311,6 +1328,7 @@
 				266D11CD263AC01B00B984D6 /* Location.swift */,
 				266D11CF263AC01B00B984D6 /* LocationDetail.swift */,
 				266D11D5263AC34700B984D6 /* AutoProtocol.swift */,
+				5B875EF4CE4A321D6B80DCE4 /* AssetDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1323,6 +1341,8 @@
 				5B875251AAC9B3CABA84A00D /* BaseView.swift */,
 				5B8753E2D9F6AAA61C0208AD /* RadioGroupView.swift */,
 				5B875FFFE8124E29CDDBAF94 /* BaseTableViewCell.swift */,
+				26845319263C41280058F895 /* DropDownOptionCell.swift */,
+				26845315263C40CC0058F895 /* DropDownOptionCell.xib */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1504,6 +1524,7 @@
 				5B87587F55DE950C478C1950 /* UpdateLocationCoordinate.swift */,
 				5B875A192F3CF3047BC4AD2E /* PhotographRequest.swift */,
 				5B8756CA0572E8165EE7BF98 /* LocationDetailRequest.swift */,
+				5B8754A37EA78B899A488A21 /* AssetInventoryListRequest.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1670,6 +1691,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26845316263C40CC0058F895 /* DropDownOptionCell.xib in Resources */,
 				2619955F263575DC0046AF48 /* Common.storyboard in Resources */,
 				26F8961E262EC94200976042 /* Localizable.strings in Resources */,
 				260F989F2630B45800A91F00 /* Assets.storyboard in Resources */,
@@ -1689,6 +1711,7 @@
 				5B8757C6803FECC0791BB29F /* LocationListResponse.json in Resources */,
 				5B8754D54CE02BF0E2CE0729 /* UpdateLocationCoordinateResponse.json in Resources */,
 				5B8754F173109143EB0FC1DD /* LocationDetailResponse.json in Resources */,
+				5B875844E4AD5B17EDF9E8D4 /* AssetInventoryListResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1880,6 +1903,7 @@
 				2683819E262EE1C000F6C23F /* IB-Segues+Generated.swift in Sources */,
 				469EA59B794826EAD3C4BEA0 /* App.swift in Sources */,
 				266D11D0263AC01C00B984D6 /* Location.swift in Sources */,
+				26845306263C03680058F895 /* Mock.swift in Sources */,
 				260E35C426351FBB008CF3DE /* InteractiveAnimatorFactory.swift in Sources */,
 				260E35D226351FBB008CF3DE /* CardsAnimator.swift in Sources */,
 				260E35F026351FBB008CF3DE /* RadialGradientLayer.swift in Sources */,
@@ -1899,6 +1923,7 @@
 				260E365E26351FBC008CF3DE /* PaddingDesignable.swift in Sources */,
 				260E35F926351FBB008CF3DE /* PresentSlideSegue.swift in Sources */,
 				260E362A26351FBC008CF3DE /* ActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
+				26845308263C03680058F895 /* Mocker.swift in Sources */,
 				2619958B2635BC120046AF48 /* PresentationManager.swift in Sources */,
 				469EAB583E973CB73F84796C /* Info.swift in Sources */,
 				260E35FC26351FBB008CF3DE /* PresentFoldSegue.swift in Sources */,
@@ -1969,6 +1994,7 @@
 				260E363A26351FBC008CF3DE /* AnimatablePresentationController.swift in Sources */,
 				260E362426351FBB008CF3DE /* ActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
 				260E360526351FBB008CF3DE /* PresentFlipSegue.swift in Sources */,
+				26845307263C03680058F895 /* MockingURLProtocol.swift in Sources */,
 				260E364526351FBC008CF3DE /* AnimatableCollectionViewCell.swift in Sources */,
 				260E35C826351FBB008CF3DE /* ContainerTransition.swift in Sources */,
 				260E35D926351FBB008CF3DE /* ScreenEdgePanInteractiveAnimator.swift in Sources */,
@@ -1992,6 +2018,7 @@
 				260E364C26351FBC008CF3DE /* AnimatableSlider.swift in Sources */,
 				260E35FF26351FBB008CF3DE /* PresentFadeWithDismissInteractionSegue.swift in Sources */,
 				260E360A26351FBB008CF3DE /* Typealias.swift in Sources */,
+				2684531A263C41280058F895 /* DropDownOptionCell.swift in Sources */,
 				260E35F326351FBB008CF3DE /* AnimationChainable.swift in Sources */,
 				5B87516F677729D9615CF868 /* ListViewModel.swift in Sources */,
 				260E366A26351FBC008CF3DE /* ActivityIndicatorAnimatable.swift in Sources */,
@@ -2051,7 +2078,10 @@
 				5B875A583F12B82EDFFFBBEA /* AssetInventoryListViewController.swift in Sources */,
 				5B875791FD6C8D52A5FC358C /* AssetInventoryListViewModel.swift in Sources */,
 				5B8756642A1FE8121E0C3749 /* LocationDetailRequest.swift in Sources */,
-				5B8758776CC649B1F024F129 /* Mocker.swift in Sources */,
+				5B8758776CC649B1F024F129 /* APIMocker.swift in Sources */,
+				5B875288B44D13922F5117C5 /* UIStoryboardSegue+Extension.swift in Sources */,
+				5B875840DD8F51749A85FC00 /* AssetDetail.swift in Sources */,
+				5B875C8C90295342D7BFEA53 /* AssetInventoryListRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2287,6 +2317,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3P8C7H426Z;
+				ENABLE_BITCODE = NO;
 				ENVIRONEMENT = MOCK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2315,6 +2346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3P8C7H426Z;
+				ENABLE_BITCODE = NO;
 				ENVIRONEMENT = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2341,7 +2373,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3P8C7H426Z;
 				INFOPLIST_FILE = AssetTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2362,7 +2396,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3P8C7H426Z;
 				INFOPLIST_FILE = AssetTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2383,6 +2419,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3P8C7H426Z;
 				INFOPLIST_FILE = AssetUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2402,6 +2439,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3P8C7H426Z;
 				INFOPLIST_FILE = AssetUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

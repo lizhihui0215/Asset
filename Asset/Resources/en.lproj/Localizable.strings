@@ -31,3 +31,4 @@
 "assetInventoryList.dropDown.options.deficit.title" = "盘亏";
 "assetInventoryList.dropDown.options.nonInventory.title" = "未盘";
 "assetInventoryList.dropDown.options.inventoried.title" = "已盘";
+"assetInventoryList.dropDown.options.all.title" = "全部";

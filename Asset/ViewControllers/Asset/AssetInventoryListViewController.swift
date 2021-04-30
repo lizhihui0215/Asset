@@ -21,12 +21,13 @@ class AssetInventoryListViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dropDown.anchorView = inventoryStatusButton
-        dropDown.textColor = .blue
+        dropDown.cellNib = UINib(nibName: "DropDownOptionCell", bundle: nil)
         dropDown.dataSource = viewModel.dropDownOptions
-        dropDown.selectionAction = {[weak self] index, s in
-            print("index: \(index) item:\(s)")
-            guard let `self` = self else { return }
-            `self`.dropDown.hide()
+        dropDown.textColor = XCColor.dropdownTextColor.color
+        dropDown.selectedTextColor = XCColor.primaryTextColor.color
+        dropDown.selectionAction = { [weak self] _, item in
+            guard let self = self else { return }
+            `self`.inventoryStatusButton.setTitle(item, for: .normal)
         }
     }
 

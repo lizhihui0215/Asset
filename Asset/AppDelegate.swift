@@ -13,7 +13,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    var launchStoryboardScenes: [String: StoryboardType.Type] = [StoryboardScene.Login.storyboardName: StoryboardScene.Login.self.self,
+    var launchStoryboardScenes: [String: StoryboardType.Type] = [StoryboardScene.Login.storyboardName: StoryboardScene.Login.self,
                                                                  StoryboardScene.Tab.storyboardName: StoryboardScene.Tab.self]
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NetworkActivityLogger.shared.startLogging()
         #endif
         #if MOCK
-            Mocker.shared.registerMockers()
+            APIMocker.shared.registerMockers()
         #endif
         BDLocationService.shared.launchService()
         DropDown.startListeningToKeyboard()

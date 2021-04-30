@@ -65,15 +65,14 @@ class LocationDetailViewController: BaseViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination
-        let segue = StoryboardSegue.Location(segue)
-        switch segue {
+        let segueType = StoryboardSegue.Location(segue)
+        switch segueType {
         case .toPhotograph:
-            guard let destination = destination as? PhotographViewController
-            else {
-                break
-            }
+            guard let destination: PhotographViewController = segue.destination() else { break }
             destination.viewModel = viewModel.photographViewModel(action: destination)
+        case .toAssetInventoryList:
+            guard let destination: AssetInventoryListViewController = segue.destination() else { break }
+            destination.viewModel = viewModel.assetInventoryListViewModel(action: destination)
         default: break
         }
     }

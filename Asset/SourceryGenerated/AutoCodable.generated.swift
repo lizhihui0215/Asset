@@ -1,6 +1,24 @@
 // Generated using Sourcery 1.4.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
+extension AssetDetail {
+
+    enum CodingKeys: String, CodingKey {
+        case status
+        case code
+        case name
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        status = (try? container.decode(Int.self, forKey: .status)) ?? AssetDetail.defaultStatus
+        code = (try? container.decode(String.self, forKey: .code)) ?? AssetDetail.defaultCode
+        name = (try? container.decode(String.self, forKey: .name)) ?? AssetDetail.defaultName
+    }
+
+}
+
 extension Credential {
 
     enum CodingKeys: String, CodingKey {

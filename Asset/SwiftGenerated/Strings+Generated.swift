@@ -14,6 +14,10 @@ internal enum L10n {
   internal enum assetInventoryList {
     internal enum dropDown {
       internal enum options {
+        internal enum all {
+          /// 全部
+          internal static let title = L10n.tr("Localizable", "assetInventoryList.dropDown.options.all.title")
+        }
         internal enum deficit {
           /// 盘亏
           internal static let title = L10n.tr("Localizable", "assetInventoryList.dropDown.options.deficit.title")
