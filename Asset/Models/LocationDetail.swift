@@ -34,3 +34,33 @@ struct LocationDetail: Codable {
 }
 
 extension LocationDetail: AutoEquatable {}
+
+extension LocationDetail: AutoCodable {
+    static let defaultStrLongitude = ""
+    static let defaultLocationClass = ""
+    static let defaultRegionIdDept = ""
+    static let defaultLocationOwner = ""
+    static let defaultIsCheck = false
+    static let defaultRegionIdCompany = ""
+    static let defaultProvince = ""
+    static let defaultRoad = ""
+    static let defaultRegionIdManage = ""
+    static let defaultEnabledFlag = ""
+    static let defaultLocationOwnerName = ""
+    static let defaultLatitude = 0.0
+    static let defaultCity = ""
+    static let defaultVillage = ""
+    static let defaultLocationId = ""
+    static let defaultTown = ""
+    static let defaultLocationCode = ""
+    static let defaultStrLatitude = ""
+    static let defaultLocationType = ""
+    static let defaultLongitude = 0.0
+    static let defaultDeptName = ""
+    static let defaultCompanyName = ""
+    static let defaultLocationClassName = ""
+    static let defaultCounty = ""
+    static let defaultLocationTypeName = ""
+    static let defaultEffectiveDate = ""
+    static let defaultLocationName = ""
+}

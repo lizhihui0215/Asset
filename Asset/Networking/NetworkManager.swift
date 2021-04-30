@@ -41,7 +41,7 @@ class NetworkManager {
         #if MOCK
             configuration.protocolClasses = [MockingURLProtocol.self] + (configuration.protocolClasses ?? [])
         #endif
-        session = Session(configuration:configuration, interceptor: composite, serverTrustManager: NetworkManager.serverTrustManager)
+        session = Session(configuration: configuration, interceptor: composite, serverTrustManager: NetworkManager.serverTrustManager)
     }
 
     func sendRequest<T: ResponseRepresentable>(of _: T.Type = T.self,

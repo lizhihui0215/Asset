@@ -3,7 +3,7 @@
 // Copyright (c) 2021 ZhiHui.Li. All rights reserved.
 //
 
-struct Credential: Codable {
+struct Credential {
     let userToken: String
     let pageSize: String
     let userOrgName: String
@@ -13,3 +13,12 @@ struct Credential: Codable {
 }
 
 extension Credential: AutoEquatable {}
+
+extension Credential: AutoCodable {
+    static let defaultUserToken = ""
+    static let defaultPageSize = ""
+    static let defaultUserOrgName = ""
+    static let defaultUserCityName = ""
+    static let defaultUserOrgId = ""
+    static let defaultUserCityId = ""
+}

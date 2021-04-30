@@ -4,11 +4,17 @@
 //
 
 struct Location: Codable {
-    var isCheck: Bool = false
-    var locationCode = App.Constants.Default.string
-    var locationName = App.Constants.Default.string
-    var assetLocationId = ""
+    var isCheck: Bool
+    var locationCode: String
+    var locationName: String
+    var assetLocationId: String
 }
 
 extension Location: Item {}
 extension Location: AutoEquatable {}
+extension Location: AutoCodable {
+    static let defaultIsCheck = false
+    static let defaultLocationCode = ""
+    static let defaultLocationName = ""
+    static let defaultAssetLocationId = ""
+}

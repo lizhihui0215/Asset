@@ -1,5 +1,5 @@
 //
-//  AutoEqualable.swift
+//  AutoProtocol.swift
 //  Asset
 //
 //  Created by lizhihui on 2021/4/29.
