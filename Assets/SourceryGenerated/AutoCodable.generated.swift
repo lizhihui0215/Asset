@@ -43,44 +43,6 @@ extension Credential {
 
 }
 
-extension InventoryType {
-
-    enum CodingKeys: String, CodingKey {
-        case all
-        case surplus
-        case deficit
-        case nonInventory
-        case inventoried
-    }
-
-    internal init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-
-        let enumCase = try container.decode(String.self)
-        switch enumCase {
-        case CodingKeys.all.rawValue: self = .all
-        case CodingKeys.surplus.rawValue: self = .surplus
-        case CodingKeys.deficit.rawValue: self = .deficit
-        case CodingKeys.nonInventory.rawValue: self = .nonInventory
-        case CodingKeys.inventoried.rawValue: self = .inventoried
-        default: throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Unknown enum case '\(enumCase)'"))
-        }
-    }
-
-    internal func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-
-        switch self {
-        case .all: try container.encode(CodingKeys.all.rawValue)
-        case .surplus: try container.encode(CodingKeys.surplus.rawValue)
-        case .deficit: try container.encode(CodingKeys.deficit.rawValue)
-        case .nonInventory: try container.encode(CodingKeys.nonInventory.rawValue)
-        case .inventoried: try container.encode(CodingKeys.inventoried.rawValue)
-        }
-    }
-
-}
-
 extension Location {
 
     enum CodingKeys: String, CodingKey {

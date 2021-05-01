@@ -18,5 +18,3 @@ extension Asset: AutoCodable {
     static var defaultCode = ""
     static var defaultName = ""
 }
-
-extension InventoryType: AutoCodable {}

@@ -5,12 +5,12 @@
 
 import Foundation
 
-enum InventoryType: String {
-    case all
-    case surplus
-    case deficit
-    case nonInventory
-    case inventoried
+enum InventoryType: Int {
+    case all = 0
+    case surplus = 1
+    case deficit = 2
+    case nonInventory = 3
+    case inventoried = 4
 
     var title: String {
         switch self {
@@ -22,3 +22,5 @@ enum InventoryType: String {
         }
     }
 }
+
+extension InventoryType: Codable {}
