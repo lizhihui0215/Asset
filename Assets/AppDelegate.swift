@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         BDLocationService.shared.launchService()
         DropDown.startListeningToKeyboard()
         IQKeyboardManager.shared.enable = true
+        Appearance.shared.launch()
         if #available(iOS 13.0, *) { return true }
         let storyboardName = launchEntranceName()
         let type = launchStoryboardScenes[storyboardName]!

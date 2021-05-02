@@ -13,7 +13,7 @@
         <!--业务管理-->
         <scene sceneID="wSz-zA-EbP">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="s5B-a4-TaT" customClass="ServiceViewController" customModule="Asset" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="s5B-a4-TaT" customClass="ServiceViewController" customModule="Assets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wwy-Cs-iCt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ServiceCollectionViewCell" id="aY5-WR-zEF" customClass="ServiceCollectionViewCell" customModule="Asset" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ServiceCollectionViewCell" id="aY5-WR-zEF" customClass="ServiceCollectionViewCell" customModule="Assets" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="106" height="106.7"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -92,7 +92,7 @@
         <!--任务列表-->
         <scene sceneID="sAk-Kn-n7A">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="zJW-Zn-2L6" customClass="LocationListViewController" customModule="Asset" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="zJW-Zn-2L6" customClass="LocationListViewController" customModule="Assets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CWO-2C-ePh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,7 +137,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationListTableViewCell" id="XzT-Ys-qgh" customClass="LocationListTableViewCell" customModule="Asset" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationListTableViewCell" id="XzT-Ys-qgh" customClass="LocationListTableViewCell" customModule="Assets" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="143"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XzT-Ys-qgh" id="e58-GN-rIX">

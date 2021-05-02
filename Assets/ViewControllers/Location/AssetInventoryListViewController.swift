@@ -44,6 +44,8 @@ class AssetInventoryListViewController: BaseTableViewController {
         }
     }
 
+    @IBAction func scanTapped(_ sender: AnimatableButton) {}
+
     func updatePagingInformation() {
         pagingInformationLabel.text = L10n.locationList.pagingInformation.label.text(viewModel.page, viewModel.total)
     }

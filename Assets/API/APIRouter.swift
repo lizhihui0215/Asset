@@ -16,6 +16,7 @@ enum APIRouter: URLRequestConvertible {
         static var locationDetailByCode = "app/location/getLocationByCode"
         static var updateLocationCoordinate = "app/location/updateLocationInfo"
         static var assetInventoryList = "app/location/assetInventoryList"
+        static var assetDetail = "app/assetDetail"
     }
 
     case login(LoginParameter)
@@ -23,6 +24,7 @@ enum APIRouter: URLRequestConvertible {
     case locationDetailByCode(LocationDetailParameter)
     case updateLocationCoordinate(UpdateLocationCoordinateParameter)
     case assetInventoryList(AssetInventoryListParameter)
+    case assetDetail(AssetDetailParameter)
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -34,7 +36,8 @@ enum APIRouter: URLRequestConvertible {
              .locationDetailByCode,
              .locationList,
              .updateLocationCoordinate,
-             .assetInventoryList:
+             .assetInventoryList,
+             .assetDetail:
             return .post
         }
     }
@@ -46,6 +49,7 @@ enum APIRouter: URLRequestConvertible {
         case .locationDetailByCode: return pathComponents(with: Constants.locationDetailByCode)
         case .updateLocationCoordinate: return pathComponents(with: Constants.updateLocationCoordinate)
         case .assetInventoryList: return pathComponents(with: Constants.assetInventoryList)
+        case .assetDetail: return pathComponents(with: Constants.assetDetail)
         }
     }
 
@@ -68,6 +72,8 @@ enum APIRouter: URLRequestConvertible {
         case .updateLocationCoordinate(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .assetInventoryList(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .assetDetail(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         }
 

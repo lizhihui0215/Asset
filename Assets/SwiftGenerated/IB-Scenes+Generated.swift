@@ -23,6 +23,8 @@ internal enum StoryboardScene {
     internal static let assetDetailViewController = SceneType<Assets.AssetDetailViewController>(storyboard: Common.self, identifier: "AssetDetailViewController")
 
     internal static let photographViewController = SceneType<Assets.PhotographViewController>(storyboard: Common.self, identifier: "PhotographViewController")
+
+    internal static let scanViewController = SceneType<Assets.ScanViewController>(storyboard: Common.self, identifier: "ScanViewController")
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"

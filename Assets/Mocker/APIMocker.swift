@@ -39,6 +39,10 @@ final class APIMocker {
                                     appSearchText: "")
     )
 
+    let assetDetail = APIRouter.assetDetail(
+        AssetDetailParameter(userAccount: "as", userPwd: "asd")
+    )
+
     lazy var mockers: [Mock] = {
         [
             Mock(router: login, dataType: .json, statusCode: 200, data: [
@@ -54,6 +58,9 @@ final class APIMocker {
                 .post: API.UpdateLocationCoordinateResponse.data,
             ]),
             Mock(router: assetInventoryList, dataType: .json, statusCode: 200, data: [
+                .post: API.AssetInventoryListResponse.data,
+            ]),
+            Mock(router: assetDetail, dataType: .json, statusCode: 200, data: [
                 .post: API.AssetInventoryListResponse.data,
             ]),
         ]

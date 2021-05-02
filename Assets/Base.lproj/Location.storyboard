@@ -371,22 +371,22 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wnJ-06-7An">
-                                        <rect key="frame" x="0.0" y="15" width="414" height="31"/>
+                                        <rect key="frame" x="0.0" y="15" width="414" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8c-to-olL">
-                                                <rect key="frame" x="0.0" y="0.0" width="10" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="10" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="10" id="H8c-eU-ROS"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" text="盘点状态:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8P-Q5-eLE">
-                                                <rect key="frame" x="10" y="0.0" width="74" height="31"/>
+                                                <rect key="frame" x="10" y="0.0" width="74" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8S3-NX-hQV">
-                                                <rect key="frame" x="84" y="0.0" width="330" height="31"/>
+                                                <rect key="frame" x="84" y="9.5" width="330" height="31"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5x-Et-Wy7">
                                                         <rect key="frame" x="0.0" y="0.0" width="330" height="30"/>
@@ -413,21 +413,21 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rX6-w3-ZR1">
-                                        <rect key="frame" x="0.0" y="46" width="414" height="5"/>
+                                        <rect key="frame" x="0.0" y="65" width="414" height="5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="FiK-Ra-QrY"/>
                                         </constraints>
                                     </view>
                                     <searchBar contentMode="redraw" placeholder="请输入地点编码或地点名称" translatesAutoresizingMaskIntoConstraints="NO" id="Aps-8r-mTt">
-                                        <rect key="frame" x="0.0" y="51" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="70" width="414" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="mRF-1g-LIF"/>
                                         </constraints>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94V-Dv-GAn">
-                                        <rect key="frame" x="0.0" y="95" width="414" height="40"/>
+                                        <rect key="frame" x="0.0" y="114" width="414" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第1页共有任务0条" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpF-e1-4SE">
                                                 <rect key="frame" x="255" y="10" width="139" height="20.5"/>
@@ -445,14 +445,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7G-4y-gyS">
-                                        <rect key="frame" x="0.0" y="135" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="154" width="414" height="1"/>
                                         <color key="backgroundColor" red="0.091535054150000003" green="0.55975079539999995" blue="0.82159930469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="S4t-k2-fpf"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="J0N-NP-MT3">
-                                        <rect key="frame" x="0.0" y="136" width="414" height="638"/>
+                                        <rect key="frame" x="0.0" y="155" width="414" height="619"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
@@ -567,12 +567,34 @@
                                     </tableView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqE-U4-Nw8" customClass="AnimatableButton" customModule="Assets" customModuleProvider="target">
+                                <rect key="frame" x="354" y="714" width="50" height="50"/>
+                                <color key="backgroundColor" name="primaryColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JAl-d0-fNU"/>
+                                    <constraint firstAttribute="width" constant="50" id="qVf-hA-8Gz"/>
+                                </constraints>
+                                <state key="normal" title="Scan">
+                                    <color key="titleColor" name="secondaryTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="scanTapped:" destination="YPR-Ee-xIx" eventType="touchUpInside" id="1gS-8a-q8y"/>
+                                    <segue destination="9ib-4s-ypS" kind="show" id="euV-qk-zWa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y1c-mI-fgo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="t9R-JE-xXX" firstAttribute="leading" secondItem="Y1c-mI-fgo" secondAttribute="leading" id="AtO-yZ-dSI"/>
                             <constraint firstItem="t9R-JE-xXX" firstAttribute="top" secondItem="Y1c-mI-fgo" secondAttribute="top" id="DH9-Vh-RZF"/>
+                            <constraint firstItem="Y1c-mI-fgo" firstAttribute="trailing" secondItem="EqE-U4-Nw8" secondAttribute="trailing" constant="10" id="O61-At-qsH"/>
+                            <constraint firstItem="Y1c-mI-fgo" firstAttribute="bottom" secondItem="EqE-U4-Nw8" secondAttribute="bottom" constant="10" id="WLU-hF-Zq0"/>
                             <constraint firstItem="Y1c-mI-fgo" firstAttribute="bottom" secondItem="t9R-JE-xXX" secondAttribute="bottom" id="YN9-vX-nAV"/>
                             <constraint firstItem="t9R-JE-xXX" firstAttribute="trailing" secondItem="Y1c-mI-fgo" secondAttribute="trailing" id="n3h-sW-5Bb"/>
                         </constraints>
@@ -590,8 +612,21 @@
             </objects>
             <point key="canvasLocation" x="3453.6231884057975" y="493.52678571428567"/>
         </scene>
+        <!--ScanViewController-->
+        <scene sceneID="r4U-ZQ-u8Y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Common" referencedIdentifier="ScanViewController" id="9ib-4s-ypS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YBv-1O-Tlm"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FUF-Wu-YWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3430" y="901"/>
+        </scene>
     </scenes>
     <designables>
+        <designable name="EqE-U4-Nw8">
+            <size key="intrinsicContentSize" width="35" height="30"/>
+        </designable>
         <designable name="UvL-00-4O0">
             <size key="intrinsicContentSize" width="92" height="30"/>
         </designable>

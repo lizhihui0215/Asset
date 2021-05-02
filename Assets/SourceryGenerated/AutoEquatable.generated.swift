@@ -31,6 +31,14 @@ internal func == (lhs: Asset, rhs: Asset) -> Bool {
     guard lhs.name == rhs.name else { return false }
     return true
 }
+// MARK: - AssetDetail AutoEquatable
+extension AssetDetail: Equatable {}
+internal func == (lhs: AssetDetail, rhs: AssetDetail) -> Bool {
+    guard lhs.status == rhs.status else { return false }
+    guard lhs.code == rhs.code else { return false }
+    guard lhs.name == rhs.name else { return false }
+    return true
+}
 // MARK: - Credential AutoEquatable
 extension Credential: Equatable {}
 internal func == (lhs: Credential, rhs: Credential) -> Bool {
