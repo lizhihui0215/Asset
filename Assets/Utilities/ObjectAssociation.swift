@@ -24,3 +24,29 @@ public final class ObjectAssociation<T: AnyObject> {
         }
     }
 }
+
+@propertyWrapper
+@dynamicMemberLookup
+struct AssociationValue<T> {
+    var value: T
+
+    var projectedValue: AssociationValue<T> { self }
+
+    init(_ value: T) {
+        self.value = value
+    }
+
+    init(wrappedValue: T) {
+        value = wrappedValue
+    }
+
+    var wrappedValue: T {
+        get { value }
+        set { value = newValue }
+    }
+
+    subscript<Property>(dynamicMember keyPath: WritableKeyPath<T, Property>) -> Property {
+        get { value[keyPath: keyPath] }
+        set { value[keyPath: keyPath] = newValue }
+    }
+}

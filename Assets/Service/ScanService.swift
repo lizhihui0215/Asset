@@ -7,31 +7,61 @@ import AVFoundation
 import Foundation
 
 public struct MetadataObject {
-    /// 码内容
-    public var metadataObject: AVMetadataMachineReadableCodeObject
+    var messageString: String?
+
+    var type: AVMetadataObject.ObjectType
+
+    var bounds: CGRect
+
+    public var metadataObject: AVMetadataMachineReadableCodeObject?
 
     public init(metadataObject: AVMetadataMachineReadableCodeObject) {
         self.metadataObject = metadataObject
+        messageString = metadataObject.stringValue
+        type = metadataObject.type
+        bounds = metadataObject.bounds
+    }
+
+    public init(messageString: String?, type: AVMetadataObject.ObjectType, bounds: CGRect) {
+        self.messageString = messageString
+        self.type = type
+        self.bounds = bounds
     }
 }
 
 class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
-    typealias DidReceivedMetadataObject = (_ metadataObject: MetadataObject) -> Bool
-    public static let shared = ScanService()!
+    typealias DidReceivedMetadataObject = (_ metadataObject: MetadataObject, _ completionHandler: @escaping (Bool) -> Void) -> Void
 
-    let device: AVCaptureDevice
-    var input: AVCaptureDeviceInput
-    var output = AVCaptureMetadataOutput()
-    let session = AVCaptureSession()
-    var previewLayer: AVCaptureVideoPreviewLayer
-    var stillImageOutput: AVCapturePhotoOutput
+    public static let shared = ScanService()!
+    public var didReceivedMetadataObject: DidReceivedMetadataObject?
+    public var previewLayer: AVCaptureVideoPreviewLayer
+
+    private let device: AVCaptureDevice
+    private var input: AVCaptureDeviceInput
+    private var output = AVCaptureMetadataOutput()
+    private let session = AVCaptureSession()
+    private var stillImageOutput: AVCapturePhotoOutput
     private let outputQueue: DispatchQueue
-    var didReceivedMetadataObject: DidReceivedMetadataObject?
     private var shouldProcessingToNext = true
 
-    init?(support scanTypes: [AVMetadataObject.ObjectType] = [.qr, .code128],
-          rectOfInterest: CGRect = .zero,
-          outputQueue: DispatchQueue = .main)
+    public var isTorchAvailable: Bool {
+        device.isTorchAvailable
+    }
+
+    public var torchMode: AVCaptureDevice.TorchMode {
+        set {
+            try? device.lockForConfiguration()
+            device.torchMode = newValue
+            device.unlockForConfiguration()
+        }
+        get {
+            device.torchMode
+        }
+    }
+
+    public init?(support scanTypes: [AVMetadataObject.ObjectType] = [.qr, .code128],
+                 rectOfInterest: CGRect = .zero,
+                 outputQueue: DispatchQueue = .main)
     {
         stillImageOutput = AVCapturePhotoOutput()
         self.outputQueue = outputQueue
@@ -55,8 +85,8 @@ class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
                 try input.device.lockForConfiguration()
                 input.device.focusMode = .continuousAutoFocus
                 input.device.unlockForConfiguration()
-            } catch let error as NSError {
-                print("device.lockForConfiguration(): \(error)")
+            } catch {
+                log.debug("device lockForConfiguration error: \(error)")
             }
         }
     }
@@ -76,9 +106,10 @@ class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
             log.debug("scanning received object output: \(output) metadataObjects: \(metadataObjects) connection: \(connection) ")
 
             guard let didReceivedMetadataObject = didReceivedMetadataObject else { return }
+            `self`.shouldProcessingToNext = false
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
-                `self`.shouldProcessingToNext = didReceivedMetadataObject(object)
+                didReceivedMetadataObject(object) { `self`.shouldProcessingToNext = $0 }
             }
         }
     }
@@ -99,7 +130,76 @@ class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         self.shouldProcessingToNext = shouldProcessingToNext
     }
 
-    // MARK: - ---拍照
+    var defaultMetadataObjectTypes: [AVMetadataObject.ObjectType] {
+        [.upce,
+         .code39,
+         .code39Mod43,
+         .ean13,
+         .ean8,
+         .code93,
+         .code128,
+         .pdf417,
+         .aztec,
+         .interleaved2of5,
+         .itf14,
+         .dataMatrix]
+    }
+
+    public func discernMetadataObject(from image: UIImage) -> MetadataObject? {
+        guard let image = image.ciImage else { return nil }
+
+        guard let detector = CIDetector(ofType: CIDetectorTypeQRCode,
+                                        context: nil,
+                                        options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+        else {
+            return nil
+        }
+
+        let features = detector.features(in: image, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+
+        guard let codeFeature = (features.compactMap { $0 as? CIQRCodeFeature }.first) else { return nil }
+
+        return MetadataObject(messageString: codeFeature.messageString, type: .qr, bounds: codeFeature.bounds)
+    }
+
+    // MARK: - --- backup codes
+
+//    public static func createCode(codeType: String, codeString: String, size: CGSize, qrColor: UIColor, bkColor: UIColor) -> UIImage? {
+//        let stringData = codeString.data(using: .utf8)
+//
+//        // 系统自带能生成的码
+//        //        CIAztecCodeGenerator
+//        //        CICode128BarcodeGenerator
+//        //        CIPDF417BarcodeGenerator
+//        //        CIQRCodeGenerator
+//        let qrFilter = CIFilter(name: codeType)
+//        qrFilter?.setValue(stringData, forKey: "inputMessage")
+//        qrFilter?.setValue("H", forKey: "inputCorrectionLevel")
+//
+//        // 上色
+//        let colorFilter = CIFilter(name: "CIFalseColor",
+//                                   parameters: [
+//                                       "inputImage": qrFilter!.outputImage!,
+//                                       "inputColor0": CIColor(cgColor: qrColor.cgColor),
+//                                       "inputColor1": CIColor(cgColor: bkColor.cgColor),
+//                                   ])
+//
+//        guard let qrImage = colorFilter?.outputImage,
+//              let cgImage = CIContext().createCGImage(qrImage, from: qrImage.extent)
+//        else {
+//            return nil
+//        }
+//
+//        UIGraphicsBeginImageContext(size)
+//        let context = UIGraphicsGetCurrentContext()!
+//        context.interpolationQuality = CGInterpolationQuality.none
+//        context.scaleBy(x: 1.0, y: -1.0)
+//        context.draw(cgImage, in: context.boundingBoxOfClipPath)
+//        let codeImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//
+//        return codeImage
+//    }
 
 //    open func captureImage() {
 //        guard let stillImageConnection = connectionWithMediaType(mediaType: AVMediaType.video as AVMediaType,
@@ -119,113 +219,6 @@ class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 //            self.successBlock(self.results)
 //        })
 //    }
-
-    open func connectionWithMediaType(mediaType: AVMediaType, connections: [AnyObject]) -> AVCaptureConnection? {
-        log.debug("scanning received object mediaType: \(mediaType) connections: \(connections)")
-        for connection in connections {
-            guard let connectionTmp = connection as? AVCaptureConnection else {
-                continue
-            }
-            for port in connectionTmp.inputPorts where port.mediaType == mediaType {
-                return connectionTmp
-            }
-        }
-        return nil
-    }
-
-    open func isGetFlash() -> Bool {
-        device.hasFlash
-    }
-
-    /**
-     打开或关闭闪关灯
-     - parameter torch: true：打开闪关灯 false:关闭闪光灯
-     */
-    open func setTorch(torch: Bool) {
-        guard isGetFlash() else {
-            return
-        }
-        do {
-            try input.device.lockForConfiguration()
-            input.device.torchMode = torch ? AVCaptureDevice.TorchMode.on : AVCaptureDevice.TorchMode.off
-            input.device.unlockForConfiguration()
-        } catch let error as NSError {
-            print("device.lockForConfiguration(): \(error)")
-        }
-    }
-
-    /// 闪光灯打开或关闭
-    open func changeTorch() {
-        let torch = input.device.torchMode == .off
-        setTorch(torch: torch)
-    }
-
-    // MARK: - -----获取系统默认支持的码的类型
-
-    var defaultMetaDataObjectTypes: [AVMetadataObject.ObjectType] {
-        [.upce, .code39, .code39Mod43, .ean13, .ean8, .code93, .code128,
-         .pdf417, .aztec, .interleaved2of5, .itf14, .dataMatrix]
-    }
-
-//    public static func recognizeQRImage(image: UIImage) -> [MetadataObject] {
-//        guard let cgImage = image.cgImage else {
-//            return []
-//        }
-//        let detector = CIDetector(ofType: CIDetectorTypeQRCode,
-//                                  context: nil,
-//                                  options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])!
-//        let img = CIImage(cgImage: cgImage)
-//        let features = detector.features(in: img, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
-//        return features.filter {
-//            $0.isKind(of: CIQRCodeFeature.self)
-//        }.map {
-//            $0 as! CIQRCodeFeature
-//        }.map {
-//            MetadataObject(content: $0.messageString,
-//                     image: image,
-//                     codeType: AVMetadataObject.ObjectType.qr.rawValue,
-//                     positions: nil)
-//        }
-//    }
-
-    // MARK: - - - 生成二维码，背景色及二维码颜色设置
-
-    public static func createCode(codeType: String, codeString: String, size: CGSize, qrColor: UIColor, bkColor: UIColor) -> UIImage? {
-        let stringData = codeString.data(using: .utf8)
-
-        // 系统自带能生成的码
-        //        CIAztecCodeGenerator
-        //        CICode128BarcodeGenerator
-        //        CIPDF417BarcodeGenerator
-        //        CIQRCodeGenerator
-        let qrFilter = CIFilter(name: codeType)
-        qrFilter?.setValue(stringData, forKey: "inputMessage")
-        qrFilter?.setValue("H", forKey: "inputCorrectionLevel")
-
-        // 上色
-        let colorFilter = CIFilter(name: "CIFalseColor",
-                                   parameters: [
-                                       "inputImage": qrFilter!.outputImage!,
-                                       "inputColor0": CIColor(cgColor: qrColor.cgColor),
-                                       "inputColor1": CIColor(cgColor: bkColor.cgColor),
-                                   ])
-
-        guard let qrImage = colorFilter?.outputImage,
-              let cgImage = CIContext().createCGImage(qrImage, from: qrImage.extent)
-        else {
-            return nil
-        }
-
-        UIGraphicsBeginImageContext(size)
-        let context = UIGraphicsGetCurrentContext()!
-        context.interpolationQuality = CGInterpolationQuality.none
-        context.scaleBy(x: 1.0, y: -1.0)
-        context.draw(cgImage, in: context.boundingBoxOfClipPath)
-        let codeImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return codeImage
-    }
 
 //    public static func createCode128(codeString: String, size: CGSize, qrColor: UIColor, bkColor: UIColor) -> UIImage? {
 //        let stringData = codeString.data(using: String.Encoding.utf8)
@@ -250,5 +243,18 @@ class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 //
 //        // Resize without interpolating
 //        return resizeImage(image: image, quality: CGInterpolationQuality.none, rate: 20.0)
+//    }
+
+//    open func connectionWithMediaType(mediaType: AVMediaType, connections: [AnyObject]) -> AVCaptureConnection? {
+//        log.debug("scanning received object mediaType: \(mediaType) connections: \(connections)")
+//        for connection in connections {
+//            guard let connectionTmp = connection as? AVCaptureConnection else {
+//                continue
+//            }
+//            for port in connectionTmp.inputPorts where port.mediaType == mediaType {
+//                return connectionTmp
+//            }
+//        }
+//        return nil
 //    }
 }

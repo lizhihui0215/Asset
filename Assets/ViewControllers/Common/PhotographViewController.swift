@@ -170,9 +170,6 @@ class PhotographViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ZLPhotoConfiguration.default().allowSelectVideo = false
-        ZLPhotoConfiguration.default().maxSelectCount = 1
-        ZLPhotoConfiguration.default().themeColorDeploy.thumbnailBgColor = XCColor.primaryColor.color
         title = viewModel.title
         keyLabel.text = viewModel.key
         valueLabel.text = viewModel.value
@@ -213,9 +210,6 @@ class PhotographViewController: BaseViewController {
     }
 
     func photographTapped(for editingView: EditingView) {
-        let cameraConfig = ZLPhotoConfiguration.default()
-        cameraConfig.sessionPreset = .hd1920x1080
-        cameraConfig.cameraFlashMode = .auto
         let camera = ZLCustomCamera()
         camera.takeDoneBlock = { [weak self] image, videoUrl in
             guard let self = self, let image = image else { return }
@@ -227,15 +221,15 @@ class PhotographViewController: BaseViewController {
     }
 
     func photoAlbumTapped(for editingView: EditingView) {
-        let ps = ZLPhotoPreviewSheet()
-        ps.selectImageBlock = { [weak self] images, assets, isOriginal in
+        let photoPreviewSheet = ZLPhotoPreviewSheet()
+        photoPreviewSheet.selectImageBlock = { [weak self] images, assets, isOriginal in
             guard let self = self, let image = images.first else { return }
             `self`.update(view: editingView, for: .ready(image))
             log.info("image: ", context: images)
             log.info("assets: ", context: assets)
             log.info("isOriginal: ", context: isOriginal)
         }
-        ps.showPhotoLibrary(sender: self)
+        photoPreviewSheet.showPhotoLibrary(sender: self)
     }
 
     func deleteTapped(for editingView: EditingView) {

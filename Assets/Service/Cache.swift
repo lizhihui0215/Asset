@@ -8,31 +8,7 @@
 
 import Foundation
 
-struct Cache {
-    enum Option {
-        case userDefault
-    }
-
-    private let option: Option
-
-    init(option: Option) {
-        self.option = option
-    }
-
-    func put(key: String, value: Encodable) {
-        switch option {
-        case .userDefault:
-            UserDefaults.standard.setValue(value, forKey: key)
-        }
-    }
-
-    func get<T>(key: String) -> T? {
-        switch option {
-        case .userDefault:
-            return UserDefaults.standard.value(forKey: key) as? T
-        }
-    }
-}
+struct Cache {}
 
 @propertyWrapper
 struct UserDefault<T: Codable, K: Keys> {

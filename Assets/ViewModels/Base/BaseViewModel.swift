@@ -20,8 +20,6 @@ class BaseViewModel<T: UIViewController>: Validation {
     let action: T
     var validator = Validator.defaultValue
 
-    let cache = Cache(option: .userDefault)
-
     init(request: RequestRepresentable, action: T) {
         self.request = request
         self.action = action

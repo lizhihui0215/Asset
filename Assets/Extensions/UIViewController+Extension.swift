@@ -19,12 +19,21 @@ extension UIViewController {
         HUD.hide(animated: true)
     }
 
-    func alert(title: String = App.Constants.Default.string, message: String? = nil, handler: (() -> Void)? = nil) {
+    func alert(title: String = App.Constants.Default.string,
+               message: String? = nil,
+               otherAction: UIAlertAction? = nil,
+               dismissHandler: (() -> Void)? = nil)
+    {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismiss = UIAlertAction(title: Constants.alertTitle, style: .default) { _ in
-            guard let handler = handler else { return }
+        let dismiss = UIAlertAction(title: Constants.alertTitle, style: .cancel) { _ in
+            guard let handler = dismissHandler else { return }
             handler()
         }
+
+        if let otherAction = otherAction {
+            alertController.addAction(otherAction)
+        }
+
         alertController.addAction(dismiss)
         present(alertController, animated: true)
     }

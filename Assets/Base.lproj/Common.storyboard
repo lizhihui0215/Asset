@@ -531,7 +531,9 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonStackView" destination="wC6-2o-hlI" id="0hq-eL-98M"/>
                         <outlet property="scanAnimationImageView" destination="Bjd-e1-jMW" id="L9J-lf-sJH"/>
+                        <outlet property="torchButton" destination="Olr-wV-5y6" id="bIu-J3-JcU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLF-FJ-xx2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
