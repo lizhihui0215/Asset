@@ -58,8 +58,14 @@ class AssetInventoryListViewController: BaseTableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let locationSegue = StoryboardSegue.Location(rawValue: segue.identifier)
+
+        switch locationSegue {
+        case .toScan:
+            guard let scanViewController: ScanViewController = segue.destination()
+            scanViewController.viewModel = self.viewModel.scanViewModel()
+        default: break
+        }
     }
 }
 

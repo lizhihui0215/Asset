@@ -62,6 +62,10 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
         }
     }
 
+    func scanViewModel(action: ScanViewController) -> ScanViewModel {
+        ScanViewModel(request: AssetDetailRequest(), action: action, locationDetail: locationDetail)
+    }
+
     func assetInventoryCellViewModel(at indexPath: IndexPath) -> AssetInventoryTableViewCell.ViewModel {
         let asset = itemAtIndexPath(indexPath: indexPath)
         return .init(status: asset.checkStatus, name: asset.assetName, code: asset.tagNumber)

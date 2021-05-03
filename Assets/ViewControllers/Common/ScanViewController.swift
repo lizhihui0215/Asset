@@ -11,9 +11,7 @@ class ScanViewController: BaseViewController {
     @IBOutlet var torchButton: AnimatableButton!
     @IBOutlet var buttonStackView: UIStackView!
     let scanner = ScanService.shared
-    lazy var viewModel: ScanViewModel = {
-        ScanViewModel(request: AssetDetailRequest(), action: self)
-    }()
+    var viewModel: ScanViewModel!
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

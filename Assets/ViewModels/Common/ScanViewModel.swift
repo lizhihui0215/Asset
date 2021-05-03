@@ -17,7 +17,7 @@ class ScanViewModel: BaseViewModel<ScanViewController> {
     }
 
     private var realLocationCode: String {
-        "" // FIXME: where it from
+        locationDetail.locationCode
     }
 
     private var checkPerson: String {
@@ -25,7 +25,14 @@ class ScanViewModel: BaseViewModel<ScanViewController> {
     }
 
     private var realLocationName: String {
-        "" // FIXME: where it from
+        locationDetail.locationName
+    }
+
+    private var locationDetail: LocationDetail
+
+    init(request: AssetDetailRequest, action: ScanViewController, locationDetail: LocationDetail) {
+        self.locationDetail = locationDetail
+        super.init(request: request, action: action)
     }
 
     func fetchAssetDetail(completionHandler: @escaping ViewModelCompletionHandler<AssetDetail?>) {
