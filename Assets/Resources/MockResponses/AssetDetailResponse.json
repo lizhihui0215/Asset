@@ -1,8 +1,33 @@
 {
   "status": 0,
   "data": {
-    "status": 0,
-    "code": "303221BG00000604",
-    "name": "z资产11深爱的"
+    "isCheck": false,
+    "assetId": "8a93e7d97297436401729846814647d8",
+    "tagNumber": "303210G00001762",
+    "assetName": "数据库一体机",
+    "checkTime": "2021-05-01 13:40:37",
+    "checkStatus": "1",
+    "checkStatusName": "已盘",
+    "realLocationCode": "303210CK00000017",
+    "realLocationName": "山东省德州市齐河县华店乡308国道南省仓库",
+    "locationCode": "303210CK00000017",
+    "locationName": "山东省德州市齐河县华店乡308国道南省仓库",
+    "checkPerson": "taoyuan",
+    "lastCheckPerson": "taoyuan",
+    "manufactureName": "华为技术有限公司",
+    "modelNumber": "华为数据库一体机",
+    "quantity": 1,
+    "dutyPerson": "李训潮",
+    "dutyPersonName": "李训潮",
+    "usePerson": "lixunchao",
+    "usePersonName": "李训潮",
+    "typeDescriptionCode": "01.03-01-04-02.0000",
+    "typeDescriptionName": "营业用.互联网及业务平台-互联网设备-其他互联网设备-服务器.其他互联网设备-服务器",
+    "longitude": "117.014194",
+    "latitude": "36.657736",
+    "mapLocationDesc": "MapData{longitude='117.014194', latitude='36.657736', address='中国山东省济南市历下区趵突泉街道上新街82号', addrStr='中国山东省济南市历下区趵突泉街道上新街82号', altitude='null', countryName='中国', provinceName='山东省', cityName='济南市', district='历下区', town='趵突泉街道', street='上新街', streetNumber='82号', floor='null', locTypeDescription='NetWork location successful!'}",
+    "assetCheckItem": "2",
+    "assetCheckItemName": "申请报废",
+    "resourceNumber": "abcde123445iii"
   }
 }

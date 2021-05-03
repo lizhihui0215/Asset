@@ -584,7 +584,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="scanTapped:" destination="YPR-Ee-xIx" eventType="touchUpInside" id="1gS-8a-q8y"/>
-                                    <segue destination="9ib-4s-ypS" kind="show" id="euV-qk-zWa"/>
+                                    <segue destination="9ib-4s-ypS" kind="show" identifier="toScan" id="euV-qk-zWa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -620,7 +620,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUF-Wu-YWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3430" y="901"/>
+            <point key="canvasLocation" x="3454" y="899"/>
         </scene>
     </scenes>
     <designables>

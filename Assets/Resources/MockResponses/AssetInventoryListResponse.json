@@ -1,42 +1,31 @@
 {
-  "page": 2,
-  "total": "198943",
-  "records": 198943,
+  "page": "1",
+  "total": "3",
+  "records": "15",
   "rows": [
     {
-      "status": 0,
-      "code": "303221BG00000604",
-      "name": "z资产11深爱的"
+      "isCheck": false,
+      "assetId": "8a93e7d97297436401729750684a6b6a",
+      "checkStatus": "2",
+      "checkStatusName": "盘盈",
+      "tagNumber": "3210-01008789",
+      "assetName": "智能电动密集架5"
     },
     {
-      "status": 1,
-      "code": "303221BG000X2312",
-      "name": "打卡金德拉克家深爱的"
+      "isCheck": false,
+      "assetId": "8a93e7d97297436401729846814647d8",
+      "checkStatus": "1",
+      "checkStatusName": "已盘",
+      "tagNumber": "303210G00001762",
+      "assetName": "数据库一体机"
     },
     {
-      "status": 2,
-      "code": "303221BG00000604",
-      "name": "阿上课的教室里卡家里撒娇的"
-    },
-    {
-      "status": 3,
-      "code": "303221BQees0000604",
-      "name": "阿斯利康简单大连市科技的"
-    },
-    {
-      "status": 2,
-      "code": "303221BG00XX21s04",
-      "name": "的撒开了家的撒开家收到了空间"
-    },
-    {
-      "status": 0,
-      "code": "30322sdreq0000604",
-      "name": "的撒啦都开始来家啊"
-    },
-    {
-      "status": 0,
-      "code": "303221FSAD0000604",
-      "name": "的撒了空间而坚强"
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172984756765432",
+      "checkStatus": "1",
+      "checkStatusName": "已盘",
+      "tagNumber": "303210G00002455",
+      "assetName": "笔记本电脑1"
     }
   ]
 }

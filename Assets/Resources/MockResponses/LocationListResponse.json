@@ -6,27 +6,40 @@
     {
       "isCheck": false,
       "locationCode": "303221BG00000604",
-      "locationName": "山东省济南市天桥区北园街道国贸公寓北向106室清河社区2楼"
+      "locationName": "山东省济南市天桥区北园街道国贸公寓北向106室清河社区2楼",
+      "assetLocationId": "8a93ee026ea00b64016eaad7e7b416ba"
     },
     {
       "isCheck": false,
       "locationCode": "303221BG00000605",
-      "locationName": "山东省济南市市中区共青团路盛唐巷22号济南移动南楼四楼"
+      "locationName": "山东省济南市市中区共青团路盛唐巷22号济南移动南楼四楼",
+      "assetLocationId": "8a93ee026ea00b64016eaad7e7b416ba",
+      "stLongitude": "108.84783094618055",
+      "strLatitude": "34.244379069010414"
     },
     {
       "isCheck": false,
-      "locationCode": "303221BG00000610",
-      "locationName": "山东省济南市槐荫区五里沟街道经三路187号南2楼网维中心"
+      "locationCode": "303210CK00000017",
+      "locationName": "308",
+      "assetLocationId": "8a93ee026ea00b64016eaad7e7b416ba",
+      "stLongitude": "108.84783094618055",
+      "strLatitude": "34.244379069010414"
     },
     {
       "isCheck": false,
       "locationCode": "303221BG00000611",
-      "locationName": "山东省济南市槐荫区五里沟街道经三路187号北4楼综调中心"
+      "locationName": "山东省济南市槐荫区五里沟街道经三路187号北4楼综调中心",
+      "assetLocationId": "8a93ee026ea00b64016eaad7e7b416ba",
+      "stLongitude": "108.84783094618055",
+      "strLatitude": "34.244379069010414"
     },
     {
       "isCheck": false,
       "locationCode": "303221BG00000613",
-      "locationName": "山东省济南市槐荫区经七路187号C座南四楼东侧"
+      "locationName": "山东省济南市槐荫区经七路187号C座南四楼东侧",
+      "assetLocationId": "8a93ee026ea00b64016eaad7e7b416ba",
+      "stLongitude": "108.84783094618055",
+      "strLatitude": "34.244379069010414"
     },
     {
       "isCheck": false,
@@ -36,22 +49,34 @@
     {
       "isCheck": false,
       "locationCode": "303221BG00000615",
-      "locationName": "山东省济南市平阴县榆山街道振兴街67号移动公司2楼"
+      "locationName": "山东省济南市平阴县榆山街道振兴街67号移动公司2楼",
+      "assetLocationId": "8a93ee026ea00b64016eaad7e7b416ba",
+      "stLongitude": "108.84783094618055",
+      "strLatitude": "34.244379069010414"
     },
     {
       "isCheck": false,
       "locationCode": "303221BG00000616",
-      "locationName": "山东省济南市开发区舜华路街道颖秀路2299号高新分公司综合部"
+      "locationName": "山东省济南市开发区舜华路街道颖秀路2299号高新分公司综合部",
+      "assetLocationId": "8a93ee026ea00b64016eaad7e7b416ba",
+      "stLongitude": "108.84783094618055",
+      "strLatitude": "34.244379069010414"
     },
     {
       "isCheck": false,
       "locationCode": "303221BG00000617",
-      "locationName": "山东省济南市开发区舜华路街道颖秀路2299号高新分公司业务运营部"
+      "locationName": "山东省济南市开发区舜华路街道颖秀路2299号高新分公司业务运营部",
+      "assetLocationId": "8a93ee026ea00b64016eaad7e7b416ba",
+      "stLongitude": "108.84783094618055",
+      "strLatitude": "34.244379069010414"
     },
     {
       "isCheck": false,
       "locationCode": "303221BG00000618",
-      "locationName": "山东省济南市开发区舜华路街道颖秀路2299号高新分公司建设维护部"
+      "locationName": "山东省济南市开发区舜华路街道颖秀路2299号高新分公司建设维护部",
+      "assetLocationId": "8a93ee026ea00b64016eaad7e7b416ba",
+      "stLongitude": "108.84783094618055",
+      "strLatitude": "34.244379069010414"
     }
   ]
 }

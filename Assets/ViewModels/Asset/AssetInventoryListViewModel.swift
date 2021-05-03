@@ -7,8 +7,8 @@ import Foundation
 
 class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewController, DefaultSection<Asset>>, Searchable {
     var appSearchText: String = ""
-    let userOrgId = app.credential?.userOrgId ?? ""
-    let locationId: String = ""
+    let regionIdCompany = app.credential?.userCityId ?? ""
+    let locationDetail: LocationDetail
 
     public var dropDownOptions: [String] {
         let options: [InventoryType] = [.all,
@@ -19,7 +19,22 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
         return options.map(\.title)
     }
 
-    init(request: RequestRepresentable, action: AssetInventoryListViewController, locationId: String) {
+    private var assetLocationId: String {
+        locationDetail.assetLocationId
+    }
+
+    private var locationId: String {
+        locationDetail.locationId
+    }
+
+    private var locationCode: String {
+        locationDetail.locationCode
+    }
+
+    private var checkStatus = "-1"
+
+    init(request: RequestRepresentable, action: AssetInventoryListViewController, locationDetail: LocationDetail) {
+        self.locationDetail = locationDetail
         super.init(request: request, action: action, dataSource: [.defaultValue])
     }
 
@@ -30,8 +45,13 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
             pageNumber: String(page),
             pageSize: String(size),
             locationId: locationId,
-            userOrgId: userOrgId,
-            appSearchText: appSearchText
+            checkPerson: regionIdCompany,
+            appSearchText: appSearchText,
+            assetLocationId: assetLocationId,
+            total: "", // FIXME: where total from
+            regionIdCompany: regionIdCompany,
+            locationCode: locationCode,
+            appCheckStatus: checkStatus
         )
 
         api(of: AssetInventoryListResponse.self,
@@ -44,7 +64,6 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
 
     func assetInventoryCellViewModel(at indexPath: IndexPath) -> AssetInventoryTableViewCell.ViewModel {
         let asset = itemAtIndexPath(indexPath: indexPath)
-
-        return .init(status: asset.status, name: asset.name, code: asset.code)
+        return .init(status: asset.checkStatus, name: asset.assetName, code: asset.tagNumber)
     }
 }

@@ -10,9 +10,7 @@ protocol Convertible {
     func convert() -> T
 }
 
-extension ServiceConfiguration.Service: Convertible {}
-
-extension Convertible where Self == ServiceConfiguration.Service {
+extension ServiceConfiguration.Service: Convertible {
     func convert() -> ServiceCollectionViewCell.ViewModel.Service {
         switch self {
         case .projectTransfer: return .projectTransfer
@@ -26,5 +24,34 @@ extension Convertible where Self == ServiceConfiguration.Service {
         case .notification: return .notification
         case .baseData: return .baseData
         }
+    }
+}
+
+extension BMKLocationReGeocode: Convertible {
+    func convert() -> LocationReGeocode {
+        LocationReGeocode(
+            countryCode: countryCode,
+            province: province,
+            city: city,
+            district: district,
+            town: town,
+            street: street,
+            streetNumber: streetNumber,
+            cityCode: cityCode,
+            adCode: adCode,
+            locationDescribe: locationDescribe,
+            country: country,
+            poiRegion: poiRegion.convert()
+        )
+    }
+}
+
+extension BMKLocationPoiRegion: Convertible {
+    func convert() -> LocationPoiRegion {
+        LocationPoiRegion(
+            directionDesc: directionDesc,
+            name: name,
+            tags: tags
+        )
     }
 }

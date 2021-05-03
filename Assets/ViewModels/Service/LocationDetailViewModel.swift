@@ -7,12 +7,19 @@ import CoreLocation
 import Foundation
 
 class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
-    private let locationCode: String
+    private var assetLocationId: String
     private var locationDetail: LocationDetail?
     private var location: CLLocation?
+    private var rgcData: BMKLocationReGeocode?
 
     public var code: String {
         locationDetail?.locationCode ?? ""
+    }
+
+    private var mapLocationDesc: String {
+        let encoder = JSONEncoder()
+        guard let rgcData = rgcData?.convert(), let data = try? encoder.encode(rgcData) else { return "" }
+        return String(data: data, encoding: .utf8) ?? ""
     }
 
     public var name: String {
@@ -39,25 +46,28 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
         return String(longitude)
     }
 
-    init(request: RequestRepresentable, action: LocationDetailViewController, locationId: String) {
-        locationCode = locationId
+    init(request: RequestRepresentable, action: LocationDetailViewController, assetLocationId: String) {
+        self.assetLocationId = assetLocationId
         super.init(request: request, action: action)
     }
 
     func fetchLocationDetail(completionHandler: @escaping ViewModelCompletionHandler<LocationDetail?>) {
         api(of: LocationDetailResponse.self,
-            router: .locationDetailByCode(LocationDetailParameter(locationCode: locationCode))) { [weak self] result in
+            router: .locationDetailById(LocationDetailParameter(locationId: assetLocationId))) { [weak self] result in
             guard let self = self else { return }
             `self`.locationDetail = try? result.get()
+            `self`.locationDetail?.assetLocationId = `self`.assetLocationId
             completionHandler(result)
         }
     }
 
-    func updateLocationCoordinate(completionHandler: @escaping ViewModelCompletionHandler<UpdateLocationCoordinate?>) {
-        api(of: UpdateLocationCoordinateResponse.self,
-            router: .updateLocationCoordinate(UpdateLocationCoordinateParameter(locationCode: locationCode,
-                                                                                longitude: longitude,
-                                                                                latitude: latitude))) { [weak self] result in
+    func updateLocation(completionHandler: @escaping ViewModelCompletionHandler<UpdateLocation?>) {
+        api(of: UpdateLocationResponse.self,
+            router: .updateLocation(UpdateLocationParameter(locationId: assetLocationId,
+                                                            locationCode: code,
+                                                            longitude: longitude,
+                                                            latitude: latitude,
+                                                            mapLocationDesc: mapLocationDesc))) { [weak self] result in
             guard let self = self,
                   let longitude = `self`.location?.coordinate.longitude,
                   let latitude = `self`.location?.coordinate.latitude
@@ -71,26 +81,27 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
         }
     }
 
-    func update(location: CLLocation?, refresh: Bool = false) {
+    func update(location: CLLocation?, rgcData: BMKLocationReGeocode?, refresh: Bool = false) {
         self.location = location
+        self.rgcData = rgcData
     }
 
     func assetInventoryListViewModel(action: AssetInventoryListViewController) -> AssetInventoryListViewModel! {
-        .init(request: AssetInventoryListRequest(), action: action, locationId: locationDetail?.locationId ?? "")
+        .init(request: AssetInventoryListRequest(), action: action, locationDetail: locationDetail!)
     }
 
     override func valid(router: APIRouter) throws {
-        if case .updateLocationCoordinate(let coordinate) = router {
+        if case .updateLocation(let coordinate) = router {
             guard validator.not(type: .empty(string: coordinate.latitude)),
                   validator.not(type: .empty(string: coordinate.locationCode))
             else {
                 throw EAMError.LocationServiceError.coordinateEmpty
             }
 
-            guard validator.not(type: .same(lhs: coordinate.latitude, rhs: self.locationDetail?.strLatitude)),
-                  validator.not(type: .same(lhs: coordinate.longitude, rhs: self.locationDetail?.strLongitude))
+            guard validator.not(type: .same(lhs: coordinate.latitude, rhs: locationDetail?.strLatitude)),
+                  validator.not(type: .same(lhs: coordinate.longitude, rhs: locationDetail?.strLongitude))
             else {
-                throw EAMError.LocationServiceError.coordinateEmpty
+                throw EAMError.LocationServiceError.coordinateNeedsUpdate
             }
         }
     }

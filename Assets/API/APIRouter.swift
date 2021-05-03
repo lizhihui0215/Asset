@@ -13,16 +13,16 @@ enum APIRouter: URLRequestConvertible {
     enum Constants {
         static let login = "appSys/login"
         static let locationList = "app/location/findByPage"
-        static var locationDetailByCode = "app/location/getLocationByCode"
+        static var locationDetailById = "app/location/getLocation"
         static var updateLocationCoordinate = "app/location/updateLocationInfo"
-        static var assetInventoryList = "app/location/assetInventoryList"
-        static var assetDetail = "app/assetDetail"
+        static var assetInventoryList = "/app/check/daily/findByLocationAndCheckPerson"
+        static var assetDetail = "app/check/daily/getCheckResultByScan"
     }
 
     case login(LoginParameter)
     case locationList(LocationListParameter)
-    case locationDetailByCode(LocationDetailParameter)
-    case updateLocationCoordinate(UpdateLocationCoordinateParameter)
+    case locationDetailById(LocationDetailParameter)
+    case updateLocation(UpdateLocationParameter)
     case assetInventoryList(AssetInventoryListParameter)
     case assetDetail(AssetDetailParameter)
 
@@ -33,9 +33,9 @@ enum APIRouter: URLRequestConvertible {
     var method: HTTPMethod {
         switch self {
         case .login,
-             .locationDetailByCode,
+             .locationDetailById,
              .locationList,
-             .updateLocationCoordinate,
+             .updateLocation,
              .assetInventoryList,
              .assetDetail:
             return .post
@@ -46,8 +46,8 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .login: return pathComponents(with: Constants.login)
         case .locationList: return pathComponents(with: Constants.locationList)
-        case .locationDetailByCode: return pathComponents(with: Constants.locationDetailByCode)
-        case .updateLocationCoordinate: return pathComponents(with: Constants.updateLocationCoordinate)
+        case .locationDetailById: return pathComponents(with: Constants.locationDetailById)
+        case .updateLocation: return pathComponents(with: Constants.updateLocationCoordinate)
         case .assetInventoryList: return pathComponents(with: Constants.assetInventoryList)
         case .assetDetail: return pathComponents(with: Constants.assetDetail)
         }
@@ -67,9 +67,9 @@ enum APIRouter: URLRequestConvertible {
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .locationList(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
-        case .locationDetailByCode(let parameters):
+        case .locationDetailById(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
-        case .updateLocationCoordinate(let parameters):
+        case .updateLocation(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .assetInventoryList(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)

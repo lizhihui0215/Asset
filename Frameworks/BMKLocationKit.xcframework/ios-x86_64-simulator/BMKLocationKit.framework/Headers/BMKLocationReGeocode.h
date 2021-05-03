@@ -12,9 +12,6 @@
 ///BMKLocationReGeocode类。描述跟地址有关的信息.
 @interface BMKLocationReGeocode : NSObject
 
-///国家名字属性
-@property(nonatomic, copy, readonly) NSString *country;
-
 ///国家编码属性
 @property(nonatomic, copy, readonly) NSString *countryCode;
 
@@ -42,13 +39,16 @@
 ///行政区划编码属性
 @property(nonatomic, copy, readonly) NSString *adCode;
 
-
 ///位置语义化结果的定位点在什么地方周围的描述信息
 @property(nonatomic, copy, readonly) NSString *locationDescribe;
 
 
 ///位置语义化结果的属性，该定位点周围的poi列表信息
 @property(nonatomic, retain, readonly) NSArray<BMKLocationPoi *> *poiList;
+
+
+///国家名字属性
+@property(nonatomic, copy, readonly) NSString *country;
 
 ///位置语义化结果的定位点在什么地方周围的描述信息
 @property(nonatomic, strong, readonly) BMKLocationPoiRegion *poiRegion;

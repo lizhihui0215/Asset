@@ -23,24 +23,34 @@ final class APIMocker {
                               appSearchText: "")
     )
 
-    let locationDetailByCode = APIRouter.locationDetailByCode(LocationDetailParameter(locationCode: "asdsa1321"))
+    let locationDetailByCode = APIRouter.locationDetailById(LocationDetailParameter(locationId: "asdsa1321"))
 
-    let updateLocationCoordinate = APIRouter.updateLocationCoordinate(
-        UpdateLocationCoordinateParameter(locationCode: "csakjd",
-                                          longitude: "180.12321321",
-                                          latitude: "32.29421942")
+    let updateLocationCoordinate = APIRouter.updateLocation(
+        UpdateLocationParameter(locationId: "sadsada",
+                                locationCode: "csakjd",
+                                longitude: "180.12321321",
+                                latitude: "32.29421942",
+                                mapLocationDesc: "dsa")
     )
 
     let assetInventoryList = APIRouter.assetInventoryList(
         AssetInventoryListParameter(pageNumber: "1",
-                                    pageSize: "15",
-                                    locationId: "dsa12312",
-                                    userOrgId: "wangwenwensh",
-                                    appSearchText: "")
+                                    pageSize: "213",
+                                    locationId: "sadadas",
+                                    checkPerson: "dsadas",
+                                    appSearchText: "",
+                                    assetLocationId: "dsadsa",
+                                    total: "2",
+                                    regionIdCompany: "sdadsad",
+                                    locationCode: "dadsadsa",
+                                    appCheckStatus: "dsadsa")
     )
 
     let assetDetail = APIRouter.assetDetail(
-        AssetDetailParameter(userAccount: "as", userPwd: "asd")
+        AssetDetailParameter(tagNumber: "sdasd",
+                             realLocationCode: "sdsadsa",
+                             checkPerson: "dsadsa",
+                             realLocationName: "dsadsa")
     )
 
     lazy var mockers: [Mock] = {
@@ -55,7 +65,7 @@ final class APIMocker {
                 .post: API.LocationDetailResponse.data,
             ]),
             Mock(router: updateLocationCoordinate, dataType: .json, statusCode: 200, data: [
-                .post: API.UpdateLocationCoordinateResponse.data,
+                .post: API.UpdateLocationResponse.data,
             ]),
             Mock(router: assetInventoryList, dataType: .json, statusCode: 200, data: [
                 .post: API.AssetInventoryListResponse.data,

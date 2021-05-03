@@ -15,6 +15,7 @@ internal enum StoryboardSegue {
   internal enum Location: String, SegueType {
     case toAssetInventoryList
     case toPhotograph
+    case toScan
   }
   internal enum Login: String, SegueType {
     case toSetting

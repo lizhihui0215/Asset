@@ -11,9 +11,10 @@ import Foundation
 struct AssetDetailRequest: RequestRepresentable {}
 
 struct AssetDetailParameter: Encodable {
-    let userAccount: String?
-    let userPwd: String?
-    let appType: App.`Type` = .ios
+    let tagNumber: String
+    let realLocationCode: String
+    let checkPerson: String
+    let realLocationName: String
 }
 
 struct AssetDetailResponse: DataResponse {

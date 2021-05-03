@@ -294,7 +294,7 @@
 		5B8754BC58BE8152FD9B32EA /* AssetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875684196B01E4B5E60BD5 /* AssetDetailViewController.swift */; };
 		5B8754C54EE377E126A22F23 /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87520439C97EB03B60F857 /* ScanViewModel.swift */; };
 		5B8754C86DE30046E49B7066 /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875234EAB7404922020237 /* ServiceRequest.swift */; };
-		5B8754D54CE02BF0E2CE0729 /* UpdateLocationCoordinateResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B87536BB570F25BEE6D1914 /* UpdateLocationCoordinateResponse.json */; };
+		5B8754D54CE02BF0E2CE0729 /* UpdateLocationResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B87536BB570F25BEE6D1914 /* UpdateLocationResponse.json */; };
 		5B8754F173109143EB0FC1DD /* LocationDetailResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B875FC0E0C21404B529810E /* LocationDetailResponse.json */; };
 		5B87553750882123F66DEF8D /* InitialSceneType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87594724E568A83D629900 /* InitialSceneType+Extension.swift */; };
 		5B87555446B6DCD102EEFC93 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875021ECEDB917478B8028 /* UISearchBar+Extension.swift */; };
@@ -329,7 +329,7 @@
 		5B875CD10D8775D89CD817BB /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875A09A851E21BEA41212F /* Appearance.swift */; };
 		5B875D072C2D825EEB51655C /* AssetDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875207E60644377F816FBD /* AssetDetailRequest.swift */; };
 		5B875D4EB5122936BE106250 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87573E32FFCB49B7F16C2A /* BaseViewModel.swift */; };
-		5B875DE8841BA9E8A3C6E9A2 /* UpdateLocationCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87587F55DE950C478C1950 /* UpdateLocationCoordinate.swift */; };
+		5B875DE8841BA9E8A3C6E9A2 /* UpdateLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87587F55DE950C478C1950 /* UpdateLocation.swift */; };
 		5B875ECF6BBE08A269331211 /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875A58870EC13B5100A3BD /* ObjectAssociation.swift */; };
 		5B875EF2619BA9CC70749B6D /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875FFFE8124E29CDDBAF94 /* BaseTableViewCell.swift */; };
 		5B875F71B3D46355CCBE7BC0 /* SegueType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8750C69CA05D4C0676B691 /* SegueType+Extension.swift */; };
@@ -674,7 +674,7 @@
 		5B875251AAC9B3CABA84A00D /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		5B8752887CA9DE0EFA0CAD0F /* ScanCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanCornerView.swift; sourceTree = "<group>"; };
 		5B87534472E43A4C7DC74EE0 /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
-		5B87536BB570F25BEE6D1914 /* UpdateLocationCoordinateResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UpdateLocationCoordinateResponse.json; sourceTree = "<group>"; };
+		5B87536BB570F25BEE6D1914 /* UpdateLocationResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UpdateLocationResponse.json; sourceTree = "<group>"; };
 		5B8753E2D9F6AAA61C0208AD /* RadioGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioGroupView.swift; sourceTree = "<group>"; };
 		5B87542B92201B047700A30B /* ServiceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
 		5B8754A37EA78B899A488A21 /* AssetInventoryListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListRequest.swift; sourceTree = "<group>"; };
@@ -692,7 +692,7 @@
 		5B8758371F7ACD2BE80839A1 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		5B8758576E13F3C93BBCF08A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B87586861D7DF5D11213DF1 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
-		5B87587F55DE950C478C1950 /* UpdateLocationCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLocationCoordinate.swift; sourceTree = "<group>"; };
+		5B87587F55DE950C478C1950 /* UpdateLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLocation.swift; sourceTree = "<group>"; };
 		5B87592436C0BC675040207A /* UINavigationItem+BarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+BarButtonItem.swift"; sourceTree = "<group>"; };
 		5B8759382DC909013C3FA86B /* Searchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Searchable.swift; sourceTree = "<group>"; };
 		5B87594724E568A83D629900 /* InitialSceneType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InitialSceneType+Extension.swift"; sourceTree = "<group>"; };
@@ -1325,7 +1325,7 @@
 			children = (
 				5B875095689EEA83D7E606CC /* LoginResponse.json */,
 				5B8759E04A1A9555EA96945E /* LocationListResponse.json */,
-				5B87536BB570F25BEE6D1914 /* UpdateLocationCoordinateResponse.json */,
+				5B87536BB570F25BEE6D1914 /* UpdateLocationResponse.json */,
 				5B875FC0E0C21404B529810E /* LocationDetailResponse.json */,
 				5B875EF7AAF929C9FD303649 /* AssetInventoryListResponse.json */,
 				5B8750CBF2A94525D68FA54F /* AssetDetailResponse.json */,
@@ -1549,7 +1549,7 @@
 				9C6D434C2627320D00FEC466 /* LoginRequest.swift */,
 				5B875234EAB7404922020237 /* ServiceRequest.swift */,
 				5B875E2B31EBA291112B1127 /* LocationListRequest.swift */,
-				5B87587F55DE950C478C1950 /* UpdateLocationCoordinate.swift */,
+				5B87587F55DE950C478C1950 /* UpdateLocation.swift */,
 				5B875A192F3CF3047BC4AD2E /* PhotographRequest.swift */,
 				5B8756CA0572E8165EE7BF98 /* LocationDetailRequest.swift */,
 				5B8754A37EA78B899A488A21 /* AssetInventoryListRequest.swift */,
@@ -1739,7 +1739,7 @@
 				5B875B59734148478C1616CB /* LoginResponse.json in Resources */,
 				26AF1D98263C555800F8238B /* Location.storyboard in Resources */,
 				5B8757C6803FECC0791BB29F /* LocationListResponse.json in Resources */,
-				5B8754D54CE02BF0E2CE0729 /* UpdateLocationCoordinateResponse.json in Resources */,
+				5B8754D54CE02BF0E2CE0729 /* UpdateLocationResponse.json in Resources */,
 				5B8754F173109143EB0FC1DD /* LocationDetailResponse.json in Resources */,
 				5B875844E4AD5B17EDF9E8D4 /* AssetInventoryListResponse.json in Resources */,
 				5B8755E49F6218381E2F9E0D /* AssetDetailResponse.json in Resources */,
@@ -2092,7 +2092,7 @@
 				260E35CC26351FBB008CF3DE /* FlipAnimator.swift in Sources */,
 				5B87542855F7A7F56A3E3139 /* Logger.swift in Sources */,
 				5B8758E5D7FC4F86A28985C7 /* LocationServiceable.swift in Sources */,
-				5B875DE8841BA9E8A3C6E9A2 /* UpdateLocationCoordinate.swift in Sources */,
+				5B875DE8841BA9E8A3C6E9A2 /* UpdateLocation.swift in Sources */,
 				5B8751CD384BE0B14D23B0AA /* PhotographViewModel.swift in Sources */,
 				5B875FB2C8453F2EEE391BEB /* Identifiable.swift in Sources */,
 				5B875AD3D3F740BC0C8E0DA3 /* PhotographRequest.swift in Sources */,

@@ -45,14 +45,14 @@ class LocationDetailViewController: BaseViewController {
     func updateLocationCoordinates() {
         locationService.getGPSLocation { [weak self] in
             guard let self = self, let result = try? $0.get() else { return }
-            `self`.viewModel.update(location: result.location)
+            `self`.viewModel.update(location: result.location, rgcData: result.rgcData)
             `self`.refreshPage()
             log.info("GPS Location: ", context: result.location)
         }
     }
 
     @IBAction func saveLocationCoordinatesTapped(_ sender: UIButton) {
-        viewModel.updateLocationCoordinate { [weak self] _ in
+        viewModel.updateLocation { [weak self] _ in
             guard let self = self else { return }
             `self`.alert(message: L10n.locationDetail.saveLocationCoordinate.success.alert.message)
             `self`.refreshPage()

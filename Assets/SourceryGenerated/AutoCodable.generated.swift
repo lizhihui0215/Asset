@@ -4,17 +4,23 @@
 extension Asset {
 
     enum CodingKeys: String, CodingKey {
-        case status
-        case code
-        case name
+        case checkStatus
+        case tagNumber
+        case assetName
+        case isCheck
+        case assetId
+        case checkStatusName
     }
 
     internal init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        status = (try? container.decode(InventoryType.self, forKey: .status)) ?? Asset.defaultStatus
-        code = (try? container.decode(String.self, forKey: .code)) ?? Asset.defaultCode
-        name = (try? container.decode(String.self, forKey: .name)) ?? Asset.defaultName
+        checkStatus = (try? container.decode(InventoryType.self, forKey: .checkStatus)) ?? Asset.defaultCheckStatus
+        tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? Asset.defaultTagNumber
+        assetName = (try? container.decode(String.self, forKey: .assetName)) ?? Asset.defaultAssetName
+        isCheck = (try? container.decode(String.self, forKey: .isCheck)) ?? Asset.defaultIsCheck
+        assetId = (try? container.decode(String.self, forKey: .assetId)) ?? Asset.defaultAssetId
+        checkStatusName = (try? container.decode(String.self, forKey: .checkStatusName)) ?? Asset.defaultCheckStatusName
     }
 
 }
@@ -22,17 +28,67 @@ extension Asset {
 extension AssetDetail {
 
     enum CodingKeys: String, CodingKey {
-        case status
-        case code
-        case name
+        case isCheck
+        case assetId
+        case tagNumber
+        case assetName
+        case checkTime
+        case checkStatus
+        case checkStatusName
+        case realLocationCode
+        case realLocationName
+        case locationCode
+        case locationName
+        case checkPerson
+        case lastCheckPerson
+        case manufactureName
+        case modelNumber
+        case quantity
+        case dutyPerson
+        case dutyPersonName
+        case usePerson
+        case usePersonName
+        case typeDescriptionCode
+        case typeDescriptionName
+        case longitude
+        case latitude
+        case mapLocationDesc
+        case assetCheckItem
+        case assetCheckItemName
+        case resourceNumber
     }
 
     internal init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        status = (try? container.decode(InventoryType.self, forKey: .status)) ?? AssetDetail.defaultStatus
-        code = (try? container.decode(String.self, forKey: .code)) ?? AssetDetail.defaultCode
-        name = (try? container.decode(String.self, forKey: .name)) ?? AssetDetail.defaultName
+        isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetDetail.defaultIsCheck
+        assetId = (try? container.decode(String.self, forKey: .assetId)) ?? AssetDetail.defaultAssetId
+        tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? AssetDetail.defaultTagNumber
+        assetName = (try? container.decode(String.self, forKey: .assetName)) ?? AssetDetail.defaultAssetName
+        checkTime = (try? container.decode(String.self, forKey: .checkTime)) ?? AssetDetail.defaultCheckTime
+        checkStatus = (try? container.decode(String.self, forKey: .checkStatus)) ?? AssetDetail.defaultCheckStatus
+        checkStatusName = (try? container.decode(String.self, forKey: .checkStatusName)) ?? AssetDetail.defaultCheckStatusName
+        realLocationCode = (try? container.decode(String.self, forKey: .realLocationCode)) ?? AssetDetail.defaultRealLocationCode
+        realLocationName = (try? container.decode(String.self, forKey: .realLocationName)) ?? AssetDetail.defaultRealLocationName
+        locationCode = (try? container.decode(String.self, forKey: .locationCode)) ?? AssetDetail.defaultLocationCode
+        locationName = (try? container.decode(String.self, forKey: .locationName)) ?? AssetDetail.defaultLocationName
+        checkPerson = (try? container.decode(String.self, forKey: .checkPerson)) ?? AssetDetail.defaultCheckPerson
+        lastCheckPerson = (try? container.decode(String.self, forKey: .lastCheckPerson)) ?? AssetDetail.defaultLastCheckPerson
+        manufactureName = (try? container.decode(String.self, forKey: .manufactureName)) ?? AssetDetail.defaultManufactureName
+        modelNumber = (try? container.decode(String.self, forKey: .modelNumber)) ?? AssetDetail.defaultModelNumber
+        quantity = (try? container.decode(String.self, forKey: .quantity)) ?? AssetDetail.defaultQuantity
+        dutyPerson = (try? container.decode(String.self, forKey: .dutyPerson)) ?? AssetDetail.defaultDutyPerson
+        dutyPersonName = (try? container.decode(String.self, forKey: .dutyPersonName)) ?? AssetDetail.defaultDutyPersonName
+        usePerson = (try? container.decode(String.self, forKey: .usePerson)) ?? AssetDetail.defaultUsePerson
+        usePersonName = (try? container.decode(String.self, forKey: .usePersonName)) ?? AssetDetail.defaultUsePersonName
+        typeDescriptionCode = (try? container.decode(String.self, forKey: .typeDescriptionCode)) ?? AssetDetail.defaultTypeDescriptionCode
+        typeDescriptionName = (try? container.decode(String.self, forKey: .typeDescriptionName)) ?? AssetDetail.defaultTypeDescriptionName
+        longitude = (try? container.decode(String.self, forKey: .longitude)) ?? AssetDetail.defaultLongitude
+        latitude = (try? container.decode(String.self, forKey: .latitude)) ?? AssetDetail.defaultLatitude
+        mapLocationDesc = (try? container.decode(String.self, forKey: .mapLocationDesc)) ?? AssetDetail.defaultMapLocationDesc
+        assetCheckItem = (try? container.decode(String.self, forKey: .assetCheckItem)) ?? AssetDetail.defaultAssetCheckItem
+        assetCheckItemName = (try? container.decode(String.self, forKey: .assetCheckItemName)) ?? AssetDetail.defaultAssetCheckItemName
+        resourceNumber = (try? container.decode(String.self, forKey: .resourceNumber)) ?? AssetDetail.defaultResourceNumber
     }
 
 }
@@ -42,6 +98,7 @@ extension Credential {
     enum CodingKeys: String, CodingKey {
         case userToken
         case pageSize
+        case username
         case userOrgName
         case userCityName
         case userOrgId
@@ -53,6 +110,7 @@ extension Credential {
 
         userToken = (try? container.decode(String.self, forKey: .userToken)) ?? Credential.defaultUserToken
         pageSize = (try? container.decode(String.self, forKey: .pageSize)) ?? Credential.defaultPageSize
+        username = (try? container.decode(String.self, forKey: .username)) ?? Credential.defaultUsername
         userOrgName = (try? container.decode(String.self, forKey: .userOrgName)) ?? Credential.defaultUserOrgName
         userCityName = (try? container.decode(String.self, forKey: .userCityName)) ?? Credential.defaultUserCityName
         userOrgId = (try? container.decode(String.self, forKey: .userOrgId)) ?? Credential.defaultUserOrgId
@@ -68,6 +126,8 @@ extension Location {
         case locationCode
         case locationName
         case assetLocationId
+        case stLongitude
+        case strLatitude
     }
 
     internal init(from decoder: Decoder) throws {
@@ -77,6 +137,8 @@ extension Location {
         locationCode = (try? container.decode(String.self, forKey: .locationCode)) ?? Location.defaultLocationCode
         locationName = (try? container.decode(String.self, forKey: .locationName)) ?? Location.defaultLocationName
         assetLocationId = (try? container.decode(String.self, forKey: .assetLocationId)) ?? Location.defaultAssetLocationId
+        stLongitude = (try? container.decode(String.self, forKey: .stLongitude)) ?? Location.defaultStLongitude
+        strLatitude = (try? container.decode(String.self, forKey: .strLatitude)) ?? Location.defaultStrLatitude
     }
 
 }
@@ -84,6 +146,7 @@ extension Location {
 extension LocationDetail {
 
     enum CodingKeys: String, CodingKey {
+        case assetLocationId
         case strLongitude
         case locationClass
         case regionIdDept
@@ -116,6 +179,7 @@ extension LocationDetail {
     internal init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
+        assetLocationId = (try? container.decode(String.self, forKey: .assetLocationId)) ?? LocationDetail.defaultAssetLocationId
         strLongitude = (try? container.decode(String.self, forKey: .strLongitude)) ?? LocationDetail.defaultStrLongitude
         locationClass = (try? container.decode(String.self, forKey: .locationClass)) ?? LocationDetail.defaultLocationClass
         regionIdDept = (try? container.decode(String.self, forKey: .regionIdDept)) ?? LocationDetail.defaultRegionIdDept
@@ -146,3 +210,5 @@ extension LocationDetail {
     }
 
 }
+
+

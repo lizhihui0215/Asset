@@ -11,8 +11,13 @@ struct AssetInventoryListParameter: Encodable, Searchable {
     let pageNumber: String
     let pageSize: String
     let locationId: String
-    let userOrgId: String
+    let checkPerson: String
     var appSearchText: String
+    let assetLocationId: String
+    let total: String
+    let regionIdCompany: String
+    let locationCode: String
+    let appCheckStatus: String
 }
 
 struct AssetInventoryListResponse: PageableResponse {

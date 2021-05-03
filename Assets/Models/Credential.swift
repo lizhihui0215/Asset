@@ -6,6 +6,7 @@
 struct Credential {
     let userToken: String
     let pageSize: String
+    var username: String
     let userOrgName: String
     let userCityName: String
     let userOrgId: String
@@ -15,6 +16,7 @@ struct Credential {
 extension Credential: AutoEquatable {}
 
 extension Credential: AutoCodable {
+    static let defaultUsername = ""
     static let defaultUserToken = ""
     static let defaultPageSize = ""
     static let defaultUserOrgName = ""

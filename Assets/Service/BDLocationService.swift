@@ -75,7 +75,7 @@ final class BDLocationService: NSObject, LocationServiceable {
     }
 
     func getGPSLocation(completion: @escaping (Result<BMKLocation?, Error>) -> Void) {
-        manager.requestLocation(withReGeocode: false, withNetworkState: false) {
+        manager.requestLocation(withReGeocode: true, withNetworkState: false) {
             if let error = $2 {
                 completion(.failure(error))
                 return

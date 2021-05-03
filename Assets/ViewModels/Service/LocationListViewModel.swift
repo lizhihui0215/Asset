@@ -10,6 +10,10 @@ class LocationListViewModel: PageableViewModel<LocationListViewController, Defau
     var appSearchText: String = ""
     let regionIdCompany = app.credential?.userCityId ?? ""
 
+    public var pageNumber: Int {
+        page + 1
+    }
+
     init(request: RequestRepresentable, action: LocationListViewController) {
         super.init(request: request, action: action, dataSource: [.defaultValue])
     }
@@ -46,6 +50,6 @@ class LocationListViewModel: PageableViewModel<LocationListViewController, Defau
         let location = itemAtIndexPath(indexPath: indexPath)
         return .init(request: LocationDetailRequest(),
                      action: action,
-                     locationId: location.locationCode)
+                     assetLocationId: location.assetLocationId)
     }
 }

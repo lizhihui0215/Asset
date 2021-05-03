@@ -3,39 +3,41 @@
 // Copyright (c) 2021 ZhiHui.Li. All rights reserved.
 //
 
-struct LocationDetail: Codable {
+struct LocationDetail {
+    var assetLocationId: String
     var strLongitude: String
-    var locationClass: String
-    var regionIdDept: String
-    var locationOwner: String
-    var isCheck: Bool
-    var regionIdCompany: String
-    var province: String
-    var road: String
-    var regionIdManage: String
-    var enabledFlag: String
-    var locationOwnerName: String
-    var latitude: CLLocationDegrees
-    var city: String
-    var village: String
-    var locationId: String
-    var town: String
-    var locationCode: String
+    let locationClass: String
+    let regionIdDept: String
+    let locationOwner: String
+    let isCheck: Bool
+    let regionIdCompany: String
+    let province: String
+    let road: String
+    let regionIdManage: String
+    let enabledFlag: String
+    let locationOwnerName: String
+    let latitude: CLLocationDegrees
+    let city: String
+    let village: String
+    let locationId: String
+    let town: String
+    let locationCode: String
     var strLatitude: String
-    var locationType: String
-    var longitude: CLLocationDegrees
-    var deptName: String
-    var companyName: String
-    var locationClassName: String
-    var county: String
-    var locationTypeName: String
-    var effectiveDate: String
-    var locationName: String
+    let locationType: String
+    let longitude: CLLocationDegrees
+    let deptName: String
+    let companyName: String
+    let locationClassName: String
+    let county: String
+    let locationTypeName: String
+    let effectiveDate: String
+    let locationName: String
 }
 
 extension LocationDetail: AutoEquatable {}
 
 extension LocationDetail: AutoCodable {
+    static let defaultAssetLocationId = ""
     static let defaultStrLongitude = ""
     static let defaultLocationClass = ""
     static let defaultRegionIdDept = ""

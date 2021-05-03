@@ -89,6 +89,7 @@ public enum EAMError: Error {
 
     public enum LocationServiceError: Error {
         case coordinateEmpty
+        case coordinateNeedsUpdate
 
         public enum AuthError: Int, Error {
             case unknown = -1
@@ -233,7 +234,7 @@ extension EAMError.LocationServiceError: LocalizedError {
 
     public var failureReason: String? {
         switch self {
-        case .coordinateEmpty: return "请更新地点经纬度！"
+        case .coordinateEmpty, .coordinateNeedsUpdate: return "请更新地点经纬度！"
         }
     }
 }

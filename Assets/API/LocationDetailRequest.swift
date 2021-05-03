@@ -9,7 +9,7 @@ import Foundation
 struct LocationDetailRequest: RequestRepresentable {}
 
 struct LocationDetailParameter: Encodable {
-    let locationCode: String
+    let locationId: String
 }
 
 struct LocationDetailResponse: DataResponse {

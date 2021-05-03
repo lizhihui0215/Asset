@@ -31,7 +31,7 @@ class LocationListViewController: BaseTableViewController {
     }
 
     func updatePagingInformation() {
-        pagingInformationLabel.text = L10n.locationList.pagingInformation.label.text(viewModel.page, viewModel.total)
+        pagingInformationLabel.text = L10n.locationList.pagingInformation.label.text(viewModel.pageNumber, viewModel.total)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -12,8 +12,29 @@ class ScanViewModel: BaseViewModel<ScanViewController> {
 
     public var apiErrorDismissHandler: (() -> Void)?
 
+    private var tagNumber: String {
+        metadataObject?.messageString ?? ""
+    }
+
+    private var realLocationCode: String {
+        "" // FIXME: where it from
+    }
+
+    private var checkPerson: String {
+        app.credential?.username ?? ""
+    }
+
+    private var realLocationName: String {
+        "" // FIXME: where it from
+    }
+
     func fetchAssetDetail(completionHandler: @escaping ViewModelCompletionHandler<AssetDetail?>) {
-        let loginParameter = AssetDetailParameter(userAccount: "as", userPwd: "password.md5()")
+        let loginParameter = AssetDetailParameter(
+            tagNumber: tagNumber,
+            realLocationCode: realLocationCode,
+            checkPerson: checkPerson,
+            realLocationName: realLocationName
+        )
         api(of: AssetDetailResponse.self,
             router: .assetDetail(loginParameter)) { result in
             completionHandler(result)

@@ -5,16 +5,22 @@
 
 import Foundation
 
-struct Asset: Codable {
-    var status: InventoryType
-    var code: String
-    var name: String
+struct Asset {
+    var checkStatus: InventoryType
+    var tagNumber: String
+    var assetName: String
+    var isCheck: String
+    var assetId: String
+    var checkStatusName: String
 }
 
 extension Asset: Item {}
 extension Asset: AutoEquatable {}
 extension Asset: AutoCodable {
-    static var defaultStatus: InventoryType = .nonInventory
-    static var defaultCode = ""
-    static var defaultName = ""
+    static var defaultCheckStatus = InventoryType.nonInventory
+    static var defaultTagNumber = ""
+    static var defaultAssetName = ""
+    static var defaultIsCheck = ""
+    static var defaultAssetId = ""
+    static var defaultCheckStatusName = ""
 }

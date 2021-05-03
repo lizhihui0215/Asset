@@ -26,17 +26,45 @@ fileprivate func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs:
 // MARK: - Asset AutoEquatable
 extension Asset: Equatable {}
 internal func == (lhs: Asset, rhs: Asset) -> Bool {
-    guard lhs.status == rhs.status else { return false }
-    guard lhs.code == rhs.code else { return false }
-    guard lhs.name == rhs.name else { return false }
+    guard lhs.checkStatus == rhs.checkStatus else { return false }
+    guard lhs.tagNumber == rhs.tagNumber else { return false }
+    guard lhs.assetName == rhs.assetName else { return false }
+    guard lhs.isCheck == rhs.isCheck else { return false }
+    guard lhs.assetId == rhs.assetId else { return false }
+    guard lhs.checkStatusName == rhs.checkStatusName else { return false }
     return true
 }
 // MARK: - AssetDetail AutoEquatable
 extension AssetDetail: Equatable {}
 internal func == (lhs: AssetDetail, rhs: AssetDetail) -> Bool {
-    guard lhs.status == rhs.status else { return false }
-    guard lhs.code == rhs.code else { return false }
-    guard lhs.name == rhs.name else { return false }
+    guard lhs.isCheck == rhs.isCheck else { return false }
+    guard lhs.assetId == rhs.assetId else { return false }
+    guard lhs.tagNumber == rhs.tagNumber else { return false }
+    guard lhs.assetName == rhs.assetName else { return false }
+    guard lhs.checkTime == rhs.checkTime else { return false }
+    guard lhs.checkStatus == rhs.checkStatus else { return false }
+    guard lhs.checkStatusName == rhs.checkStatusName else { return false }
+    guard lhs.realLocationCode == rhs.realLocationCode else { return false }
+    guard lhs.realLocationName == rhs.realLocationName else { return false }
+    guard lhs.locationCode == rhs.locationCode else { return false }
+    guard lhs.locationName == rhs.locationName else { return false }
+    guard lhs.checkPerson == rhs.checkPerson else { return false }
+    guard lhs.lastCheckPerson == rhs.lastCheckPerson else { return false }
+    guard lhs.manufactureName == rhs.manufactureName else { return false }
+    guard lhs.modelNumber == rhs.modelNumber else { return false }
+    guard lhs.quantity == rhs.quantity else { return false }
+    guard lhs.dutyPerson == rhs.dutyPerson else { return false }
+    guard lhs.dutyPersonName == rhs.dutyPersonName else { return false }
+    guard lhs.usePerson == rhs.usePerson else { return false }
+    guard lhs.usePersonName == rhs.usePersonName else { return false }
+    guard lhs.typeDescriptionCode == rhs.typeDescriptionCode else { return false }
+    guard lhs.typeDescriptionName == rhs.typeDescriptionName else { return false }
+    guard lhs.longitude == rhs.longitude else { return false }
+    guard lhs.latitude == rhs.latitude else { return false }
+    guard lhs.mapLocationDesc == rhs.mapLocationDesc else { return false }
+    guard lhs.assetCheckItem == rhs.assetCheckItem else { return false }
+    guard lhs.assetCheckItemName == rhs.assetCheckItemName else { return false }
+    guard lhs.resourceNumber == rhs.resourceNumber else { return false }
     return true
 }
 // MARK: - Credential AutoEquatable
@@ -44,6 +72,7 @@ extension Credential: Equatable {}
 internal func == (lhs: Credential, rhs: Credential) -> Bool {
     guard lhs.userToken == rhs.userToken else { return false }
     guard lhs.pageSize == rhs.pageSize else { return false }
+    guard lhs.username == rhs.username else { return false }
     guard lhs.userOrgName == rhs.userOrgName else { return false }
     guard lhs.userCityName == rhs.userCityName else { return false }
     guard lhs.userOrgId == rhs.userOrgId else { return false }
@@ -57,11 +86,14 @@ internal func == (lhs: Location, rhs: Location) -> Bool {
     guard lhs.locationCode == rhs.locationCode else { return false }
     guard lhs.locationName == rhs.locationName else { return false }
     guard lhs.assetLocationId == rhs.assetLocationId else { return false }
+    guard lhs.stLongitude == rhs.stLongitude else { return false }
+    guard lhs.strLatitude == rhs.strLatitude else { return false }
     return true
 }
 // MARK: - LocationDetail AutoEquatable
 extension LocationDetail: Equatable {}
 internal func == (lhs: LocationDetail, rhs: LocationDetail) -> Bool {
+    guard lhs.assetLocationId == rhs.assetLocationId else { return false }
     guard lhs.strLongitude == rhs.strLongitude else { return false }
     guard lhs.locationClass == rhs.locationClass else { return false }
     guard lhs.regionIdDept == rhs.regionIdDept else { return false }
