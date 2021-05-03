@@ -36,7 +36,7 @@ extension BMKLocationReGeocode: Convertible {
             district: district,
             town: town,
             street: street,
-            streetNumber: streetNumber,
+            streetNumber: "this field is invalid from baidu map",
             cityCode: cityCode,
             adCode: adCode,
             locationDescribe: locationDescribe,

@@ -95,8 +95,9 @@ class ScanViewController: BaseViewController {
     }
 
     func handleScanResult(metadataObject: MetadataObject?) -> Future<MetadataObject, Error> {
-        Future { complete in
-            guard let metadataObject = metadataObject else {
+        Future { [weak self] complete in
+
+            guard let metadataObject = metadataObject, let self = self else {
                 alert(message: "无效的资产标签号！请继续扫描！") {
                     complete(.failure(EAMError.ScanServiceError.undiscerning))
                 }

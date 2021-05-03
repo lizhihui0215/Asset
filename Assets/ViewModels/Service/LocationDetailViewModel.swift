@@ -52,7 +52,11 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
     }
 
     func fetchLocationDetail() -> ViewModelFuture<LocationDetail?> {
-        api(of: LocationDetailResponse.self, router: .locationDetailById(LocationDetailParameter(locationId: assetLocationId)))
+        let locationDetailParameter = LocationDetailParameter(locationId: assetLocationId)
+        return api(of: LocationDetailResponse.self, router: .locationDetailById(locationDetailParameter))
+            .onSuccess { locationDetail in
+                self.locationDetail = locationDetail
+            }
     }
 
     func updateLocation() -> ViewModelFuture<UpdateLocation?> {

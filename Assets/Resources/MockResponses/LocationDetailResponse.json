@@ -1,5 +1,5 @@
 {
-  "status":1,
+  "status":0,
   "data":{
     "isCheck":false,
     "locationId":"8a93ee026ea00b64016eaad7e7b416ba",
@@ -29,5 +29,4 @@
     "enabledFlag":"Y",
     "effectiveDate":"2019-11-27 11:11:46"
   },
-  "msg": "test testtest testtest test"
 }
