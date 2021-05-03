@@ -1,5 +1,5 @@
 //
-//  NetworkMananger.swift
+//  NetworkManager.swift
 //  Assets
 //
 //  Created by ZhiHui.Li on 2021/4/14.
@@ -7,10 +7,10 @@
 //
 
 import Alamofire
+import BrightFutures
 import Foundation
 
-typealias CompletionHandler<T: DataResponse> = (AFDataResponse<T>) -> Void
-
+typealias EAMResponseFuture<Success> = Future<Success, Error>
 typealias EAMDataResponse<Success> = Alamofire.DataResponse<Success, Error>
 
 class NetworkManager {
@@ -44,19 +44,24 @@ class NetworkManager {
         session = Session(configuration: configuration, interceptor: composite, serverTrustManager: NetworkManager.serverTrustManager)
     }
 
-    func sendRequest<T: ResponseRepresentable>(of _: T.Type = T.self,
-                                               router: APIRouter,
-                                               completionHandler: @escaping (EAMDataResponse<T>) -> Void)
-    {
-        session.request(router).responseDecodable(of: T.self) { response in
-            let response: EAMDataResponse<T> = response.tryMap { response in
+    func sendRequest<T: ResponseRepresentable>(of type: T.Type = T.self, router: APIRouter) -> EAMResponseFuture<EAMDataResponse<T>> {
+        session.request(router).responseDecodable(of: type)
+    }
+}
 
-                guard response.status == 0 else {
-                    throw EAMError.ServerError.responseFailed(reason: response.msg)
+extension DataRequest {
+    func responseDecodable<T>(of _: T.Type = T.self) -> EAMResponseFuture<EAMDataResponse<T>> where T: ResponseRepresentable {
+        EAMResponseFuture<EAMDataResponse<T>> { complete in
+            responseDecodable(of: T.self) { response in
+                let response: EAMDataResponse<T> = response.tryMap { response in
+
+                    guard response.status == 0 else {
+                        throw EAMError.ServerError.responseFailed(reason: response.msg)
+                    }
+                    return response
                 }
-                return response
+                complete(.success(response))
             }
-            completionHandler(response)
         }
     }
 }

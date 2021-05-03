@@ -23,7 +23,7 @@ class LocationListViewController: BaseTableViewController {
     }
 
     func refreshTable(isPaging: Bool = false) {
-        viewModel.fetchList(isPaging: isPaging) { [weak self] _ in
+        viewModel.fetchList(isPaging: isPaging).onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.tableView.reloadData()
             `self`.updatePagingInformation()

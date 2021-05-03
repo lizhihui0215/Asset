@@ -10,18 +10,14 @@ import CryptoSwift
 import Foundation
 
 class LoginViewModel: BaseViewModel<LoginViewController> {
-    func login(username: String,
-               password: String,
-               completionHandler: @escaping ViewModelCompletionHandler<Credential?>)
-    {
+    func login(username: String, password: String) -> ViewModelFuture<Credential?> {
         let loginParameter = LoginParameter(userAccount: username, userPwd: password.md5())
-        api(of: LoginResponse.self,
-            router: .login(loginParameter)) { result in
-            guard var credential = try? result.get() else { return }
-            credential.username = username
-            app.add(credential: credential)
-            completionHandler(result)
-        }
+        return api(of: LoginResponse.self, router: .login(loginParameter))
+            .onSuccess { result in
+                guard var credential = result else { return }
+                credential.username = username
+                app.add(credential: credential)
+            }
     }
 
     override func valid(router: APIRouter) throws {

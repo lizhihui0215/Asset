@@ -3,6 +3,7 @@
 // Copyright (c) 2021 ZhiHui.Li. All rights reserved.
 //
 
+import BrightFutures
 import Foundation
 import ZLPhotoBrowser
 
@@ -50,11 +51,32 @@ class ScanViewController: BaseViewController {
         scanner.previewLayer.frame = UIScreen.main.bounds
         scanner.didReceivedMetadataObject = { [weak self] metadataObject, completionHandler in
             guard let self = self else { return }
-            `self`.viewModel.metadataObject = metadataObject
             `self`.scanAnimationImageView.stopAnimation()
-            `self`.viewModel.fetchAssetDetail { _ in
-                completionHandler(false)
-            }
+            `self`.viewModel.fetchAssetDetail()
+                .mapError {
+                    EAMError.ScanServiceError.apiFailure($0)
+                }.flatMap { [weak self] assetDetail -> Future<MetadataObject, Error> in
+                    guard let self = self else { return Future(error: EAMError.weakSelfUnWrapError) }
+                    `self`.viewModel.assetDetail = assetDetail
+                    return `self`.handleScanResult(metadataObject: metadataObject)
+                }.onFailure { [weak self] error in
+                    guard let self = self else { return }
+                    switch error.asScanServiceError {
+                    case .apiFailure:
+                        `self`.alert(message: "无效的资产标签号！请继续扫描！")
+                        fallthrough
+                    case .cancel,
+                         .undiscerning:
+                        `self`.scanAnimationImageView.startAnimation()
+                        completionHandler(true)
+                    default: break
+                    }
+                }.onSuccess { [weak self] metadataObject in
+                    guard let self = self else { return }
+                    `self`.viewModel.metadataObject = metadataObject
+                    completionHandler(false)
+                    // TODO: to inventory asset
+                }
         }
     }
 
@@ -72,32 +94,52 @@ class ScanViewController: BaseViewController {
         scanAnimationImageView.startAnimation()
     }
 
+    func handleScanResult(metadataObject: MetadataObject?) -> Future<MetadataObject, Error> {
+        Future { complete in
+            guard let metadataObject = metadataObject else {
+                alert(message: "无效的资产标签号！请继续扫描！") {
+                    complete(.failure(EAMError.ScanServiceError.undiscerning))
+                }
+                return
+            }
+
+            let otherAction = UIAlertAction(title: "否", style: .default) { _ in
+                complete(.failure(EAMError.ScanServiceError.cancel))
+            }
+
+            alert(title: "是",
+                  message: "扫描成功！ \n 资产编码：\(metadataObject.messageString ?? "null") \n 是否开始盘点资产",
+                  otherAction: otherAction) {
+                complete(.success(metadataObject))
+            }
+        }
+    }
+
     @IBAction func albumTapped(_ sender: AnimatableButton) {
         stopScanning()
         let photoPreviewSheet = ZLPhotoPreviewSheet()
         photoPreviewSheet.selectImageBlock = { [weak self] images, assets, isOriginal in
             guard let self = self else { return }
-            guard let image = images.first,
-                  let metadataObject = `self`.scanner.discernMetadataObject(from: image)
+            guard let image = images.first
             else {
-                `self`.alert(message: "扫描失败！")
+                `self`.alert(message: "无效的资产标签号！请继续扫描！")
                 `self`.startScanning()
                 return
             }
 
-            self.viewModel.metadataObject = metadataObject
+            let metadataObject = `self`.scanner.discernMetadataObject(from: image)
 
-            let otherAction = UIAlertAction(title: "否", style: .default) { [weak self] _ in
+            `self`.handleScanResult(metadataObject: metadataObject).onFailure { error in
+                switch error.asScanServiceError {
+                case .cancel, .undiscerning: `self`.startScanning()
+                default: break
+                }
+            }.onSuccess { [weak self] _ in
                 guard let self = self else { return }
-                `self`.navigationController?.popViewController(animated: true)
+                `self`.viewModel.metadataObject = metadataObject
+                // TODO: to inventory asset
             }
 
-            `self`.alert(title: "是",
-                         message: "扫描成功！ \n 资产编码：\(metadataObject.messageString ?? "null") \n 是否继续扫描",
-                         otherAction: otherAction) { [weak self] in
-                guard let self = self else { return }
-                `self`.startScanning()
-            }
             log.info("image: ", context: images)
             log.info("assets: ", context: assets)
             log.info("isOriginal: ", context: isOriginal)

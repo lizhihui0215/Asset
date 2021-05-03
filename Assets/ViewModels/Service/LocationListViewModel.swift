@@ -18,8 +18,7 @@ class LocationListViewModel: PageableViewModel<LocationListViewController, Defau
         super.init(request: request, action: action, dataSource: [.defaultValue])
     }
 
-    func fetchList(isPaging: Bool = false, completionHandler: @escaping ViewModelCompletionHandler<[Location]>)
-    {
+    func fetchList(isPaging: Bool = false) -> ViewModelFuture<[Location]> {
         self.isPaging = isPaging
         let parameter = LocationListParameter(
             pageNumber: String(page),
@@ -28,12 +27,11 @@ class LocationListViewModel: PageableViewModel<LocationListViewController, Defau
             appSearchText: appSearchText
         )
 
-        api(of: LocationListResponse.self,
-            router: .locationList(parameter)) { [weak self] (result: ViewModelResult<[Location]>) in
-            guard var first = self?.first, let locations = try? result.get() else { return }
-            first.append(contentsOf: locations)
-            completionHandler(.success(locations))
-        }
+        return api(of: LocationListResponse.self, router: .locationList(parameter))
+            .onSuccess { [weak self] locations in
+                guard var first = self?.first else { return }
+                first.append(contentsOf: locations)
+            }
     }
 
     func locationViewModelAtIndexPath(indexPath: IndexPath) -> LocationListTableViewCell.ViewModel {

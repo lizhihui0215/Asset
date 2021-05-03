@@ -30,26 +30,25 @@ class ScanViewModel: BaseViewModel<ScanViewController> {
 
     private var locationDetail: LocationDetail
 
+    public var assetDetail: AssetDetail?
+
     init(request: AssetDetailRequest, action: ScanViewController, locationDetail: LocationDetail) {
         self.locationDetail = locationDetail
         super.init(request: request, action: action)
     }
 
-    func fetchAssetDetail(completionHandler: @escaping ViewModelCompletionHandler<AssetDetail?>) {
+    func fetchAssetDetail() -> ViewModelFuture<AssetDetail?> {
         let loginParameter = AssetDetailParameter(
             tagNumber: tagNumber,
             realLocationCode: realLocationCode,
             checkPerson: checkPerson,
             realLocationName: realLocationName
         )
-        api(of: AssetDetailResponse.self,
-            router: .assetDetail(loginParameter)) { result in
-            completionHandler(result)
-        }
+        return api(of: AssetDetailResponse.self, router: .assetDetail(loginParameter))
     }
 
     override func handApiError(router: APIRouter, error: Error) {
-        guard case let .assetDetail = router else {
+        guard case .assetDetail = router else {
             super.handApiError(router: router, error: error)
             return
         }

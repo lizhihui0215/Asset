@@ -50,6 +50,10 @@ public extension Error {
         self as? EAMError.LocationServiceError.AuthError
     }
 
+    var asScanServiceError: EAMError.ScanServiceError? {
+        self as? EAMError.ScanServiceError
+    }
+
     var recoverySuggestion: String? {
         if let suggestion = asAFError?.recoverySuggestion {
             return suggestion
@@ -77,6 +81,7 @@ public extension Error {
 
 public enum EAMError: Error {
     case unknown
+    case weakSelfUnWrapError
 
     public enum ServerError: Error {
         case responseFailed(reason: String)
@@ -97,6 +102,12 @@ public enum EAMError: Error {
             case invalidKey = 2
         }
     }
+
+    public enum ScanServiceError: Error {
+        case undiscerning
+        case cancel
+        case apiFailure(Error)
+    }
 }
 
 public extension AFError {
@@ -116,7 +127,7 @@ extension EAMError: LocalizedError {
 
     public var failureReason: String? {
         switch self {
-        case .unknown: return "未知错误，请稍后再尝试！"
+        case .unknown, .weakSelfUnWrapError: return "未知错误，请稍后再尝试！"
         }
     }
 }

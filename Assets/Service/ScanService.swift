@@ -49,13 +49,13 @@ class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     }
 
     public var torchMode: AVCaptureDevice.TorchMode {
+        get {
+            device.torchMode
+        }
         set {
             try? device.lockForConfiguration()
             device.torchMode = newValue
             device.unlockForConfiguration()
-        }
-        get {
-            device.torchMode
         }
     }
 

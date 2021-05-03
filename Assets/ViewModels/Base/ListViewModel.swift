@@ -94,17 +94,19 @@ class PageableViewModel<T: UIViewController, S: Section>: ListViewModel<T, S>, P
     var page: Int = 0
     var size = Int(app.credential?.pageSize ?? "") ?? 10
 
-    func api<T: PageableResponse>(of type: T.Type = T.self,
-                                  router: APIRouter,
-                                  completionHandler: @escaping ViewModelCompletionHandler<[T.Model]>)
-    {
+    func api<T: PageableResponse>(of type: T.Type = T.self, router: APIRouter) -> ViewModelFuture<[T.Model]> {
         beforeApi(router: router)
-        request.listRequest(of: type, router: router) { [weak self] result in
-            guard let self = self else { return }
-            `self`.total = (try? result.get().total) ?? 0
-            `self`.afterApi(router: router, result: result) { result in
-                completionHandler(.success(result.data))
+        return request.listRequest(of: type, router: router)
+            .onFailure { [weak self] in
+                guard let self = self else { return }
+                `self`.handApiError(router: router, error: $0)
+            }.onSuccess { [weak self] result in
+                guard let self = self else { return }
+                `self`.total = result.total
+            }.onComplete { _ in
+                `self`.apiFinished(router: router)
+            }.flatMap {
+                ViewModelFuture(value: $0.data)
             }
-        }
     }
 }

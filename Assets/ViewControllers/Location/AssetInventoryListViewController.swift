@@ -37,7 +37,7 @@ class AssetInventoryListViewController: BaseTableViewController {
     }
 
     func refreshTable(isPaging: Bool = false) {
-        viewModel.fetchList(isPaging: isPaging) { [weak self] _ in
+        viewModel.fetchList(isPaging: isPaging).onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.tableView.reloadData()
             `self`.updatePagingInformation()
@@ -58,12 +58,13 @@ class AssetInventoryListViewController: BaseTableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let locationSegue = StoryboardSegue.Location(rawValue: segue.identifier)
+        guard let identifier = segue.identifier else { return }
+        let locationSegue = StoryboardSegue.Location(rawValue: identifier)
 
         switch locationSegue {
         case .toScan:
-            guard let scanViewController: ScanViewController = segue.destination()
-            scanViewController.viewModel = self.viewModel.scanViewModel()
+            guard let scanViewController: ScanViewController = segue.destination() else { break }
+            scanViewController.viewModel = viewModel.scanViewModel(action: scanViewController)
         default: break
         }
     }

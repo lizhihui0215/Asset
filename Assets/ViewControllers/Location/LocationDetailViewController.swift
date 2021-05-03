@@ -23,7 +23,7 @@ class LocationDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLocationCoordinates()
-        viewModel.fetchLocationDetail { [weak self] _ in
+        viewModel.fetchLocationDetail().onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.refreshPage()
         }
@@ -52,7 +52,7 @@ class LocationDetailViewController: BaseViewController {
     }
 
     @IBAction func saveLocationCoordinatesTapped(_ sender: UIButton) {
-        viewModel.updateLocation { [weak self] _ in
+        viewModel.updateLocation().onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.alert(message: L10n.locationDetail.saveLocationCoordinate.success.alert.message)
             `self`.refreshPage()

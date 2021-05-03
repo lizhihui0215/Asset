@@ -7,11 +7,10 @@
 //
 
 import Alamofire
+import BrightFutures
 import Foundation
 
-typealias APIResult<Success> = Result<Success, Error>
-
-typealias APICompletionHandler<Success> = (APIResult<Success>) -> Void
+typealias APIFuture<Success> = Future<Success, Error>
 
 public extension HTTPHeader {
     enum Keys: String {
@@ -35,13 +34,9 @@ public extension HTTPHeader {
 protocol RequestRepresentable {
     var apiClient: NetworkManager { get }
 
-    func dataRequest<T: DataResponse>(of type: T.Type,
-                                      router: APIRouter,
-                                      completionHandler: @escaping (APIResult<T.Model?>) -> Void)
+    func dataRequest<T: DataResponse>(of type: T.Type, router: APIRouter) -> APIFuture<T.Model?>
 
-    func listRequest<T: PageableResponse>(of type: T.Type,
-                                          router: APIRouter,
-                                          completionHandler: @escaping (APIResult<T>) -> Void)
+    func listRequest<T: PageableResponse>(of type: T.Type, router: APIRouter) -> APIFuture<T>
 }
 
 extension RequestRepresentable {
@@ -49,30 +44,28 @@ extension RequestRepresentable {
         NetworkManager.default
     }
 
-    public func dataRequest<T: DataResponse>(of type: T.Type = T.self,
-                                             router: APIRouter,
-                                             completionHandler: @escaping (APIResult<T.Model?>) -> Void)
-    {
-        apiClient.sendRequest(of: type, router: router) { response in
-            do {
-                let data = try response.result.get()
-                completionHandler(.success(data.data))
-            } catch {
-                completionHandler(.failure(error))
+    func dataRequest<T: DataResponse>(of type: T.Type, router: APIRouter) -> APIFuture<T.Model?> {
+        apiClient.sendRequest(of: type, router: router).flatMap { response in
+            APIFuture { complete in
+                do {
+                    let data = try response.result.get()
+                    complete(.success(data.data))
+                } catch {
+                    complete(.failure(error))
+                }
             }
         }
     }
 
-    func listRequest<T: PageableResponse>(of type: T.Type,
-                                          router: APIRouter,
-                                          completionHandler: @escaping (APIResult<T>) -> Void)
-    {
-        apiClient.sendRequest(of: type, router: router) { response in
-            do {
-                let data = try response.result.get()
-                completionHandler(.success(data))
-            } catch {
-                completionHandler(.failure(error))
+    func listRequest<T: PageableResponse>(of type: T.Type, router: APIRouter) -> APIFuture<T> {
+        apiClient.sendRequest(of: type, router: router).flatMap { response in
+            APIFuture { complete in
+                do {
+                    let data = try response.result.get()
+                    complete(.success(data))
+                } catch {
+                    complete(.failure(error))
+                }
             }
         }
     }

@@ -38,8 +38,7 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
         super.init(request: request, action: action, dataSource: [.defaultValue])
     }
 
-    func fetchList(isPaging: Bool = false, completionHandler: @escaping ViewModelCompletionHandler<[Asset]>)
-    {
+    func fetchList(isPaging: Bool = false) -> ViewModelFuture<[Asset]> {
         self.isPaging = isPaging
         let parameter = AssetInventoryListParameter(
             pageNumber: String(page),
@@ -54,12 +53,11 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
             appCheckStatus: checkStatus
         )
 
-        api(of: AssetInventoryListResponse.self,
-            router: .assetInventoryList(parameter)) { [weak self] (result: ViewModelResult<[Asset]>) in
-            guard var first = self?.first, let locations = try? result.get() else { return }
-            first.append(contentsOf: locations)
-            completionHandler(.success(locations))
-        }
+        return api(of: AssetInventoryListResponse.self, router: .assetInventoryList(parameter))
+            .onSuccess { [weak self] locations in
+                guard var first = self?.first else { return }
+                first.append(contentsOf: locations)
+            }
     }
 
     func scanViewModel(action: ScanViewController) -> ScanViewModel {

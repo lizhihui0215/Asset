@@ -51,34 +51,30 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
         super.init(request: request, action: action)
     }
 
-    func fetchLocationDetail(completionHandler: @escaping ViewModelCompletionHandler<LocationDetail?>) {
-        api(of: LocationDetailResponse.self,
-            router: .locationDetailById(LocationDetailParameter(locationId: assetLocationId))) { [weak self] result in
-            guard let self = self else { return }
-            `self`.locationDetail = try? result.get()
-            `self`.locationDetail?.assetLocationId = `self`.assetLocationId
-            completionHandler(result)
-        }
+    func fetchLocationDetail() -> ViewModelFuture<LocationDetail?> {
+        api(of: LocationDetailResponse.self, router: .locationDetailById(LocationDetailParameter(locationId: assetLocationId)))
     }
 
-    func updateLocation(completionHandler: @escaping ViewModelCompletionHandler<UpdateLocation?>) {
-        api(of: UpdateLocationResponse.self,
-            router: .updateLocation(UpdateLocationParameter(locationId: assetLocationId,
-                                                            locationCode: code,
-                                                            longitude: longitude,
-                                                            latitude: latitude,
-                                                            mapLocationDesc: mapLocationDesc))) { [weak self] result in
-            guard let self = self,
-                  let longitude = `self`.location?.coordinate.longitude,
-                  let latitude = `self`.location?.coordinate.latitude
-            else {
-                completionHandler(result)
-                return
+    func updateLocation() -> ViewModelFuture<UpdateLocation?> {
+        let updateLocationParameter = UpdateLocationParameter(
+            locationId: assetLocationId,
+            locationCode: code,
+            longitude: longitude,
+            latitude: latitude,
+            mapLocationDesc: mapLocationDesc
+        )
+        return api(of: UpdateLocationResponse.self,
+                   router: .updateLocation(updateLocationParameter))
+            .onSuccess { [weak self] _ in
+                guard let self = self,
+                      let longitude = `self`.location?.coordinate.longitude,
+                      let latitude = `self`.location?.coordinate.latitude
+                else {
+                    return
+                }
+                `self`.locationDetail?.strLongitude = String(longitude)
+                `self`.locationDetail?.strLatitude = String(latitude)
             }
-            `self`.locationDetail?.strLongitude = String(longitude)
-            `self`.locationDetail?.strLatitude = String(latitude)
-            completionHandler(result)
-        }
     }
 
     func update(location: CLLocation?, rgcData: BMKLocationReGeocode?, refresh: Bool = false) {
