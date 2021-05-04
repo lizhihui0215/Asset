@@ -17,6 +17,8 @@ enum APIRouter: URLRequestConvertible {
         static var updateLocationCoordinate = "app/location/updateLocationInfo"
         static var assetInventoryList = "/app/check/daily/findByLocationAndCheckPerson"
         static var assetDetail = "app/check/daily/getCheckResultByScan"
+        static var inventoryStatus = "app/dict/getMapByDictName"
+        static var inventoryStatusDictionary = "check_status_daily"
     }
 
     case login(LoginParameter)
@@ -25,6 +27,7 @@ enum APIRouter: URLRequestConvertible {
     case updateLocation(UpdateLocationParameter)
     case assetInventoryList(AssetInventoryListParameter)
     case assetDetail(AssetDetailParameter)
+    case inventoryStatus
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -37,7 +40,8 @@ enum APIRouter: URLRequestConvertible {
              .locationList,
              .updateLocation,
              .assetInventoryList,
-             .assetDetail:
+             .assetDetail,
+             .inventoryStatus:
             return .post
         }
     }
@@ -50,6 +54,7 @@ enum APIRouter: URLRequestConvertible {
         case .updateLocation: return pathComponents(with: Constants.updateLocationCoordinate)
         case .assetInventoryList: return pathComponents(with: Constants.assetInventoryList)
         case .assetDetail: return pathComponents(with: Constants.assetDetail)
+        case .inventoryStatus: return pathComponents(with: Constants.inventoryStatus)
         }
     }
 
@@ -74,6 +79,9 @@ enum APIRouter: URLRequestConvertible {
         case .assetInventoryList(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .assetDetail(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .inventoryStatus:
+            let parameters = [API.Keys.DictionaryName.rawValue: Constants.inventoryStatusDictionary]
             request = try JSONParameterEncoder().encode(parameters, into: request)
         }
 

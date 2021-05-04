@@ -60,6 +60,33 @@ internal enum L10n {
     }
   }
 
+  internal enum scan {
+    internal enum error {
+      internal enum invalidAssetTagNumber {
+        internal enum alert {
+          /// 无效的资产标签号！请继续扫描！
+          internal static let message = L10n.tr("Localizable", "scan.error.invalidAssetTagNumber.alert.message")
+        }
+      }
+    }
+    internal enum success {
+      internal enum toInventoryAsset {
+        internal enum alert {
+          /// 扫描成功！ \n 资产编码：%@ \n 是否开始盘点资产
+          internal static func message(_ p1: Any) -> String {
+            return L10n.tr("Localizable", "scan.success.toInventoryAsset.alert.message", String(describing: p1))
+          }
+          internal enum action {
+            /// 放弃并继续扫描
+            internal static let cancel = L10n.tr("Localizable", "scan.success.toInventoryAsset.alert.action.cancel")
+            /// 盘点
+            internal static let `default` = L10n.tr("Localizable", "scan.success.toInventoryAsset.alert.action.default")
+          }
+        }
+      }
+    }
+  }
+
   internal enum service {
     internal enum error {
       internal enum inDevelopment {

@@ -12,6 +12,7 @@ struct API {
         case Schema
         case Domain
         case ServiceDictionary
+        case DictionaryName = "dicName"
     }
 
     enum Constants {

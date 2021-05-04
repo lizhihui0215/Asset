@@ -24,16 +24,6 @@ class ScanViewController: BaseViewController {
         launchScanner()
         startScanning()
 
-        viewModel.apiErrorAction = UIAlertAction(title: "继续", style: .default) { [weak self] _ in
-            guard let self = self else { return }
-            `self`.scanner.startRunning()
-            `self`.scanAnimationImageView.stepAnimation()
-        }
-
-        viewModel.apiErrorDismissHandler = {
-            self.navigationController?.popViewController(animated: true)
-        }
-
         if !scanner.isTorchAvailable {
             buttonStackView.removeArrangedSubview(torchButton)
             torchButton.removeFromSuperview()
@@ -63,7 +53,7 @@ class ScanViewController: BaseViewController {
                     guard let self = self else { return }
                     switch error.asScanServiceError {
                     case .apiFailure:
-                        `self`.alert(message: "无效的资产标签号！请继续扫描！")
+                        `self`.alert(message: L10n.scan.error.invalidAssetTagNumber.alert.message)
                         fallthrough
                     case .cancel,
                          .undiscerning:
@@ -97,19 +87,19 @@ class ScanViewController: BaseViewController {
     func handleScanResult(metadataObject: MetadataObject?) -> Future<MetadataObject, Error> {
         Future { [weak self] complete in
 
-            guard let metadataObject = metadataObject, let self = self else {
-                alert(message: "无效的资产标签号！请继续扫描！") {
+            guard let metadataObject = metadataObject, let _ = self else {
+                alert(message: L10n.scan.error.invalidAssetTagNumber.alert.message) {
                     complete(.failure(EAMError.ScanServiceError.undiscerning))
                 }
                 return
             }
 
-            let otherAction = UIAlertAction(title: "否", style: .default) { _ in
+            let otherAction = UIAlertAction(title: L10n.scan.success.toInventoryAsset.alert.action.cancel, style: .default) { _ in
                 complete(.failure(EAMError.ScanServiceError.cancel))
             }
 
-            alert(title: "是",
-                  message: "扫描成功！ \n 资产编码：\(metadataObject.messageString ?? "null") \n 是否开始盘点资产",
+            alert(title: L10n.scan.success.toInventoryAsset.alert.action.default,
+                  message: L10n.scan.success.toInventoryAsset.alert.message(metadataObject.messageString ?? "null"),
                   otherAction: otherAction) {
                 complete(.success(metadataObject))
             }
@@ -123,7 +113,7 @@ class ScanViewController: BaseViewController {
             guard let self = self else { return }
             guard let image = images.first
             else {
-                `self`.alert(message: "无效的资产标签号！请继续扫描！")
+                `self`.alert(message: L10n.scan.error.invalidAssetTagNumber.alert.message)
                 `self`.startScanning()
                 return
             }

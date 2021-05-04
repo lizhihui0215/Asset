@@ -52,7 +52,5 @@ class ScanViewModel: BaseViewModel<ScanViewController> {
             super.handApiError(router: router, error: error)
             return
         }
-
-        action.alert(title: "否", message: "扫描失败，是否继续扫描", otherAction: apiErrorAction, dismissHandler: apiErrorDismissHandler)
     }
 }

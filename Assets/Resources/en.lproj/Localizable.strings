@@ -32,3 +32,10 @@
 "assetInventoryList.dropDown.options.nonInventory.title" = "未盘";
 "assetInventoryList.dropDown.options.inventoried.title" = "已盘";
 "assetInventoryList.dropDown.options.all.title" = "全部";
+//******************************************************************************
+// Scan
+//******************************************************************************
+"scan.error.invalidAssetTagNumber.alert.message" = "无效的资产标签号！请继续扫描！";
+"scan.success.toInventoryAsset.alert.message" = "扫描成功！ \n 资产编码：%@ \n 是否开始盘点资产";
+"scan.success.toInventoryAsset.alert.action.cancel" = "放弃并继续扫描";
+"scan.success.toInventoryAsset.alert.action.default" = "盘点";

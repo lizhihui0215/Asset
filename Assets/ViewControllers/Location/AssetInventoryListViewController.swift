@@ -28,20 +28,41 @@ class AssetInventoryListViewController: BaseTableViewController {
         dropDown.selectedTextColor = XCColor.primaryTextColor.color
         dropDown.selectionAction = { [weak self] _, item in
             guard let self = self else { return }
+            `self`.viewModel.setSelectedInventoryStatus(for: item)
             `self`.inventoryStatusButton.setTitle(item, for: .normal)
         }
 
         headerRefreshingDelegate = self
         searchBar.delegate = self
-        refreshTable()
+        refreshTable(isFetchInventoryStatus: true)
     }
 
-    func refreshTable(isPaging: Bool = false) {
-        viewModel.fetchList(isPaging: isPaging).onSuccess { [weak self] _ in
+    func refreshTable(isPaging: Bool = false, isFetchInventoryStatus: Bool = false) {
+        let fetchList = viewModel.fetchList(isPaging: isPaging)
+        let fetchInventoryStatus = viewModel.fetchInventoryStatus()
+
+        let fetchListSuccess: ([Asset]) -> Void = { [weak self] _ in
             guard let self = self else { return }
             `self`.tableView.reloadData()
             `self`.updatePagingInformation()
         }
+
+        guard isFetchInventoryStatus else {
+            fetchList.onSuccess(callback: fetchListSuccess)
+            return
+        }
+
+        fetchInventoryStatus.onSuccess { [weak self] _ in
+            guard let self = self else { return }
+            `self`.refreshDropDown()
+        }.flatMap { _ in
+            fetchList
+        }.onSuccess(callback: fetchListSuccess)
+    }
+
+    private func refreshDropDown() {
+        dropDown.dataSource = viewModel.dropDownOptions
+        dropDown.reloadAllComponents()
     }
 
     @IBAction func scanTapped(_ sender: AnimatableButton) {}

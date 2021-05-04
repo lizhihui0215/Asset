@@ -62,6 +62,10 @@ class BaseViewModel<T: UIViewController>: Validation {
             handApiError(router: router, error: error)
         }
     }
+
+    func fetchInventoryStatus() -> ViewModelFuture<InventoryStatus?> {
+        api(of: InventoryStatusResponse.self, router: .inventoryStatus)
+    }
 }
 
 extension BaseViewModel {
@@ -77,6 +81,12 @@ extension BaseViewModel {
                 `self`.apiFinished(router: router)
             }
     }
+}
+
+protocol DataDictionary {
+    associatedtype Key: Hashable
+    associatedtype Value
+    var dataDictionary: [Key: Value] { get set }
 }
 
 class DataResponseEventOperation<T: DataResponse>: AsyncOperation {

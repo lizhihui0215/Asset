@@ -10,6 +10,12 @@ import Foundation
 
 extension Dictionary: EAMExtended {}
 
+extension Dictionary where Value: Equatable {
+    func key(from value: Value) -> Key? {
+        first(where: { $0.value == value })?.key
+    }
+}
+
 extension Dictionary where Key: Assets.Keys, Value == String {
     // FIXME: seems it's not working now, need more research in future
     subscript<T: Assets.Keys>(_ args: KeyValuePairs<T, String>) -> [String: String] {
