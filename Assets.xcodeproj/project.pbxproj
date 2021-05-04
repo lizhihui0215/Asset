@@ -1260,6 +1260,17 @@
 			path = SwiftGenerated;
 			sourceTree = "<group>";
 		};
+		26A59FD22641226A00217F91 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				469EA6315A06A81356F5C6A4 /* App.swift */,
+				9C6D42FB2627146600FEC466 /* AppDelegate.swift */,
+				9C6D42FD2627146600FEC466 /* SceneDelegate.swift */,
+				5B875A09A851E21BEA41212F /* Appearance.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		469EACEF432CD0ACF29322EC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1427,10 +1438,7 @@
 		9C6D42FA2627146600FEC466 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				469EA6315A06A81356F5C6A4 /* App.swift */,
-				9C6D42FB2627146600FEC466 /* AppDelegate.swift */,
-				9C6D42FD2627146600FEC466 /* SceneDelegate.swift */,
-				5B875A09A851E21BEA41212F /* Appearance.swift */,
+				26A59FD22641226A00217F91 /* App */,
 				9C6D432D262714E200FEC466 /* Views */,
 				9C6D432E262714E600FEC466 /* ViewModels */,
 				9C6D432C262714DB00FEC466 /* ViewControllers */,
