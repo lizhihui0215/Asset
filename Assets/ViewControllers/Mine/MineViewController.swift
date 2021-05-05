@@ -24,4 +24,8 @@ class MineViewController: UIViewController {
          // Pass the selected object to the new view controller.
      }
      */
+    @IBAction func logout(_ sender: UITapGestureRecognizer) {
+        app.cleanCredential()
+        window?.rootViewController = StoryboardScene.Login.initialScene.instantiate()
+    }
 }

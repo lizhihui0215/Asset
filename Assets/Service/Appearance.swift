@@ -48,9 +48,8 @@ class Appearance {
     }
 
     func configureCameraAppearance() {
-        let cameraConfig = photoConfiguration
+        let cameraConfig = photoConfiguration.cameraConfiguration
         cameraConfig.sessionPreset = .hd1920x1080
-        cameraConfig.cameraFlashMode = .auto
     }
 
     func configurePhotoAppearance() {

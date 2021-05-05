@@ -8,6 +8,11 @@ import Foundation
 import ZLPhotoBrowser
 
 class ScanViewController: BaseViewController {
+    enum ScanAction {
+        case abnegatedContinue
+        case discern(MetadataObject)
+    }
+
     @IBOutlet var scanAnimationImageView: ScanAnimationImageView!
     @IBOutlet var torchButton: AnimatableButton!
     @IBOutlet var buttonStackView: UIStackView!
@@ -65,7 +70,7 @@ class ScanViewController: BaseViewController {
                     guard let self = self else { return }
                     `self`.viewModel.metadataObject = metadataObject
                     completionHandler(false)
-                    // TODO: to inventory asset
+                    `self`.perform(segue: StoryboardSegue.Common.successToInventory)
                 }
         }
     }
@@ -87,22 +92,30 @@ class ScanViewController: BaseViewController {
     func handleScanResult(metadataObject: MetadataObject?) -> Future<MetadataObject, Error> {
         Future { [weak self] complete in
 
-            guard let metadataObject = metadataObject, let _ = self else {
-                alert(message: L10n.scan.error.invalidAssetTagNumber.alert.message) {
+            guard let metadataObject = metadataObject else {
+                guard let self = self else { return }
+                let dismissHandler = Self.defaultAlertAction {
                     complete(.failure(EAMError.ScanServiceError.undiscerning))
                 }
+
+                `self`.alert(message: L10n.scan.error.invalidAssetTagNumber.alert.message,
+                             defaultAction: dismissHandler)
                 return
             }
 
-            let otherAction = UIAlertAction(title: L10n.scan.success.toInventoryAsset.alert.action.cancel, style: .default) { _ in
+            let otherAction = UIAlertAction(title: L10n.scan.success.toInventoryAsset.alert.action.cancel,
+                                            style: .default) { _ in
                 complete(.failure(EAMError.ScanServiceError.cancel))
             }
 
-            alert(title: L10n.scan.success.toInventoryAsset.alert.action.default,
-                  message: L10n.scan.success.toInventoryAsset.alert.message(metadataObject.messageString ?? "null"),
-                  otherAction: otherAction) {
+            let inventoryAction = UIAlertAction(title: L10n.scan.success.toInventoryAsset.alert.action.default,
+                                                style: .cancel) { _ in
                 complete(.success(metadataObject))
             }
+
+            alert(message: L10n.scan.success.toInventoryAsset.alert.message(metadataObject.messageString ?? "null"),
+                  defaultAction: inventoryAction,
+                  otherAction: otherAction)
         }
     }
 
@@ -129,6 +142,7 @@ class ScanViewController: BaseViewController {
                 guard let self = self else { return }
                 `self`.viewModel.metadataObject = metadataObject
                 // TODO: to inventory asset
+                `self`.perform(segue: StoryboardSegue.Common.successToInventory)
             }
 
             log.info("image: ", context: images)

@@ -13,7 +13,7 @@
         <!--个人中心-->
         <scene sceneID="dW3-Hr-d1p">
             <objects>
-                <viewController id="a6e-1T-l3y" sceneMemberID="viewController">
+                <viewController id="a6e-1T-l3y" customClass="MineViewController" customModule="Assets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="67H-FB-DwI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,7 +135,7 @@
                                             <constraint firstAttribute="height" constant="50" id="pA8-kx-YZc"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="gEX-AZ-DI8" appends="YES" id="mmn-ve-7cd"/>
+                                            <outletCollection property="gestureRecognizers" destination="dT2-ZP-PaA" appends="YES" id="1lg-2i-vHf"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5Y-gB-MAz">
@@ -161,10 +161,9 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1R-a4-zez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="jaS-Zl-D0g" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="gEX-AZ-DI8">
+                <tapGestureRecognizer id="dT2-ZP-PaA">
                     <connections>
-                        <segue destination="jaS-Zl-D0g" kind="unwind" unwindAction="unwindToViewController:" id="Uf1-7U-tUG"/>
+                        <action selector="logout:" destination="a6e-1T-l3y" id="Zd9-lg-eal"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

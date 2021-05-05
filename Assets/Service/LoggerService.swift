@@ -6,10 +6,10 @@
 import Foundation
 import SwiftyBeaver
 
-let log = Logger.shared.log
+let log = LoggerService.shared.log
 
-class Logger {
-    public static let shared = Logger()
+class LoggerService {
+    public static let shared = LoggerService()
     let console = ConsoleDestination()
     let file = FileDestination()
     let log = SwiftyBeaver.self

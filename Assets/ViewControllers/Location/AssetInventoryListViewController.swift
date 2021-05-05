@@ -28,7 +28,10 @@ class AssetInventoryListViewController: BaseTableViewController {
         dropDown.selectedTextColor = XCColor.primaryTextColor.color
         dropDown.selectionAction = { [weak self] _, item in
             guard let self = self else { return }
-            `self`.viewModel.setSelectedInventoryStatus(for: item)
+            `self`.viewModel.setSelectedInventoryStatus(for: item).onSuccess { [weak self] _ in
+                guard let self = self else { return }
+                `self`.refreshTable()
+            }
             `self`.inventoryStatusButton.setTitle(item, for: .normal)
         }
 
@@ -88,6 +91,10 @@ class AssetInventoryListViewController: BaseTableViewController {
             scanViewController.viewModel = viewModel.scanViewModel(action: scanViewController)
         default: break
         }
+    }
+
+    @IBAction func unwindFromScanSuccess(segue: UIStoryboardSegue) {
+        print("unwindFromScanSuccess")
     }
 }
 

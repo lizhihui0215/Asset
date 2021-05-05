@@ -6,6 +6,8 @@
 import Foundation
 
 class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewController, DefaultSection<Asset>>, Searchable {
+    typealias SelectedInventoryStatus = (status: InventoryStatus.Key, name: InventoryStatus.Value)
+
     enum Keys {
         enum Inventory: String {
             case All = "-1"
@@ -21,7 +23,7 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
     let locationDetail: LocationDetail
     public var inventoryStatus: InventoryStatus = [Keys.Inventory.All.rawValue: Constants.inventoryStatusAll]
 
-    private var selectedInventoryStatus: (key: InventoryStatus.Key, value: InventoryStatus.Value) = (Keys.Inventory.All.rawValue, Constants.inventoryStatusAll)
+    private var selectedInventoryStatus: SelectedInventoryStatus = (Keys.Inventory.All.rawValue, Constants.inventoryStatusAll)
 
     public var dropDownOptions: [String] {
         inventoryStatus.values.map { $0 }
@@ -31,9 +33,11 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
         locationDetail.locationId
     }
 
-    func setSelectedInventoryStatus(for item: String) {
-        guard let key = inventoryStatus.key(from: item) else { return }
-        selectedInventoryStatus = (key: key, value: item)
+    func setSelectedInventoryStatus(for item: String) -> ViewModelFuture<[Asset]> {
+        guard item != selectedInventoryStatus.name else { return ViewModelFuture(error: EAMError.unwrapOptionalValueError("SelectedInventoryStatus")) }
+        guard let status = inventoryStatus.key(from: item) else { return ViewModelFuture(error: EAMError.unwrapOptionalValueError("InventoryStatus")) }
+        selectedInventoryStatus = (status: status, name: item)
+        return fetchList()
     }
 
     private var locationId: String {
@@ -68,12 +72,14 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
             total: "", // FIXME: where total from
             regionIdCompany: regionIdCompany,
             locationCode: locationCode,
-            appCheckStatus: selectedInventoryStatus.value
+            appCheckStatus: selectedInventoryStatus.status
         )
 
         return api(of: AssetInventoryListResponse.self, router: .assetInventoryList(parameter))
             .onSuccess { [weak self] locations in
                 guard var first = self?.first else { return }
+                guard isPaging else { first.items = locations; return }
+
                 first.append(contentsOf: locations)
             }
     }

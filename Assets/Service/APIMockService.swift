@@ -11,9 +11,9 @@ extension APIRouter {
     }
 }
 
-final class APIMocker {
+final class APIMockService {
     typealias API = MockerDataSource
-    public static let shared = APIMocker()
+    public static let shared = APIMockService()
 
     let login = APIRouter.login(LoginParameter(userAccount: "wangwenwensh", userPwd: "1"))
     let locationList = APIRouter.locationList(
@@ -53,6 +53,8 @@ final class APIMocker {
                              realLocationName: "dsadsa")
     )
 
+    let inventoryStatus = APIRouter.inventoryStatus
+
     lazy var mockers: [Mock] = {
         [
             Mock(router: login, dataType: .json, statusCode: 200, data: [
@@ -72,6 +74,9 @@ final class APIMocker {
             ]),
             Mock(router: assetDetail, dataType: .json, statusCode: 200, data: [
                 .post: API.AssetInventoryListResponse.data,
+            ]),
+            Mock(router: inventoryStatus, dataType: .json, statusCode: 200, data: [
+                .post: API.InventoryStatusResponse.data,
             ]),
         ]
     }()

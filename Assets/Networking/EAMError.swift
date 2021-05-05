@@ -82,6 +82,7 @@ public extension Error {
 public enum EAMError: Error {
     case unknown
     case weakSelfUnWrapError
+    case unwrapOptionalValueError(String)
 
     public enum ServerError: Error {
         case responseFailed(reason: String)
@@ -128,6 +129,8 @@ extension EAMError: LocalizedError {
     public var failureReason: String? {
         switch self {
         case .unknown, .weakSelfUnWrapError: return "未知错误，请稍后再尝试！"
+        case .unwrapOptionalValueError(let `class`):
+            return "unwrap optional value \(`class`) is nil"
         }
     }
 }

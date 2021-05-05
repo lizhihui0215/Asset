@@ -50,7 +50,7 @@ internal enum StoryboardScene {
   internal enum Mine: StoryboardType {
     internal static let storyboardName = "Mine"
 
-    internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: Mine.self)
+    internal static let initialScene = InitialSceneType<Assets.MineViewController>(storyboard: Mine.self)
   }
   internal enum Service: StoryboardType {
     internal static let storyboardName = "Service"

@@ -534,9 +534,11 @@
                         <outlet property="buttonStackView" destination="wC6-2o-hlI" id="0hq-eL-98M"/>
                         <outlet property="scanAnimationImageView" destination="Bjd-e1-jMW" id="L9J-lf-sJH"/>
                         <outlet property="torchButton" destination="Olr-wV-5y6" id="bIu-J3-JcU"/>
+                        <segue destination="Jb3-Vm-KbF" kind="unwind" identifier="successToInventory" unwindAction="unwindFromScanSuccessWithSegue:" id="OaC-ZP-yVY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLF-FJ-xx2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Jb3-Vm-KbF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1853.6231884057972" y="1808.7053571428571"/>
         </scene>

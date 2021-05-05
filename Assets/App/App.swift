@@ -102,4 +102,8 @@ extension App {
     func add(credential: Credential) {
         self.credential = credential
     }
+
+    func cleanCredential() {
+        credential = nil
+    }
 }
