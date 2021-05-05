@@ -106,10 +106,11 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
         }
     }
 
-    func photographViewModel(action: PhotographViewController) -> PhotographViewModel! {
+    func photographViewModel(viewState: PhotographViewModel.ViewState, action: PhotographViewController) -> PhotographViewModel! {
         .init(title: "地点照片采集",
               key: "地点编码",
               value: locationDetail?.locationCode ?? "",
+              viewState: .prepare,
               request: PhotographRequest(),
               action: action)
     }

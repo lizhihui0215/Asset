@@ -15,7 +15,7 @@ internal enum StoryboardScene {
   internal enum Asset: StoryboardType {
     internal static let storyboardName = "Asset"
 
-    internal static let initialScene = InitialSceneType<Assets.AssetViewListController>(storyboard: Asset.self)
+    internal static let initialScene = InitialSceneType<Assets.AssetListViewController>(storyboard: Asset.self)
   }
   internal enum Common: StoryboardType {
     internal static let storyboardName = "Common"

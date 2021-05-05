@@ -11,6 +11,7 @@ import ZLPhotoBrowser
 
 class PhotographViewController: BaseViewController {
     enum ViewState {
+        case viewing // 查看照片
         case prepare // 没有照片
         case ready(UIImage) // 照片选好了
         case finished(UIImage, String) // 上传完毕
@@ -131,6 +132,7 @@ class PhotographViewController: BaseViewController {
         let deleteButton: AnimatableButton = view.deleteButton
         clean(view: view, for: state)
         switch state {
+        case .viewing: break
         case .prepare:
             buttonStackView.addArrangedSubview(photographButton)
             buttonStackView.addArrangedSubview(photoAlbumButton)
@@ -173,8 +175,8 @@ class PhotographViewController: BaseViewController {
         title = viewModel.title
         keyLabel.text = viewModel.key
         valueLabel.text = viewModel.value
-        firstViewState = .prepare
-        secondViewState = .prepare
+        firstViewState = viewModel.initViewState
+        secondViewState = viewModel.initViewState
     }
 
     @IBAction func firstPhotographTapped(_ sender: AnimatableButton) {

@@ -314,7 +314,7 @@
                         <barButtonItem key="rightBarButtonItem" title="拍照" id="GOF-al-fXi">
                             <connections>
                                 <action selector="photographTapped:" destination="ZxS-qs-kev" id="cMg-AH-jaa"/>
-                                <segue destination="u7V-Hs-C4d" kind="show" identifier="toPhotograph" id="tbH-1k-lyI"/>
+                                <segue destination="u7V-Hs-C4d" kind="show" identifier="toPhotograph" id="m5U-ST-R5g"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

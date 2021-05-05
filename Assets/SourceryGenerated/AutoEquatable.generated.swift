@@ -123,5 +123,10 @@ internal func == (lhs: LocationDetail, rhs: LocationDetail) -> Bool {
     guard lhs.locationName == rhs.locationName else { return false }
     return true
 }
+// MARK: - Staff AutoEquatable
+extension Staff: Equatable {}
+internal func == (lhs: Staff, rhs: Staff) -> Bool {
+    return true
+}
 
 // MARK: - AutoEquatable for Enums

@@ -69,7 +69,7 @@ class LocationDetailViewController: BaseViewController {
         switch segueType {
         case .toPhotograph:
             guard let destination: PhotographViewController = segue.destination() else { break }
-            destination.viewModel = viewModel.photographViewModel(action: destination)
+            destination.viewModel = viewModel.photographViewModel(viewState: .prepare, action: destination)
         case .toAssetInventoryList:
             guard let destination: AssetInventoryListViewController = segue.destination() else { break }
             destination.viewModel = viewModel.assetInventoryListViewModel(action: destination)
