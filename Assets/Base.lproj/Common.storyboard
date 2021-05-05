@@ -1088,6 +1088,7 @@
                                                     </stackView>
                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2h-z1-oSZ" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
                                                         <rect key="frame" x="80.5" y="0.0" width="221" height="30"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="1Lj-YJ-DKA"/>
                                                         </constraints>
@@ -1102,6 +1103,9 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="3O2-Ts-s9C" appends="YES" id="Hgy-ol-7ws"/>
+                                                        </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Km2-tp-z7t" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
                                                         <rect key="frame" x="311.5" y="0.0" width="50" height="30"/>
@@ -1112,6 +1116,9 @@
                                                     </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="Clv-gh-abn">
                                                         <rect key="frame" x="371.5" y="0.0" width="22.5" height="30"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="3O2-Ts-s9C" appends="YES" id="swP-FD-AF2"/>
+                                                        </connections>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMw-Qg-ba1">
                                                         <rect key="frame" x="404" y="0.0" width="10" height="30"/>
@@ -1166,6 +1173,9 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="iYa-FZ-9Yv" appends="YES" id="Wl1-Er-dcr"/>
+                                                        </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lu-80-80X" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
                                                         <rect key="frame" x="311.5" y="0.0" width="50" height="30"/>
@@ -1176,6 +1186,10 @@
                                                     </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="2nH-Na-iOU">
                                                         <rect key="frame" x="371.5" y="0.0" width="22.5" height="30"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="iYa-FZ-9Yv" appends="YES" id="rNB-Qt-uIE"/>
+                                                        </connections>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xc2-dR-ws6">
                                                         <rect key="frame" x="404" y="0.0" width="10" height="30"/>
@@ -1327,7 +1341,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="资产明细" id="HFq-EY-d7a">
-                        <barButtonItem key="rightBarButtonItem" title="提交资产至PC" style="plain" id="whV-Gm-vuM">
+                        <barButtonItem key="rightBarButtonItem" title="提交资产至PC" id="whV-Gm-vuM">
                             <connections>
                                 <action selector="photographTapped:" destination="92x-lN-mvy" id="fbh-VG-LqI"/>
                             </connections>
@@ -1354,6 +1368,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSo-yA-tKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3O2-Ts-s9C">
+                    <connections>
+                        <segue destination="994-XW-ooe" kind="show" identifier="toSelectPrincipal" id="n0e-8L-cKS"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="iYa-FZ-9Yv">
+                    <connections>
+                        <segue destination="994-XW-ooe" kind="show" identifier="toSelectUser" id="u3x-do-IFZ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1855" y="380"/>
         </scene>
@@ -1417,6 +1441,9 @@
             <size key="intrinsicContentSize" width="127" height="42"/>
         </designable>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="u3x-do-IFZ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="qrcode_scan_btn_flash_down" width="65" height="87"/>
         <image name="qrcode_scan_btn_flash_nor" width="65" height="87"/>

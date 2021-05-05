@@ -18,7 +18,7 @@ class AppServiceManager: UIResponder, UIApplicationDelegate {
     open var services: [AppService] { [] }
 
     func service<T: AppService>() -> T? {
-        _services.first(where: { $0 is T }) as? T
+        _services.first { $0 is T } as? T
     }
 
     func defaultSceneConfiguration(role: UISceneSession.Role) -> UISceneConfiguration {

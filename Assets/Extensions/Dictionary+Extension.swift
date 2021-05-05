@@ -12,7 +12,7 @@ extension Dictionary: EAMExtended {}
 
 extension Dictionary where Value: Equatable {
     func key(from value: Value) -> Key? {
-        first(where: { $0.value == value })?.key
+        first { $0.value == value }?.key
     }
 }
 

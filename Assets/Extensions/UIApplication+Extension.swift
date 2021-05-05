@@ -8,6 +8,7 @@ import UIKit
 
 extension UIApplication {
     var appDelegate: AppDelegate {
+        // swiftlint:disable:next force_cast
         UIApplication.shared.delegate as! AppDelegate
     }
 }

@@ -14,6 +14,8 @@ import UIKit
 internal enum StoryboardSegue {
   internal enum Common: String, SegueType {
     case successToInventory
+    case toSelectPrincipal
+    case toSelectUser
   }
   internal enum Location: String, SegueType {
     case toAssetInventoryList
