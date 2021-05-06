@@ -34,6 +34,7 @@ class LocationListViewModel: PageableViewModel<LocationListViewController, Defau
             }
     }
 
+    // swiftlint:disable force_cast
     override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
         switch action {
         case let action as LocationDetailViewController:
@@ -63,6 +64,8 @@ class LocationListViewModel: PageableViewModel<LocationListViewController, Defau
             return super.viewModel(for: action, with: sender)
         }
     }
+
+    // swiftlint:enable force_cast
 
     func locationDetailViewModelAtIndexPath(action: LocationDetailViewController, indexPath: IndexPath) -> LocationDetailViewModel {
         let location = itemAtIndexPath(indexPath: indexPath)

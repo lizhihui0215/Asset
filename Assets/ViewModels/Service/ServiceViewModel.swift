@@ -20,6 +20,7 @@ final class ServiceViewModel: ListViewModel<ServiceViewController, DefaultSectio
         return .init(service: item.convert(), name: item.name, image: item.image)
     }
 
+    // swiftlint:disable force_cast
     override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any?) -> T {
         switch action {
         case let action as LocationListViewController:
@@ -28,6 +29,7 @@ final class ServiceViewModel: ListViewModel<ServiceViewController, DefaultSectio
             return super.viewModel(for: action, with: sender)
         }
     }
+    // swiftlint:enable force_cast
 }
 
 struct ServiceConfiguration {

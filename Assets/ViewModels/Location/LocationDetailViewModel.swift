@@ -81,6 +81,7 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
             }
     }
 
+    // swiftlint:disable force_cast
     override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
         switch action {
         case let action as PhotographViewController:
@@ -96,6 +97,8 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
             return super.viewModel(for: action, with: sender)
         }
     }
+
+    // swiftlint:enable force_cast
 
     func update(location: CLLocation?, rgcData: BMKLocationReGeocode?, refresh: Bool = false) {
         self.location = location

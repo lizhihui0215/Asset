@@ -84,6 +84,7 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
             }
     }
 
+    // swiftlint:disable force_cast
     override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
         switch action {
         case let action as ScanViewController:
@@ -92,6 +93,8 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
             return super.viewModel(for: action, with: sender)
         }
     }
+
+    // swiftlint:enable force_cast
 
     func assetInventoryCellViewModel(at indexPath: IndexPath) -> AssetInventoryTableViewCell.ViewModel {
         let asset = itemAtIndexPath(indexPath: indexPath)

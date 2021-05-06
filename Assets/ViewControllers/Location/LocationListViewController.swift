@@ -29,7 +29,8 @@ class LocationListViewController: BaseTableViewController, TableViewControllerPa
 }
 
 extension LocationListViewController: UISearchBarDelegate {
-    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder() // hides the keyboard.
         viewModel.appSearchText = searchBar.eam.text
         refreshTable()
     }

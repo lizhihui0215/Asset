@@ -127,6 +127,8 @@ class BaseTableViewController: BaseViewController {
                 footer.endRefreshing()
             }
         }
+
+        tableView.keyboardDismissMode = .onDrag
     }
 }
 
