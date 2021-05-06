@@ -15,8 +15,9 @@ class ScanViewController: BaseViewController {
 
     @IBOutlet var scanAnimationImageView: ScanAnimationImageView!
     @IBOutlet var torchButton: AnimatableButton!
+    @IBOutlet var finishedButton: AnimatableButton!
+
     @IBOutlet var buttonStackView: UIStackView!
-    let scanner = ScanService.shared
     var viewModel: ScanViewModel!
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -26,125 +27,56 @@ class ScanViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.layer.backgroundColor = UIColor.clear.cgColor
+        view.layer.insertSublayer(viewModel.previewLayer, at: 0)
+        viewModel.previewLayer.frame = UIScreen.main.bounds
         launchScanner()
-        startScanning()
-
-        if !scanner.isTorchAvailable {
+        if !viewModel.isTorchAvailable {
             buttonStackView.removeArrangedSubview(torchButton)
             torchButton.removeFromSuperview()
         }
     }
 
+    func launchScanner() {
+        scanAnimationImageView.startAnimation()
+        viewModel.launchScanner().onSuccess { [weak self] _ in
+            guard let self = self else { return }
+            `self`.finishedButton.isEnabled = true
+        }.onFailure { _ in
+            `self`.finishedButton.isEnabled = false
+        }
+    }
+
     private func stopScanning() {
-        scanner.stopRunning()
+        viewModel.stopScanning()
         scanAnimationImageView.stopAnimation()
     }
 
-    private func launchScanner() {
-        view.layer.backgroundColor = UIColor.clear.cgColor
-        view.layer.insertSublayer(scanner.previewLayer, at: 0)
-        scanner.previewLayer.frame = UIScreen.main.bounds
-        scanner.didReceivedMetadataObject = { [weak self] metadataObject, completionHandler in
-            guard let self = self else { return }
-            `self`.scanAnimationImageView.stopAnimation()
-            `self`.viewModel.fetchAssetDetail()
-                .mapError {
-                    EAMError.ScanServiceError.apiFailure($0)
-                }.flatMap { [weak self] assetDetail -> Future<MetadataObject, Error> in
-                    guard let self = self else { return Future(error: EAMError.weakSelfUnWrapError) }
-                    `self`.viewModel.assetDetail = assetDetail
-                    return `self`.handleScanResult(metadataObject: metadataObject)
-                }.onFailure { [weak self] error in
-                    guard let self = self else { return }
-                    switch error.asScanServiceError {
-                    case .apiFailure:
-                        `self`.alert(message: L10n.scan.error.invalidAssetTagNumber.alert.message)
-                        fallthrough
-                    case .cancel,
-                         .undiscerning:
-                        `self`.scanAnimationImageView.startAnimation()
-                        completionHandler(true)
-                    default: break
-                    }
-                }.onSuccess { [weak self] metadataObject in
-                    guard let self = self else { return }
-                    `self`.viewModel.metadataObject = metadataObject
-                    completionHandler(false)
-                    `self`.perform(segue: StoryboardSegue.Common.successToInventory)
-                }
-        }
+    private func startScanning() {
+        viewModel.startScanning()
+        scanAnimationImageView.startAnimation()
     }
 
     @IBAction func flashTapped(_ sender: AnimatableButton) {
         sender.isSelected = !sender.isSelected
-        scanner.torchMode = sender.isSelected ? .on : .off
+        viewModel.torchMode = sender.isSelected ? .on : .off
     }
 
     @IBAction func finishedTapped(_ sender: AnimatableButton) {
-        startScanning()
-    }
-
-    private func startScanning() {
-        scanner.startRunning()
-        scanAnimationImageView.startAnimation()
-    }
-
-    func handleScanResult(metadataObject: MetadataObject?) -> Future<MetadataObject, Error> {
-        Future { [weak self] complete in
-
-            guard let metadataObject = metadataObject else {
-                guard let self = self else { return }
-                let dismissHandler = Self.defaultAlertAction {
-                    complete(.failure(EAMError.ScanServiceError.undiscerning))
-                }
-
-                `self`.alert(message: L10n.scan.error.invalidAssetTagNumber.alert.message,
-                             defaultAction: dismissHandler)
-                return
-            }
-
-            let otherAction = UIAlertAction(title: L10n.scan.success.toInventoryAsset.alert.action.cancel,
-                                            style: .default) { _ in
-                complete(.failure(EAMError.ScanServiceError.cancel))
-            }
-
-            let inventoryAction = UIAlertAction(title: L10n.scan.success.toInventoryAsset.alert.action.default,
-                                                style: .cancel) { _ in
-                complete(.success(metadataObject))
-            }
-
-            alert(message: L10n.scan.success.toInventoryAsset.alert.message(metadataObject.messageString ?? "null"),
-                  defaultAction: inventoryAction,
-                  otherAction: otherAction)
+        viewModel.finished().onSuccess { [weak self] identifier in
+            guard let self = self else { return }
+            `self`.performSegue(withIdentifier: identifier, sender: self)
+        }.onFailure { _ in
+            // TODO: add missing handler
         }
     }
 
     @IBAction func albumTapped(_ sender: AnimatableButton) {
-        stopScanning()
         let photoPreviewSheet = ZLPhotoPreviewSheet()
         photoPreviewSheet.selectImageBlock = { [weak self] images, assets, isOriginal in
-            guard let self = self else { return }
-            guard let image = images.first
-            else {
-                `self`.alert(message: L10n.scan.error.invalidAssetTagNumber.alert.message)
-                `self`.startScanning()
-                return
-            }
-
-            let metadataObject = `self`.scanner.discernMetadataObject(from: image)
-
-            `self`.handleScanResult(metadataObject: metadataObject).onFailure { error in
-                switch error.asScanServiceError {
-                case .cancel, .undiscerning: `self`.startScanning()
-                default: break
-                }
-            }.onSuccess { [weak self] _ in
-                guard let self = self else { return }
-                `self`.viewModel.metadataObject = metadataObject
-                // TODO: to inventory asset
-                `self`.perform(segue: StoryboardSegue.Common.successToInventory)
-            }
-
+            guard let self = self, let image = images.first else { return }
+            let success = `self`.viewModel.discernMetadataObject(from: image)
+            `self`.finishedButton.isEnabled = success
             log.info("image: ", context: images)
             log.info("assets: ", context: assets)
             log.info("isOriginal: ", context: isOriginal)

@@ -85,7 +85,7 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
     }
 
     func scanViewModel(action: ScanViewController) -> ScanViewModel {
-        ScanViewModel(request: AssetDetailRequest(), action: action, locationDetail: locationDetail)
+        LocationScanViewModel(request: AssetDetailRequest(), action: action, locationDetail: locationDetail)
     }
 
     func assetInventoryCellViewModel(at indexPath: IndexPath) -> AssetInventoryTableViewCell.ViewModel {

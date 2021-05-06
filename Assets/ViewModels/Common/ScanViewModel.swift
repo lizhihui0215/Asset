@@ -3,54 +3,60 @@
 // Copyright (c) 2021 ZhiHui.Li. All rights reserved.
 //
 
+import AVFoundation
 import Foundation
+import UIKit
 
 class ScanViewModel: BaseViewModel<ScanViewController> {
-    public var metadataObject: MetadataObject?
+    var metadataObject: MetadataObject!
+    typealias SegueIdentifier = String
 
-    public var apiErrorAction: UIAlertAction?
+    let scanner = ScanService.shared
 
-    public var apiErrorDismissHandler: (() -> Void)?
-
-    private var tagNumber: String {
-        metadataObject?.messageString ?? ""
+    public var previewLayer: AVCaptureVideoPreviewLayer {
+        scanner.previewLayer
     }
 
-    private var realLocationCode: String {
-        locationDetail.locationCode
+    var isTorchAvailable: Bool {
+        scanner.isTorchAvailable
     }
 
-    private var checkPerson: String {
-        app.credential?.username ?? ""
-    }
-
-    private var realLocationName: String {
-        locationDetail.locationName
-    }
-
-    private var locationDetail: LocationDetail
-
-    public var assetDetail: AssetDetail?
-
-    init(request: AssetDetailRequest, action: ScanViewController, locationDetail: LocationDetail) {
-        self.locationDetail = locationDetail
-        super.init(request: request, action: action)
-    }
-
-    func fetchAssetDetail() -> ViewModelFuture<AssetDetail?> {
-        let loginParameter = AssetDetailParameter(
-            tagNumber: tagNumber,
-            realLocationCode: realLocationCode,
-            checkPerson: checkPerson,
-            realLocationName: realLocationName
-        )
-        return api(of: AssetDetailResponse.self, router: .assetDetail(loginParameter))
-    }
-
-    override func handApiError(router: APIRouter, error: Error) {
-        guard case .assetDetail = router else {
-            super.handApiError(router: router, error: error)
-            return
+    public var torchMode: AVCaptureDevice.TorchMode {
+        get {
+            scanner.torchMode
         }
+        set {
+            scanner.torchMode = newValue
+        }
+    }
+
+    final func launchScanner() -> ViewModelFuture<MetadataObject> {
+        ViewModelFuture<MetadataObject> { completion in
+            scanner.didReceivedMetadataObject = { [weak self] metadataObject, completionHandler in
+                guard let self = self else { return }
+                `self`.metadataObject = metadataObject
+                completionHandler(false)
+                completion(.success(metadataObject))
+            }
+            startScanning()
+        }
+    }
+
+    func discernMetadataObject(from image: UIImage) -> Bool {
+        guard let metadataObject = scanner.discernMetadataObject(from: image) else { return false }
+        self.metadataObject = metadataObject
+        return true
+    }
+
+    func finished() -> ViewModelFuture<SegueIdentifier> {
+        fatalError("sub class must implement this method to handler finished")
+    }
+
+    func startScanning() {
+        scanner.startRunning()
+    }
+
+    func stopScanning() {
+        scanner.stopRunning()
     }
 }

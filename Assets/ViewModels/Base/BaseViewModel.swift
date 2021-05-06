@@ -19,7 +19,7 @@ class BaseViewModel<T: UIViewController>: Validation {
     let eventQueue = OperationQueue()
 
     let request: RequestRepresentable
-    let action: T
+    weak var action: T!
     var validator = Validator.defaultValue
 
     public static func weakSelfUnWrapError<C>() -> ViewModelFuture<C?> {

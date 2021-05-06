@@ -30,7 +30,8 @@ public struct MetadataObject {
 }
 
 class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
-    typealias DidReceivedMetadataObject = (_ metadataObject: MetadataObject, _ completionHandler: @escaping (Bool) -> Void) -> Void
+    typealias ShouldContinueScanHandler = (Bool) -> Void
+    typealias DidReceivedMetadataObject = (_ metadataObject: MetadataObject, _ completionHandler: @escaping ShouldContinueScanHandler) -> Void
 
     public static let shared = ScanService()!
     public var didReceivedMetadataObject: DidReceivedMetadataObject?

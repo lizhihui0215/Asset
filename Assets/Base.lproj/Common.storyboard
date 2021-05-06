@@ -534,13 +534,12 @@
                         <outlet property="buttonStackView" destination="wC6-2o-hlI" id="0hq-eL-98M"/>
                         <outlet property="scanAnimationImageView" destination="Bjd-e1-jMW" id="L9J-lf-sJH"/>
                         <outlet property="torchButton" destination="Olr-wV-5y6" id="bIu-J3-JcU"/>
-                        <segue destination="Jb3-Vm-KbF" kind="unwind" identifier="successToInventory" unwindAction="unwindFromScanSuccessWithSegue:" id="OaC-ZP-yVY"/>
+                        <segue destination="92x-lN-mvy" kind="show" identifier="successToInventory" id="HwG-Gb-hC6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLF-FJ-xx2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Jb3-Vm-KbF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2346" y="1107"/>
+            <point key="canvasLocation" x="2275" y="1107"/>
         </scene>
         <!--资产明细-->
         <scene sceneID="LpK-qo-oMq">
@@ -1452,6 +1451,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
+        <segue reference="rjp-et-qSt"/>
         <segue reference="u3x-do-IFZ"/>
     </inferredMetricsTieBreakers>
     <resources>

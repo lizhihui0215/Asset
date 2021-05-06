@@ -9,17 +9,17 @@
 import UIKit
 
 class ScanAnimationImageView: UIImageView {
-    var isAnimationing = false
+    var isInAnimating = false
     var animationFrame: CGRect = .zero
 
     func startAnimation() {
         isHidden = false
-        isAnimationing = true
+        isInAnimating = true
         stepAnimation()
     }
 
     @objc func stepAnimation() {
-        guard isAnimationing else {
+        guard isInAnimating else {
             return
         }
         var frame = self.frame
@@ -50,6 +50,6 @@ class ScanAnimationImageView: UIImageView {
 
     func stopAnimation() {
         isHidden = true
-        isAnimationing = false
+        isInAnimating = false
     }
 }
