@@ -18,7 +18,7 @@ class LocationListViewModel: PageableViewModel<LocationListViewController, Defau
         super.init(request: request, action: action, dataSource: [.defaultValue])
     }
 
-    func fetchList(isPaging: Bool = false) -> ViewModelFuture<[Location]> {
+    override func fetchList(isPaging: Bool = false) -> ViewModelFuture<[Location]> {
         self.isPaging = isPaging
         let parameter = LocationListParameter(
             pageNumber: String(page),

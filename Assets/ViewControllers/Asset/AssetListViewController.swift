@@ -9,31 +9,20 @@
 import MJRefresh
 import UIKit
 
-class AssetListViewController: BaseTableViewController {
-    @IBOutlet var pagingInformationLabel: UILabel!
-    @IBOutlet var searchBar: UISearchBar!
+class AssetListViewController: BaseTableViewController, TableViewControllerPageable {
+    typealias Action = AssetListViewController
+    typealias S = DefaultSection<Asset>
 
-    lazy var viewModel: AssetListViewModel = {
-        AssetListViewModel(request: AssetListRequest(), action: self)
-    }()
+    var viewModel: AssetListViewModel!
+
+    // TODO: create view model from source controller
+    // AssetListViewModel(request: AssetListRequest(), action: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         headerRefreshingDelegate = self
         searchBar.delegate = self
         refreshTable()
-    }
-
-    func refreshTable(isPaging: Bool = false) {
-        viewModel.fetchList(isPaging: isPaging).onSuccess { [weak self] _ in
-            guard let self = self else { return }
-            `self`.tableView.reloadData()
-            `self`.updatePagingInformation()
-        }
-    }
-
-    func updatePagingInformation() {
-        pagingInformationLabel.text = L10n.locationList.pagingInformation.label.text(viewModel.pageNumber, viewModel.total)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,18 +51,6 @@ class AssetListViewController: BaseTableViewController {
      */
 }
 
-extension AssetListViewController: TableViewHeaderRefreshing {
-    func header(_ header: MJRefreshNormalHeader, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
-        refreshTable()
-        completionBlock()
-    }
-
-    func footer(_ header: MJRefreshBackNormalFooter, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
-        refreshTable(isPaging: true)
-        completionBlock()
-    }
-}
-
 extension AssetListViewController: UISearchBarDelegate {
     public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         viewModel.appSearchText = searchBar.eam.text
@@ -82,11 +59,7 @@ extension AssetListViewController: UISearchBarDelegate {
 }
 
 extension AssetListViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfItemsInSection(section: section)
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: LocationListTableViewCell = tableView.dequeueReusableCell() else {
             return UITableViewCell()
         }

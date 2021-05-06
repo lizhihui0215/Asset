@@ -10,9 +10,9 @@ import DropDown
 import MJRefresh
 import UIKit
 
-class AssetInventoryListViewController: BaseTableViewController {
-    @IBOutlet var pagingInformationLabel: UILabel!
-    @IBOutlet var searchBar: UISearchBar!
+class AssetInventoryListViewController: BaseTableViewController, TableViewControllerPageable {
+    typealias Action = AssetInventoryListViewController
+    typealias S = DefaultSection<Asset>
     @IBOutlet var inventoryStatusButton: UIButton!
 
     var viewModel: AssetInventoryListViewModel!
@@ -40,6 +40,7 @@ class AssetInventoryListViewController: BaseTableViewController {
         refreshTable(isFetchInventoryStatus: true)
     }
 
+    // TODO: need enhancement to call adptor supper's refreshTable method
     func refreshTable(isPaging: Bool = false, isFetchInventoryStatus: Bool = false) {
         let fetchList = viewModel.fetchList(isPaging: isPaging)
         let fetchInventoryStatus = viewModel.fetchInventoryStatus()
@@ -70,10 +71,6 @@ class AssetInventoryListViewController: BaseTableViewController {
 
     @IBAction func scanTapped(_ sender: AnimatableButton) {}
 
-    func updatePagingInformation() {
-        pagingInformationLabel.text = L10n.locationList.pagingInformation.label.text(viewModel.page, viewModel.total)
-    }
-
     @IBAction func inventoryButtonTapped(_ sender: UIButton) {
         dropDown.show()
     }
@@ -98,18 +95,6 @@ class AssetInventoryListViewController: BaseTableViewController {
     }
 }
 
-extension AssetInventoryListViewController: TableViewHeaderRefreshing {
-    func header(_ header: MJRefreshNormalHeader, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
-        refreshTable()
-        completionBlock()
-    }
-
-    func footer(_ header: MJRefreshBackNormalFooter, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
-        refreshTable(isPaging: true)
-        completionBlock()
-    }
-}
-
 extension AssetInventoryListViewController: UISearchBarDelegate {
     public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         viewModel.appSearchText = searchBar.eam.text
@@ -118,16 +103,12 @@ extension AssetInventoryListViewController: UISearchBarDelegate {
 }
 
 extension AssetInventoryListViewController {
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: AssetInventoryTableViewCell = tableView.dequeueReusableCell() else {
             return UITableViewCell()
         }
         let viewModel = self.viewModel.assetInventoryCellViewModel(at: indexPath)
         cell.configurationCell(with: viewModel)
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfItemsInSection(section: section)
     }
 }

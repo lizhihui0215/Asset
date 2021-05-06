@@ -6,6 +6,58 @@
 import MJRefresh
 import UIKit
 
+protocol TableViewControllerPageable: TableViewHeaderRefreshing where ViewModel: PageableViewModel<Action, S> {
+    associatedtype Action: BaseTableViewController
+    associatedtype S: Section
+    associatedtype ViewModel
+
+    var viewModel: ViewModel! { get set }
+}
+
+extension TableViewControllerPageable where Self: BaseTableViewController {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.numberOfItemsInSection(section: section)
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        UITableViewCell()
+    }
+}
+
+extension TableViewControllerPageable where Self: BaseTableViewController {
+    func header(_ header: MJRefreshNormalHeader, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
+        refreshTable()
+        completionBlock()
+    }
+
+    func footer(_ header: MJRefreshBackNormalFooter, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
+        refreshTable(isPaging: true)
+        completionBlock()
+    }
+}
+
+extension TableViewControllerPageable where Self: BaseTableViewController {
+    var page: Int {
+        viewModel.page + 1
+    }
+
+    var total: Int {
+        viewModel.total
+    }
+
+    func refreshTable(isPaging: Bool = false) {
+        viewModel.fetchList(isPaging: isPaging).onSuccess { [weak self] _ in
+            guard let self = self else { return }
+            `self`.tableView.reloadData()
+            `self`.updatePagingInformation()
+        }
+    }
+
+    func updatePagingInformation() {
+        pagingInformationLabel.text = L10n.locationList.pagingInformation.label.text(page, total)
+    }
+}
+
 protocol TableViewHeaderRefreshing: AnyObject {
     func header(_ header: MJRefreshNormalHeader, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void)
     func footer(_ header: MJRefreshBackNormalFooter, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void)
@@ -13,6 +65,8 @@ protocol TableViewHeaderRefreshing: AnyObject {
 
 class BaseTableViewController: BaseViewController {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var pagingInformationLabel: UILabel!
 
     var isHeaderRefreshingEnabled: Bool {
         get {
@@ -44,7 +98,7 @@ class BaseTableViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
+        tableView.dataSource = self as? UITableViewDataSource
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.mj_header = header
@@ -74,16 +128,6 @@ class BaseTableViewController: BaseViewController {
                 footer.endRefreshing()
             }
         }
-    }
-}
-
-extension BaseTableViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
     }
 }
 

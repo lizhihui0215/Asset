@@ -109,4 +109,8 @@ class PageableViewModel<T: UIViewController, S: Section>: ListViewModel<T, S>, P
                 ViewModelFuture(value: $0.data)
             }
     }
+
+    func fetchList(isPaging: Bool = false) -> ViewModelFuture<[S.Item]> {
+        fatalError("sub class must implement this method")
+    }
 }

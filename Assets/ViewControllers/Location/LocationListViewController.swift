@@ -7,31 +7,16 @@ import Foundation
 import MJRefresh
 import UIKit
 
-class LocationListViewController: BaseTableViewController {
-    @IBOutlet var pagingInformationLabel: UILabel!
-    @IBOutlet var searchBar: UISearchBar!
-
-    lazy var viewModel: LocationListViewModel = {
-        LocationListViewModel(request: LocationListRequest(), action: self)
-    }()
+class LocationListViewController: BaseTableViewController, TableViewControllerPageable {
+    var viewModel: LocationListViewModel!
+    typealias Action = LocationListViewController
+    typealias S = DefaultSection<Location>
 
     override func viewDidLoad() {
         super.viewDidLoad()
         headerRefreshingDelegate = self
         searchBar.delegate = self
         refreshTable()
-    }
-
-    func refreshTable(isPaging: Bool = false) {
-        viewModel.fetchList(isPaging: isPaging).onSuccess { [weak self] _ in
-            guard let self = self else { return }
-            `self`.tableView.reloadData()
-            `self`.updatePagingInformation()
-        }
-    }
-
-    func updatePagingInformation() {
-        pagingInformationLabel.text = L10n.locationList.pagingInformation.label.text(viewModel.pageNumber, viewModel.total)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,31 +35,10 @@ class LocationListViewController: BaseTableViewController {
     }
 }
 
-extension LocationListViewController: TableViewHeaderRefreshing {
-    func header(_ header: MJRefreshNormalHeader, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
-        refreshTable()
-        completionBlock()
-    }
-
-    func footer(_ header: MJRefreshBackNormalFooter, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
-        refreshTable(isPaging: true)
-        completionBlock()
-    }
-}
-
-extension LocationListViewController: UISearchBarDelegate {
-    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        viewModel.appSearchText = searchBar.eam.text
-        refreshTable()
-    }
-}
+extension LocationListViewController: UISearchBarDelegate {}
 
 extension LocationListViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfItemsInSection(section: section)
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: LocationListTableViewCell = tableView.dequeueReusableCell() else {
             return UITableViewCell()
         }

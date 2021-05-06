@@ -60,7 +60,7 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
         }
     }
 
-    func fetchList(isPaging: Bool = false) -> ViewModelFuture<[Asset]> {
+    override func fetchList(isPaging: Bool = false) -> ViewModelFuture<[Asset]> {
         self.isPaging = isPaging
         let parameter = AssetInventoryListParameter(
             pageNumber: String(page),

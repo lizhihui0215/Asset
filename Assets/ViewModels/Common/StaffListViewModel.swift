@@ -17,7 +17,7 @@ class StaffListViewModel: PageableViewModel<StaffListViewController, DefaultSect
         super.init(request: request, action: action, dataSource: [.defaultValue])
     }
 
-    func fetchList(isPaging: Bool = false) -> ViewModelFuture<[Staff]> {
+    override func fetchList(isPaging: Bool = false) -> ViewModelFuture<[Staff]> {
         self.isPaging = isPaging
         let parameter = LocationListParameter(
             pageNumber: String(page),

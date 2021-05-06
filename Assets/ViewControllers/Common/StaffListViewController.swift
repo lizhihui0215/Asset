@@ -9,13 +9,14 @@
 import MJRefresh
 import UIKit
 
-class StaffListViewController: BaseTableViewController {
-    @IBOutlet var pagingInformationLabel: UILabel!
-    @IBOutlet var searchBar: UISearchBar!
+class StaffListViewController: BaseTableViewController, TableViewControllerPageable {
+    typealias Action = StaffListViewController
+    typealias S = DefaultSection<Staff>
 
-    lazy var viewModel: StaffListViewModel = {
-        StaffListViewModel(request: StaffListRequest(), action: self)
-    }()
+    var viewModel: StaffListViewModel!
+
+    // TODO: create view model from source controller
+    // = StaffListViewModel(request: StaffListRequest(), action: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +31,6 @@ class StaffListViewController: BaseTableViewController {
             `self`.tableView.reloadData()
             `self`.updatePagingInformation()
         }
-    }
-
-    func updatePagingInformation() {
-//        pagingInformationLabel.text = L10n.locationList.pagingInformation.label.text(viewModel.pageNumber, viewModel.total)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,18 +59,6 @@ class StaffListViewController: BaseTableViewController {
      */
 }
 
-extension StaffListViewController: TableViewHeaderRefreshing {
-    func header(_ header: MJRefreshNormalHeader, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
-        refreshTable()
-        completionBlock()
-    }
-
-    func footer(_ header: MJRefreshBackNormalFooter, didStartRefreshingWith tableView: UITableView, completionBlock: @escaping () -> Void) {
-        refreshTable(isPaging: true)
-        completionBlock()
-    }
-}
-
 extension StaffListViewController: UISearchBarDelegate {
     public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         viewModel.appSearchText = searchBar.eam.text
@@ -82,12 +67,7 @@ extension StaffListViewController: UISearchBarDelegate {
 }
 
 extension StaffListViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        viewModel.numberOfItemsInSection(section: section)
-        0
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: LocationListTableViewCell = tableView.dequeueReusableCell() else {
             return UITableViewCell()
         }

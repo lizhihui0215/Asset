@@ -17,7 +17,7 @@ class AssetListViewModel: PageableViewModel<AssetListViewController, DefaultSect
         super.init(request: request, action: action, dataSource: [.defaultValue])
     }
 
-    func fetchList(isPaging: Bool = false) -> ViewModelFuture<[Asset]> {
+    override func fetchList(isPaging: Bool = false) -> ViewModelFuture<[Asset]> {
         self.isPaging = isPaging
         let parameter = LocationListParameter(
             pageNumber: String(page),
