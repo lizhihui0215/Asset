@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -379,7 +379,7 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationListTableViewCell" id="fRd-IY-yYb" customClass="LocationListTableViewCell" customModule="Assets" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="61.5"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="414" height="61.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fRd-IY-yYb" id="pO4-Jp-0d5">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="61.5"/>
@@ -661,7 +661,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PCC-Qb-mxz" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="111" y="0.0" width="182" height="30"/>
+                                                        <rect key="frame" x="111" y="0.0" width="242" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="pjD-UZ-kf1"/>
                                                         </constraints>
@@ -677,13 +677,6 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4g8-ee-HTF" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="303" y="0.0" width="50" height="30"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="_cornerSides" value="1"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WS1-Dj-oi6">
                                                         <rect key="frame" x="363" y="0.0" width="31" height="30"/>
                                                         <color key="backgroundColor" name="primaryColor"/>
@@ -732,7 +725,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M7S-P2-a66" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="95.5" y="0.0" width="238.5" height="30"/>
+                                                        <rect key="frame" x="95.5" y="0.0" width="298.5" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="TlD-UR-p3n"/>
                                                         </constraints>
@@ -748,13 +741,6 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81w-lf-GE0" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="344" y="0.0" width="50" height="30"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="_cornerSides" value="1"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISU-Bc-4rS">
                                                         <rect key="frame" x="404" y="0.0" width="10" height="30"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -793,7 +779,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DJ9-Ia-LEI" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="95.5" y="0.0" width="238.5" height="30"/>
+                                                        <rect key="frame" x="95.5" y="0.0" width="298.5" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="VUa-QQ-V9B"/>
                                                         </constraints>
@@ -809,13 +795,6 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jtk-od-j6T" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="344" y="0.0" width="50" height="30"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="_cornerSides" value="1"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ine-Oh-bEn">
                                                         <rect key="frame" x="404" y="0.0" width="10" height="30"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1032,7 +1011,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lnk-sg-oPP" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="65" y="0.0" width="269" height="30"/>
+                                                        <rect key="frame" x="65" y="0.0" width="329" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="plP-li-sfY"/>
                                                         </constraints>
@@ -1051,13 +1030,6 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ag-xE-in5" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="344" y="0.0" width="50" height="30"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="_cornerSides" value="1"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytr-Xz-Q65">
                                                         <rect key="frame" x="404" y="0.0" width="10" height="30"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1096,7 +1068,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2h-z1-oSZ" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="80.5" y="0.0" width="221" height="30"/>
+                                                        <rect key="frame" x="80.5" y="0.0" width="281" height="30"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="1Lj-YJ-DKA"/>
@@ -1116,13 +1088,6 @@
                                                             <outletCollection property="gestureRecognizers" destination="3O2-Ts-s9C" appends="YES" id="Hgy-ol-7ws"/>
                                                         </connections>
                                                     </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Km2-tp-z7t" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="311.5" y="0.0" width="50" height="30"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="_cornerSides" value="1"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="Clv-gh-abn">
                                                         <rect key="frame" x="371.5" y="0.0" width="22.5" height="30"/>
                                                         <connections>
@@ -1167,7 +1132,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H5d-W8-7vn" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="80.5" y="0.0" width="221" height="30"/>
+                                                        <rect key="frame" x="80.5" y="0.0" width="281" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="C34-R1-nDj"/>
                                                         </constraints>
@@ -1186,13 +1151,6 @@
                                                             <outletCollection property="gestureRecognizers" destination="iYa-FZ-9Yv" appends="YES" id="Wl1-Er-dcr"/>
                                                         </connections>
                                                     </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lu-80-80X" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                                        <rect key="frame" x="311.5" y="0.0" width="50" height="30"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="_cornerSides" value="1"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="2nH-Na-iOU">
                                                         <rect key="frame" x="371.5" y="0.0" width="22.5" height="30"/>
                                                         <gestureRecognizers/>

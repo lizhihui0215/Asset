@@ -66,15 +66,15 @@ extension StaffListViewController: UISearchBarDelegate {
     }
 }
 
-extension StaffListViewController {
+extension StaffListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.numberOfItemsInSection(section: section)
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: LocationListTableViewCell = tableView.dequeueReusableCell() else {
+        guard let cell: StaffListTableViewCell = self.tableView(tableView, cellForRowAt: indexPath) else {
             return UITableViewCell()
         }
-
-//        let viewModel = self.viewModel.locationViewModelAtIndexPath(indexPath: indexPath)
-//
-//        cell.configurationCell(with: viewModel)
 
         return cell
     }

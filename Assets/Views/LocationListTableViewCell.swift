@@ -15,7 +15,6 @@ class LocationListTableViewCell: BaseTableViewCell {
         let code: String
         let name: String
         let isCheck: Bool
-        let indexPath: IndexPath
     }
 
     @IBOutlet var codeLabel: UILabel!

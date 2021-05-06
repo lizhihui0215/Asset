@@ -20,30 +20,32 @@ class LocationListViewController: BaseTableViewController, TableViewControllerPa
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination
-        let segue = StoryboardSegue.Service(segue)
-        switch segue {
-        case .toLocationDetail:
-            guard let locationListCell: LocationListTableViewCell = segue?.associatedTableViewCell(from: sender),
-                  let destination = destination as? LocationDetailViewController
-            else {
-                break
-            }
-            destination.viewModel = viewModel.locationDetailViewModelAtIndexPath(action: destination, indexPath: locationListCell.viewModel.indexPath)
+        switch segue.destination() {
+        case let destination as LocationDetailViewController:
+            destination.viewModel = viewModel.viewModel(for: destination, with: sender)
         default: break
         }
     }
 }
 
-extension LocationListViewController: UISearchBarDelegate {}
+extension LocationListViewController: UISearchBarDelegate {
+    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        viewModel.appSearchText = searchBar.eam.text
+        refreshTable()
+    }
+}
 
-extension LocationListViewController {
+extension LocationListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.numberOfItemsInSection(section: section)
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: LocationListTableViewCell = tableView.dequeueReusableCell() else {
+        guard let cell: LocationListTableViewCell = self.tableView(tableView, cellForRowAt: indexPath) else {
             return UITableViewCell()
         }
 
-        let viewModel = self.viewModel.locationViewModelAtIndexPath(indexPath: indexPath)
+        let viewModel: LocationListTableViewCell.ViewModel = self.viewModel.viewModel(for: self, with: cell)
 
         cell.configurationCell(with: viewModel)
 

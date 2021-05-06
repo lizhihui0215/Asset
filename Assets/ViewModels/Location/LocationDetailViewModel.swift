@@ -81,13 +81,25 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
             }
     }
 
+    override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
+        switch action {
+        case let action as PhotographViewController:
+            return PhotographViewModel(title: "地点照片采集",
+                                       key: "地点编码",
+                                       value: locationDetail?.locationCode ?? "",
+                                       viewState: .prepare,
+                                       request: PhotographRequest(),
+                                       action: action) as! T
+        case let action as AssetInventoryListViewController:
+            return AssetInventoryListViewModel(request: AssetInventoryListRequest(), action: action, locationDetail: locationDetail!) as! T
+        default:
+            return super.viewModel(for: action, with: sender)
+        }
+    }
+
     func update(location: CLLocation?, rgcData: BMKLocationReGeocode?, refresh: Bool = false) {
         self.location = location
         self.rgcData = rgcData
-    }
-
-    func assetInventoryListViewModel(action: AssetInventoryListViewController) -> AssetInventoryListViewModel! {
-        .init(request: AssetInventoryListRequest(), action: action, locationDetail: locationDetail!)
     }
 
     override func valid(router: APIRouter) throws {
@@ -104,14 +116,5 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
                 throw EAMError.LocationServiceError.coordinateNeedsUpdate
             }
         }
-    }
-
-    func photographViewModel(viewState: PhotographViewModel.ViewState, action: PhotographViewController) -> PhotographViewModel! {
-        .init(title: "地点照片采集",
-              key: "地点编码",
-              value: locationDetail?.locationCode ?? "",
-              viewState: .prepare,
-              request: PhotographRequest(),
-              action: action)
     }
 }

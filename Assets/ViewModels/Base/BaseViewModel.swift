@@ -14,7 +14,7 @@ typealias ViewModelResult<Success> = Result<Success, Error>
 typealias ViewModelCompletionHandler<Success> = (ViewModelResult<Success>) -> Void
 typealias ViewModelFuture<Success> = Future<Success, Error>
 
-class BaseViewModel<T: UIViewController>: Validation {
+class BaseViewModel<T: UIViewController>: ViewModelRepresentable, Validation {
     typealias Validator = StringValidator
     let eventQueue = OperationQueue()
 
@@ -65,6 +65,10 @@ class BaseViewModel<T: UIViewController>: Validation {
 
     func fetchInventoryStatus() -> ViewModelFuture<InventoryStatus?> {
         api(of: InventoryStatusResponse.self, router: .inventoryStatus)
+    }
+
+    func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
+        fatalError("sub class must implement for \(action)")
     }
 }
 

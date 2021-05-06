@@ -279,6 +279,7 @@
 		5B875075C51BFA6607051AFB /* RadioGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B8756550B7AC7595D075F64 /* RadioGroupView.xib */; };
 		5B87508ADCA70CABE1BE2430 /* InventoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875178140D20A3F5A1B6EB /* InventoryType.swift */; };
 		5B8750AE8B11B2B0CFBE333E /* LocationListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875E2B31EBA291112B1127 /* LocationListRequest.swift */; };
+		5B8750DFA4F1785727D63C74 /* StaffListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8756938FFF516390FA47B7 /* StaffListTableViewCell.swift */; };
 		5B8750E26BA7E848BE2F6A74 /* UITableView+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875C032AE4F9ED975BA8B1 /* UITableView+Cell.swift */; };
 		5B8750F43B7F58E17B459F33 /* AppServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8756A0D02C62866282330B /* AppServiceManager.swift */; };
 		5B875119935ACFE9456DA5E7 /* AssetInventoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875D77FFBBEE0E3A54AF64 /* AssetInventoryListViewController.swift */; };
@@ -323,6 +324,7 @@
 		5B875840DD8F51749A85FC00 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875EF4CE4A321D6B80DCE4 /* Asset.swift */; };
 		5B875844E4AD5B17EDF9E8D4 /* AssetInventoryListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B875EF7AAF929C9FD303649 /* AssetInventoryListResponse.json */; };
 		5B87587EED3B6AAB54CE67D1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875B436721A08B02F46F5A /* TabBarViewController.swift */; };
+		5B87588B90053A02DD49F2CC /* AssetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751C27BA2A278C0BD6D3D /* AssetListTableViewCell.swift */; };
 		5B8758C38A812D4F5590DF88 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875B7E8DF6E30797805169 /* BaseViewController.swift */; };
 		5B8758E5D7FC4F86A28985C7 /* LocationServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8752511B7EB35F026F1688 /* LocationServiceable.swift */; };
 		5B8758EB53E2DCBEB4F2B62D /* APIMockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875CC1F28E5AA6D4B8EEC6 /* APIMockService.swift */; };
@@ -689,6 +691,7 @@
 		5B875178140D20A3F5A1B6EB /* InventoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryType.swift; sourceTree = "<group>"; };
 		5B8751845B02B926E009AD49 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
 		5B8751BB0A941A1CD5AB7DCC /* EAMExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EAMExtended.swift; sourceTree = "<group>"; };
+		5B8751C27BA2A278C0BD6D3D /* AssetListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListTableViewCell.swift; sourceTree = "<group>"; };
 		5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListViewModel.swift; sourceTree = "<group>"; };
 		5B87520439C97EB03B60F857 /* ScanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
 		5B875207E60644377F816FBD /* AssetDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailRequest.swift; sourceTree = "<group>"; };
@@ -709,6 +712,7 @@
 		5B8756550B7AC7595D075F64 /* RadioGroupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioGroupView.xib; sourceTree = "<group>"; };
 		5B875684196B01E4B5E60BD5 /* AssetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailViewController.swift; sourceTree = "<group>"; };
 		5B875685131D768DDA002A8F /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
+		5B8756938FFF516390FA47B7 /* StaffListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffListTableViewCell.swift; sourceTree = "<group>"; };
 		5B8756A0D02C62866282330B /* AppServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppServiceManager.swift; sourceTree = "<group>"; };
 		5B8756A5EF5ECFD321CEF830 /* ReuseIdRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuseIdRepresentable.swift; sourceTree = "<group>"; };
 		5B8756CA0572E8165EE7BF98 /* LocationDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailRequest.swift; sourceTree = "<group>"; };
@@ -1429,6 +1433,7 @@
 				26845319263C41280058F895 /* DropDownOptionCell.swift */,
 				26845315263C40CC0058F895 /* DropDownOptionCell.xib */,
 				261C8BC9263E6DAC009A8FA0 /* ScanAnimationImageView.swift */,
+				5B8756938FFF516390FA47B7 /* StaffListTableViewCell.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1541,6 +1546,7 @@
 				268AFA8C2630182B00A2854B /* ServiceCollectionViewCell.swift */,
 				26A739EB2631AD8900CFE3C1 /* LocationListTableViewCell.swift */,
 				5B875BD2EC1D39F94A1A8EDD /* Common */,
+				5B8751C27BA2A278C0BD6D3D /* AssetListTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2200,6 +2206,8 @@
 				5B8751AC5793BB7AD2F51FC3 /* LocationListViewModel.swift in Sources */,
 				5B875904E8353D4E74CCFF38 /* LocationScanViewModel.swift in Sources */,
 				5B875E7483C7647C392C1EE5 /* AssetDetailScanViewModel.swift in Sources */,
+				5B87588B90053A02DD49F2CC /* AssetListTableViewCell.swift in Sources */,
+				5B8750DFA4F1785727D63C74 /* StaffListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

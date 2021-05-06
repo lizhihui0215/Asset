@@ -40,7 +40,6 @@ class AssetInventoryListViewController: BaseTableViewController, TableViewContro
         refreshTable(isFetchInventoryStatus: true)
     }
 
-    // TODO: need enhancement to call adptor supper's refreshTable method
     func refreshTable(isPaging: Bool = false, isFetchInventoryStatus: Bool = false) {
         let fetchList = viewModel.fetchList(isPaging: isPaging)
         let fetchInventoryStatus = viewModel.fetchInventoryStatus()
@@ -79,13 +78,9 @@ class AssetInventoryListViewController: BaseTableViewController, TableViewContro
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else { return }
-        let locationSegue = StoryboardSegue.Location(rawValue: identifier)
-
-        switch locationSegue {
-        case .toScan:
-            guard let scanViewController: ScanViewController = segue.destination() else { break }
-            scanViewController.viewModel = viewModel.scanViewModel(action: scanViewController)
+        switch segue.destination() {
+        case let destination as ScanViewController:
+            destination.viewModel = viewModel.viewModel(for: destination, with: sender)
         default: break
         }
     }
@@ -102,7 +97,11 @@ extension AssetInventoryListViewController: UISearchBarDelegate {
     }
 }
 
-extension AssetInventoryListViewController {
+extension AssetInventoryListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.numberOfItemsInSection(section: section)
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: AssetInventoryTableViewCell = tableView.dequeueReusableCell() else {
             return UITableViewCell()

@@ -11,4 +11,6 @@ protocol TableViewCellConfigurable {
     func configurationCell(with viewModel: ViewModel)
 }
 
-class BaseTableViewCell: UITableViewCell {}
+class BaseTableViewCell: UITableViewCell {
+    var indexPath = IndexPath(item: 0, section: 0)
+}

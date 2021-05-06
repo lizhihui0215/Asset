@@ -19,6 +19,15 @@ final class ServiceViewModel: ListViewModel<ServiceViewController, DefaultSectio
         let item = itemAtIndexPath(indexPath: indexPath)
         return .init(service: item.convert(), name: item.name, image: item.image)
     }
+
+    override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any?) -> T {
+        switch action {
+        case let action as LocationListViewController:
+            return LocationListViewModel(request: LocationListRequest(), action: action) as! T
+        default:
+            return super.viewModel(for: action, with: sender)
+        }
+    }
 }
 
 struct ServiceConfiguration {

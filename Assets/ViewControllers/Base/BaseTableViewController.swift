@@ -15,12 +15,10 @@ protocol TableViewControllerPageable: TableViewHeaderRefreshing where ViewModel:
 }
 
 extension TableViewControllerPageable where Self: BaseTableViewController {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfItemsInSection(section: section)
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+    func tableView<T: BaseTableViewCell & ReuseIdRepresentable>(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> T? {
+        let cell: T? = tableView.dequeueReusableCell()
+        cell?.indexPath = indexPath
+        return cell
     }
 }
 
@@ -45,7 +43,8 @@ extension TableViewControllerPageable where Self: BaseTableViewController {
         viewModel.total
     }
 
-    func refreshTable(isPaging: Bool = false) {
+    @discardableResult
+    func refreshTable(isPaging: Bool = false) -> ViewModelFuture<[S.Item]> {
         viewModel.fetchList(isPaging: isPaging).onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.tableView.reloadData()

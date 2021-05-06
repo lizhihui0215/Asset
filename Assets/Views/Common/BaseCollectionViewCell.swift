@@ -11,4 +11,6 @@ protocol CollectionViewCellConfigurable {
     func configurationCell(with viewModel: ViewModel)
 }
 
-class BaseCollectionViewCell: UICollectionViewCell {}
+class BaseCollectionViewCell: UICollectionViewCell {
+    var indexPath = IndexPath(item: 0, section: 0)
+}

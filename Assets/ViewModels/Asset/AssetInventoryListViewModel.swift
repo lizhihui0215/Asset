@@ -84,8 +84,13 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
             }
     }
 
-    func scanViewModel(action: ScanViewController) -> ScanViewModel {
-        LocationScanViewModel(request: AssetDetailRequest(), action: action, locationDetail: locationDetail)
+    override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
+        switch action {
+        case let action as ScanViewController:
+            return LocationScanViewModel(request: AssetDetailRequest(), action: action, locationDetail: locationDetail) as! T
+        default:
+            return super.viewModel(for: action, with: sender)
+        }
     }
 
     func assetInventoryCellViewModel(at indexPath: IndexPath) -> AssetInventoryTableViewCell.ViewModel {

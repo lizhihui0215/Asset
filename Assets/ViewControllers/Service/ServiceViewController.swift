@@ -27,7 +27,13 @@ class ServiceViewController: BaseViewController {
 }
 
 extension ServiceViewController {
-    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.destination() {
+        case let destination as LocationListViewController:
+            destination.viewModel = viewModel.viewModel(for: destination, with: sender)
+        default: break
+        }
+    }
 
     override open func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard let segue = StoryboardSegue.Service(rawValue: identifier) else { return false }
@@ -64,6 +70,8 @@ extension ServiceViewController: UICollectionViewDataSource {
         let viewModel = self.viewModel.serviceViewModelAt(indexPath: indexPath)
 
         serviceCell.configurationCell(with: viewModel)
+
+        serviceCell.indexPath = indexPath
 
         return serviceCell
     }
