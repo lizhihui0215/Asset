@@ -81,13 +81,14 @@ class AssetInventoryListViewController: BaseTableViewController, TableViewContro
         switch segue.destination() {
         case let destination as ScanViewController:
             destination.viewModel = viewModel.viewModel(for: destination, with: sender)
+        case let destination as AssetDetailViewController:
+            guard let cell = sender as? AssetInventoryTableViewCell else { break }
+            destination.viewModel = viewModel.viewModel(for: destination, with: cell.indexPath)
         default: break
         }
     }
 
-    @IBAction func unwindFromScanSuccess(segue: UIStoryboardSegue) {
-        print("unwindFromScanSuccess")
-    }
+    @IBAction func unwindFromScanSuccess(segue: UIStoryboardSegue) {}
 }
 
 extension AssetInventoryListViewController: UISearchBarDelegate {

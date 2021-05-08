@@ -20,6 +20,7 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
 
     var appSearchText: String = ""
     let regionIdCompany = app.credential?.userCityId ?? ""
+    let checkPerson = app.credential?.username ?? ""
     let locationDetail: LocationDetail
     public var inventoryStatus: InventoryStatus = [Keys.Inventory.All.rawValue: Constants.inventoryStatusAll]
 
@@ -48,6 +49,10 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
         locationDetail.locationCode
     }
 
+    private var locationName: String {
+        locationDetail.locationName
+    }
+
     init(request: RequestRepresentable, action: AssetInventoryListViewController, locationDetail: LocationDetail) {
         self.locationDetail = locationDetail
         super.init(request: request, action: action, dataSource: [.defaultValue])
@@ -66,7 +71,7 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
             pageNumber: String(page),
             pageSize: String(size),
             locationId: locationId,
-            checkPerson: regionIdCompany,
+            checkPerson: checkPerson,
             appSearchText: appSearchText,
             assetLocationId: assetLocationId,
             total: "", // FIXME: where total from
@@ -88,10 +93,19 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
     override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
         switch action {
         case let action as ScanViewController:
-            return LocationScanViewModel(request: AssetDetailRequest(), action: action, locationDetail: locationDetail) as! T
-        default:
-            return super.viewModel(for: action, with: sender)
+            return LocationInventoryScanViewModel(request: LocationScanRequest(), action: action, locationDetail: locationDetail) as! T
+        case let action as AssetDetailViewController:
+            guard let indexPath = sender as? IndexPath else { break }
+            let assetId = itemAtIndexPath(indexPath: indexPath).assetId
+            let parameters = AssetDetailParameter(assetId: assetId,
+                                                  checkPerson: checkPerson)
+            return AssetDetailViewModel(request: AssetDetailRequest(),
+                                        action: action,
+                                        viewState: .viewing,
+                                        parameters: parameters) as! T
+        default: break
         }
+        return super.viewModel(for: action, with: sender)
     }
 
     // swiftlint:enable force_cast

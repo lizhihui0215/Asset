@@ -21,7 +21,7 @@ struct AssetDetail {
     var lastCheckPerson: String
     var manufactureName: String
     var modelNumber: String
-    var quantity: String
+    var quantity: Int
     var dutyPerson: String
     var dutyPersonName: String
     var usePerson: String
@@ -54,7 +54,7 @@ extension AssetDetail: AutoCodable {
     static var defaultLastCheckPerson = ""
     static var defaultManufactureName = ""
     static var defaultModelNumber = ""
-    static var defaultQuantity = ""
+    static var defaultQuantity = 0
     static var defaultDutyPerson = ""
     static var defaultDutyPersonName = ""
     static var defaultUsePerson = ""

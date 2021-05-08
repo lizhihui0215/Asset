@@ -18,7 +18,6 @@ class LocationDetailViewController: BaseViewController {
     @IBOutlet var latitudeLabel: UILabel!
 
     var viewModel: LocationDetailViewModel!
-    var locationService: BDLocationService = .shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +42,10 @@ class LocationDetailViewController: BaseViewController {
     }
 
     func updateLocationCoordinates() {
-        locationService.getGPSLocation { [weak self] in
-            guard let self = self, let result = try? $0.get() else { return }
-            `self`.viewModel.update(location: result.location, rgcData: result.rgcData)
-            `self`.refreshPage()
-            log.info("GPS Location: ", context: result.location)
+        viewModel.getGPSLocation().onSuccess { [weak self] _ in
+            guard let self = self else { return }
+            `self`.longitudeLabel.text = `self`.viewModel.longitude
+            `self`.latitudeLabel.text = `self`.viewModel.latitude
         }
     }
 

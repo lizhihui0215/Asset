@@ -31,6 +31,8 @@ public extension HTTPHeader {
     }
 }
 
+// TODO: enhancement request init with parameter
+//       add more behavior for request handler
 protocol RequestRepresentable {
     var apiClient: NetworkManager { get }
 

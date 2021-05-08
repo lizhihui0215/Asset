@@ -7,4 +7,24 @@ import Foundation
 
 extension StaffListTableViewCell: ReuseIdRepresentable {}
 
-class StaffListTableViewCell: BaseTableViewCell {}
+class StaffListTableViewCell: BaseTableViewCell, TableViewCellConfigurable {
+    struct ViewModel: ViewModelRepresentable {
+        var isCheck: Bool
+        var account: String
+        var name: String
+        var code: String
+        var organization: String
+    }
+
+    @IBOutlet var accountLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var codeLabel: UILabel!
+    @IBOutlet var organizationLabel: UILabel!
+
+    func configurationCell(with viewModel: ViewModel) {
+        accountLabel.text = viewModel.account
+        nameLabel.text = viewModel.name
+        codeLabel.text = viewModel.code
+        organizationLabel.text = viewModel.organization
+    }
+}

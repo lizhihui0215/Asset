@@ -11,6 +11,7 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
     private var locationDetail: LocationDetail?
     private var location: CLLocation?
     private var rgcData: BMKLocationReGeocode?
+    var locationService: BDLocationService = .shared
 
     public var code: String {
         locationDetail?.locationCode ?? ""
@@ -93,9 +94,9 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
                                        action: action) as! T
         case let action as AssetInventoryListViewController:
             return AssetInventoryListViewModel(request: AssetInventoryListRequest(), action: action, locationDetail: locationDetail!) as! T
-        default:
-            return super.viewModel(for: action, with: sender)
+        default: break
         }
+        return super.viewModel(for: action, with: sender)
     }
 
     // swiftlint:enable force_cast
@@ -103,6 +104,17 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
     func update(location: CLLocation?, rgcData: BMKLocationReGeocode?, refresh: Bool = false) {
         self.location = location
         self.rgcData = rgcData
+    }
+
+    func getGPSLocation() -> ViewModelFuture<CLLocation?> {
+        locationService.getGPSLocation().flatMap { [weak self] result -> ViewModelFuture<CLLocation?> in
+            guard let result = result, let self = self else {
+                return ViewModelFuture(error: EAMError.unwrapOptionalValueError("location"))
+            }
+            `self`.location = result.location
+            `self`.rgcData = result.rgcData
+            return ViewModelFuture(value: result.location)
+        }
     }
 
     override func valid(router: APIRouter) throws {

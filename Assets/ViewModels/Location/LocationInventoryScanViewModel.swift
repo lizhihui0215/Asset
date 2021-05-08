@@ -5,7 +5,7 @@
 
 import Foundation
 
-class LocationScanViewModel: ScanViewModel {
+class LocationInventoryScanViewModel: ScanViewModel {
     private var tagNumber: String {
         metadataObject?.messageString ?? ""
     }
@@ -26,19 +26,19 @@ class LocationScanViewModel: ScanViewModel {
 
     public var assetDetail: AssetDetail?
 
-    init(request: AssetDetailRequest, action: ScanViewController, locationDetail: LocationDetail) {
+    init(request: LocationScanRequest, action: ScanViewController, locationDetail: LocationDetail) {
         self.locationDetail = locationDetail
         super.init(request: request, action: action)
     }
 
     func fetchAssetDetail() -> ViewModelFuture<AssetDetail?> {
-        let assetDetailParameter = AssetDetailParameter(
+        let locationScanParameters = LocationScanParameter(
             tagNumber: tagNumber,
             realLocationCode: realLocationCode,
             checkPerson: checkPerson,
             realLocationName: realLocationName
         )
-        return api(of: AssetDetailResponse.self, router: .assetDetail(assetDetailParameter))
+        return api(of: LocationScanResponse.self, router: .assetDetailByScan(locationScanParameters))
     }
 
     override func finished() -> ViewModelFuture<SegueIdentifier> {
@@ -48,6 +48,22 @@ class LocationScanViewModel: ScanViewModel {
             return ViewModelFuture(value: StoryboardSegue.Common.successToInventory.rawValue)
         }
     }
+
+    // swiftlint:disable force_cast
+    override func viewModel<T: ViewModelRepresentable>(for action: UIKit.UIViewController, with sender: Any?) -> T {
+        switch action {
+        case let action as AssetDetailViewController:
+            guard let assetDetail = self.assetDetail else { break }
+            return AssetDetailViewModel(request: AssetDetailRequest(),
+                                        action: action,
+                                        viewState: .editing,
+                                        assetDetail: assetDetail) as! T
+        default: break
+        }
+        return super.viewModel(for: action, with: sender)
+    }
+
+    // swiftlint:enable force_cast
 
     override func handApiError(router: APIRouter, error: Error) {
         guard case .assetDetail = router else {

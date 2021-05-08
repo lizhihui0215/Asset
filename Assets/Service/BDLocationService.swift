@@ -74,13 +74,15 @@ final class BDLocationService: NSObject, LocationServiceable {
         return self
     }
 
-    func getGPSLocation(completion: @escaping (Result<BMKLocation?, Error>) -> Void) {
-        manager.requestLocation(withReGeocode: true, withNetworkState: false) {
-            if let error = $2 {
-                completion(.failure(error))
-                return
+    func getGPSLocation() -> ViewModelFuture<L?> {
+        ViewModelFuture<L?> { completion in
+            manager.requestLocation(withReGeocode: true, withNetworkState: false) {
+                if let error = $2 {
+                    completion(.failure(error))
+                    return
+                }
+                completion(.success($0))
             }
-            completion(.success($0))
         }
     }
 }

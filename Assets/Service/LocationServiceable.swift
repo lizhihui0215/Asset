@@ -14,7 +14,7 @@ protocol LocationServiceable {
     init(manager: Manager)
     func with(optional: () -> O) -> Self
     func launchService()
-    func getGPSLocation(completion: @escaping (Result<L?, Error>) -> Void)
+    func getGPSLocation() -> ViewModelFuture<L?>
 }
 
 protocol LocationManager {}

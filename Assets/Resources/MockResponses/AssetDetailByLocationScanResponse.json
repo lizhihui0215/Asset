@@ -1,0 +1,31 @@
+{
+  "status": 0,
+  "data": {
+    "isCheck": false,
+    "assetId": "8a93e7d97297436401729750684a6b6a",
+    "tagNumber": "3210-01008789",
+    "assetName": "智能电动密集架5",
+    "checkTime": "2021-04-25 12:13:16",
+    "checkStatus": "2",
+    "checkStatusName": "盘盈",
+    "realLocationCode": "303210CK00000017",
+    "realLocationName": "山东省德州市齐河县华店乡308国道南省仓库",
+    "locationCode": "3210BG00000003",
+    "locationName": "山东省,济南市,市中区,杆石桥街道办事处,-,大纬二路84号三楼",
+    "checkPerson": "taoyuan",
+    "lastCheckPerson": "taoyuan",
+    "manufactureName": "5",
+    "modelNumber": "5",
+    "quantity": 1,
+    "dutyPerson": "邱媛",
+    "dutyPersonName": "邱媛",
+    "usePerson": "qiuyuan",
+    "usePersonName": "邱媛",
+    "typeDescriptionCode": "03.07-02-02-02.0000",
+    "typeDescriptionName": "管理用.办公设备和家具-家具-文件柜-密集柜.密集柜",
+    "longitude": "116.997667",
+    "latitude": "36.657562",
+    "mapLocationDesc": "MapData{longitude='116.997667', latitude='36.657562', address='中国山东省济南市市中区杆石桥街道纬二路59', addrStr='中国山东省济南市市中区杆石桥街道纬二路59', altitude='null', countryName='中国', provinceName='山东省', cityName='济南市', district='市中区', town='杆石桥街道', street='纬二路', streetNumber='59', floor='null', locTypeDescription='NetWork location successful!'}",
+    "assetCheckItemName": "在用"
+  }
+}

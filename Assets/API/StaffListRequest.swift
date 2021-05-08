@@ -12,6 +12,7 @@ struct StaffListParameter: Encodable, Searchable {
     let pageSize: String
     let regionIdCompany: String
     var appSearchText: String
+    let category: Staff.Category
 }
 
 struct StaffListResponse: PageableResponse {

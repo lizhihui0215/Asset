@@ -126,6 +126,12 @@ internal func == (lhs: LocationDetail, rhs: LocationDetail) -> Bool {
 // MARK: - Staff AutoEquatable
 extension Staff: Equatable {}
 internal func == (lhs: Staff, rhs: Staff) -> Bool {
+    guard lhs.isCheck == rhs.isCheck else { return false }
+    guard lhs.account == rhs.account else { return false }
+    guard lhs.userName == rhs.userName else { return false }
+    guard lhs.userCode == rhs.userCode else { return false }
+    guard lhs.userOrgName == rhs.userOrgName else { return false }
+    guard lhs.category == rhs.category else { return false }
     return true
 }
 

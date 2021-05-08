@@ -47,13 +47,33 @@ final class APIMockService {
     )
 
     let assetDetail = APIRouter.assetDetail(
-        AssetDetailParameter(tagNumber: "sdasd",
-                             realLocationCode: "sdsadsa",
-                             checkPerson: "dsadsa",
-                             realLocationName: "dsadsa")
+        AssetDetailParameter(assetId: "sdasd",
+                             checkPerson: "dsadsa")
+    )
+
+    let assetDetailByScan = APIRouter.assetDetailByScan(LocationScanParameter(tagNumber: "asdas",
+                                                                              realLocationCode: "dsadsa",
+                                                                              checkPerson: "dsadsa",
+                                                                              realLocationName: "dsadsa")
     )
 
     let inventoryStatus = APIRouter.inventoryStatus
+
+    let principalStaffList = APIRouter.staffList(
+        StaffListParameter(pageNumber: "1",
+                           pageSize: "2",
+                           regionIdCompany: "2",
+                           appSearchText: "ff",
+                           category: .principal)
+    )
+
+    let userStaffList = APIRouter.staffList(
+        StaffListParameter(pageNumber: "1",
+                           pageSize: "2",
+                           regionIdCompany: "2",
+                           appSearchText: "ff",
+                           category: .user)
+    )
 
     lazy var mockers: [Mock] = {
         [
@@ -73,10 +93,19 @@ final class APIMockService {
                 .post: API.AssetInventoryListResponse.data,
             ]),
             Mock(router: assetDetail, dataType: .json, statusCode: 200, data: [
-                .post: API.AssetInventoryListResponse.data,
+                .post: API.AssetDetailResponse.data,
+            ]),
+            Mock(router: assetDetailByScan, dataType: .json, statusCode: 200, data: [
+                .post: API.InventoryStatusResponse.data,
             ]),
             Mock(router: inventoryStatus, dataType: .json, statusCode: 200, data: [
                 .post: API.InventoryStatusResponse.data,
+            ]),
+            Mock(router: principalStaffList, dataType: .json, statusCode: 200, data: [
+                .post: API.PrincipalStaffListResponse.data,
+            ]),
+            Mock(router: userStaffList, dataType: .json, statusCode: 200, data: [
+                .post: API.UserStaffListResponse.data,
             ]),
         ]
     }()

@@ -25,9 +25,9 @@ final class ServiceViewModel: ListViewModel<ServiceViewController, DefaultSectio
         switch action {
         case let action as LocationListViewController:
             return LocationListViewModel(request: LocationListRequest(), action: action) as! T
-        default:
-            return super.viewModel(for: action, with: sender)
+        default: break
         }
+        return super.viewModel(for: action, with: sender)
     }
     // swiftlint:enable force_cast
 }

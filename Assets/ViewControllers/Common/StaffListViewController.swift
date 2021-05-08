@@ -15,9 +15,6 @@ class StaffListViewController: BaseTableViewController, TableViewControllerPagea
 
     var viewModel: StaffListViewModel!
 
-    // TODO: create view model from source controller
-    // = StaffListViewModel(request: StaffListRequest(), action: self)
-
     override func viewDidLoad() {
         super.viewDidLoad()
         headerRefreshingDelegate = self
@@ -33,30 +30,25 @@ class StaffListViewController: BaseTableViewController, TableViewControllerPagea
         }
     }
 
+    // MARK: - Navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination
-//        let segue = StoryboardSegue.Service(segue)
-//        switch segue {
-//        case .toLocationDetail:
-//            guard let locationListCell: LocationListTableViewCell = segue?.associatedTableViewCell(from: sender),
-//                  let destination = destination as? LocationDetailViewController
-//            else {
-//                break
-//            }
-//            destination.viewModel = viewModel.locationDetailViewModelAtIndexPath(action: destination, indexPath: locationListCell.viewModel.indexPath)
-//        default: break
-//        }
+        switch segue.destination {
+        case let destination as AssetDetailViewController:
+            guard let indexPath = (sender as? StaffListTableViewCell)?.indexPath else { break }
+            prepareSelectedStaff(for: destination, with: indexPath)
+        default: break
+        }
     }
 
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
+    func prepareSelectedStaff(for destination: AssetDetailViewController, with indexPath: IndexPath) {
+        switch viewModel.category {
+        case .principal:
+            destination.viewModel.principal = viewModel.itemAtIndexPath(indexPath: indexPath)
+        case .user:
+            destination.viewModel.principal = viewModel.itemAtIndexPath(indexPath: indexPath)
+        }
+    }
 }
 
 extension StaffListViewController: UISearchBarDelegate {
@@ -76,6 +68,10 @@ extension StaffListViewController: UITableViewDataSource {
         guard let cell: StaffListTableViewCell = self.tableView(tableView, cellForRowAt: indexPath) else {
             return UITableViewCell()
         }
+
+        let viewModel: StaffListTableViewCell.ViewModel = viewModel.viewModel(for: self, with: cell)
+
+        cell.configurationCell(with: viewModel)
 
         return cell
     }

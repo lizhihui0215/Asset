@@ -76,7 +76,7 @@ extension AssetDetail {
         lastCheckPerson = (try? container.decode(String.self, forKey: .lastCheckPerson)) ?? AssetDetail.defaultLastCheckPerson
         manufactureName = (try? container.decode(String.self, forKey: .manufactureName)) ?? AssetDetail.defaultManufactureName
         modelNumber = (try? container.decode(String.self, forKey: .modelNumber)) ?? AssetDetail.defaultModelNumber
-        quantity = (try? container.decode(String.self, forKey: .quantity)) ?? AssetDetail.defaultQuantity
+        quantity = (try? container.decode(Int.self, forKey: .quantity)) ?? AssetDetail.defaultQuantity
         dutyPerson = (try? container.decode(String.self, forKey: .dutyPerson)) ?? AssetDetail.defaultDutyPerson
         dutyPersonName = (try? container.decode(String.self, forKey: .dutyPersonName)) ?? AssetDetail.defaultDutyPersonName
         usePerson = (try? container.decode(String.self, forKey: .usePerson)) ?? AssetDetail.defaultUsePerson
@@ -213,3 +213,55 @@ extension LocationDetail {
 
 
 
+extension Staff {
+
+    enum CodingKeys: String, CodingKey {
+        case isCheck
+        case account
+        case userName
+        case userCode
+        case userOrgName
+        case category
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? Staff.defaultIsCheck
+        account = (try? container.decode(String.self, forKey: .account)) ?? Staff.defaultAccount
+        userName = (try? container.decode(String.self, forKey: .userName)) ?? Staff.defaultUserName
+        userCode = (try? container.decode(String.self, forKey: .userCode)) ?? Staff.defaultUserCode
+        userOrgName = (try? container.decode(String.self, forKey: .userOrgName)) ?? Staff.defaultUserOrgName
+        category = (try? container.decode(Category.self, forKey: .category)) ?? Staff.defaultCategory
+    }
+
+}
+
+extension Staff.Category {
+
+    enum CodingKeys: String, CodingKey {
+        case principal
+        case user
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+
+        let enumCase = try container.decode(String.self)
+        switch enumCase {
+        case CodingKeys.principal.rawValue: self = .principal
+        case CodingKeys.user.rawValue: self = .user
+        default: throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Unknown enum case '\(enumCase)'"))
+        }
+    }
+
+    internal func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+
+        switch self {
+        case .principal: try container.encode(CodingKeys.principal.rawValue)
+        case .user: try container.encode(CodingKeys.user.rawValue)
+        }
+    }
+
+}

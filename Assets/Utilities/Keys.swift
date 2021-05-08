@@ -25,3 +25,5 @@ extension API.Keys: Keys {}
 extension SirenKeys: Keys {}
 
 extension AssetInventoryListViewModel.Keys.Inventory: Keys {}
+
+extension AssetDetailViewModel.Keys.AssetStatus: Keys {}

@@ -38,31 +38,20 @@ class LocationListViewModel: PageableViewModel<LocationListViewController, Defau
     override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
         switch action {
         case let action as LocationDetailViewController:
-            guard let sender = sender as? LocationListTableViewCell else {
-                return super.viewModel(for: action, with: sender)
-            }
+            guard let sender = sender as? LocationListTableViewCell else { break }
             let assetLocationId = itemAtIndexPath(indexPath: sender.indexPath).assetLocationId
-            return LocationDetailViewModel(
-                request: LocationDetailRequest(),
-                action: action,
-                assetLocationId: assetLocationId
-            ) as! T
-        case let action as LocationListViewController:
-            guard let sender = sender as? LocationListTableViewCell else {
-                return super.viewModel(for: action, with: sender)
-            }
-
+            return LocationDetailViewModel(request: LocationDetailRequest(),
+                                           action: action,
+                                           assetLocationId: assetLocationId) as! T
+        case _ as LocationListViewController:
+            guard let sender = sender as? LocationListTableViewCell else { break }
             let location = itemAtIndexPath(indexPath: sender.indexPath)
-
-            return LocationListTableViewCell.ViewModel(
-                code: location.locationCode,
-                name: location.locationName,
-                isCheck: location.isCheck
-            ) as! T
-
-        default:
-            return super.viewModel(for: action, with: sender)
+            return LocationListTableViewCell.ViewModel(code: location.locationCode,
+                                                       name: location.locationName,
+                                                       isCheck: location.isCheck) as! T
+        default: break
         }
+        return super.viewModel(for: action, with: sender)
     }
 
     // swiftlint:enable force_cast

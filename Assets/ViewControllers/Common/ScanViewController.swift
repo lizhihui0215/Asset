@@ -8,11 +8,6 @@ import Foundation
 import ZLPhotoBrowser
 
 class ScanViewController: BaseViewController {
-    enum ScanAction {
-        case abnegatedContinue
-        case discern(MetadataObject)
-    }
-
     @IBOutlet var scanAnimationImageView: ScanAnimationImageView!
     @IBOutlet var torchButton: AnimatableButton!
     @IBOutlet var finishedButton: AnimatableButton!
@@ -66,8 +61,6 @@ class ScanViewController: BaseViewController {
         viewModel.finished().onSuccess { [weak self] identifier in
             guard let self = self else { return }
             `self`.performSegue(withIdentifier: identifier, sender: self)
-        }.onFailure { _ in
-            // TODO: add missing handler
         }
     }
 
@@ -82,5 +75,13 @@ class ScanViewController: BaseViewController {
             log.info("isOriginal: ", context: isOriginal)
         }
         photoPreviewSheet.showPhotoLibrary(sender: self)
+    }
+
+    override func prepare(for segue: UIKit.UIStoryboardSegue, sender: Any?) {
+        switch segue.destination {
+        case let destination as AssetDetailViewController:
+            destination.viewModel = viewModel.viewModel(for: destination)
+        default: break
+        }
     }
 }

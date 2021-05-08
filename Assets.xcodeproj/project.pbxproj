@@ -287,6 +287,7 @@
 		5B8751AC5793BB7AD2F51FC3 /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751250FBD49BF6BA424BC /* LocationListViewModel.swift */; };
 		5B8751CD384BE0B14D23B0AA /* PhotographViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875CC5AC026A85E40314A8 /* PhotographViewModel.swift */; };
 		5B87520C7D158F654A78AC6D /* InventoryStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875354D44664F79A20C00A /* InventoryStatusRequest.swift */; };
+		5B87520CFE7AECA3EB644D87 /* UserStaffListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B8758EA3030F1C0D3AE4FB4 /* UserStaffListResponse.json */; };
 		5B87525250C9854244291DA2 /* EAMExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751BB0A941A1CD5AB7DCC /* EAMExtended.swift */; };
 		5B875288B44D13922F5117C5 /* UIStoryboardSegue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875F9C53D025D2CD66ABE0 /* UIStoryboardSegue+Extension.swift */; };
 		5B8752EC0763FC6E5B3CD825 /* ScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87508C4B5741B865C06483 /* ScanService.swift */; };
@@ -317,6 +318,7 @@
 		5B87571C811B8ED7B8C16B56 /* ViewModelRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87570E408C81EEE53FC9C8 /* ViewModelRepresentable.swift */; };
 		5B87571FEEE990493164526A /* ScanCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8752887CA9DE0EFA0CAD0F /* ScanCornerView.swift */; };
 		5B87576A49499B36D372E57F /* AppStartupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8752391D9A031F1106D51D /* AppStartupService.swift */; };
+		5B87576D7300D5E47E81090E /* LocationScanlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875396A28DED28579946EE /* LocationScanlRequest.swift */; };
 		5B875791FD6C8D52A5FC358C /* AssetInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */; };
 		5B8757AE08D3626BF5523DB5 /* AssetDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87577D150769A1EC97A931 /* AssetDetail.swift */; };
 		5B8757C6803FECC0791BB29F /* LocationListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B8759E04A1A9555EA96945E /* LocationListResponse.json */; };
@@ -328,10 +330,12 @@
 		5B8758C38A812D4F5590DF88 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875B7E8DF6E30797805169 /* BaseViewController.swift */; };
 		5B8758E5D7FC4F86A28985C7 /* LocationServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8752511B7EB35F026F1688 /* LocationServiceable.swift */; };
 		5B8758EB53E2DCBEB4F2B62D /* APIMockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875CC1F28E5AA6D4B8EEC6 /* APIMockService.swift */; };
-		5B875904E8353D4E74CCFF38 /* LocationScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875A0981A07CFCD4D5747E /* LocationScanViewModel.swift */; };
+		5B875904E8353D4E74CCFF38 /* LocationInventoryScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875A0981A07CFCD4D5747E /* LocationInventoryScanViewModel.swift */; };
 		5B875937026456B76F05BE86 /* Searchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8759382DC909013C3FA86B /* Searchable.swift */; };
 		5B875941FE181EA241CDD5B7 /* Namespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875ED9B37A9D45DB8F37A5 /* Namespaces.swift */; };
+		5B875945DEC6B42F47F0F586 /* AssetDetailByLocationScanResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B875C7B659854F46822A0A8 /* AssetDetailByLocationScanResponse.json */; };
 		5B875A3B0413C1DC7D7BD26D /* AssetListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8758AC5FB29E2BA44D8EA6 /* AssetListViewModel.swift */; };
+		5B875A6CBE164F5672D877C0 /* AssetDetailScanlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87559B580F9BD19EE07D6C /* AssetDetailScanlRequest.swift */; };
 		5B875AAD26FCADC55555138B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8756E858F73749D54BDFA2 /* SettingViewController.swift */; };
 		5B875AD3D3F740BC0C8E0DA3 /* PhotographRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875A192F3CF3047BC4AD2E /* PhotographRequest.swift */; };
 		5B875B59734148478C1616CB /* LoginResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B875095689EEA83D7E606CC /* LoginResponse.json */; };
@@ -350,6 +354,7 @@
 		5B875ECF089A28428B33DB94 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8754406802AB9D02160E20 /* Appearance.swift */; };
 		5B875ECF6BBE08A269331211 /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875A58870EC13B5100A3BD /* ObjectAssociation.swift */; };
 		5B875EF2619BA9CC70749B6D /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875FFFE8124E29CDDBAF94 /* BaseTableViewCell.swift */; };
+		5B875F45E42FFD17C4D912E6 /* PrincipalStaffListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B87522C9A3CC1B236FC1973 /* PrincipalStaffListResponse.json */; };
 		5B875F71B3D46355CCBE7BC0 /* SegueType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8750C69CA05D4C0676B691 /* SegueType+Extension.swift */; };
 		5B875FB2C8453F2EEE391BEB /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875E465D6ABAD6B1D7D145 /* Identifiable.swift */; };
 		9C6D42FC2627146600FEC466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D42FB2627146600FEC466 /* AppDelegate.swift */; };
@@ -695,6 +700,7 @@
 		5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListViewModel.swift; sourceTree = "<group>"; };
 		5B87520439C97EB03B60F857 /* ScanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
 		5B875207E60644377F816FBD /* AssetDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailRequest.swift; sourceTree = "<group>"; };
+		5B87522C9A3CC1B236FC1973 /* PrincipalStaffListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PrincipalStaffListResponse.json; sourceTree = "<group>"; };
 		5B875234EAB7404922020237 /* ServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
 		5B8752391D9A031F1106D51D /* AppStartupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStartupService.swift; sourceTree = "<group>"; };
 		5B8752511B7EB35F026F1688 /* LocationServiceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceable.swift; sourceTree = "<group>"; };
@@ -703,10 +709,12 @@
 		5B87534472E43A4C7DC74EE0 /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		5B875354D44664F79A20C00A /* InventoryStatusRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryStatusRequest.swift; sourceTree = "<group>"; };
 		5B87536BB570F25BEE6D1914 /* UpdateLocationResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UpdateLocationResponse.json; sourceTree = "<group>"; };
+		5B875396A28DED28579946EE /* LocationScanlRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationScanlRequest.swift; sourceTree = "<group>"; };
 		5B8753E2D9F6AAA61C0208AD /* RadioGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioGroupView.swift; sourceTree = "<group>"; };
 		5B87542B92201B047700A30B /* ServiceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
 		5B8754406802AB9D02160E20 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		5B8754A37EA78B899A488A21 /* AssetInventoryListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListRequest.swift; sourceTree = "<group>"; };
+		5B87559B580F9BD19EE07D6C /* AssetDetailScanlRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailScanlRequest.swift; sourceTree = "<group>"; };
 		5B8755D574DDF4B68340CA59 /* InventoryStatusResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = InventoryStatusResponse.json; sourceTree = "<group>"; };
 		5B875602A3931DA4E491CAF0 /* AssetListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListRequest.swift; sourceTree = "<group>"; };
 		5B8756550B7AC7595D075F64 /* RadioGroupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioGroupView.xib; sourceTree = "<group>"; };
@@ -726,18 +734,20 @@
 		5B8758576E13F3C93BBCF08A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B87587F55DE950C478C1950 /* UpdateLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLocation.swift; sourceTree = "<group>"; };
 		5B8758AC5FB29E2BA44D8EA6 /* AssetListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListViewModel.swift; sourceTree = "<group>"; };
+		5B8758EA3030F1C0D3AE4FB4 /* UserStaffListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserStaffListResponse.json; sourceTree = "<group>"; };
 		5B87592436C0BC675040207A /* UINavigationItem+BarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+BarButtonItem.swift"; sourceTree = "<group>"; };
 		5B8759382DC909013C3FA86B /* Searchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Searchable.swift; sourceTree = "<group>"; };
 		5B87594724E568A83D629900 /* InitialSceneType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InitialSceneType+Extension.swift"; sourceTree = "<group>"; };
 		5B8759D91D25530A56C8C202 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		5B8759E04A1A9555EA96945E /* LocationListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationListResponse.json; sourceTree = "<group>"; };
-		5B875A0981A07CFCD4D5747E /* LocationScanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationScanViewModel.swift; sourceTree = "<group>"; };
+		5B875A0981A07CFCD4D5747E /* LocationInventoryScanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInventoryScanViewModel.swift; sourceTree = "<group>"; };
 		5B875A192F3CF3047BC4AD2E /* PhotographRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotographRequest.swift; sourceTree = "<group>"; };
 		5B875A58870EC13B5100A3BD /* ObjectAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
 		5B875B436721A08B02F46F5A /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5B875B7E8DF6E30797805169 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5B875C032AE4F9ED975BA8B1 /* UITableView+Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Cell.swift"; sourceTree = "<group>"; };
 		5B875C6232DF52757CAD7A02 /* WindowService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowService.swift; sourceTree = "<group>"; };
+		5B875C7B659854F46822A0A8 /* AssetDetailByLocationScanResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetDetailByLocationScanResponse.json; sourceTree = "<group>"; };
 		5B875CC1F28E5AA6D4B8EEC6 /* APIMockService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIMockService.swift; sourceTree = "<group>"; };
 		5B875CC5AC026A85E40314A8 /* PhotographViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotographViewModel.swift; sourceTree = "<group>"; };
 		5B875CC6E1C44E973900E26F /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -1328,7 +1338,7 @@
 			children = (
 				5B8751845B02B926E009AD49 /* LocationDetailViewModel.swift */,
 				5B8751250FBD49BF6BA424BC /* LocationListViewModel.swift */,
-				5B875A0981A07CFCD4D5747E /* LocationScanViewModel.swift */,
+				5B875A0981A07CFCD4D5747E /* LocationInventoryScanViewModel.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -1391,6 +1401,9 @@
 				5B875EF7AAF929C9FD303649 /* AssetInventoryListResponse.json */,
 				5B8750CBF2A94525D68FA54F /* AssetDetailResponse.json */,
 				5B8755D574DDF4B68340CA59 /* InventoryStatusResponse.json */,
+				5B87522C9A3CC1B236FC1973 /* PrincipalStaffListResponse.json */,
+				5B8758EA3030F1C0D3AE4FB4 /* UserStaffListResponse.json */,
+				5B875C7B659854F46822A0A8 /* AssetDetailByLocationScanResponse.json */,
 			);
 			path = MockResponses;
 			sourceTree = "<group>";
@@ -1620,6 +1633,8 @@
 				5B875354D44664F79A20C00A /* InventoryStatusRequest.swift */,
 				5B875DCE54BC6E0E173BA3C3 /* StaffListRequest.swift */,
 				5B875602A3931DA4E491CAF0 /* AssetListRequest.swift */,
+				5B875396A28DED28579946EE /* LocationScanlRequest.swift */,
+				5B87559B580F9BD19EE07D6C /* AssetDetailScanlRequest.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1814,6 +1829,9 @@
 				5B875844E4AD5B17EDF9E8D4 /* AssetInventoryListResponse.json in Resources */,
 				5B8755E49F6218381E2F9E0D /* AssetDetailResponse.json in Resources */,
 				5B87531F26D741272A80EA81 /* InventoryStatusResponse.json in Resources */,
+				5B875F45E42FFD17C4D912E6 /* PrincipalStaffListResponse.json in Resources */,
+				5B87520CFE7AECA3EB644D87 /* UserStaffListResponse.json in Resources */,
+				5B875945DEC6B42F47F0F586 /* AssetDetailByLocationScanResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2204,10 +2222,12 @@
 				5B875E98884505B170EA0195 /* AssetListRequest.swift in Sources */,
 				5B875DEE0E302D23B5F5B1CA /* LocationDetailViewModel.swift in Sources */,
 				5B8751AC5793BB7AD2F51FC3 /* LocationListViewModel.swift in Sources */,
-				5B875904E8353D4E74CCFF38 /* LocationScanViewModel.swift in Sources */,
+				5B875904E8353D4E74CCFF38 /* LocationInventoryScanViewModel.swift in Sources */,
 				5B875E7483C7647C392C1EE5 /* AssetDetailScanViewModel.swift in Sources */,
 				5B87588B90053A02DD49F2CC /* AssetListTableViewCell.swift in Sources */,
 				5B8750DFA4F1785727D63C74 /* StaffListTableViewCell.swift in Sources */,
+				5B87576D7300D5E47E81090E /* LocationScanlRequest.swift in Sources */,
+				5B875A6CBE164F5672D877C0 /* AssetDetailScanlRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

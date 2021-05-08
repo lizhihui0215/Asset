@@ -16,9 +16,19 @@ enum APIRouter: URLRequestConvertible {
         static var locationDetailById = "app/location/getLocation"
         static var updateLocationCoordinate = "app/location/updateLocationInfo"
         static var assetInventoryList = "/app/check/daily/findByLocationAndCheckPerson"
-        static var assetDetail = "app/check/daily/getCheckResultByScan"
+        static var assetDetail = "/app/check/daily/getCheckResult"
         static var inventoryStatus = "app/dict/getMapByDictName"
         static var inventoryStatusDictionary = "check_status_daily"
+        static var userStaffList = "app/user/staffList"
+        static var principalStaffList = "app/principal/staffList"
+        static var assetDetailByScan = "app/check/daily/getCheckResultByScan"
+
+        static func staffList(_ category: Staff.Category) -> String {
+            switch category {
+            case .user: return userStaffList
+            case .principal: return principalStaffList
+            }
+        }
     }
 
     case login(LoginParameter)
@@ -28,6 +38,8 @@ enum APIRouter: URLRequestConvertible {
     case assetInventoryList(AssetInventoryListParameter)
     case assetDetail(AssetDetailParameter)
     case inventoryStatus
+    case staffList(StaffListParameter)
+    case assetDetailByScan(LocationScanParameter)
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -41,7 +53,9 @@ enum APIRouter: URLRequestConvertible {
              .updateLocation,
              .assetInventoryList,
              .assetDetail,
-             .inventoryStatus:
+             .inventoryStatus,
+             .staffList,
+             .assetDetailByScan:
             return .post
         }
     }
@@ -54,7 +68,9 @@ enum APIRouter: URLRequestConvertible {
         case .updateLocation: return pathComponents(with: Constants.updateLocationCoordinate)
         case .assetInventoryList: return pathComponents(with: Constants.assetInventoryList)
         case .assetDetail: return pathComponents(with: Constants.assetDetail)
+        case .assetDetailByScan: return pathComponents(with: Constants.assetDetailByScan)
         case .inventoryStatus: return pathComponents(with: Constants.inventoryStatus)
+        case .staffList(let parameters): return pathComponents(with: Constants.staffList(parameters.category))
         }
     }
 
@@ -80,8 +96,12 @@ enum APIRouter: URLRequestConvertible {
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .assetDetail(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .assetDetailByScan(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
         case .inventoryStatus:
             let parameters = [API.Keys.DictionaryName.rawValue: Constants.inventoryStatusDictionary]
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .staffList(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         }
 

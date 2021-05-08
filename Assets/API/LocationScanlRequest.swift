@@ -8,14 +8,16 @@
 
 import Foundation
 
-struct AssetDetailRequest: RequestRepresentable {}
+struct LocationScanRequest: RequestRepresentable {}
 
-struct AssetDetailParameter: Encodable {
-    let assetId: String
+struct LocationScanParameter: Encodable {
+    let tagNumber: String
+    let realLocationCode: String
     let checkPerson: String
+    let realLocationName: String
 }
 
-struct AssetDetailResponse: DataResponse {
+struct LocationScanResponse: DataResponse {
     var status: Int = 0
     var msg: String = App.Constants.Default.string
     var data: AssetDetail?
