@@ -1,0 +1,33 @@
+{
+  "status": 0,
+  "data": {
+    "isCheck": false,
+    "assetId": "8a93e7d97297436401729750684a6b6a",
+    "tagNumber": "3210-01008789",
+    "assetName": "智能电动密集架5",
+    "checkTime": "2021-05-08 00:59:36",
+    "checkStatus": "2",
+    "checkStatusName": "盘盈",
+    "realLocationCode": "303210CK00000017",
+    "realLocationName": "山东省德州市齐河县华店乡308国道南省仓库",
+    "locationCode": "3210BG00000003",
+    "locationName": "山东省,济南市,市中区,杆石桥街道办事处,-,大纬二路84号三楼",
+    "checkPerson": "wangwenwensh",
+    "lastCheckPerson": "wangwenwensh",
+    "manufactureName": "5",
+    "modelNumber": "5",
+    "quantity": 1,
+    "dutyPerson": "邱媛",
+    "dutyPersonName": "邱媛",
+    "usePerson": "qiuyuan",
+    "usePersonName": "邱媛",
+    "typeDescriptionCode": "03.07-02-02-02.0000",
+    "typeDescriptionName": "管理用.办公设备和家具-家具-文件柜-密集柜.密集柜",
+    "longitude": "108.847733",
+    "latitude": "34.244503",
+    "mapLocationDesc": "MapData{longitude='108.847733', latitude='34.244503', address='中国陕西省西安市雁塔区鱼化寨街道石桥一路', addrStr='中国陕西省西安市雁塔区鱼化寨街道石桥一路', altitude='null', countryName='中国', provinceName='陕西省', cityName='西安市', district='雁塔区', town='鱼化寨街道', street='石桥一路', streetNumber='', floor='null', locTypeDescription='NetWork location successful!'}",
+    "assetCheckItem": "0",
+    "assetCheckItemName": "在用",
+    "resourceNumber": "哈哈还差"
+  }
+}

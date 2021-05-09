@@ -3,6 +3,7 @@
 // Copyright (c) 2021 ZhiHui.Li. All rights reserved.
 //
 
+import DropDown
 import Foundation
 import ZLPhotoBrowser
 
@@ -34,6 +35,25 @@ class Appearance {
         }
     }
 
+    enum TextColor {
+        case dropdown
+
+        var color: UIColor {
+            switch self {
+            case .dropdown: return XCColor.dropdownTextColor.color
+            }
+        }
+    }
+
+    enum SelectedTextColor {
+        case dropdown
+        var color: UIColor {
+            switch self {
+            case .dropdown: return XCColor.primaryTextColor.color
+            }
+        }
+    }
+
     func launch() {
         configureUIKitAppearance()
         configurePhotoAppearance()
@@ -57,5 +77,10 @@ class Appearance {
         photoConfiguration.maxSelectCount = 1
         photoConfiguration.themeColorDeploy.thumbnailBgColor = .white
         photoConfiguration.themeColorDeploy.navBarColor = XCAssets.Colors.primaryColor.color
+    }
+
+    func configureDropDownAppearance() {
+        DropDown.appearance().textColor = TextColor.dropdown.color
+        DropDown.appearance().selectedTextColor = SelectedTextColor.dropdown.color
     }
 }

@@ -46,7 +46,7 @@ class StaffListViewController: BaseTableViewController, TableViewControllerPagea
         case .principal:
             destination.viewModel.principal = viewModel.itemAtIndexPath(indexPath: indexPath)
         case .user:
-            destination.viewModel.principal = viewModel.itemAtIndexPath(indexPath: indexPath)
+            destination.viewModel.user = viewModel.itemAtIndexPath(indexPath: indexPath)
         }
     }
 }

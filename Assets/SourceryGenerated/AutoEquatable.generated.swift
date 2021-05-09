@@ -34,9 +34,9 @@ internal func == (lhs: Asset, rhs: Asset) -> Bool {
     guard lhs.checkStatusName == rhs.checkStatusName else { return false }
     return true
 }
-// MARK: - AssetDetail AutoEquatable
-extension AssetDetail: Equatable {}
-internal func == (lhs: AssetDetail, rhs: AssetDetail) -> Bool {
+// MARK: - AssetInventoryListDetail AutoEquatable
+extension AssetInventoryListDetail: Equatable {}
+internal func == (lhs: AssetInventoryListDetail, rhs: AssetInventoryListDetail) -> Bool {
     guard lhs.isCheck == rhs.isCheck else { return false }
     guard lhs.assetId == rhs.assetId else { return false }
     guard lhs.tagNumber == rhs.tagNumber else { return false }
@@ -65,6 +65,52 @@ internal func == (lhs: AssetDetail, rhs: AssetDetail) -> Bool {
     guard lhs.assetCheckItem == rhs.assetCheckItem else { return false }
     guard lhs.assetCheckItemName == rhs.assetCheckItemName else { return false }
     guard lhs.resourceNumber == rhs.resourceNumber else { return false }
+    return true
+}
+// MARK: - AssetListDetail AutoEquatable
+extension AssetListDetail: Equatable {}
+internal func == (lhs: AssetListDetail, rhs: AssetListDetail) -> Bool {
+    guard lhs.isCheck == rhs.isCheck else { return false }
+    guard lhs.assetId == rhs.assetId else { return false }
+    guard lhs.assetKindId == rhs.assetKindId else { return false }
+    guard lhs.bookTypeCode == rhs.bookTypeCode else { return false }
+    guard lhs.assetNumber == rhs.assetNumber else { return false }
+    guard lhs.tagNumber == rhs.tagNumber else { return false }
+    guard lhs.assetName == rhs.assetName else { return false }
+    guard lhs.manufactureName == rhs.manufactureName else { return false }
+    guard lhs.modelNumber == rhs.modelNumber else { return false }
+    guard lhs.keyId == rhs.keyId else { return false }
+    guard lhs.quantity == rhs.quantity else { return false }
+    guard lhs.uom == rhs.uom else { return false }
+    guard lhs.regionIdCompany == rhs.regionIdCompany else { return false }
+    guard lhs.regionIdDept == rhs.regionIdDept else { return false }
+    guard lhs.regionIdManage == rhs.regionIdManage else { return false }
+    guard lhs.assetLocationId == rhs.assetLocationId else { return false }
+    guard lhs.assetLocationCode == rhs.assetLocationCode else { return false }
+    guard lhs.assetLocationName == rhs.assetLocationName else { return false }
+    guard lhs.dutyPersonId == rhs.dutyPersonId else { return false }
+    guard lhs.dutyPersonCode == rhs.dutyPersonCode else { return false }
+    guard lhs.dutyPersonName == rhs.dutyPersonName else { return false }
+    guard lhs.usedPersonId == rhs.usedPersonId else { return false }
+    guard lhs.usedPersonAccount == rhs.usedPersonAccount else { return false }
+    guard lhs.usedPersonName == rhs.usedPersonName else { return false }
+    guard lhs.assetUsedStatus == rhs.assetUsedStatus else { return false }
+    guard lhs.assetStatus == rhs.assetStatus else { return false }
+    guard lhs.erpCreationDate == rhs.erpCreationDate else { return false }
+    guard lhs.enableDate == rhs.enableDate else { return false }
+    guard lhs.assetKindName == rhs.assetKindName else { return false }
+    guard lhs.typeDescriptionCode == rhs.typeDescriptionCode else { return false }
+    guard lhs.typeDescriptionName == rhs.typeDescriptionName else { return false }
+    guard lhs.assetStatusName == rhs.assetStatusName else { return false }
+    guard lhs.keyCode == rhs.keyCode else { return false }
+    guard lhs.keyName == rhs.keyName else { return false }
+    guard lhs.companyName == rhs.companyName else { return false }
+    guard lhs.deptName == rhs.deptName else { return false }
+    guard lhs.manageDeptName == rhs.manageDeptName else { return false }
+    guard lhs.erpType == rhs.erpType else { return false }
+    guard lhs.erpTypeName == rhs.erpTypeName else { return false }
+    guard lhs.isWlKind == rhs.isWlKind else { return false }
+    guard lhs.queryStatus == rhs.queryStatus else { return false }
     return true
 }
 // MARK: - Credential AutoEquatable

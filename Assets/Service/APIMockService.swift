@@ -16,64 +16,60 @@ final class APIMockService {
     public static let shared = APIMockService()
 
     let login = APIRouter.login(LoginParameter(userAccount: "wangwenwensh", userPwd: "1"))
-    let locationList = APIRouter.locationList(
-        LocationListParameter(pageNumber: "1",
-                              pageSize: "15",
-                              regionIdCompany: "asdsadsa",
-                              appSearchText: "")
-    )
+    let locationList = APIRouter.locationList(LocationListParameter(pageNumber: "1",
+                                                                    pageSize: "15",
+                                                                    regionIdCompany: "asdsadsa",
+                                                                    appSearchText: ""))
 
     let locationDetailByCode = APIRouter.locationDetailById(LocationDetailParameter(locationId: "asdsa1321"))
 
-    let updateLocationCoordinate = APIRouter.updateLocation(
-        UpdateLocationParameter(locationId: "sadsada",
-                                locationCode: "csakjd",
-                                longitude: "180.12321321",
-                                latitude: "32.29421942",
-                                mapLocationDesc: "dsa")
-    )
+    let updateLocationCoordinate = APIRouter.updateLocation(UpdateLocationParameter(locationId: "sadsada",
+                                                                                    locationCode: "csakjd",
+                                                                                    longitude: "180.12321321",
+                                                                                    latitude: "32.29421942",
+                                                                                    mapLocationDesc: "dsa"))
 
-    let assetInventoryList = APIRouter.assetInventoryList(
-        AssetInventoryListParameter(pageNumber: "1",
-                                    pageSize: "213",
-                                    locationId: "sadadas",
-                                    checkPerson: "dsadas",
-                                    appSearchText: "",
-                                    assetLocationId: "dsadsa",
-                                    total: "2",
-                                    regionIdCompany: "sdadsad",
-                                    locationCode: "dadsadsa",
-                                    appCheckStatus: "dsadsa")
-    )
+    let assetInventoryList = APIRouter.assetInventoryList(AssetInventoryListParameter(pageNumber: "1",
+                                                                                      pageSize: "213",
+                                                                                      locationId: "sadadas",
+                                                                                      checkPerson: "dsadas",
+                                                                                      appSearchText: "",
+                                                                                      assetLocationId: "dsadsa",
+                                                                                      total: "2",
+                                                                                      regionIdCompany: "sdadsad",
+                                                                                      locationCode: "dadsadsa",
+                                                                                      appCheckStatus: "dsadsa"))
 
-    let assetDetail = APIRouter.assetDetail(
-        AssetDetailParameter(assetId: "sdasd",
-                             checkPerson: "dsadsa")
-    )
+    let assetDetailByInventoryList = APIRouter.assetDetailByInventoryList(AssetInventoryListDetailParameter(assetId: "sdasd",
+                                                                                                            checkPerson: "dsadsa"))
 
     let assetDetailByScan = APIRouter.assetDetailByScan(LocationScanParameter(tagNumber: "asdas",
                                                                               realLocationCode: "dsadsa",
                                                                               checkPerson: "dsadsa",
-                                                                              realLocationName: "dsadsa")
-    )
+                                                                              realLocationName: "dsadsa"))
 
     let inventoryStatus = APIRouter.inventoryStatus
+    let assetStatus = APIRouter.assetStatus
 
-    let principalStaffList = APIRouter.staffList(
-        StaffListParameter(pageNumber: "1",
-                           pageSize: "2",
-                           regionIdCompany: "2",
-                           appSearchText: "ff",
-                           category: .principal)
-    )
+    let principalStaffList = APIRouter.staffList(StaffListParameter(pageNumber: "1",
+                                                                    pageSize: "2",
+                                                                    regionIdCompany: "2",
+                                                                    appSearchText: "ff",
+                                                                    category: .principal))
 
-    let userStaffList = APIRouter.staffList(
-        StaffListParameter(pageNumber: "1",
-                           pageSize: "2",
-                           regionIdCompany: "2",
-                           appSearchText: "ff",
-                           category: .user)
-    )
+    let userStaffList = APIRouter.staffList(StaffListParameter(pageNumber: "1",
+                                                               pageSize: "2",
+                                                               regionIdCompany: "2",
+                                                               appSearchText: "ff",
+                                                               category: .user))
+
+    let assetList = APIRouter.assetList(AssetListParameter(pageNumber: "1",
+                                                           pageSize: "2",
+                                                           regionIdCompany: "2",
+                                                           appSearchText: "ff"))
+
+    let assetDetailByAssetList = APIRouter.assetDetailByAssetList(AssetListDetailParameter(assetId: "sdasd",
+                                                                                           checkPerson: "dsadsa"))
 
     lazy var mockers: [Mock] = {
         [
@@ -92,13 +88,19 @@ final class APIMockService {
             Mock(router: assetInventoryList, dataType: .json, statusCode: 200, data: [
                 .post: API.AssetInventoryListResponse.data,
             ]),
-            Mock(router: assetDetail, dataType: .json, statusCode: 200, data: [
-                .post: API.AssetDetailResponse.data,
+            Mock(router: assetDetailByInventoryList, dataType: .json, statusCode: 200, data: [
+                .post: API.AssetDetailByInventoryListResponse.data,
+            ]),
+            Mock(router: assetDetailByAssetList, dataType: .json, statusCode: 200, data: [
+                .post: API.AssetListDetailResponse.data,
             ]),
             Mock(router: assetDetailByScan, dataType: .json, statusCode: 200, data: [
-                .post: API.InventoryStatusResponse.data,
+                .post: API.AssetDetailByLocationScanResponse.data,
             ]),
             Mock(router: inventoryStatus, dataType: .json, statusCode: 200, data: [
+                .post: API.InventoryStatusResponse.data,
+            ]),
+            Mock(router: assetStatus, dataType: .json, statusCode: 200, data: [
                 .post: API.InventoryStatusResponse.data,
             ]),
             Mock(router: principalStaffList, dataType: .json, statusCode: 200, data: [
@@ -106,6 +108,9 @@ final class APIMockService {
             ]),
             Mock(router: userStaffList, dataType: .json, statusCode: 200, data: [
                 .post: API.UserStaffListResponse.data,
+            ]),
+            Mock(router: assetList, dataType: .json, statusCode: 200, data: [
+                .post: API.AssetListResponse.data,
             ]),
         ]
     }()

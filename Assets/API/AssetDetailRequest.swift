@@ -8,15 +8,7 @@
 
 import Foundation
 
-struct AssetDetailRequest: RequestRepresentable {}
-
-struct AssetDetailParameter: Encodable {
-    let assetId: String
-    let checkPerson: String
-}
-
-struct AssetDetailResponse: DataResponse {
-    var status: Int = 0
-    var msg: String = App.Constants.Default.string
-    var data: AssetDetail?
+protocol AssetDetailParameterRepresentable: Encodable {
+    var assetId: String { get }
+    var checkPerson: String { get }
 }

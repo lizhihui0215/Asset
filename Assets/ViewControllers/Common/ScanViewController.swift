@@ -20,25 +20,20 @@ class ScanViewController: BaseViewController {
         stopScanning()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startScanning()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.layer.backgroundColor = UIColor.clear.cgColor
         view.layer.insertSublayer(viewModel.previewLayer, at: 0)
         viewModel.previewLayer.frame = UIScreen.main.bounds
-        launchScanner()
+        startScanning()
         if !viewModel.isTorchAvailable {
             buttonStackView.removeArrangedSubview(torchButton)
             torchButton.removeFromSuperview()
-        }
-    }
-
-    func launchScanner() {
-        scanAnimationImageView.startAnimation()
-        viewModel.launchScanner().onSuccess { [weak self] _ in
-            guard let self = self else { return }
-            `self`.finishedButton.isEnabled = true
-        }.onFailure { _ in
-            `self`.finishedButton.isEnabled = false
         }
     }
 
@@ -48,8 +43,15 @@ class ScanViewController: BaseViewController {
     }
 
     private func startScanning() {
-        viewModel.startScanning()
+        `self`.finishedButton.isEnabled = false
         scanAnimationImageView.startAnimation()
+        viewModel.startScanning().onSuccess { [weak self] _ in
+            guard let self = self else { return }
+            `self`.scanAnimationImageView.stopAnimation()
+            `self`.finishedButton.isEnabled = true
+        }.onFailure { _ in
+            `self`.finishedButton.isEnabled = false
+        }
     }
 
     @IBAction func flashTapped(_ sender: AnimatableButton) {

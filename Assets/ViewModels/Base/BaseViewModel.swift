@@ -67,6 +67,10 @@ class BaseViewModel<T: UIViewController>: ViewModelRepresentable, Validation {
         api(of: InventoryStatusResponse.self, router: .inventoryStatus)
     }
 
+    func fetchAssetStatus() -> ViewModelFuture<AssetStatus?> {
+        api(of: AssetStatusResponse.self, router: .assetStatus)
+    }
+
     func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
         fatalError("sub class must implement for \(action)")
     }

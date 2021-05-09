@@ -25,7 +25,7 @@ extension Asset {
 
 }
 
-extension AssetDetail {
+extension AssetInventoryListDetail {
 
     enum CodingKeys: String, CodingKey {
         case isCheck
@@ -61,34 +61,128 @@ extension AssetDetail {
     internal init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetDetail.defaultIsCheck
-        assetId = (try? container.decode(String.self, forKey: .assetId)) ?? AssetDetail.defaultAssetId
-        tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? AssetDetail.defaultTagNumber
-        assetName = (try? container.decode(String.self, forKey: .assetName)) ?? AssetDetail.defaultAssetName
-        checkTime = (try? container.decode(String.self, forKey: .checkTime)) ?? AssetDetail.defaultCheckTime
-        checkStatus = (try? container.decode(String.self, forKey: .checkStatus)) ?? AssetDetail.defaultCheckStatus
-        checkStatusName = (try? container.decode(String.self, forKey: .checkStatusName)) ?? AssetDetail.defaultCheckStatusName
-        realLocationCode = (try? container.decode(String.self, forKey: .realLocationCode)) ?? AssetDetail.defaultRealLocationCode
-        realLocationName = (try? container.decode(String.self, forKey: .realLocationName)) ?? AssetDetail.defaultRealLocationName
-        locationCode = (try? container.decode(String.self, forKey: .locationCode)) ?? AssetDetail.defaultLocationCode
-        locationName = (try? container.decode(String.self, forKey: .locationName)) ?? AssetDetail.defaultLocationName
-        checkPerson = (try? container.decode(String.self, forKey: .checkPerson)) ?? AssetDetail.defaultCheckPerson
-        lastCheckPerson = (try? container.decode(String.self, forKey: .lastCheckPerson)) ?? AssetDetail.defaultLastCheckPerson
-        manufactureName = (try? container.decode(String.self, forKey: .manufactureName)) ?? AssetDetail.defaultManufactureName
-        modelNumber = (try? container.decode(String.self, forKey: .modelNumber)) ?? AssetDetail.defaultModelNumber
-        quantity = (try? container.decode(Int.self, forKey: .quantity)) ?? AssetDetail.defaultQuantity
-        dutyPerson = (try? container.decode(String.self, forKey: .dutyPerson)) ?? AssetDetail.defaultDutyPerson
-        dutyPersonName = (try? container.decode(String.self, forKey: .dutyPersonName)) ?? AssetDetail.defaultDutyPersonName
-        usePerson = (try? container.decode(String.self, forKey: .usePerson)) ?? AssetDetail.defaultUsePerson
-        usePersonName = (try? container.decode(String.self, forKey: .usePersonName)) ?? AssetDetail.defaultUsePersonName
-        typeDescriptionCode = (try? container.decode(String.self, forKey: .typeDescriptionCode)) ?? AssetDetail.defaultTypeDescriptionCode
-        typeDescriptionName = (try? container.decode(String.self, forKey: .typeDescriptionName)) ?? AssetDetail.defaultTypeDescriptionName
-        longitude = (try? container.decode(String.self, forKey: .longitude)) ?? AssetDetail.defaultLongitude
-        latitude = (try? container.decode(String.self, forKey: .latitude)) ?? AssetDetail.defaultLatitude
-        mapLocationDesc = (try? container.decode(String.self, forKey: .mapLocationDesc)) ?? AssetDetail.defaultMapLocationDesc
-        assetCheckItem = (try? container.decode(String.self, forKey: .assetCheckItem)) ?? AssetDetail.defaultAssetCheckItem
-        assetCheckItemName = (try? container.decode(String.self, forKey: .assetCheckItemName)) ?? AssetDetail.defaultAssetCheckItemName
-        resourceNumber = (try? container.decode(String.self, forKey: .resourceNumber)) ?? AssetDetail.defaultResourceNumber
+        isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetInventoryListDetail.defaultIsCheck
+        assetId = (try? container.decode(String.self, forKey: .assetId)) ?? AssetInventoryListDetail.defaultAssetId
+        tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? AssetInventoryListDetail.defaultTagNumber
+        assetName = (try? container.decode(String.self, forKey: .assetName)) ?? AssetInventoryListDetail.defaultAssetName
+        checkTime = (try? container.decode(String.self, forKey: .checkTime)) ?? AssetInventoryListDetail.defaultCheckTime
+        checkStatus = (try? container.decode(String.self, forKey: .checkStatus)) ?? AssetInventoryListDetail.defaultCheckStatus
+        checkStatusName = (try? container.decode(String.self, forKey: .checkStatusName)) ?? AssetInventoryListDetail.defaultCheckStatusName
+        realLocationCode = (try? container.decode(String.self, forKey: .realLocationCode)) ?? AssetInventoryListDetail.defaultRealLocationCode
+        realLocationName = (try? container.decode(String.self, forKey: .realLocationName)) ?? AssetInventoryListDetail.defaultRealLocationName
+        locationCode = (try? container.decode(String.self, forKey: .locationCode)) ?? AssetInventoryListDetail.defaultLocationCode
+        locationName = (try? container.decode(String.self, forKey: .locationName)) ?? AssetInventoryListDetail.defaultLocationName
+        checkPerson = (try? container.decode(String.self, forKey: .checkPerson)) ?? AssetInventoryListDetail.defaultCheckPerson
+        lastCheckPerson = (try? container.decode(String.self, forKey: .lastCheckPerson)) ?? AssetInventoryListDetail.defaultLastCheckPerson
+        manufactureName = (try? container.decode(String.self, forKey: .manufactureName)) ?? AssetInventoryListDetail.defaultManufactureName
+        modelNumber = (try? container.decode(String.self, forKey: .modelNumber)) ?? AssetInventoryListDetail.defaultModelNumber
+        quantity = (try? container.decode(Int.self, forKey: .quantity)) ?? AssetInventoryListDetail.defaultQuantity
+        dutyPerson = (try? container.decode(String.self, forKey: .dutyPerson)) ?? AssetInventoryListDetail.defaultDutyPerson
+        dutyPersonName = (try? container.decode(String.self, forKey: .dutyPersonName)) ?? AssetInventoryListDetail.defaultDutyPersonName
+        usePerson = (try? container.decode(String.self, forKey: .usePerson)) ?? AssetInventoryListDetail.defaultUsePerson
+        usePersonName = (try? container.decode(String.self, forKey: .usePersonName)) ?? AssetInventoryListDetail.defaultUsePersonName
+        typeDescriptionCode = (try? container.decode(String.self, forKey: .typeDescriptionCode)) ?? AssetInventoryListDetail.defaultTypeDescriptionCode
+        typeDescriptionName = (try? container.decode(String.self, forKey: .typeDescriptionName)) ?? AssetInventoryListDetail.defaultTypeDescriptionName
+        longitude = (try? container.decode(String.self, forKey: .longitude)) ?? AssetInventoryListDetail.defaultLongitude
+        latitude = (try? container.decode(String.self, forKey: .latitude)) ?? AssetInventoryListDetail.defaultLatitude
+        mapLocationDesc = (try? container.decode(String.self, forKey: .mapLocationDesc)) ?? AssetInventoryListDetail.defaultMapLocationDesc
+        assetCheckItem = (try? container.decode(String.self, forKey: .assetCheckItem)) ?? AssetInventoryListDetail.defaultAssetCheckItem
+        assetCheckItemName = (try? container.decode(String.self, forKey: .assetCheckItemName)) ?? AssetInventoryListDetail.defaultAssetCheckItemName
+        resourceNumber = (try? container.decode(String.self, forKey: .resourceNumber)) ?? AssetInventoryListDetail.defaultResourceNumber
+    }
+
+}
+
+extension AssetListDetail {
+
+    enum CodingKeys: String, CodingKey {
+        case isCheck
+        case assetId
+        case assetKindId
+        case bookTypeCode
+        case assetNumber
+        case tagNumber
+        case assetName
+        case manufactureName
+        case modelNumber
+        case keyId
+        case quantity
+        case uom
+        case regionIdCompany
+        case regionIdDept
+        case regionIdManage
+        case assetLocationId
+        case assetLocationCode
+        case assetLocationName
+        case dutyPersonId
+        case dutyPersonCode
+        case dutyPersonName
+        case usedPersonId
+        case usedPersonAccount
+        case usedPersonName
+        case assetUsedStatus
+        case assetStatus
+        case erpCreationDate
+        case enableDate
+        case assetKindName
+        case typeDescriptionCode
+        case typeDescriptionName
+        case assetStatusName
+        case keyCode
+        case keyName
+        case companyName
+        case deptName
+        case manageDeptName
+        case erpType
+        case erpTypeName
+        case isWlKind
+        case queryStatus
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetListDetail.defaultIsCheck
+        assetId = (try? container.decode(String.self, forKey: .assetId)) ?? AssetListDetail.defaultAssetId
+        assetKindId = (try? container.decode(String.self, forKey: .assetKindId)) ?? AssetListDetail.defaultAssetKindId
+        bookTypeCode = (try? container.decode(String.self, forKey: .bookTypeCode)) ?? AssetListDetail.defaultBookTypeCode
+        assetNumber = (try? container.decode(String.self, forKey: .assetNumber)) ?? AssetListDetail.defaultAssetNumber
+        tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? AssetListDetail.defaultTagNumber
+        assetName = (try? container.decode(String.self, forKey: .assetName)) ?? AssetListDetail.defaultAssetName
+        manufactureName = (try? container.decode(String.self, forKey: .manufactureName)) ?? AssetListDetail.defaultManufactureName
+        modelNumber = (try? container.decode(String.self, forKey: .modelNumber)) ?? AssetListDetail.defaultModelNumber
+        keyId = (try? container.decode(String.self, forKey: .keyId)) ?? AssetListDetail.defaultKeyId
+        quantity = (try? container.decode(Int.self, forKey: .quantity)) ?? AssetListDetail.defaultQuantity
+        uom = (try? container.decode(String.self, forKey: .uom)) ?? AssetListDetail.defaultUom
+        regionIdCompany = (try? container.decode(String.self, forKey: .regionIdCompany)) ?? AssetListDetail.defaultRegionIdCompany
+        regionIdDept = (try? container.decode(String.self, forKey: .regionIdDept)) ?? AssetListDetail.defaultRegionIdDept
+        regionIdManage = (try? container.decode(String.self, forKey: .regionIdManage)) ?? AssetListDetail.defaultRegionIdManage
+        assetLocationId = (try? container.decode(String.self, forKey: .assetLocationId)) ?? AssetListDetail.defaultAssetLocationId
+        assetLocationCode = (try? container.decode(String.self, forKey: .assetLocationCode)) ?? AssetListDetail.defaultAssetLocationCode
+        assetLocationName = (try? container.decode(String.self, forKey: .assetLocationName)) ?? AssetListDetail.defaultAssetLocationName
+        dutyPersonId = (try? container.decode(String.self, forKey: .dutyPersonId)) ?? AssetListDetail.defaultDutyPersonId
+        dutyPersonCode = (try? container.decode(String.self, forKey: .dutyPersonCode)) ?? AssetListDetail.defaultDutyPersonCode
+        dutyPersonName = (try? container.decode(String.self, forKey: .dutyPersonName)) ?? AssetListDetail.defaultDutyPersonName
+        usedPersonId = (try? container.decode(String.self, forKey: .usedPersonId)) ?? AssetListDetail.defaultUsedPersonId
+        usedPersonAccount = (try? container.decode(String.self, forKey: .usedPersonAccount)) ?? AssetListDetail.defaultUsedPersonAccount
+        usedPersonName = (try? container.decode(String.self, forKey: .usedPersonName)) ?? AssetListDetail.defaultUsedPersonName
+        assetUsedStatus = (try? container.decode(String.self, forKey: .assetUsedStatus)) ?? AssetListDetail.defaultAssetUsedStatus
+        assetStatus = (try? container.decode(String.self, forKey: .assetStatus)) ?? AssetListDetail.defaultAssetStatus
+        erpCreationDate = (try? container.decode(String.self, forKey: .erpCreationDate)) ?? AssetListDetail.defaultErpCreationDate
+        enableDate = (try? container.decode(String.self, forKey: .enableDate)) ?? AssetListDetail.defaultEnableDate
+        assetKindName = (try? container.decode(String.self, forKey: .assetKindName)) ?? AssetListDetail.defaultAssetKindName
+        typeDescriptionCode = (try? container.decode(String.self, forKey: .typeDescriptionCode)) ?? AssetListDetail.defaultTypeDescriptionCode
+        typeDescriptionName = (try? container.decode(String.self, forKey: .typeDescriptionName)) ?? AssetListDetail.defaultTypeDescriptionName
+        assetStatusName = (try? container.decode(String.self, forKey: .assetStatusName)) ?? AssetListDetail.defaultAssetStatusName
+        keyCode = (try? container.decode(String.self, forKey: .keyCode)) ?? AssetListDetail.defaultKeyCode
+        keyName = (try? container.decode(String.self, forKey: .keyName)) ?? AssetListDetail.defaultKeyName
+        companyName = (try? container.decode(String.self, forKey: .companyName)) ?? AssetListDetail.defaultCompanyName
+        deptName = (try? container.decode(String.self, forKey: .deptName)) ?? AssetListDetail.defaultDeptName
+        manageDeptName = (try? container.decode(String.self, forKey: .manageDeptName)) ?? AssetListDetail.defaultManageDeptName
+        erpType = (try? container.decode(String.self, forKey: .erpType)) ?? AssetListDetail.defaultErpType
+        erpTypeName = (try? container.decode(String.self, forKey: .erpTypeName)) ?? AssetListDetail.defaultErpTypeName
+        isWlKind = (try? container.decode(String.self, forKey: .isWlKind)) ?? AssetListDetail.defaultIsWlKind
+        queryStatus = (try? container.decode(String.self, forKey: .queryStatus)) ?? AssetListDetail.defaultQueryStatus
     }
 
 }

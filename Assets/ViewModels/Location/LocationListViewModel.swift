@@ -29,8 +29,9 @@ class LocationListViewModel: PageableViewModel<LocationListViewController, Defau
 
         return api(of: LocationListResponse.self, router: .locationList(parameter))
             .onSuccess { [weak self] locations in
-                guard var first = self?.first else { return }
-                first.append(contentsOf: locations)
+                guard let first = self?.first else { return }
+                guard isPaging else { first.items = locations; return }
+                first.items.append(contentsOf: locations)
             }
     }
 

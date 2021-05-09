@@ -24,14 +24,14 @@ class LocationInventoryScanViewModel: ScanViewModel {
 
     private var locationDetail: LocationDetail
 
-    public var assetDetail: AssetDetail?
+    public var assetDetail: AssetInventoryListDetail?
 
     init(request: LocationScanRequest, action: ScanViewController, locationDetail: LocationDetail) {
         self.locationDetail = locationDetail
         super.init(request: request, action: action)
     }
 
-    func fetchAssetDetail() -> ViewModelFuture<AssetDetail?> {
+    func fetchAssetDetail() -> ViewModelFuture<AssetInventoryListDetail?> {
         let locationScanParameters = LocationScanParameter(
             tagNumber: tagNumber,
             realLocationCode: realLocationCode,
@@ -53,11 +53,11 @@ class LocationInventoryScanViewModel: ScanViewModel {
     override func viewModel<T: ViewModelRepresentable>(for action: UIKit.UIViewController, with sender: Any?) -> T {
         switch action {
         case let action as AssetDetailViewController:
-            guard let assetDetail = self.assetDetail else { break }
-            return AssetDetailViewModel(request: AssetDetailRequest(),
-                                        action: action,
-                                        viewState: .editing,
-                                        assetDetail: assetDetail) as! T
+            guard let assetDetail = assetDetail else { break }
+            return AssetInventoryListDetailViewModel(request: AssetInventoryListRequest(),
+                                                     action: action,
+                                                     viewState: .editing,
+                                                     assetDetail: assetDetail) as! T
         default: break
         }
         return super.viewModel(for: action, with: sender)
@@ -66,7 +66,7 @@ class LocationInventoryScanViewModel: ScanViewModel {
     // swiftlint:enable force_cast
 
     override func handApiError(router: APIRouter, error: Error) {
-        guard case .assetDetail = router else {
+        guard case .assetDetailByInventoryList = router else {
             super.handApiError(router: router, error: error)
             return
         }

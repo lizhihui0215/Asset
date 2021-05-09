@@ -7,16 +7,16 @@ import DropDown
 import Foundation
 
 class AssetDetailViewController: BaseViewController {
-    enum ViewState {
+    enum ViewState: Equatable {
         case editing
-        case viewing
+        case viewing(isHiddenCoordinate: Bool = false)
     }
 
     var viewModel: AssetDetailViewModel!
 
     @IBOutlet var containerStackView: UIStackView!
     @IBOutlet var inventoryStatusLabel: UILabel!
-    @IBOutlet var statusLabel: AnimatableButton!
+    @IBOutlet var statusButton: AnimatableButton!
     @IBOutlet var deviceSerialTextField: AnimatableTextField!
     @IBOutlet var tagNumberLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
@@ -30,6 +30,8 @@ class AssetDetailViewController: BaseViewController {
     @IBOutlet var principalTextField: AnimatableTextField!
     @IBOutlet var userTextField: AnimatableTextField!
     @IBOutlet var systemLongitudeLabel: UILabel!
+    @IBOutlet var principalTapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet var userTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet var systemLatitudeLabel: UILabel!
     @IBOutlet var longitudeLabel: UILabel!
     @IBOutlet var latitudeLabel: UILabel!
@@ -41,8 +43,20 @@ class AssetDetailViewController: BaseViewController {
     @IBOutlet var hiddenViewsForEditing: [UIView]!
     @IBOutlet var locationCodeTitleLabel: UILabel!
     @IBOutlet var locationNameTitleLabel: UILabel!
+    @IBOutlet var rightBarButtonItem: UIBarButtonItem!
+    @IBOutlet var longitudeContainerStackView: UIStackView!
+    @IBOutlet var latitudeContainerStackView: UIStackView!
+    @IBOutlet var longitudeStackView: UIStackView!
+    @IBOutlet var latitudeStackView: UIStackView!
+    @IBOutlet var latitudeTitleLabel: UILabel!
+    @IBOutlet var longitudeTitleLabel: UILabel!
+    @IBOutlet var latitudeDivideView: UIView!
+    @IBOutlet var principalSearchImageView: UIImageView!
+    @IBOutlet var longitudeDivideView: UIView!
+    @IBOutlet var userSearchImageView: UIImageView!
+    let dropDown = DropDown()
 
-    var state: ViewState = .viewing {
+    var state: ViewState = .viewing() {
         didSet {
             update(for: state)
         }
@@ -50,36 +64,77 @@ class AssetDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.viewState().onSuccess { [weak self] state in
+        dropDown.anchorView = statusButton
+        dropDown.cellNib = UINib(nibName: "DropDownOptionCell", bundle: nil)
+        dropDown.selectionAction = { [weak self] _, item in
+            guard let self = self else { return }
+            `self`.viewModel.setAssetStatus(for: item)
+            `self`.statusButton.setTitle(item, for: .normal)
+        }
+        viewModel.viewState(isFetch: state == .editing).onSuccess { [weak self] state in
             guard let self = self else { return }
             `self`.update(for: state)
+            `self`.refreshDropDown()
+            guard let item = self.viewModel.selectedAssetStatus?.name else { return }
+            guard let index = self.dropDown.dataSource.firstIndex(of: item) else { return }
+            `self`.dropDown.selectRow(index)
         }
+    }
+
+    private func refreshDropDown() {
+        dropDown.dataSource = viewModel.dropDownOptions
+        dropDown.reloadAllComponents()
     }
 
     private func update(for state: ViewState) {
         switch state {
         case .editing:
-            hiddenViewsForEditing.forEach { [weak self] in
-                guard let self = self else { return }
-                `self`.containerStackView.removeArrangedSubview($0)
-                $0.removeFromSuperview()
+            for view in hiddenViewsForEditing {
+                `self`.containerStackView.removeArrangedSubview(view)
+                view.removeFromSuperview()
             }
-        case .viewing:
-            hiddenViewsForViewing.forEach { [weak self] in
-                guard let self = self else { return }
-                `self`.containerStackView.removeArrangedSubview($0)
-                $0.removeFromSuperview()
+        case .viewing(let isHiddenCoordinate):
+            for view in hiddenViewsForViewing where !`is`(hidden: isHiddenCoordinate, for: view) {
+                `self`.containerStackView.removeArrangedSubview(view)
+                view.removeFromSuperview()
             }
+
+            longitudeStackView.removeFromSuperview()
+            latitudeStackView.removeFromSuperview()
+            principalSearchImageView.removeFromSuperview()
+            userSearchImageView.removeFromSuperview()
+            manufactureTextField.isUserInteractionEnabled = false
+            modelTextField.isUserInteractionEnabled = false
+            amountTextField.isUserInteractionEnabled = false
+            principalTextField.superview?.isUserInteractionEnabled = false
+            userTextField.superview?.isUserInteractionEnabled = false
+            longitudeTitleLabel.text = "经度:"
+            latitudeTitleLabel.text = "纬度:"
             photographButton.heightAnchor ~ 0
-            locationCodeTitleLabel.text = "地点编码"
-            locationCodeTitleLabel.text = "地点名称"
+            locationCodeTitleLabel.text = "地点编码:"
+            locationCodeTitleLabel.text = "地点名称:"
+            rightBarButtonItem.title = "查看照片"
         }
         refreshViews()
     }
 
+    lazy var hiddenForCoordinateViews: [UIView] = {
+        [
+            longitudeContainerStackView,
+            latitudeContainerStackView,
+            longitudeDivideView,
+            latitudeDivideView,
+        ]
+    }()
+
+    func `is`(hidden coordinate: Bool, for view: UIView) -> Bool {
+        guard !hiddenForCoordinateViews.contains(view) else { return false }
+        return coordinate
+    }
+
     func refreshViews() {
         inventoryStatusLabel.text = viewModel.inventoryStatus
-        statusLabel.setTitle(viewModel.status, for: .normal)
+        statusButton.setTitle(viewModel.status, for: .normal)
         deviceSerialTextField.text = viewModel.deviceSerial
         tagNumberLabel.text = viewModel.tagNumber
         nameLabel.text = viewModel.name
@@ -104,7 +159,7 @@ class AssetDetailViewController: BaseViewController {
         updateLocationCoordinates()
     }
 
-    @IBAction func photographTapped(_ sender: AnimatableButton) {}
+    @IBAction func rightBarButtonItemTapped(_ sender: UIBarButtonItem) {}
 
     func updateLocationCoordinates() {
         viewModel.getGPSLocation().onSuccess { [weak self] _ in
@@ -115,7 +170,7 @@ class AssetDetailViewController: BaseViewController {
     }
 
     @IBAction func unwindFromStaffSelected(segue: UIStoryboardSegue) {
-        update(for: .editing)
+        refreshViews()
     }
 
     // MARK: - Navigation
@@ -124,7 +179,7 @@ class AssetDetailViewController: BaseViewController {
         switch segue.destination {
         case let destination as StaffListViewController:
             // swiftlint:disable:next force_cast
-            let category: Staff.Category = (sender as! NSObject) == principalTextField ? .principal : .user
+            let category: Staff.Category = (sender as! NSObject) == principalTapGestureRecognizer ? .principal : .user
             destination.viewModel = viewModel.viewModel(for: destination, with: category)
         default: break
         }

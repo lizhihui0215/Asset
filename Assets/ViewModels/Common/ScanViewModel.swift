@@ -8,7 +8,13 @@ import Foundation
 import UIKit
 
 class ScanViewModel: BaseViewModel<ScanViewController> {
+    enum Constants {
+        static let scanAudioFileName = "scan"
+        static let scanAudioFileExtension = "wav"
+    }
+
     var metadataObject: MetadataObject!
+    var didReceivedMetadataObject: ScanService.DidReceivedMetadataObject?
     typealias SegueIdentifier = String
 
     let scanner = ScanService.shared
@@ -30,30 +36,37 @@ class ScanViewModel: BaseViewModel<ScanViewController> {
         }
     }
 
-    final func launchScanner() -> ViewModelFuture<MetadataObject> {
+    final func startScanning() -> ViewModelFuture<MetadataObject> {
         ViewModelFuture<MetadataObject> { completion in
             scanner.didReceivedMetadataObject = { [weak self] metadataObject, completionHandler in
                 guard let self = self else { return }
                 `self`.metadataObject = metadataObject
                 completionHandler(false)
                 completion(.success(metadataObject))
+                `self`.playBee()
             }
-            startScanning()
+            scanner.startRunning()
         }
+    }
+
+    func playBee() {
+        var soundId: SystemSoundID = 1
+        let audioPath = Bundle.main.url(forResource: Constants.scanAudioFileName, withExtension: Constants.scanAudioFileExtension)
+        let error = AudioServicesCreateSystemSoundID(audioPath! as CFURL, &soundId)
+        log.debug("audio error \(error)")
+        AudioServicesPlaySystemSound(soundId)
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate) // 静音模式下震动
     }
 
     func discernMetadataObject(from image: UIImage) -> Bool {
         guard let metadataObject = scanner.discernMetadataObject(from: image) else { return false }
         self.metadataObject = metadataObject
+        playBee()
         return true
     }
 
     func finished() -> ViewModelFuture<SegueIdentifier> {
         fatalError("sub class must implement this method to handler finished")
-    }
-
-    func startScanning() {
-        scanner.startRunning()
     }
 
     func stopScanning() {

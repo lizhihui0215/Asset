@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct AssetDetail {
+struct AssetInventoryListDetail {
     var isCheck: Bool
     var assetId: String
     var tagNumber: String
@@ -36,9 +36,9 @@ struct AssetDetail {
     var resourceNumber: String
 }
 
-extension AssetDetail: AutoEquatable {}
+extension AssetInventoryListDetail: AutoEquatable {}
 
-extension AssetDetail: AutoCodable {
+extension AssetInventoryListDetail: AutoCodable {
     static var defaultIsCheck = false
     static var defaultAssetId = ""
     static var defaultTagNumber = ""

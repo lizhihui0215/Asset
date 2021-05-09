@@ -1,0 +1,127 @@
+{
+  "page": "1",
+  "total": "682",
+  "records": "15",
+  "rows": [
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172974dd366526c",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3210-01002349",
+      "assetName": "职员椅.职员椅"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172974e0b4c5484",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3210-01002742",
+      "assetName": "不分明细.老板台"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172974e8926593e",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3210-01003987",
+      "assetName": "不分明细.沙发"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172975037f4695c",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3210-01008000",
+      "assetName": "共用 终端设备 Terminal"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172975767623086",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3210-01034905",
+      "assetName": "不分明细.工位坐席"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172975767e7308a",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3210-01034907",
+      "assetName": "不分明细.工位坐席"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d97297436401729758a3c13cd2",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3210-01041520",
+      "assetName": "台式电脑.台式电脑"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d97297436401729758a4493cd8",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3210-01041522",
+      "assetName": "不分明细.台式电脑"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172975dcea16ff4",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3210-01051556",
+      "assetName": "笔记本电脑"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172987ca3987bd0",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "303210G00005054",
+      "assetName": "摄像机"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172987ca3697bcc",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "303210G00005055",
+      "assetName": "摄像机"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172987ca3797bce",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "303210G00005056",
+      "assetName": "摄像机"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172987ca3b77bd2",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "303210G00005057",
+      "assetName": "摄像机"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172987ca2dc7bc2",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "303210G00005058",
+      "assetName": "摄像机"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d9729743640172987ca30b7bc6",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "303210G00005059",
+      "assetName": "摄像机"
+    }
+  ]
+}

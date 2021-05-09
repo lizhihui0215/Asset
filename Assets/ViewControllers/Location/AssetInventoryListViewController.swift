@@ -24,8 +24,6 @@ class AssetInventoryListViewController: BaseTableViewController, TableViewContro
         dropDown.anchorView = inventoryStatusButton
         dropDown.cellNib = UINib(nibName: "DropDownOptionCell", bundle: nil)
         dropDown.dataSource = viewModel.dropDownOptions
-        dropDown.textColor = XCColor.dropdownTextColor.color
-        dropDown.selectedTextColor = XCColor.primaryTextColor.color
         dropDown.selectionAction = { [weak self] _, item in
             guard let self = self else { return }
             `self`.viewModel.setSelectedInventoryStatus(for: item).onSuccess { [weak self] _ in

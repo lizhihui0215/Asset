@@ -81,11 +81,10 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
         )
 
         return api(of: AssetInventoryListResponse.self, router: .assetInventoryList(parameter))
-            .onSuccess { [weak self] locations in
+            .onSuccess { [weak self] assets in
                 guard var first = self?.first else { return }
-                guard isPaging else { first.items = locations; return }
-
-                first.append(contentsOf: locations)
+                guard isPaging else { first.items = assets; return }
+                first.items.append(contentsOf: assets)
             }
     }
 
@@ -97,12 +96,12 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
         case let action as AssetDetailViewController:
             guard let indexPath = sender as? IndexPath else { break }
             let assetId = itemAtIndexPath(indexPath: indexPath).assetId
-            let parameters = AssetDetailParameter(assetId: assetId,
-                                                  checkPerson: checkPerson)
-            return AssetDetailViewModel(request: AssetDetailRequest(),
-                                        action: action,
-                                        viewState: .viewing,
-                                        parameters: parameters) as! T
+            let parameters = AssetInventoryListDetailParameter(assetId: assetId,
+                                                               checkPerson: checkPerson)
+            return AssetInventoryListDetailViewModel(request: AssetListDetailRequest(),
+                                                     action: action,
+                                                     viewState: .viewing(isHiddenCoordinate: false),
+                                                     parameters: parameters) as! T
         default: break
         }
         return super.viewModel(for: action, with: sender)

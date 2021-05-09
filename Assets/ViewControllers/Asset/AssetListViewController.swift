@@ -15,8 +15,10 @@ class AssetListViewController: BaseTableViewController, TableViewControllerPagea
 
     var viewModel: AssetListViewModel!
 
-    // TODO: create view model from source controller
-    // AssetListViewModel(request: AssetListRequest(), action: self)
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        viewModel = AssetListViewModel(request: AssetListRequest(), action: self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,30 +27,17 @@ class AssetListViewController: BaseTableViewController, TableViewControllerPagea
         refreshTable()
     }
 
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destination = segue.destination
-//        let segue = StoryboardSegue.Service(segue)
-//        switch segue {
-//        case .toLocationDetail:
-//            guard let locationListCell: LocationListTableViewCell = segue?.associatedTableViewCell(from: sender),
-//                  let destination = destination as? LocationDetailViewController
-//                    else {
-//                break
-//            }
-//            destination.viewModel = viewModel.locationDetailViewModelAtIndexPath(action: destination, indexPath: locationListCell.viewModel.indexPath)
-//        default: break
-//        }
+        switch segue.destination {
+        case let destination as AssetDetailViewController:
+            guard let sender = sender as? AssetListTableViewCell else { break }
+            destination.viewModel = viewModel.viewModel(for: destination, with: sender.indexPath)
+        default: break
+        }
     }
-
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
 }
 
 extension AssetListViewController: UISearchBarDelegate {
@@ -68,6 +57,9 @@ extension AssetListViewController: UITableViewDataSource {
         guard let cell: AssetListTableViewCell = self.tableView(tableView, cellForRowAt: indexPath) else {
             return UITableViewCell()
         }
+
+        let viewModel: AssetListTableViewCell.ViewModel = self.viewModel.viewModel(for: self, with: cell.indexPath)
+        cell.configurationCell(with: viewModel)
 
         return cell
     }

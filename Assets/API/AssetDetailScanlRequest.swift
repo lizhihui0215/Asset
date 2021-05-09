@@ -20,5 +20,5 @@ struct AssetDetailScanParameter: Encodable {
 struct AssetDetailScanResponse: DataResponse {
     var status: Int = 0
     var msg: String = App.Constants.Default.string
-    var data: AssetDetail?
+    var data: AssetInventoryListDetail?
 }
