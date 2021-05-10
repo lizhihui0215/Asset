@@ -82,7 +82,7 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
 
         return api(of: AssetInventoryListResponse.self, router: .assetInventoryList(parameter))
             .onSuccess { [weak self] assets in
-                guard var first = self?.first else { return }
+                guard let first = self?.first else { return }
                 guard isPaging else { first.items = assets; return }
                 first.items.append(contentsOf: assets)
             }
@@ -100,7 +100,7 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
                                                                checkPerson: checkPerson)
             return AssetInventoryListDetailViewModel(request: AssetListDetailRequest(),
                                                      action: action,
-                                                     viewState: .viewing(isHiddenCoordinate: false),
+                                                     viewState: .viewing(),
                                                      parameters: parameters) as! T
         default: break
         }

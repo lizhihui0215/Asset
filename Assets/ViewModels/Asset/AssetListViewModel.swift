@@ -49,9 +49,25 @@ class AssetListViewModel: PageableViewModel<AssetListViewController, DefaultSect
         case let action as AssetDetailViewController:
             guard let indexPath = sender as? IndexPath else { break }
             let asset = itemAtIndexPath(indexPath: indexPath)
+
+            let configuration = AssetDetailViewController.Configuration(isHiddenCoordinate: true,
+                                                                        isHiddenInventoryStatus: true,
+                                                                        isHiddenStatus: true,
+                                                                        isHiddenDeviceSerial: true,
+                                                                        isHiddenCategoryCode: true,
+                                                                        isHiddenCategoryName: true,
+                                                                        isHiddenLocationCode: true,
+                                                                        isHiddenLocationName: true,
+                                                                        isHiddenPrincipalCode: false,
+                                                                        isHiddenUserAccount: false,
+                                                                        isHiddenPrincipal: false,
+                                                                        isHiddenUser: false,
+                                                                        locationCodeTitle: "地点编码:",
+                                                                        locationNameTitle: "地点名称:")
+
             return AssetListDetailViewModel(request: AssetListDetailRequest(),
                                             action: action,
-                                            viewState: .viewing(isHiddenCoordinate: true),
+                                            viewState: .viewing(configuration: configuration),
                                             parameters: AssetListDetailParameter(assetId: asset.assetId, checkPerson: checkPerson)) as! T
         default: break
         }

@@ -17,6 +17,14 @@ class AssetListDetailViewModel: AssetDetailViewModel {
 }
 
 extension AssetListDetail: AssetDetailed {
+    var principalCode: String {
+        dutyPersonCode
+    }
+
+    var userAccount: String {
+        usedPersonAccount
+    }
+
     var resourceNumber: String {
         ""
     }
@@ -30,11 +38,11 @@ extension AssetListDetail: AssetDetailed {
     }
 
     var realLocationCode: String {
-        ""
+        assetLocationCode
     }
 
     var realLocationName: String {
-        ""
+        assetLocationName
     }
 
     var longitude: String {

@@ -29,6 +29,8 @@ protocol AssetDetailed {
     var usePerson: String { get }
     var usePersonName: String { get }
     var assetCheckItemName: String { get }
+    var principalCode: String { get }
+    var userAccount: String { get }
 }
 
 class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
@@ -118,6 +120,14 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
 
     public var systemLatitude: String {
         assetDetail?.latitude ?? ""
+    }
+
+    public var userAccount: String {
+        assetDetail?.userAccount ?? ""
+    }
+
+    public var principalCode: String {
+        assetDetail?.principalCode ?? ""
     }
 
     public var longitude: String {

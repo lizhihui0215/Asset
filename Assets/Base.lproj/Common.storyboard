@@ -562,7 +562,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="722"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FiJ-xD-bUd">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="867"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="945"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewH-vV-jLD">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="5"/>
@@ -1414,8 +1414,108 @@
                                                     <constraint firstAttribute="height" constant="1" id="DD7-lu-3JU"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="31h-t4-Afv">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bDN-Pe-pwL">
                                                 <rect key="frame" x="0.0" y="786" width="414" height="18"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEF-c7-TF4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="10" height="18"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="10" id="NbO-Ez-ncw"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tCR-Nu-noh">
+                                                        <rect key="frame" x="20" y="0.0" width="81" height="18"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="责任人编码:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0T-jc-x3k">
+                                                                <rect key="frame" x="0.0" y="0.0" width="81" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" name="primaryTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="SYh-px-3k5">
+                                                                <rect key="frame" x="0.0" y="18" width="81" height="0.0"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meg-Vy-oE5">
+                                                        <rect key="frame" x="111" y="0.0" width="283" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="jzw-Qu-2PD"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" name="primaryTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfW-zK-kgT">
+                                                        <rect key="frame" x="404" y="0.0" width="10" height="18"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="10" id="CV8-A8-OJK"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoE-jZ-9y6">
+                                                <rect key="frame" x="0.0" y="814" width="414" height="1"/>
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="zZa-Bq-e33"/>
+                                                </constraints>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NrP-cQ-8Qy">
+                                                <rect key="frame" x="0.0" y="825" width="414" height="18"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Qd-ez-SJe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="10" height="18"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="10" id="1f2-Bl-3YT"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7K0-oD-LZX">
+                                                        <rect key="frame" x="20" y="0.0" width="81" height="18"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="使用人编码:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndg-LQ-81d">
+                                                                <rect key="frame" x="0.0" y="0.0" width="81" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" name="primaryTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="iF1-i2-AfR">
+                                                                <rect key="frame" x="0.0" y="18" width="81" height="0.0"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVQ-qe-QDG">
+                                                        <rect key="frame" x="111" y="0.0" width="283" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="rpN-Xk-6ye"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" name="primaryTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aB1-O9-2wv">
+                                                        <rect key="frame" x="404" y="0.0" width="10" height="18"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="10" id="8nD-M5-HqS"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kL5-Qh-3qb">
+                                                <rect key="frame" x="0.0" y="853" width="414" height="1"/>
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="Rbo-Vu-zIx"/>
+                                                </constraints>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="31h-t4-Afv">
+                                                <rect key="frame" x="0.0" y="864" width="414" height="18"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMn-zG-oTZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="10" height="18"/>
@@ -1466,14 +1566,14 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cfm-TJ-cHP">
-                                                <rect key="frame" x="0.0" y="814" width="414" height="1"/>
+                                                <rect key="frame" x="0.0" y="892" width="414" height="1"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="9G3-9A-Kcb"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbk-V7-Blc" customClass="AnimatableButton" customModule="Assets" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="825" width="414" height="42"/>
+                                                <rect key="frame" x="0.0" y="903" width="414" height="42"/>
                                                 <color key="backgroundColor" name="primaryColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="获取经纬度">
@@ -1565,10 +1665,13 @@
                         <outlet property="modelTextField" destination="DJ9-Ia-LEI" id="ruQ-eD-6mv"/>
                         <outlet property="nameLabel" destination="cPG-Ka-xiw" id="yoG-ew-r20"/>
                         <outlet property="photographButton" destination="dvI-oh-XRH" id="Mtt-xM-FJF"/>
+                        <outlet property="principalCodeLabel" destination="meg-Vy-oE5" id="B46-kK-Wzc"/>
                         <outlet property="principalSearchImageView" destination="Clv-gh-abn" id="Azt-pk-8hz"/>
                         <outlet property="principalTapGestureRecognizer" destination="3O2-Ts-s9C" id="D7J-Xb-DZo"/>
                         <outlet property="principalTextField" destination="g2h-z1-oSZ" id="S6G-PU-DED"/>
+                        <outlet property="principalTitleLabel" destination="Jbg-Pu-eLF" id="V3l-dq-8dy"/>
                         <outlet property="rightBarButtonItem" destination="whV-Gm-vuM" id="U4M-qm-AaP"/>
+                        <outlet property="scanButton" destination="WS1-Dj-oi6" id="fMl-Vn-9nU"/>
                         <outlet property="statusButton" destination="XCN-Yx-r4j" id="d6m-uK-RjH"/>
                         <outlet property="systemLatitudeLabel" destination="joN-dV-cOb" id="BdJ-qy-uYi"/>
                         <outlet property="systemLocationCodeLabel" destination="s9h-bL-1bd" id="ReI-sS-hCd"/>
@@ -1576,9 +1679,11 @@
                         <outlet property="systemLongitudeLabel" destination="HZB-ja-hbb" id="Kmo-eh-KxQ"/>
                         <outlet property="tagNumberLabel" destination="otE-E6-xh2" id="UtS-pi-deE"/>
                         <outlet property="updateLocationCoordinateButton" destination="vbk-V7-Blc" id="834-Dg-aUo"/>
+                        <outlet property="userAccountLabel" destination="SVQ-qe-QDG" id="0TD-dE-7Pm"/>
                         <outlet property="userSearchImageView" destination="2nH-Na-iOU" id="yhI-h4-f7e"/>
                         <outlet property="userTapGestureRecognizer" destination="iYa-FZ-9Yv" id="7dt-o8-7PE"/>
                         <outlet property="userTextField" destination="H5d-W8-7vn" id="gVE-Ua-OEo"/>
+                        <outlet property="userTitleLabel" destination="Vqu-Wi-qpo" id="f8M-zh-nhl"/>
                         <outletCollection property="hiddenViewsForViewing" destination="31h-t4-Afv" collectionClass="NSMutableArray" id="S5k-ad-9YI"/>
                         <outletCollection property="hiddenViewsForViewing" destination="Cfm-TJ-cHP" collectionClass="NSMutableArray" id="Wx4-Ue-Cud"/>
                         <outletCollection property="hiddenViewsForViewing" destination="scT-mN-E2j" collectionClass="NSMutableArray" id="RxX-GJ-Tr6"/>
@@ -1587,8 +1692,50 @@
                         <outletCollection property="hiddenViewsForEditing" destination="YuF-bg-VHw" collectionClass="NSMutableArray" id="pvX-b2-oLm"/>
                         <outletCollection property="hiddenViewsForEditing" destination="oUO-Tj-q0d" collectionClass="NSMutableArray" id="hIy-65-bZN"/>
                         <outletCollection property="hiddenViewsForEditing" destination="f1G-rJ-nzD" collectionClass="NSMutableArray" id="YiU-wJ-fzm"/>
-                        <outletCollection property="hiddenViewsForViewing" destination="vbk-V7-Blc" collectionClass="NSMutableArray" id="14m-EG-fxh"/>
-                        <outletCollection property="hiddenViewsForViewing" destination="WS1-Dj-oi6" collectionClass="NSMutableArray" id="Yac-IZ-I5A"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="hvm-NC-rYW" collectionClass="NSMutableArray" id="xKb-Pe-dFe"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="Jyx-Pz-t6x" collectionClass="NSMutableArray" id="Xe4-jm-KN8"/>
+                        <outletCollection property="inventoryStatusViews" destination="hvm-NC-rYW" collectionClass="NSMutableArray" id="Ujd-lu-dXQ"/>
+                        <outletCollection property="inventoryStatusViews" destination="Jyx-Pz-t6x" collectionClass="NSMutableArray" id="brf-39-P49"/>
+                        <outletCollection property="statusViews" destination="pQm-WC-Ogu" collectionClass="NSMutableArray" id="PYB-EC-deV"/>
+                        <outletCollection property="statusViews" destination="3bH-yN-kyP" collectionClass="NSMutableArray" id="7hq-Sw-9qC"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="pQm-WC-Ogu" collectionClass="NSMutableArray" id="0Nz-9E-Jek"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="3bH-yN-kyP" collectionClass="NSMutableArray" id="fGx-3B-rsI"/>
+                        <outletCollection property="deviceSerialViews" destination="XUc-uW-tc5" collectionClass="NSMutableArray" id="Zzo-LS-2jd"/>
+                        <outletCollection property="deviceSerialViews" destination="7Xf-Gc-pVI" collectionClass="NSMutableArray" id="5Gg-rW-ZVa"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="7Xf-Gc-pVI" collectionClass="NSMutableArray" id="hof-F0-LYY"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="XUc-uW-tc5" collectionClass="NSMutableArray" id="Ye5-jN-kat"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="my6-EO-sRn" collectionClass="NSMutableArray" id="eQf-pL-OUK"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="YuF-bg-VHw" collectionClass="NSMutableArray" id="xvM-hE-vrr"/>
+                        <outletCollection property="categoryCodeViews" destination="my6-EO-sRn" collectionClass="NSMutableArray" id="qco-L9-eIu"/>
+                        <outletCollection property="categoryCodeViews" destination="YuF-bg-VHw" collectionClass="NSMutableArray" id="Rz1-be-nWc"/>
+                        <outletCollection property="categoryNameViews" destination="oUO-Tj-q0d" collectionClass="NSMutableArray" id="32D-eW-KAl"/>
+                        <outletCollection property="categoryNameViews" destination="f1G-rJ-nzD" collectionClass="NSMutableArray" id="DbO-ik-OyZ"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="oUO-Tj-q0d" collectionClass="NSMutableArray" id="P79-Wq-ZUm"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="f1G-rJ-nzD" collectionClass="NSMutableArray" id="DSj-tj-uLs"/>
+                        <outletCollection property="locationCodeViews" destination="gsL-aE-opJ" collectionClass="NSMutableArray" id="zo2-g2-SgQ"/>
+                        <outletCollection property="locationCodeViews" destination="LhF-Oq-FfN" collectionClass="NSMutableArray" id="pai-yA-1R5"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="gsL-aE-opJ" collectionClass="NSMutableArray" id="FaF-89-75P"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="LhF-Oq-FfN" collectionClass="NSMutableArray" id="vSS-SW-znL"/>
+                        <outletCollection property="locationNameViews" destination="1g5-wS-NY6" collectionClass="NSMutableArray" id="ahu-oD-zyr"/>
+                        <outletCollection property="locationNameViews" destination="MnF-gQ-9BU" collectionClass="NSMutableArray" id="5Kh-gr-nyX"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="1g5-wS-NY6" collectionClass="NSMutableArray" id="mHe-3l-4B5"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="MnF-gQ-9BU" collectionClass="NSMutableArray" id="QdB-NM-x6S"/>
+                        <outletCollection property="principalCodeViews" destination="bDN-Pe-pwL" collectionClass="NSMutableArray" id="Bmj-gt-HL8"/>
+                        <outletCollection property="principalCodeViews" destination="WoE-jZ-9y6" collectionClass="NSMutableArray" id="opA-fw-PUk"/>
+                        <outletCollection property="userAccountViews" destination="NrP-cQ-8Qy" collectionClass="NSMutableArray" id="HSU-Hu-pvQ"/>
+                        <outletCollection property="userAccountViews" destination="kL5-Qh-3qb" collectionClass="NSMutableArray" id="lY5-cq-emo"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="bDN-Pe-pwL" collectionClass="NSMutableArray" id="CSN-1d-5zS"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="WoE-jZ-9y6" collectionClass="NSMutableArray" id="E2U-7H-Wze"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="NrP-cQ-8Qy" collectionClass="NSMutableArray" id="lI9-QV-xMf"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="kL5-Qh-3qb" collectionClass="NSMutableArray" id="DUA-ne-B6V"/>
+                        <outletCollection property="principalViews" destination="tb8-jv-gSc" collectionClass="NSMutableArray" id="eTu-vj-KOO"/>
+                        <outletCollection property="principalViews" destination="CWi-nC-WRh" collectionClass="NSMutableArray" id="GHd-IW-Gm1"/>
+                        <outletCollection property="userViews" destination="XBI-8R-aWT" collectionClass="NSMutableArray" id="8UV-9C-YPl"/>
+                        <outletCollection property="userViews" destination="xhK-SQ-uZK" collectionClass="NSMutableArray" id="iU9-Va-XRc"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="tb8-jv-gSc" collectionClass="NSMutableArray" id="vi5-qY-Ch2"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="CWi-nC-WRh" collectionClass="NSMutableArray" id="JhX-NK-rIQ"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="XBI-8R-aWT" collectionClass="NSMutableArray" id="gIc-V6-97r"/>
+                        <outletCollection property="hiddenViewsForViewing" destination="xhK-SQ-uZK" collectionClass="NSMutableArray" id="eR1-JN-lLe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSo-yA-tKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

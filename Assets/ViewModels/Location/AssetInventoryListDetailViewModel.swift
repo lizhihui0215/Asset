@@ -16,4 +16,12 @@ class AssetInventoryListDetailViewModel: AssetDetailViewModel {
     }
 }
 
-extension AssetInventoryListDetail: AssetDetailed {}
+extension AssetInventoryListDetail: AssetDetailed {
+    var principalCode: String {
+        ""
+    }
+
+    var userAccount: String {
+        ""
+    }
+}
