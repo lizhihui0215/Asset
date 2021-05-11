@@ -1,6 +1,7 @@
+
 //
-//  AssetTests.swift
-//  AssetTests
+//  AssetsTests.swift
+//  AssetsTests
 //
 //  Created by ZhiHui.Li on 2021/4/14.
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
@@ -9,7 +10,7 @@
 @testable import Assets
 import XCTest
 
-class AssetTests: XCTestCase {
+class AssetsTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
