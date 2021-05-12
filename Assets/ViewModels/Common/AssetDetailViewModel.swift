@@ -8,26 +8,27 @@ import Foundation
 import UIKit
 
 protocol AssetDetailed {
-    var resourceNumber: String { get }
+    var assetId: String { get }
+    var resourceNumber: String { get set }
     var tagNumber: String { get }
-    var assetName: String { get }
+    var assetName: String { get set }
     var typeDescriptionCode: String { get }
     var typeDescriptionName: String { get }
-    var manufactureName: String { get }
-    var modelNumber: String { get }
+    var manufactureName: String { get set }
+    var modelNumber: String { get set }
     var locationCode: String { get }
     var locationName: String { get }
     var realLocationCode: String { get }
     var realLocationName: String { get }
-    var quantity: Int { get }
+    var quantity: Int { get set }
     var longitude: String { get }
     var latitude: String { get }
     var checkStatus: String { get }
     var checkStatusName: String { get }
-    var dutyPerson: String { get }
-    var dutyPersonName: String { get }
-    var usePerson: String { get }
-    var usePersonName: String { get }
+    var dutyPerson: String { get set }
+    var dutyPersonName: String { get set }
+    var usePerson: String { get set }
+    var usePersonName: String { get set }
     var assetCheckItemName: String { get }
     var principalCode: String { get }
     var userAccount: String { get }
@@ -44,7 +45,8 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
 
     enum Constants {}
 
-    private var location: CLLocation?
+    var location: CLLocation?
+    var rgcData: LocationReGeocode?
 
     public var principal: Staff?
     public var user: Staff?
@@ -55,7 +57,8 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
     var assetDetail: AssetDetailed?
 
     public var deviceSerial: String {
-        assetDetail?.resourceNumber ?? ""
+        get { assetDetail?.resourceNumber ?? "" }
+        set { assetDetail?.resourceNumber = newValue }
     }
 
     public var tagNumber: String {
@@ -63,7 +66,8 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
     }
 
     public var name: String {
-        assetDetail?.assetName ?? ""
+        get { assetDetail?.assetName ?? "" }
+        set { assetDetail?.assetName = newValue }
     }
 
     public var category: String {
@@ -75,11 +79,13 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
     }
 
     public var manufacture: String {
-        assetDetail?.manufactureName ?? ""
+        get { assetDetail?.manufactureName ?? "" }
+        set { assetDetail?.manufactureName = newValue }
     }
 
     public var model: String {
-        assetDetail?.modelNumber ?? ""
+        get { assetDetail?.modelNumber ?? "" }
+        set { assetDetail?.modelNumber = newValue }
     }
 
     public var systemLocationCode: String {
@@ -99,15 +105,24 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
     }
 
     public var amount: String {
-        String(assetDetail?.quantity ?? 0)
+        get { String(assetDetail?.quantity ?? 0) }
+        set { assetDetail?.quantity = Int(newValue) ?? 0 }
     }
 
     public var principalName: String {
-        principal?.userName ?? ""
+        get { principal?.userName ?? "" }
+        set {
+            assetDetail?.dutyPersonName = principal?.userName ?? ""
+            assetDetail?.dutyPerson = principal?.userCode ?? ""
+        }
     }
 
     public var userName: String {
-        user?.userName ?? ""
+        get { user?.userName ?? "" }
+        set {
+            assetDetail?.usePerson = user?.userName ?? ""
+            assetDetail?.usePersonName = user?.userCode ?? ""
+        }
     }
 
     public var systemLongitude: String {
@@ -141,7 +156,7 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
     }
 
     public var inventoryStatus: String {
-        assetDetail?.assetCheckItemName ?? ""
+        assetDetail?.checkStatusName ?? ""
     }
 
     public var status: String {
@@ -212,8 +227,8 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
 
     func handleAssetDetailResult(assetDetail: AssetDetailed?) {
         self.assetDetail = assetDetail
-        let checkStatus = self.assetDetail?.checkStatus ?? ""
-        let checkStatusName = self.assetDetail?.checkStatusName ?? ""
+        let checkStatusName = self.assetDetail?.assetCheckItemName ?? ""
+        let checkStatus = assetStatus?.key(from: checkStatusName) ?? "0"
         let dutyPerson = self.assetDetail?.dutyPerson ?? ""
         let dutyPersonName = self.assetDetail?.dutyPersonName ?? ""
         let usePerson = self.assetDetail?.usePerson ?? ""
@@ -252,7 +267,12 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
                 return ViewModelFuture(error: EAMError.unwrapOptionalValueError("location"))
             }
             `self`.location = result.location
+            `self`.rgcData = result.rgcData?.convert()
             return ViewModelFuture(value: result.location)
         }
+    }
+
+    func rightBarButtonTapped() -> ViewModelFuture<StoryboardSegue.Common> {
+        fatalError("sub class must implement this method provider the navigation")
     }
 }

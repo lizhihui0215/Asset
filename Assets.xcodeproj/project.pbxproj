@@ -307,6 +307,7 @@
 		5B8753F96C95F44989848EA2 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875E4470A01DBEA8CFCA15 /* Keys.swift */; };
 		5B87542855F7A7F56A3E3139 /* LoggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8750F6B9AD01618BD2CA0E /* LoggerService.swift */; };
 		5B875451D2E9D03F61D29D13 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875CE3B0589001B2525E6B /* NavigationViewController.swift */; };
+		5B87547EBEBB99A146226E0E /* AssetInventoryListDetailSubmitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751EA80E156536D9B2263 /* AssetInventoryListDetailSubmitRequest.swift */; };
 		5B8754B8A389294CDE27060F /* RadioGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8753E2D9F6AAA61C0208AD /* RadioGroupView.swift */; };
 		5B8754BC58BE8152FD9B32EA /* AssetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875684196B01E4B5E60BD5 /* AssetDetailViewController.swift */; };
 		5B8754C54EE377E126A22F23 /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87520439C97EB03B60F857 /* ScanViewModel.swift */; };
@@ -353,6 +354,7 @@
 		5B875B666EE3D884B4DB8D6C /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875251AAC9B3CABA84A00D /* BaseView.swift */; };
 		5B875BC0D6562650E8F070A6 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8758576E13F3C93BBCF08A /* BaseCollectionViewCell.swift */; };
 		5B875C8C90295342D7BFEA53 /* AssetInventoryListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8754A37EA78B899A488A21 /* AssetInventoryListRequest.swift */; };
+		5B875C9C2E3EE0D2A33E237C /* InventoryListDetailSubmitedResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B8750A3C310D0F7DC1AB6A6 /* InventoryListDetailSubmitedResponse.json */; };
 		5B875CA6EE28577828759EC1 /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875685131D768DDA002A8F /* LocationListViewController.swift */; };
 		5B875CFA35ED4661952289D5 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8750F6670B09500690521B /* Staff.swift */; };
 		5B875D072C2D825EEB51655C /* AssetDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875207E60644377F816FBD /* AssetDetailRequest.swift */; };
@@ -717,6 +719,7 @@
 		5B875084EE6505DCE418EA31 /* AssetListDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListDetailViewModel.swift; sourceTree = "<group>"; };
 		5B87508C4B5741B865C06483 /* ScanService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanService.swift; sourceTree = "<group>"; };
 		5B875095689EEA83D7E606CC /* LoginResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoginResponse.json; sourceTree = "<group>"; };
+		5B8750A3C310D0F7DC1AB6A6 /* InventoryListDetailSubmitedResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = InventoryListDetailSubmitedResponse.json; sourceTree = "<group>"; };
 		5B8750C69CA05D4C0676B691 /* SegueType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SegueType+Extension.swift"; sourceTree = "<group>"; };
 		5B8750CBF2A94525D68FA54F /* AssetDetailByInventoryListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetDetailByInventoryListResponse.json; sourceTree = "<group>"; };
 		5B8750F6670B09500690521B /* Staff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
@@ -728,6 +731,7 @@
 		5B8751BB0A941A1CD5AB7DCC /* EAMExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EAMExtended.swift; sourceTree = "<group>"; };
 		5B8751C27BA2A278C0BD6D3D /* AssetListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListTableViewCell.swift; sourceTree = "<group>"; };
 		5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListViewModel.swift; sourceTree = "<group>"; };
+		5B8751EA80E156536D9B2263 /* AssetInventoryListDetailSubmitRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListDetailSubmitRequest.swift; sourceTree = "<group>"; };
 		5B87520439C97EB03B60F857 /* ScanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
 		5B875207E60644377F816FBD /* AssetDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailRequest.swift; sourceTree = "<group>"; };
 		5B87522C9A3CC1B236FC1973 /* PrincipalStaffListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PrincipalStaffListResponse.json; sourceTree = "<group>"; };
@@ -1448,6 +1452,7 @@
 				5B875FB198F52FAF94BA4CCB /* AssetStatusResponse.json */,
 				5B87503E20F65A724E23E380 /* AssetListResponse.json */,
 				5B875A3F64C286F956784E63 /* AssetListDetailResponse.json */,
+				5B8750A3C310D0F7DC1AB6A6 /* InventoryListDetailSubmitedResponse.json */,
 			);
 			path = MockResponses;
 			sourceTree = "<group>";
@@ -1685,6 +1690,7 @@
 				5B87579C1030CB0B0B4FA619 /* AssetStatusRequest.swift */,
 				5B875E86DA8709733068D2C3 /* AssetListDetailRequest.swift */,
 				5B87553B3FE924E067FB41C5 /* AssetInventoryListDetailRequest.swift */,
+				5B8751EA80E156536D9B2263 /* AssetInventoryListDetailSubmitRequest.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1889,6 +1895,7 @@
 				5B8754DFE85FCA161A1835F9 /* AssetStatusResponse.json in Resources */,
 				5B87579D298241A2601266F6 /* AssetListResponse.json in Resources */,
 				5B875585B0DB15B32B4CE574 /* AssetListDetailResponse.json in Resources */,
+				5B875C9C2E3EE0D2A33E237C /* InventoryListDetailSubmitedResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2292,6 +2299,7 @@
 				5B875AC675E7CED50B8F141C /* AssetListDetailRequest.swift in Sources */,
 				5B875D272E49A0124D82DA5C /* AssetInventoryListDetailViewModel.swift in Sources */,
 				5B8752E166B194BEBB121610 /* AssetInventoryListDetailRequest.swift in Sources */,
+				5B87547EBEBB99A146226E0E /* AssetInventoryListDetailSubmitRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2529,7 +2537,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3P8C7H426Z;
 				ENABLE_BITCODE = NO;
-				ENVIRONEMENT = MOCK;
+				ENVIRONEMENT = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -2545,7 +2553,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.Assets.cert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG MOCK";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_GEN_INPUT = Assets;
 				SWIFT_OBJC_BRIDGING_HEADER = "Assets/Resources/Assets-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

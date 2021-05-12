@@ -13,6 +13,7 @@ class AssetListViewController: BaseTableViewController, TableViewControllerPagea
     typealias Action = AssetListViewController
     typealias S = DefaultSection<Asset>
 
+    @IBOutlet var radioGroupView: RadioGroupView!
     var viewModel: AssetListViewModel!
 
     override func awakeFromNib() {

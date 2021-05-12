@@ -19,7 +19,7 @@ class NetworkManager {
     private var session: Session
 
     private static var evaluators: [String: ServerTrustEvaluating] {
-        ["152.136.255.61": DisabledTrustEvaluator()]
+        ["152.136.255.61:8091": DisabledTrustEvaluator()]
     }
 
     private static var serverTrustManager: ServerTrustManager {

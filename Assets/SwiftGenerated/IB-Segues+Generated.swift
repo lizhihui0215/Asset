@@ -16,6 +16,7 @@ internal enum StoryboardSegue {
     case toAssetDetail
   }
   internal enum Common: String, SegueType {
+    case submitted
     case successToInventory
     case toScan
     case toSelectPrincipal

@@ -12,13 +12,13 @@ struct API {
         case Schema
         case Domain
         case ServiceDictionary
-        case DictionaryName = "dicName"
+        case DictionaryName = "dictName"
     }
 
     enum Constants {
-        static let defaultSchema = "https"
-        static let defaultDomain = "152.136.255.61"
-        static let defaultServiceDictionary = "eam-ms"
+        static let defaultSchema = "http"
+        static let defaultDomain = "152.136.255.61:8091"
+        static let defaultServiceDictionary = "eam-phone"
     }
 
     /// Whether to discard any errors when decoding optional properties

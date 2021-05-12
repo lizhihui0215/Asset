@@ -17,16 +17,32 @@ class AssetListDetailViewModel: AssetDetailViewModel {
 }
 
 extension AssetListDetail: AssetDetailed {
+    var resourceNumber: String {
+        get { "" }
+        set {}
+    }
+
+    var dutyPerson: String {
+        get { "" }
+        set {}
+    }
+
+    var usePerson: String {
+        get { "" }
+        set {}
+    }
+
+    var usePersonName: String {
+        get { "" }
+        set {}
+    }
+
     var principalCode: String {
         dutyPersonCode
     }
 
     var userAccount: String {
         usedPersonAccount
-    }
-
-    var resourceNumber: String {
-        ""
     }
 
     var locationCode: String {
@@ -58,18 +74,6 @@ extension AssetListDetail: AssetDetailed {
     }
 
     var checkStatusName: String {
-        ""
-    }
-
-    var dutyPerson: String {
-        ""
-    }
-
-    var usePerson: String {
-        ""
-    }
-
-    var usePersonName: String {
         ""
     }
 

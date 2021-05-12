@@ -777,26 +777,38 @@
                                                         <rect key="frame" x="20" y="0.0" width="61.5" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="资产名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICU-uy-DRA">
-                                                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="18"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <color key="textColor" name="primaryTextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUd-0e-YGb">
-                                                                <rect key="frame" x="0.0" y="18" width="61.5" height="12"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                            </view>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPG-Ka-xiw">
-                                                        <rect key="frame" x="91.5" y="0.0" width="322.5" height="30"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1W-4D-wSb" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
+                                                        <rect key="frame" x="91.5" y="0.0" width="302.5" height="30"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="vJb-HZ-OYL"/>
+                                                            <constraint firstAttribute="height" constant="30" id="9EU-hQ-HyD"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" name="primaryTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="_borderSides" value="bottom"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" systemColor="opaqueSeparatorColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgg-rX-wBG">
+                                                        <rect key="frame" x="404" y="0.0" width="10" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="10" id="M5E-wk-xeS"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czZ-Jz-kKm">
@@ -1261,6 +1273,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="1Lj-YJ-DKA"/>
                                                         </constraints>
+                                                        <color key="textColor" name="primaryTextColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <userDefinedRuntimeAttributes>
@@ -1321,6 +1334,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="C34-R1-nDj"/>
                                                         </constraints>
+                                                        <color key="textColor" name="primaryTextColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <userDefinedRuntimeAttributes>
@@ -1663,7 +1677,7 @@
                         <outlet property="longitudeTitleLabel" destination="SEG-ON-hEy" id="sqq-uV-xcz"/>
                         <outlet property="manufactureTextField" destination="M7S-P2-a66" id="gGR-YQ-LI2"/>
                         <outlet property="modelTextField" destination="DJ9-Ia-LEI" id="ruQ-eD-6mv"/>
-                        <outlet property="nameLabel" destination="cPG-Ka-xiw" id="yoG-ew-r20"/>
+                        <outlet property="nameTextField" destination="Q1W-4D-wSb" id="mti-RG-ywJ"/>
                         <outlet property="photographButton" destination="dvI-oh-XRH" id="Mtt-xM-FJF"/>
                         <outlet property="principalCodeLabel" destination="meg-Vy-oE5" id="B46-kK-Wzc"/>
                         <outlet property="principalSearchImageView" destination="Clv-gh-abn" id="Azt-pk-8hz"/>
@@ -1736,9 +1750,15 @@
                         <outletCollection property="hiddenViewsForViewing" destination="CWi-nC-WRh" collectionClass="NSMutableArray" id="JhX-NK-rIQ"/>
                         <outletCollection property="hiddenViewsForViewing" destination="XBI-8R-aWT" collectionClass="NSMutableArray" id="gIc-V6-97r"/>
                         <outletCollection property="hiddenViewsForViewing" destination="xhK-SQ-uZK" collectionClass="NSMutableArray" id="eR1-JN-lLe"/>
+                        <outletCollection property="hiddenViewsForEditing" destination="bDN-Pe-pwL" collectionClass="NSMutableArray" id="jxv-1M-ot5"/>
+                        <outletCollection property="hiddenViewsForEditing" destination="WoE-jZ-9y6" collectionClass="NSMutableArray" id="3PA-7c-CUk"/>
+                        <outletCollection property="hiddenViewsForEditing" destination="NrP-cQ-8Qy" collectionClass="NSMutableArray" id="9xr-8B-kMW"/>
+                        <outletCollection property="hiddenViewsForEditing" destination="kL5-Qh-3qb" collectionClass="NSMutableArray" id="Ubm-CF-iAs"/>
+                        <segue destination="1Mt-h0-dU3" kind="unwind" identifier="submitted" unwindAction="unwindFromAssetSubmitedWithSegue:" id="tHk-qg-AH6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSo-yA-tKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1Mt-h0-dU3" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="3O2-Ts-s9C">
                     <connections>
                         <segue destination="994-XW-ooe" kind="show" identifier="toSelectPrincipal" id="n0e-8L-cKS"/>
@@ -1782,6 +1802,9 @@
             <size key="intrinsicContentSize" width="31" height="30"/>
         </designable>
         <designable name="PCC-Qb-mxz">
+            <size key="intrinsicContentSize" width="4" height="19.5"/>
+        </designable>
+        <designable name="Q1W-4D-wSb">
             <size key="intrinsicContentSize" width="4" height="19.5"/>
         </designable>
         <designable name="Qy1-CZ-iKE">

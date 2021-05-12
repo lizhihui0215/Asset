@@ -102,15 +102,14 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
                                                      action: action,
                                                      viewState: .viewing(),
                                                      parameters: parameters) as! T
+        case _ as AssetInventoryListViewController:
+            guard let indexPath = sender as? IndexPath else { break }
+            let asset = itemAtIndexPath(indexPath: indexPath)
+            return AssetInventoryTableViewCell.ViewModel(statusName: asset.checkStatusName, name: asset.assetName, code: asset.tagNumber) as! T
         default: break
         }
         return super.viewModel(for: action, with: sender)
     }
 
     // swiftlint:enable force_cast
-
-    func assetInventoryCellViewModel(at indexPath: IndexPath) -> AssetInventoryTableViewCell.ViewModel {
-        let asset = itemAtIndexPath(indexPath: indexPath)
-        return .init(status: asset.checkStatus, name: asset.assetName, code: asset.tagNumber)
-    }
 }

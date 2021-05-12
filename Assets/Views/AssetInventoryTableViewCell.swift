@@ -12,7 +12,7 @@ extension AssetInventoryTableViewCell: ReuseIdRepresentable {}
 
 class AssetInventoryTableViewCell: BaseTableViewCell {
     struct ViewModel: ViewModelRepresentable {
-        var status: InventoryType
+        var statusName: String
         var name: String
         var code: String
     }
@@ -39,6 +39,6 @@ extension AssetInventoryTableViewCell: TableViewCellConfigurable {
         self.viewModel = viewModel
         nameLabel.text = viewModel.name
         codeLabel.text = viewModel.code
-        statusLabel.text = viewModel.status.title
+        statusLabel.text = viewModel.statusName
     }
 }

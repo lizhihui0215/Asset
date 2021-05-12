@@ -36,7 +36,7 @@ extension TableViewControllerPageable where Self: BaseTableViewController {
 
 extension TableViewControllerPageable where Self: BaseTableViewController {
     var page: Int {
-        viewModel.page + 1
+        viewModel.page
     }
 
     var total: Int {

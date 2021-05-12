@@ -61,6 +61,8 @@ struct LocationReGeocode: AutoEncodable {
     var poiRegion: LocationPoiRegion
 }
 
+extension LocationReGeocode: EAMExtended {}
+
 struct LocationPoiRegion: AutoEncodable {
     /// BMKLocationPoiRegion的方向属性，如『内』、『外』
     var directionDesc: String

@@ -53,7 +53,7 @@ class AssetDetailViewController: BaseViewController {
     @IBOutlet var statusButton: AnimatableButton!
     @IBOutlet var deviceSerialTextField: AnimatableTextField!
     @IBOutlet var tagNumberLabel: UILabel!
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var nameTextField: AnimatableTextField!
     @IBOutlet var manufactureTextField: AnimatableTextField!
     @IBOutlet var modelTextField: AnimatableTextField!
     @IBOutlet var systemLocationCodeLabel: UILabel!
@@ -73,7 +73,6 @@ class AssetDetailViewController: BaseViewController {
     @IBOutlet var photographButton: AnimatableButton!
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var hiddenViewsForEditing: [UIView]!
     @IBOutlet var locationCodeTitleLabel: UILabel!
     @IBOutlet var locationNameTitleLabel: UILabel!
     @IBOutlet var rightBarButtonItem: UIBarButtonItem!
@@ -94,6 +93,7 @@ class AssetDetailViewController: BaseViewController {
     @IBOutlet var principalTitleLabel: UILabel!
     @IBOutlet var longitudeDivideView: UIView!
 
+    @IBOutlet var hiddenViewsForEditing: [UIView]!
     @IBOutlet var hiddenViewsForViewing: [UIView]!
     @IBOutlet var inventoryStatusViews: [UIView]!
     @IBOutlet var statusViews: [UIView]!
@@ -144,7 +144,7 @@ class AssetDetailViewController: BaseViewController {
         switch state {
         case .editing:
             for view in hiddenViewsForEditing {
-                `self`.containerStackView.removeArrangedSubview(view)
+                containerStackView.removeArrangedSubview(view)
                 view.removeFromSuperview()
             }
         case .viewing(let configuration):
@@ -163,6 +163,7 @@ class AssetDetailViewController: BaseViewController {
             amountTextField.isUserInteractionEnabled = false
             principalTextField.superview?.isUserInteractionEnabled = false
             userTextField.superview?.isUserInteractionEnabled = false
+            nameTextField.isUserInteractionEnabled = false
             longitudeTitleLabel.text = "经度:"
             latitudeTitleLabel.text = "纬度:"
             photographButton.heightAnchor ~ 0
@@ -205,7 +206,7 @@ class AssetDetailViewController: BaseViewController {
         statusButton.setTitle(viewModel.status, for: .normal)
         deviceSerialTextField.text = viewModel.deviceSerial
         tagNumberLabel.text = viewModel.tagNumber
-        nameLabel.text = viewModel.name
+        nameTextField.text = viewModel.name
         manufactureTextField.text = viewModel.manufacture
         modelTextField.text = viewModel.model
         systemLocationCodeLabel.text = viewModel.systemLocationCode
@@ -229,7 +230,30 @@ class AssetDetailViewController: BaseViewController {
         updateLocationCoordinates()
     }
 
-    @IBAction func rightBarButtonItemTapped(_ sender: UIBarButtonItem) {}
+    @IBAction func rightBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        save()
+
+        let future: ViewModelFuture<StoryboardSegue.Common> = viewModel.rightBarButtonTapped()
+
+        future.onSuccess { [weak self] result in
+            guard let self = self else { return }
+            if case .submitted = result {
+                `self`.alert(message: "操作成功！", defaultAction: Self.defaultAlertAction {
+                    `self`.perform(segue: result, sender: `self`)
+                })
+            }
+        }
+    }
+
+    private func save() {
+        if case .editing = state {
+            viewModel.deviceSerial = deviceSerialTextField.eam.text
+            viewModel.name = nameTextField.eam.text
+            viewModel.manufacture = manufactureTextField.eam.text
+            viewModel.model = modelTextField.eam.text
+            viewModel.amount = amountTextField.eam.text
+        }
+    }
 
     func updateLocationCoordinates() {
         viewModel.getGPSLocation().onSuccess { [weak self] _ in

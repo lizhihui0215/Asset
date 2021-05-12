@@ -6,6 +6,47 @@
 import Foundation
 
 class AssetInventoryListDetailViewModel: AssetDetailViewModel {
+    func submit() -> ViewModelFuture<AssetDetailed?> {
+        guard let assetDetail = assetDetail, let checkPerson = app.credential?.username else {
+            return ViewModelFuture(error: EAMError.unwrapOptionalValueError("AssetDetail and checkPerson could not be nil"))
+        }
+
+        let parameters = AssetInventoryListDetailSubmitParameter(realLocationCode: assetDetail.realLocationCode,
+                                                                 quantity: String(assetDetail.quantity),
+                                                                 checkPerson: checkPerson,
+                                                                 latitude: assetDetail.longitude,
+                                                                 dutyPersonName: assetDetail.dutyPersonName,
+                                                                 assetCheckItem: selectedAssetStatus?.status ?? "",
+                                                                 resourceNumber: assetDetail.resourceNumber,
+                                                                 usePersonName: assetDetail.usePersonName,
+                                                                 tagNumber: assetDetail.tagNumber,
+                                                                 mapLocationDesc: rgcData?.eam.JSONString ?? "",
+                                                                 dutyPerson: assetDetail.dutyPerson,
+                                                                 assetId: assetDetail.assetId,
+                                                                 manufactureName: assetDetail.manufactureName,
+                                                                 usePerson: assetDetail.usePerson,
+                                                                 assetName: assetDetail.assetName,
+                                                                 realLocationName: assetDetail.realLocationName,
+                                                                 modelNumber: assetDetail.modelNumber,
+                                                                 longitude: assetDetail.latitude)
+
+        return api(of: AssetInventoryListDetailSubmitResponse.self,
+                   router: APIRouter.assetDetailInventoryListDetailSubmit(parameters))
+            .flatMap {
+                ViewModelFuture(value: $0)
+            }
+            .onSuccess { [weak self] assetDetail in
+                guard let self = self else { return }
+                `self`.handleAssetDetailResult(assetDetail: assetDetail)
+            }
+    }
+
+    override func rightBarButtonTapped() -> ViewModelFuture<StoryboardSegue.Common> {
+        submit().flatMap { _ in
+            ViewModelFuture(value: StoryboardSegue.Common.submitted)
+        }
+    }
+
     override func fetchAssetDetail() -> ViewModelFuture<AssetDetailed?> {
         api(of: AssetInventoryListDetailResponse.self, router: .assetDetailByInventoryList(parameters)).flatMap {
             ViewModelFuture(value: $0)

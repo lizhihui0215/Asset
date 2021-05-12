@@ -87,6 +87,8 @@ class AssetInventoryListViewController: BaseTableViewController, TableViewContro
     }
 
     @IBAction func unwindFromScanSuccess(segue: UIStoryboardSegue) {}
+
+    @IBAction func unwindFromAssetSubmited(segue: UIStoryboardSegue) {}
 }
 
 extension AssetInventoryListViewController: UISearchBarDelegate {
@@ -106,7 +108,7 @@ extension AssetInventoryListViewController: UITableViewDataSource {
         guard let cell: AssetInventoryTableViewCell = tableView.dequeueReusableCell() else {
             return UITableViewCell()
         }
-        let viewModel = self.viewModel.assetInventoryCellViewModel(at: indexPath)
+        let viewModel: AssetInventoryTableViewCell.ViewModel = viewModel.viewModel(for: self, with: indexPath)
         cell.configurationCell(with: viewModel)
         return cell
     }
