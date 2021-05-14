@@ -30,7 +30,7 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="texts" value="责任人,使用人"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                <real key="value" value="300"/>
+                                                <real key="value" value="200"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>

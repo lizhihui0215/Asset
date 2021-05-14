@@ -89,8 +89,7 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
             return PhotographViewModel(title: "地点照片采集",
                                        key: "地点编码",
                                        value: locationDetail?.locationCode ?? "",
-                                       viewState: .prepare,
-                                       request: PhotographRequest(),
+                                       request: PhotographUploadRequest(),
                                        action: action) as! T
         case let action as AssetInventoryListViewController:
             return AssetInventoryListViewModel(request: AssetInventoryListRequest(), action: action, locationDetail: locationDetail!) as! T

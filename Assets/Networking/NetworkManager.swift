@@ -47,6 +47,10 @@ class NetworkManager {
     func sendRequest<T: ResponseRepresentable>(of type: T.Type = T.self, router: APIRouter) -> EAMResponseFuture<EAMDataResponse<T>> {
         session.request(router).responseDecodable(of: type)
     }
+
+    func upload<T: ResponseRepresentable>(of type: T.Type = T.self, router: APIRouter) -> EAMResponseFuture<EAMDataResponse<T>> {
+        session.upload(multipartFormData: router.multipartFormData, with: router).responseDecodable(of: type)
+    }
 }
 
 extension DataRequest {

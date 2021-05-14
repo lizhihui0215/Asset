@@ -27,6 +27,9 @@ enum APIRouter: URLRequestConvertible {
         static var assetList = "app/asset/findByCityPage"
         static var assetDetailByList = "app/asset/getAssetInfo"
         static var assetDetailInventoryListDetailSubmit = "app/check/daily/saveScanResult"
+        static var uploadPhoto = "app/image/upload/location"
+        static var imagesByLocation = "app/image/list/location"
+        static var locationImageOperatorByDelete = "app/image/delete/location"
 
         static func staffList(_ category: Staff.Category) -> String {
             switch category {
@@ -49,6 +52,9 @@ enum APIRouter: URLRequestConvertible {
     case assetList(AssetListParameter)
     case assetDetailByAssetList(AssetDetailParameterRepresentable)
     case assetDetailInventoryListDetailSubmit(AssetInventoryListDetailSubmitParameter)
+    case uploadPhoto(PhotographUploadParameter)
+    case imagesByLocation(LocationImagesParameter)
+    case locationImageOperatorByDelete(LocationImageOperatorByDeleteParameter)
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -56,20 +62,7 @@ enum APIRouter: URLRequestConvertible {
 
     var method: HTTPMethod {
         switch self {
-        case .login,
-             .locationDetailById,
-             .locationList,
-             .updateLocation,
-             .assetInventoryList,
-             .assetDetailByInventoryList,
-             .inventoryStatus,
-             .staffList,
-             .assetDetailByScan,
-             .assetStatus,
-             .assetList,
-             .assetDetailByAssetList,
-             .assetDetailInventoryListDetailSubmit:
-            return .post
+        default: return .post
         }
     }
 
@@ -88,6 +81,9 @@ enum APIRouter: URLRequestConvertible {
         case .assetList: return pathComponents(with: Constants.assetList)
         case .assetDetailByAssetList: return pathComponents(with: Constants.assetDetailByList)
         case .assetDetailInventoryListDetailSubmit: return pathComponents(with: Constants.assetDetailInventoryListDetailSubmit)
+        case .uploadPhoto: return pathComponents(with: Constants.uploadPhoto)
+        case .imagesByLocation: return pathComponents(with: Constants.imagesByLocation)
+        case .locationImageOperatorByDelete: return pathComponents(with: Constants.locationImageOperatorByDelete)
         }
     }
 
@@ -133,8 +129,23 @@ enum APIRouter: URLRequestConvertible {
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .assetDetailInventoryListDetailSubmit(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .uploadPhoto: break
+        case .imagesByLocation(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .locationImageOperatorByDelete(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
         }
 
         return request
+    }
+
+    var multipartFormData: MultipartFormData {
+        switch self {
+        case .uploadPhoto(let parameters):
+            let multipartFormData = MultipartFormData()
+            multipartFormData.append(parameters.data, withName: "", fileName: "")
+            return multipartFormData
+        default: fatalError("upload task must provide multipartFormData")
+        }
     }
 }

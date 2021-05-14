@@ -11,6 +11,13 @@ class AssetDetailViewController: BaseViewController {
 
     enum ViewState: Equatable {
         struct Configuration: Equatable {
+            enum RightBarButtonItemAction {
+                case view
+                case photograph
+            }
+
+            public static let `default` = Configuration()
+
             let isHiddenCoordinate: Bool
             let isHiddenInventoryStatus: Bool
             let isHiddenStatus: Bool
@@ -25,21 +32,49 @@ class AssetDetailViewController: BaseViewController {
             let isHiddenUser: Bool
             let locationCodeTitle: String
             let locationNameTitle: String
+            let longitudeTitle: String
+            let latitudeTitle: String
+            let rightBarButtonItemTitle: String
+            let rightBarButtonItemAction: RightBarButtonItemAction
 
-            public static let `default` = Configuration(isHiddenCoordinate: false,
-                                                        isHiddenInventoryStatus: false,
-                                                        isHiddenStatus: false,
-                                                        isHiddenDeviceSerial: false,
-                                                        isHiddenCategoryCode: false,
-                                                        isHiddenCategoryName: false,
-                                                        isHiddenLocationCode: false,
-                                                        isHiddenLocationName: false,
-                                                        isHiddenPrincipalCode: true,
-                                                        isHiddenUserAccount: true,
-                                                        isHiddenPrincipal: false,
-                                                        isHiddenUser: false,
-                                                        locationCodeTitle: "实际地点编码:",
-                                                        locationNameTitle: "实际地点名称:")
+            init(isHiddenCoordinate: Bool = false,
+                 isHiddenInventoryStatus: Bool = false,
+                 isHiddenStatus: Bool = false,
+                 isHiddenDeviceSerial: Bool = false,
+                 isHiddenCategoryCode: Bool = false,
+                 isHiddenCategoryName: Bool = false,
+                 isHiddenLocationCode: Bool = false,
+                 isHiddenLocationName: Bool = false,
+                 isHiddenPrincipalCode: Bool = true,
+                 isHiddenUserAccount: Bool = true,
+                 isHiddenPrincipal: Bool = false,
+                 isHiddenUser: Bool = false,
+                 locationCodeTitle: String = "实际地点编码:",
+                 locationNameTitle: String = "实际地点名称:",
+                 longitudeTitle: String = "经度:",
+                 latitudeTitle: String = "纬度:",
+                 rightBarButtonItemTitle: String = "查看照片",
+                 rightBarButtonItemAction: RightBarButtonItemAction = .view)
+            {
+                self.isHiddenCoordinate = isHiddenCoordinate
+                self.isHiddenInventoryStatus = isHiddenInventoryStatus
+                self.isHiddenStatus = isHiddenStatus
+                self.isHiddenDeviceSerial = isHiddenDeviceSerial
+                self.isHiddenCategoryCode = isHiddenCategoryCode
+                self.isHiddenCategoryName = isHiddenCategoryName
+                self.isHiddenLocationCode = isHiddenLocationCode
+                self.isHiddenLocationName = isHiddenLocationName
+                self.isHiddenPrincipalCode = isHiddenPrincipalCode
+                self.isHiddenUserAccount = isHiddenUserAccount
+                self.isHiddenPrincipal = isHiddenPrincipal
+                self.isHiddenUser = isHiddenUser
+                self.locationCodeTitle = locationCodeTitle
+                self.locationNameTitle = locationNameTitle
+                self.longitudeTitle = longitudeTitle
+                self.latitudeTitle = latitudeTitle
+                self.rightBarButtonItemTitle = rightBarButtonItemTitle
+                self.rightBarButtonItemAction = rightBarButtonItemAction
+            }
         }
 
         case editing
@@ -164,12 +199,14 @@ class AssetDetailViewController: BaseViewController {
             principalTextField.superview?.isUserInteractionEnabled = false
             userTextField.superview?.isUserInteractionEnabled = false
             nameTextField.isUserInteractionEnabled = false
-            longitudeTitleLabel.text = "经度:"
-            latitudeTitleLabel.text = "纬度:"
+            deviceSerialTextField.isUserInteractionEnabled = false
+            statusButton.isUserInteractionEnabled = false
+            longitudeTitleLabel.text = configuration.longitudeTitle
+            latitudeTitleLabel.text = configuration.latitudeTitle
             photographButton.heightAnchor ~ 0
             locationCodeTitleLabel.text = configuration.locationCodeTitle
             locationNameTitleLabel.text = configuration.locationNameTitle
-            rightBarButtonItem.title = "查看照片"
+            rightBarButtonItem.title = configuration.rightBarButtonItemTitle
             statusButton.titleLabel?.textAlignment = .left
             statusButton.setTitleColor(XCColor.primaryColor.color, for: .normal)
         }
@@ -231,17 +268,16 @@ class AssetDetailViewController: BaseViewController {
     }
 
     @IBAction func rightBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        save()
+        switch state {
+        case .editing: save()
+        case .viewing(configuration: _): break
+        }
 
         let future: ViewModelFuture<StoryboardSegue.Common> = viewModel.rightBarButtonTapped()
 
         future.onSuccess { [weak self] result in
             guard let self = self else { return }
-            if case .submitted = result {
-                `self`.alert(message: "操作成功！", defaultAction: Self.defaultAlertAction {
-                    `self`.perform(segue: result, sender: `self`)
-                })
-            }
+            `self`.perform(segue: result, sender: `self`)
         }
     }
 
@@ -256,10 +292,12 @@ class AssetDetailViewController: BaseViewController {
     }
 
     func updateLocationCoordinates() {
+        startLoadingIndicator()
         viewModel.getGPSLocation().onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.longitudeLabel.text = `self`.viewModel.longitude
             `self`.latitudeLabel.text = `self`.viewModel.latitude
+            `self`.stopLoadingIndicator()
         }
     }
 

@@ -6,15 +6,16 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
+import AlamofireImage
 import UIKit
 import ZLPhotoBrowser
 
 class PhotographViewController: BaseViewController {
-    enum ViewState {
+    enum ViewState: Equatable {
         case viewing // 查看照片
         case prepare // 没有照片
         case ready(UIImage) // 照片选好了
-        case finished(UIImage, String) // 上传完毕
+        case finished(url: URL, info: String) // 上传完毕
     }
 
     enum EditingView {
@@ -74,10 +75,17 @@ class PhotographViewController: BaseViewController {
             }
         }
 
+        var index: Int {
+            switch self {
+            case .first: return 0
+            case .second: return 1
+            }
+        }
+
         func update(viewState: ViewState) {
             switch self {
-            case .first(let controller): controller.firstViewState = viewState
-            case .second(let controller): controller.secondViewState = viewState
+            case .first(let controller): controller.viewStates.first = viewState
+            case .second(let controller): controller.viewStates.second = viewState
             }
         }
 
@@ -109,15 +117,15 @@ class PhotographViewController: BaseViewController {
     @IBOutlet var secondDeleteButton: AnimatableButton!
     @IBOutlet var secondInformationLabel: UILabel!
 
-    var firstViewState: ViewState = .prepare {
-        didSet {
-            update(view: .first(self), for: firstViewState)
-        }
-    }
+    var viewStates: PhotographViewModel.ViewStates = (first: .prepare, second: .prepare) {
+        willSet {
+            if viewStates.first != newValue.first {
+                update(view: .first(self), for: newValue.first)
+            }
 
-    var secondViewState: ViewState = .prepare {
-        didSet {
-            update(view: .second(self), for: secondViewState)
+            if viewStates.second != newValue.second {
+                update(view: .second(self), for: newValue.second)
+            }
         }
     }
 
@@ -142,8 +150,8 @@ class PhotographViewController: BaseViewController {
             buttonStackView.addArrangedSubview(photographButton)
             buttonStackView.addArrangedSubview(photoAlbumButton)
             buttonStackView.addArrangedSubview(submitButton)
-        case .finished(let image, let info):
-            imageView.image = image
+        case .finished(let url, let info):
+            imageView.af.setImage(withURL: url)
             informationLabel.text = info
             containerStackView.insertArrangedSubview(informationLabel, at: 1)
             buttonStackView.addArrangedSubview(deleteButton)
@@ -175,8 +183,11 @@ class PhotographViewController: BaseViewController {
         title = viewModel.title
         keyLabel.text = viewModel.key
         valueLabel.text = viewModel.value
-        firstViewState = viewModel.initViewState
-        secondViewState = viewModel.initViewState
+        viewStates = viewModel.viewStates
+        viewModel.fetchImages().onSuccess { [weak self] _ in
+            guard let self = self else { return }
+            `self`.viewStates = `self`.viewModel.viewStates
+        }
     }
 
     @IBAction func firstPhotographTapped(_ sender: AnimatableButton) {
@@ -235,11 +246,17 @@ class PhotographViewController: BaseViewController {
     }
 
     func deleteTapped(for editingView: EditingView) {
-        editingView.update(viewState: .prepare)
+        viewModel.delete(for: editingView.index)
+            .onSuccess { result in
+                editingView.update(viewState: result)
+            }
     }
 
     func submitTapped(for editingView: EditingView) {
-        editingView.update(viewState: .finished(editingView.imageView.image ?? UIImage(), "hahaha"))
+        guard let image = editingView.imageView.image else { return }
+        viewModel.upload(image).onSuccess { result in
+            editingView.update(viewState: result)
+        }
     }
 
     /*

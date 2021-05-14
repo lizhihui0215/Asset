@@ -1,0 +1,27 @@
+{
+  "status": 0,
+  "data": [
+    {
+      "imageId": "780368a1150c474e98adfe96e3697986",
+      "imagePath": "/data/image/2021/04/27",
+      "imageName": "ae0c70c6-c6fe-4775-b4cd-9370287b3a9e_press.jpg",
+      "uploadTime": "2021-04-27 13:44:16",
+      "uploadType": "1",
+      "uploadPerson": "taoyuan",
+      "longitude": "117.0142",
+      "latitude": "36.657729",
+      "url": "http://127.0.0.1:8090/eam-phone/appStatic//data/image/2021/04/27/ae0c70c6-c6fe-4775-b4cd-9370287b3a9e_press.jpg"
+    },
+    {
+      "imageId": "1a905543e10241c1b16bd6036ef8e43e",
+      "imagePath": "/data/image/2021/04/27",
+      "imageName": "bc8efafa-e73f-438f-acc5-981fe824a62a_press.jpg",
+      "uploadTime": "2021-04-27 17:54:45",
+      "uploadType": "1",
+      "uploadPerson": "taoyuan",
+      "longitude": "116.9982",
+      "latitude": "36.657689",
+      "url": "http://127.0.0.1:8090/eam-phone/appStatic//data/image/2021/04/27/bc8efafa-e73f-438f-acc5-981fe824a62a_press.jpg"
+    }
+  ]
+}

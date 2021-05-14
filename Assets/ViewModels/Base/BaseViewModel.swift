@@ -89,6 +89,32 @@ extension BaseViewModel {
                 `self`.apiFinished(router: router)
             }
     }
+
+    final func listApi<T: ListResponse>(of type: T.Type = T.self, router: APIRouter) -> ViewModelFuture<[T.Model]> {
+        beforeApi(router: router)
+        return request.listRequest(of: type, router: router)
+            .onFailure { [weak self] in
+                guard let self = self else { return }
+                `self`.handApiError(router: router, error: $0)
+            }.onComplete { _ in
+                `self`.apiFinished(router: router)
+            }.flatMap {
+                ViewModelFuture(value: $0.data)
+            }
+    }
+
+    final func upload<T: DataResponse>(of type: T.Type = T.self, router: APIRouter) -> ViewModelFuture<T.Model?> {
+        beforeApi(router: router)
+        return request.upload(of: type, router: router)
+            .onFailure { [weak self] in
+                guard let self = self else { return }
+                `self`.handApiError(router: router, error: $0)
+            }
+            .onComplete { [weak self] _ in
+                guard let self = self else { return }
+                `self`.apiFinished(router: router)
+            }
+    }
 }
 
 protocol DataDictionary {

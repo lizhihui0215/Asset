@@ -19,12 +19,16 @@ protocol DataResponse: ResponseRepresentable {
     init()
 }
 
-protocol PageableResponse: ResponseRepresentable {
+protocol ListResponse: ResponseRepresentable {
     associatedtype Model: Decodable
+    var data: [Model] { get set }
+    init()
+}
+
+protocol PageableResponse: ListResponse {
     var page: Int { get set }
     var total: Int { get set }
     var records: Int { get set }
-    var data: [Model] { get set }
     init()
 }
 
@@ -38,6 +42,12 @@ enum CodingKeys {
     enum List: String, CodingKey {
         case status
         case msg
+        case data
+    }
+
+    enum Pageable: String, CodingKey {
+        case status
+        case msg
         case data = "rows"
         case page
         case total
@@ -48,7 +58,7 @@ enum CodingKeys {
 extension PageableResponse {
     public init(from decoder: Decoder) throws {
         self.init()
-        let container = try decoder.container(keyedBy: CodingKeys.List.self)
+        let container = try decoder.container(keyedBy: CodingKeys.Pageable.self)
         let status: Int = try container.decodeIfPresent(.status) ?? 0
         let msg: String = try container.decodeIfPresent(.msg) ?? ""
         let data: [Model] = try container.decodeIfPresent(.data) ?? []
@@ -71,6 +81,38 @@ extension DataResponse {
         let status: Int = try container.decodeIfPresent(.status) ?? 0
         let msg: String = try container.decodeIfPresent(.msg) ?? ""
         let data: Model? = try container.decodeIfPresent(.data)
+        self.status = status
+        self.msg = msg.isEmpty && status != 0 ? EAMError.unknown.recoverySuggestion ?? "" : msg
+        self.data = data
+    }
+}
+
+extension DataResponse where Self.Model == String {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let container = try decoder.container(keyedBy: CodingKeys.Base.self)
+        let status: Int = try container.decodeIfPresent(.status) ?? 0
+        let msg: String = try container.decodeIfPresent(.msg) ?? ""
+        let data: Model? = try container.decodeIfPresent(.data)
+        self.status = status
+        self.msg = msg.isEmpty && status != 0 ? EAMError.unknown.recoverySuggestion ?? "" : msg
+
+        guard status == 0, !msg.isEmpty, data == nil else {
+            self.data = msg
+            return
+        }
+
+        self.data = data
+    }
+}
+
+extension ListResponse {
+    public init(from decoder: Decoder) throws {
+        self.init()
+        let container = try decoder.container(keyedBy: CodingKeys.List.self)
+        let status: Int = try container.decodeIfPresent(.status) ?? 0
+        let msg: String = try container.decodeIfPresent(.msg) ?? ""
+        let data: [Model] = try container.decodeIfPresent(.data) ?? []
         self.status = status
         self.msg = msg.isEmpty && status != 0 ? EAMError.unknown.recoverySuggestion ?? "" : msg
         self.data = data

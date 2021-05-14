@@ -307,6 +307,36 @@ extension LocationDetail {
 
 
 
+extension Photo {
+
+    enum CodingKeys: String, CodingKey {
+        case imageId
+        case imagePath
+        case imageName
+        case uploadTime
+        case uploadType
+        case uploadPerson
+        case longitude
+        case latitude
+        case url
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        imageId = (try? container.decode(String.self, forKey: .imageId)) ?? Photo.defaultImageId
+        imagePath = (try? container.decode(String.self, forKey: .imagePath)) ?? Photo.defaultImagePath
+        imageName = (try? container.decode(String.self, forKey: .imageName)) ?? Photo.defaultImageName
+        uploadTime = (try? container.decode(String.self, forKey: .uploadTime)) ?? Photo.defaultUploadTime
+        uploadType = (try? container.decode(String.self, forKey: .uploadType)) ?? Photo.defaultUploadType
+        uploadPerson = (try? container.decode(String.self, forKey: .uploadPerson)) ?? Photo.defaultUploadPerson
+        longitude = (try? container.decode(String.self, forKey: .longitude)) ?? Photo.defaultLongitude
+        latitude = (try? container.decode(String.self, forKey: .latitude)) ?? Photo.defaultLatitude
+        url = (try? container.decode(String.self, forKey: .url)) ?? Photo.defaultUrl
+    }
+
+}
+
 extension Staff {
 
     enum CodingKeys: String, CodingKey {

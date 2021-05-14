@@ -42,8 +42,13 @@ class AssetInventoryListDetailViewModel: AssetDetailViewModel {
     }
 
     override func rightBarButtonTapped() -> ViewModelFuture<StoryboardSegue.Common> {
-        submit().flatMap { _ in
-            ViewModelFuture(value: StoryboardSegue.Common.submitted)
+        ViewModelFuture { complete in
+            submit().onSuccess { [weak self] _ in
+                guard let self = self else { return }
+                `self`.action.alert(message: "操作成功！", defaultAction: UIViewController.defaultAlertAction {
+                    complete(.success(.submitted))
+                })
+            }
         }
     }
 

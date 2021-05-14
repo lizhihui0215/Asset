@@ -28,7 +28,7 @@ class StaffListViewModel: PageableViewModel<StaffListViewController, DefaultSect
                                            appSearchText: appSearchText,
                                            category: category)
 
-        return api(of: StaffListResponse.self, router: .staffList(parameter))
+        return pageableApi(of: StaffListResponse.self, router: .staffList(parameter))
             .onSuccess { [weak self] staffs in
                 guard let first = self?.first, let self = self else { return }
 

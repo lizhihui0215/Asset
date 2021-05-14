@@ -94,7 +94,7 @@ class PageableViewModel<T: UIViewController, S: Section>: ListViewModel<T, S>, P
     var page: Int = 0
     var size = Int(app.credential?.pageSize ?? "") ?? 10
 
-    func api<T: PageableResponse>(of type: T.Type = T.self, router: APIRouter) -> ViewModelFuture<[T.Model]> {
+    final func pageableApi<T: PageableResponse>(of type: T.Type = T.self, router: APIRouter) -> ViewModelFuture<[T.Model]> {
         beforeApi(router: router)
         return request.listRequest(of: type, router: router)
             .onFailure { [weak self] in

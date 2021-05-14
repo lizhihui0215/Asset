@@ -36,6 +36,7 @@ class RadioGroupView: NibView {
     typealias DidSelectedAction = (Int) -> Void
     @IBOutlet var radioButtonStacks: [RadioButtonStack]!
     @IBOutlet var containerStackView: UIStackView!
+    var titles = [String]()
 
     var selectedIndex: Int {
         guard let index = radioButtonStacks.firstIndex(where: { $0.button.isSelected }) else { return 0 }
@@ -51,25 +52,25 @@ class RadioGroupView: NibView {
                 return
             }
 
-            let titles = titleString.split(separator: ",")
-                .map(String.init)
-            for (index, radioButtonStack) in radioButtonStacks.enumerated() {
-                guard index < titles.count else { break }
-                let title = titles[index]
-                radioButtonStack.label.text = title
-            }
+            titles = titleString.split(separator: ",").map(String.init)
         }
     }
 
-    @IBInspectable open var spacing: CGFloat = 0 {
-        didSet {
-            containerStackView.spacing = spacing
-        }
-    }
+    @IBInspectable open var spacing: CGFloat = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        initViews()
+    }
+
+    func initViews() {
         radioButtonStacks.first?.button.isSelected = true
+        for (index, radioButtonStack) in radioButtonStacks.enumerated() {
+            guard index < titles.count else { break }
+            let title = titles[index]
+            radioButtonStack.label.text = title
+        }
+        containerStackView.spacing = spacing
     }
 
     @IBAction func radioButtonTapped(_ sender: RadioButton) {
@@ -88,6 +89,7 @@ class RadioGroupView: NibView {
 
     override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
+        initViews()
         radioButtonStacks.first?.button.isSelected = true
     }
 }

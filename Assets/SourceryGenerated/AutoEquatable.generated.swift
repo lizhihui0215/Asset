@@ -169,6 +169,20 @@ internal func == (lhs: LocationDetail, rhs: LocationDetail) -> Bool {
     guard lhs.locationName == rhs.locationName else { return false }
     return true
 }
+// MARK: - Photo AutoEquatable
+extension Photo: Equatable {}
+internal func == (lhs: Photo, rhs: Photo) -> Bool {
+    guard lhs.imageId == rhs.imageId else { return false }
+    guard lhs.imagePath == rhs.imagePath else { return false }
+    guard lhs.imageName == rhs.imageName else { return false }
+    guard lhs.uploadTime == rhs.uploadTime else { return false }
+    guard lhs.uploadType == rhs.uploadType else { return false }
+    guard lhs.uploadPerson == rhs.uploadPerson else { return false }
+    guard lhs.longitude == rhs.longitude else { return false }
+    guard lhs.latitude == rhs.latitude else { return false }
+    guard lhs.url == rhs.url else { return false }
+    return true
+}
 // MARK: - Staff AutoEquatable
 extension Staff: Equatable {}
 internal func == (lhs: Staff, rhs: Staff) -> Bool {

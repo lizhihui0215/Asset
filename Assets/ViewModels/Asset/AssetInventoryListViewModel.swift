@@ -80,7 +80,7 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
             appCheckStatus: selectedInventoryStatus.status
         )
 
-        return api(of: AssetInventoryListResponse.self, router: .assetInventoryList(parameter))
+        return pageableApi(of: AssetInventoryListResponse.self, router: .assetInventoryList(parameter))
             .onSuccess { [weak self] assets in
                 guard let first = self?.first else { return }
                 guard isPaging else { first.items = assets; return }
@@ -98,9 +98,26 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
             let assetId = itemAtIndexPath(indexPath: indexPath).assetId
             let parameters = AssetInventoryListDetailParameter(assetId: assetId,
                                                                checkPerson: checkPerson)
+
+            let configuration = AssetDetailViewController.Configuration(isHiddenCoordinate: false,
+                                                                        isHiddenInventoryStatus: false,
+                                                                        isHiddenStatus: false,
+                                                                        isHiddenDeviceSerial: false,
+                                                                        isHiddenCategoryCode: true,
+                                                                        isHiddenCategoryName: true,
+                                                                        isHiddenLocationCode: false,
+                                                                        isHiddenLocationName: false,
+                                                                        isHiddenPrincipalCode: true,
+                                                                        isHiddenUserAccount: true,
+                                                                        isHiddenPrincipal: false,
+                                                                        isHiddenUser: false,
+                                                                        locationCodeTitle: "实际地点编码:",
+                                                                        locationNameTitle: "实际地点名称:",
+                                                                        rightBarButtonItemTitle: "拍照",
+                                                                        rightBarButtonItemAction: .photograph)
             return AssetInventoryListDetailViewModel(request: AssetListDetailRequest(),
                                                      action: action,
-                                                     viewState: .viewing(),
+                                                     viewState: .viewing(configuration: configuration),
                                                      parameters: parameters) as! T
         case _ as AssetInventoryListViewController:
             guard let indexPath = sender as? IndexPath else { break }

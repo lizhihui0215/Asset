@@ -59,12 +59,25 @@ extension RequestRepresentable {
         }
     }
 
-    func listRequest<T: PageableResponse>(of type: T.Type, router: APIRouter) -> APIFuture<T> {
+    func listRequest<T: ListResponse>(of type: T.Type, router: APIRouter) -> APIFuture<T> {
         apiClient.sendRequest(of: type, router: router).flatMap { response in
             APIFuture { complete in
                 do {
                     let data = try response.result.get()
                     complete(.success(data))
+                } catch {
+                    complete(.failure(error))
+                }
+            }
+        }
+    }
+
+    func upload<T: DataResponse>(of type: T.Type, router: APIRouter) -> APIFuture<T.Model?> {
+        apiClient.upload(of: type, router: router).flatMap { response in
+            APIFuture { complete in
+                do {
+                    let data = try response.result.get()
+                    complete(.success(data.data))
                 } catch {
                     complete(.failure(error))
                 }
