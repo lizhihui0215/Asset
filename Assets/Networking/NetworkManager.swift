@@ -67,7 +67,7 @@ class NetworkManager {
 extension DataRequest {
     func responseDecodable<T>(of _: T.Type = T.self) -> EAMResponseFuture<EAMDataResponse<T>> where T: ResponseRepresentable {
         EAMResponseFuture<EAMDataResponse<T>> { complete in
-            responseDecodable(of: T.self) { response in
+            responseDecodable(of: T.self, dataPreprocessor: TransformErrorPreprocessor<T>()) { response in
                 let response: EAMDataResponse<T> = response.tryMap { response in
 
                     guard response.status == 0 else {

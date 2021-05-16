@@ -84,8 +84,9 @@ public enum EAMError: Error {
     case weakSelfUnWrapError
     case unwrapOptionalValueError(String)
 
-    public enum ServerError: Error {
+    public enum ServerError: Error, Equatable {
         case responseFailed(reason: String)
+        case tokenRequiredError
     }
 
     public enum UIError: Error {
@@ -157,6 +158,8 @@ extension EAMError.ServerError: LocalizedError {
         switch self {
         case .responseFailed(let reason):
             return reason
+        case .tokenRequiredError:
+            return "token is required"
         }
     }
 
@@ -164,6 +167,8 @@ extension EAMError.ServerError: LocalizedError {
         switch self {
         case .responseFailed(let reason):
             return reason
+        case .tokenRequiredError:
+            return "token is required"
         }
     }
 
@@ -171,6 +176,8 @@ extension EAMError.ServerError: LocalizedError {
         switch self {
         case .responseFailed(let reason):
             return reason
+        case .tokenRequiredError:
+            return "token is required"
         }
     }
 }
