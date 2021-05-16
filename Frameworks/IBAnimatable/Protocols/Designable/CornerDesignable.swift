@@ -6,82 +6,76 @@
 import UIKit
 
 public protocol CornerDesignable: AnyObject {
-  /**
-   `border-radius`
-   */
-  var cornerRadius: CGFloat { get set }
+    /**
+     `border-radius`
+     */
+    var cornerRadius: CGFloat { get set }
 
-  /**
-   corner side: Top Left, Top Right, Bottom Left or Bottom Right, if not specified, all corner sides will display,
-   */
-  var cornerSides: CornerSides { get set }
+    /**
+     corner side: Top Left, Top Right, Bottom Left or Bottom Right, if not specified, all corner sides will display,
+     */
+    var cornerSides: CornerSides { get set }
 }
 
 // MARK: - UIView
 
 public extension CornerDesignable where Self: UIView {
-
-  func configureCornerRadius() {
-    configureCornerRadius(in: self)
-  }
-
+    func configureCornerRadius() {
+        configureCornerRadius(in: self)
+    }
 }
 
 // MARK: - UICollectionViewCell
 
 public extension CornerDesignable where Self: UICollectionViewCell {
+    func configureCornerRadius() {
+        if !cornerRadius.isNaN, cornerRadius > 0 {
+            // Remove any previous corner mask, i.e. coming from UIView type implementation
+            if layer.mask?.name == "cornerSideLayer" {
+                layer.mask?.removeFromSuperlayer()
+            }
+            layer.cornerRadius = 0.0
 
-  func configureCornerRadius() {
-    if !cornerRadius.isNaN && cornerRadius > 0 {
-      // Remove any previous corner mask, i.e. coming from UIView type implementation
-      if layer.mask?.name == "cornerSideLayer" {
-        layer.mask?.removeFromSuperlayer()
-      }
-      layer.cornerRadius = 0.0
-
-      applyCorner(in: contentView)
-      contentView.layer.masksToBounds = true
-    } else {
-      contentView.layer.masksToBounds = false
+            applyCorner(in: contentView)
+            contentView.layer.masksToBounds = true
+        } else {
+            contentView.layer.masksToBounds = false
+        }
     }
-  }
-
 }
 
 // MARK: - Common
 
 extension CornerDesignable {
+    func configureCornerRadius(in view: UIView) {
+        guard !cornerRadius.isNaN, cornerRadius > 0 else {
+            return
+        }
 
-  func configureCornerRadius(in view: UIView) {
-    guard !cornerRadius.isNaN && cornerRadius > 0 else {
-      return
+        applyCorner(in: view)
     }
 
-    applyCorner(in: view)
-  }
-
-  private func applyCorner(in view: UIView) {
-    if cornerSides == .allSides {
-      view.layer.cornerRadius = cornerRadius
-    } else {
-      view.layer.cornerRadius = 0.0
-      // if a layer mask is specified, remove it
-      view.layer.mask?.removeFromSuperlayer()
-      view.layer.mask = cornerSidesLayer(inRect: view.bounds)
+    private func applyCorner(in view: UIView) {
+        if cornerSides == .allSides {
+            view.layer.cornerRadius = cornerRadius
+        } else {
+            view.layer.cornerRadius = 0.0
+            // if a layer mask is specified, remove it
+            view.layer.mask?.removeFromSuperlayer()
+            view.layer.mask = cornerSidesLayer(inRect: view.bounds)
+        }
     }
-  }
 
-  private func cornerSidesLayer(inRect bounds: CGRect) -> CAShapeLayer {
-    let cornerSideLayer = CAShapeLayer()
-    cornerSideLayer.name = "cornerSideLayer"
-    cornerSideLayer.frame = CGRect(origin: .zero, size: bounds.size)
+    private func cornerSidesLayer(inRect bounds: CGRect) -> CAShapeLayer {
+        let cornerSideLayer = CAShapeLayer()
+        cornerSideLayer.name = "cornerSideLayer"
+        cornerSideLayer.frame = CGRect(origin: .zero, size: bounds.size)
 
-    let cornerRadii = CGSize(width: cornerRadius, height: cornerRadius)
-    let roundingCorners: UIRectCorner = cornerSides.rectCorner
-    cornerSideLayer.path = UIBezierPath(roundedRect: bounds,
-                                        byRoundingCorners: roundingCorners,
-                                        cornerRadii: cornerRadii).cgPath
-    return cornerSideLayer
-  }
-
+        let cornerRadii = CGSize(width: cornerRadius, height: cornerRadius)
+        let roundingCorners: UIRectCorner = cornerSides.rectCorner
+        cornerSideLayer.path = UIBezierPath(roundedRect: bounds,
+                                            byRoundingCorners: roundingCorners,
+                                            cornerRadii: cornerRadii).cgPath
+        return cornerSideLayer
+    }
 }

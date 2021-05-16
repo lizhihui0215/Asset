@@ -9,80 +9,79 @@ import UIKit
 typealias AnimationTuple = (type: AnimationType, configuration: AnimationConfiguration)
 
 struct AnimationConfiguration {
-  let damping: CGFloat
-  let velocity: CGFloat
-  let duration: TimeInterval
-  let delay: TimeInterval
-  let force: CGFloat
-  let timingFunction: TimingFunctionType
+    let damping: CGFloat
+    let velocity: CGFloat
+    let duration: TimeInterval
+    let delay: TimeInterval
+    let force: CGFloat
+    let timingFunction: TimingFunctionType
 }
 
 extension AnimationConfiguration {
-
-  /// Options for spring animation.
-  var options: UIView.AnimationOptions {
-    if let curveOption = timingFunction.viewAnimationCurveOption {
-      return [
-        .allowUserInteraction,
-        curveOption,
-        .overrideInheritedCurve,
-        .overrideInheritedOptions,
-        .overrideInheritedDuration]
+    /// Options for spring animation.
+    var options: UIView.AnimationOptions {
+        if let curveOption = timingFunction.viewAnimationCurveOption {
+            return [
+                .allowUserInteraction,
+                curveOption,
+                .overrideInheritedCurve,
+                .overrideInheritedOptions,
+                .overrideInheritedDuration,
+            ]
+        }
+        return [.allowUserInteraction]
     }
-    return [.allowUserInteraction]
-  }
-
 }
 
 public class AnimationPromise<T: UIView> where T: Animatable {
+    private var view: T
+    private var animationList = [AnimationTuple]()
+    private var delayForNextAnimation = 0.0
+    private var completion: AnimatableCompletion?
 
-  private var view: T
-  private var animationList = [AnimationTuple]()
-  private var delayForNextAnimation = 0.0
-  private var completion: AnimatableCompletion?
-
-  init(view: T) {
-    self.view = view
-  }
-
-   func animationCompleted() {
-      animationList.removeFirst()
-      if let currentAnimation = animationList.first {
-        view.doAnimation(currentAnimation.type, configuration: currentAnimation.configuration, promise: self)
-      } else {
-        completion?()
+    init(view: T) {
+        self.view = view
     }
-  }
 
-  public func completion(_ completion: AnimatableCompletion?) {
-    self.completion = completion
-  }
-
-  @discardableResult
-  public func  then(_ animation: AnimationType,
-                    duration: TimeInterval? = nil,
-                    damping: CGFloat? = nil,
-                    velocity: CGFloat? = nil,
-                    force: CGFloat? = nil,
-                    timingFunction: TimingFunctionType? = nil) -> AnimationPromise {
-    let configuration = AnimationConfiguration(damping: damping ?? view.damping,
-                                               velocity: velocity ?? view.velocity,
-                                               duration: duration ?? view.duration,
-                                               delay: delayForNextAnimation,
-                                               force: force ?? view.force,
-                                               timingFunction: timingFunction ?? view.timingFunction)
-    let animTuple = AnimationTuple(type: animation, configuration: configuration)
-    animationList.append(animTuple)
-    if animationList.count == 1 { // If it's the only animation, launch it immediately
-      view.doAnimation(animation, configuration: animTuple.configuration, promise: self)
+    func animationCompleted() {
+        animationList.removeFirst()
+        if let currentAnimation = animationList.first {
+            view.doAnimation(currentAnimation.type, configuration: currentAnimation.configuration, promise: self)
+        } else {
+            completion?()
+        }
     }
-    delayForNextAnimation = 0
-    return self
-  }
 
-  @discardableResult
-  public func delay(_ delay: TimeInterval) -> AnimationPromise {
-    delayForNextAnimation = delay
-    return self
-  }
+    public func completion(_ completion: AnimatableCompletion?) {
+        self.completion = completion
+    }
+
+    @discardableResult
+    public func then(_ animation: AnimationType,
+                     duration: TimeInterval? = nil,
+                     damping: CGFloat? = nil,
+                     velocity: CGFloat? = nil,
+                     force: CGFloat? = nil,
+                     timingFunction: TimingFunctionType? = nil) -> AnimationPromise
+    {
+        let configuration = AnimationConfiguration(damping: damping ?? view.damping,
+                                                   velocity: velocity ?? view.velocity,
+                                                   duration: duration ?? view.duration,
+                                                   delay: delayForNextAnimation,
+                                                   force: force ?? view.force,
+                                                   timingFunction: timingFunction ?? view.timingFunction)
+        let animTuple = AnimationTuple(type: animation, configuration: configuration)
+        animationList.append(animTuple)
+        if animationList.count == 1 { // If it's the only animation, launch it immediately
+            view.doAnimation(animation, configuration: animTuple.configuration, promise: self)
+        }
+        delayForNextAnimation = 0
+        return self
+    }
+
+    @discardableResult
+    public func delay(_ delay: TimeInterval) -> AnimationPromise {
+        delayForNextAnimation = delay
+        return self
+    }
 }

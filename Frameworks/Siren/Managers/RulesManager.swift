@@ -47,7 +47,8 @@ public struct RulesManager {
                 minorUpdateRules: Rules = .default,
                 patchUpdateRules: Rules = .default,
                 revisionUpdateRules: Rules = .default,
-                showAlertAfterCurrentVersionHasBeenReleasedForDays releasedForDays: Int = 1) {
+                showAlertAfterCurrentVersionHasBeenReleasedForDays releasedForDays: Int = 1)
+    {
         self.majorUpdateRules = majorUpdateRules
         self.minorUpdateRules = minorUpdateRules
         self.patchUpdateRules = patchUpdateRules
@@ -71,7 +72,8 @@ public struct RulesManager {
     ///   - rules: The rules that should be set for all version updates.
     ///   - releasedForDays: The amount of time (in days) that the app should delay before presenting the user
     public init(globalRules rules: Rules = .default,
-                showAlertAfterCurrentVersionHasBeenReleasedForDays releasedForDays: Int = 1) {
+                showAlertAfterCurrentVersionHasBeenReleasedForDays releasedForDays: Int = 1)
+    {
         self.init(majorUpdateRules: rules,
                   minorUpdateRules: rules,
                   patchUpdateRules: rules,
@@ -102,7 +104,7 @@ public struct RulesManager {
 
 // MARK: - RulesManager-related Constants
 
-extension RulesManager {
+public extension RulesManager {
     /// Informs Siren of the type of update that is available so that
     /// the appropriate ruleset is used to present the update alert.
     ///
@@ -111,7 +113,7 @@ extension RulesManager {
     /// - patch: Patch release available: a.b.C.d
     /// - revision: Revision release available: a.b.c.D
     /// - unknown: No information available about the update.
-    public enum UpdateType: String {
+    enum UpdateType: String {
         /// Major release available: A.b.c.d
         case major
         /// Minor release available: a.B.c.d

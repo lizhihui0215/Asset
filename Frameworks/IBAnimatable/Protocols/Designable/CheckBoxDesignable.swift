@@ -6,30 +6,30 @@
 import UIKit
 
 public protocol CheckBoxDesignable: AnyObject {
-  var checked: Bool { get set }
-  var checkedImage: UIImage? { get set }
-  var uncheckedImage: UIImage? { get set }
+    var checked: Bool { get set }
+    var checkedImage: UIImage? { get set }
+    var uncheckedImage: UIImage? { get set }
 }
 
 public extension CheckBoxDesignable where Self: UIButton {
-  func configureCheckBoxChecked() {
-    isSelected = checked
-  }
-
-  func configureCheckBoxCheckedImage() {
-    guard let checkedImage = checkedImage else {
-      return
+    func configureCheckBoxChecked() {
+        isSelected = checked
     }
 
-    setBackgroundImage(checkedImage, for: .selected)
-    setBackgroundImage(checkedImage, for: [.selected, .highlighted])
-  }
+    func configureCheckBoxCheckedImage() {
+        guard let checkedImage = checkedImage else {
+            return
+        }
 
-  func configureCheckBoxUncheckedImage() {
-    guard let uncheckedImage = uncheckedImage else {
-      return
+        setBackgroundImage(checkedImage, for: .selected)
+        setBackgroundImage(checkedImage, for: [.selected, .highlighted])
     }
 
-    setBackgroundImage(uncheckedImage, for: UIControl.State())
-  }
+    func configureCheckBoxUncheckedImage() {
+        guard let uncheckedImage = uncheckedImage else {
+            return
+        }
+
+        setBackgroundImage(uncheckedImage, for: UIControl.State())
+    }
 }

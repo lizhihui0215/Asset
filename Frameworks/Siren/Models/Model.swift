@@ -11,7 +11,6 @@ import Foundation
 /// The validated and unwrapped `APIModel`.
 /// This model is presented to the end user in Siren's completion handler.
 public struct Model {
-
     /// The release date for the latest version of the app.
     public let currentVersionReleaseDate: String
 

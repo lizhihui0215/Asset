@@ -53,15 +53,16 @@ public class PresentationManager {
     ///     - forceLanguage: The language the alert to which the alert should be set. If `nil`, it falls back to the device's preferred locale.
     public init(alertTintColor tintColor: UIColor? = nil,
                 appName: String? = nil,
-                alertTitle: String  = AlertConstants.alertTitle,
-                alertMessage: String  = AlertConstants.alertMessage,
-                updateButtonTitle: String  = AlertConstants.updateButtonTitle,
-                nextTimeButtonTitle: String  = AlertConstants.nextTimeButtonTitle,
-                skipButtonTitle: String  = AlertConstants.skipButtonTitle,
-                forceLanguageLocalization forceLanguage: Localization.Language? = nil) {
+                alertTitle: String = AlertConstants.alertTitle,
+                alertMessage: String = AlertConstants.alertMessage,
+                updateButtonTitle: String = AlertConstants.updateButtonTitle,
+                nextTimeButtonTitle: String = AlertConstants.nextTimeButtonTitle,
+                skipButtonTitle: String = AlertConstants.skipButtonTitle,
+                forceLanguageLocalization forceLanguage: Localization.Language? = nil)
+    {
         self.alertTitle = alertTitle
         self.alertMessage = alertMessage
-        self.localization = Localization(appName: appName, andForceLanguageLocalization: forceLanguage)
+        localization = Localization(appName: appName, andForceLanguageLocalization: forceLanguage)
         self.nextTimeButtonTitle = nextTimeButtonTitle
         self.updateButtonTitle = updateButtonTitle
         self.skipButtonTitle = skipButtonTitle
@@ -80,7 +81,6 @@ public class PresentationManager {
 // MARK: - Alert Lifecycle
 
 extension PresentationManager {
-
     /// Constructs the localized update alert `UIAlertController` object.
     ///
     /// - Parameters:
@@ -89,8 +89,8 @@ extension PresentationManager {
     ///   - handler: The completion handler that returns the an `AlertAction` depending on the type of action the end-user took.
     func presentAlert(withRules rules: Rules,
                       forCurrentAppStoreVersion currentAppStoreVersion: String,
-                      completion handler: CompletionHandler?) {
-
+                      completion handler: CompletionHandler?)
+    {
         UserDefault(key: SirenKeys.StoredVersionCheckDate, defaultValue: Date()).synchronized()
 
         // Alert Title
@@ -154,7 +154,6 @@ extension PresentationManager {
 // MARK: - Alert Actions
 
 private extension PresentationManager {
-
     /// The `UIAlertAction` that is executed when the `Update` option is selected.
     ///
     /// - Parameters:
@@ -226,7 +225,6 @@ private extension PresentationManager {
 // MARK: - Helpers
 
 private extension PresentationManager {
-    
     private func createWindow() -> UIWindow? {
         var window: UIWindow!
         if #available(iOS 13.0, *), let windowScene = getFirstForegroundScene() {

@@ -7,49 +7,55 @@ import UIKit
 
 @IBDesignable
 open class AnimatableBarButtonItem: UIBarButtonItem, BarButtonItemDesignable, Animatable {
-  // MARK: - BarButtonItemDesignable
-  @IBInspectable open var roundedImage: UIImage?
+    // MARK: - BarButtonItemDesignable
 
-  // MARK: - Lifecycle
-  open override func prepareForInterfaceBuilder() {
-    super.prepareForInterfaceBuilder()
-    configureInspectableProperties()
-  }
+    @IBInspectable open var roundedImage: UIImage?
 
-  open override func awakeFromNib() {
-    super.awakeFromNib()
-    configureInspectableProperties()
-  }
+    // MARK: - Lifecycle
 
-  // TODO: animations
-//  public override func layoutSubviews() {
+    override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        configureInspectableProperties()
+    }
+
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        configureInspectableProperties()
+    }
+
+    // TODO: animations
+    //  public override func layoutSubviews() {
 //    super.layoutSubviews()
 //
 //    autoRunAnimation()
-//  }
+    //  }
 
-  // MARK: - Animatable
-  open var animationType: AnimationType = .none
-  @IBInspectable var _animationType: String? {
-    didSet {
-      animationType = AnimationType(string: _animationType)
-    }
-  }
-  @IBInspectable open var autoRun: Bool = true
-  @IBInspectable open var duration: Double = Double.nan
-  @IBInspectable open var delay: Double = Double.nan
-  @IBInspectable open var damping: CGFloat = CGFloat.nan
-  @IBInspectable open var velocity: CGFloat = CGFloat.nan
-  @IBInspectable open var force: CGFloat = CGFloat.nan
-  @IBInspectable var _timingFunction: String = "" {
-    didSet {
-      timingFunction = TimingFunctionType(string: _timingFunction)
-    }
-  }
-  open var timingFunction: TimingFunctionType = .none
+    // MARK: - Animatable
 
-  // MARK: - Private
-  fileprivate func configureInspectableProperties() {
-    configureBarButtonItemImage()
-  }
+    open var animationType: AnimationType = .none
+    @IBInspectable var _animationType: String? {
+        didSet {
+            animationType = AnimationType(string: _animationType)
+        }
+    }
+
+    @IBInspectable open var autoRun: Bool = true
+    @IBInspectable open var duration = Double.nan
+    @IBInspectable open var delay = Double.nan
+    @IBInspectable open var damping = CGFloat.nan
+    @IBInspectable open var velocity = CGFloat.nan
+    @IBInspectable open var force = CGFloat.nan
+    @IBInspectable var _timingFunction: String = "" {
+        didSet {
+            timingFunction = TimingFunctionType(string: _timingFunction)
+        }
+    }
+
+    open var timingFunction: TimingFunctionType = .none
+
+    // MARK: - Private
+
+    fileprivate func configureInspectableProperties() {
+        configureBarButtonItemImage()
+    }
 }

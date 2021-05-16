@@ -138,31 +138,31 @@ public struct Localization {
     ///
     /// - Returns: A localized string for the phrase "Update Available".
     public func alertTitle() -> String {
-        return Bundle.localizedString(forKey: AlertConstants.alertTitle,
-                                      andForceLocalization: forceLanguage)
+        Bundle.localizedString(forKey: AlertConstants.alertTitle,
+                               andForceLocalization: forceLanguage)
     }
 
     /// The localized string for the "Next time" `UIAlertAction`.
     ///
     /// - Returns: A localized string for the phrase "Next time".
     public func nextTimeButtonTitle() -> String {
-        return Bundle.localizedString(forKey: AlertConstants.nextTimeButtonTitle,
-                                      andForceLocalization: forceLanguage)
+        Bundle.localizedString(forKey: AlertConstants.nextTimeButtonTitle,
+                               andForceLocalization: forceLanguage)
     }
 
     /// The localized string for the "Skip this version" `UIAlertAction`.
     ///
     /// - Returns: A localized string for the phrase "Skip this version".
     public func skipButtonTitle() -> String {
-        return Bundle.localizedString(forKey: AlertConstants.skipButtonTitle,
-                                      andForceLocalization: forceLanguage)
+        Bundle.localizedString(forKey: AlertConstants.skipButtonTitle,
+                               andForceLocalization: forceLanguage)
     }
 
     /// The localized string for the "Update" `UIAlertAction`.
     ///
     /// - Returns: A localized string for the phrase "Update".
     public func updateButtonTitle() -> String {
-        return Bundle.localizedString(forKey: AlertConstants.updateButtonTitle,
-                                      andForceLocalization: forceLanguage)
+        Bundle.localizedString(forKey: AlertConstants.updateButtonTitle,
+                               andForceLocalization: forceLanguage)
     }
 }

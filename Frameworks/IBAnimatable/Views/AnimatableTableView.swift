@@ -7,190 +7,220 @@ import UIKit
 
 @IBDesignable
 open class AnimatableTableView: UITableView, FillDesignable, BorderDesignable, GradientDesignable,
-                                             BackgroundImageDesignable, BlurDesignable, RefreshControlDesignable,
-                                             Animatable {
+    BackgroundImageDesignable, BlurDesignable, RefreshControlDesignable,
+    Animatable
+{
+    // MARK: - FillDesignable
 
-  // MARK: - FillDesignable
-  @IBInspectable open var fillColor: UIColor? {
-    didSet {
-      configureFillColor()
+    @IBInspectable open var fillColor: UIColor? {
+        didSet {
+            configureFillColor()
+        }
     }
-  }
 
-  open var predefinedColor: ColorType? {
-    didSet {
-      configureFillColor()
+    open var predefinedColor: ColorType? {
+        didSet {
+            configureFillColor()
+        }
     }
-  }
-  @IBInspectable var _predefinedColor: String? {
-    didSet {
-      predefinedColor = ColorType(string: _predefinedColor)
-    }
-  }
 
-  @IBInspectable open var opacity: CGFloat = CGFloat.nan {
-    didSet {
-      configureOpacity()
+    @IBInspectable var _predefinedColor: String? {
+        didSet {
+            predefinedColor = ColorType(string: _predefinedColor)
+        }
     }
-  }
 
-  // MARK: - BorderDesignable
-  open var borderType: BorderType  = .solid {
-    didSet {
-      configureBorder()
+    @IBInspectable open var opacity = CGFloat.nan {
+        didSet {
+            configureOpacity()
+        }
     }
-  }
 
-  @IBInspectable var _borderType: String? {
-    didSet {
-      borderType = BorderType(string: _borderType)
-    }
-  }
+    // MARK: - BorderDesignable
 
-  @IBInspectable open var borderColor: UIColor? {
-    didSet {
-      configureBorder()
+    open var borderType: BorderType = .solid {
+        didSet {
+            configureBorder()
+        }
     }
-  }
 
-  @IBInspectable open var borderWidth: CGFloat = CGFloat.nan {
-    didSet {
-      configureBorder()
+    @IBInspectable var _borderType: String? {
+        didSet {
+            borderType = BorderType(string: _borderType)
+        }
     }
-  }
 
-  open var borderSides: BorderSides  = .AllSides {
-    didSet {
-      configureBorder()
+    @IBInspectable open var borderColor: UIColor? {
+        didSet {
+            configureBorder()
+        }
     }
-  }
+    
+    /**
+     The color of the border when it has content.
 
-  @IBInspectable var _borderSides: String? {
-    didSet {
-      borderSides = BorderSides(rawValue: _borderSides)
+     This property applies a color to the lower edge of the control. The default value for this property is a clear color.
+     */
+    @IBInspectable open var activeColor: UIColor? {
+        didSet {
+            configureBorder()
+        }
     }
-  }
-  // MARK: - GradientDesignable
-  open var gradientMode: GradientMode = .linear
-  @IBInspectable var _gradientMode: String? {
-    didSet {
-      gradientMode = GradientMode(string: _gradientMode) ?? .linear
-    }
-  }
-  @IBInspectable open var startColor: UIColor?
-  @IBInspectable open var endColor: UIColor?
-  open var predefinedGradient: GradientType?
-  @IBInspectable var _predefinedGradient: String? {
-    didSet {
-      predefinedGradient = GradientType(string: _predefinedGradient)
-    }
-  }
-open var startPoint: GradientStartPoint = .top
-  @IBInspectable var _startPoint: String? {
-    didSet {
-      startPoint = GradientStartPoint(string: _startPoint, default: .top)
-    }
-  }
 
-  // MARK: - BackgroundImageDesignable
-  @IBInspectable open var backgroundImage: UIImage? {
-    didSet {
-      configureBackgroundImage()
-      configureBackgroundBlurEffectStyle()
+    @IBInspectable open var borderWidth = CGFloat.nan {
+        didSet {
+            configureBorder()
+        }
     }
-  }
 
-  // MARK: - BlurDesignable
-  open var blurEffectStyle: UIBlurEffect.Style? {
-    didSet {
-      configureBackgroundBlurEffectStyle()
+    open var borderSides: BorderSides = .AllSides {
+        didSet {
+            configureBorder()
+        }
     }
-  }
-  @IBInspectable var _blurEffectStyle: String? {
-    didSet {
-      blurEffectStyle = UIBlurEffect.Style(string: _blurEffectStyle)
-    }
-  }
-  open var vibrancyEffectStyle: UIBlurEffect.Style? {
-    didSet {
-      configureBackgroundBlurEffectStyle()
-    }
-  }
-  @IBInspectable var _vibrancyEffectStyle: String? {
-    didSet {
-      vibrancyEffectStyle = UIBlurEffect.Style(string: _vibrancyEffectStyle)
-    }
-  }
 
-  @IBInspectable open var blurOpacity: CGFloat = CGFloat.nan {
-    didSet {
-      configureBackgroundBlurEffectStyle()
+    @IBInspectable var _borderSides: String? {
+        didSet {
+            borderSides = BorderSides(rawValue: _borderSides)
+        }
     }
-  }
 
-  // MARK: - RefreshControlDesignable
-  @IBInspectable open var hasRefreshControl: Bool = false {
-    didSet {
-      configureRefreshController()
+    // MARK: - GradientDesignable
+
+    open var gradientMode: GradientMode = .linear
+    @IBInspectable var _gradientMode: String? {
+        didSet {
+            gradientMode = GradientMode(string: _gradientMode) ?? .linear
+        }
     }
-  }
-  @IBInspectable open var refreshControlTintColor: UIColor? {
-    didSet {
-      configureRefreshController()
+
+    @IBInspectable open var startColor: UIColor?
+    @IBInspectable open var endColor: UIColor?
+    open var predefinedGradient: GradientType?
+    @IBInspectable var _predefinedGradient: String? {
+        didSet {
+            predefinedGradient = GradientType(string: _predefinedGradient)
+        }
     }
-  }
-  @IBInspectable open var refreshControlBackgroundColor: UIColor? {
-    didSet {
-      configureRefreshController()
+
+    open var startPoint: GradientStartPoint = .top
+    @IBInspectable var _startPoint: String? {
+        didSet {
+            startPoint = GradientStartPoint(string: _startPoint, default: .top)
+        }
     }
-  }
 
-  // MARK: - Animatable
-  open var animationType: AnimationType = .none
-  @IBInspectable  var _animationType: String? {
-    didSet {
-     animationType = AnimationType(string: _animationType)
+    // MARK: - BackgroundImageDesignable
+
+    @IBInspectable open var backgroundImage: UIImage? {
+        didSet {
+            configureBackgroundImage()
+            configureBackgroundBlurEffectStyle()
+        }
     }
-  }
-  @IBInspectable open var autoRun: Bool = true
-  @IBInspectable open var duration: Double = Double.nan
-  @IBInspectable open var delay: Double = Double.nan
-  @IBInspectable open var damping: CGFloat = CGFloat.nan
-  @IBInspectable open var velocity: CGFloat = CGFloat.nan
-  @IBInspectable open var force: CGFloat = CGFloat.nan
-  @IBInspectable var _timingFunction: String = "" {
-    didSet {
-      timingFunction = TimingFunctionType(string: _timingFunction)
+
+    // MARK: - BlurDesignable
+
+    open var blurEffectStyle: UIBlurEffect.Style? {
+        didSet {
+            configureBackgroundBlurEffectStyle()
+        }
     }
-  }
-  open var timingFunction: TimingFunctionType = .none
 
-  // MARK: - Lifecycle
-  open override func prepareForInterfaceBuilder() {
-    super.prepareForInterfaceBuilder()
-    configureInspectableProperties()
-  }
+    @IBInspectable var _blurEffectStyle: String? {
+        didSet {
+            blurEffectStyle = UIBlurEffect.Style(string: _blurEffectStyle)
+        }
+    }
 
-  open override func awakeFromNib() {
-    super.awakeFromNib()
-    configureInspectableProperties()
-  }
+    open var vibrancyEffectStyle: UIBlurEffect.Style? {
+        didSet {
+            configureBackgroundBlurEffectStyle()
+        }
+    }
 
-  open override func layoutSubviews() {
-    super.layoutSubviews()
-    autoRunAnimation()
-    configureAfterLayoutSubviews()
-  }
+    @IBInspectable var _vibrancyEffectStyle: String? {
+        didSet {
+            vibrancyEffectStyle = UIBlurEffect.Style(string: _vibrancyEffectStyle)
+        }
+    }
 
-  // MARK: - Private
-  fileprivate func configureInspectableProperties() {
-    configureAnimatableProperties()
-    configureOpacity()
+    @IBInspectable open var blurOpacity = CGFloat.nan {
+        didSet {
+            configureBackgroundBlurEffectStyle()
+        }
+    }
 
-  }
+    // MARK: - RefreshControlDesignable
 
-  fileprivate func configureAfterLayoutSubviews() {
-    configureBorder()
-    configureGradient()
-  }
+    @IBInspectable open var hasRefreshControl: Bool = false {
+        didSet {
+            configureRefreshController()
+        }
+    }
+
+    @IBInspectable open var refreshControlTintColor: UIColor? {
+        didSet {
+            configureRefreshController()
+        }
+    }
+
+    @IBInspectable open var refreshControlBackgroundColor: UIColor? {
+        didSet {
+            configureRefreshController()
+        }
+    }
+
+    // MARK: - Animatable
+
+    open var animationType: AnimationType = .none
+    @IBInspectable var _animationType: String? {
+        didSet {
+            animationType = AnimationType(string: _animationType)
+        }
+    }
+
+    @IBInspectable open var autoRun: Bool = true
+    @IBInspectable open var duration = Double.nan
+    @IBInspectable open var delay = Double.nan
+    @IBInspectable open var damping = CGFloat.nan
+    @IBInspectable open var velocity = CGFloat.nan
+    @IBInspectable open var force = CGFloat.nan
+    @IBInspectable var _timingFunction: String = "" {
+        didSet {
+            timingFunction = TimingFunctionType(string: _timingFunction)
+        }
+    }
+
+    open var timingFunction: TimingFunctionType = .none
+
+    // MARK: - Lifecycle
+
+    override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        configureInspectableProperties()
+    }
+
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        configureInspectableProperties()
+    }
+
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        autoRunAnimation()
+        configureAfterLayoutSubviews()
+    }
+
+    // MARK: - Private
+
+    fileprivate func configureInspectableProperties() {
+        configureAnimatableProperties()
+        configureOpacity()
+    }
+
+    fileprivate func configureAfterLayoutSubviews() {
+        configureBorder()
+        configureGradient()
+    }
 }

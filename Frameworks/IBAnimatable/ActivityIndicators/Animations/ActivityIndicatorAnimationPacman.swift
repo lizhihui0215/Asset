@@ -6,117 +6,111 @@
 import UIKit
 
 public class ActivityIndicatorAnimationPacman: ActivityIndicatorAnimating {
+    // MARK: Properties
 
-  // MARK: Properties
+    fileprivate let duration: CFTimeInterval = 0.5
+    fileprivate let circleDuration: CFTimeInterval = 1
+    fileprivate var size: CGSize = .zero
+    fileprivate let timingFunction: TimingFunctionType = .default
 
-  fileprivate let duration: CFTimeInterval = 0.5
-  fileprivate let circleDuration: CFTimeInterval = 1
-  fileprivate var size: CGSize = .zero
-  fileprivate let timingFunction: TimingFunctionType = .default
+    // MARK: ActivityIndicatorAnimating
 
-  // MARK: ActivityIndicatorAnimating
-
-  public func configureAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
-    self.size = size
-    animateCircle(in: layer, color: color)
-    animatePacman(in: layer, color: color)
-  }
-
+    public func configureAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
+        self.size = size
+        animateCircle(in: layer, color: color)
+        animatePacman(in: layer, color: color)
+    }
 }
 
 // MARK: - Pacman
 
 private extension ActivityIndicatorAnimationPacman {
+    func animatePacman(in layer: CALayer, color: UIColor) {
+        let pacmanSize = 2 * size.width / 3
+        let pacman = ActivityIndicatorShape.pacman.makeLayer(size: CGSize(width: pacmanSize, height: pacmanSize), color: color)
+        let animation = pacmanAnimation
+        let frame = CGRect(
+            x: (layer.bounds.size.width - size.width) / 2,
+            y: (layer.bounds.size.height - size.height) / 2 + size.height / 2 - pacmanSize / 2,
+            width: pacmanSize,
+            height: pacmanSize
+        )
+        pacman.frame = frame
+        pacman.add(animation, forKey: "animation")
+        layer.addSublayer(pacman)
+    }
 
-  func animatePacman(in layer: CALayer, color: UIColor) {
-    let pacmanSize = 2 * size.width / 3
-    let pacman = ActivityIndicatorShape.pacman.makeLayer(size: CGSize(width: pacmanSize, height: pacmanSize), color: color)
-    let animation = pacmanAnimation
-    let frame = CGRect(
-      x: (layer.bounds.size.width - size.width) / 2,
-      y: (layer.bounds.size.height - size.height) / 2 + size.height / 2 - pacmanSize / 2,
-      width: pacmanSize,
-      height: pacmanSize
-    )
-    pacman.frame = frame
-    pacman.add(animation, forKey: "animation")
-    layer.addSublayer(pacman)
-  }
+    var pacmanAnimation: CAAnimationGroup {
+        let animation = CAAnimationGroup()
+        animation.animations = [strokeStartAnimation, strokeEndAnimation]
+        animation.duration = duration
+        animation.repeatCount = .infinity
+        animation.isRemovedOnCompletion = false
+        return animation
+    }
 
-  var pacmanAnimation: CAAnimationGroup {
-    let animation = CAAnimationGroup()
-    animation.animations = [strokeStartAnimation, strokeEndAnimation]
-    animation.duration = duration
-    animation.repeatCount = .infinity
-    animation.isRemovedOnCompletion = false
-    return animation
-  }
+    var strokeStartAnimation: CAKeyframeAnimation {
+        let strokeStartAnimation = CAKeyframeAnimation(keyPath: .strokeStart)
+        strokeStartAnimation.keyTimes = [0, 0.5, 1]
+        strokeStartAnimation.timingFunctionsType = [timingFunction, timingFunction]
+        strokeStartAnimation.values = [0.125, 0, 0.125]
+        strokeStartAnimation.duration = duration
+        return strokeStartAnimation
+    }
 
-  var strokeStartAnimation: CAKeyframeAnimation {
-    let strokeStartAnimation = CAKeyframeAnimation(keyPath: .strokeStart)
-    strokeStartAnimation.keyTimes = [0, 0.5, 1]
-    strokeStartAnimation.timingFunctionsType = [timingFunction, timingFunction]
-    strokeStartAnimation.values = [0.125, 0, 0.125]
-    strokeStartAnimation.duration = duration
-    return strokeStartAnimation
-  }
-
-  var strokeEndAnimation: CAKeyframeAnimation {
-    let strokeEndAnimation = CAKeyframeAnimation(keyPath: .strokeEnd)
-    strokeEndAnimation.keyTimes = [0, 0.5, 1]
-    strokeEndAnimation.timingFunctionsType = [timingFunction, timingFunction]
-    strokeEndAnimation.values = [0.875, 1, 0.875]
-    strokeEndAnimation.duration = duration
-    return strokeEndAnimation
-  }
-
+    var strokeEndAnimation: CAKeyframeAnimation {
+        let strokeEndAnimation = CAKeyframeAnimation(keyPath: .strokeEnd)
+        strokeEndAnimation.keyTimes = [0, 0.5, 1]
+        strokeEndAnimation.timingFunctionsType = [timingFunction, timingFunction]
+        strokeEndAnimation.values = [0.875, 1, 0.875]
+        strokeEndAnimation.duration = duration
+        return strokeEndAnimation
+    }
 }
 
 // MARK: - Circle
 
 private extension ActivityIndicatorAnimationPacman {
+    func animateCircle(in layer: CALayer, color: UIColor) {
+        let circleSize = size.width / 5
+        let circle = ActivityIndicatorShape.circle.makeLayer(size: CGSize(width: circleSize, height: circleSize), color: color)
+        let animation = circleAnimation
+        let frame = CGRect(
+            x: (layer.bounds.size.width - size.width) / 2 + size.width - circleSize,
+            y: (layer.bounds.size.height - size.height) / 2 + size.height / 2 - circleSize
+                / 2,
+            width: circleSize,
+            height: circleSize
+        )
 
-  func animateCircle(in layer: CALayer, color: UIColor) {
-    let circleSize = size.width / 5
-    let circle = ActivityIndicatorShape.circle.makeLayer(size: CGSize(width: circleSize, height: circleSize), color: color)
-    let animation = circleAnimation
-    let frame = CGRect(
-      x: (layer.bounds.size.width - size.width) / 2 + size.width - circleSize,
-      y: (layer.bounds.size.height - size.height) / 2 + size.height / 2 - circleSize
-        / 2,
-      width: circleSize,
-      height: circleSize
-    )
+        circle.frame = frame
+        circle.add(animation, forKey: "animation")
+        layer.addSublayer(circle)
+    }
 
-    circle.frame = frame
-    circle.add(animation, forKey: "animation")
-    layer.addSublayer(circle)
-  }
+    var circleAnimation: CAAnimationGroup {
+        let animation = CAAnimationGroup()
+        animation.animations = [translateAnimation, opacityAnimation]
+        animation.timingFunctionType = .linear
+        animation.duration = circleDuration
+        animation.repeatCount = .infinity
+        animation.isRemovedOnCompletion = false
+        return animation
+    }
 
-  var circleAnimation: CAAnimationGroup {
-    let animation = CAAnimationGroup()
-    animation.animations = [translateAnimation, opacityAnimation]
-    animation.timingFunctionType = .linear
-    animation.duration = circleDuration
-    animation.repeatCount = .infinity
-    animation.isRemovedOnCompletion = false
-    return animation
-  }
+    var translateAnimation: CABasicAnimation {
+        let translateAnimation = CABasicAnimation(keyPath: .translationX)
+        translateAnimation.fromValue = 0
+        translateAnimation.toValue = -size.width / 2
+        translateAnimation.duration = circleDuration
+        return translateAnimation
+    }
 
-  var translateAnimation: CABasicAnimation {
-    let translateAnimation = CABasicAnimation(keyPath: .translationX)
-    translateAnimation.fromValue = 0
-    translateAnimation.toValue = -size.width / 2
-    translateAnimation.duration = circleDuration
-    return translateAnimation
-  }
-
-  var opacityAnimation: CABasicAnimation {
-    let opacityAnimation = CABasicAnimation(keyPath: .opacity)
-    opacityAnimation.fromValue = 1
-    opacityAnimation.toValue = 0.7
-    opacityAnimation.duration = circleDuration
-    return opacityAnimation
-  }
-
+    var opacityAnimation: CABasicAnimation {
+        let opacityAnimation = CABasicAnimation(keyPath: .opacity)
+        opacityAnimation.fromValue = 1
+        opacityAnimation.toValue = 0.7
+        opacityAnimation.duration = circleDuration
+        return opacityAnimation
+    }
 }

@@ -7,56 +7,60 @@ import UIKit
 
 @IBDesignable
 open class DesignableNavigationBar: UINavigationBar, NavigationBarDesignable, GradientDesignable {
+    // MARK: - NavigationBarDesignable
 
-  // MARK: - NavigationBarDesignable
-  @IBInspectable open var solidColor: Bool = false
+    @IBInspectable open var solidColor: Bool = false
 
-  // MARK: - GradientDesignable
-  open var gradientMode: GradientMode = .linear
-  @IBInspectable var _gradientMode: String? {
-    didSet {
-      gradientMode = GradientMode(string: _gradientMode) ?? .linear
+    // MARK: - GradientDesignable
+
+    open var gradientMode: GradientMode = .linear
+    @IBInspectable var _gradientMode: String? {
+        didSet {
+            gradientMode = GradientMode(string: _gradientMode) ?? .linear
+        }
     }
-  }
-  @IBInspectable open var startColor: UIColor?
-  @IBInspectable open var endColor: UIColor?
-  open var predefinedGradient: GradientType?
-  @IBInspectable var _predefinedGradient: String? {
-    didSet {
-      predefinedGradient = GradientType(string: _predefinedGradient)
+
+    @IBInspectable open var startColor: UIColor?
+    @IBInspectable open var endColor: UIColor?
+    open var predefinedGradient: GradientType?
+    @IBInspectable var _predefinedGradient: String? {
+        didSet {
+            predefinedGradient = GradientType(string: _predefinedGradient)
+        }
     }
-  }
-  open var startPoint: GradientStartPoint = .top
-  @IBInspectable var _startPoint: String? {
-    didSet {
-      startPoint = GradientStartPoint(string: _startPoint, default: .top)
+
+    open var startPoint: GradientStartPoint = .top
+    @IBInspectable var _startPoint: String? {
+        didSet {
+            startPoint = GradientStartPoint(string: _startPoint, default: .top)
+        }
     }
-  }
 
-  // MARK: - Lifecycle
-  open override func prepareForInterfaceBuilder() {
-    super.prepareForInterfaceBuilder()
-    configureInspectableProperties()
-  }
+    // MARK: - Lifecycle
 
-  open override func awakeFromNib() {
-    super.awakeFromNib()
-    configureInspectableProperties()
-  }
+    override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        configureInspectableProperties()
+    }
 
-  open override func layoutSubviews() {
-    super.layoutSubviews()
-    configureAfterLayoutSubviews()
-  }
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        configureInspectableProperties()
+    }
 
-  // MARK: - Private
-  fileprivate func configureInspectableProperties() {
-    configureNavigationBar()
-    configureGradient()
-  }
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        configureAfterLayoutSubviews()
+    }
 
-  fileprivate func configureAfterLayoutSubviews() {
-    configureGradient()
-  }
+    // MARK: - Private
 
+    fileprivate func configureInspectableProperties() {
+        configureNavigationBar()
+        configureGradient()
+    }
+
+    fileprivate func configureAfterLayoutSubviews() {
+        configureGradient()
+    }
 }

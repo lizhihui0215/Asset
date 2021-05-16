@@ -6,9 +6,9 @@
 import UIKit
 
 open class PresentPortalSegue: UIStoryboardSegue {
-  open override func perform() {
-    let transitionAnimationType: TransitionAnimationType = .portal(direction: .forward, zoomScale: nil)
-    destination.transitioningDelegate = TransitionPresenterManager.shared.retrievePresenter(transitionAnimationType: transitionAnimationType)
-    source.present(destination, animated: true, completion: nil)
-  }
+    override open func perform() {
+        let transitionAnimationType: TransitionAnimationType = .portal(direction: .forward, zoomScale: nil)
+        destination.transitioningDelegate = TransitionPresenterManager.shared.retrievePresenter(transitionAnimationType: transitionAnimationType)
+        source.present(destination, animated: true, completion: nil)
+    }
 }

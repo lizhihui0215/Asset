@@ -7,41 +7,44 @@ import UIKit
 
 @IBDesignable
 open class AnimatableTabBarItem: UITabBarItem, Animatable {
+    // MARK: - Animatable
 
-  // MARK: - Animatable
-  open var animationType: AnimationType = .none
-  @IBInspectable var _animationType: String? {
-    didSet {
-      animationType = AnimationType(string: _animationType)
+    open var animationType: AnimationType = .none
+    @IBInspectable var _animationType: String? {
+        didSet {
+            animationType = AnimationType(string: _animationType)
+        }
     }
-  }
-  @IBInspectable open var autoRun: Bool = true
-  @IBInspectable open var duration: Double = Double.nan
-  @IBInspectable open var delay: Double = Double.nan
-  @IBInspectable open var damping: CGFloat = CGFloat.nan
-  @IBInspectable open var velocity: CGFloat = CGFloat.nan
-  @IBInspectable open var force: CGFloat = CGFloat.nan
-  @IBInspectable var _timingFunction: String = "" {
-    didSet {
-      timingFunction = TimingFunctionType(string: _timingFunction)
+
+    @IBInspectable open var autoRun: Bool = true
+    @IBInspectable open var duration = Double.nan
+    @IBInspectable open var delay = Double.nan
+    @IBInspectable open var damping = CGFloat.nan
+    @IBInspectable open var velocity = CGFloat.nan
+    @IBInspectable open var force = CGFloat.nan
+    @IBInspectable var _timingFunction: String = "" {
+        didSet {
+            timingFunction = TimingFunctionType(string: _timingFunction)
+        }
     }
-  }
-  open var timingFunction: TimingFunctionType = .none
 
-  // MARK: - Lifecycle
-  open override func prepareForInterfaceBuilder() {
-    super.prepareForInterfaceBuilder()
-    configureInspectableProperties()
-  }
+    open var timingFunction: TimingFunctionType = .none
 
-  open override func awakeFromNib() {
-    super.awakeFromNib()
-    configureInspectableProperties()
-  }
+    // MARK: - Lifecycle
 
-  // MARK: - Private
-  fileprivate func configureInspectableProperties() {
-    configureAnimatableProperties()
-  }
+    override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        configureInspectableProperties()
+    }
 
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        configureInspectableProperties()
+    }
+
+    // MARK: - Private
+
+    fileprivate func configureInspectableProperties() {
+        configureAnimatableProperties()
+    }
 }

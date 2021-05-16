@@ -9,11 +9,11 @@
 import Foundation
 
 public enum GradientMode: String, IBEnum {
-  case linear
-  case radial
-  case conical
+    case linear
+    case radial
+    case conical
 }
 
 #if swift(>=4.2)
-extension GradientMode: CaseIterable {}
+    extension GradientMode: CaseIterable {}
 #endif

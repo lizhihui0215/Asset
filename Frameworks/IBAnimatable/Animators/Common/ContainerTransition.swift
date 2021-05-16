@@ -6,109 +6,106 @@
 import UIKit
 
 public class ContainerTransition: NSObject {
+    public typealias ContainerTransitionCompletion = () -> Void
 
-  public typealias ContainerTransitionCompletion = () -> Void
+    // MARK: Properties
 
-  // MARK: Properties
+    public var animationType: TransitionAnimationType?
+    public var transitionDuration: Duration = defaultTransitionDuration
 
-  public var animationType: TransitionAnimationType?
-  public var transitionDuration: Duration = defaultTransitionDuration
+    // MARK: Private
 
-  // MARK: Private
+    fileprivate let container: UIView?
+    fileprivate let parentViewController: UIViewController?
+    fileprivate var viewControllers: [UITransitionContextViewControllerKey: UIViewController]?
+    fileprivate var views: [UITransitionContextViewKey: UIView]?
+    fileprivate let completion: ContainerTransitionCompletion?
 
-  fileprivate let container: UIView?
-  fileprivate let parentViewController: UIViewController?
-  fileprivate var viewControllers: [UITransitionContextViewControllerKey: UIViewController]?
-  fileprivate var views: [UITransitionContextViewKey: UIView]?
-  fileprivate let completion: ContainerTransitionCompletion?
+    // MARK: Life cycle
 
-  // MARK: Life cycle
+    public init(animationType: TransitionAnimationType,
+                container: UIView,
+                parentViewController: UIViewController,
+                fromViewController: UIViewController?,
+                toViewController: UIViewController,
+                completion: ContainerTransitionCompletion? = nil)
+    {
+        self.completion = completion
+        self.animationType = animationType
+        self.container = container
+        self.parentViewController = parentViewController
 
-  public init(animationType: TransitionAnimationType,
-              container: UIView,
-              parentViewController: UIViewController,
-              fromViewController: UIViewController?,
-              toViewController: UIViewController,
-              completion: ContainerTransitionCompletion? = nil) {
+        container.translatesAutoresizingMaskIntoConstraints = false
+        toViewController.view.translatesAutoresizingMaskIntoConstraints = true
+        toViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        toViewController.view.frame = container.bounds
 
-    self.completion = completion
-    self.animationType = animationType
-    self.container = container
-    self.parentViewController = parentViewController
+        fromViewController?.willMove(toParent: nil)
+        parentViewController.addChild(toViewController)
 
-    container.translatesAutoresizingMaskIntoConstraints = false
-    toViewController.view.translatesAutoresizingMaskIntoConstraints = true
-    toViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    toViewController.view.frame = container.bounds
+        guard let fromViewController = fromViewController else {
+            container.addSubview(toViewController.view)
+            toViewController.didMove(toParent: parentViewController)
+            completion?()
+            return
+        }
 
-    fromViewController?.willMove(toParent: nil)
-    parentViewController.addChild(toViewController)
-
-    guard let fromViewController = fromViewController else {
-      container.addSubview(toViewController.view)
-      toViewController.didMove(toParent: parentViewController)
-      completion?()
-      return
+        viewControllers = [UITransitionContextViewControllerKey.from: fromViewController,
+                           UITransitionContextViewControllerKey.to: toViewController]
+        views = [UITransitionContextViewKey.from: fromViewController.view,
+                 UITransitionContextViewKey.to: toViewController.view]
     }
 
-    viewControllers = [UITransitionContextViewControllerKey.from: fromViewController,
-                       UITransitionContextViewControllerKey.to: toViewController]
-    views = [UITransitionContextViewKey.from: fromViewController.view,
-             UITransitionContextViewKey.to: toViewController.view]
-  }
+    public func animate() {
+        guard let animationType = animationType else {
+            return
+        }
 
-  public func animate() {
-    guard let animationType = animationType else {
-      return
+        parentViewController?.view.isUserInteractionEnabled = false
+        let animator = AnimatorFactory.makeAnimator(transitionAnimationType: animationType)
+        animator?.transitionDuration = transitionDuration
+        animator?.animateTransition(using: self)
     }
 
-    parentViewController?.view.isUserInteractionEnabled = false
-    let animator = AnimatorFactory.makeAnimator(transitionAnimationType: animationType)
-    animator?.transitionDuration = transitionDuration
-    animator?.animateTransition(using: self)
-  }
-
-  public var isAnimated: Bool { return false }
-  public var isInteractive: Bool { return false }
-  public var presentationStyle: UIModalPresentationStyle { return .none }
-  public var transitionWasCancelled: Bool { return false }
-  public var targetTransform: CGAffineTransform { return .identity }
-  public var containerView: UIView { return container! }
+    public var isAnimated: Bool { false }
+    public var isInteractive: Bool { false }
+    public var presentationStyle: UIModalPresentationStyle { .none }
+    public var transitionWasCancelled: Bool { false }
+    public var targetTransform: CGAffineTransform { .identity }
+    public var containerView: UIView { container! }
 }
 
 // MARK: - UIViewControllerContextTransitioning
 
 extension ContainerTransition: UIViewControllerContextTransitioning {
+    public func viewController(forKey key: UITransitionContextViewControllerKey) -> UIViewController? {
+        viewControllers?[key]
+    }
 
-  public func viewController(forKey key: UITransitionContextViewControllerKey) -> UIViewController? {
-    return viewControllers?[key]
-  }
+    public func view(forKey key: UITransitionContextViewKey) -> UIView? {
+        views?[key]
+    }
 
-  public func view(forKey key: UITransitionContextViewKey) -> UIView? {
-    return views?[key]
-  }
+    public func completeTransition(_ didComplete: Bool) {
+        viewControllers?[UITransitionContextViewControllerKey.from]?.view.removeFromSuperview()
+        viewControllers?[UITransitionContextViewControllerKey.from]?.removeFromParent()
+        viewControllers?[UITransitionContextViewControllerKey.to]?.didMove(toParent: parentViewController)
+        parentViewController?.view.isUserInteractionEnabled = true
+        completion?()
+    }
 
-  public func completeTransition(_ didComplete: Bool) {
-    viewControllers?[UITransitionContextViewControllerKey.from]?.view.removeFromSuperview()
-    viewControllers?[UITransitionContextViewControllerKey.from]?.removeFromParent()
-    viewControllers?[UITransitionContextViewControllerKey.to]?.didMove(toParent: parentViewController)
-    parentViewController?.view.isUserInteractionEnabled = true
-    completion?()
-  }
+    public func initialFrame(for vc: UIViewController) -> CGRect {
+        vc.view.frame
+    }
 
-  public func initialFrame(for vc: UIViewController) -> CGRect {
-    return vc.view.frame
-  }
+    public func finalFrame(for vc: UIViewController) -> CGRect {
+        vc.view.frame
+    }
 
-  public func finalFrame(for vc: UIViewController) -> CGRect {
-    return vc.view.frame
-  }
+    // MARK: Mandatory protocol
 
-  // MARK: Mandatory protocol
-
-  public func updateInteractiveTransition(_ percentComplete: CGFloat) {}
-  public func finishInteractiveTransition() {}
-  public func cancelInteractiveTransition() {}
-  public func pauseInteractiveTransition() {}
-
+    public func updateInteractiveTransition(_ percentComplete: CGFloat) {}
+    public func finishInteractiveTransition() {}
+    public func cancelInteractiveTransition() {}
+    public func pauseInteractiveTransition() {}
 }

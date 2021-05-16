@@ -6,24 +6,24 @@
 import UIKit
 
 public protocol NavigationBarDesignable: AnyObject {
-  /**
-   Specify whether is solid color only, if `true` will remove hairline from navigation bar
-   */
-  var solidColor: Bool { get set }
+    /**
+     Specify whether is solid color only, if `true` will remove hairline from navigation bar
+     */
+    var solidColor: Bool { get set }
 }
 
 public extension NavigationBarDesignable where Self: UINavigationBar {
-  func configureNavigationBar() {
-    if solidColor {
-      let emptyImage = UIImage()
-      setBackgroundImage(emptyImage, for: .any, barMetrics: .default)
-      shadowImage = emptyImage
-      // Need to manually untick translucent in Interface Builder,
-      // otherwise, it will have constrait issue in IB although it is correct in run time.
-      // translucent = false
-    } else {
-      setBackgroundImage(nil, for: .any, barMetrics: .default)
-      shadowImage = nil
+    func configureNavigationBar() {
+        if solidColor {
+            let emptyImage = UIImage()
+            setBackgroundImage(emptyImage, for: .any, barMetrics: .default)
+            shadowImage = emptyImage
+            // Need to manually untick translucent in Interface Builder,
+            // otherwise, it will have constrait issue in IB although it is correct in run time.
+            // translucent = false
+        } else {
+            setBackgroundImage(nil, for: .any, barMetrics: .default)
+            shadowImage = nil
+        }
     }
-  }
 }

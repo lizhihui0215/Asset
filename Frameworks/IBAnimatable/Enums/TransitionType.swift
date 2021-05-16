@@ -6,15 +6,15 @@
 import UIKit
 
 enum TransitionType {
-  case navigationTransition(UINavigationController.Operation)
-  case presentationTransition(PresentationOperation)
-  case tabTransition(TabOperation)
+    case navigationTransition(UINavigationController.Operation)
+    case presentationTransition(PresentationOperation)
+    case tabTransition(TabOperation)
 }
 
 enum PresentationOperation {
-  case presentation, dismissal
+    case presentation, dismissal
 }
 
 enum TabOperation {
-  case toLeft, toRight
+    case toLeft, toRight
 }
