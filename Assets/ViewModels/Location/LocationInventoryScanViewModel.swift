@@ -15,7 +15,7 @@ class LocationInventoryScanViewModel: ScanViewModel {
     }
 
     private var checkPerson: String {
-        app.credential?.username ?? ""
+        app.credential?.userAccount ?? ""
     }
 
     private var realLocationName: String {

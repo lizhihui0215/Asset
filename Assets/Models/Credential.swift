@@ -4,23 +4,25 @@
 //
 
 struct Credential {
-    let userToken: String
-    let pageSize: String
-    var username: String
-    let userOrgName: String
-    let userCityName: String
-    let userOrgId: String
-    let userCityId: String
+    var pageSize: String
+    var userOrgId: String
+    var userName: String
+    var userCityId: String
+    var userCityName: String
+    var userToken: String
+    var userAccount: String
+    var userOrgName: String
 }
 
 extension Credential: AutoEquatable {}
 
 extension Credential: AutoCodable {
-    static let defaultUsername = ""
-    static let defaultUserToken = ""
     static let defaultPageSize = ""
-    static let defaultUserOrgName = ""
-    static let defaultUserCityName = ""
     static let defaultUserOrgId = ""
+    static let defaultUserName = ""
     static let defaultUserCityId = ""
+    static let defaultUserCityName = ""
+    static let defaultUserToken = ""
+    static let defaultUserAccount = ""
+    static let defaultUserOrgName = ""
 }

@@ -40,7 +40,7 @@ class Appearance {
 
         var color: UIColor {
             switch self {
-            case .dropdown: return XCColor.dropdownTextColor.color
+            case .dropdown: return XCColor.DropDown.dropdownTextColor.color
             }
         }
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+// TODO: move data filed into ResponseRepresentable, add more feature about data handler
 protocol ResponseRepresentable: Decodable {
     var status: Int { get set }
     var msg: String { get set }
@@ -96,13 +97,11 @@ extension DataResponse where Self.Model == String {
         let data: Model? = try container.decodeIfPresent(.data)
         self.status = status
         self.msg = msg.isEmpty && status != 0 ? EAMError.unknown.recoverySuggestion ?? "" : msg
+        self.data = isMessageData() ? msg : data
+    }
 
-        guard status == 0, !msg.isEmpty, data == nil else {
-            self.data = msg
-            return
-        }
-
-        self.data = data
+    func isMessageData() -> Bool {
+        status == 0 && !msg.isEmpty && data == nil
     }
 }
 

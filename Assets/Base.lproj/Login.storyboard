@@ -162,89 +162,160 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWt-lO-GWz" userLabel="ServerView" customClass="RadioGroupView" customModule="Assets" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="40"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Slc-6z-fYx"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="texts" value="http,https"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3oa-Lw-dUy">
-                                <rect key="frame" x="0.0" y="128" width="414" height="85"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="YxW-7F-ENk">
+                                <rect key="frame" x="10" y="88" width="394" height="242"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入服务器地址，如：114.251.247.82:8080/eamapp" textAlignment="natural" minimumFontSize="17" background="intoline" translatesAutoresizingMaskIntoConstraints="NO" id="h1G-Km-oLC" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="8" width="398" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uad-2y-w8x">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="访问协议:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0P4-uM-YuW">
+                                                <rect key="frame" x="0.0" y="10" width="74" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="primaryTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="WWt-lO-GWz" userLabel="ServerView" customClass="RadioGroupView" customModule="Assets" customModuleProvider="target">
+                                                <rect key="frame" x="84" y="0.0" width="236" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Slc-6z-fYx"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="texts" value="http,https"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                        <real key="value" value="107"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="XMZ-sN-81x">
+                                        <rect key="frame" x="0.0" y="40" width="394" height="1"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="xBe-fO-mgU"/>
+                                            <constraint firstAttribute="height" constant="1" id="NsQ-oH-mjR"/>
                                         </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rl2-I2-hDj">
+                                        <rect key="frame" x="0.0" y="41" width="316" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="运行环境:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="II7-zT-NmO">
+                                                <rect key="frame" x="0.0" y="0.0" width="74" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="primaryTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zn-rT-pKM" userLabel="ServerView" customClass="RadioGroupView" customModule="Assets" customModuleProvider="target">
+                                                <rect key="frame" x="84" y="0.0" width="232" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="IJG-tb-Pnl"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="texts" value="生产,测试,开发"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="PxT-uq-tUu">
+                                        <rect key="frame" x="0.0" y="81" width="394" height="1"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="7TF-XM-Jqf"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="服务器地址或域名，不用填写，默认223.99.142.6" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1G-Km-oLC" customClass="IsaoTextField" customModule="Assets" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="82" width="394" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Rlu-DM-NcK"/>
+                                        </constraints>
+                                        <color key="textColor" name="primaryTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="服务目录不要更改" textAlignment="natural" minimumFontSize="17" background="intoline" translatesAutoresizingMaskIntoConstraints="NO" id="Ine-iO-AMy">
-                                        <rect key="frame" x="8" y="46" width="398" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="OQd-xE-toq"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="h1G-Km-oLC" firstAttribute="top" secondItem="3oa-Lw-dUy" secondAttribute="top" constant="8" id="Eya-dp-LgO"/>
-                                    <constraint firstItem="h1G-Km-oLC" firstAttribute="leading" secondItem="3oa-Lw-dUy" secondAttribute="leading" constant="8" id="JUs-Qm-bSV"/>
-                                    <constraint firstItem="Ine-iO-AMy" firstAttribute="leading" secondItem="3oa-Lw-dUy" secondAttribute="leading" constant="8" id="e2H-Hg-5pI"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ine-iO-AMy" secondAttribute="trailing" constant="8" id="fru-ML-y30"/>
-                                    <constraint firstItem="Ine-iO-AMy" firstAttribute="top" secondItem="h1G-Km-oLC" secondAttribute="bottom" constant="8" id="mDc-xh-cox"/>
-                                    <constraint firstAttribute="height" constant="85" id="vgr-t2-I2e"/>
-                                    <constraint firstAttribute="trailing" secondItem="h1G-Km-oLC" secondAttribute="trailing" constant="8" id="wtR-P8-aGl"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4a-vJ-eta">
-                                <rect key="frame" x="0.0" y="213" width="414" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUa-0W-QUR" customClass="AnimatableButton" customModule="Assets" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="5" width="384" height="30"/>
-                                        <color key="backgroundColor" name="primaryColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="保存">
-                                            <color key="titleColor" name="secondaryTextColor"/>
-                                        </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" name="borderInactiveColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" name="borderActiveColor"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                    </button>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="服务目录，不用填写，默认 eam-iphone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ine-iO-AMy" customClass="IsaoTextField" customModule="Assets" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="142" width="394" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="vJp-xm-gT0"/>
+                                        </constraints>
+                                        <color key="textColor" name="primaryTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" name="borderInactiveColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" name="borderActiveColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R4a-vJ-eta">
+                                        <rect key="frame" x="0.0" y="202" width="394" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUa-0W-QUR" customClass="AnimatableButton" customModule="Assets" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="5" width="364" height="30"/>
+                                                <color key="backgroundColor" name="primaryColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="364" id="43e-UV-TsE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="保存">
+                                                    <color key="titleColor" name="secondaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="saveTapped:" destination="bep-tj-ack" eventType="touchUpInside" id="QXo-we-iih"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="sUa-0W-QUR" secondAttribute="trailing" constant="15" id="5an-ON-buK"/>
+                                            <constraint firstItem="sUa-0W-QUR" firstAttribute="leading" secondItem="R4a-vJ-eta" secondAttribute="leading" constant="15" id="674-ed-5SO"/>
+                                            <constraint firstItem="sUa-0W-QUR" firstAttribute="centerY" secondItem="R4a-vJ-eta" secondAttribute="centerY" id="MvR-c4-dIk"/>
+                                            <constraint firstAttribute="height" constant="40" id="tPP-vM-WI2"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="sUa-0W-QUR" secondAttribute="trailing" constant="15" id="5an-ON-buK"/>
-                                    <constraint firstItem="sUa-0W-QUR" firstAttribute="leading" secondItem="R4a-vJ-eta" secondAttribute="leading" constant="15" id="674-ed-5SO"/>
-                                    <constraint firstItem="sUa-0W-QUR" firstAttribute="centerY" secondItem="R4a-vJ-eta" secondAttribute="centerY" id="MvR-c4-dIk"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="gvN-Rz-Emz"/>
-                                    <constraint firstAttribute="height" constant="40" id="tPP-vM-WI2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ine-iO-AMy" secondAttribute="trailing" id="2kr-Oh-WAq"/>
+                                    <constraint firstAttribute="trailing" secondItem="PxT-uq-tUu" secondAttribute="trailing" id="6BA-P6-8wm"/>
+                                    <constraint firstAttribute="trailing" secondItem="XMZ-sN-81x" secondAttribute="trailing" id="cDZ-3V-ybE"/>
+                                    <constraint firstAttribute="trailing" secondItem="h1G-Km-oLC" secondAttribute="trailing" id="cmV-HQ-Rh1"/>
                                 </constraints>
-                            </view>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cnU-XN-zaX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="WWt-lO-GWz" firstAttribute="leading" secondItem="cnU-XN-zaX" secondAttribute="leading" id="2Xc-j9-LYZ"/>
-                            <constraint firstItem="3oa-Lw-dUy" firstAttribute="leading" secondItem="cnU-XN-zaX" secondAttribute="leading" id="Cva-v2-FA0"/>
-                            <constraint firstItem="3oa-Lw-dUy" firstAttribute="top" secondItem="WWt-lO-GWz" secondAttribute="bottom" id="Eat-eQ-aUI"/>
-                            <constraint firstItem="WWt-lO-GWz" firstAttribute="top" secondItem="cnU-XN-zaX" secondAttribute="top" id="F2N-AN-8y3"/>
-                            <constraint firstItem="WWt-lO-GWz" firstAttribute="trailing" secondItem="cnU-XN-zaX" secondAttribute="trailing" id="IbS-g3-bqX"/>
-                            <constraint firstItem="R4a-vJ-eta" firstAttribute="leading" secondItem="cnU-XN-zaX" secondAttribute="leading" id="XdI-5H-zDt"/>
-                            <constraint firstItem="cnU-XN-zaX" firstAttribute="trailing" secondItem="R4a-vJ-eta" secondAttribute="trailing" id="YmB-Jt-vFJ"/>
-                            <constraint firstItem="R4a-vJ-eta" firstAttribute="top" secondItem="3oa-Lw-dUy" secondAttribute="bottom" id="cwp-4J-68E"/>
-                            <constraint firstItem="3oa-Lw-dUy" firstAttribute="trailing" secondItem="cnU-XN-zaX" secondAttribute="trailing" id="tbd-v1-FnX"/>
+                            <constraint firstItem="YxW-7F-ENk" firstAttribute="top" secondItem="cnU-XN-zaX" secondAttribute="top" id="TAb-Op-cVM"/>
+                            <constraint firstAttribute="trailing" secondItem="YxW-7F-ENk" secondAttribute="trailing" constant="10" id="Vhh-CO-nc9"/>
+                            <constraint firstItem="YxW-7F-ENk" firstAttribute="leading" secondItem="cnU-XN-zaX" secondAttribute="leading" constant="10" id="ayf-p3-p8N"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="服务地址配置" id="ucX-Dd-5eO"/>
+                    <connections>
+                        <outlet property="domainTextField" destination="h1G-Km-oLC" id="t0z-X0-EuX"/>
+                        <outlet property="environmentOptionsView" destination="8zn-rT-pKM" id="vTg-02-KoP"/>
+                        <outlet property="schemeOptionsView" destination="WWt-lO-GWz" id="ym8-5w-3vI"/>
+                        <outlet property="serviceDictionaryTextField" destination="Ine-iO-AMy" id="t5Y-hC-VnF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAL-9S-kKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -260,6 +331,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="Ine-iO-AMy">
+            <size key="intrinsicContentSize" width="253" height="18.5"/>
+        </designable>
         <designable name="JjL-Rf-l6Y">
             <size key="intrinsicContentSize" width="31" height="30"/>
         </designable>
@@ -267,7 +341,7 @@
             <size key="intrinsicContentSize" width="101.5" height="17"/>
         </designable>
         <designable name="h1G-Km-oLC">
-            <size key="intrinsicContentSize" width="347.5" height="18.5"/>
+            <size key="intrinsicContentSize" width="313" height="18.5"/>
         </designable>
         <designable name="koW-B9-VE2">
             <size key="intrinsicContentSize" width="-1" height="44"/>
@@ -280,17 +354,28 @@
         </designable>
     </designables>
     <resources>
-        <image name="intoline" width="178" height="28"/>
         <image name="loginBackground" width="320" height="568"/>
         <image name="loginInputBackground" width="298" height="106.5"/>
         <image name="passwordIcon" width="12" height="16"/>
         <image name="usernameIcon" width="16" height="16"/>
+        <namedColor name="borderActiveColor">
+            <color red="1" green="0.17599999904632568" blue="0.33299997448921204" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="borderInactiveColor">
+            <color red="0.23500001430511475" green="0.23500001430511475" blue="0.2630000114440918" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="primaryColor">
             <color red="0.0070000002160668373" green="0.52799999713897705" blue="0.81400001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryTextColor">
+            <color red="0.56800001859664917" green="0.56699997186660767" blue="0.58399999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="secondaryTextColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

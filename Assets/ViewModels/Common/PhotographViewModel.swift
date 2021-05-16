@@ -12,34 +12,44 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
 
     public let title: String
     public let key: String
-    public let value: String
-    let viewStates: ViewStates = (first: .prepare, second: .prepare)
-    var photos: [Photo] = []
 
+    public var value: String {
+        switch parameter.category {
+        case .asset(tagNumber: let tagNumber): return tagNumber
+        case .location(locationCode: let locationCode): return locationCode
+        }
+    }
+
+    var parameter: PhotographUploadParameter
+    var viewStates: ViewStates = (first: .prepare, second: .prepare)
+    var photos: [Photo] = [Photo(), Photo()]
     init(title: String,
          key: String,
-         value: String,
+         parameter: PhotographUploadParameter,
          request: RequestRepresentable,
          action: PhotographViewController)
     {
         self.title = title
         self.key = key
-        self.value = value
+        self.parameter = parameter
         super.init(request: request, action: action)
     }
 
-    func upload(_ image: UIImage) -> ViewModelFuture<ViewState> {
+    func upload(_ image: UIImage, at index: Int) -> ViewModelFuture<ViewState> {
         guard let imageData = image.jpegData(compressionQuality: 1) else {
             return ViewModelFuture(error: EAMError.unwrapOptionalValueError("imageData should not be nil"))
         }
+
+        parameter.data = imageData
 
         func viewState(for url: URL, person: String, at time: String) -> ViewModelFuture<ViewState> {
             ViewModelFuture(value: .finished(url: url, info: info(for: person, at: time)))
         }
 
-        let parameters = PhotographUploadParameter(locationCode: "", longitude: "", latitude: "", file: "", data: imageData)
-
-        return upload(of: PhotographUploadResponse.self, router: .uploadPhoto(parameters)).flatMap { result -> ViewModelFuture<ViewState> in
+        return upload().onSuccess { [weak self] result in
+            guard let self = self, let photo = result else { return }
+            `self`.photos[index] = photo
+        }.flatMap { result -> ViewModelFuture<ViewState> in
             guard let photo = result, let url = URL(string: photo.url) else {
                 return ViewModelFuture(error: EAMError.unwrapOptionalValueError("imageData should not be nil"))
             }
@@ -62,14 +72,11 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
             if let second = photos.last, let url = URL(string: second.url) {
                 viewStates.second = .finished(url: url, info: info(for: second.uploadPerson, at: second.uploadTime))
             }
-
+            self.viewStates = viewStates
             return ViewModelFuture(value: viewStates)
         }
 
-        let parameter = LocationImagesParameter(locationCode: value)
-
-        return listApi(of: LocationImagesResponse.self,
-                       router: APIRouter.imagesByLocation(parameter))
+        return imageList()
             .onSuccess { [weak self] photos in
                 guard let self = self else { return }
                 `self`.photos = photos
@@ -78,11 +85,21 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
             }
     }
 
+    func upload() -> ViewModelFuture<Photo?> {
+        fatalError("sub class must implement 'upload' method to provide upload function")
+    }
+
+    func imageList() -> ViewModelFuture<[Photo]> {
+        fatalError("sub class must implement 'imageList' method to provide upload function")
+    }
+
+    func delete(photo: Photo) -> ViewModelFuture<String?> {
+        fatalError("sub class must implement 'delete' method to provide upload function")
+    }
+
     func delete(for index: Int) -> ViewModelFuture<ViewState> {
         let photo = photos[index]
-        let parameter = LocationImageOperatorByDeleteParameter(imageId: photo.imageId, locationCode: value)
-        return api(of: LocationImageOperatorByDeleteResponse.self,
-                   router: APIRouter.locationImageOperatorByDelete(parameter))
+        return delete(photo: photo)
             .onSuccess { [weak self] result in
                 guard let self = self else { return }
                 `self`.action.alert(message: result)

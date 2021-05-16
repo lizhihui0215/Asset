@@ -313,6 +313,8 @@ class AssetDetailViewController: BaseViewController {
             // swiftlint:disable:next force_cast
             let category: Staff.Category = (sender as! NSObject) == principalTapGestureRecognizer ? .principal : .user
             destination.viewModel = viewModel.viewModel(for: destination, with: category)
+        case let destination as PhotographViewController:
+            destination.viewModel = viewModel.viewModel(for: destination, with: sender)
         default: break
         }
     }

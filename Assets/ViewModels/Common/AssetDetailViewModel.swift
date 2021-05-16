@@ -254,6 +254,17 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
             return StaffListViewModel(request: StaffListRequest(),
                                       action: action,
                                       category: sender as! Staff.Category) as! T
+        case let action as PhotographViewController:
+            guard let assetDetail = assetDetail else { break }
+
+            let parameters = PhotographUploadParameter(category: .asset(tagNumber: tagNumber),
+                                                       longitude: assetDetail.longitude,
+                                                       latitude: assetDetail.latitude)
+            return AssetPhotographViewModel(title: "资产照片采集",
+                                            key: "资产标签号",
+                                            parameter: parameters,
+                                            request: PhotographRequest(),
+                                            action: action) as! T
         default: break
         }
         return super.viewModel(for: action, with: sender)

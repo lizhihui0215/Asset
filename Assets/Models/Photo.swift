@@ -15,6 +15,27 @@ struct Photo {
     var longitude: String
     var latitude: String
     var url: String
+
+    init(imageId: String = Self.defaultImageId,
+         imagePath: String = Self.defaultImagePath,
+         imageName: String = Self.defaultImageName,
+         uploadTime: String = Self.defaultUploadTime,
+         uploadType: String = Self.defaultUploadType,
+         uploadPerson: String = Self.defaultUploadPerson,
+         longitude: String = Self.defaultLongitude,
+         latitude: String = Self.defaultLatitude,
+         url: String = Self.defaultUrl)
+    {
+        self.imageId = imageId
+        self.imagePath = imagePath
+        self.imageName = imageName
+        self.uploadTime = uploadTime
+        self.uploadType = uploadType
+        self.uploadPerson = uploadPerson
+        self.longitude = longitude
+        self.latitude = latitude
+        self.url = url
+    }
 }
 
 extension Photo: AutoEquatable {}

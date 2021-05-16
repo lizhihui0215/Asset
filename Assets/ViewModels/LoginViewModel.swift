@@ -14,8 +14,7 @@ class LoginViewModel: BaseViewModel<LoginViewController> {
         let loginParameter = LoginParameter(userAccount: username, userPwd: password.md5())
         return api(of: LoginResponse.self, router: .login(loginParameter))
             .onSuccess { result in
-                guard var credential = result else { return }
-                credential.username = username
+                guard let credential = result else { return }
                 app.add(credential: credential)
             }
     }

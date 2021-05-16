@@ -9,6 +9,27 @@
 import UIKit
 
 class RadioButtonStack: UIStackView {
+    init(title: String) {
+        super.init(frame: .zero)
+        let label = UILabel()
+        label.textColor = XCAssets.Colors.primaryTextColor.color
+        label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.text = title
+        let radioButton = RadioButton()
+        addArrangedSubview(radioButton)
+        radioButton.setContentHuggingPriority(.required, for: .horizontal)
+        label.setContentHuggingPriority(.required, for: .horizontal)
+        addArrangedSubview(label)
+        spacing = 10
+        axis = .horizontal
+    }
+
+    @available(*, unavailable)
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
     var button: RadioButton {
         // swiftlint:disable:next force_cast
         arrangedSubviews.first as! RadioButton
@@ -23,7 +44,23 @@ class RadioButtonStack: UIStackView {
 class RadioButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
-        addTarget(self, action: #selector(buttonTapped), for: .allEvents)
+        initViews()
+    }
+
+    init() {
+        super.init(frame: .zero)
+        initViews()
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+    func initViews() {
+        setImage(XCAssets.Assets.Common.Checkbox.selected.image, for: .selected)
+        setImage(XCAssets.Assets.Common.Checkbox.unselected.image, for: .normal)
+        addTarget(self, action: #selector(buttonTapped), for: .touchDown)
     }
 
     @objc func buttonTapped(sender: RadioButton) {
@@ -32,16 +69,21 @@ class RadioButton: UIButton {
 }
 
 @IBDesignable
-class RadioGroupView: NibView {
+class RadioGroupView: UIView {
     typealias DidSelectedAction = (Int) -> Void
-    @IBOutlet var radioButtonStacks: [RadioButtonStack]!
-    @IBOutlet var containerStackView: UIStackView!
-    var titles = [String]()
+    var radioButtonStacks: [RadioButtonStack]!
+    var containerStackView: UIStackView!
+    var titles = ["", ""]
 
     var selectedIndex: Int {
-        guard let index = radioButtonStacks.firstIndex(where: { $0.button.isSelected }) else { return 0 }
+        get {
+            guard let index = radioButtonStacks.firstIndex(where: { $0.button.isSelected }) else { return 0 }
 
-        return index
+            return index
+        }
+        set {
+            selectedRadioButton(at: newValue)
+        }
     }
 
     var selectedAction: DidSelectedAction?
@@ -61,9 +103,47 @@ class RadioGroupView: NibView {
     override func awakeFromNib() {
         super.awakeFromNib()
         initViews()
+        configurationTitles()
+    }
+
+    init(titles: String ...) {
+        super.init(frame: .zero)
+        heightAnchor ~ 40
+        self.titles = titles
+        initViews()
+        configurationTitles()
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
 
     func initViews() {
+        radioButtonStacks = titles.map { [weak self] in
+            let radioButtonStack = RadioButtonStack(title: $0)
+            radioButtonStack.button.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
+            return radioButtonStack
+        }
+        containerStackView = UIStackView(arrangedSubviews: radioButtonStacks)
+        containerStackView.axis = .horizontal
+        containerStackView.distribution = .fill
+        addSubview(containerStackView)
+        addLayoutConstraints()
+    }
+
+    func addLayoutConstraints() {
+        containerStackView.leadingAnchor ~ leadingAnchor
+        containerStackView.trailingAnchor ~ trailingAnchor
+        containerStackView.topAnchor ~ topAnchor
+        containerStackView.bottomAnchor ~ bottomAnchor
+    }
+
+    func configurationTitles() {
         radioButtonStacks.first?.button.isSelected = true
         for (index, radioButtonStack) in radioButtonStacks.enumerated() {
             guard index < titles.count else { break }
@@ -73,23 +153,39 @@ class RadioGroupView: NibView {
         containerStackView.spacing = spacing
     }
 
-    @IBAction func radioButtonTapped(_ sender: RadioButton) {
-        for radioButtonStack in radioButtonStacks where sender != radioButtonStack.button {
-            radioButtonStack.button.isSelected = !radioButtonStack.button.isSelected
-        }
-
-        guard let action = selectedAction,
-              let index = radioButtonStacks.firstIndex(where: { $0.button == sender })
-        else {
+    @objc func radioButtonTapped(_ sender: RadioButton) {
+        guard sender.isSelected else {
+            radioButtonStacks.first?.button.isSelected = true
+            guard let action = selectedAction, let index = index(of: sender) else { return }
+            action(index)
             return
         }
 
+        for radioButtonStack in radioButtonStacks where sender != radioButtonStack.button {
+            radioButtonStack.button.isSelected = false
+        }
+
+        guard let action = selectedAction, let index = index(of: sender) else { return }
         action(index)
+    }
+
+    func selectedRadioButton(at index: Int) {
+        let selectedRadioButton = radioButtonStacks[index].button
+        selectedRadioButton.buttonTapped(sender: selectedRadioButton)
+        radioButtonTapped(selectedRadioButton)
+    }
+
+    func index(of selected: RadioButton) -> Int? {
+        guard let index = radioButtonStacks.firstIndex(where: { $0.button == selected }) else {
+            return nil
+        }
+
+        return index
     }
 
     override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         initViews()
-        radioButtonStacks.first?.button.isSelected = true
+        configurationTitles()
     }
 }

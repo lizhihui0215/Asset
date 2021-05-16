@@ -15,8 +15,13 @@ struct API {
         case DictionaryName = "dictName"
     }
 
+    enum Scheme: String, Codable {
+        case http
+        case https
+    }
+
     enum Constants {
-        static let defaultSchema = "http"
+        static let defaultSchema: Scheme = .http
         static let defaultDomain = "152.136.255.61:8091"
         static let defaultServiceDictionary = "eam-phone"
     }
@@ -28,7 +33,7 @@ struct API {
     public static var safeArrayDecoding = true
 
     @UserDefault(key: Keys.Schema, defaultValue: Constants.defaultSchema)
-    static var schema: String
+    static var schema: Scheme
 
     @UserDefault(key: Keys.Domain, defaultValue: Constants.defaultDomain)
     static var domain: String

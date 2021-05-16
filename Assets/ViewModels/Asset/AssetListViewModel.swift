@@ -8,7 +8,7 @@ import Foundation
 class AssetListViewModel: PageableViewModel<AssetListViewController, DefaultSection<Asset>>, Searchable {
     var appSearchText: String = ""
     let regionIdCompany = app.credential?.userCityId ?? ""
-    let checkPerson = app.credential?.username ?? ""
+    let checkPerson = app.credential?.userAccount ?? ""
 
     public var pageNumber: Int {
         page + 1

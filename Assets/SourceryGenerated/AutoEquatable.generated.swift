@@ -116,13 +116,14 @@ internal func == (lhs: AssetListDetail, rhs: AssetListDetail) -> Bool {
 // MARK: - Credential AutoEquatable
 extension Credential: Equatable {}
 internal func == (lhs: Credential, rhs: Credential) -> Bool {
-    guard lhs.userToken == rhs.userToken else { return false }
     guard lhs.pageSize == rhs.pageSize else { return false }
-    guard lhs.username == rhs.username else { return false }
-    guard lhs.userOrgName == rhs.userOrgName else { return false }
-    guard lhs.userCityName == rhs.userCityName else { return false }
     guard lhs.userOrgId == rhs.userOrgId else { return false }
+    guard lhs.userName == rhs.userName else { return false }
     guard lhs.userCityId == rhs.userCityId else { return false }
+    guard lhs.userCityName == rhs.userCityName else { return false }
+    guard lhs.userToken == rhs.userToken else { return false }
+    guard lhs.userAccount == rhs.userAccount else { return false }
+    guard lhs.userOrgName == rhs.userOrgName else { return false }
     return true
 }
 // MARK: - Location AutoEquatable

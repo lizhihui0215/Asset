@@ -86,11 +86,17 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
     override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
         switch action {
         case let action as PhotographViewController:
-            return PhotographViewModel(title: "地点照片采集",
-                                       key: "地点编码",
-                                       value: locationDetail?.locationCode ?? "",
-                                       request: PhotographUploadRequest(),
-                                       action: action) as! T
+            guard let locationDetail = locationDetail else { break }
+
+            let parameters = PhotographUploadParameter(category: .location(locationCode: locationDetail.locationCode),
+                                                       longitude: String(locationDetail.longitude),
+                                                       latitude: String(locationDetail.latitude))
+
+            return LocationPhotographViewModel(title: "资产照片采集",
+                                               key: "资产标签号",
+                                               parameter: parameters,
+                                               request: PhotographUploadRequest(),
+                                               action: action) as! T
         case let action as AssetInventoryListViewController:
             return AssetInventoryListViewModel(request: AssetInventoryListRequest(), action: action, locationDetail: locationDetail!) as! T
         default: break

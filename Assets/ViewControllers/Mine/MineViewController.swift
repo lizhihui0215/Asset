@@ -9,10 +9,22 @@
 import UIKit
 
 class MineViewController: UIViewController {
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var departmentLabel: UILabel!
+
+    lazy var viewModel: MineViewModel = {
+        MineViewModel(request: MineRequest(), action: self)
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameLabel.text = viewModel.name
+        departmentLabel.text = viewModel.department
+    }
 
-        // Do any additional setup after loading the view.
+    @IBAction func logout(_ sender: UITapGestureRecognizer) {
+        app.cleanCredential()
+        window?.rootViewController = StoryboardScene.Login.initialScene.instantiate()
     }
 
     /*
@@ -24,8 +36,4 @@ class MineViewController: UIViewController {
          // Pass the selected object to the new view controller.
      }
      */
-    @IBAction func logout(_ sender: UITapGestureRecognizer) {
-        app.cleanCredential()
-        window?.rootViewController = StoryboardScene.Login.initialScene.instantiate()
-    }
 }

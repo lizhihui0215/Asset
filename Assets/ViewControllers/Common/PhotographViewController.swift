@@ -100,7 +100,6 @@ class PhotographViewController: BaseViewController {
     @IBOutlet var firstContainerStackView: UIStackView!
     @IBOutlet var firstImageView: UIImageView!
     @IBOutlet var firstButtonStackView: UIStackView!
-
     @IBOutlet var firstPhotographButton: AnimatableButton!
     @IBOutlet var firstPhotoAlbumButton: AnimatableButton!
     @IBOutlet var firstSubmitButton: AnimatableButton!
@@ -110,7 +109,6 @@ class PhotographViewController: BaseViewController {
     @IBOutlet var secondContainerStackView: UIStackView!
     @IBOutlet var secondImageView: UIImageView!
     @IBOutlet var secondButtonStackView: UIStackView!
-
     @IBOutlet var secondPhotographButton: AnimatableButton!
     @IBOutlet var secondPhotoAlbumButton: AnimatableButton!
     @IBOutlet var secondSubmitButton: AnimatableButton!
@@ -254,7 +252,7 @@ class PhotographViewController: BaseViewController {
 
     func submitTapped(for editingView: EditingView) {
         guard let image = editingView.imageView.image else { return }
-        viewModel.upload(image).onSuccess { result in
+        viewModel.upload(image, at: editingView.index).onSuccess { result in
             editingView.update(viewState: result)
         }
     }

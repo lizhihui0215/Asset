@@ -20,7 +20,7 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
 
     var appSearchText: String = ""
     let regionIdCompany = app.credential?.userCityId ?? ""
-    let checkPerson = app.credential?.username ?? ""
+    let checkPerson = app.credential?.userAccount ?? ""
     let locationDetail: LocationDetail
     public var inventoryStatus: InventoryStatus = [Keys.Inventory.All.rawValue: Constants.inventoryStatusAll]
 

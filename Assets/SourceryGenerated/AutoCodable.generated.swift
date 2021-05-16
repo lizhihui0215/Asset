@@ -190,25 +190,27 @@ extension AssetListDetail {
 extension Credential {
 
     enum CodingKeys: String, CodingKey {
-        case userToken
         case pageSize
-        case username
-        case userOrgName
-        case userCityName
         case userOrgId
+        case userName
         case userCityId
+        case userCityName
+        case userToken
+        case userAccount
+        case userOrgName
     }
 
     internal init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        userToken = (try? container.decode(String.self, forKey: .userToken)) ?? Credential.defaultUserToken
         pageSize = (try? container.decode(String.self, forKey: .pageSize)) ?? Credential.defaultPageSize
-        username = (try? container.decode(String.self, forKey: .username)) ?? Credential.defaultUsername
-        userOrgName = (try? container.decode(String.self, forKey: .userOrgName)) ?? Credential.defaultUserOrgName
-        userCityName = (try? container.decode(String.self, forKey: .userCityName)) ?? Credential.defaultUserCityName
         userOrgId = (try? container.decode(String.self, forKey: .userOrgId)) ?? Credential.defaultUserOrgId
+        userName = (try? container.decode(String.self, forKey: .userName)) ?? Credential.defaultUserName
         userCityId = (try? container.decode(String.self, forKey: .userCityId)) ?? Credential.defaultUserCityId
+        userCityName = (try? container.decode(String.self, forKey: .userCityName)) ?? Credential.defaultUserCityName
+        userToken = (try? container.decode(String.self, forKey: .userToken)) ?? Credential.defaultUserToken
+        userAccount = (try? container.decode(String.self, forKey: .userAccount)) ?? Credential.defaultUserAccount
+        userOrgName = (try? container.decode(String.self, forKey: .userOrgName)) ?? Credential.defaultUserOrgName
     }
 
 }

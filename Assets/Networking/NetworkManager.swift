@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import AlamofireImage
 import BrightFutures
 import Foundation
 
@@ -18,8 +19,10 @@ class NetworkManager {
 
     private var session: Session
 
+    private var downloadSession: Session
+
     private static var evaluators: [String: ServerTrustEvaluating] {
-        ["152.136.255.61:8091": DisabledTrustEvaluator()]
+        [API.domain: DisabledTrustEvaluator()]
     }
 
     private static var serverTrustManager: ServerTrustManager {
@@ -41,7 +44,9 @@ class NetworkManager {
         #if MOCK
             configuration.protocolClasses = [MockingURLProtocol.self] + (configuration.protocolClasses ?? [])
         #endif
-        session = Session(configuration: configuration, interceptor: composite, serverTrustManager: NetworkManager.serverTrustManager)
+        session = Session(configuration: configuration, interceptor: composite, serverTrustManager: Self.serverTrustManager)
+        downloadSession = Session(configuration: configuration, startRequestsImmediately: false, interceptor: composite, serverTrustManager: Self.serverTrustManager)
+        UIImageView.af.sharedImageDownloader = ImageDownloader(session: downloadSession)
     }
 
     func sendRequest<T: ResponseRepresentable>(of type: T.Type = T.self, router: APIRouter) -> EAMResponseFuture<EAMDataResponse<T>> {
@@ -49,7 +54,13 @@ class NetworkManager {
     }
 
     func upload<T: ResponseRepresentable>(of type: T.Type = T.self, router: APIRouter) -> EAMResponseFuture<EAMDataResponse<T>> {
-        session.upload(multipartFormData: router.multipartFormData, with: router).responseDecodable(of: type)
+        let response = session.upload(multipartFormData: router.multipartFormData, with: router)
+
+        response.uploadProgress { progress in
+            log.info("progress: \(progress.fractionCompleted)")
+        }
+
+        return response.responseDecodable(of: type)
     }
 }
 

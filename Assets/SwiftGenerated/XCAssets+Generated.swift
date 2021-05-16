@@ -83,7 +83,14 @@ internal enum XCAssets {
     }
   }
   internal enum Colors {
-    internal static let dropdownTextColor = ColorAsset(name: "dropdownTextColor")
+    internal enum DropDown {
+      internal static let dropdownTextColor = ColorAsset(name: "dropdownTextColor")
+    }
+    internal enum TextField {
+      internal static let borderActiveColor = ColorAsset(name: "borderActiveColor")
+      internal static let borderInactiveColor = ColorAsset(name: "borderInactiveColor")
+      internal static let placeholderColor = ColorAsset(name: "placeholderColor")
+    }
     internal static let primaryColor = ColorAsset(name: "primaryColor")
     internal static let primaryTextColor = ColorAsset(name: "primaryTextColor")
     internal static let secondaryTextColor = ColorAsset(name: "secondaryTextColor")
