@@ -21,10 +21,10 @@ struct TransformErrorPreprocessor<T: ResponseRepresentable>: DataPreprocessor {
             return data
         }
 
-        guard response.status == 4 else {
-            return data
+        switch response.status {
+        case 3: throw EAMError.ServerError.updateRequired
+        case 4: throw EAMError.ServerError.tokenRequiredError
+        default: return data
         }
-
-        throw EAMError.ServerError.tokenRequiredError
     }
 }

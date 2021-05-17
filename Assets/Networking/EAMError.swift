@@ -87,6 +87,7 @@ public enum EAMError: Error {
     public enum ServerError: Error, Equatable {
         case responseFailed(reason: String)
         case tokenRequiredError
+        case updateRequired
     }
 
     public enum UIError: Error {
@@ -160,6 +161,8 @@ extension EAMError.ServerError: LocalizedError {
             return reason
         case .tokenRequiredError:
             return "token is required"
+        case .updateRequired:
+            return "update is required"
         }
     }
 
@@ -169,6 +172,8 @@ extension EAMError.ServerError: LocalizedError {
             return reason
         case .tokenRequiredError:
             return "token is required"
+        case .updateRequired:
+            return "update is required"
         }
     }
 
@@ -178,6 +183,8 @@ extension EAMError.ServerError: LocalizedError {
             return reason
         case .tokenRequiredError:
             return "token is required"
+        case .updateRequired:
+            return "update is required"
         }
     }
 }

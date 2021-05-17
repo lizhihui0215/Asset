@@ -38,7 +38,7 @@ public final class App {
 
     private var infoDictionary = Bundle.main.infoDictionary
 
-    public enum `Type`: String, Encodable {
+    public enum Category: String, Codable {
         case ios = "2"
     }
 

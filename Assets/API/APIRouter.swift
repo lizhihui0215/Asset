@@ -33,6 +33,8 @@ enum APIRouter: URLRequestConvertible {
         static var locationImageOperatorByDelete = "app/image/delete/location"
         static var imagesByAsset = "app/image/list/asset"
         static var assetImageOperatorByDelete = "app/image/delete/asset"
+        static var isLogin = "appSys/isLogin"
+        static var version = "appSys/getVersion"
 
         static func staffList(_ category: Staff.Category) -> String {
             switch category {
@@ -67,6 +69,8 @@ enum APIRouter: URLRequestConvertible {
     case locationImageOperatorByDelete(LocationImageOperatorByDeleteParameter)
     case imagesByAsset(AssetImagesParameter)
     case assetImageOperatorByDelete(AssetImageOperatorByDeleteParameter)
+    case isLogin
+    case version
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -98,6 +102,8 @@ enum APIRouter: URLRequestConvertible {
         case .locationImageOperatorByDelete: return pathComponents(with: Constants.locationImageOperatorByDelete)
         case .imagesByAsset: return pathComponents(with: Constants.imagesByAsset)
         case .assetImageOperatorByDelete: return pathComponents(with: Constants.assetImageOperatorByDelete)
+        case .isLogin: return pathComponents(with: Constants.isLogin)
+        case .version: return pathComponents(with: Constants.version)
         }
     }
 
@@ -152,6 +158,12 @@ enum APIRouter: URLRequestConvertible {
         case .assetImageOperatorByDelete(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .locationImageOperatorByDelete(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .isLogin:
+            let parameters = IsLoginParameter(userToken: app.credential?.userToken ?? "")
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .version:
+            let parameters = VersionCheckParameter(appType: .ios, currentVersion: app.version)
             request = try JSONParameterEncoder().encode(parameters, into: request)
         }
 

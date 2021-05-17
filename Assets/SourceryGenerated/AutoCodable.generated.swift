@@ -215,6 +215,32 @@ extension Credential {
 
 }
 
+extension IsLogin {
+
+    enum CodingKeys: String, CodingKey {
+        case loginId
+        case userToken
+        case userAccount
+        case loginDate
+        case logoutDate
+        case tokenStatus
+        case appType
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        loginId = (try? container.decode(String.self, forKey: .loginId)) ?? IsLogin.defaultLoginId
+        userToken = (try? container.decode(String.self, forKey: .userToken)) ?? IsLogin.defaultUserToken
+        userAccount = (try? container.decode(String.self, forKey: .userAccount)) ?? IsLogin.defaultUserAccount
+        loginDate = (try? container.decode(String.self, forKey: .loginDate)) ?? IsLogin.defaultLoginDate
+        logoutDate = (try? container.decode(String.self, forKey: .logoutDate)) ?? IsLogin.defaultLogoutDate
+        tokenStatus = (try? container.decode(String.self, forKey: .tokenStatus)) ?? IsLogin.defaultTokenStatus
+        appType = (try? container.decode(App.Category.self, forKey: .appType)) ?? IsLogin.defaultAppType
+    }
+
+}
+
 extension Location {
 
     enum CodingKeys: String, CodingKey {
@@ -388,6 +414,34 @@ extension Staff.Category {
         case .principal: try container.encode(CodingKeys.principal.rawValue)
         case .user: try container.encode(CodingKeys.user.rawValue)
         }
+    }
+
+}
+
+extension Version {
+
+    enum CodingKeys: String, CodingKey {
+        case appType
+        case appVersionCode
+        case appVersionName
+        case appName
+        case appPath
+        case appDownloadUrl
+        case appDesc
+        case appExt
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        appType = (try? container.decode(App.Category.self, forKey: .appType)) ?? Version.defaultAppType
+        appVersionCode = (try? container.decode(String.self, forKey: .appVersionCode)) ?? Version.defaultAppVersionCode
+        appVersionName = (try? container.decode(String.self, forKey: .appVersionName)) ?? Version.defaultAppVersionName
+        appName = (try? container.decode(String.self, forKey: .appName)) ?? Version.defaultAppName
+        appPath = (try? container.decode(String.self, forKey: .appPath)) ?? Version.defaultAppPath
+        appDownloadUrl = (try? container.decode(String.self, forKey: .appDownloadUrl)) ?? Version.defaultAppDownloadUrl
+        appDesc = (try? container.decode(String.self, forKey: .appDesc)) ?? Version.defaultAppDesc
+        appExt = (try? container.decode(String.self, forKey: .appExt)) ?? Version.defaultAppExt
     }
 
 }

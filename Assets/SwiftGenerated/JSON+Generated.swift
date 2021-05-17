@@ -34,6 +34,9 @@ internal enum MockerDataSource {
   internal enum InventoryStatusResponse {
     public static let data = objectFromJSON(at: "InventoryStatusResponse.json")
   }
+  internal enum IsLoginResponse {
+    public static let data = objectFromJSON(at: "IsLoginResponse.json")
+  }
   internal enum LocationDetailResponse {
     public static let data = objectFromJSON(at: "LocationDetailResponse.json")
   }
@@ -57,6 +60,9 @@ internal enum MockerDataSource {
   }
   internal enum UserStaffListResponse {
     public static let data = objectFromJSON(at: "UserStaffListResponse.json")
+  }
+  internal enum VersionCheckResponse {
+    public static let data = objectFromJSON(at: "VersionCheckResponse.json")
   }
 }
 

@@ -126,6 +126,18 @@ internal func == (lhs: Credential, rhs: Credential) -> Bool {
     guard lhs.userOrgName == rhs.userOrgName else { return false }
     return true
 }
+// MARK: - IsLogin AutoEquatable
+extension IsLogin: Equatable {}
+internal func == (lhs: IsLogin, rhs: IsLogin) -> Bool {
+    guard lhs.loginId == rhs.loginId else { return false }
+    guard lhs.userToken == rhs.userToken else { return false }
+    guard lhs.userAccount == rhs.userAccount else { return false }
+    guard lhs.loginDate == rhs.loginDate else { return false }
+    guard lhs.logoutDate == rhs.logoutDate else { return false }
+    guard lhs.tokenStatus == rhs.tokenStatus else { return false }
+    guard lhs.appType == rhs.appType else { return false }
+    return true
+}
 // MARK: - Location AutoEquatable
 extension Location: Equatable {}
 internal func == (lhs: Location, rhs: Location) -> Bool {
@@ -193,6 +205,19 @@ internal func == (lhs: Staff, rhs: Staff) -> Bool {
     guard lhs.userCode == rhs.userCode else { return false }
     guard lhs.userOrgName == rhs.userOrgName else { return false }
     guard lhs.category == rhs.category else { return false }
+    return true
+}
+// MARK: - Version AutoEquatable
+extension Version: Equatable {}
+internal func == (lhs: Version, rhs: Version) -> Bool {
+    guard lhs.appType == rhs.appType else { return false }
+    guard lhs.appVersionCode == rhs.appVersionCode else { return false }
+    guard lhs.appVersionName == rhs.appVersionName else { return false }
+    guard lhs.appName == rhs.appName else { return false }
+    guard lhs.appPath == rhs.appPath else { return false }
+    guard lhs.appDownloadUrl == rhs.appDownloadUrl else { return false }
+    guard lhs.appDesc == rhs.appDesc else { return false }
+    guard lhs.appExt == rhs.appExt else { return false }
     return true
 }
 

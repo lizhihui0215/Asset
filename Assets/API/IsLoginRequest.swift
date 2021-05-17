@@ -8,16 +8,14 @@
 
 import Foundation
 
-struct LoginRequest: RequestRepresentable {}
+struct IsLoginRequest: RequestRepresentable {}
 
-struct LoginParameter: Encodable {
-    let userAccount: String?
-    let userPwd: String?
-    let appType: App.Category = .ios
+struct IsLoginParameter: Encodable {
+    let userToken: String
 }
 
-struct LoginResponse: DataResponse {
+struct IsLoginResponse: DataResponse {
     var status: Int = 0
     var msg: String = App.Constants.Default.string
-    var data: Credential?
+    var data: IsLogin?
 }
