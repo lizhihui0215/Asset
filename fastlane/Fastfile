@@ -1,0 +1,30 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :beta do
+    # add actions here: https://docs.fastlane.tools/actions
+    changelog = File.read("../CHANGELOG.md")
+    build_app(export_method: "enterprise")
+    pgyer(api_key: "fd8fa2186d6dcfc02fa16d2510f763e6",
+      user_key: "ed26efab2963a7eeb072e3e5edbfd307",
+      password: "123456",
+      install_type: "2",
+      update_description: changelog)
+  end
+end

@@ -1,0 +1,13 @@
+//
+//  AssetsUITests.xcconfig
+//  Assets
+//
+//  Created by lizhihui on 2021/5/17.
+//  Copyright © 2021 ZhiHui.Li. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+IMAGE_DIFF_DIR = $(SRCROOT)/$(PROJECT_NAME)UITests/SnapshotTests/FailureImages
+FB_REFRENCE_IMAGE_DIR = $(SRCROOT)/$(PROJECT_NAME)UITests/SnapshotTests/RefrenceImages
