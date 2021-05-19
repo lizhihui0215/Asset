@@ -10,4 +10,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 IMAGE_DIFF_DIR = $(SRCROOT)/$(PROJECT_NAME)UITests/SnapshotTests/FailureImages
-FB_REFRENCE_IMAGE_DIR = $(SRCROOT)/$(PROJECT_NAME)UITests/SnapshotTests/RefrenceImages
+FB_REFERENCE_IMAGE_DIR = $(SRCROOT)/$(PROJECT_NAME)UITests/SnapshotTests/RefrenceImages

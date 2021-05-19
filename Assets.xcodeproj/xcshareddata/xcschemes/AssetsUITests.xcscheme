@@ -43,8 +43,8 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "FB_REFRENCE_IMAGE"
-            value = "$(FB_REFRENCE_IMAGE)"
+            key = "FB_REFERENCE_IMAGE_DIR"
+            value = "$(FB_REFERENCE_IMAGE_DIR)"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
@@ -78,7 +78,7 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "FB_REFRENCE_IMAGE"
+            key = "FB_REFRENCE_IMAGE_DIR"
             value = "$(SOURCE_ROOT)/$(PROJECT_NAME)UITests/ReferenceImages"
             isEnabled = "YES">
          </EnvironmentVariable>

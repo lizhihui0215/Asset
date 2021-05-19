@@ -16,8 +16,7 @@ class FastlaneScreenshot: UITestCase {
         app.launch()
     }
     
-    func testExample() {
-        snapshot("0Launch")
-        
-    }
+//    func testExample() {
+//                snapshot("0Launch")
+//    }
 }

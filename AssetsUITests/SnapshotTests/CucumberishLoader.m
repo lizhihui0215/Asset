@@ -12,9 +12,9 @@
 __attribute__((constructor))
 void CucumberishInit(void) {
     BOOL recordMode = NO;
-    [Cucumberish instance].testTargetSrcRoot = SRC_ROOT;
-    AssetsSnapshootTests_BDD_Tests *initilizerSteps = [AssetsSnapshootTests_BDD_Tests new];
+    AssetsSnapshotTests_BDD_Tests *initilizerSteps = [AssetsSnapshotTests_BDD_Tests new];
     [initilizerSteps setUp];
     initilizerSteps.recordMode = recordMode;
+    initilizerSteps.continueAfterFailure = recordMode;
     [initilizerSteps setUpSteps];
 }
