@@ -13,7 +13,7 @@ struct APIModel: Decodable {
     /// Codable Coding Keys for the Top-Level iTunes Lookup API JSON response.
     private enum CodingKeys: String, CodingKey {
         /// The results JSON key.
-        case results
+        case results = "data"
     }
 
     /// The array of results objects from the iTunes Lookup API.
@@ -24,7 +24,7 @@ struct APIModel: Decodable {
         ///  Codable Coding Keys for the Results array in the iTunes Lookup API JSON response.
         private enum CodingKeys: String, CodingKey {
             /// The appID JSON key.
-            case appID = "trackId"
+            case appID
             /// The current version release date JSON key.
             case currentVersionReleaseDate
             /// The minimum device iOS version compatibility JSON key.
@@ -33,13 +33,15 @@ struct APIModel: Decodable {
             case releaseNotes
             /// The current App Store version JSON key.
             case version
+            /// The mainfest plist file for download the app
+            case mainfestPlist
         }
 
         /// The app's App ID.
         let appID: Int
 
         /// The release date for the latest version of the app.
-        let currentVersionReleaseDate: String
+        let currentVersionReleaseDate: String?
 
         /// The minimum version of iOS that the current version of the app requires.
         let minimumOSVersion: String
@@ -49,5 +51,9 @@ struct APIModel: Decodable {
 
         /// The latest version of the app.
         let version: String
+        
+        /// The mainfest plist file for download the app
+        let mainfestPlist: String
+        
     }
 }

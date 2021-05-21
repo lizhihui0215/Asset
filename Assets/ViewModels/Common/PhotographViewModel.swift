@@ -102,7 +102,7 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
         return delete(photo: photo)
             .onSuccess { [weak self] result in
                 guard let self = self else { return }
-                `self`.action.alert(message: result)
+                `self`.action.alert(message: result ?? "")
             }
             .flatMap { _ -> ViewModelFuture<ViewState> in
                 ViewModelFuture(value: .prepare)

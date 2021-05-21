@@ -34,7 +34,8 @@ enum APIRouter: URLRequestConvertible {
         static var imagesByAsset = "app/image/list/asset"
         static var assetImageOperatorByDelete = "app/image/delete/asset"
         static var isLogin = "appSys/isLogin"
-        static var version = "appSys/getVersion"
+        static var versionCheck = "appSys/getVersion"
+        static var version = "appSys/getVersionIos"
 
         static func staffList(_ category: Staff.Category) -> String {
             switch category {
@@ -70,6 +71,9 @@ enum APIRouter: URLRequestConvertible {
     case imagesByAsset(AssetImagesParameter)
     case assetImageOperatorByDelete(AssetImageOperatorByDeleteParameter)
     case isLogin
+
+    @available(*, deprecated, message: "Parse use version instead")
+    case versionCheck
     case version
 
     var baseURL: URL {
@@ -103,6 +107,7 @@ enum APIRouter: URLRequestConvertible {
         case .imagesByAsset: return pathComponents(with: Constants.imagesByAsset)
         case .assetImageOperatorByDelete: return pathComponents(with: Constants.assetImageOperatorByDelete)
         case .isLogin: return pathComponents(with: Constants.isLogin)
+        case .versionCheck: return pathComponents(with: Constants.versionCheck)
         case .version: return pathComponents(with: Constants.version)
         }
     }
@@ -162,9 +167,10 @@ enum APIRouter: URLRequestConvertible {
         case .isLogin:
             let parameters = IsLoginParameter(userToken: app.credential?.userToken ?? "")
             request = try JSONParameterEncoder().encode(parameters, into: request)
-        case .version:
+        case .versionCheck:
             let parameters = VersionCheckParameter(appType: .ios, currentVersion: app.version)
             request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .version: break
         }
 
         return request

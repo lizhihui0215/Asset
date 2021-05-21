@@ -14,7 +14,7 @@ public struct RulesManager {
     ///
     /// This value defaults to 1 day (in `RulesManager`'s initializer) to avoid an issue where
     /// Apple updates the JSON faster than the app binary propogates to the App Store.
-    let releasedForDays: Int
+    let releasedForDays: Int?
 
     /// The `Rules` that should be used when the App Store version of the app signifies that it is a **major** version update (A.b.c.d).
     var majorUpdateRules: Rules

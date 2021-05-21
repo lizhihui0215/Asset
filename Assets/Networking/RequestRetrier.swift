@@ -47,22 +47,15 @@ class RequestRetrier: Alamofire.RequestRetrier {
     }
 
     private func checkVersion(completion: @escaping (RetryResult) -> Void) {
-        NetworkManager.default.sendRequest(of: VersionCheckResponse.self, router: .version).onSuccess { [weak self] result in
-            guard let self = self else { return }
-
-            guard let version: Version = result.value?.data else { return }
-
-            guard version.appVersionCode != app.version else { completion(.retryWithDelay(2)); return }
-
-            `self`.window?.rootViewController?.alert(title: "版本更新", message: """
-                                                     当前版本：[\(app.version)] \n
-                                                     目标版本：[\(version.appVersionCode)] \n
-                                                     请更新！
-                                                     """,
-                                                     defaultAction: UIViewController.defaultAlertAction(title: "更新") {
-                                                         abort()
-                                                     })
-            completion(.doNotRetry)
+        Siren.shared.wail(performCheck: .immediately) { result in
+            switch result {
+            case .success(let result) where result.updateType == .unknown:
+                completion(.retryWithDelay(2))
+            case .failure(_):
+                completion(.retryWithDelay(2))
+            default:
+                completion(.doNotRetry)
+            }
         }
     }
 

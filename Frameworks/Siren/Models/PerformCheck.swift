@@ -13,6 +13,10 @@ import Foundation
 /// - Note: Alert presentation will still respct the settings that are set
 ///   for `UpdatePromptFrequency` and `showAlertAfterCurrentVersionHasBeenReleasedForDays`
 public enum PerformCheck {
+    /// Performs a version once only when Siren's `wail` method is called,
+    /// as the `UIApplication.didBecomeActiveNotification` is not ignored
+    case immediately
+
     /// Performs a version check only when Siren's `wail` method is called,
     /// as the `UIApplication.didBecomeActiveNotification` is ignored.
     case onDemand

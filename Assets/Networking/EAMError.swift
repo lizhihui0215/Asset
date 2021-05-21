@@ -191,13 +191,6 @@ extension EAMError.ServerError: LocalizedError {
 
 /// Enumerates all potentials errors that Siren can handle.
 public enum VersionError: LocalizedError {
-    /// Error retrieving App Store data as JSON results were empty. Is your app available in the US? If not, change the `countryCode` variable to fix this error.
-    case appStoreDataRetrievalEmptyResults
-    /// Error retrieving App Store data as an error was returned.
-    case appStoreDataRetrievalFailure(underlyingError: Error?)
-    /// Error parsing App Store JSON data.
-    case appStoreJSONParsingFailure(underlyingError: Error)
-
     /// The version of iOS on the device is lower than that of the one required by the app version update.
     case appStoreOSVersionUnsupported
     /// Error retrieving App Store verson number as the JSON does not contain a `version` key.
@@ -218,22 +211,14 @@ public enum VersionError: LocalizedError {
     /// The localized description for each error handled by Siren.
     public var localizedDescription: String {
         switch self {
-        case .appStoreDataRetrievalFailure(let error?):
-            return "\(VersionError.sirenError) Error retrieving App Store data as an error was returned\nAlso, the following system level error was returned: \(error)"
-        case .appStoreDataRetrievalEmptyResults:
-            return "\(VersionError.sirenError) Error retrieving App Store data as the JSON results were empty. Is your app available in the US? If not, change the `countryCode` variable to fix this error."
-        case .appStoreDataRetrievalFailure(.none):
-            return "\(VersionError.sirenError) Error retrieving App Store data as an error was returned."
-        case .appStoreJSONParsingFailure(let error):
-            return "\(VersionError.sirenError) Error parsing App Store JSON data.\nAlso, the following system level error was returned: \(error)"
+        case .missingBundleID:
+            return "\(VersionError.sirenError) Please make sure that you have set a `Bundle Identifier` in your project."
         case .appStoreOSVersionUnsupported:
             return "\(VersionError.sirenError) The version of iOS on the device is lower than that of the one required by the app version update."
         case .appStoreVersionArrayFailure:
             return "\(VersionError.sirenError) Error retrieving App Store verson number as the JSON does not contain a `version` key."
         case .currentVersionReleaseDate:
             return "\(VersionError.sirenError) The `currentVersionReleaseDate` key is missing in the JSON payload. Please leave an issue on https://github.com/ArtSabintsev/Siren with as many details as possible."
-        case .missingBundleID:
-            return "\(VersionError.sirenError) Please make sure that you have set a `Bundle Identifier` in your project."
         case .noUpdateAvailable:
             return "\(VersionError.sirenError) No new update available."
         case .recentlyPrompted:

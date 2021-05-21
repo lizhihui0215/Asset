@@ -12,7 +12,7 @@ import Foundation
 /// This model is presented to the end user in Siren's completion handler.
 public struct Model {
     /// The release date for the latest version of the app.
-    public let currentVersionReleaseDate: String
+    public let currentVersionReleaseDate: String?
 
     /// The minimum version of iOS that the current version of the app requires.
     public let minimumOSVersion: String

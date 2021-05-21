@@ -91,11 +91,18 @@ public extension Siren {
     ///   - performCheck: Defines how the version check flow is entered. Defaults to `.onForeground`.
     ///   - handler: Returns the metadata around a successful version check and interaction with the update modal or it returns nil.
     func wail(performCheck: PerformCheck = .onForeground,
+              isClearHandler: Bool = false,
               completion handler: ResultsHandler? = nil)
     {
-        resultsHandler = handler
+        if let handler = handler {
+            resultsHandler = handler
+        } else if isClearHandler {
+            resultsHandler = handler
+        }
 
         switch performCheck {
+        case .immediately:
+            performVersionCheck()
         case .onDemand:
             removeForegroundObservers()
             performVersionCheck()
@@ -124,6 +131,11 @@ private extension Siren {
     /// Initiates the unidirectional version checking flow.
     func performVersionCheck() {
         guard let apiManager = apiManager else { return }
+
+        guard Bundle.main.bundleIdentifier != nil else {
+            resultsHandler?(.failure(.missingBundleID))
+            return
+        }
 
         apiManager.performVersionCheckRequest { result in
             switch result {
@@ -169,18 +181,18 @@ private extension Siren {
         }
 
         // Check the release date of the current version.
-        guard let currentVersionReleaseDate = apiModel.results.first?.currentVersionReleaseDate,
-              let daysSinceRelease = Date.days(since: currentVersionReleaseDate)
-        else {
-            resultsHandler?(.failure(.currentVersionReleaseDate))
-            return
-        }
-
-        // Check if applicaiton has been released for the amount of days defined by the app consuming Siren.
-        guard daysSinceRelease >= rulesManager.releasedForDays else {
-            resultsHandler?(.failure(.releasedTooSoon(daysSinceRelease: daysSinceRelease,
-                                                      releasedForDays: rulesManager.releasedForDays)))
-            return
+        let currentVersionReleaseDate = apiModel.results.first?.currentVersionReleaseDate
+        
+        if let currentVersionReleaseDate = currentVersionReleaseDate,
+              let daysSinceRelease = Date.days(since: currentVersionReleaseDate),
+              let releasedForDays = rulesManager.releasedForDays
+        {
+            // Check if applicaiton has been released for the amount of days defined by the app consuming Siren.
+            guard daysSinceRelease >= releasedForDays else {
+                resultsHandler?(.failure(.releasedTooSoon(daysSinceRelease: daysSinceRelease,
+                                                          releasedForDays: releasedForDays)))
+                return
+            }
         }
 
         let model = Model(currentVersionReleaseDate: currentVersionReleaseDate,
