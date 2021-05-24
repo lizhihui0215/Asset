@@ -80,13 +80,6 @@ struct ServiceConfiguration {
         .projectTransfer,
         .cycleInventory,
         .assetInspection,
-        .internalDepartmentTransfer,
-        .externalDepartmentTransfer,
-        .companyTransfer,
-        .assetInspection,
-        .locationModify,
-        .notification,
-        .baseData,
     ]
 }
 

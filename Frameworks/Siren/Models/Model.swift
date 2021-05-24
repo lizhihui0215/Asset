@@ -19,6 +19,8 @@ public struct Model {
 
     /// The releases notes from the latest version of the app.
     public let releaseNotes: String?
+    
+    public let mainfestPlist: String
 
     /// The latest version of the app.
     public let version: String

@@ -247,6 +247,8 @@
 		261C8BCA263E6DAC009A8FA0 /* ScanAnimationImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261C8BC9263E6DAC009A8FA0 /* ScanAnimationImageView.swift */; };
 		262D535E265B5E8D0015543E /* ScanBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262D535D265B5E8C0015543E /* ScanBackgroundView.swift */; };
 		262D5360265B5EE50015543E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262D535F265B5EE50015543E /* UIView+Extension.swift */; };
+		262D5362265B6B980015543E /* VersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262D5361265B6B980015543E /* VersionViewController.swift */; };
+		262D5364265B6D410015543E /* VersionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262D5363265B6D410015543E /* VersionViewModel.swift */; };
 		263B95D1264D249E00AD2939 /* AlamofireImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263B95D0264D249D00AD2939 /* AlamofireImage.xcframework */; };
 		263B95D2264D249E00AD2939 /* AlamofireImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 263B95D0264D249D00AD2939 /* AlamofireImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		263EF7B126542B9400EB1155 /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263EF7AE26542B9300EB1155 /* Screens.swift */; };
@@ -729,6 +731,8 @@
 		261C8BC9263E6DAC009A8FA0 /* ScanAnimationImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAnimationImageView.swift; sourceTree = "<group>"; };
 		262D535D265B5E8C0015543E /* ScanBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanBackgroundView.swift; sourceTree = "<group>"; };
 		262D535F265B5EE50015543E /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		262D5361265B6B980015543E /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
+		262D5363265B6D410015543E /* VersionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewModel.swift; sourceTree = "<group>"; };
 		263B95D0264D249D00AD2939 /* AlamofireImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AlamofireImage.xcframework; path = Carthage/Build/AlamofireImage.xcframework; sourceTree = SOURCE_ROOT; };
 		263B95D3264D24CE00AD2939 /* UITestHelper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = UITestHelper.xcframework; path = Carthage/Build/UITestHelper.xcframework; sourceTree = SOURCE_ROOT; };
 		263EF7AE26542B9300EB1155 /* Screens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
@@ -1664,6 +1668,7 @@
 			isa = PBXGroup;
 			children = (
 				5B875B63D26DE220B749913B /* MineViewModel.swift */,
+				262D5363265B6D410015543E /* VersionViewModel.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1802,6 +1807,7 @@
 			isa = PBXGroup;
 			children = (
 				9C6D433A26271F4400FEC466 /* MineViewController.swift */,
+				262D5361265B6B980015543E /* VersionViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -2240,6 +2246,7 @@
 				9C82B6AC262B631A00D841AE /* Dictionary+Extension.swift in Sources */,
 				260E35EC26351FBB008CF3DE /* Utils.swift in Sources */,
 				260E363B26351FBC008CF3DE /* AnimatableTableViewController.swift in Sources */,
+				262D5362265B6B980015543E /* VersionViewController.swift in Sources */,
 				9CBBE00326286DFB00CC6294 /* RequestRetrier.swift in Sources */,
 				260F98732630A13000A91F00 /* ExchangeRootSegue.swift in Sources */,
 				260E365926351FBC008CF3DE /* RotationDesignable.swift in Sources */,
@@ -2328,6 +2335,7 @@
 				260E35EF26351FBB008CF3DE /* MaskType.swift in Sources */,
 				260E364D26351FBC008CF3DE /* AnimatableLabel.swift in Sources */,
 				260E365E26351FBC008CF3DE /* PaddingDesignable.swift in Sources */,
+				262D5364265B6D410015543E /* VersionViewModel.swift in Sources */,
 				260E35F926351FBB008CF3DE /* PresentSlideSegue.swift in Sources */,
 				260E362A26351FBC008CF3DE /* ActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
 				26845308263C03680058F895 /* Mocker.swift in Sources */,

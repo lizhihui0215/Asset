@@ -118,9 +118,10 @@ public extension Siren {
     ///
     /// This function is marked `public` as a convenience for those developers who decide to build a custom alert modal
     /// instead of using Siren's prebuilt update alert.
-    func launchAppStore() {
+    func launchAppStore(url: String) {
         DispatchQueue.main.async {
-//            UIApplication.shared.open("url", options: [:], completionHandler: nil)
+            guard let url = URL(string: url) else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 }
@@ -198,6 +199,7 @@ private extension Siren {
         let model = Model(currentVersionReleaseDate: currentVersionReleaseDate,
                           minimumOSVersion: results.minimumOSVersion,
                           releaseNotes: results.releaseNotes,
+                          mainfestPlist: results.mainfestPlist,
                           version: results.version)
 
         determineIfAlertPresentationRulesAreSatisfied(forCurrentAppStoreVersion: currentAppStoreVersion, andModel: model)
@@ -263,7 +265,7 @@ private extension Siren {
     {
         presentationManager.presentAlert(withRules: rules, forCurrentAppStoreVersion: currentAppStoreVersion) { [weak self] alertAction, currentAppStoreVersion in
             guard let self = self else { return }
-            self.processAlertAction(alertAction: alertAction, currentAppStoreVersion: currentAppStoreVersion)
+            self.processAlertAction(model: model, alertAction: alertAction, currentAppStoreVersion: currentAppStoreVersion)
 
             let results = UpdateResults(alertAction: alertAction,
                                         localization: self.presentationManager.localization,
@@ -273,10 +275,10 @@ private extension Siren {
         }
     }
 
-    func processAlertAction(alertAction: AlertAction, currentAppStoreVersion: String?) {
+    func processAlertAction(model: Model, alertAction: AlertAction, currentAppStoreVersion: String?) {
         switch alertAction {
         case .appStore:
-            launchAppStore()
+            launchAppStore(url: model.mainfestPlist)
         case .skip:
             guard let currentAppStoreVersion = currentAppStoreVersion else { return }
             storedSkippedVersion = currentAppStoreVersion

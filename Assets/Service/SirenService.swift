@@ -14,15 +14,15 @@ class SirenService: NSObject, AppService {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let siren = Siren.shared
         siren.rulesManager = RulesManager(globalRules: .critical,
-                showAlertAfterCurrentVersionHasBeenReleasedForDays: 0)
+                                          showAlertAfterCurrentVersionHasBeenReleasedForDays: 0)
 
         siren.wail { results in
             switch results {
             case .success(let updateResults):
-                log.info("AlertAction ", context:updateResults.alertAction)
-                log.info("Localization ", context:updateResults.localization)
+                log.info("AlertAction ", context: updateResults.alertAction)
+                log.info("Localization ", context: updateResults.localization)
                 log.info("Model ", context: updateResults.model)
-                log.info("UpdateType ", context:updateResults.updateType)
+                log.info("UpdateType ", context: updateResults.updateType)
             case .failure(let error):
                 print(error.localizedDescription)
             }

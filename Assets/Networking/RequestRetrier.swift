@@ -51,7 +51,7 @@ class RequestRetrier: Alamofire.RequestRetrier {
             switch result {
             case .success(let result) where result.updateType == .unknown:
                 completion(.retryWithDelay(2))
-            case .failure(_):
+            case .failure:
                 completion(.retryWithDelay(2))
             default:
                 completion(.doNotRetry)
