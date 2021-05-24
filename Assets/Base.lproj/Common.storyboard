@@ -482,7 +482,7 @@
         <scene sceneID="v02-tN-Q6t">
             <objects>
                 <viewController storyboardIdentifier="ScanViewController" id="mnC-NY-yyF" customClass="ScanViewController" customModule="Assets" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tIt-XL-WL5" customClass="AnimatableView" customModule="Assets" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="tIt-XL-WL5" customClass="ScanBackgroundView" customModule="Assets" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1861,7 +1861,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="rjp-et-qSt"/>
+        <segue reference="HwG-Gb-hC6"/>
         <segue reference="n0e-8L-cKS"/>
     </inferredMetricsTieBreakers>
     <resources>

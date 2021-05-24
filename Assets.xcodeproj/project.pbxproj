@@ -245,6 +245,8 @@
 		261995992635BC120046AF48 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261995832635BC120046AF48 /* Date+Extension.swift */; };
 		2619959A2635BC120046AF48 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261995852635BC120046AF48 /* DataParser.swift */; };
 		261C8BCA263E6DAC009A8FA0 /* ScanAnimationImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261C8BC9263E6DAC009A8FA0 /* ScanAnimationImageView.swift */; };
+		262D535E265B5E8D0015543E /* ScanBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262D535D265B5E8C0015543E /* ScanBackgroundView.swift */; };
+		262D5360265B5EE50015543E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262D535F265B5EE50015543E /* UIView+Extension.swift */; };
 		263B95D1264D249E00AD2939 /* AlamofireImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263B95D0264D249D00AD2939 /* AlamofireImage.xcframework */; };
 		263B95D2264D249E00AD2939 /* AlamofireImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 263B95D0264D249D00AD2939 /* AlamofireImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		263EF7B126542B9400EB1155 /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263EF7AE26542B9300EB1155 /* Screens.swift */; };
@@ -725,6 +727,8 @@
 		261995832635BC120046AF48 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		261995852635BC120046AF48 /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		261C8BC9263E6DAC009A8FA0 /* ScanAnimationImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAnimationImageView.swift; sourceTree = "<group>"; };
+		262D535D265B5E8C0015543E /* ScanBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanBackgroundView.swift; sourceTree = "<group>"; };
+		262D535F265B5EE50015543E /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		263B95D0264D249D00AD2939 /* AlamofireImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AlamofireImage.xcframework; path = Carthage/Build/AlamofireImage.xcframework; sourceTree = SOURCE_ROOT; };
 		263B95D3264D24CE00AD2939 /* UITestHelper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = UITestHelper.xcframework; path = Carthage/Build/UITestHelper.xcframework; sourceTree = SOURCE_ROOT; };
 		263EF7AE26542B9300EB1155 /* Screens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
@@ -1500,6 +1504,7 @@
 		469EACEF432CD0ACF29322EC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				262D535F265B5EE50015543E /* UIView+Extension.swift */,
 				2605FE7C2654E5A90045CABA /* UIView+Accessibility.swift */,
 				261995812635BC120046AF48 /* Bundle+Extension.swift */,
 				261995832635BC120046AF48 /* Date+Extension.swift */,
@@ -1641,6 +1646,7 @@
 		5B875BD2EC1D39F94A1A8EDD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				262D535D265B5E8C0015543E /* ScanBackgroundView.swift */,
 				5B8752887CA9DE0EFA0CAD0F /* ScanCornerView.swift */,
 				5B8758576E13F3C93BBCF08A /* BaseCollectionViewCell.swift */,
 				5B875251AAC9B3CABA84A00D /* BaseView.swift */,
@@ -2205,6 +2211,7 @@
 				261995972635BC120046AF48 /* Bundle+Extension.swift in Sources */,
 				260E362326351FBB008CF3DE /* ActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				260E365626351FBC008CF3DE /* BackgroundImageDesignable.swift in Sources */,
+				262D5360265B5EE50015543E /* UIView+Extension.swift in Sources */,
 				260E363626351FBC008CF3DE /* AnimatableNavigationController.swift in Sources */,
 				260E35EE26351FBB008CF3DE /* AnimationType.swift in Sources */,
 				260E361526351FBB008CF3DE /* ActivityIndicatorAnimationOrbit.swift in Sources */,
@@ -2249,6 +2256,7 @@
 				260E360D26351FBB008CF3DE /* ActivityIndicatorFactory.swift in Sources */,
 				26530D39262F19DF002BCE55 /* API.swift in Sources */,
 				260E35F526351FBB008CF3DE /* CALayerExtension.swift in Sources */,
+				262D535E265B5E8D0015543E /* ScanBackgroundView.swift in Sources */,
 				268AFAA926305BF800A2854B /* LayoutHelpers.swift in Sources */,
 				260E35FE26351FBB008CF3DE /* DismissSegue.swift in Sources */,
 				260E35D026351FBB008CF3DE /* ExplodeAnimator.swift in Sources */,
