@@ -55,7 +55,11 @@ extension ServiceViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension ServiceViewController: UICollectionViewDelegate {}
+extension ServiceViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+}
 
 extension ServiceViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

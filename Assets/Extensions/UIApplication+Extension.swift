@@ -11,6 +11,4 @@ extension UIApplication {
         // swiftlint:disable:next force_cast
         UIApplication.shared.delegate as! AppDelegate
     }
-    
-    
 }
