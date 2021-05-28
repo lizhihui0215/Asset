@@ -279,7 +279,6 @@
 		268381A9262EE39100F6C23F /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268381A8262EE39100F6C23F /* XCAssets+Generated.swift */; };
 		26845306263C03680058F895 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26845303263C03680058F895 /* Mock.swift */; };
 		26845307263C03680058F895 /* MockingURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26845304263C03680058F895 /* MockingURLProtocol.swift */; };
-		26845308263C03680058F895 /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26845305263C03680058F895 /* Mocker.swift */; };
 		26845316263C40CC0058F895 /* DropDownOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26845315263C40CC0058F895 /* DropDownOptionCell.xib */; };
 		2684531A263C41280058F895 /* DropDownOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26845319263C41280058F895 /* DropDownOptionCell.swift */; };
 		268AFA8D2630182B00A2854B /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFA8C2630182B00A2854B /* ServiceCollectionViewCell.swift */; };
@@ -300,6 +299,7 @@
 		26E2643526429F75005CBADF /* StaffListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E2643426429F75005CBADF /* StaffListViewController.swift */; };
 		26F8961E262EC94200976042 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26F89620262EC94200976042 /* Localizable.strings */; };
 		26F8D1F8264791E800C66FCD /* AssetListDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8D1F7264791E800C66FCD /* AssetListDetail.swift */; };
+		26FBBCA12660D7AD003F576B /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBBCA02660D7AC003F576B /* Mocker.swift */; };
 		469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EAC783A44972C349C0389 /* Device.swift */; };
 		469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA61540B02723A9DAED3E /* UIViewController+Extension.swift */; };
 		469EA1E4B76D35DF1914E903 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA7D5589988661F72393A /* Defaultable.swift */; };
@@ -764,7 +764,6 @@
 		268381A8262EE39100F6C23F /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		26845303263C03680058F895 /* Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		26845304263C03680058F895 /* MockingURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockingURLProtocol.swift; sourceTree = "<group>"; };
-		26845305263C03680058F895 /* Mocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mocker.swift; path = ../../../Mocker/Sources/Mocker.swift; sourceTree = "<group>"; };
 		26845315263C40CC0058F895 /* DropDownOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownOptionCell.xib; sourceTree = "<group>"; };
 		26845319263C41280058F895 /* DropDownOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownOptionCell.swift; sourceTree = "<group>"; };
 		268AFA8C2630182B00A2854B /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -783,6 +782,7 @@
 		26F8961F262EC94200976042 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		26F89623262EC94700976042 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		26F8D1F7264791E800C66FCD /* AssetListDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListDetail.swift; sourceTree = "<group>"; };
+		26FBBCA02660D7AC003F576B /* Mocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocker.swift; sourceTree = "<group>"; };
 		469EA1FCF25D4B2B9F7CD71F /* Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
 		469EA21A2AFE56567ECE31AF /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		469EA61540B02723A9DAED3E /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -1565,8 +1565,8 @@
 		5B875762FD5BDF2868FAD444 /* Mocker */ = {
 			isa = PBXGroup;
 			children = (
+				26FBBCA02660D7AC003F576B /* Mocker.swift */,
 				26845303263C03680058F895 /* Mock.swift */,
-				26845305263C03680058F895 /* Mocker.swift */,
 				26845304263C03680058F895 /* MockingURLProtocol.swift */,
 			);
 			path = Mocker;
@@ -2279,6 +2279,7 @@
 				260E362D26351FBC008CF3DE /* ActivityIndicatorAnimationBallScaleRipple.swift in Sources */,
 				260E364726351FBC008CF3DE /* AnimatableBarButtonItem.swift in Sources */,
 				260E366326351FBC008CF3DE /* BorderDesignable.swift in Sources */,
+				26FBBCA12660D7AD003F576B /* Mocker.swift in Sources */,
 				260E361F26351FBB008CF3DE /* ActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				9C6D433B26271F4400FEC466 /* MineViewController.swift in Sources */,
 				2619953B26355A840046AF48 /* AssetInventoryTableViewCell.swift in Sources */,
@@ -2338,7 +2339,6 @@
 				262D5364265B6D410015543E /* VersionViewModel.swift in Sources */,
 				260E35F926351FBB008CF3DE /* PresentSlideSegue.swift in Sources */,
 				260E362A26351FBC008CF3DE /* ActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
-				26845308263C03680058F895 /* Mocker.swift in Sources */,
 				2619958B2635BC120046AF48 /* PresentationManager.swift in Sources */,
 				469EAB583E973CB73F84796C /* Info.swift in Sources */,
 				260E35FC26351FBB008CF3DE /* PresentFoldSegue.swift in Sources */,
