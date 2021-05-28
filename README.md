@@ -1,8 +1,8 @@
-### Summary
+## Summary
 
 Assets app is built on Xcode 12.5 swift 5.4, and using carthage as dependencies manager
 
-### Prerequisites
+## Prerequisites
 
   - Before you bootstrap, it's you responsibility to run `./bootstrap.sh` via `Terminal`. this command will install following tools:
     - [brew](https://brew.sh/)
@@ -30,7 +30,7 @@ Assets app is built on Xcode 12.5 swift 5.4, and using carthage as dependencies 
     - [sourcery](https://github.com/krzysztofzablocki/Sourcery)
       - Sourcery is a code generator for Swift language, built on top of Apple's own SwiftSyntax. It extends the language abstractions to allow you to generate boilerplate code automatically.
 
-### Fetch Dependencies
+## Fetch Dependencies
 After all tools installed, you should do the following steps to fetch dependencies
 
 ```bash
@@ -39,14 +39,45 @@ $ carthage update --use-xcframeworks
 ```
 After carthage install excuted successfully you can now open the Xcode to run the project
 
-### Beta
+## App structure
+ - **Assets** using [MVVM](https://objccn.io/issue-13-1/) archtiecture as bellow
+   ![avatar](archtiecture/mvvm.png)
+
+
+### ViewController
+
+ - **BaseViewController**
+   - in order to handler some **base&common** features, all controllers must inhert from **BaseViewController** expect some container controllers
+
+    **e.g:** UITabBarController and UINavigationController.
+
+   - The propuse of this contoller will provide some base or common features for all the controllers
+ - **BaseTableViewController**
+   - all the controllers which has list features, should be inhert from **BaseTableViewController**
+   - this controller provide some list related features make it easy&less code to write when you need list features
+
+### ViewModel
+ - **BaseViewModel**
+   - all ViewModel must inhert from BaseViewModel, this **BaseViewModel** provide lots of base features
+
+ - **ListViewModel**
+   - all list related ViewModel should inhert from this **ListViewModel** provide
+   lots of list related beheiver
+
+
+
+## Beta
 Assets is used `fastlane` to upload the bate version ipa automatically to [pgyer](https://www.pgyer.com/)
 
 You can run `fastlane beta` command via terminal, it will buld and upload you app automatically to [pgyer](https://www.pgyer.com/).
 
 refrence [fastlane](#fastlane) for details
 
-# fastlane
-  - **Changelog.txt:**
+
+### fastlane
+  - **CHANGELOG.MD**
 
     file content will be upload to pgyer as release note
+
+## CHANGELOG
+  All notable changes to this project must be documented in the CHANGELOG.md file
