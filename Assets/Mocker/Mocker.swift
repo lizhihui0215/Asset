@@ -56,14 +56,14 @@ public struct Mocker {
     internal static var shared = Mocker()
 
     /// The HTTP Version to use in the mocked response.
-    public static var httpVersion: HTTPVersion = HTTPVersion.http1_1
+    public static var httpVersion = HTTPVersion.http1_1
 
     /// The registrated mocks.
     private(set) var mocks: [Mock] = []
 
     /// URLs to ignore for mocking.
     public var ignoredURLs: [URL] {
-        ignoredRules.map { $0.urlToIgnore }
+        ignoredRules.map(\.urlToIgnore)
     }
 
     private var ignoredRules: [IgnoredRule] = []
@@ -82,7 +82,7 @@ public struct Mocker {
     public static func register(_ mock: Mock) {
         shared.queue.async(flags: .barrier) {
             /// Delete the Mock if it was already registered.
-            shared.mocks.removeAll(where: { $0 == mock })
+            shared.mocks.removeAll { $0 == mock }
             shared.mocks.append(mock)
         }
     }
@@ -133,7 +133,7 @@ public struct Mocker {
                 return specificMock
             }
             /// Second, check for generic file extension Mocks
-            return shared.mocks.first(where: { $0 == request })
+            return shared.mocks.first { $0 == request }
         }
     }
 }

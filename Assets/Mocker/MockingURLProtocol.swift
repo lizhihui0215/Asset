@@ -95,7 +95,7 @@ private extension Data {
     // swiftlint:disable:next trailing_closure superfluous_disable_command
     var redirectLocation: URL? {
         // swiftlint:disable:next trailing_closure
-        let locationComponent = String(data: self, encoding: String.Encoding.utf8)?.components(separatedBy: "\n").first(where: { (value) -> Bool in
+        let locationComponent = String(data: self, encoding: String.Encoding.utf8)?.components(separatedBy: "\n").first(where: { value -> Bool in
             value.contains("Location:")
         })
 

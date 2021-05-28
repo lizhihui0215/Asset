@@ -32,8 +32,10 @@ internal enum StoryboardSegue {
     case toTab
   }
   internal enum Service: String, SegueType {
+    case toAssetList
     case toLocationDetail
     case toLocationList
+    case toTransformList
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

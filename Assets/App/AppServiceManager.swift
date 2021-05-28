@@ -31,7 +31,7 @@ class AppServiceManager: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         _services.allSatisfy {
-            ($0.application?(application, didFinishLaunchingWithOptions: launchOptions) ?? true)
+            $0.application?(application, didFinishLaunchingWithOptions: launchOptions) ?? true
         }
     }
 
