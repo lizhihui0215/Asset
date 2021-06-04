@@ -15,7 +15,7 @@ class Appearance {
     enum TitleTextAttributes {
         var attributes: [NSAttributedString.Key: Any] {
             switch self {
-            case .navigationBar: return [.foregroundColor: XCAssets.Colors.secondaryTextColor.color,
+            case .navigationBar: return [.foregroundColor: XCColor.secondaryTextColor.color,
                                          .font: UIFont.boldSystemFont(ofSize: 20)]
             }
         }
@@ -76,7 +76,7 @@ class Appearance {
         photoConfiguration.allowSelectVideo = false
         photoConfiguration.maxSelectCount = 1
         photoConfiguration.themeColorDeploy.thumbnailBgColor = .white
-        photoConfiguration.themeColorDeploy.navBarColor = XCAssets.Colors.primaryColor.color
+        photoConfiguration.themeColorDeploy.navBarColor = XCColor.primaryColor.color
     }
 
     func configureDropDownAppearance() {

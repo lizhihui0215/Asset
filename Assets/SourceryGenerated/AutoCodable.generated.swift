@@ -418,6 +418,36 @@ extension Staff.Category {
 
 }
 
+extension Transform {
+
+    enum CodingKeys: String, CodingKey {
+        case appTaskId
+        case appTaskCode
+        case appTaskStatus
+        case appTaskStatusName
+        case locationCode
+        case locationName
+        case assetSum
+        case assetFinished
+        case assetUnfinished
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        appTaskId = (try? container.decode(String.self, forKey: .appTaskId)) ?? Transform.defaultAppTaskId
+        appTaskCode = (try? container.decode(String.self, forKey: .appTaskCode)) ?? Transform.defaultAppTaskCode
+        appTaskStatus = (try? container.decode(String.self, forKey: .appTaskStatus)) ?? Transform.defaultAppTaskStatus
+        appTaskStatusName = (try? container.decode(String.self, forKey: .appTaskStatusName)) ?? Transform.defaultAppTaskStatusName
+        locationCode = (try? container.decode(String.self, forKey: .locationCode)) ?? Transform.defaultLocationCode
+        locationName = (try? container.decode(String.self, forKey: .locationName)) ?? Transform.defaultLocationName
+        assetSum = (try? container.decode(Int.self, forKey: .assetSum)) ?? Transform.defaultAssetSum
+        assetFinished = (try? container.decode(Int.self, forKey: .assetFinished)) ?? Transform.defaultAssetFinished
+        assetUnfinished = (try? container.decode(Int.self, forKey: .assetUnfinished)) ?? Transform.defaultAssetUnfinished
+    }
+
+}
+
 extension Version {
 
     enum CodingKeys: String, CodingKey {

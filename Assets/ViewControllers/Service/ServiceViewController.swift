@@ -56,7 +56,10 @@ extension ServiceViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ServiceViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let segue: StoryboardSegue.Service = viewModel.segueAt(indexPath: indexPath)
+        perform(segue: segue, sender: indexPath)
+    }
 }
 
 extension ServiceViewController: UICollectionViewDataSource {
@@ -69,7 +72,7 @@ extension ServiceViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        let viewModel = self.viewModel.serviceViewModelAt(indexPath: indexPath)
+        let viewModel = viewModel.serviceViewModelAt(indexPath: indexPath)
 
         serviceCell.configurationCell(with: viewModel)
 

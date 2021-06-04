@@ -1,0 +1,73 @@
+{
+  "page": "1",
+  "total": "6",
+  "records": "15",
+  "rows": [
+    {
+      "appTaskId": "8a93ee037724e7bf01781b7306413e87",
+      "appTaskCode": "GD-ZZ-3032322021031013438-438265",
+      "appTaskStatus": "1",
+      "appTaskStatusName": "已下发",
+      "locationCode": "3232ZH00012606",
+      "locationName": "山东省济宁市嘉祥县疃里朱井村南部",
+      "assetSum": 2,
+      "assetFinished": 0,
+      "assetUnfinished": 2
+    },
+    {
+      "appTaskId": "8a93ee037724e7bf01781b73065b3e88",
+      "appTaskCode": "GD-ZZ-3032322021031013438-438266",
+      "appTaskStatus": "1",
+      "appTaskStatusName": "已下发",
+      "locationCode": "3232ZH00020199",
+      "locationName": "山东省济宁市嘉祥县嘉祥凤凰山村内中心超市旁",
+      "assetSum": 1,
+      "assetFinished": 0,
+      "assetUnfinished": 1
+    },
+    {
+      "appTaskId": "8a93ee037724e7bf01781b7306703e89",
+      "appTaskCode": "GD-ZZ-3032322021031013438-438267",
+      "appTaskStatus": "1",
+      "appTaskStatusName": "已下发",
+      "locationCode": "3232ZH00006497",
+      "locationName": "山东省济宁市嘉祥县老僧堂后曹村西路口",
+      "assetSum": 1,
+      "assetFinished": 0,
+      "assetUnfinished": 1
+    },
+    {
+      "appTaskId": "8a93ee037724e7bf01781b73094a3ea7",
+      "appTaskCode": "GD-ZZ-3032322021031013438-438297",
+      "appTaskStatus": "1",
+      "appTaskStatusName": "已下发",
+      "locationCode": "3232ZH00008169",
+      "locationName": "山东省济宁市嘉祥县嘉祥白庄村北部",
+      "assetSum": 1,
+      "assetFinished": 0,
+      "assetUnfinished": 1
+    },
+    {
+      "appTaskId": "8a93ee037724e7bf01781b73095f3ea8",
+      "appTaskCode": "GD-ZZ-3032322021031013438-438298",
+      "appTaskStatus": "1",
+      "appTaskStatusName": "已下发",
+      "locationCode": "3232ZH00033915",
+      "locationName": "山东省济宁市嘉祥县纸坊镇隋庄村隋庄村",
+      "assetSum": 1,
+      "assetFinished": 0,
+      "assetUnfinished": 1
+    },
+    {
+      "appTaskId": "8a93ee037724e7bf01781b73099e3eaa",
+      "appTaskCode": "GD-ZZ-3032322021031013438-438300",
+      "appTaskStatus": "1",
+      "appTaskStatusName": "已下发",
+      "locationCode": "3232ZH00042303",
+      "locationName": "山东省济宁市嘉祥县孟姑集镇仇垓村仇垓村",
+      "assetSum": 1,
+      "assetFinished": 0,
+      "assetUnfinished": 1
+    }
+  ]
+}

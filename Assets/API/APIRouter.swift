@@ -36,6 +36,7 @@ enum APIRouter: URLRequestConvertible {
         static var isLogin = "appSys/isLogin"
         static var versionCheck = "appSys/getVersion"
         static var version = "appSys/getVersionIos"
+        static var transformList = "app/receive/findTaskByPage"
 
         static func staffList(_ category: Staff.Category) -> String {
             switch category {
@@ -75,6 +76,7 @@ enum APIRouter: URLRequestConvertible {
     @available(*, deprecated, message: "Parse use version instead")
     case versionCheck
     case version
+    case transformList(TransformListParameter)
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -109,6 +111,7 @@ enum APIRouter: URLRequestConvertible {
         case .isLogin: return pathComponents(with: Constants.isLogin)
         case .versionCheck: return pathComponents(with: Constants.versionCheck)
         case .version: return pathComponents(with: Constants.version)
+        case .transformList: return pathComponents(with: Constants.transformList)
         }
     }
 
@@ -170,7 +173,11 @@ enum APIRouter: URLRequestConvertible {
         case .versionCheck:
             let parameters = VersionCheckParameter(appType: .ios, currentVersion: app.version)
             request = try JSONParameterEncoder().encode(parameters, into: request)
-        case .version: break
+        case .version:
+            let parameters = VersionParameter(version: app.version)
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .transformList(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
         }
 
         return request

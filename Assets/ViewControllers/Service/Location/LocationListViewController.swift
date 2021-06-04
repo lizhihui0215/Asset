@@ -46,7 +46,7 @@ extension LocationListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let viewModel: LocationListTableViewCell.ViewModel = self.viewModel.viewModel(for: self, with: cell)
+        let viewModel: LocationListTableViewCell.ViewData = viewModel.viewData(for: self, with: cell)
 
         cell.configurationCell(with: viewModel)
 

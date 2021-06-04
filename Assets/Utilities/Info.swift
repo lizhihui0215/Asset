@@ -5,6 +5,7 @@
 
 import Foundation
 
+// TODO: This file is not work for app, it's cause some crash need to more research
 @propertyWrapper
 struct Info<T> {
     private var info: T

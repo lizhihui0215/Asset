@@ -8,12 +8,9 @@
 
 import UIKit
 
-class ExchangeRootSegue: UIStoryboardSegue {
+class ExchangeRootSegue: UIStoryboardSegue, WindowAble {
     override func perform() {
-        guard let window = UIApplication.shared.windows.first else {
-            return
-        }
-
+        guard let window = window else { return }
         window.rootViewController = destination
         window.makeKeyAndVisible()
     }

@@ -12,7 +12,7 @@ class RadioButtonStack: UIStackView {
     init(title: String) {
         super.init(frame: .zero)
         let label = UILabel()
-        label.textColor = XCAssets.Colors.primaryTextColor.color
+        label.textColor = XCColor.primaryTextColor.color
         label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 18)
         label.text = title
@@ -58,8 +58,8 @@ class RadioButton: UIButton {
     }
 
     func initViews() {
-        setImage(XCAssets.Assets.Common.Checkbox.selected.image, for: .selected)
-        setImage(XCAssets.Assets.Common.Checkbox.unselected.image, for: .normal)
+        setImage(XCImage.Common.Checkbox.selected.image, for: .selected)
+        setImage(XCImage.Common.Checkbox.unselected.image, for: .normal)
         addTarget(self, action: #selector(buttonTapped), for: .touchDown)
     }
 

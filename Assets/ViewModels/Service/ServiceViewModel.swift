@@ -29,11 +29,34 @@ final class ServiceViewModel: ListViewModel<ServiceViewController, DefaultSectio
         }
         return super.viewModel(for: action, with: sender)
     }
+
     // swiftlint:enable force_cast
+
+    func segueAt(indexPath: IndexPath) -> StoryboardSegue.Service {
+        let service = itemAtIndexPath(indexPath: indexPath)
+        return service.segue
+    }
 }
 
 struct ServiceConfiguration {
     enum Service {
+        var segue: StoryboardSegue.Service {
+            switch self {
+            case .projectTransfer: return .toTransformList
+            case .cycleInventory: return .toLocationList
+            case .assetInventory: return .toAssetList
+            case .internalDepartmentTransfer: break
+            case .externalDepartmentTransfer: break
+            case .companyTransfer: break
+            case .assetInspection: break
+            case .locationModify: break
+            case .notification: break
+            case .baseData: break
+            }
+
+            fatalError("\(self).segue not supported")
+        }
+
         case projectTransfer
         case cycleInventory
         case assetInventory

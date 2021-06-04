@@ -6,9 +6,13 @@
 import Foundation
 import UIKit
 
+protocol ViewDataRepresentable {}
+
+protocol CellDataRepresentable: ViewDataRepresentable {}
+
 protocol TableViewCellConfigurable {
-    associatedtype ViewModel: ViewModelRepresentable
-    func configurationCell(with viewModel: ViewModel)
+    associatedtype ViewData: CellDataRepresentable
+    func configurationCell(with viewModel: ViewData)
 }
 
 class BaseTableViewCell: UITableViewCell {

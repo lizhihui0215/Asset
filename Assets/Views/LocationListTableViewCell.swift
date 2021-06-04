@@ -11,7 +11,7 @@ import UIKit
 extension LocationListTableViewCell: ReuseIdRepresentable {}
 
 class LocationListTableViewCell: BaseTableViewCell {
-    struct ViewModel: ViewModelRepresentable {
+    struct ViewData: CellDataRepresentable {
         let code: String
         let name: String
         let isCheck: Bool
@@ -19,7 +19,7 @@ class LocationListTableViewCell: BaseTableViewCell {
 
     @IBOutlet var codeLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
-    var viewModel: ViewModel!
+    var viewModel: ViewData!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +34,7 @@ class LocationListTableViewCell: BaseTableViewCell {
 }
 
 extension LocationListTableViewCell: TableViewCellConfigurable {
-    func configurationCell(with viewModel: ViewModel) {
+    func configurationCell(with viewModel: ViewData) {
         self.viewModel = viewModel
         nameLabel.text = viewModel.name
         codeLabel.text = viewModel.code

@@ -47,12 +47,20 @@ public final class App {
          Keys.AppInfo.Build.rawValue: self.build,
          Keys.AppInfo.Brand.rawValue: self.brand,
          Keys.AppInfo.Language.rawValue: self.systemLanguage,
-         Keys.AppInfo.Model.rawValue: self.build,
+         Keys.AppInfo.Model.rawValue: self.model,
          Keys.AppInfo.OsVersion.rawValue: self.osVersion]
     }()
 
     @UserDefault(key: Keys.Credential, defaultValue: nil)
     private(set) var credential: Credential?
+
+    private var environmentConfiguration = EnvironmentConfiguration(environment: .prod)
+
+    var environment: EnvironmentConfiguration.Environment = .prod {
+        didSet {
+            environmentConfiguration.environment = environment
+        }
+    }
 
     public var version: String {
         Bundle.version() ?? Constants.unknown

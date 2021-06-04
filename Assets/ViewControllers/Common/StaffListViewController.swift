@@ -69,7 +69,7 @@ extension StaffListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let viewModel: StaffListTableViewCell.ViewModel = viewModel.viewModel(for: self, with: cell)
+        let viewModel: StaffListTableViewCell.ViewData = viewModel.viewData(for: self, with: cell)
 
         cell.configurationCell(with: viewModel)
 

@@ -10,11 +10,7 @@ import Alamofire
 import Darwin
 import Foundation
 
-class RequestRetrier: Alamofire.RequestRetrier {
-    var window: UIWindow? {
-        UIApplication.shared.appDelegate.windowService?.window
-    }
-
+class RequestRetrier: Alamofire.RequestRetrier, WindowAble {
     func retry(_: Request,
                for _: Session,
                dueTo error: Error,

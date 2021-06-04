@@ -78,6 +78,11 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
+            key = "IS_MOCK"
+            value = "TRUE"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "FB_REFRENCE_IMAGE_DIR"
             value = "$(SOURCE_ROOT)/$(PROJECT_NAME)UITests/ReferenceImages"
             isEnabled = "YES">

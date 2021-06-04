@@ -11,13 +11,13 @@ import UIKit
 extension AssetInventoryTableViewCell: ReuseIdRepresentable {}
 
 class AssetInventoryTableViewCell: BaseTableViewCell {
-    struct ViewModel: ViewModelRepresentable {
+    struct ViewData: CellDataRepresentable {
         var statusName: String
         var name: String
         var code: String
     }
 
-    var viewModel: ViewModel!
+    var viewModel: ViewData!
     @IBOutlet var statusLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var codeLabel: UILabel!
@@ -35,7 +35,7 @@ class AssetInventoryTableViewCell: BaseTableViewCell {
 }
 
 extension AssetInventoryTableViewCell: TableViewCellConfigurable {
-    func configurationCell(with viewModel: ViewModel) {
+    func configurationCell(with viewModel: ViewData) {
         self.viewModel = viewModel
         nameLabel.text = viewModel.name
         codeLabel.text = viewModel.code

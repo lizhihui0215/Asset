@@ -46,17 +46,26 @@ class StaffListViewModel: PageableViewModel<StaffListViewController, DefaultSect
     // swiftlint:disable force_cast
     override func viewModel<T: ViewModelRepresentable>(for action: UIKit.UIViewController, with sender: Any?) -> T {
         switch action {
-        case _ as StaffListViewController:
-            guard let sender = sender as? StaffListTableViewCell else { break }
-            let staff = itemAtIndexPath(indexPath: sender.indexPath)
-            return StaffListTableViewCell.ViewModel(isCheck: staff.isCheck,
-                                                    account: staff.account,
-                                                    name: staff.userName,
-                                                    code: staff.userCode,
-                                                    organization: staff.userOrgName) as! T
         default: break
         }
         return super.viewModel(for: action, with: sender)
     }
+
     // swiftlint:enable force_cast
+
+    override func viewData<T: CellDataRepresentable>(for action: UIViewController, with sender: Any?) -> T {
+        switch action {
+        case _ as StaffListViewController:
+            guard let sender = sender as? StaffListTableViewCell else { break }
+            let staff = itemAtIndexPath(indexPath: sender.indexPath)
+            return StaffListTableViewCell.ViewData(isCheck: staff.isCheck,
+                                                   account: staff.account,
+                                                   name: staff.userName,
+                                                   code: staff.userCode,
+                                                   organization: staff.userOrgName) as! T
+        default: break
+        }
+
+        return super.viewData(for: action, with: sender)
+    }
 }

@@ -15,7 +15,7 @@ typealias ViewModelResult<Success> = Result<Success, Error>
 typealias ViewModelCompletionHandler<Success> = (ViewModelResult<Success>) -> Void
 typealias ViewModelFuture<Success> = Future<Success, Error>
 
-protocol Action: AnyObject {
+protocol Action: AnyObject, WindowAble {
     func alert(title: String?,
                message: String,
                defaultAction: UIAlertAction,
@@ -43,10 +43,6 @@ extension Action {
 
     func stopLoadingIndicator() {
         HUD.hide(animated: true)
-    }
-
-    var window: UIWindow? {
-        UIApplication.shared.appDelegate.windowService?.window
     }
 
     func alert(message: String,

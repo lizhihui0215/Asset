@@ -59,7 +59,7 @@ extension AssetListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let viewModel: AssetListTableViewCell.ViewModel = self.viewModel.viewModel(for: self, with: cell.indexPath)
+        let viewModel: AssetListTableViewCell.ViewData = viewModel.viewData(for: self, with: cell.indexPath)
         cell.configurationCell(with: viewModel)
 
         return cell

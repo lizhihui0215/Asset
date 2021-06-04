@@ -8,7 +8,7 @@ import Foundation
 extension AssetListTableViewCell: ReuseIdRepresentable {}
 
 class AssetListTableViewCell: BaseTableViewCell {
-    struct ViewModel: ViewModelRepresentable {
+    struct ViewData: CellDataRepresentable {
         var status: InventoryType
         var tagNumber: String
         var name: String
@@ -22,7 +22,7 @@ class AssetListTableViewCell: BaseTableViewCell {
 }
 
 extension AssetListTableViewCell: TableViewCellConfigurable {
-    func configurationCell(with viewModel: ViewModel) {
+    func configurationCell(with viewModel: ViewData) {
         nameLabel.text = viewModel.name
         tagNumberLabel.text = viewModel.tagNumber
     }

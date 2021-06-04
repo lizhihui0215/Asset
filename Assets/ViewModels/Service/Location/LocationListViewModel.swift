@@ -44,15 +44,23 @@ class LocationListViewModel: PageableViewModel<LocationListViewController, Defau
             return LocationDetailViewModel(request: LocationDetailRequest(),
                                            action: action,
                                            assetLocationId: assetLocationId) as! T
-        case _ as LocationListViewController:
-            guard let sender = sender as? LocationListTableViewCell else { break }
-            let location = itemAtIndexPath(indexPath: sender.indexPath)
-            return LocationListTableViewCell.ViewModel(code: location.locationCode,
-                                                       name: location.locationName,
-                                                       isCheck: location.isCheck) as! T
+
         default: break
         }
         return super.viewModel(for: action, with: sender)
+    }
+
+    override func viewData<T: CellDataRepresentable>(for action: UIViewController, with sender: Any?) -> T {
+        switch action {
+        case _ as LocationListViewController:
+            guard let sender = sender as? LocationListTableViewCell else { break }
+            let location = itemAtIndexPath(indexPath: sender.indexPath)
+            return LocationListTableViewCell.ViewData(code: location.locationCode,
+                                                      name: location.locationName,
+                                                      isCheck: location.isCheck) as! T
+        default: break
+        }
+        return super.viewData(for: action, with: sender)
     }
 
     // swiftlint:enable force_cast

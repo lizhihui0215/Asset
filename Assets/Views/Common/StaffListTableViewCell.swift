@@ -8,7 +8,7 @@ import Foundation
 extension StaffListTableViewCell: ReuseIdRepresentable {}
 
 class StaffListTableViewCell: BaseTableViewCell, TableViewCellConfigurable {
-    struct ViewModel: ViewModelRepresentable {
+    struct ViewData: CellDataRepresentable {
         var isCheck: Bool
         var account: String
         var name: String
@@ -21,7 +21,7 @@ class StaffListTableViewCell: BaseTableViewCell, TableViewCellConfigurable {
     @IBOutlet var codeLabel: UILabel!
     @IBOutlet var organizationLabel: UILabel!
 
-    func configurationCell(with viewModel: ViewModel) {
+    func configurationCell(with viewModel: ViewData) {
         accountLabel.text = viewModel.account
         nameLabel.text = viewModel.name
         codeLabel.text = viewModel.code

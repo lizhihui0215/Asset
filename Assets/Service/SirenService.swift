@@ -40,15 +40,11 @@ class SirenViewModel: BaseViewModel<SirenService> {
 
 extension SirenService: Action {
     func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
-        window.rootViewController?.present(viewControllerToPresent, animated: flag, completion: completion)
+        window?.rootViewController?.present(viewControllerToPresent, animated: flag, completion: completion)
     }
 }
 
-extension SirenService: APIManager {
-    var window: UIWindow! {
-        UIApplication.shared.appDelegate.windowService?.window!
-    }
-
+extension SirenService: APIManager, WindowAble {
     var presentationManager: PresentationManager {
         PresentationManager.default
     }

@@ -35,6 +35,7 @@ internal enum StoryboardSegue {
     case toAssetList
     case toLocationDetail
     case toLocationList
+    case toSearch
     case toTransformList
   }
 }

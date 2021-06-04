@@ -87,6 +87,10 @@ class ListViewModel<T: UIViewController, S: Section>: BaseViewModel<T> {
 
         return first
     }
+
+    func viewData<T: CellDataRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
+        fatalError("sub class must implement this method for configuration cell")
+    }
 }
 
 class PageableViewModel<T: UIViewController, S: Section>: ListViewModel<T, S>, Pageable {

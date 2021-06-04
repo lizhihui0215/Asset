@@ -37,15 +37,6 @@ class AssetListViewModel: PageableViewModel<AssetListViewController, DefaultSect
     // swiftlint:disable force_cast
     override func viewModel<T: ViewModelRepresentable>(for action: UIKit.UIViewController, with sender: Any?) -> T {
         switch action {
-        case _ as AssetListViewController:
-            guard let indexPath = sender as? IndexPath else { break }
-            let asset = itemAtIndexPath(indexPath: indexPath)
-            return AssetListTableViewCell.ViewModel(status: asset.checkStatus,
-                                                    tagNumber: asset.tagNumber,
-                                                    name: asset.assetName,
-                                                    isCheck: asset.isCheck,
-                                                    identifier: asset.assetId,
-                                                    statusName: asset.checkStatusName) as! T
         case let action as AssetDetailViewController:
             guard let indexPath = sender as? IndexPath else { break }
             let asset = itemAtIndexPath(indexPath: indexPath)
@@ -74,5 +65,22 @@ class AssetListViewModel: PageableViewModel<AssetListViewController, DefaultSect
 
         return super.viewModel(for: action, with: sender)
     }
+
     // swiftlint:enable force_cast
+    override func viewData<T: CellDataRepresentable>(for action: UIViewController, with sender: Any?) -> T {
+        switch action {
+        case _ as AssetListViewController:
+            guard let indexPath = sender as? IndexPath else { break }
+            let asset = itemAtIndexPath(indexPath: indexPath)
+            return AssetListTableViewCell.ViewData(status: asset.checkStatus,
+                                                   tagNumber: asset.tagNumber,
+                                                   name: asset.assetName,
+                                                   isCheck: asset.isCheck,
+                                                   identifier: asset.assetId,
+                                                   statusName: asset.checkStatusName) as! T
+        default: break
+        }
+
+        return super.viewData(for: action, with: sender)
+    }
 }

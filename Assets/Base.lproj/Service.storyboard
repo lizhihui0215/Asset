@@ -83,8 +83,8 @@
                     <connections>
                         <outlet property="collectionView" destination="dAY-F9-s9j" id="Ejk-1G-CvD"/>
                         <segue destination="zJW-Zn-2L6" kind="show" identifier="toLocationList" id="MJc-gC-Qxv"/>
-                        <segue destination="thG-tW-U6p" kind="show" identifier="toAssetList" id="Jhg-gX-m6Q"/>
-                        <segue destination="ICd-pi-jgF" kind="show" identifier="toTransformList" id="x32-rk-q2b"/>
+                        <segue destination="thG-tW-U6p" kind="show" identifier="toTransformList" id="Jhg-gX-m6Q"/>
+                        <segue destination="ICd-pi-jgF" kind="show" identifier="toAssetList" id="x32-rk-q2b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSQ-uI-Y6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -228,10 +228,10 @@
             </objects>
             <point key="canvasLocation" x="3465" y="-269"/>
         </scene>
-        <!--任务列表-->
+        <!--转资任务列表-->
         <scene sceneID="Npv-fJ-ac9">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="thG-tW-U6p" customClass="LocationListViewController" customModule="Assets" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="thG-tW-U6p" customClass="TransformListViewController" customModule="Assets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G2W-yA-ioi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,15 +239,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4IU-Y1-s86">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="请输入地点编码或地点名称" translatesAutoresizingMaskIntoConstraints="NO" id="URC-7b-J3U">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="c3y-z3-S5j"/>
-                                        </constraints>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8a-oJ-bDq">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第1页共有任务0条" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1a-Rv-alI">
                                                 <rect key="frame" x="255" y="10" width="139" height="20.5"/>
@@ -265,14 +258,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2a-ee-CLG">
-                                        <rect key="frame" x="0.0" y="84" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="40" width="414" height="1"/>
                                         <color key="backgroundColor" red="0.091535054150000003" green="0.55975079539999995" blue="0.82159930469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="K5r-Yj-MeZ"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qrm-CJ-ffk">
-                                        <rect key="frame" x="0.0" y="85" width="414" height="689"/>
+                                        <rect key="frame" x="0.0" y="41" width="414" height="733"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
@@ -343,16 +336,96 @@
                             <constraint firstItem="4IU-Y1-s86" firstAttribute="leading" secondItem="3jd-aj-Leq" secondAttribute="leading" id="fhN-er-M8M"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="任务列表" id="CpG-xD-2Gs"/>
+                    <navigationItem key="navigationItem" title="转资任务列表" id="CpG-xD-2Gs">
+                        <barButtonItem key="rightBarButtonItem" title="查询条件" id="UbB-eE-stF">
+                            <connections>
+                                <segue destination="qk7-BG-BKx" kind="show" identifier="toSearch" id="pw6-gx-9kt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="pagingInformationLabel" destination="d1a-Rv-alI" id="meI-kA-PXl"/>
-                        <outlet property="searchBar" destination="URC-7b-J3U" id="2c4-Ph-9Ri"/>
                         <outlet property="tableView" destination="qrm-CJ-ffk" id="jb5-b5-0Ff"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4T-FH-6Dg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2674" y="-1003"/>
+        </scene>
+        <!--转资任务列表-->
+        <scene sceneID="kTA-tQ-wqJ">
+            <objects>
+                <viewController id="qk7-BG-BKx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IRo-fm-dgC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jKf-ub-8Js">
+                                <rect key="frame" x="0.0" y="88" width="414" height="160"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="EuJ-PU-MXt" userLabel="ServerView" customClass="RadioGroupView" customModule="Assets" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="6kW-aF-fzx"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="texts" value="处理中,已完成"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="107"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入地点编码或地点名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gag-9L-JZe" customClass="IsaoTextField" customModule="Assets" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="40" width="414" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="D2u-TQ-gAd"/>
+                                        </constraints>
+                                        <color key="textColor" name="primaryTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" name="borderInactiveColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" name="borderActiveColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入任务编号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVf-Dk-2an" customClass="IsaoTextField" customModule="Assets" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="100" width="414" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="awv-iM-mIz"/>
+                                        </constraints>
+                                        <color key="textColor" name="primaryTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" name="borderInactiveColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" name="borderActiveColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JoF-5Q-kBn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jKf-ub-8Js" firstAttribute="top" secondItem="JoF-5Q-kBn" secondAttribute="top" id="1y8-Ov-0XH"/>
+                            <constraint firstItem="JoF-5Q-kBn" firstAttribute="trailing" secondItem="jKf-ub-8Js" secondAttribute="trailing" id="4bB-m7-eDU"/>
+                            <constraint firstItem="jKf-ub-8Js" firstAttribute="leading" secondItem="JoF-5Q-kBn" secondAttribute="leading" id="wKS-MY-lmL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="转资任务列表" id="3G5-vk-n5Q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L6g-Gj-Ryf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3414" y="-1003"/>
         </scene>
         <!--任务列表-->
         <scene sceneID="L1g-rY-P4f">
@@ -486,6 +559,12 @@
         <image name="location" width="24" height="28.5"/>
         <image name="projectTransfer" width="46" height="50"/>
         <image name="serviceCellBackground" width="120" height="121"/>
+        <namedColor name="borderActiveColor">
+            <color red="1" green="0.17599999904632568" blue="0.33299997448921204" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="borderInactiveColor">
+            <color red="0.23500001430511475" green="0.23500001430511475" blue="0.2630000114440918" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="primaryTextColor">
             <color red="0.56800001859664917" green="0.56699997186660767" blue="0.58399999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -9,5 +9,15 @@
 import FBSnapshotTestCase
 import UITestHelper
 import XCTest
+@testable import Assets
 
-public class UITestCase: FBSnapshotTestCase, UITestable {}
+public class UITestCase: FBSnapshotTestCase, UITestable {
+    public override func setUp() {
+        super.setUp()
+        Assets.app.environment.environment
+    }
+
+    public override func tearDown() {
+        super.tearDown()
+    }
+}

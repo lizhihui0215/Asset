@@ -108,7 +108,7 @@ extension AssetInventoryListViewController: UITableViewDataSource {
         guard let cell: AssetInventoryTableViewCell = tableView.dequeueReusableCell() else {
             return UITableViewCell()
         }
-        let viewModel: AssetInventoryTableViewCell.ViewModel = viewModel.viewModel(for: self, with: indexPath)
+        let viewModel: AssetInventoryTableViewCell.ViewData = viewModel.viewData(for: self, with: indexPath)
         cell.configurationCell(with: viewModel)
         return cell
     }

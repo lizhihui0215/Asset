@@ -207,6 +207,20 @@ internal func == (lhs: Staff, rhs: Staff) -> Bool {
     guard lhs.category == rhs.category else { return false }
     return true
 }
+// MARK: - Transform AutoEquatable
+extension Transform: Equatable {}
+internal func == (lhs: Transform, rhs: Transform) -> Bool {
+    guard lhs.appTaskId == rhs.appTaskId else { return false }
+    guard lhs.appTaskCode == rhs.appTaskCode else { return false }
+    guard lhs.appTaskStatus == rhs.appTaskStatus else { return false }
+    guard lhs.appTaskStatusName == rhs.appTaskStatusName else { return false }
+    guard lhs.locationCode == rhs.locationCode else { return false }
+    guard lhs.locationName == rhs.locationName else { return false }
+    guard lhs.assetSum == rhs.assetSum else { return false }
+    guard lhs.assetFinished == rhs.assetFinished else { return false }
+    guard lhs.assetUnfinished == rhs.assetUnfinished else { return false }
+    return true
+}
 // MARK: - Version AutoEquatable
 extension Version: Equatable {}
 internal func == (lhs: Version, rhs: Version) -> Bool {
