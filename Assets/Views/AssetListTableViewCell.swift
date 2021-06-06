@@ -22,8 +22,8 @@ class AssetListTableViewCell: BaseTableViewCell {
 }
 
 extension AssetListTableViewCell: TableViewCellConfigurable {
-    func configurationCell(with viewModel: ViewData) {
-        nameLabel.text = viewModel.name
-        tagNumberLabel.text = viewModel.tagNumber
+    func configurationCell(with viewData: ViewData) {
+        nameLabel.text = viewData.name
+        tagNumberLabel.text = viewData.tagNumber
     }
 }

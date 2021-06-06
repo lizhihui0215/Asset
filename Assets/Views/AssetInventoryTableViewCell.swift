@@ -35,10 +35,10 @@ class AssetInventoryTableViewCell: BaseTableViewCell {
 }
 
 extension AssetInventoryTableViewCell: TableViewCellConfigurable {
-    func configurationCell(with viewModel: ViewData) {
-        self.viewModel = viewModel
-        nameLabel.text = viewModel.name
-        codeLabel.text = viewModel.code
-        statusLabel.text = viewModel.statusName
+    func configurationCell(with viewData: ViewData) {
+        viewModel = viewData
+        nameLabel.text = viewData.name
+        codeLabel.text = viewData.code
+        statusLabel.text = viewData.statusName
     }
 }

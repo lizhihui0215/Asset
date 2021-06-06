@@ -38,6 +38,9 @@ internal enum StoryboardSegue {
     case toSearch
     case toTransformList
   }
+  internal enum Transform: String, SegueType {
+    case toStaffList
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 

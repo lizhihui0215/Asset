@@ -51,8 +51,6 @@ class StaffListViewModel: PageableViewModel<StaffListViewController, DefaultSect
         return super.viewModel(for: action, with: sender)
     }
 
-    // swiftlint:enable force_cast
-
     override func viewData<T: CellDataRepresentable>(for action: UIViewController, with sender: Any?) -> T {
         switch action {
         case _ as StaffListViewController:
@@ -68,4 +66,6 @@ class StaffListViewModel: PageableViewModel<StaffListViewController, DefaultSect
 
         return super.viewData(for: action, with: sender)
     }
+
+    // swiftlint:enable force_cast
 }

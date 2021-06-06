@@ -12,14 +12,15 @@ class RadioButtonStack: UIStackView {
     init(title: String) {
         super.init(frame: .zero)
         let label = UILabel()
-        label.textColor = XCColor.primaryTextColor.color
+        label.textColor = XCColor.primaryColor.color
         label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 18)
         label.text = title
         let radioButton = RadioButton()
+        radioButton.isUserInteractionEnabled = false
         addArrangedSubview(radioButton)
         radioButton.setContentHuggingPriority(.required, for: .horizontal)
-        label.setContentHuggingPriority(.required, for: .horizontal)
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
         addArrangedSubview(label)
         spacing = 10
         axis = .horizontal
@@ -60,11 +61,6 @@ class RadioButton: UIButton {
     func initViews() {
         setImage(XCImage.Common.Checkbox.selected.image, for: .selected)
         setImage(XCImage.Common.Checkbox.unselected.image, for: .normal)
-        addTarget(self, action: #selector(buttonTapped), for: .touchDown)
-    }
-
-    @objc func buttonTapped(sender: RadioButton) {
-        isSelected = !isSelected
     }
 }
 
@@ -126,7 +122,8 @@ class RadioGroupView: UIView {
     func initViews() {
         radioButtonStacks = titles.map { [weak self] in
             let radioButtonStack = RadioButtonStack(title: $0)
-            radioButtonStack.button.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
+            let tap = UITapGestureRecognizer(target: self, action: #selector(radioButtonTapped(_:)))
+            radioButtonStack.addGestureRecognizer(tap)
             return radioButtonStack
         }
         containerStackView = UIStackView(arrangedSubviews: radioButtonStacks)
@@ -153,26 +150,30 @@ class RadioGroupView: UIView {
         containerStackView.spacing = spacing
     }
 
-    @objc func radioButtonTapped(_ sender: RadioButton) {
-        guard sender.isSelected else {
+    @objc func radioButtonTapped(_ sender: UITapGestureRecognizer) {
+        guard let tappedRadioButtonStack = sender.view as? RadioButtonStack else { return }
+        guard !tappedRadioButtonStack.button.isSelected else {
+            tappedRadioButtonStack.button.isSelected = false
             radioButtonStacks.first?.button.isSelected = true
-            guard let action = selectedAction, let index = index(of: sender) else { return }
+            guard let action = selectedAction, let index = index(of: tappedRadioButtonStack.button) else { return }
             action(index)
             return
         }
 
-        for radioButtonStack in radioButtonStacks where sender != radioButtonStack.button {
+        tappedRadioButtonStack.button.isSelected = !tappedRadioButtonStack.button.isSelected
+
+        for radioButtonStack in radioButtonStacks where radioButtonStack != tappedRadioButtonStack {
             radioButtonStack.button.isSelected = false
         }
 
-        guard let action = selectedAction, let index = index(of: sender) else { return }
+        guard let action = selectedAction, let index = index(of: tappedRadioButtonStack.button) else { return }
         action(index)
     }
 
     func selectedRadioButton(at index: Int) {
-        let selectedRadioButton = radioButtonStacks[index].button
-        selectedRadioButton.buttonTapped(sender: selectedRadioButton)
-        radioButtonTapped(selectedRadioButton)
+        let selectedRadioButtonStack = radioButtonStacks[index]
+        guard let tap = selectedRadioButtonStack.gestureRecognizers?.first as? UITapGestureRecognizer else { return }
+        radioButtonTapped(tap)
     }
 
     func index(of selected: RadioButton) -> Int? {

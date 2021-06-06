@@ -49,7 +49,7 @@ class Appearance {
         case dropdown
         var color: UIColor {
             switch self {
-            case .dropdown: return XCColor.primaryTextColor.color
+            case .dropdown: return XCColor.primaryColor.color
             }
         }
     }

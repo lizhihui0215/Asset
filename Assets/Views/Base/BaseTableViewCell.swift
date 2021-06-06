@@ -12,7 +12,7 @@ protocol CellDataRepresentable: ViewDataRepresentable {}
 
 protocol TableViewCellConfigurable {
     associatedtype ViewData: CellDataRepresentable
-    func configurationCell(with viewModel: ViewData)
+    func configurationCell(with viewData: ViewData)
 }
 
 class BaseTableViewCell: UITableViewCell {

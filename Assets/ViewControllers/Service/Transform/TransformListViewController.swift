@@ -6,9 +6,12 @@
 import Foundation
 
 class TransformListViewController: BaseTableViewController, TableViewControllerPageable {
-    var viewModel: LocationListViewModel!
-    typealias Action = LocationListViewController
-    typealias S = DefaultSection<Location>
+    lazy var viewModel: TransformListViewModel! = {
+        TransformListViewModel(request: TransformListRequest(), action: self)
+    }()
+
+    typealias Action = TransformListViewController
+    typealias S = DefaultSection<Transform>
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,14 @@ class TransformListViewController: BaseTableViewController, TableViewControllerP
         default: break
         }
     }
+
+    @IBAction func unwindFromSearchCompletion(segue: UIStoryboardSegue) {
+        guard let source = segue.source as? TransformSearchViewController else { return }
+
+        viewModel.appSearchLocation = source.locationTextField.eam.text
+        viewModel.appSearchTask = source.taskCodeTextField.eam.text
+        refreshTable()
+    }
 }
 
 extension TransformListViewController: UITableViewDataSource {
@@ -31,11 +42,11 @@ extension TransformListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: LocationListTableViewCell = self.tableView(tableView, cellForRowAt: indexPath) else {
+        guard let cell: TransformListTableViewCell = self.tableView(tableView, cellForRowAt: indexPath) else {
             return UITableViewCell()
         }
 
-        let viewModel: LocationListTableViewCell.ViewData = viewModel.viewData(for: self, with: cell)
+        let viewModel: TransformListTableViewCell.ViewData = viewModel.viewData(for: self, with: cell)
 
         cell.configurationCell(with: viewModel)
 

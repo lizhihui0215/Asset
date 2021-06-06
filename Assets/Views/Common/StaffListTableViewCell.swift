@@ -21,10 +21,10 @@ class StaffListTableViewCell: BaseTableViewCell, TableViewCellConfigurable {
     @IBOutlet var codeLabel: UILabel!
     @IBOutlet var organizationLabel: UILabel!
 
-    func configurationCell(with viewModel: ViewData) {
-        accountLabel.text = viewModel.account
-        nameLabel.text = viewModel.name
-        codeLabel.text = viewModel.code
-        organizationLabel.text = viewModel.organization
+    func configurationCell(with viewData: ViewData) {
+        accountLabel.text = viewData.account
+        nameLabel.text = viewData.name
+        codeLabel.text = viewData.code
+        organizationLabel.text = viewData.organization
     }
 }

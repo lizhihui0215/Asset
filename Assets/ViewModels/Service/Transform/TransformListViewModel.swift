@@ -8,9 +8,9 @@ import UIKit
 
 class TransformListViewModel: PageableViewModel<TransformListViewController, DefaultSection<Transform>> {
     var operatorCode: String = app.credential?.userAccount ?? ""
-    var appTaskStatus: Int = 1
+    var appTaskStatus: String = ""
     var appSearchLocation: String = ""
-    var appSearchTask: Int = 1
+    var appSearchTask: String = ""
 
     public var pageNumber: Int {
         page + 1
@@ -42,22 +42,26 @@ class TransformListViewModel: PageableViewModel<TransformListViewController, Def
 
     // swiftlint:disable force_cast
     override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {
-//        switch action {
-//        case let action as LocationDetailViewController:
-//            guard let sender = sender as? LocationListTableViewCell else { break }
-//            let assetLocationId = itemAtIndexPath(indexPath: sender.indexPath).assetLocationId
-//            return LocationDetailViewModel(request: LocationDetailRequest(),
-//                                           action: action,
-//                                           assetLocationId: assetLocationId) as! T
-//        case _ as LocationListViewController:
-//            guard let sender = sender as? LocationListTableViewCell else { break }
-//            let location = itemAtIndexPath(indexPath: sender.indexPath)
-//            return LocationListTableViewCell.ViewModel(code: location.locationCode,
-//                                                       name: location.locationName,
-//                                                       isCheck: location.isCheck) as! T
-//        default: break
-//        }
-        super.viewModel(for: action, with: sender)
+        switch action {
+        default: break
+        }
+        return super.viewModel(for: action, with: sender)
+    }
+
+    override func viewData<T: CellDataRepresentable>(for action: UIViewController, with sender: Any?) -> T {
+        switch action {
+        case _ as TransformListViewController:
+            guard let sender = sender as? TransformListTableViewCell else { break }
+            let transform = itemAtIndexPath(indexPath: sender.indexPath)
+            return TransformListTableViewCell.ViewData(taskCode: transform.appTaskCode,
+                                                       taskStatusName: transform.appTaskStatusName,
+                                                       locationCode: transform.locationName,
+                                                       locationName: transform.locationCode,
+                                                       sum: transform.assetSum,
+                                                       finished: transform.assetFinished) as! T
+        default: break
+        }
+        return super.viewData(for: action, with: sender)
     }
 
     // swiftlint:enable force_cast

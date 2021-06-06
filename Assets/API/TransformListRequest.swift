@@ -11,9 +11,9 @@ struct TransformListParameter: Encodable {
     let pageNumber: String
     let pageSize: String
     let operatorCode: String
-    let appTaskStatus: Int
+    let appTaskStatus: String
     let appSearchLocation: String
-    let appSearchTask: Int
+    let appSearchTask: String
 }
 
 struct TransformResponse: PageableResponse {

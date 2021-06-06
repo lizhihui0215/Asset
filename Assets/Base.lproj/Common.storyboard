@@ -340,7 +340,7 @@
         <!--人员列表-->
         <scene sceneID="qae-KT-dcu">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="994-XW-ooe" customClass="StaffListViewController" customModule="Assets" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StaffListViewController" hidesBottomBarWhenPushed="YES" id="994-XW-ooe" customClass="StaffListViewController" customModule="Assets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g9r-oC-ob2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1861,7 +1861,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="HwG-Gb-hC6"/>
+        <segue reference="rjp-et-qSt"/>
         <segue reference="n0e-8L-cKS"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -25,6 +25,8 @@ internal enum StoryboardScene {
     internal static let photographViewController = SceneType<Assets.PhotographViewController>(storyboard: Common.self, identifier: "PhotographViewController")
 
     internal static let scanViewController = SceneType<Assets.ScanViewController>(storyboard: Common.self, identifier: "ScanViewController")
+
+    internal static let staffListViewController = SceneType<Assets.StaffListViewController>(storyboard: Common.self, identifier: "StaffListViewController")
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
@@ -61,6 +63,13 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Tab"
 
     internal static let initialScene = InitialSceneType<Assets.TabBarViewController>(storyboard: Tab.self)
+  }
+  internal enum Transform: StoryboardType {
+    internal static let storyboardName = "Transform"
+
+    internal static let assetDetailViewController = SceneType<Assets.AssetDetailViewController>(storyboard: Transform.self, identifier: "AssetDetailViewController")
+
+    internal static let assetInventoryListViewController = SceneType<Assets.AssetInventoryListViewController>(storyboard: Transform.self, identifier: "AssetInventoryListViewController")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

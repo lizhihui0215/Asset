@@ -429,6 +429,11 @@
 		9CBBE00C2628811500CC6294 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBE00B2628811500CC6294 /* APIRouter.swift */; };
 		9CD4E067262895B5000A51A1 /* NetworkActivityLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD4E066262895B5000A51A1 /* NetworkActivityLogger.swift */; };
 		9CF7E75E2627449E00407D37 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7E75D2627449D00407D37 /* Cache.swift */; };
+		A108D454266A6E5B0077F093 /* TransformAssetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A108D453266A6E5B0077F093 /* TransformAssetDetailViewController.swift */; };
+		A108D455266A6E5B0077F093 /* TransformAssetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A108D453266A6E5B0077F093 /* TransformAssetDetailViewController.swift */; };
+		A115F304266A48210052A0A2 /* Transform.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A115F303266A48210052A0A2 /* Transform.storyboard */; };
+		A115F306266A485D0052A0A2 /* TransformDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115F305266A485D0052A0A2 /* TransformDetailViewController.swift */; };
+		A115F307266A485D0052A0A2 /* TransformDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115F305266A485D0052A0A2 /* TransformDetailViewController.swift */; };
 		A1FEAA912661482400DA5708 /* EnvironmentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FEAA902661482400DA5708 /* EnvironmentConfiguration.swift */; };
 		A1FEAA94266157AB00DA5708 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7E75D2627449D00407D37 /* Cache.swift */; };
 		A1FEAA95266157AB00DA5708 /* PlaceholderDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260E35B026351FBB008CF3DE /* PlaceholderDesignable.swift */; };
@@ -1388,6 +1393,9 @@
 		9CBBE00B2628811500CC6294 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		9CD4E066262895B5000A51A1 /* NetworkActivityLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActivityLogger.swift; sourceTree = "<group>"; };
 		9CF7E75D2627449D00407D37 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		A108D453266A6E5B0077F093 /* TransformAssetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformAssetDetailViewController.swift; sourceTree = "<group>"; };
+		A115F303266A48210052A0A2 /* Transform.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transform.storyboard; sourceTree = "<group>"; };
+		A115F305266A485D0052A0A2 /* TransformDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformDetailViewController.swift; sourceTree = "<group>"; };
 		A1FEAA902661482400DA5708 /* EnvironmentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentConfiguration.swift; sourceTree = "<group>"; };
 		A1FEAC45266157AB00DA5708 /* Assets_Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assets_Dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FEAC46266157AB00DA5708 /* Assets copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Assets copy-Info.plist"; path = "/Users/bernard/Workspace/Assets/Assets copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -2213,6 +2221,7 @@
 				260F98942630B45700A91F00 /* Service.storyboard */,
 				260F98982630B45800A91F00 /* Tab.storyboard */,
 				9C6D43062627146E00FEC466 /* LaunchScreen.storyboard */,
+				A115F303266A48210052A0A2 /* Transform.storyboard */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -2422,6 +2431,8 @@
 			children = (
 				F2F61D8863ADFC31F9B0FB96 /* TransformListViewController.swift */,
 				F2F6137CFB169BE95BA269BD /* TransformSearchViewController.swift */,
+				A115F305266A485D0052A0A2 /* TransformDetailViewController.swift */,
+				A108D453266A6E5B0077F093 /* TransformAssetDetailViewController.swift */,
 			);
 			path = Transform;
 			sourceTree = "<group>";
@@ -2647,6 +2658,7 @@
 				5B87520CFE7AECA3EB644D87 /* UserStaffListResponse.json in Resources */,
 				5B875945DEC6B42F47F0F586 /* AssetDetailByLocationScanResponse.json in Resources */,
 				5B8754DFE85FCA161A1835F9 /* AssetStatusResponse.json in Resources */,
+				A115F304266A48210052A0A2 /* Transform.storyboard in Resources */,
 				5B87579D298241A2601266F6 /* AssetListResponse.json in Resources */,
 				5B875585B0DB15B32B4CE574 /* AssetListDetailResponse.json in Resources */,
 				5B875C9C2E3EE0D2A33E237C /* InventoryListDetailSubmitedResponse.json in Resources */,
@@ -3098,6 +3110,7 @@
 				260E35D426351FBB008CF3DE /* PortalAnimator.swift in Sources */,
 				260E363A26351FBC008CF3DE /* AnimatablePresentationController.swift in Sources */,
 				260E362426351FBB008CF3DE /* ActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
+				A108D454266A6E5B0077F093 /* TransformAssetDetailViewController.swift in Sources */,
 				260E360526351FBB008CF3DE /* PresentFlipSegue.swift in Sources */,
 				26845307263C03680058F895 /* MockingURLProtocol.swift in Sources */,
 				260E364526351FBC008CF3DE /* AnimatableCollectionViewCell.swift in Sources */,
@@ -3249,6 +3262,7 @@
 				F2F611B3800DA38FC7013266 /* LocationListViewModel.swift in Sources */,
 				F2F61606EBEF70217D8D307E /* LocationInventoryScanViewModel.swift in Sources */,
 				F2F615DEC116EDEC0BCAB066 /* AssetInventoryListDetailViewModel.swift in Sources */,
+				A115F306266A485D0052A0A2 /* TransformDetailViewController.swift in Sources */,
 				F2F61290D52B665D8CDB83EA /* LocationPhotographViewModel.swift in Sources */,
 				F2F61A95F4BA57E0EF5E77E6 /* Transform.swift in Sources */,
 				F2F61D4416A100EB54B8AAD7 /* TransformListRequest.swift in Sources */,
@@ -3303,6 +3317,7 @@
 				A1FEAAA5266157AB00DA5708 /* BackgroundImageDesignable.swift in Sources */,
 				A1FEAAA6266157AB00DA5708 /* UIView+Extension.swift in Sources */,
 				A1FEAAA7266157AB00DA5708 /* AnimatableNavigationController.swift in Sources */,
+				A115F307266A485D0052A0A2 /* TransformDetailViewController.swift in Sources */,
 				A1FEAAA8266157AB00DA5708 /* AnimationType.swift in Sources */,
 				A1FEAAA9266157AB00DA5708 /* ActivityIndicatorAnimationOrbit.swift in Sources */,
 				A1FEAAAA266157AB00DA5708 /* SystemTransitionAnimator.swift in Sources */,
@@ -3366,6 +3381,7 @@
 				A1FEAAE4266157AB00DA5708 /* Mocker.swift in Sources */,
 				A1FEAAE5266157AB00DA5708 /* ActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				A1FEAAE6266157AB00DA5708 /* MineViewController.swift in Sources */,
+				A108D455266A6E5B0077F093 /* TransformAssetDetailViewController.swift in Sources */,
 				A1FEAAE7266157AB00DA5708 /* AssetInventoryTableViewCell.swift in Sources */,
 				A1FEAAE8266157AB00DA5708 /* PresentSlideWithDismissInteractionSegue.swift in Sources */,
 				A1FEAAE9266157AB00DA5708 /* AppDelegate.swift in Sources */,

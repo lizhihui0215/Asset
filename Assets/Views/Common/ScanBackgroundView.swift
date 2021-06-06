@@ -6,11 +6,6 @@
 //
 
 import Foundation
-
-import UIKit
-
-import Foundation
-
 import UIKit
 
 class ScanBackgroundView: UIView {
