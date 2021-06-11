@@ -1,16 +1,23 @@
 //
-//  TransformAssetDetailViewController.swift
+//  AssetSearchViewController.swift
 //  Assets
 //
-//  Created by Bernard on 2021/6/4.
+//  Created by Bernard on 2021/6/6.
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
 import UIKit
 
-class TransformAssetDetailViewController: BaseViewController {
+class AssetTaskSearchViewController: BaseViewController {
+    @IBOutlet var taskStatusButton: UIButton!
+    @IBOutlet var locationTextField: UITextField!
+
+    @IBAction func taskStatusButton(_ sender: UIButton) {}
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
 
     /*

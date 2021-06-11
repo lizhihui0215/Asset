@@ -345,7 +345,6 @@
 		5B8754F173109143EB0FC1DD /* LocationDetailResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B875FC0E0C21404B529810E /* LocationDetailResponse.json */; };
 		5B87553750882123F66DEF8D /* InitialSceneType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87594724E568A83D629900 /* InitialSceneType+Extension.swift */; };
 		5B87555446B6DCD102EEFC93 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875021ECEDB917478B8028 /* UISearchBar+Extension.swift */; };
-		5B87555BDBDF2B553F428F43 /* AssetPhotographViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875AC46B9B830D58AFC987 /* AssetPhotographViewModel.swift */; };
 		5B8755841EECE36E81E6315F /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8759D91D25530A56C8C202 /* UIApplication+Extension.swift */; };
 		5B875585B0DB15B32B4CE574 /* AssetListDetailResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B875A3F64C286F956784E63 /* AssetListDetailResponse.json */; };
 		5B87558DC793C36976689532 /* ServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87542B92201B047700A30B /* ServiceViewModel.swift */; };
@@ -358,7 +357,6 @@
 		5B87571FEEE990493164526A /* ScanCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8752887CA9DE0EFA0CAD0F /* ScanCornerView.swift */; };
 		5B87576A49499B36D372E57F /* AppStartupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8752391D9A031F1106D51D /* AppStartupService.swift */; };
 		5B87576D7300D5E47E81090E /* LocationScanlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875396A28DED28579946EE /* LocationScanlRequest.swift */; };
-		5B875791FD6C8D52A5FC358C /* AssetInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */; };
 		5B87579D298241A2601266F6 /* AssetListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B87503E20F65A724E23E380 /* AssetListResponse.json */; };
 		5B8757AE08D3626BF5523DB5 /* AssetInventoryListDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87577D150769A1EC97A931 /* AssetInventoryListDetail.swift */; };
 		5B8757C6803FECC0791BB29F /* LocationListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B8759E04A1A9555EA96945E /* LocationListResponse.json */; };
@@ -373,7 +371,6 @@
 		5B875937026456B76F05BE86 /* Searchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8759382DC909013C3FA86B /* Searchable.swift */; };
 		5B875941FE181EA241CDD5B7 /* Namespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875ED9B37A9D45DB8F37A5 /* Namespaces.swift */; };
 		5B875945DEC6B42F47F0F586 /* AssetDetailByLocationScanResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B875C7B659854F46822A0A8 /* AssetDetailByLocationScanResponse.json */; };
-		5B875A3B0413C1DC7D7BD26D /* AssetListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8758AC5FB29E2BA44D8EA6 /* AssetListViewModel.swift */; };
 		5B875A3BF230DC1FDDBCAD51 /* AssetImagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8757B0788173D53CDE84F4 /* AssetImagesRequest.swift */; };
 		5B875A64D9EB841B98F6E6E0 /* SettingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87554EAC2333B2D2D99749 /* SettingRequest.swift */; };
 		5B875A6CBE164F5672D877C0 /* AssetDetailScanlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87559B580F9BD19EE07D6C /* AssetDetailScanlRequest.swift */; };
@@ -394,12 +391,11 @@
 		5B875CFA35ED4661952289D5 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8750F6670B09500690521B /* Staff.swift */; };
 		5B875D072C2D825EEB51655C /* AssetDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875207E60644377F816FBD /* AssetDetailRequest.swift */; };
 		5B875D4EB5122936BE106250 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87573E32FFCB49B7F16C2A /* BaseViewModel.swift */; };
-		5B875D602B78894703D141CC /* AssetListDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875084EE6505DCE418EA31 /* AssetListDetailViewModel.swift */; };
 		5B875DE8841BA9E8A3C6E9A2 /* UpdateLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87587F55DE950C478C1950 /* UpdateLocation.swift */; };
 		5B875E5AF2C989EEDA5A377A /* LocationImagesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B87555CDF7160C880DA9D5A /* LocationImagesResponse.json */; };
 		5B875E7483C7647C392C1EE5 /* AssetDetailScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875D46E3B66A2D1AFA6D0F /* AssetDetailScanViewModel.swift */; };
 		5B875E800406F69EB57E5560 /* WindowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875C6232DF52757CAD7A02 /* WindowService.swift */; };
-		5B875E98884505B170EA0195 /* AssetListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875602A3931DA4E491CAF0 /* AssetListRequest.swift */; };
+		5B875E98884505B170EA0195 /* AssetTaskListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875602A3931DA4E491CAF0 /* AssetTaskListRequest.swift */; };
 		5B875ECF089A28428B33DB94 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8754406802AB9D02160E20 /* Appearance.swift */; };
 		5B875ECF6BBE08A269331211 /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875A58870EC13B5100A3BD /* ObjectAssociation.swift */; };
 		5B875F45E42FFD17C4D912E6 /* PrincipalStaffListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B87522C9A3CC1B236FC1973 /* PrincipalStaffListResponse.json */; };
@@ -434,6 +430,18 @@
 		A115F304266A48210052A0A2 /* Transform.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A115F303266A48210052A0A2 /* Transform.storyboard */; };
 		A115F306266A485D0052A0A2 /* TransformDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115F305266A485D0052A0A2 /* TransformDetailViewController.swift */; };
 		A115F307266A485D0052A0A2 /* TransformDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115F305266A485D0052A0A2 /* TransformDetailViewController.swift */; };
+		A126D47D266FBE46000B2E39 /* AssetTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15CAF9D266C663E005C452E /* AssetTask.storyboard */; };
+		A126D47E266FBE48000B2E39 /* AssetTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15CAF9D266C663E005C452E /* AssetTask.storyboard */; };
+		A126D480266FC3C3000B2E39 /* AssetTaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126D47F266FC3C3000B2E39 /* AssetTaskDetailViewController.swift */; };
+		A126D481266FC3C3000B2E39 /* AssetTaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126D47F266FC3C3000B2E39 /* AssetTaskDetailViewController.swift */; };
+		A13A669E266CE64D0044C010 /* AssetTaskListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A669D266C9FE10044C010 /* AssetTaskListTableViewCell.swift */; };
+		A13A669F266CE64F0044C010 /* AssetTaskListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A669D266C9FE10044C010 /* AssetTaskListTableViewCell.swift */; };
+		A15CAFA1266C6FA0005C452E /* AssetTaskSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CAF9F266C6688005C452E /* AssetTaskSearchViewController.swift */; };
+		A15CAFA2266C6FA1005C452E /* AssetTaskSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CAF9F266C6688005C452E /* AssetTaskSearchViewController.swift */; };
+		A15CAFA3266C6FAA005C452E /* AssetTaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CAFA0266C6688005C452E /* AssetTaskListViewController.swift */; };
+		A15CAFA4266C6FAA005C452E /* AssetTaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CAFA0266C6688005C452E /* AssetTaskListViewController.swift */; };
+		A15CAFA6266C70D0005C452E /* AssetTaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CAFA5266C70D0005C452E /* AssetTaskListViewModel.swift */; };
+		A15CAFA7266C70D0005C452E /* AssetTaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CAFA5266C70D0005C452E /* AssetTaskListViewModel.swift */; };
 		A1FEAA912661482400DA5708 /* EnvironmentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FEAA902661482400DA5708 /* EnvironmentConfiguration.swift */; };
 		A1FEAA94266157AB00DA5708 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7E75D2627449D00407D37 /* Cache.swift */; };
 		A1FEAA95266157AB00DA5708 /* PlaceholderDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260E35B026351FBB008CF3DE /* PlaceholderDesignable.swift */; };
@@ -726,7 +734,6 @@
 		A1FEABB6266157AB00DA5708 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875B436721A08B02F46F5A /* TabBarViewController.swift */; };
 		A1FEABB7266157AB00DA5708 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8757056B7F7DA0803D4211 /* BaseTableViewController.swift */; };
 		A1FEABB8266157AB00DA5708 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875B7E8DF6E30797805169 /* BaseViewController.swift */; };
-		A1FEABB9266157AB00DA5708 /* AssetInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */; };
 		A1FEABBA266157AB00DA5708 /* LocationDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8756CA0572E8165EE7BF98 /* LocationDetailRequest.swift */; };
 		A1FEABBB266157AB00DA5708 /* UIStoryboardSegue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875F9C53D025D2CD66ABE0 /* UIStoryboardSegue+Extension.swift */; };
 		A1FEABBC266157AB00DA5708 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875EF4CE4A321D6B80DCE4 /* Asset.swift */; };
@@ -748,9 +755,8 @@
 		A1FEABCD266157AB00DA5708 /* StaffListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87513D22410EC2C8AB3A13 /* StaffListViewModel.swift */; };
 		A1FEABCE266157AB00DA5708 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8750F6670B09500690521B /* Staff.swift */; };
 		A1FEABCF266157AB00DA5708 /* StaffListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875DCE54BC6E0E173BA3C3 /* StaffListRequest.swift */; };
-		A1FEABD0266157AB00DA5708 /* AssetListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8758AC5FB29E2BA44D8EA6 /* AssetListViewModel.swift */; };
 		A1FEABD1266157AB00DA5708 /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260922822650BAE200B962FA /* JiroTextField.swift */; };
-		A1FEABD2266157AB00DA5708 /* AssetListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875602A3931DA4E491CAF0 /* AssetListRequest.swift */; };
+		A1FEABD2266157AB00DA5708 /* AssetTaskListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875602A3931DA4E491CAF0 /* AssetTaskListRequest.swift */; };
 		A1FEABD6266157AB00DA5708 /* AssetDetailScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875D46E3B66A2D1AFA6D0F /* AssetDetailScanViewModel.swift */; };
 		A1FEABD7266157AB00DA5708 /* AssetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751C27BA2A278C0BD6D3D /* AssetListTableViewCell.swift */; };
 		A1FEABD8266157AB00DA5708 /* StaffListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8756938FFF516390FA47B7 /* StaffListTableViewCell.swift */; };
@@ -758,7 +764,6 @@
 		A1FEABDA266157AB00DA5708 /* AssetDetailScanlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87559B580F9BD19EE07D6C /* AssetDetailScanlRequest.swift */; };
 		A1FEABDB266157AB00DA5708 /* AssetStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87579C1030CB0B0B4FA619 /* AssetStatusRequest.swift */; };
 		A1FEABDC266157AB00DA5708 /* VersionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B0DCC22656B6AF003A3FF1 /* VersionRequest.swift */; };
-		A1FEABDD266157AB00DA5708 /* AssetListDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875084EE6505DCE418EA31 /* AssetListDetailViewModel.swift */; };
 		A1FEABDE266157AB00DA5708 /* AssetListDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875E86DA8709733068D2C3 /* AssetListDetailRequest.swift */; };
 		A1FEABE0266157AB00DA5708 /* AssetInventoryListDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87553B3FE924E067FB41C5 /* AssetInventoryListDetailRequest.swift */; };
 		A1FEABE1266157AB00DA5708 /* AssetInventoryListDetailSubmitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8751EA80E156536D9B2263 /* AssetInventoryListDetailSubmitRequest.swift */; };
@@ -767,7 +772,6 @@
 		A1FEABE4266157AB00DA5708 /* LocationImagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8754F2A431E870B2A02552 /* LocationImagesRequest.swift */; };
 		A1FEABE5266157AB00DA5708 /* LocationImageOperatorByDeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87587FE2E0F4D625DAE454 /* LocationImageOperatorByDeleteRequest.swift */; };
 		A1FEABE6266157AB00DA5708 /* DynamicKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8750AFF859F9217C034C43 /* DynamicKeys.swift */; };
-		A1FEABE8266157AB00DA5708 /* AssetPhotographViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B875AC46B9B830D58AFC987 /* AssetPhotographViewModel.swift */; };
 		A1FEABE9266157AB00DA5708 /* AssetImagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8757B0788173D53CDE84F4 /* AssetImagesRequest.swift */; };
 		A1FEABEA266157AB00DA5708 /* AssetImageOperatorByDeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87593E64DE39CB6D9A1F36 /* AssetImageOperatorByDeleteRequest.swift */; };
 		A1FEABEB266157AB00DA5708 /* SettingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87554EAC2333B2D2D99749 /* SettingRequest.swift */; };
@@ -855,26 +859,43 @@
 		F2F61005213FDE223D51BDCE /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61B10D575A5BCD34B4BBC /* LocationListViewController.swift */; };
 		F2F61028800A06EDA6B376B7 /* ViewModelRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F618B995BBD467993FB1BA /* ViewModelRepresentable.swift */; };
 		F2F610C3F859271D200E4652 /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61E0BD902F06974118ABA /* LocationListViewModel.swift */; };
+		F2F610EB3F5BEE2BEAD56DA5 /* AssetTaskDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F6100006F4FAD539B4A241 /* AssetTaskDetailViewModel.swift */; };
+		F2F6117A7A53BC9D71F3834E /* AssetTaskListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F2F61B8E21FEF0E74B80FAA6 /* AssetTaskListResponse.json */; };
 		F2F611B3800DA38FC7013266 /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61E0BD902F06974118ABA /* LocationListViewModel.swift */; };
 		F2F611B8EED6B01E78B467DF /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F619849B23CEA89AA246D3 /* LocationDetailViewController.swift */; };
 		F2F611DF2B1416DC1B91F503 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61F313F685D6841702133 /* LocationDetailViewModel.swift */; };
 		F2F611EC5C4C2131BD0B0C22 /* TransformListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F2F61F2798A6EC86F8696199 /* TransformListResponse.json */; };
 		F2F61244B791AB00D992A5F6 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F614149E2E44A9A528554E /* BaseCollectionViewCell.swift */; };
+		F2F61244E58DF1AC22AC5EF1 /* AssetTaskListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F2F61B8E21FEF0E74B80FAA6 /* AssetTaskListResponse.json */; };
 		F2F6127026E501EADC63C431 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F610E73377761257ECAE36 /* BaseView.swift */; };
 		F2F61290D52B665D8CDB83EA /* LocationPhotographViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61BA31EC80C326EAE745A /* LocationPhotographViewModel.swift */; };
 		F2F612BC81B93028C12400F8 /* TransformListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F611FF7AC22E2C2988F660 /* TransformListTableViewCell.swift */; };
+		F2F613172AEF7A25E415F824 /* AssetTaskDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F6169DDF88FD1700525C4E /* AssetTaskDetail.swift */; };
+		F2F6131E146A03BB10A03E1D /* AssetTaskSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61600327233968F836A4E /* AssetTaskSearchViewModel.swift */; };
+		F2F613999FB31F750119437A /* AssetListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61904C81E912FE888CA11 /* AssetListRequest.swift */; };
+		F2F614AEE2E67CF6555AA770 /* AssetListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61904C81E912FE888CA11 /* AssetListRequest.swift */; };
 		F2F6151CBA414BAB70AA8018 /* TransformSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F6137CFB169BE95BA269BD /* TransformSearchViewController.swift */; };
+		F2F61585B00F6984F70FBB67 /* AssetPhotographViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61267109BF26A4469A5FA /* AssetPhotographViewModel.swift */; };
 		F2F61588F4BD645836B7E270 /* AssetInventoryListDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61990652C4D755588BEE5 /* AssetInventoryListDetailViewModel.swift */; };
+		F2F615936022F0BC4B930224 /* AssetListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F6156075156FE0DABF7B96 /* AssetListViewModel.swift */; };
 		F2F615DEC116EDEC0BCAB066 /* AssetInventoryListDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61990652C4D755588BEE5 /* AssetInventoryListDetailViewModel.swift */; };
 		F2F61606EBEF70217D8D307E /* LocationInventoryScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61B843E8CC2BDA82976DB /* LocationInventoryScanViewModel.swift */; };
+		F2F616321FFAD56647719C89 /* AssetTaskSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61600327233968F836A4E /* AssetTaskSearchViewModel.swift */; };
 		F2F616510F9D0883B60DF17A /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61B10D575A5BCD34B4BBC /* LocationListViewController.swift */; };
+		F2F616D927BCBE870F9BCCFA /* AssetTaskDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F6110471023FB0C3A82FA1 /* AssetTaskDetailRequest.swift */; };
 		F2F617322A3DAE930780D62B /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61A0850D0F7A8B2123AEE /* DataParser.swift */; };
 		F2F6173E585C0559E199E13C /* LocationInventoryScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61B843E8CC2BDA82976DB /* LocationInventoryScanViewModel.swift */; };
+		F2F61838FD4D2F4E39B2C64A /* AssetListDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61C765C50FDAD632C9D1C /* AssetListDetailViewModel.swift */; };
+		F2F6183BA3D30B85D8635F19 /* AssetTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F619973CE7F4E8922BD60A /* AssetTask.swift */; };
 		F2F618947673D348707B3CA3 /* AssetInventoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61F2D67A854D656D60C43 /* AssetInventoryListViewController.swift */; };
+		F2F619023121E6BDD55C5699 /* AssetPhotographViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61267109BF26A4469A5FA /* AssetPhotographViewModel.swift */; };
+		F2F6196DA0B921F8E3174CB2 /* AssetListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F6156075156FE0DABF7B96 /* AssetListViewModel.swift */; };
 		F2F6196DC8E0AEA40DA24F81 /* TransformListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F2F61F2798A6EC86F8696199 /* TransformListResponse.json */; };
 		F2F6197E7377A24B6AADB60F /* TransformListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61D8863ADFC31F9B0FB96 /* TransformListViewController.swift */; };
 		F2F61995760F11052B37BDCB /* ReuseIdRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61BD505CC4D0E1C5C755A /* ReuseIdRepresentable.swift */; };
+		F2F61A63E2A21A153C168ECA /* AssetInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F6130D1631532EBFA125F2 /* AssetInventoryListViewModel.swift */; };
 		F2F61A95F4BA57E0EF5E77E6 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F6137793343C0DE03E9777 /* Transform.swift */; };
+		F2F61AC5F4F9606C5F0FA882 /* AssetInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F6130D1631532EBFA125F2 /* AssetInventoryListViewModel.swift */; };
 		F2F61B6512A6C4AFE6F413F1 /* AssetInventoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61F2D67A854D656D60C43 /* AssetInventoryListViewController.swift */; };
 		F2F61B93A95A1CEEF791A885 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61F313F685D6841702133 /* LocationDetailViewModel.swift */; };
 		F2F61C50FA33140A690E4B7D /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F6128DBBBD54643C4D8393 /* BaseTableViewCell.swift */; };
@@ -882,6 +903,9 @@
 		F2F61D4416A100EB54B8AAD7 /* TransformListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F612228279068AEE9C95A5 /* TransformListRequest.swift */; };
 		F2F61D64090A78AD00A0C068 /* LocationPhotographViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61BA31EC80C326EAE745A /* LocationPhotographViewModel.swift */; };
 		F2F61D6E2F41E0843D58C060 /* WindowAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F616DB2D2C2969085257A4 /* WindowAble.swift */; };
+		F2F61D70FA15D72E0ACA1BF1 /* AssetListDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61C765C50FDAD632C9D1C /* AssetListDetailViewModel.swift */; };
+		F2F61EF3BD44962930EBE3FF /* AssetTaskDetailResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F2F616EE2AE26E6048A524CD /* AssetTaskDetailResponse.json */; };
+		F2F61F4403544F5ACD845907 /* AssetTaskDetailResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F2F616EE2AE26E6048A524CD /* AssetTaskDetailResponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1267,7 +1291,6 @@
 		469EAC783A44972C349C0389 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		5B875021ECEDB917478B8028 /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		5B87503E20F65A724E23E380 /* AssetListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetListResponse.json; sourceTree = "<group>"; };
-		5B875084EE6505DCE418EA31 /* AssetListDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListDetailViewModel.swift; sourceTree = "<group>"; };
 		5B87508C4B5741B865C06483 /* ScanService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanService.swift; sourceTree = "<group>"; };
 		5B875095689EEA83D7E606CC /* LoginResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoginResponse.json; sourceTree = "<group>"; };
 		5B8750A3C310D0F7DC1AB6A6 /* InventoryListDetailSubmitedResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = InventoryListDetailSubmitedResponse.json; sourceTree = "<group>"; };
@@ -1281,7 +1304,6 @@
 		5B875178140D20A3F5A1B6EB /* InventoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryType.swift; sourceTree = "<group>"; };
 		5B8751BB0A941A1CD5AB7DCC /* EAMExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EAMExtended.swift; sourceTree = "<group>"; };
 		5B8751C27BA2A278C0BD6D3D /* AssetListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListTableViewCell.swift; sourceTree = "<group>"; };
-		5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListViewModel.swift; sourceTree = "<group>"; };
 		5B8751EA80E156536D9B2263 /* AssetInventoryListDetailSubmitRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListDetailSubmitRequest.swift; sourceTree = "<group>"; };
 		5B87520439C97EB03B60F857 /* ScanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
 		5B875207E60644377F816FBD /* AssetDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailRequest.swift; sourceTree = "<group>"; };
@@ -1306,7 +1328,7 @@
 		5B87555CDF7160C880DA9D5A /* LocationImagesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationImagesResponse.json; sourceTree = "<group>"; };
 		5B87559B580F9BD19EE07D6C /* AssetDetailScanlRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailScanlRequest.swift; sourceTree = "<group>"; };
 		5B8755D574DDF4B68340CA59 /* InventoryStatusResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = InventoryStatusResponse.json; sourceTree = "<group>"; };
-		5B875602A3931DA4E491CAF0 /* AssetListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListRequest.swift; sourceTree = "<group>"; };
+		5B875602A3931DA4E491CAF0 /* AssetTaskListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskListRequest.swift; sourceTree = "<group>"; };
 		5B875684196B01E4B5E60BD5 /* AssetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailViewController.swift; sourceTree = "<group>"; };
 		5B8756907D53708ED3B8FCD9 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		5B8756938FFF516390FA47B7 /* StaffListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffListTableViewCell.swift; sourceTree = "<group>"; };
@@ -1324,7 +1346,6 @@
 		5B8758371F7ACD2BE80839A1 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		5B87587F55DE950C478C1950 /* UpdateLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLocation.swift; sourceTree = "<group>"; };
 		5B87587FE2E0F4D625DAE454 /* LocationImageOperatorByDeleteRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationImageOperatorByDeleteRequest.swift; sourceTree = "<group>"; };
-		5B8758AC5FB29E2BA44D8EA6 /* AssetListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListViewModel.swift; sourceTree = "<group>"; };
 		5B8758EA3030F1C0D3AE4FB4 /* UserStaffListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserStaffListResponse.json; sourceTree = "<group>"; };
 		5B87592436C0BC675040207A /* UINavigationItem+BarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+BarButtonItem.swift"; sourceTree = "<group>"; };
 		5B8759382DC909013C3FA86B /* Searchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Searchable.swift; sourceTree = "<group>"; };
@@ -1335,7 +1356,6 @@
 		5B875A192F3CF3047BC4AD2E /* PhotographRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotographRequest.swift; sourceTree = "<group>"; };
 		5B875A3F64C286F956784E63 /* AssetListDetailResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetListDetailResponse.json; sourceTree = "<group>"; };
 		5B875A58870EC13B5100A3BD /* ObjectAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
-		5B875AC46B9B830D58AFC987 /* AssetPhotographViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetPhotographViewModel.swift; sourceTree = "<group>"; };
 		5B875B436721A08B02F46F5A /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5B875B63D26DE220B749913B /* MineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewModel.swift; sourceTree = "<group>"; };
 		5B875B7E8DF6E30797805169 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -1396,26 +1416,44 @@
 		A108D453266A6E5B0077F093 /* TransformAssetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformAssetDetailViewController.swift; sourceTree = "<group>"; };
 		A115F303266A48210052A0A2 /* Transform.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transform.storyboard; sourceTree = "<group>"; };
 		A115F305266A485D0052A0A2 /* TransformDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformDetailViewController.swift; sourceTree = "<group>"; };
+		A126D47F266FC3C3000B2E39 /* AssetTaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskDetailViewController.swift; sourceTree = "<group>"; };
+		A13A669D266C9FE10044C010 /* AssetTaskListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskListTableViewCell.swift; sourceTree = "<group>"; };
+		A15CAF9E266C663E005C452E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AssetTask.storyboard; sourceTree = "<group>"; };
+		A15CAF9F266C6688005C452E /* AssetTaskSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskSearchViewController.swift; sourceTree = "<group>"; };
+		A15CAFA0266C6688005C452E /* AssetTaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskListViewController.swift; sourceTree = "<group>"; };
+		A15CAFA5266C70D0005C452E /* AssetTaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskListViewModel.swift; sourceTree = "<group>"; };
 		A1FEAA902661482400DA5708 /* EnvironmentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentConfiguration.swift; sourceTree = "<group>"; };
 		A1FEAC45266157AB00DA5708 /* Assets_Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assets_Dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FEAC46266157AB00DA5708 /* Assets copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Assets copy-Info.plist"; path = "/Users/bernard/Workspace/Assets/Assets copy-Info.plist"; sourceTree = "<absolute>"; };
 		A1FEAC4B2669B38100DA5708 /* TransformListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformListViewModel.swift; sourceTree = "<group>"; };
+		F2F6100006F4FAD539B4A241 /* AssetTaskDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskDetailViewModel.swift; sourceTree = "<group>"; };
 		F2F610E73377761257ECAE36 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		F2F6110471023FB0C3A82FA1 /* AssetTaskDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskDetailRequest.swift; sourceTree = "<group>"; };
 		F2F611FF7AC22E2C2988F660 /* TransformListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformListTableViewCell.swift; sourceTree = "<group>"; };
 		F2F612228279068AEE9C95A5 /* TransformListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformListRequest.swift; sourceTree = "<group>"; };
+		F2F61267109BF26A4469A5FA /* AssetPhotographViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetPhotographViewModel.swift; sourceTree = "<group>"; };
 		F2F6128DBBBD54643C4D8393 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		F2F6130D1631532EBFA125F2 /* AssetInventoryListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListViewModel.swift; sourceTree = "<group>"; };
 		F2F6137793343C0DE03E9777 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		F2F6137CFB169BE95BA269BD /* TransformSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformSearchViewController.swift; sourceTree = "<group>"; };
 		F2F614149E2E44A9A528554E /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F2F6156075156FE0DABF7B96 /* AssetListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListViewModel.swift; sourceTree = "<group>"; };
+		F2F61600327233968F836A4E /* AssetTaskSearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskSearchViewModel.swift; sourceTree = "<group>"; };
+		F2F6169DDF88FD1700525C4E /* AssetTaskDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskDetail.swift; sourceTree = "<group>"; };
 		F2F616DB2D2C2969085257A4 /* WindowAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowAble.swift; sourceTree = "<group>"; };
+		F2F616EE2AE26E6048A524CD /* AssetTaskDetailResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetTaskDetailResponse.json; sourceTree = "<group>"; };
 		F2F618B995BBD467993FB1BA /* ViewModelRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelRepresentable.swift; sourceTree = "<group>"; };
+		F2F61904C81E912FE888CA11 /* AssetListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListRequest.swift; sourceTree = "<group>"; };
 		F2F619849B23CEA89AA246D3 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		F2F61990652C4D755588BEE5 /* AssetInventoryListDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInventoryListDetailViewModel.swift; sourceTree = "<group>"; };
+		F2F619973CE7F4E8922BD60A /* AssetTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTask.swift; sourceTree = "<group>"; };
 		F2F61A0850D0F7A8B2123AEE /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		F2F61B10D575A5BCD34B4BBC /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		F2F61B843E8CC2BDA82976DB /* LocationInventoryScanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInventoryScanViewModel.swift; sourceTree = "<group>"; };
+		F2F61B8E21FEF0E74B80FAA6 /* AssetTaskListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetTaskListResponse.json; sourceTree = "<group>"; };
 		F2F61BA31EC80C326EAE745A /* LocationPhotographViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPhotographViewModel.swift; sourceTree = "<group>"; };
 		F2F61BD505CC4D0E1C5C755A /* ReuseIdRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuseIdRepresentable.swift; sourceTree = "<group>"; };
+		F2F61C765C50FDAD632C9D1C /* AssetListDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListDetailViewModel.swift; sourceTree = "<group>"; };
 		F2F61D8863ADFC31F9B0FB96 /* TransformListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformListViewController.swift; sourceTree = "<group>"; };
 		F2F61E0BD902F06974118ABA /* LocationListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
 		F2F61F2798A6EC86F8696199 /* TransformListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TransformListResponse.json; sourceTree = "<group>"; };
@@ -2056,6 +2094,7 @@
 				5B87542B92201B047700A30B /* ServiceViewModel.swift */,
 				F2F61C6545A8384E54EA2B31 /* Location */,
 				F2F61D89F1744AB7CF1A3151 /* Transform */,
+				F2F618E8B107D54EABFDC951 /* Asset */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -2083,10 +2122,7 @@
 		5B87588AA7BE3A1659DFCBA6 /* Asset */ = {
 			isa = PBXGroup;
 			children = (
-				5B8751C7054ADCFEFF7AC5C3 /* AssetInventoryListViewModel.swift */,
-				5B8758AC5FB29E2BA44D8EA6 /* AssetListViewModel.swift */,
-				5B875084EE6505DCE418EA31 /* AssetListDetailViewModel.swift */,
-				5B875AC46B9B830D58AFC987 /* AssetPhotographViewModel.swift */,
+				F2F6156075156FE0DABF7B96 /* AssetListViewModel.swift */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -2113,6 +2149,8 @@
 				5B87513DDC21B95CF2D46B17 /* IsLoginResponse.json */,
 				5B8752A85077F706E2C30440 /* VersionCheckResponse.json */,
 				F2F61F2798A6EC86F8696199 /* TransformListResponse.json */,
+				F2F61B8E21FEF0E74B80FAA6 /* AssetTaskListResponse.json */,
+				F2F616EE2AE26E6048A524CD /* AssetTaskDetailResponse.json */,
 			);
 			path = MockResponses;
 			sourceTree = "<group>";
@@ -2144,6 +2182,8 @@
 				5B8756AD62A5E3E41B9BDAE2 /* IsLogin.swift */,
 				5B875E2EFE9E273025927F8C /* Version.swift */,
 				F2F6137793343C0DE03E9777 /* Transform.swift */,
+				F2F619973CE7F4E8922BD60A /* AssetTask.swift */,
+				F2F6169DDF88FD1700525C4E /* AssetTaskDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2214,6 +2254,7 @@
 				5B875B157A6E7D8DE210C4F1 /* Models */,
 				5B875762FD5BDF2868FAD444 /* Mocker */,
 				9C6D43012627146600FEC466 /* Login.storyboard */,
+				A15CAF9D266C663E005C452E /* AssetTask.storyboard */,
 				26AF1D96263C555800F8238B /* Common.storyboard */,
 				26AF1D94263C555800F8238B /* Location.storyboard */,
 				260F989A2630B45800A91F00 /* Asset.storyboard */,
@@ -2265,6 +2306,7 @@
 				268AFA8C2630182B00A2854B /* ServiceCollectionViewCell.swift */,
 				26A739EB2631AD8900CFE3C1 /* LocationListTableViewCell.swift */,
 				5B8751C27BA2A278C0BD6D3D /* AssetListTableViewCell.swift */,
+				A13A669D266C9FE10044C010 /* AssetTaskListTableViewCell.swift */,
 				5B875BD2EC1D39F94A1A8EDD /* Common */,
 				F2F61D9774CDA51A2E3D51E3 /* Base */,
 				F2F611FF7AC22E2C2988F660 /* TransformListTableViewCell.swift */,
@@ -2291,7 +2333,7 @@
 			children = (
 				9C6D433626271F2F00FEC466 /* ServiceViewController.swift */,
 				F2F61FDDAE43E437FBEE5C00 /* Location */,
-				F2F6164C07CC245C1EA59E25 /* Asset */,
+				F2F6164C07CC245C1EA59E25 /* AssetTask */,
 				F2F6100D79F7971206683EFC /* Transform */,
 			);
 			path = Service;
@@ -2345,7 +2387,7 @@
 				5B875207E60644377F816FBD /* AssetDetailRequest.swift */,
 				5B875354D44664F79A20C00A /* InventoryStatusRequest.swift */,
 				5B875DCE54BC6E0E173BA3C3 /* StaffListRequest.swift */,
-				5B875602A3931DA4E491CAF0 /* AssetListRequest.swift */,
+				5B875602A3931DA4E491CAF0 /* AssetTaskListRequest.swift */,
 				5B875396A28DED28579946EE /* LocationScanlRequest.swift */,
 				5B87559B580F9BD19EE07D6C /* AssetDetailScanlRequest.swift */,
 				5B87579C1030CB0B0B4FA619 /* AssetStatusRequest.swift */,
@@ -2362,6 +2404,8 @@
 				5B8752C5F9ADC034A9A8648A /* IsLoginRequest.swift */,
 				5B875DD2B779668B72679093 /* VersionCheckRequest.swift */,
 				F2F612228279068AEE9C95A5 /* TransformListRequest.swift */,
+				F2F61904C81E912FE888CA11 /* AssetListRequest.swift */,
+				F2F6110471023FB0C3A82FA1 /* AssetTaskDetailRequest.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -2437,11 +2481,14 @@
 			path = Transform;
 			sourceTree = "<group>";
 		};
-		F2F6164C07CC245C1EA59E25 /* Asset */ = {
+		F2F6164C07CC245C1EA59E25 /* AssetTask */ = {
 			isa = PBXGroup;
 			children = (
+				A15CAFA0266C6688005C452E /* AssetTaskListViewController.swift */,
+				A15CAF9F266C6688005C452E /* AssetTaskSearchViewController.swift */,
+				A126D47F266FC3C3000B2E39 /* AssetTaskDetailViewController.swift */,
 			);
-			path = Asset;
+			path = AssetTask;
 			sourceTree = "<group>";
 		};
 		F2F616B39411CE3C4117E1AB /* Utilities */ = {
@@ -2452,6 +2499,16 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		F2F618E8B107D54EABFDC951 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				F2F61600327233968F836A4E /* AssetTaskSearchViewModel.swift */,
+				A15CAFA5266C70D0005C452E /* AssetTaskListViewModel.swift */,
+				F2F6100006F4FAD539B4A241 /* AssetTaskDetailViewModel.swift */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
 		F2F61C6545A8384E54EA2B31 /* Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -2460,6 +2517,9 @@
 				F2F61B843E8CC2BDA82976DB /* LocationInventoryScanViewModel.swift */,
 				F2F61990652C4D755588BEE5 /* AssetInventoryListDetailViewModel.swift */,
 				F2F61BA31EC80C326EAE745A /* LocationPhotographViewModel.swift */,
+				F2F6130D1631532EBFA125F2 /* AssetInventoryListViewModel.swift */,
+				F2F61267109BF26A4469A5FA /* AssetPhotographViewModel.swift */,
+				F2F61C765C50FDAD632C9D1C /* AssetListDetailViewModel.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -2640,6 +2700,7 @@
 				260FB8792637472800445BD7 /* GCJ02.json in Resources */,
 				260F989E2630B45800A91F00 /* Tab.storyboard in Resources */,
 				9C6D43082627146E00FEC466 /* LaunchScreen.storyboard in Resources */,
+				A126D47D266FBE46000B2E39 /* AssetTask.storyboard in Resources */,
 				9C6D43032627146600FEC466 /* Login.storyboard in Resources */,
 				26A0540E262EC3E9000F27C3 /* Assets.xcassets in Resources */,
 				261995872635BC120046AF48 /* Siren.bundle in Resources */,
@@ -2667,6 +2728,8 @@
 				5B8755E523AE6170940A70D1 /* IsLoginResponse.json in Resources */,
 				5B875B64C61D8E923EDFC9CF /* VersionCheckResponse.json in Resources */,
 				F2F611EC5C4C2131BD0B0C22 /* TransformListResponse.json in Resources */,
+				F2F61244E58DF1AC22AC5EF1 /* AssetTaskListResponse.json in Resources */,
+				F2F61EF3BD44962930EBE3FF /* AssetTaskDetailResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2723,9 +2786,12 @@
 				A1FEAC2C266157AB00DA5708 /* InventoryListDetailSubmitedResponse.json in Resources */,
 				A1FEAC2D266157AB00DA5708 /* PhotographUploadResponse.json in Resources */,
 				A1FEAC2E266157AB00DA5708 /* LocationImagesResponse.json in Resources */,
+				A126D47E266FBE48000B2E39 /* AssetTask.storyboard in Resources */,
 				A1FEAC2F266157AB00DA5708 /* IsLoginResponse.json in Resources */,
 				A1FEAC30266157AB00DA5708 /* VersionCheckResponse.json in Resources */,
 				F2F6196DC8E0AEA40DA24F81 /* TransformListResponse.json in Resources */,
+				F2F6117A7A53BC9D71F3834E /* AssetTaskListResponse.json in Resources */,
+				F2F61F4403544F5ACD845907 /* AssetTaskDetailResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2907,6 +2973,7 @@
 				260E35E126351FBB008CF3DE /* Udra.swift in Sources */,
 				260E364926351FBC008CF3DE /* AnimatableActivityIndicatorView.swift in Sources */,
 				260E365A26351FBC008CF3DE /* FillDesignable.swift in Sources */,
+				A15CAFA1266C6FA0005C452E /* AssetTaskSearchViewController.swift in Sources */,
 				260E35F426351FBB008CF3DE /* UIColorExtension.swift in Sources */,
 				2619958A2635BC120046AF48 /* RulesManager.swift in Sources */,
 				260E365F26351FBC008CF3DE /* GradientDesignable.swift in Sources */,
@@ -3005,6 +3072,7 @@
 				2683819F262EE1C000F6C23F /* Strings+Generated.swift in Sources */,
 				260E362726351FBB008CF3DE /* ActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				260E360326351FBB008CF3DE /* PresentFadeSegue.swift in Sources */,
+				A15CAFA3266C6FAA005C452E /* AssetTaskListViewController.swift in Sources */,
 				260E363C26351FBC008CF3DE /* PresentationBackgroundView.swift in Sources */,
 				260E365326351FBC008CF3DE /* RefreshControlerDesignable.swift in Sources */,
 				260E362626351FBB008CF3DE /* ActivityIndicatorAnimationPacman.swift in Sources */,
@@ -3073,6 +3141,7 @@
 				260E362926351FBB008CF3DE /* ActivityIndicatorAnimationHeartBeat.swift in Sources */,
 				260E364B26351FBC008CF3DE /* AnimatableStackView.swift in Sources */,
 				260E35C626351FBB008CF3DE /* TransitionPresenterManager.swift in Sources */,
+				A15CAFA6266C70D0005C452E /* AssetTaskListViewModel.swift in Sources */,
 				260E360E26351FBB008CF3DE /* ActivityIndicatorAnimationBallRotate.swift in Sources */,
 				260E366B26351FBC008CF3DE /* ActivityIndicatorAnimating.swift in Sources */,
 				260E365026351FBC008CF3DE /* NavigationBarDesginable.swift in Sources */,
@@ -3112,6 +3181,7 @@
 				260E362426351FBB008CF3DE /* ActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
 				A108D454266A6E5B0077F093 /* TransformAssetDetailViewController.swift in Sources */,
 				260E360526351FBB008CF3DE /* PresentFlipSegue.swift in Sources */,
+				A13A669E266CE64D0044C010 /* AssetTaskListTableViewCell.swift in Sources */,
 				26845307263C03680058F895 /* MockingURLProtocol.swift in Sources */,
 				260E364526351FBC008CF3DE /* AnimatableCollectionViewCell.swift in Sources */,
 				260E35C826351FBB008CF3DE /* ContainerTransition.swift in Sources */,
@@ -3194,7 +3264,6 @@
 				5B87587EED3B6AAB54CE67D1 /* TabBarViewController.swift in Sources */,
 				5B87506C613FE5444D867E91 /* BaseTableViewController.swift in Sources */,
 				5B8758C38A812D4F5590DF88 /* BaseViewController.swift in Sources */,
-				5B875791FD6C8D52A5FC358C /* AssetInventoryListViewModel.swift in Sources */,
 				5B8756642A1FE8121E0C3749 /* LocationDetailRequest.swift in Sources */,
 				5B875288B44D13922F5117C5 /* UIStoryboardSegue+Extension.swift in Sources */,
 				5B875840DD8F51749A85FC00 /* Asset.swift in Sources */,
@@ -3216,9 +3285,8 @@
 				5B875658F3C7733A424600CB /* StaffListViewModel.swift in Sources */,
 				5B875CFA35ED4661952289D5 /* Staff.swift in Sources */,
 				5B8752F68BA545F3F63D5290 /* StaffListRequest.swift in Sources */,
-				5B875A3B0413C1DC7D7BD26D /* AssetListViewModel.swift in Sources */,
 				2609228C2650BAE200B962FA /* JiroTextField.swift in Sources */,
-				5B875E98884505B170EA0195 /* AssetListRequest.swift in Sources */,
+				5B875E98884505B170EA0195 /* AssetTaskListRequest.swift in Sources */,
 				5B875E7483C7647C392C1EE5 /* AssetDetailScanViewModel.swift in Sources */,
 				5B87588B90053A02DD49F2CC /* AssetListTableViewCell.swift in Sources */,
 				5B8750DFA4F1785727D63C74 /* StaffListTableViewCell.swift in Sources */,
@@ -3226,7 +3294,6 @@
 				5B875A6CBE164F5672D877C0 /* AssetDetailScanlRequest.swift in Sources */,
 				5B87512905DD54AA1370B970 /* AssetStatusRequest.swift in Sources */,
 				26B0DCC32656B6AF003A3FF1 /* VersionRequest.swift in Sources */,
-				5B875D602B78894703D141CC /* AssetListDetailViewModel.swift in Sources */,
 				5B875AC675E7CED50B8F141C /* AssetListDetailRequest.swift in Sources */,
 				5B8752E166B194BEBB121610 /* AssetInventoryListDetailRequest.swift in Sources */,
 				5B87547EBEBB99A146226E0E /* AssetInventoryListDetailSubmitRequest.swift in Sources */,
@@ -3235,7 +3302,6 @@
 				5B875FF2910FFFD631D8252A /* LocationImagesRequest.swift in Sources */,
 				5B87521AEBD0A4A5FD2656B2 /* LocationImageOperatorByDeleteRequest.swift in Sources */,
 				5B8752983EEBCA5E355C15F4 /* DynamicKeys.swift in Sources */,
-				5B87555BDBDF2B553F428F43 /* AssetPhotographViewModel.swift in Sources */,
 				5B875A3BF230DC1FDDBCAD51 /* AssetImagesRequest.swift in Sources */,
 				5B875C6E4022D8AF3A3AFD24 /* AssetImageOperatorByDeleteRequest.swift in Sources */,
 				5B875A64D9EB841B98F6E6E0 /* SettingRequest.swift in Sources */,
@@ -3254,6 +3320,7 @@
 				F2F61D6E2F41E0843D58C060 /* WindowAble.swift in Sources */,
 				F2F617322A3DAE930780D62B /* DataParser.swift in Sources */,
 				F2F61C753B8AA0F4563E2F52 /* LocationDetailViewController.swift in Sources */,
+				A126D480266FC3C3000B2E39 /* AssetTaskDetailViewController.swift in Sources */,
 				F2F61005213FDE223D51BDCE /* LocationListViewController.swift in Sources */,
 				F2F61B6512A6C4AFE6F413F1 /* AssetInventoryListViewController.swift in Sources */,
 				F2F6197E7377A24B6AADB60F /* TransformListViewController.swift in Sources */,
@@ -3267,6 +3334,16 @@
 				F2F61A95F4BA57E0EF5E77E6 /* Transform.swift in Sources */,
 				F2F61D4416A100EB54B8AAD7 /* TransformListRequest.swift in Sources */,
 				F2F612BC81B93028C12400F8 /* TransformListTableViewCell.swift in Sources */,
+				F2F6131E146A03BB10A03E1D /* AssetTaskSearchViewModel.swift in Sources */,
+				F2F615936022F0BC4B930224 /* AssetListViewModel.swift in Sources */,
+				F2F61A63E2A21A153C168ECA /* AssetInventoryListViewModel.swift in Sources */,
+				F2F61585B00F6984F70FBB67 /* AssetPhotographViewModel.swift in Sources */,
+				F2F61838FD4D2F4E39B2C64A /* AssetListDetailViewModel.swift in Sources */,
+				F2F613999FB31F750119437A /* AssetListRequest.swift in Sources */,
+				F2F6183BA3D30B85D8635F19 /* AssetTask.swift in Sources */,
+				F2F610EB3F5BEE2BEAD56DA5 /* AssetTaskDetailViewModel.swift in Sources */,
+				F2F616D927BCBE870F9BCCFA /* AssetTaskDetailRequest.swift in Sources */,
+				F2F613172AEF7A25E415F824 /* AssetTaskDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3399,6 +3476,7 @@
 				A1FEAAF5266157AB00DA5708 /* PresentTurnWithDismissInteractionSegue.swift in Sources */,
 				A1FEAAF6266157AB00DA5708 /* ActivityIndicatorAnimationTripleGear.swift in Sources */,
 				A1FEAAF7266157AB00DA5708 /* ActivityIndicatorAnimationBallBeat.swift in Sources */,
+				A15CAFA2266C6FA1005C452E /* AssetTaskSearchViewController.swift in Sources */,
 				A1FEAAF8266157AB00DA5708 /* AnyCodable.swift in Sources */,
 				A1FEAAF9266157AB00DA5708 /* Strings+Generated.swift in Sources */,
 				A1FEAAFA266157AB00DA5708 /* ActivityIndicatorAnimationBallGridPulse.swift in Sources */,
@@ -3463,6 +3541,7 @@
 				A1FEAB34266157AB00DA5708 /* AnimatableView.swift in Sources */,
 				A1FEAB35266157AB00DA5708 /* APIModel.swift in Sources */,
 				A1FEAB36266157AB00DA5708 /* PresentFlipWithDismissInteractionSegue.swift in Sources */,
+				A15CAFA7266C70D0005C452E /* AssetTaskListViewModel.swift in Sources */,
 				A1FEAB37266157AB00DA5708 /* DropDownAnimator.swift in Sources */,
 				A1FEAB38266157AB00DA5708 /* SettingViewController.swift in Sources */,
 				A1FEAB39266157AB00DA5708 /* PresentationKeyboardTranslation.swift in Sources */,
@@ -3527,6 +3606,7 @@
 				A1FEAB74266157AB00DA5708 /* TransitionAnimationType.swift in Sources */,
 				A1FEAB75266157AB00DA5708 /* IBEnum.swift in Sources */,
 				A1FEAB76266157AB00DA5708 /* ActivityIndicatorAnimationGear.swift in Sources */,
+				A13A669F266CE64F0044C010 /* AssetTaskListTableViewCell.swift in Sources */,
 				A1FEAB77266157AB00DA5708 /* StatusBarDesignable.swift in Sources */,
 				A1FEAB78266157AB00DA5708 /* EAMExtended.swift in Sources */,
 				A1FEAB79266157AB00DA5708 /* ActivityIndicatorAnimationLineScaleParty.swift in Sources */,
@@ -3575,6 +3655,7 @@
 				A1FEABA4266157AB00DA5708 /* UISearchBar+Extension.swift in Sources */,
 				A1FEABA5266157AB00DA5708 /* AkiraTextField.swift in Sources */,
 				A1FEABA6266157AB00DA5708 /* GradientMode.swift in Sources */,
+				A15CAFA4266C6FAA005C452E /* AssetTaskListViewController.swift in Sources */,
 				A1FEABA7266157AB00DA5708 /* FlipAnimator.swift in Sources */,
 				A1FEABA8266157AB00DA5708 /* LoggerService.swift in Sources */,
 				A1FEABA9266157AB00DA5708 /* LocationServiceable.swift in Sources */,
@@ -3591,7 +3672,6 @@
 				A1FEABB6266157AB00DA5708 /* TabBarViewController.swift in Sources */,
 				A1FEABB7266157AB00DA5708 /* BaseTableViewController.swift in Sources */,
 				A1FEABB8266157AB00DA5708 /* BaseViewController.swift in Sources */,
-				A1FEABB9266157AB00DA5708 /* AssetInventoryListViewModel.swift in Sources */,
 				A1FEABBA266157AB00DA5708 /* LocationDetailRequest.swift in Sources */,
 				A1FEABBB266157AB00DA5708 /* UIStoryboardSegue+Extension.swift in Sources */,
 				A1FEABBC266157AB00DA5708 /* Asset.swift in Sources */,
@@ -3609,13 +3689,13 @@
 				A1FEABC9266157AB00DA5708 /* WindowService.swift in Sources */,
 				A1FEABCA266157AB00DA5708 /* Appearance.swift in Sources */,
 				A1FEABCB266157AB00DA5708 /* AppStartupService.swift in Sources */,
+				A126D481266FC3C3000B2E39 /* AssetTaskDetailViewController.swift in Sources */,
 				A1FEABCC266157AB00DA5708 /* APIMockService.swift in Sources */,
 				A1FEABCD266157AB00DA5708 /* StaffListViewModel.swift in Sources */,
 				A1FEABCE266157AB00DA5708 /* Staff.swift in Sources */,
 				A1FEABCF266157AB00DA5708 /* StaffListRequest.swift in Sources */,
-				A1FEABD0266157AB00DA5708 /* AssetListViewModel.swift in Sources */,
 				A1FEABD1266157AB00DA5708 /* JiroTextField.swift in Sources */,
-				A1FEABD2266157AB00DA5708 /* AssetListRequest.swift in Sources */,
+				A1FEABD2266157AB00DA5708 /* AssetTaskListRequest.swift in Sources */,
 				A1FEABD6266157AB00DA5708 /* AssetDetailScanViewModel.swift in Sources */,
 				A1FEABD7266157AB00DA5708 /* AssetListTableViewCell.swift in Sources */,
 				A1FEABD8266157AB00DA5708 /* StaffListTableViewCell.swift in Sources */,
@@ -3623,7 +3703,6 @@
 				A1FEABDA266157AB00DA5708 /* AssetDetailScanlRequest.swift in Sources */,
 				A1FEABDB266157AB00DA5708 /* AssetStatusRequest.swift in Sources */,
 				A1FEABDC266157AB00DA5708 /* VersionRequest.swift in Sources */,
-				A1FEABDD266157AB00DA5708 /* AssetListDetailViewModel.swift in Sources */,
 				A1FEABDE266157AB00DA5708 /* AssetListDetailRequest.swift in Sources */,
 				A1FEABE0266157AB00DA5708 /* AssetInventoryListDetailRequest.swift in Sources */,
 				A1FEABE1266157AB00DA5708 /* AssetInventoryListDetailSubmitRequest.swift in Sources */,
@@ -3632,7 +3711,6 @@
 				A1FEABE4266157AB00DA5708 /* LocationImagesRequest.swift in Sources */,
 				A1FEABE5266157AB00DA5708 /* LocationImageOperatorByDeleteRequest.swift in Sources */,
 				A1FEABE6266157AB00DA5708 /* DynamicKeys.swift in Sources */,
-				A1FEABE8266157AB00DA5708 /* AssetPhotographViewModel.swift in Sources */,
 				A1FEABE9266157AB00DA5708 /* AssetImagesRequest.swift in Sources */,
 				A1FEABEA266157AB00DA5708 /* AssetImageOperatorByDeleteRequest.swift in Sources */,
 				A1FEABEB266157AB00DA5708 /* SettingRequest.swift in Sources */,
@@ -3658,6 +3736,12 @@
 				F2F6173E585C0559E199E13C /* LocationInventoryScanViewModel.swift in Sources */,
 				F2F61588F4BD645836B7E270 /* AssetInventoryListDetailViewModel.swift in Sources */,
 				F2F61D64090A78AD00A0C068 /* LocationPhotographViewModel.swift in Sources */,
+				F2F616321FFAD56647719C89 /* AssetTaskSearchViewModel.swift in Sources */,
+				F2F6196DA0B921F8E3174CB2 /* AssetListViewModel.swift in Sources */,
+				F2F61AC5F4F9606C5F0FA882 /* AssetInventoryListViewModel.swift in Sources */,
+				F2F619023121E6BDD55C5699 /* AssetPhotographViewModel.swift in Sources */,
+				F2F61D70FA15D72E0ACA1BF1 /* AssetListDetailViewModel.swift in Sources */,
+				F2F614AEE2E67CF6555AA770 /* AssetListRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3758,6 +3842,14 @@
 				9C6D43072627146E00FEC466 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A15CAF9D266C663E005C452E /* AssetTask.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A15CAF9E266C663E005C452E /* Base */,
+			);
+			name = AssetTask.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

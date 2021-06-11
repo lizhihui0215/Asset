@@ -27,7 +27,7 @@ class AssetListViewModel: PageableViewModel<AssetListViewController, DefaultSect
             appSearchText: appSearchText
         )
 
-        return pageableApi(of: AssetListResponse.self, router: .assetList(parameter))
+        return pageableApi(of: AssetListResponse.self, router: .personalAssetList(parameter))
             .onSuccess { [weak self] locations in
                 guard let first = self?.first else { return }
                 first.items.append(contentsOf: locations)

@@ -9,22 +9,20 @@
 import MJRefresh
 import UIKit
 
-class AssetListViewController: BaseTableViewController, TableViewControllerPageable {
-    typealias Action = AssetListViewController
-    typealias S = DefaultSection<Asset>
+class AssetTaskListViewController: BaseTableViewController, TableViewControllerPageable {
+    typealias Action = AssetTaskListViewController
+    typealias S = DefaultSection<AssetTask>
 
-    @IBOutlet var radioGroupView: RadioGroupView!
-    var viewModel: AssetListViewModel!
+    var viewModel: AssetTaskListViewModel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        viewModel = AssetListViewModel(request: AssetTaskListRequest(), action: self)
+        viewModel = AssetTaskListViewModel(request: AssetTaskListRequest(), action: self)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         headerRefreshingDelegate = self
-        searchBar.delegate = self
         refreshTable()
     }
 
@@ -33,33 +31,31 @@ class AssetListViewController: BaseTableViewController, TableViewControllerPagea
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
-        case let destination as AssetDetailViewController:
-            guard let sender = sender as? AssetListTableViewCell else { break }
+        case let destination as AssetTaskDetailViewController:
+            guard let sender = sender as? AssetTaskListTableViewCell else { break }
             destination.viewModel = viewModel.viewModel(for: destination, with: sender.indexPath)
         default: break
         }
     }
-}
 
-extension AssetListViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder() // hides the keyboard.
-        viewModel.appSearchText = searchBar.eam.text
+    @IBAction func unwindFromAssetSearchCompletion(segue: UIStoryboardSegue) {
+        guard let source = segue.source as? AssetTaskSearchViewController else { return }
+
         refreshTable()
     }
 }
 
-extension AssetListViewController: UITableViewDataSource {
+extension AssetTaskListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfItemsInSection(section: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: AssetListTableViewCell = self.tableView(tableView, cellForRowAt: indexPath) else {
+        guard let cell: AssetTaskListTableViewCell = self.tableView(tableView, cellForRowAt: indexPath) else {
             return UITableViewCell()
         }
 
-        let viewModel: AssetListTableViewCell.ViewData = viewModel.viewData(for: self, with: cell.indexPath)
+        let viewModel: AssetTaskListTableViewCell.ViewData = viewModel.viewData(for: self, with: cell.indexPath)
         cell.configurationCell(with: viewModel)
 
         return cell

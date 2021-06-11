@@ -1,0 +1,24 @@
+{
+  "page": "1",
+  "total": "1",
+  "records": "15",
+  "rows": [
+    {
+      "assetUnfinished" : 0,
+      "appTaskCode" : "PDRW-3032212021042117410-2274012",
+      "appTaskId" : "4028b382790237970179025eb80a0001",
+      "appTaskStatusName" : "已完成",
+      "locationName" : "山东省济南市市中区盛唐巷22号南楼1楼采购物流中心",
+      "assetSum" : 0,
+      "locationCode" : "3221BG00000157",
+      "assetFinished" : 0,
+      "appTaskStatus" : "2"
+    },
+    {
+      "isCheck": false,
+      "checkBillCode": "FESC-SJH-303210203876280050",
+      "taskNumber": "38675BG00000157-geyi",
+      "taskStatusName": "未开始"
+    }
+  ]
+}

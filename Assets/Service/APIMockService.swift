@@ -63,10 +63,10 @@ final class APIMockService {
                                                                appSearchText: "ff",
                                                                category: .user))
 
-    let assetList = APIRouter.assetList(AssetListParameter(pageNumber: "1",
-                                                           pageSize: "2",
-                                                           regionIdCompany: "2",
-                                                           appSearchText: "ff"))
+    let assetList = APIRouter.personalAssetList(AssetListParameter(pageNumber: "1",
+                                                                   pageSize: "2",
+                                                                   regionIdCompany: "2",
+                                                                   appSearchText: "ff"))
 
     let assetDetailByAssetList = APIRouter.assetDetailByAssetList(AssetListDetailParameter(assetId: "sdasd",
                                                                                            checkPerson: "dsadsa"))

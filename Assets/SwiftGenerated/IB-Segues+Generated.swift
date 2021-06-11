@@ -15,6 +15,9 @@ internal enum StoryboardSegue {
   internal enum Asset: String, SegueType {
     case toAssetDetail
   }
+  internal enum AssetTask: String, SegueType {
+    case toSearch
+  }
   internal enum Common: String, SegueType {
     case submitted
     case successToInventory
@@ -32,6 +35,7 @@ internal enum StoryboardSegue {
     case toTab
   }
   internal enum Service: String, SegueType {
+    case toAssetInventoryDetail
     case toAssetList
     case toLocationDetail
     case toLocationList
@@ -39,6 +43,8 @@ internal enum StoryboardSegue {
     case toTransformList
   }
   internal enum Transform: String, SegueType {
+    case toScan
+    case toSearch
     case toStaffList
   }
 }

@@ -102,7 +102,7 @@ struct ServiceConfiguration {
     let services: [Service] = [
         .projectTransfer,
         .cycleInventory,
-        .assetInspection,
+        .assetInventory,
     ]
 }
 

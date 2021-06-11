@@ -1,0 +1,24 @@
+{
+  "status": 0,
+  "data": {
+    "isCheck": false,
+    "checkBillCode": "QSPD-SJH-303210202104280050",
+    "taskNumber": "3221BG00000157-geyi",
+    "taskName": "山东省济南市市中区盛唐巷22号南楼1楼采购物流中心-葛毅",
+    "locationCode": "3221BG00000157",
+    "checkPerson": "geyi",
+    "checkCount": 5,
+    "unCheckCount": 5,
+    "alreadyCheckCount": 0,
+    "lessCount": 0,
+    "moreCount": 0,
+    "longitude": "4.9E-324",
+    "latitude": "4.9E-324",
+    "mapLocationDesc": "{longitude='4.9E-324', latitude='4.9E-324', address='null', addrStr='null', altitude='null', countryName='null', provinceName='null', cityName='null', district='null', town='null', street='null', streetNumber='null', floor='null', locTypeDescription='NetWork location failed because baidu location service can not caculate the location!'}",
+    "taskStatus": "1",
+    "taskStatusName": "进行中",
+    "checkTaskStatus": "1",
+    "checkTaskStatusName": "进行中",
+    "checkTaskTime": "2021-06-02 12:15:42"
+  }
+}

@@ -18,12 +18,10 @@ enum APIRouter: URLRequestConvertible {
         static var assetInventoryList = "/app/check/daily/findResultByPage"
         static var assetDetail = "/app/check/daily/getResultByPk"
         static var inventoryStatus = "app/dict/getMapByDictName"
-        static var inventoryStatusDictionary = "check_status_daily"
         static var userStaffList = "app/user/staffList"
         static var principalStaffList = "app/principal/staffList"
         static var assetDetailByScan = "app/check/daily/getResultByScan"
         static var assetStatus = inventoryStatus
-        static var assetStatusDictionary = "asset_check_item"
         static var assetList = "app/asset/findByCityPage"
         static var assetDetailByList = "app/asset/getAssetInfo"
         static var assetDetailInventoryListDetailSubmit = "app/check/daily/saveScanResult"
@@ -37,6 +35,14 @@ enum APIRouter: URLRequestConvertible {
         static var versionCheck = "appSys/getVersion"
         static var version = "appSys/getVersionIos"
         static var transformList = "app/receive/findTaskByPage"
+        static var assetTaskList = "app/check/findTaskByPage"
+
+        static var assetStatusDictionary = "asset_check_item"
+        static var inventoryStatusDictionary = "check_status_daily"
+
+        static var assetTaskDetail = "app/check/getTaskByPk"
+
+        static var assetTaskDetailSubmit = "app/check/saveTaskInfo "
 
         static func staffList(_ category: Staff.Category) -> String {
             switch category {
@@ -63,7 +69,7 @@ enum APIRouter: URLRequestConvertible {
     case staffList(StaffListParameter)
     case assetDetailByScan(LocationScanParameter)
     case assetStatus
-    case assetList(AssetListParameter)
+    case personalAssetList(AssetListParameter)
     case assetDetailByAssetList(AssetDetailParameterRepresentable)
     case assetDetailInventoryListDetailSubmit(AssetInventoryListDetailSubmitParameter)
     case uploadPhoto(PhotographUploadParameter)
@@ -77,6 +83,9 @@ enum APIRouter: URLRequestConvertible {
     case versionCheck
     case version
     case transformList(TransformListParameter)
+    case assetTaskList(AssetTaskListParameter)
+    case assetTaskDetail(AssetTaskDetailParameter)
+    case assetTaskDetailSubmit(AssetTaskDetailSubmitParameter)
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -100,7 +109,7 @@ enum APIRouter: URLRequestConvertible {
         case .inventoryStatus: return pathComponents(with: Constants.inventoryStatus)
         case .staffList(let parameters): return pathComponents(with: Constants.staffList(parameters.category))
         case .assetStatus: return pathComponents(with: Constants.assetStatus)
-        case .assetList: return pathComponents(with: Constants.assetList)
+        case .personalAssetList: return pathComponents(with: Constants.assetList)
         case .assetDetailByAssetList: return pathComponents(with: Constants.assetDetailByList)
         case .assetDetailInventoryListDetailSubmit: return pathComponents(with: Constants.assetDetailInventoryListDetailSubmit)
         case .uploadPhoto(let parameters): return pathComponents(with: Constants.uploadPhoto(parameters.category))
@@ -112,6 +121,9 @@ enum APIRouter: URLRequestConvertible {
         case .versionCheck: return pathComponents(with: Constants.versionCheck)
         case .version: return pathComponents(with: Constants.version)
         case .transformList: return pathComponents(with: Constants.transformList)
+        case .assetTaskList: return pathComponents(with: Constants.assetTaskList)
+        case .assetTaskDetail: return pathComponents(with: Constants.assetTaskDetail)
+        case .assetTaskDetailSubmit: return pathComponents(with: Constants.assetTaskDetailSubmit)
         }
     }
 
@@ -149,7 +161,7 @@ enum APIRouter: URLRequestConvertible {
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .staffList(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
-        case .assetList(let parameters):
+        case .personalAssetList(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .assetDetailByAssetList(let parameters):
             // swiftlint:disable:next force_cast
@@ -177,6 +189,12 @@ enum APIRouter: URLRequestConvertible {
             let parameters = VersionParameter(version: app.version)
             request = try JSONParameterEncoder().encode(parameters, into: request)
         case .transformList(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .assetTaskList(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .assetTaskDetail(let parameters):
+            request = try JSONParameterEncoder().encode(parameters, into: request)
+        case .assetTaskDetailSubmit(let parameters):
             request = try JSONParameterEncoder().encode(parameters, into: request)
         }
 

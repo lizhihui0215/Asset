@@ -1,9 +1,9 @@
 // Generated using Sourcery 1.4.2 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 // swiftlint:disable file_length
-fileprivate func compareOptionals<T>(lhs: T?, rhs: T?, compare: (_ lhs: T, _ rhs: T) -> Bool) -> Bool {
+private func compareOptionals<T>(lhs: T?, rhs: T?, compare: (_ lhs: T, _ rhs: T) -> Bool) -> Bool {
     switch (lhs, rhs) {
-    case let (lValue?, rValue?):
+    case (let lValue?, let rValue?):
         return compare(lValue, rValue)
     case (nil, nil):
         return true
@@ -12,7 +12,7 @@ fileprivate func compareOptionals<T>(lhs: T?, rhs: T?, compare: (_ lhs: T, _ rhs
     }
 }
 
-fileprivate func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs: T) -> Bool) -> Bool {
+private func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs: T) -> Bool) -> Bool {
     guard lhs.count == rhs.count else { return false }
     for (idx, lhsItem) in lhs.enumerated() {
         guard compare(lhsItem, rhs[idx]) else { return false }
@@ -21,9 +21,10 @@ fileprivate func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs:
     return true
 }
 
-
 // MARK: - AutoEquatable for classes, protocols, structs
+
 // MARK: - Asset AutoEquatable
+
 extension Asset: Equatable {}
 internal func == (lhs: Asset, rhs: Asset) -> Bool {
     guard lhs.checkStatus == rhs.checkStatus else { return false }
@@ -34,7 +35,9 @@ internal func == (lhs: Asset, rhs: Asset) -> Bool {
     guard lhs.checkStatusName == rhs.checkStatusName else { return false }
     return true
 }
+
 // MARK: - AssetInventoryListDetail AutoEquatable
+
 extension AssetInventoryListDetail: Equatable {}
 internal func == (lhs: AssetInventoryListDetail, rhs: AssetInventoryListDetail) -> Bool {
     guard lhs.isCheck == rhs.isCheck else { return false }
@@ -67,7 +70,9 @@ internal func == (lhs: AssetInventoryListDetail, rhs: AssetInventoryListDetail) 
     guard lhs.resourceNumber == rhs.resourceNumber else { return false }
     return true
 }
+
 // MARK: - AssetListDetail AutoEquatable
+
 extension AssetListDetail: Equatable {}
 internal func == (lhs: AssetListDetail, rhs: AssetListDetail) -> Bool {
     guard lhs.isCheck == rhs.isCheck else { return false }
@@ -113,7 +118,48 @@ internal func == (lhs: AssetListDetail, rhs: AssetListDetail) -> Bool {
     guard lhs.queryStatus == rhs.queryStatus else { return false }
     return true
 }
+
+// MARK: - AssetTask AutoEquatable
+
+extension AssetTask: Equatable {}
+internal func == (lhs: AssetTask, rhs: AssetTask) -> Bool {
+    guard lhs.isCheck == rhs.isCheck else { return false }
+    guard lhs.checkBillCode == rhs.checkBillCode else { return false }
+    guard lhs.taskNumber == rhs.taskNumber else { return false }
+    guard lhs.taskStatus == rhs.taskStatus else { return false }
+    guard lhs.taskStatusName == rhs.taskStatusName else { return false }
+    guard lhs.taskName == rhs.taskName else { return false }
+    return true
+}
+
+// MARK: - AssetTaskDetail AutoEquatable
+
+extension AssetTaskDetail: Equatable {}
+internal func == (lhs: AssetTaskDetail, rhs: AssetTaskDetail) -> Bool {
+    guard lhs.isCheck == rhs.isCheck else { return false }
+    guard lhs.checkBillCode == rhs.checkBillCode else { return false }
+    guard lhs.taskNumber == rhs.taskNumber else { return false }
+    guard lhs.taskName == rhs.taskName else { return false }
+    guard lhs.locationCode == rhs.locationCode else { return false }
+    guard lhs.checkPerson == rhs.checkPerson else { return false }
+    guard lhs.checkCount == rhs.checkCount else { return false }
+    guard lhs.unCheckCount == rhs.unCheckCount else { return false }
+    guard lhs.alreadyCheckCount == rhs.alreadyCheckCount else { return false }
+    guard lhs.lessCount == rhs.lessCount else { return false }
+    guard lhs.moreCount == rhs.moreCount else { return false }
+    guard lhs.longitude == rhs.longitude else { return false }
+    guard lhs.latitude == rhs.latitude else { return false }
+    guard lhs.mapLocationDesc == rhs.mapLocationDesc else { return false }
+    guard lhs.taskStatus == rhs.taskStatus else { return false }
+    guard lhs.taskStatusName == rhs.taskStatusName else { return false }
+    guard lhs.checkTaskStatus == rhs.checkTaskStatus else { return false }
+    guard lhs.checkTaskStatusName == rhs.checkTaskStatusName else { return false }
+    guard lhs.checkTaskTime == rhs.checkTaskTime else { return false }
+    return true
+}
+
 // MARK: - Credential AutoEquatable
+
 extension Credential: Equatable {}
 internal func == (lhs: Credential, rhs: Credential) -> Bool {
     guard lhs.pageSize == rhs.pageSize else { return false }
@@ -126,7 +172,9 @@ internal func == (lhs: Credential, rhs: Credential) -> Bool {
     guard lhs.userOrgName == rhs.userOrgName else { return false }
     return true
 }
+
 // MARK: - IsLogin AutoEquatable
+
 extension IsLogin: Equatable {}
 internal func == (lhs: IsLogin, rhs: IsLogin) -> Bool {
     guard lhs.loginId == rhs.loginId else { return false }
@@ -138,7 +186,9 @@ internal func == (lhs: IsLogin, rhs: IsLogin) -> Bool {
     guard lhs.appType == rhs.appType else { return false }
     return true
 }
+
 // MARK: - Location AutoEquatable
+
 extension Location: Equatable {}
 internal func == (lhs: Location, rhs: Location) -> Bool {
     guard lhs.isCheck == rhs.isCheck else { return false }
@@ -149,7 +199,9 @@ internal func == (lhs: Location, rhs: Location) -> Bool {
     guard lhs.strLatitude == rhs.strLatitude else { return false }
     return true
 }
+
 // MARK: - LocationDetail AutoEquatable
+
 extension LocationDetail: Equatable {}
 internal func == (lhs: LocationDetail, rhs: LocationDetail) -> Bool {
     guard lhs.assetLocationId == rhs.assetLocationId else { return false }
@@ -182,7 +234,9 @@ internal func == (lhs: LocationDetail, rhs: LocationDetail) -> Bool {
     guard lhs.locationName == rhs.locationName else { return false }
     return true
 }
+
 // MARK: - Photo AutoEquatable
+
 extension Photo: Equatable {}
 internal func == (lhs: Photo, rhs: Photo) -> Bool {
     guard lhs.imageId == rhs.imageId else { return false }
@@ -196,7 +250,9 @@ internal func == (lhs: Photo, rhs: Photo) -> Bool {
     guard lhs.url == rhs.url else { return false }
     return true
 }
+
 // MARK: - Staff AutoEquatable
+
 extension Staff: Equatable {}
 internal func == (lhs: Staff, rhs: Staff) -> Bool {
     guard lhs.isCheck == rhs.isCheck else { return false }
@@ -207,7 +263,9 @@ internal func == (lhs: Staff, rhs: Staff) -> Bool {
     guard lhs.category == rhs.category else { return false }
     return true
 }
+
 // MARK: - Transform AutoEquatable
+
 extension Transform: Equatable {}
 internal func == (lhs: Transform, rhs: Transform) -> Bool {
     guard lhs.appTaskId == rhs.appTaskId else { return false }
@@ -221,7 +279,9 @@ internal func == (lhs: Transform, rhs: Transform) -> Bool {
     guard lhs.assetUnfinished == rhs.assetUnfinished else { return false }
     return true
 }
+
 // MARK: - Version AutoEquatable
+
 extension Version: Equatable {}
 internal func == (lhs: Version, rhs: Version) -> Bool {
     guard lhs.appType == rhs.appType else { return false }

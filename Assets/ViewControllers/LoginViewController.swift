@@ -30,7 +30,7 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         #if DEBUG
-            usernameTextField.text = "mengqiang"
+            usernameTextField.text = "geyi"
             passwordTextField.text = "1"
         #endif
     }

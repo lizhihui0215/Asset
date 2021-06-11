@@ -17,6 +17,13 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<Assets.AssetListViewController>(storyboard: Asset.self)
   }
+  internal enum AssetTask: StoryboardType {
+    internal static let storyboardName = "AssetTask"
+
+    internal static let initialScene = InitialSceneType<Assets.AssetTaskDetailViewController>(storyboard: AssetTask.self)
+
+    internal static let assetInventoryListViewController = SceneType<Assets.AssetInventoryListViewController>(storyboard: AssetTask.self, identifier: "AssetInventoryListViewController")
+  }
   internal enum Common: StoryboardType {
     internal static let storyboardName = "Common"
 
@@ -67,7 +74,9 @@ internal enum StoryboardScene {
   internal enum Transform: StoryboardType {
     internal static let storyboardName = "Transform"
 
-    internal static let assetDetailViewController = SceneType<Assets.AssetDetailViewController>(storyboard: Transform.self, identifier: "AssetDetailViewController")
+    internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: Transform.self)
+
+    internal static let assetDetailViewController = SceneType<Assets.TransformAssetDetailViewController>(storyboard: Transform.self, identifier: "AssetDetailViewController")
 
     internal static let assetInventoryListViewController = SceneType<Assets.AssetInventoryListViewController>(storyboard: Transform.self, identifier: "AssetInventoryListViewController")
   }
