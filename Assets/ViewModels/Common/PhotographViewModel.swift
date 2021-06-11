@@ -37,7 +37,7 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
 
     func upload(_ image: UIImage, at index: Int) -> ViewModelFuture<ViewState> {
         guard let imageData = image.jpegData(compressionQuality: 1) else {
-            return ViewModelFuture(error: EAMError.unwrapOptionalValueError("imageData should not be nil"))
+            return ViewModelFuture(error: .unwrapOptionalValue("imageData should not be nil"))
         }
 
         parameter.data = imageData
@@ -51,7 +51,7 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
             `self`.photos[index] = photo
         }.flatMap { result -> ViewModelFuture<ViewState> in
             guard let photo = result, let url = URL(string: photo.url) else {
-                return ViewModelFuture(error: EAMError.unwrapOptionalValueError("imageData should not be nil"))
+                return ViewModelFuture(error: .unwrapOptionalValue("imageData should not be nil"))
             }
             return viewState(for: url, person: photo.uploadPerson, at: photo.uploadTime)
         }

@@ -58,7 +58,7 @@ struct LocationReGeocode: AutoEncodable {
     var country: String
 
     /// 位置语义化结果的定位点在什么地方周围的描述信息
-    var poiRegion: LocationPoiRegion
+    var poiRegion: LocationPoiRegion?
 }
 
 extension LocationReGeocode: EAMExtended {}

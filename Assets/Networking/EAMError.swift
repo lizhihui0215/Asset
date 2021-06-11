@@ -9,6 +9,32 @@
 import Alamofire
 import Foundation
 
+func unwrapOptionalValueError(description: String) -> EAMError {
+    EAMError.unwrapOptionalValueError(description)
+}
+
+extension ViewModelFuture {
+    public enum ErrorType: Convertible {
+        case unwrapOptionalValue(String)
+        case weakSelfUnWrapError
+
+        func convert() -> EAMError {
+            switch self {
+            case .unwrapOptionalValue(let description): return unwrapOptionalValueError(description: description)
+            case .weakSelfUnWrapError: return EAMError.weakSelfUnWrapError
+            }
+        }
+    }
+
+    convenience init(error type: ErrorType = .unwrapOptionalValue("unknow")) {
+        guard let error = type.convert() as? E else {
+            fatalError("error type not supported!")
+        }
+
+        self.init(error: error)
+    }
+}
+
 extension AFError {
     public var isEAMServerError: Bool {
         if case .responseSerializationFailed(let reason) = self,

@@ -32,7 +32,12 @@ class AssetTaskDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchAssetTaskDetail().onSuccess { [weak self] _ in
+        viewModel.fetchAssetTaskDetail().flatMap { [weak self] _ -> ViewModelFuture<CLLocation?> in
+            guard let self = self else {
+                return ViewModelFuture(error: .unwrapOptionalValue("\(String(describing: self)) should not be nil"))
+            }
+            return `self`.viewModel.getGPSLocation()
+        }.onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.updateViews()
         }
@@ -73,8 +78,8 @@ class AssetTaskDetailViewController: BaseViewController {
         updateLocationCoordinates()
     }
 
-    @IBAction func uploadCoordinateTapped(_ sender: AnimatableButton) {
-        viewModel.updateCoordinate()
+    @IBAction func uploadTaskLocationCoordinateTapped(_ sender: AnimatableButton) {
+        submit()
     }
 
     func updateLocationCoordinates() {
@@ -86,6 +91,9 @@ class AssetTaskDetailViewController: BaseViewController {
     }
 
     func submit() {
-        let a: ViewModelFuture<AssetTaskDetail?> = viewModel.submit()
+        viewModel.submit().onSuccess { [weak self] _ in
+            guard let self = self else { return }
+            `self`.updateViews()
+        }
     }
 }

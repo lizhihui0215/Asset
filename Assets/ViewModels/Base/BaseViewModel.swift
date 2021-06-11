@@ -85,10 +85,6 @@ class BaseViewModel<T: Action>: ViewModelRepresentable, Validation {
     weak var action: T!
     var validator = Validator.defaultValue
 
-    public static func weakSelfUnWrapError<C>() -> ViewModelFuture<C?> {
-        ViewModelFuture(error: EAMError.weakSelfUnWrapError)
-    }
-
     init(request: RequestRepresentable, action: T) {
         self.request = request
         self.action = action

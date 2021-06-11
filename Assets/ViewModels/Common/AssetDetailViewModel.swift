@@ -275,7 +275,7 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
     func getGPSLocation() -> ViewModelFuture<CLLocation?> {
         locationService.getGPSLocation().flatMap { [weak self] result -> ViewModelFuture<CLLocation?> in
             guard let result = result, let self = self else {
-                return ViewModelFuture(error: EAMError.unwrapOptionalValueError("location"))
+                return ViewModelFuture(error: .unwrapOptionalValue("location"))
             }
             `self`.location = result.location
             `self`.rgcData = result.rgcData?.convert()

@@ -43,7 +43,7 @@ class LocationInventoryScanViewModel: ScanViewModel {
 
     override func finished() -> ViewModelFuture<SegueIdentifier> {
         fetchAssetDetail().flatMap { [weak self] assetDetail -> ViewModelFuture<String> in
-            guard let self = self else { return ViewModelFuture(error: EAMError.weakSelfUnWrapError as Error) }
+            guard let self = self else { return ViewModelFuture(error: .weakSelfUnWrapError) }
             `self`.assetDetail = assetDetail
             return ViewModelFuture(value: StoryboardSegue.Common.successToInventory.rawValue)
         }

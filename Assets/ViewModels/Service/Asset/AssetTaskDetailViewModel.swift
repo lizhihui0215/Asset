@@ -7,14 +7,25 @@ import Foundation
 
 class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
     var locationService: BDLocationService = .shared
-    private var location: CLLocation?
+
+    private var location: CLLocation? {
+        didSet {
+            latitude = String(location?.coordinate.latitude ?? 0)
+            longitude = String(location?.coordinate.longitude ?? 0)
+        }
+    }
+
     var rgcData: LocationReGeocode?
 
     let checkBillCode: String
     let taskNumber: String
     var taskDetail: AssetTaskDetail?
 
-    var longitude: String {
+    var longitude: String = ""
+
+    var latitude: String = ""
+
+    var systemLongitude: String {
         get {
             taskDetail?.longitude ?? ""
         }
@@ -23,7 +34,7 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
         }
     }
 
-    var latitude: String {
+    var systemLatitude: String {
         get {
             taskDetail?.latitude ?? ""
         }
@@ -32,8 +43,6 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
         }
     }
 
-    var systemLongitude: String { taskDetail?.longitude ?? "" }
-    var systemLatitude: String { taskDetail?.latitude ?? "" }
     var taskName: String { taskDetail?.taskName ?? "" }
     var locationCode: String { taskDetail?.locationCode ?? "" }
     var checkPerson: String { taskDetail?.checkPerson ?? "" }
@@ -64,7 +73,7 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
     func getGPSLocation() -> ViewModelFuture<CLLocation?> {
         locationService.getGPSLocation().flatMap { [weak self] result -> ViewModelFuture<CLLocation?> in
             guard let result = result, let self = self else {
-                return ViewModelFuture(error: EAMError.unwrapOptionalValueError("location"))
+                return ViewModelFuture(error: .unwrapOptionalValue("location"))
             }
             `self`.location = result.location
             `self`.rgcData = result.rgcData?.convert()
@@ -83,10 +92,5 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
             guard let self = self else { return }
             `self`.taskDetail = result
         }
-    }
-
-    func updateCoordinate() {
-        longitude = String(location?.coordinate.longitude ?? 0)
-        latitude = String(location?.coordinate.latitude ?? 0)
     }
 }

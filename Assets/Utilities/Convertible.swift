@@ -3,6 +3,7 @@
 // Copyright (c) 2021 ZhiHui.Li. All rights reserved.
 //
 
+import BrightFutures
 import Foundation
 
 protocol Convertible {
@@ -29,7 +30,8 @@ extension ServiceConfiguration.Service: Convertible {
 
 extension BMKLocationReGeocode: Convertible {
     func convert() -> LocationReGeocode {
-        LocationReGeocode(
+        let poiRegion = poiRegion == nil ? nil : poiRegion.convert()
+        return LocationReGeocode(
             countryCode: countryCode,
             province: province,
             city: city,
@@ -41,7 +43,7 @@ extension BMKLocationReGeocode: Convertible {
             adCode: adCode,
             locationDescribe: locationDescribe,
             country: country,
-            poiRegion: poiRegion.convert()
+            poiRegion: poiRegion
         )
     }
 }

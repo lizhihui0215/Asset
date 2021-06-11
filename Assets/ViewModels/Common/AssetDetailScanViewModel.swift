@@ -8,7 +8,7 @@ import Foundation
 class AssetDetailScanViewModel: ScanViewModel {
     override func finished() -> ViewModelFuture<SegueIdentifier> {
         guard metadataObject != nil else {
-            return ViewModelFuture(error: EAMError.unwrapOptionalValueError("MetadataObject") as Error)
+            return ViewModelFuture(error: .unwrapOptionalValue("MetadataObject"))
         }
         return ViewModelFuture(value: StoryboardSegue.Common.successToInventory.rawValue)
     }

@@ -35,8 +35,8 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
     }
 
     func setSelectedInventoryStatus(for item: String) -> ViewModelFuture<[Asset]> {
-        guard item != selectedInventoryStatus.name else { return ViewModelFuture(error: EAMError.unwrapOptionalValueError("SelectedInventoryStatus")) }
-        guard let status = inventoryStatus.key(from: item) else { return ViewModelFuture(error: EAMError.unwrapOptionalValueError("InventoryStatus")) }
+        guard item != selectedInventoryStatus.name else { return ViewModelFuture(error: .unwrapOptionalValue("SelectedInventoryStatus")) }
+        guard let status = inventoryStatus.key(from: item) else { return ViewModelFuture(error: .unwrapOptionalValue("InventoryStatus")) }
         selectedInventoryStatus = (status: status, name: item)
         return fetchList()
     }

@@ -8,7 +8,7 @@ import Foundation
 class AssetInventoryListDetailViewModel: AssetDetailViewModel {
     func submit() -> ViewModelFuture<AssetDetailed?> {
         guard let assetDetail = assetDetail, let checkPerson = app.credential?.userAccount else {
-            return ViewModelFuture(error: EAMError.unwrapOptionalValueError("AssetDetail and checkPerson could not be nil"))
+            return ViewModelFuture(error: .unwrapOptionalValue("AssetDetail and checkPerson could not be nil"))
         }
 
         let parameters = AssetInventoryListDetailSubmitParameter(realLocationCode: assetDetail.realLocationCode,
