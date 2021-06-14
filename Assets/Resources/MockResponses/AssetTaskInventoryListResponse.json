@@ -1,0 +1,53 @@
+{
+  "page": "1",
+  "total": "5",
+  "records": "15",
+  "rows": [
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d97297436401729757f26035f0",
+      "checkBillCode": "QSPD-SJH-303210202104280050",
+      "checkStatus": "1",
+      "checkStatusName": "已盘",
+      "tagNumber": "3221-01051146",
+      "assetName": "不分明细.投影仪",
+      "imageCount": 1
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d97297436401729757f29835f2",
+      "checkBillCode": "QSPD-SJH-303210202104280050",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3221-01051149",
+      "assetName": "不分明细.空调"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d97297436401729758d70e3ebe",
+      "checkBillCode": "QSPD-SJH-303210202104280050",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3221-01053770",
+      "assetName": "空调"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d972974364017297646c4230b0",
+      "checkBillCode": "QSPD-SJH-303210202104280050",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3221-01096819",
+      "assetName": "多功能一体机"
+    },
+    {
+      "isCheck": false,
+      "assetId": "8a93e7d97297436401729841ac3b119e",
+      "checkBillCode": "QSPD-SJH-303210202104280050",
+      "checkStatus": "0",
+      "checkStatusName": "未盘",
+      "tagNumber": "3221-01641587",
+      "assetName": "笔记本电脑"
+    }
+  ]
+}

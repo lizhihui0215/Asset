@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AssetTaskListViewModel: PageableViewModel<AssetTaskListViewController, DefaultSection<AssetTask>>, Searchable {
+class AssetTaskInventoryListViewModel: PageableViewModel<AssetTaskInventoryListViewController, DefaultSection<AssetTask>>, Searchable {
     var appSearchText: String = ""
     let checkPerson = app.credential?.userAccount ?? ""
     var taskStatus: String = ""
@@ -17,7 +17,7 @@ class AssetTaskListViewModel: PageableViewModel<AssetTaskListViewController, Def
         page + 1
     }
 
-    init(request: RequestRepresentable, action: AssetTaskListViewController) {
+    init(request: RequestRepresentable, action: AssetTaskInventoryListViewController) {
         super.init(request: request, action: action, dataSource: [.defaultValue])
     }
 
@@ -56,7 +56,7 @@ class AssetTaskListViewModel: PageableViewModel<AssetTaskListViewController, Def
 
     override func viewData<T: CellDataRepresentable>(for action: UIViewController, with sender: Any?) -> T {
         switch action {
-        case _ as AssetTaskListViewController:
+        case _ as AssetTaskInventoryListViewController:
             guard let indexPath = sender as? IndexPath else { break }
             let assetTask = itemAtIndexPath(indexPath: indexPath)
 

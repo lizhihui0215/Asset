@@ -42,7 +42,7 @@ enum APIRouter: URLRequestConvertible {
 
         static var assetTaskDetail = "app/check/getTaskByPk"
 
-        static var assetTaskDetailSubmit = "app/check/saveTaskInfo "
+        static var assetTaskDetailSubmit = "app/check/saveTaskInfo"
 
         static func staffList(_ category: Staff.Category) -> String {
             switch category {

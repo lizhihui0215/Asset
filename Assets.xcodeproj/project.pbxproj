@@ -442,6 +442,14 @@
 		A15CAFA4266C6FAA005C452E /* AssetTaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CAFA0266C6688005C452E /* AssetTaskListViewController.swift */; };
 		A15CAFA6266C70D0005C452E /* AssetTaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CAFA5266C70D0005C452E /* AssetTaskListViewModel.swift */; };
 		A15CAFA7266C70D0005C452E /* AssetTaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CAFA5266C70D0005C452E /* AssetTaskListViewModel.swift */; };
+		A19485312673DD180089F4B8 /* AssetTaskInventoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19485302673DD180089F4B8 /* AssetTaskInventoryListViewController.swift */; };
+		A19485322673DD180089F4B8 /* AssetTaskInventoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19485302673DD180089F4B8 /* AssetTaskInventoryListViewController.swift */; };
+		A19485342673DE3A0089F4B8 /* AssetTaskInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19485332673DDD20089F4B8 /* AssetTaskInventoryListViewModel.swift */; };
+		A19485352673DE3A0089F4B8 /* AssetTaskInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19485332673DDD20089F4B8 /* AssetTaskInventoryListViewModel.swift */; };
+		A19485372673DEAA0089F4B8 /* AssetTaskInventoryListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19485362673DE7F0089F4B8 /* AssetTaskInventoryListRequest.swift */; };
+		A19485382673DEAB0089F4B8 /* AssetTaskInventoryListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19485362673DE7F0089F4B8 /* AssetTaskInventoryListRequest.swift */; };
+		A194853A2673DEDF0089F4B8 /* AssetTaskInventoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19485392673DEC90089F4B8 /* AssetTaskInventoryListTableViewCell.swift */; };
+		A194853B2673DEE00089F4B8 /* AssetTaskInventoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19485392673DEC90089F4B8 /* AssetTaskInventoryListTableViewCell.swift */; };
 		A1FEAA912661482400DA5708 /* EnvironmentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FEAA902661482400DA5708 /* EnvironmentConfiguration.swift */; };
 		A1FEAA94266157AB00DA5708 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7E75D2627449D00407D37 /* Cache.swift */; };
 		A1FEAA95266157AB00DA5708 /* PlaceholderDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260E35B026351FBB008CF3DE /* PlaceholderDesignable.swift */; };
@@ -904,8 +912,10 @@
 		F2F61D64090A78AD00A0C068 /* LocationPhotographViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61BA31EC80C326EAE745A /* LocationPhotographViewModel.swift */; };
 		F2F61D6E2F41E0843D58C060 /* WindowAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F616DB2D2C2969085257A4 /* WindowAble.swift */; };
 		F2F61D70FA15D72E0ACA1BF1 /* AssetListDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61C765C50FDAD632C9D1C /* AssetListDetailViewModel.swift */; };
+		F2F61EB13B50E1F86C0FEC0D /* AssetTaskInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F61814D098F0F41DD5E9B1 /* AssetTaskInventory.swift */; };
 		F2F61EF3BD44962930EBE3FF /* AssetTaskDetailResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F2F616EE2AE26E6048A524CD /* AssetTaskDetailResponse.json */; };
 		F2F61F4403544F5ACD845907 /* AssetTaskDetailResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F2F616EE2AE26E6048A524CD /* AssetTaskDetailResponse.json */; };
+		F2F61FFE01CC001518F1B6FE /* AssetTaskInventoryListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F2F6182C018B7189490CAAA4 /* AssetTaskInventoryListResponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1422,6 +1432,10 @@
 		A15CAF9F266C6688005C452E /* AssetTaskSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskSearchViewController.swift; sourceTree = "<group>"; };
 		A15CAFA0266C6688005C452E /* AssetTaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskListViewController.swift; sourceTree = "<group>"; };
 		A15CAFA5266C70D0005C452E /* AssetTaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskListViewModel.swift; sourceTree = "<group>"; };
+		A19485302673DD180089F4B8 /* AssetTaskInventoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryListViewController.swift; sourceTree = "<group>"; };
+		A19485332673DDD20089F4B8 /* AssetTaskInventoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryListViewModel.swift; sourceTree = "<group>"; };
+		A19485362673DE7F0089F4B8 /* AssetTaskInventoryListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryListRequest.swift; sourceTree = "<group>"; };
+		A19485392673DEC90089F4B8 /* AssetTaskInventoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryListTableViewCell.swift; sourceTree = "<group>"; };
 		A1FEAA902661482400DA5708 /* EnvironmentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentConfiguration.swift; sourceTree = "<group>"; };
 		A1FEAC45266157AB00DA5708 /* Assets_Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assets_Dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FEAC46266157AB00DA5708 /* Assets copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Assets copy-Info.plist"; path = "/Users/bernard/Workspace/Assets/Assets copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -1442,6 +1456,8 @@
 		F2F6169DDF88FD1700525C4E /* AssetTaskDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskDetail.swift; sourceTree = "<group>"; };
 		F2F616DB2D2C2969085257A4 /* WindowAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowAble.swift; sourceTree = "<group>"; };
 		F2F616EE2AE26E6048A524CD /* AssetTaskDetailResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetTaskDetailResponse.json; sourceTree = "<group>"; };
+		F2F61814D098F0F41DD5E9B1 /* AssetTaskInventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskInventory.swift; sourceTree = "<group>"; };
+		F2F6182C018B7189490CAAA4 /* AssetTaskInventoryListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetTaskInventoryListResponse.json; sourceTree = "<group>"; };
 		F2F618B995BBD467993FB1BA /* ViewModelRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelRepresentable.swift; sourceTree = "<group>"; };
 		F2F61904C81E912FE888CA11 /* AssetListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetListRequest.swift; sourceTree = "<group>"; };
 		F2F619849B23CEA89AA246D3 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
@@ -2151,6 +2167,7 @@
 				F2F61F2798A6EC86F8696199 /* TransformListResponse.json */,
 				F2F61B8E21FEF0E74B80FAA6 /* AssetTaskListResponse.json */,
 				F2F616EE2AE26E6048A524CD /* AssetTaskDetailResponse.json */,
+				F2F6182C018B7189490CAAA4 /* AssetTaskInventoryListResponse.json */,
 			);
 			path = MockResponses;
 			sourceTree = "<group>";
@@ -2184,6 +2201,7 @@
 				F2F6137793343C0DE03E9777 /* Transform.swift */,
 				F2F619973CE7F4E8922BD60A /* AssetTask.swift */,
 				F2F6169DDF88FD1700525C4E /* AssetTaskDetail.swift */,
+				F2F61814D098F0F41DD5E9B1 /* AssetTaskInventory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2307,6 +2325,7 @@
 				26A739EB2631AD8900CFE3C1 /* LocationListTableViewCell.swift */,
 				5B8751C27BA2A278C0BD6D3D /* AssetListTableViewCell.swift */,
 				A13A669D266C9FE10044C010 /* AssetTaskListTableViewCell.swift */,
+				A19485392673DEC90089F4B8 /* AssetTaskInventoryListTableViewCell.swift */,
 				5B875BD2EC1D39F94A1A8EDD /* Common */,
 				F2F61D9774CDA51A2E3D51E3 /* Base */,
 				F2F611FF7AC22E2C2988F660 /* TransformListTableViewCell.swift */,
@@ -2388,6 +2407,7 @@
 				5B875354D44664F79A20C00A /* InventoryStatusRequest.swift */,
 				5B875DCE54BC6E0E173BA3C3 /* StaffListRequest.swift */,
 				5B875602A3931DA4E491CAF0 /* AssetTaskListRequest.swift */,
+				A19485362673DE7F0089F4B8 /* AssetTaskInventoryListRequest.swift */,
 				5B875396A28DED28579946EE /* LocationScanlRequest.swift */,
 				5B87559B580F9BD19EE07D6C /* AssetDetailScanlRequest.swift */,
 				5B87579C1030CB0B0B4FA619 /* AssetStatusRequest.swift */,
@@ -2485,6 +2505,7 @@
 			isa = PBXGroup;
 			children = (
 				A15CAFA0266C6688005C452E /* AssetTaskListViewController.swift */,
+				A19485302673DD180089F4B8 /* AssetTaskInventoryListViewController.swift */,
 				A15CAF9F266C6688005C452E /* AssetTaskSearchViewController.swift */,
 				A126D47F266FC3C3000B2E39 /* AssetTaskDetailViewController.swift */,
 			);
@@ -2504,6 +2525,7 @@
 			children = (
 				F2F61600327233968F836A4E /* AssetTaskSearchViewModel.swift */,
 				A15CAFA5266C70D0005C452E /* AssetTaskListViewModel.swift */,
+				A19485332673DDD20089F4B8 /* AssetTaskInventoryListViewModel.swift */,
 				F2F6100006F4FAD539B4A241 /* AssetTaskDetailViewModel.swift */,
 			);
 			path = Asset;
@@ -2730,6 +2752,7 @@
 				F2F611EC5C4C2131BD0B0C22 /* TransformListResponse.json in Resources */,
 				F2F61244E58DF1AC22AC5EF1 /* AssetTaskListResponse.json in Resources */,
 				F2F61EF3BD44962930EBE3FF /* AssetTaskDetailResponse.json in Resources */,
+				F2F61FFE01CC001518F1B6FE /* AssetTaskInventoryListResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2987,6 +3010,7 @@
 				260E362326351FBB008CF3DE /* ActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				260E365626351FBC008CF3DE /* BackgroundImageDesignable.swift in Sources */,
 				262D5360265B5EE50015543E /* UIView+Extension.swift in Sources */,
+				A19485372673DEAA0089F4B8 /* AssetTaskInventoryListRequest.swift in Sources */,
 				260E363626351FBC008CF3DE /* AnimatableNavigationController.swift in Sources */,
 				260E35EE26351FBB008CF3DE /* AnimationType.swift in Sources */,
 				260E361526351FBB008CF3DE /* ActivityIndicatorAnimationOrbit.swift in Sources */,
@@ -3096,6 +3120,7 @@
 				260E362226351FBB008CF3DE /* ActivityIndicatorAnimationTriforce.swift in Sources */,
 				2619958E2635BC120046AF48 /* AlertConstants.swift in Sources */,
 				260E365826351FBC008CF3DE /* TintDesignable.swift in Sources */,
+				A19485342673DE3A0089F4B8 /* AssetTaskInventoryListViewModel.swift in Sources */,
 				260E360226351FBB008CF3DE /* PresentOverCurrentContextSegue.swift in Sources */,
 				260E362E26351FBC008CF3DE /* ActivityIndicatorAnimationLineScale.swift in Sources */,
 				260E362C26351FBC008CF3DE /* ActivityIndicatorAnimationCircleStrokeSpin.swift in Sources */,
@@ -3199,6 +3224,7 @@
 				260E35DB26351FBB008CF3DE /* TransitionAnimationType.swift in Sources */,
 				260E35E626351FBB008CF3DE /* IBEnum.swift in Sources */,
 				260E363326351FBC008CF3DE /* ActivityIndicatorAnimationGear.swift in Sources */,
+				A194853A2673DEDF0089F4B8 /* AssetTaskInventoryListTableViewCell.swift in Sources */,
 				260E365B26351FBC008CF3DE /* StatusBarDesignable.swift in Sources */,
 				5B87525250C9854244291DA2 /* EAMExtended.swift in Sources */,
 				A1FEAC4C2669B38100DA5708 /* TransformListViewModel.swift in Sources */,
@@ -3237,6 +3263,7 @@
 				A1FEAA912661482400DA5708 /* EnvironmentConfiguration.swift in Sources */,
 				260E360826351FBB008CF3DE /* PresentExplodeSegue.swift in Sources */,
 				260E365426351FBC008CF3DE /* CheckBoxDesignable.swift in Sources */,
+				A19485312673DD180089F4B8 /* AssetTaskInventoryListViewController.swift in Sources */,
 				260E360126351FBB008CF3DE /* PresentPortalSegue.swift in Sources */,
 				2619958D2635BC120046AF48 /* AlertAction.swift in Sources */,
 				2609228D2650BAE200B962FA /* MadokaTextField.swift in Sources */,
@@ -3344,6 +3371,7 @@
 				F2F610EB3F5BEE2BEAD56DA5 /* AssetTaskDetailViewModel.swift in Sources */,
 				F2F616D927BCBE870F9BCCFA /* AssetTaskDetailRequest.swift in Sources */,
 				F2F613172AEF7A25E415F824 /* AssetTaskDetail.swift in Sources */,
+				F2F61EB13B50E1F86C0FEC0D /* AssetTaskInventory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3374,6 +3402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19485322673DD180089F4B8 /* AssetTaskInventoryListViewController.swift in Sources */,
 				A1FEAA94266157AB00DA5708 /* Cache.swift in Sources */,
 				A1FEAA95266157AB00DA5708 /* PlaceholderDesignable.swift in Sources */,
 				A1FEAA96266157AB00DA5708 /* FadeAnimator.swift in Sources */,
@@ -3628,6 +3657,7 @@
 				A1FEAB89266157AB00DA5708 /* AnimatableTableView.swift in Sources */,
 				A1FEAB8A266157AB00DA5708 /* ActivityIndicatorAnimationSemiCircleSpin.swift in Sources */,
 				A1FEAB8B266157AB00DA5708 /* LocationListRequest.swift in Sources */,
+				A19485352673DE3A0089F4B8 /* AssetTaskInventoryListViewModel.swift in Sources */,
 				A1FEAB8C266157AB00DA5708 /* RootWindowDesignable.swift in Sources */,
 				A1FEAB8D266157AB00DA5708 /* BlurDesignable.swift in Sources */,
 				A1FEAB8E266157AB00DA5708 /* IsaoTextField.swift in Sources */,
@@ -3648,6 +3678,7 @@
 				A1FEAB9D266157AB00DA5708 /* AlertAction.swift in Sources */,
 				A1FEAB9E266157AB00DA5708 /* MadokaTextField.swift in Sources */,
 				A1FEAB9F266157AB00DA5708 /* SegueType+Extension.swift in Sources */,
+				A194853B2673DEE00089F4B8 /* AssetTaskInventoryListTableViewCell.swift in Sources */,
 				A1FEABA0266157AB00DA5708 /* Searchable.swift in Sources */,
 				A1FEABA1266157AB00DA5708 /* Siren.swift in Sources */,
 				A1FEABA2266157AB00DA5708 /* Credential.swift in Sources */,
@@ -3694,6 +3725,7 @@
 				A1FEABCD266157AB00DA5708 /* StaffListViewModel.swift in Sources */,
 				A1FEABCE266157AB00DA5708 /* Staff.swift in Sources */,
 				A1FEABCF266157AB00DA5708 /* StaffListRequest.swift in Sources */,
+				A19485382673DEAB0089F4B8 /* AssetTaskInventoryListRequest.swift in Sources */,
 				A1FEABD1266157AB00DA5708 /* JiroTextField.swift in Sources */,
 				A1FEABD2266157AB00DA5708 /* AssetTaskListRequest.swift in Sources */,
 				A1FEABD6266157AB00DA5708 /* AssetDetailScanViewModel.swift in Sources */,

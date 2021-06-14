@@ -54,8 +54,8 @@ class AssetTaskDetailViewController: BaseViewController {
      */
 
     private func updateViews() {
-        longitudeLabel.text = viewModel.longitude
-        latitudeLabel.text = viewModel.latitude
+        longitudeLabel.text = viewModel.formattedLongitude
+        latitudeLabel.text = viewModel.formattedLatitude
         systemLongitudeLabel.text = viewModel.systemLongitude
         systemLatitudeLabel.text = viewModel.systemLatitude
         checkBillCodeLabel.text = viewModel.checkBillCode
@@ -85,8 +85,8 @@ class AssetTaskDetailViewController: BaseViewController {
     func updateLocationCoordinates() {
         viewModel.getGPSLocation().onSuccess { [weak self] _ in
             guard let self = self else { return }
-            `self`.longitudeLabel.text = `self`.viewModel.longitude
-            `self`.latitudeLabel.text = `self`.viewModel.latitude
+            `self`.longitudeLabel.text = `self`.viewModel.formattedLongitude
+            `self`.latitudeLabel.text = `self`.viewModel.formattedLatitude
         }
     }
 
@@ -94,6 +94,7 @@ class AssetTaskDetailViewController: BaseViewController {
         viewModel.submit().onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.updateViews()
+            `self`.alert(message: "更新成功！")
         }
     }
 }

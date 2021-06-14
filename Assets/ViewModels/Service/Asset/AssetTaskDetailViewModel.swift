@@ -25,22 +25,18 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
 
     var latitude: String = ""
 
+    var formattedLongitude: String { String(format: "%.6f", Double(longitude) ?? 0) }
+
+    var formattedLatitude: String { String(format: "%.6f", Double(latitude) ?? 0) }
+
     var systemLongitude: String {
-        get {
-            taskDetail?.longitude ?? ""
-        }
-        set {
-            taskDetail?.longitude = newValue
-        }
+        get { String(format: "%.6f", Double(taskDetail?.longitude ?? "0") ?? 0) }
+        set { taskDetail?.longitude = newValue }
     }
 
     var systemLatitude: String {
-        get {
-            taskDetail?.latitude ?? ""
-        }
-        set {
-            taskDetail?.latitude = newValue
-        }
+        get { String(format: "%.6f", Double(taskDetail?.latitude ?? "0") ?? 0) }
+        set { taskDetail?.latitude = newValue }
     }
 
     var taskName: String { taskDetail?.taskName ?? "" }
@@ -90,7 +86,8 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
                                                                           taskNumber: taskNumber,
                                                                           longitude: longitude))).onSuccess { [weak self] result in
             guard let self = self else { return }
-            `self`.taskDetail = result
+            `self`.taskDetail?.latitude = result?.latitude ?? ""
+            `self`.taskDetail?.longitude = result?.longitude ?? ""
         }
     }
 }
