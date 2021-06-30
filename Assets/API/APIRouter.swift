@@ -18,8 +18,8 @@ enum APIRouter: URLRequestConvertible {
         static var assetInventoryList = "/app/check/daily/findResultByPage"
         static var assetDetail = "/app/check/daily/getResultByPk"
         static var inventoryStatus = "app/dict/getMapByDictName"
-        static var userStaffList = "app/user/staffList"
-        static var principalStaffList = "app/principal/staffList"
+        static var userStaffList = "app/user/findAppUserByPage"
+        static var principalStaffList = "app/user/findAppDutyUserByPage"
         static var assetDetailByScan = "app/check/daily/getResultByScan"
         static var assetStatus = inventoryStatus
         static var assetList = "app/asset/findByCityPage"
@@ -43,6 +43,10 @@ enum APIRouter: URLRequestConvertible {
         static var assetTaskDetail = "app/check/getTaskByPk"
 
         static var assetTaskDetailSubmit = "app/check/saveTaskInfo"
+
+        static var assetTaskInventoryList = "app/check/findResultByPage"
+
+        static var assetTaskInventoryDetailByScan = "app/check/getResultByScan"
 
         static func staffList(_ category: Staff.Category) -> String {
             switch category {
@@ -86,6 +90,8 @@ enum APIRouter: URLRequestConvertible {
     case assetTaskList(AssetTaskListParameter)
     case assetTaskDetail(AssetTaskDetailParameter)
     case assetTaskDetailSubmit(AssetTaskDetailSubmitParameter)
+    case assetTaskInventoryList(AssetTaskInventoryListParameter)
+    case assetTaskInventoryDetailByScan(AssetTaskInventoryListScanParameter)
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -124,6 +130,8 @@ enum APIRouter: URLRequestConvertible {
         case .assetTaskList: return pathComponents(with: Constants.assetTaskList)
         case .assetTaskDetail: return pathComponents(with: Constants.assetTaskDetail)
         case .assetTaskDetailSubmit: return pathComponents(with: Constants.assetTaskDetailSubmit)
+        case .assetTaskInventoryList: return pathComponents(with: Constants.assetTaskInventoryList)
+        case .assetTaskInventoryDetailByScan: return pathComponents(with: Constants.assetTaskInventoryDetailByScan)
         }
     }
 
@@ -138,67 +146,75 @@ enum APIRouter: URLRequestConvertible {
 
         switch self {
         case .login(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .locationList(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .locationDetailById(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .updateLocation(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .assetInventoryList(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .assetDetailByInventoryList(let parameters):
             // swiftlint:disable:next force_cast
             let parameters = parameters as! AssetInventoryListDetailParameter
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .assetDetailByScan(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .assetStatus:
             let parameters = [API.Keys.DictionaryName.rawValue: Constants.assetStatusDictionary]
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .inventoryStatus:
             let parameters = [API.Keys.DictionaryName.rawValue: Constants.inventoryStatusDictionary]
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .staffList(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .personalAssetList(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .assetDetailByAssetList(let parameters):
             // swiftlint:disable:next force_cast
             let parameters = parameters as! AssetListDetailParameter
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .assetDetailInventoryListDetailSubmit(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .uploadPhoto(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .imagesByLocation(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .imagesByAsset(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .assetImageOperatorByDelete(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .locationImageOperatorByDelete(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .isLogin:
             let parameters = IsLoginParameter(userToken: app.credential?.userToken ?? "")
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .versionCheck:
             let parameters = VersionCheckParameter(appType: .ios, currentVersion: app.version)
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .version:
             let parameters = VersionParameter(version: app.version)
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .transformList(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .assetTaskList(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .assetTaskDetail(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
         case .assetTaskDetailSubmit(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            request = try encode(parameters, into: request)
+        case .assetTaskInventoryList(let parameters):
+            request = try encode(parameters, into: request)
+        case .assetTaskInventoryDetailByScan(let parameters):
+            request = try encode(parameters, into: request)
         }
 
         return request
+    }
+
+    func encode<Parameters>(_ parameters: Parameters?, into request: URLRequest) throws -> URLRequest where Parameters: Encodable {
+        try JSONParameterEncoder().encode(parameters, into: request)
     }
 
     var multipartFormData: MultipartFormData {

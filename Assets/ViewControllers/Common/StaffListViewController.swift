@@ -33,21 +33,29 @@ class StaffListViewController: BaseTableViewController, TableViewControllerPagea
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = sender as? IndexPath else { return }
+
         switch segue.destination {
         case let destination as AssetDetailViewController:
-            guard let indexPath = (sender as? StaffListTableViewCell)?.indexPath else { break }
-            prepareSelectedStaff(for: destination, with: indexPath)
+            prepareSelectedStaff(for: destination.viewModel, with: indexPath)
+        case let destination as AssetTaskInventoryDetailViewController:
+            prepareSelectedStaff(for: destination.viewModel, with: indexPath)
         default: break
         }
     }
 
-    func prepareSelectedStaff(for destination: AssetDetailViewController, with indexPath: IndexPath) {
+    func prepareSelectedStaff(for destination: StaffSelectable, with indexPath: IndexPath) {
+        var destination = destination
         switch viewModel.category {
         case .principal:
-            destination.viewModel.principal = viewModel.itemAtIndexPath(indexPath: indexPath)
+            destination.principal = viewModel.itemAtIndexPath(indexPath: indexPath)
         case .user:
-            destination.viewModel.user = viewModel.itemAtIndexPath(indexPath: indexPath)
+            destination.user = viewModel.itemAtIndexPath(indexPath: indexPath)
         }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        perform(segue: viewModel.segue, sender: indexPath)
     }
 }
 

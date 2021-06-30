@@ -14,6 +14,11 @@ class ScanViewModel: BaseViewModel<ScanViewController> {
     }
 
     var metadataObject: MetadataObject!
+    public var information: String {
+        guard let messageString = metadataObject.messageString else { return "" }
+        return "结果：\(messageString)"
+    }
+
     var didReceivedMetadataObject: ScanService.DidReceivedMetadataObject?
     typealias SegueIdentifier = String
 

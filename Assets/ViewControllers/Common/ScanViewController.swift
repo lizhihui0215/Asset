@@ -11,6 +11,7 @@ class ScanViewController: BaseViewController {
     @IBOutlet var scanAnimationImageView: ScanAnimationImageView!
     @IBOutlet var torchButton: AnimatableButton!
     @IBOutlet var finishedButton: AnimatableButton!
+    @IBOutlet var informationLabel: UILabel!
 
     @IBOutlet var buttonStackView: UIStackView!
     var viewModel: ScanViewModel!
@@ -47,6 +48,7 @@ class ScanViewController: BaseViewController {
         scanAnimationImageView.startAnimation()
         viewModel.startScanning().onSuccess { [weak self] _ in
             guard let self = self else { return }
+            `self`.informationLabel.text = `self`.viewModel.information
             `self`.scanAnimationImageView.stopAnimation()
             `self`.finishedButton.isEnabled = true
         }.onFailure { _ in
@@ -82,6 +84,8 @@ class ScanViewController: BaseViewController {
     override func prepare(for segue: UIKit.UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
         case let destination as AssetDetailViewController:
+            destination.viewModel = viewModel.viewModel(for: destination)
+        case let destination as AssetTaskInventoryDetailViewController where segue.identifier != StoryboardSegue.Common.unwindToAssetTaskInventoryDetail.rawValue:
             destination.viewModel = viewModel.viewModel(for: destination)
         default: break
         }

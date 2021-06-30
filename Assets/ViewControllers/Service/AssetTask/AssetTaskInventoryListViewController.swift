@@ -11,13 +11,12 @@ import UIKit
 
 class AssetTaskInventoryListViewController: BaseTableViewController, TableViewControllerPageable {
     typealias Action = AssetTaskInventoryListViewController
-    typealias S = DefaultSection<AssetTask>
+    typealias S = DefaultSection<AssetTaskInventory>
 
     var viewModel: AssetTaskInventoryListViewModel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        viewModel = AssetTaskInventoryListViewModel(request: AssetTaskInventoryListRequest(), action: self)
     }
 
     override func viewDidLoad() {
@@ -28,15 +27,21 @@ class AssetTaskInventoryListViewController: BaseTableViewController, TableViewCo
 
     // MARK: - Navigation
 
+    @IBAction func unwindToAssetTaskInventoryListController(sender: UIStoryboardSegue) {}
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
         case let destination as AssetTaskDetailViewController:
             guard let sender = sender as? AssetTaskInventoryListTableViewCell else { break }
             destination.viewModel = viewModel.viewModel(for: destination, with: sender.indexPath)
+        case let destination as ScanViewController:
+            destination.viewModel = viewModel.viewModel(for: destination, with: sender)
         default: break
         }
     }
+
+    @IBAction func scanTapped(_ sender: UIButton) {}
 
     @IBAction func unwindFromAssetSearchCompletion(segue: UIStoryboardSegue) {
         guard let source = segue.source as? AssetTaskSearchViewController else { return }

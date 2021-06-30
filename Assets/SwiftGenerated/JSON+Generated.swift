@@ -31,6 +31,12 @@ internal enum MockerDataSource {
   internal enum AssetTaskDetailResponse {
     public static let data = objectFromJSON(at: "AssetTaskDetailResponse.json")
   }
+  internal enum AssetTaskInventoryListResponse {
+    public static let data = objectFromJSON(at: "AssetTaskInventoryListResponse.json")
+  }
+  internal enum AssetTaskInventoryListScanResponse {
+    public static let data = objectFromJSON(at: "AssetTaskInventoryListScanResponse.json")
+  }
   internal enum AssetTaskListResponse {
     public static let data = objectFromJSON(at: "AssetTaskListResponse.json")
   }

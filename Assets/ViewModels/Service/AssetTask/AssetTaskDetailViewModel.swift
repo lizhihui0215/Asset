@@ -90,4 +90,16 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
             `self`.taskDetail?.longitude = result?.longitude ?? ""
         }
     }
+
+    override func viewModel<T: ViewModelRepresentable>(for action: UIKit.UIViewController, with sender: Any?) -> T {
+        switch action {
+        case let action as AssetTaskInventoryListViewController:
+            guard let taskDetail = taskDetail else { break }
+            return AssetTaskInventoryListViewModel(assetTaskDetail: taskDetail,
+                                                   request: AssetInventoryListRequest(),
+                                                   action: action) as! T
+        default: break
+        }
+        return super.viewModel(for: action, with: sender)
+    }
 }

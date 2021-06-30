@@ -34,7 +34,7 @@ protocol AssetDetailed {
     var userAccount: String { get }
 }
 
-class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
+class AssetDetailViewModel: BaseViewModel<AssetDetailViewController>, StaffSelectable {
     var parameters: AssetDetailParameterRepresentable!
 
     typealias SelectedAssetStatus = (status: AssetStatus.Key, name: AssetStatus.Value)
@@ -253,7 +253,7 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController> {
         case let action as StaffListViewController:
             return StaffListViewModel(request: StaffListRequest(),
                                       action: action,
-                                      category: sender as! Staff.Category) as! T
+                                      category: sender as! Staff.Category, segue: .unwindFromStaffSelected) as! T
         case let action as PhotographViewController:
             guard let assetDetail = assetDetail else { break }
 

@@ -43,15 +43,16 @@ class AssetTaskDetailViewController: BaseViewController {
         }
     }
 
-    /*
-     // MARK: - Navigation
+    // MARK: - Navigation
 
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.destination {
+        case let destination as AssetTaskInventoryListViewController:
+            destination.viewModel = viewModel.viewModel(for: destination, with: sender)
+        default: break
+        }
+    }
 
     private func updateViews() {
         longitudeLabel.text = viewModel.formattedLongitude

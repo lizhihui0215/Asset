@@ -93,6 +93,7 @@ class ListViewModel<T: UIViewController, S: Section>: BaseViewModel<T> {
     }
 }
 
+// TODO: remove section use fetchList
 class PageableViewModel<T: UIViewController, S: Section>: ListViewModel<T, S>, Pageable {
     var total: Int = 0
     var page: Int = 0

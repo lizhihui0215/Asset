@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class ScanCornerView: AnimatableView {
+class ScanCornerView: UIView {
     var cornerColor = UIColor(red: 0.0, green: 167.0 / 255.0, blue: 231.0 / 255.0, alpha: 1.0).cgColor
     var cornerfillColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0).cgColor
     var lineWidth: CGFloat = 6.0
@@ -46,7 +46,7 @@ class ScanCornerView: AnimatableView {
         context.addLine(to: CGPoint(x: rect.maxX, y: rect.minY + cornerHeight))
 
         // right bottom horizontally line
-        context.move(to: CGPoint(x: rect.maxX + lineWidth / 2, y: rect.maxX))
+        context.move(to: CGPoint(x: rect.maxX + lineWidth / 2, y: rect.maxY))
         context.addLine(to: CGPoint(x: rect.maxX - cornerWidth, y: rect.maxY))
 
         // right bottom vertically line

@@ -22,7 +22,9 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<Assets.AssetTaskDetailViewController>(storyboard: AssetTask.self)
 
-    internal static let assetInventoryListViewController = SceneType<Assets.AssetInventoryListViewController>(storyboard: AssetTask.self, identifier: "AssetInventoryListViewController")
+    internal static let assetTaskInventoryDetailViewController = SceneType<Assets.AssetTaskInventoryDetailViewController>(storyboard: AssetTask.self, identifier: "AssetTaskInventoryDetailViewController")
+
+    internal static let assetTaskInventoryListViewController = SceneType<Assets.AssetTaskInventoryListViewController>(storyboard: AssetTask.self, identifier: "AssetTaskInventoryListViewController")
   }
   internal enum Common: StoryboardType {
     internal static let storyboardName = "Common"

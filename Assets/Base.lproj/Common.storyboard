@@ -448,7 +448,6 @@
                                                     <outlet property="codeLabel" destination="MaJ-pa-Z6f" id="mnX-tF-lhw"/>
                                                     <outlet property="nameLabel" destination="eqL-V8-Dzx" id="F67-r8-yYU"/>
                                                     <outlet property="organizationLabel" destination="Zfm-QX-aup" id="cqQ-uq-L6f"/>
-                                                    <segue destination="cFM-50-vg2" kind="unwind" unwindAction="unwindFromStaffSelectedWithSegue:" id="Ncw-Ih-ENk"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -471,6 +470,8 @@
                         <outlet property="pagingInformationLabel" destination="haV-W4-1rK" id="4n9-m4-3em"/>
                         <outlet property="searchBar" destination="YsH-c3-dkN" id="EfQ-Kb-mdl"/>
                         <outlet property="tableView" destination="DBv-ZQ-FTo" id="Hxw-ro-U3b"/>
+                        <segue destination="cFM-50-vg2" kind="unwind" identifier="unwindFromStaffSelectedToAssetTaskInventoryDetail" unwindAction="unwindToAssetTaskInventoryDetailViewControllerWithSender:" id="sqh-vV-0eJ"/>
+                        <segue destination="cFM-50-vg2" kind="unwind" identifier="unwindFromStaffSelected" unwindAction="unwindFromStaffSelectedWithSegue:" id="ZNC-kJ-TWs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIr-2x-kMV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -486,10 +487,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="wC6-2o-hlI">
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="wC6-2o-hlI">
                                 <rect key="frame" x="52.5" y="686" width="309" height="87"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Olr-wV-5y6" customClass="AnimatableButton" customModule="Assets" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Olr-wV-5y6" customClass="AnimatableButton" customModule="Assets" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="65" height="87"/>
                                         <state key="normal" backgroundImage="qrcode_scan_btn_flash_nor"/>
                                         <state key="selected" backgroundImage="qrcode_scan_btn_flash_down"/>
@@ -499,7 +500,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hF4-ie-lig" customClass="AnimatableButton" customModule="Assets" customModuleProvider="target">
-                                        <rect key="frame" x="122" y="28.5" width="65" height="30"/>
+                                        <rect key="frame" x="122" y="0.0" width="65" height="87"/>
                                         <state key="normal" title="完成"/>
                                         <connections>
                                             <action selector="finishedTapped:" destination="mnC-NY-yyF" eventType="touchUpInside" id="kyt-ur-c8n"/>
@@ -517,10 +518,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gW0-22-QIh" customClass="ScanCornerView" customModule="Assets" customModuleProvider="target">
-                                <rect key="frame" x="86.5" y="277.5" width="241" height="241"/>
+                                <rect key="frame" x="20" y="198.5" width="374" height="447.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scan_full_net" translatesAutoresizingMaskIntoConstraints="NO" id="Bjd-e1-jMW" customClass="ScanAnimationImageView" customModule="Assets" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="241" height="241"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scan_full_net" translatesAutoresizingMaskIntoConstraints="NO" id="Bjd-e1-jMW" customClass="ScanAnimationImageView" customModule="Assets" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="447.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                 </subviews>
@@ -532,13 +533,27 @@
                                     <constraint firstItem="Bjd-e1-jMW" firstAttribute="leading" secondItem="gW0-22-QIh" secondAttribute="leading" id="acn-d3-54Q"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFn-dw-GCp">
+                                <rect key="frame" x="207" y="128" width="0.0" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="mnv-it-Jqc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jbH-yF-Qqq"/>
                         <constraints>
+                            <constraint firstItem="gW0-22-QIh" firstAttribute="leading" secondItem="jbH-yF-Qqq" secondAttribute="leading" constant="20" id="3t9-09-Dc4"/>
                             <constraint firstItem="wC6-2o-hlI" firstAttribute="centerX" secondItem="tIt-XL-WL5" secondAttribute="centerX" id="9Jj-0q-OUQ"/>
-                            <constraint firstItem="gW0-22-QIh" firstAttribute="centerY" secondItem="tIt-XL-WL5" secondAttribute="centerY" constant="-50" id="HZa-61-Rvs"/>
                             <constraint firstItem="gW0-22-QIh" firstAttribute="centerX" secondItem="tIt-XL-WL5" secondAttribute="centerX" id="OZF-G6-NCd"/>
+                            <constraint firstItem="gW0-22-QIh" firstAttribute="top" secondItem="IFn-dw-GCp" secondAttribute="bottom" constant="50" id="Voh-7s-zn6"/>
                             <constraint firstItem="jbH-yF-Qqq" firstAttribute="bottom" secondItem="wC6-2o-hlI" secondAttribute="bottom" constant="40" id="Vrp-kg-tnJ"/>
+                            <constraint firstItem="wC6-2o-hlI" firstAttribute="top" secondItem="gW0-22-QIh" secondAttribute="bottom" constant="40" id="geM-2U-u8n"/>
+                            <constraint firstItem="IFn-dw-GCp" firstAttribute="top" secondItem="jbH-yF-Qqq" secondAttribute="top" constant="40" id="nCg-az-DGr"/>
+                            <constraint firstItem="IFn-dw-GCp" firstAttribute="centerX" secondItem="tIt-XL-WL5" secondAttribute="centerX" id="upt-Jc-Cit"/>
+                            <constraint firstItem="jbH-yF-Qqq" firstAttribute="trailing" secondItem="gW0-22-QIh" secondAttribute="trailing" constant="20" id="zxn-OW-6iT"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -548,14 +563,28 @@
                     <connections>
                         <outlet property="buttonStackView" destination="wC6-2o-hlI" id="0hq-eL-98M"/>
                         <outlet property="finishedButton" destination="hF4-ie-lig" id="02D-tP-mDw"/>
+                        <outlet property="informationLabel" destination="IFn-dw-GCp" id="RcC-tA-Whj"/>
                         <outlet property="scanAnimationImageView" destination="Bjd-e1-jMW" id="L9J-lf-sJH"/>
                         <outlet property="torchButton" destination="Olr-wV-5y6" id="bIu-J3-JcU"/>
                         <segue destination="92x-lN-mvy" kind="show" identifier="successToInventory" id="HwG-Gb-hC6"/>
+                        <segue destination="cga-6G-Nwg" kind="show" identifier="successToAssetTaskInventoryDetail" id="JNC-L3-glb"/>
+                        <segue destination="ktR-P1-Ecj" kind="unwind" identifier="unwindToAssetTaskInventoryDetail" unwindAction="unwindToAssetTaskInventoryDetailViewControllerWithSender:" id="BJ9-iq-cdW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLF-FJ-xx2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ktR-P1-Ecj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2275" y="1107"/>
+            <point key="canvasLocation" x="2273.913043478261" y="1106.9196428571429"/>
+        </scene>
+        <!--AssetTaskInventoryDetailViewController-->
+        <scene sceneID="gjY-uY-c23">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AssetTask" referencedIdentifier="AssetTaskInventoryDetailViewController" id="cga-6G-Nwg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Sos-Ya-biV"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69m-HB-HTU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3086" y="1063"/>
         </scene>
         <!--资产明细-->
         <scene sceneID="LpK-qo-oMq">
@@ -1861,7 +1890,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="rjp-et-qSt"/>
+        <segue reference="HwG-Gb-hC6"/>
         <segue reference="n0e-8L-cKS"/>
     </inferredMetricsTieBreakers>
     <resources>

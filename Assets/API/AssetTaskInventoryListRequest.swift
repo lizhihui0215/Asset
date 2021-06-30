@@ -12,7 +12,10 @@ struct AssetTaskInventoryListParameter: Encodable, Searchable {
     let pageSize: String
     var appSearchText: String
     let checkPerson: String
-    let taskStatus: String
+    let checkBillCode: String
+    let locationCode: String
+    let checkStatus: String
+    let appCheckStatus: String
     let total: String
 }
 
@@ -22,5 +25,5 @@ struct AssetTaskInventoryListResponse: PageableResponse {
     var status: Int = 0
     var msg: String = App.Constants.Default.string
     var page: Int = 0
-    var data: [AssetTask] = []
+    var data: [AssetTaskInventory] = []
 }

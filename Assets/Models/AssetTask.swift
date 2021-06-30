@@ -12,15 +12,6 @@ struct AssetTask {
     let taskStatus: String
     let taskStatusName: String
     let taskName: String
-        isCheck
-        assetId
-        checkBillCode
-
-        checkStatus
-        checkStatusName
-        tagNumber
-        assetName
-        imageCount
 }
 
 extension AssetTask: Item {}

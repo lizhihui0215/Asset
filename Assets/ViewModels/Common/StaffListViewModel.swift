@@ -6,16 +6,27 @@
 import Foundation
 import UIKit
 
+protocol StaffSelectable {
+    var principal: Staff? { get set }
+    var user: Staff? { get set }
+}
+
 class StaffListViewModel: PageableViewModel<StaffListViewController, DefaultSection<Staff>>, Searchable {
     var appSearchText: String = ""
     var category: Staff.Category
     let regionIdCompany = app.credential?.userCityId ?? ""
+    let segue: StoryboardSegue.Common
 
     public var pageNumber: Int {
         page + 1
     }
 
-    init(request: RequestRepresentable, action: StaffListViewController, category: Staff.Category) {
+    init(request: RequestRepresentable,
+         action: StaffListViewController,
+         category: Staff.Category,
+         segue: StoryboardSegue.Common)
+    {
+        self.segue = segue
         self.category = category
         super.init(request: request, action: action, dataSource: [.defaultValue])
     }

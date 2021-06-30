@@ -21,12 +21,12 @@ extension AssetTaskInventory: Item {}
 extension AssetTaskInventory: AutoEquatable {}
 
 extension AssetTaskInventory: AutoCodable {
-    static var isCheck: Bool = false
-    static var assetId: String = ""
-    static var checkBillCode: String = ""
-    static var checkStatus: String = ""
-    static var checkStatusName: String = ""
-    static var tagNumber: String = ""
-    static var assetName: String = ""
-    static var imageCount: Int = 0
+    static var defaultIsCheck: Bool = false
+    static var defaultAssetId: String = ""
+    static var defaultCheckBillCode: String = ""
+    static var defaultCheckStatus: String = ""
+    static var defaultCheckStatusName: String = ""
+    static var defaultTagNumber: String = ""
+    static var defaultAssetName: String = ""
+    static var defaultImageCount: Int = 0
 }

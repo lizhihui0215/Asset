@@ -20,10 +20,14 @@ internal enum StoryboardSegue {
   }
   internal enum Common: String, SegueType {
     case submitted
+    case successToAssetTaskInventoryDetail
     case successToInventory
     case toScan
     case toSelectPrincipal
     case toSelectUser
+    case unwindFromStaffSelected
+    case unwindFromStaffSelectedToAssetTaskInventoryDetail
+    case unwindToAssetTaskInventoryDetail
   }
   internal enum Location: String, SegueType {
     case toAssetInventoryList

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I8X-VP-Tnc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -1702,56 +1701,6 @@
             <point key="canvasLocation" x="1854" y="1785"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Eas-TW-sf2">
-            <size key="intrinsicContentSize" width="168.5" height="19.5"/>
-        </designable>
-        <designable name="G2x-Rw-8Bj">
-            <size key="intrinsicContentSize" width="4" height="19.5"/>
-        </designable>
-        <designable name="ISq-7n-tlc">
-            <size key="intrinsicContentSize" width="4" height="19.5"/>
-        </designable>
-        <designable name="P7m-2G-1FP">
-            <size key="intrinsicContentSize" width="178" height="42"/>
-        </designable>
-        <designable name="a9h-Ev-lR6">
-            <size key="intrinsicContentSize" width="127" height="42"/>
-        </designable>
-        <designable name="aFx-Hi-ndc">
-            <size key="intrinsicContentSize" width="51" height="42"/>
-        </designable>
-        <designable name="fai-kU-veP">
-            <size key="intrinsicContentSize" width="4" height="19.5"/>
-        </designable>
-        <designable name="fy1-0T-Ov8">
-            <size key="intrinsicContentSize" width="186" height="18.5"/>
-        </designable>
-        <designable name="ggS-2D-AXY">
-            <size key="intrinsicContentSize" width="127" height="42"/>
-        </designable>
-        <designable name="jml-QG-NFb">
-            <size key="intrinsicContentSize" width="4" height="19.5"/>
-        </designable>
-        <designable name="koi-yx-lz2">
-            <size key="intrinsicContentSize" width="178" height="42"/>
-        </designable>
-        <designable name="nBX-uX-zdF">
-            <size key="intrinsicContentSize" width="35" height="30"/>
-        </designable>
-        <designable name="p0f-w6-d7G">
-            <size key="intrinsicContentSize" width="102" height="42"/>
-        </designable>
-        <designable name="v7g-gi-tGz">
-            <size key="intrinsicContentSize" width="104" height="19.5"/>
-        </designable>
-        <designable name="xSn-4m-FOq">
-            <size key="intrinsicContentSize" width="31" height="30"/>
-        </designable>
-        <designable name="yA3-mX-1qO">
-            <size key="intrinsicContentSize" width="4" height="19.5"/>
-        </designable>
-    </designables>
     <resources>
         <image name="search" width="22.5" height="22"/>
         <namedColor name="borderActiveColor">
