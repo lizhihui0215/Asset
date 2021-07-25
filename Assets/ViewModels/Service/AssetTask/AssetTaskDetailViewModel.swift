@@ -51,6 +51,7 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
     var alreadyCheckCount: String { String(taskDetail?.alreadyCheckCount ?? 0) }
     var lessCount: String { String(taskDetail?.lessCount ?? 0) }
     var moreCount: String { String(taskDetail?.moreCount ?? 0) }
+    var tagNumber: String { taskDetail?.taskNumber ?? "" }
 
     init(request: RequestRepresentable, action: AssetTaskDetailViewController, checkBillCode: String, taskNumber: String) {
         self.checkBillCode = checkBillCode
@@ -91,6 +92,7 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
         }
     }
 
+    // swiftlint:disable force_cast
     override func viewModel<T: ViewModelRepresentable>(for action: UIKit.UIViewController, with sender: Any?) -> T {
         switch action {
         case let action as AssetTaskInventoryListViewController:
@@ -98,8 +100,20 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
             return AssetTaskInventoryListViewModel(assetTaskDetail: taskDetail,
                                                    request: AssetInventoryListRequest(),
                                                    action: action) as! T
+        case let action as PhotographViewController:
+
+            let parameters = PhotographUploadParameter(category: .asset(tagNumber: tagNumber),
+                                                       longitude: longitude,
+                                                       latitude: latitude)
+            return LocationPhotographViewModel(title: "地点照片采集",
+                                               key: "地点编码",
+                                               viewStates: (first: .viewing, second: .viewing),
+                                               parameter: parameters,
+                                               request: PhotographUploadRequest(),
+                                               action: action) as! T
         default: break
         }
         return super.viewModel(for: action, with: sender)
     }
+    // swiftlint:enable force_cast
 }

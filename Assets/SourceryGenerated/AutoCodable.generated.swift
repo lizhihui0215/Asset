@@ -272,6 +272,8 @@ extension AssetTaskInventory {
         case tagNumber
         case assetName
         case imageCount
+        case locationCode
+        case locationName
     }
 
     internal init(from decoder: Decoder) throws {
@@ -285,6 +287,8 @@ extension AssetTaskInventory {
         tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? AssetTaskInventory.defaultTagNumber
         assetName = (try? container.decode(String.self, forKey: .assetName)) ?? AssetTaskInventory.defaultAssetName
         imageCount = (try? container.decode(Int.self, forKey: .imageCount)) ?? AssetTaskInventory.defaultImageCount
+        locationCode = try container.decodeIfPresent(String.self, forKey: .locationCode)
+        locationName = try container.decodeIfPresent(String.self, forKey: .locationName)
     }
 
 }
@@ -292,75 +296,131 @@ extension AssetTaskInventory {
 extension AssetTaskInventoryDetail {
 
     enum CodingKeys: String, CodingKey {
-        case checkStatusName
         case isCheck
-        case usePerson
-        case checkTime
-        case tagNumber
-        case realLocationName
-        case mapLocationDesc
-        case usePersonName
-        case checkPerson
-        case latitude
-        case dutyPerson
-        case assetCheckItemName
-        case deptId
-        case locationCode
-        case modelNumber
-        case realLocationCode
-        case quantity
-        case cityId
-        case assetCheckItem
-        case longitude
-        case deptName
-        case assetName
-        case manageDeptId
-        case manufactureName
-        case dutyPersonName
-        case checkStatus
         case checkBillCode
-        case locationName
-        case cityName
-        case manageDeptName
         case assetId
-        case serial
+        case tagNumber
+        case assetName
+        case checkTime
+        case checkStatus
+        case checkStatusName
+        case realLocationCode
+        case realLocationName
+        case locationCode
+        case locationName
+        case checkPerson
+        case manufactureName
+        case modelNumber
+        case quantity
+        case dutyPerson
+        case dutyPersonName
+        case usePerson
+        case usePersonName
+        case longitude
+        case latitude
+        case mapLocationDesc
+        case assetCheckItem
+        case assetCheckItemName
+        case resourceNumber
+        case cityId
+        case cityName
+        case deptId
+        case deptName
+        case manageDeptId
+        case manageDeptName
     }
 
     internal init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        checkStatusName = (try? container.decode(String.self, forKey: .checkStatusName)) ?? AssetTaskInventoryDetail.defaultCheckStatusName
         isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetTaskInventoryDetail.defaultIsCheck
-        usePerson = (try? container.decode(String.self, forKey: .usePerson)) ?? AssetTaskInventoryDetail.defaultUsePerson
-        checkTime = (try? container.decode(String.self, forKey: .checkTime)) ?? AssetTaskInventoryDetail.defaultCheckTime
-        tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? AssetTaskInventoryDetail.defaultTagNumber
-        realLocationName = (try? container.decode(String.self, forKey: .realLocationName)) ?? AssetTaskInventoryDetail.defaultRealLocationName
-        mapLocationDesc = (try? container.decode(String.self, forKey: .mapLocationDesc)) ?? AssetTaskInventoryDetail.defaultMapLocationDesc
-        usePersonName = (try? container.decode(String.self, forKey: .usePersonName)) ?? AssetTaskInventoryDetail.defaultUsePersonName
-        checkPerson = (try? container.decode(String.self, forKey: .checkPerson)) ?? AssetTaskInventoryDetail.defaultCheckPerson
-        latitude = (try? container.decode(String.self, forKey: .latitude)) ?? AssetTaskInventoryDetail.defaultLatitude
-        dutyPerson = (try? container.decode(String.self, forKey: .dutyPerson)) ?? AssetTaskInventoryDetail.defaultDutyPerson
-        assetCheckItemName = (try? container.decode(String.self, forKey: .assetCheckItemName)) ?? AssetTaskInventoryDetail.defaultAssetCheckItemName
-        deptId = (try? container.decode(String.self, forKey: .deptId)) ?? AssetTaskInventoryDetail.defaultDeptId
-        locationCode = (try? container.decode(String.self, forKey: .locationCode)) ?? AssetTaskInventoryDetail.defaultLocationCode
-        modelNumber = (try? container.decode(String.self, forKey: .modelNumber)) ?? AssetTaskInventoryDetail.defaultModelNumber
-        realLocationCode = (try? container.decode(String.self, forKey: .realLocationCode)) ?? AssetTaskInventoryDetail.defaultRealLocationCode
-        quantity = (try? container.decode(Int.self, forKey: .quantity)) ?? AssetTaskInventoryDetail.defaultQuantity
-        cityId = (try? container.decode(String.self, forKey: .cityId)) ?? AssetTaskInventoryDetail.defaultCityId
-        assetCheckItem = (try? container.decode(String.self, forKey: .assetCheckItem)) ?? AssetTaskInventoryDetail.defaultAssetCheckItem
-        longitude = (try? container.decode(String.self, forKey: .longitude)) ?? AssetTaskInventoryDetail.defaultLongitude
-        deptName = (try? container.decode(String.self, forKey: .deptName)) ?? AssetTaskInventoryDetail.defaultDeptName
-        assetName = (try? container.decode(String.self, forKey: .assetName)) ?? AssetTaskInventoryDetail.defaultAssetName
-        manageDeptId = (try? container.decode(String.self, forKey: .manageDeptId)) ?? AssetTaskInventoryDetail.defaultManageDeptId
-        manufactureName = (try? container.decode(String.self, forKey: .manufactureName)) ?? AssetTaskInventoryDetail.defaultManufactureName
-        dutyPersonName = (try? container.decode(String.self, forKey: .dutyPersonName)) ?? AssetTaskInventoryDetail.defaultDutyPersonName
-        checkStatus = (try? container.decode(String.self, forKey: .checkStatus)) ?? AssetTaskInventoryDetail.defaultCheckStatus
         checkBillCode = (try? container.decode(String.self, forKey: .checkBillCode)) ?? AssetTaskInventoryDetail.defaultCheckBillCode
-        locationName = (try? container.decode(String.self, forKey: .locationName)) ?? AssetTaskInventoryDetail.defaultLocationName
-        cityName = (try? container.decode(String.self, forKey: .cityName)) ?? AssetTaskInventoryDetail.defaultCityName
-        manageDeptName = (try? container.decode(String.self, forKey: .manageDeptName)) ?? AssetTaskInventoryDetail.defaultManageDeptName
         assetId = (try? container.decode(String.self, forKey: .assetId)) ?? AssetTaskInventoryDetail.defaultAssetId
-        serial = (try? container.decode(String.self, forKey: .serial)) ?? AssetTaskInventoryDetail.defaultSerial
+        tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? AssetTaskInventoryDetail.defaultTagNumber
+        assetName = (try? container.decode(String.self, forKey: .assetName)) ?? AssetTaskInventoryDetail.defaultAssetName
+        checkTime = (try? container.decode(String.self, forKey: .checkTime)) ?? AssetTaskInventoryDetail.defaultCheckTime
+        checkStatus = (try? container.decode(String.self, forKey: .checkStatus)) ?? AssetTaskInventoryDetail.defaultCheckStatus
+        checkStatusName = (try? container.decode(String.self, forKey: .checkStatusName)) ?? AssetTaskInventoryDetail.defaultCheckStatusName
+        realLocationCode = (try? container.decode(String.self, forKey: .realLocationCode)) ?? AssetTaskInventoryDetail.defaultRealLocationCode
+        realLocationName = (try? container.decode(String.self, forKey: .realLocationName)) ?? AssetTaskInventoryDetail.defaultRealLocationName
+        locationCode = (try? container.decode(String.self, forKey: .locationCode)) ?? AssetTaskInventoryDetail.defaultLocationCode
+        locationName = (try? container.decode(String.self, forKey: .locationName)) ?? AssetTaskInventoryDetail.defaultLocationName
+        checkPerson = (try? container.decode(String.self, forKey: .checkPerson)) ?? AssetTaskInventoryDetail.defaultCheckPerson
+        manufactureName = (try? container.decode(String.self, forKey: .manufactureName)) ?? AssetTaskInventoryDetail.defaultManufactureName
+        modelNumber = (try? container.decode(String.self, forKey: .modelNumber)) ?? AssetTaskInventoryDetail.defaultModelNumber
+        quantity = (try? container.decode(Int.self, forKey: .quantity)) ?? AssetTaskInventoryDetail.defaultQuantity
+        dutyPerson = (try? container.decode(String.self, forKey: .dutyPerson)) ?? AssetTaskInventoryDetail.defaultDutyPerson
+        dutyPersonName = (try? container.decode(String.self, forKey: .dutyPersonName)) ?? AssetTaskInventoryDetail.defaultDutyPersonName
+        usePerson = (try? container.decode(String.self, forKey: .usePerson)) ?? AssetTaskInventoryDetail.defaultUsePerson
+        usePersonName = (try? container.decode(String.self, forKey: .usePersonName)) ?? AssetTaskInventoryDetail.defaultUsePersonName
+        longitude = (try? container.decode(String.self, forKey: .longitude)) ?? AssetTaskInventoryDetail.defaultLongitude
+        latitude = (try? container.decode(String.self, forKey: .latitude)) ?? AssetTaskInventoryDetail.defaultLatitude
+        mapLocationDesc = (try? container.decode(String.self, forKey: .mapLocationDesc)) ?? AssetTaskInventoryDetail.defaultMapLocationDesc
+        assetCheckItem = (try? container.decode(String.self, forKey: .assetCheckItem)) ?? AssetTaskInventoryDetail.defaultAssetCheckItem
+        assetCheckItemName = (try? container.decode(String.self, forKey: .assetCheckItemName)) ?? AssetTaskInventoryDetail.defaultAssetCheckItemName
+        resourceNumber = (try? container.decode(String.self, forKey: .resourceNumber)) ?? AssetTaskInventoryDetail.defaultResourceNumber
+        cityId = (try? container.decode(String.self, forKey: .cityId)) ?? AssetTaskInventoryDetail.defaultCityId
+        cityName = (try? container.decode(String.self, forKey: .cityName)) ?? AssetTaskInventoryDetail.defaultCityName
+        deptId = (try? container.decode(String.self, forKey: .deptId)) ?? AssetTaskInventoryDetail.defaultDeptId
+        deptName = (try? container.decode(String.self, forKey: .deptName)) ?? AssetTaskInventoryDetail.defaultDeptName
+        manageDeptId = (try? container.decode(String.self, forKey: .manageDeptId)) ?? AssetTaskInventoryDetail.defaultManageDeptId
+        manageDeptName = (try? container.decode(String.self, forKey: .manageDeptName)) ?? AssetTaskInventoryDetail.defaultManageDeptName
+    }
+
+}
+
+extension AssetTaskInventoryDetailPhotograph {
+
+    enum CodingKeys: String, CodingKey {
+        case isCheck
+        case checkBillCode
+        case assetId
+        case tagNumber
+        case assetName
+        case checkStatus
+        case checkStatusName
+        case locationCode
+        case locationName
+        case checkPerson
+        case manufactureName
+        case modelNumber
+        case quantity
+        case dutyPerson
+        case dutyPersonName
+        case usePerson
+        case usePersonName
+        case assetCheckItemName
+        case deptId
+        case deptName
+        case manageDeptId
+        case manageDeptName
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetTaskInventoryDetailPhotograph.defaultIsCheck
+        checkBillCode = (try? container.decode(String.self, forKey: .checkBillCode)) ?? AssetTaskInventoryDetailPhotograph.defaultCheckBillCode
+        assetId = (try? container.decode(String.self, forKey: .assetId)) ?? AssetTaskInventoryDetailPhotograph.defaultAssetId
+        tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? AssetTaskInventoryDetailPhotograph.defaultTagNumber
+        assetName = (try? container.decode(String.self, forKey: .assetName)) ?? AssetTaskInventoryDetailPhotograph.defaultAssetName
+        checkStatus = (try? container.decode(String.self, forKey: .checkStatus)) ?? AssetTaskInventoryDetailPhotograph.defaultCheckStatus
+        checkStatusName = (try? container.decode(String.self, forKey: .checkStatusName)) ?? AssetTaskInventoryDetailPhotograph.defaultCheckStatusName
+        locationCode = (try? container.decode(String.self, forKey: .locationCode)) ?? AssetTaskInventoryDetailPhotograph.defaultLocationCode
+        locationName = (try? container.decode(String.self, forKey: .locationName)) ?? AssetTaskInventoryDetailPhotograph.defaultLocationName
+        checkPerson = (try? container.decode(String.self, forKey: .checkPerson)) ?? AssetTaskInventoryDetailPhotograph.defaultCheckPerson
+        manufactureName = (try? container.decode(String.self, forKey: .manufactureName)) ?? AssetTaskInventoryDetailPhotograph.defaultManufactureName
+        modelNumber = (try? container.decode(String.self, forKey: .modelNumber)) ?? AssetTaskInventoryDetailPhotograph.defaultModelNumber
+        quantity = (try? container.decode(Int.self, forKey: .quantity)) ?? AssetTaskInventoryDetailPhotograph.defaultQuantity
+        dutyPerson = (try? container.decode(String.self, forKey: .dutyPerson)) ?? AssetTaskInventoryDetailPhotograph.defaultDutyPerson
+        dutyPersonName = (try? container.decode(String.self, forKey: .dutyPersonName)) ?? AssetTaskInventoryDetailPhotograph.defaultDutyPersonName
+        usePerson = (try? container.decode(String.self, forKey: .usePerson)) ?? AssetTaskInventoryDetailPhotograph.defaultUsePerson
+        usePersonName = (try? container.decode(String.self, forKey: .usePersonName)) ?? AssetTaskInventoryDetailPhotograph.defaultUsePersonName
+        assetCheckItemName = (try? container.decode(String.self, forKey: .assetCheckItemName)) ?? AssetTaskInventoryDetailPhotograph.defaultAssetCheckItemName
+        deptId = (try? container.decode(String.self, forKey: .deptId)) ?? AssetTaskInventoryDetailPhotograph.defaultDeptId
+        deptName = (try? container.decode(String.self, forKey: .deptName)) ?? AssetTaskInventoryDetailPhotograph.defaultDeptName
+        manageDeptId = (try? container.decode(String.self, forKey: .manageDeptId)) ?? AssetTaskInventoryDetailPhotograph.defaultManageDeptId
+        manageDeptName = (try? container.decode(String.self, forKey: .manageDeptName)) ?? AssetTaskInventoryDetailPhotograph.defaultManageDeptName
     }
 
 }

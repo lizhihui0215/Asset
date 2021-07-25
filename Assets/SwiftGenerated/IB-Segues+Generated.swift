@@ -16,6 +16,7 @@ internal enum StoryboardSegue {
     case toAssetDetail
   }
   internal enum AssetTask: String, SegueType {
+    case toPhotograph
     case toSearch
   }
   internal enum Common: String, SegueType {

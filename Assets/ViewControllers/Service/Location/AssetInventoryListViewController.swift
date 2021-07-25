@@ -40,7 +40,7 @@ class AssetInventoryListViewController: BaseTableViewController, TableViewContro
 
     func refreshTable(isPaging: Bool = false, isFetchInventoryStatus: Bool = false) {
         let fetchList = viewModel.fetchList(isPaging: isPaging)
-        let fetchInventoryStatus = viewModel.fetchInventoryStatus()
+        let fetchInventoryStatus = viewModel.fetchDictionary(for: .inventory)
 
         let fetchListSuccess: ([Asset]) -> Void = { [weak self] _ in
             guard let self = self else { return }

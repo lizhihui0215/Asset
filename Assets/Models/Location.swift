@@ -34,16 +34,16 @@ struct LocationReGeocode: AutoEncodable {
     var city: String
 
     /// 区名字属性
-    var district: String
+    var district: String?
 
     /// 乡镇名字属性
-    var town: String
+    var town: String?
 
     /// 街道名字属性
-    var street: String
+    var street: String?
 
     /// 街道号码属性
-    var streetNumber: String
+    var streetNumber: String?
 
     /// 城市编码属性
     var cityCode: String
@@ -52,7 +52,7 @@ struct LocationReGeocode: AutoEncodable {
     var adCode: String
 
     /// 位置语义化结果的定位点在什么地方周围的描述信息
-    var locationDescribe: String
+    var locationDescribe: String?
 
     /// 国家名字属性
     var country: String

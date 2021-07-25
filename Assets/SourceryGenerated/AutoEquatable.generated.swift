@@ -159,43 +159,72 @@ internal func == (lhs: AssetTaskInventory, rhs: AssetTaskInventory) -> Bool {
     guard lhs.tagNumber == rhs.tagNumber else { return false }
     guard lhs.assetName == rhs.assetName else { return false }
     guard lhs.imageCount == rhs.imageCount else { return false }
+    guard compareOptionals(lhs: lhs.locationCode, rhs: rhs.locationCode, compare: ==) else { return false }
+    guard compareOptionals(lhs: lhs.locationName, rhs: rhs.locationName, compare: ==) else { return false }
     return true
 }
 // MARK: - AssetTaskInventoryDetail AutoEquatable
 extension AssetTaskInventoryDetail: Equatable {}
 internal func == (lhs: AssetTaskInventoryDetail, rhs: AssetTaskInventoryDetail) -> Bool {
-    guard lhs.checkStatusName == rhs.checkStatusName else { return false }
     guard lhs.isCheck == rhs.isCheck else { return false }
-    guard lhs.usePerson == rhs.usePerson else { return false }
-    guard lhs.checkTime == rhs.checkTime else { return false }
+    guard lhs.checkBillCode == rhs.checkBillCode else { return false }
+    guard lhs.assetId == rhs.assetId else { return false }
     guard lhs.tagNumber == rhs.tagNumber else { return false }
+    guard lhs.assetName == rhs.assetName else { return false }
+    guard lhs.checkTime == rhs.checkTime else { return false }
+    guard lhs.checkStatus == rhs.checkStatus else { return false }
+    guard lhs.checkStatusName == rhs.checkStatusName else { return false }
+    guard lhs.realLocationCode == rhs.realLocationCode else { return false }
     guard lhs.realLocationName == rhs.realLocationName else { return false }
-    guard lhs.mapLocationDesc == rhs.mapLocationDesc else { return false }
-    guard lhs.usePersonName == rhs.usePersonName else { return false }
+    guard lhs.locationCode == rhs.locationCode else { return false }
+    guard lhs.locationName == rhs.locationName else { return false }
     guard lhs.checkPerson == rhs.checkPerson else { return false }
-    guard lhs.latitude == rhs.latitude else { return false }
+    guard lhs.manufactureName == rhs.manufactureName else { return false }
+    guard lhs.modelNumber == rhs.modelNumber else { return false }
+    guard lhs.quantity == rhs.quantity else { return false }
     guard lhs.dutyPerson == rhs.dutyPerson else { return false }
+    guard lhs.dutyPersonName == rhs.dutyPersonName else { return false }
+    guard lhs.usePerson == rhs.usePerson else { return false }
+    guard lhs.usePersonName == rhs.usePersonName else { return false }
+    guard lhs.longitude == rhs.longitude else { return false }
+    guard lhs.latitude == rhs.latitude else { return false }
+    guard lhs.mapLocationDesc == rhs.mapLocationDesc else { return false }
+    guard lhs.assetCheckItem == rhs.assetCheckItem else { return false }
+    guard lhs.assetCheckItemName == rhs.assetCheckItemName else { return false }
+    guard lhs.resourceNumber == rhs.resourceNumber else { return false }
+    guard lhs.cityId == rhs.cityId else { return false }
+    guard lhs.cityName == rhs.cityName else { return false }
+    guard lhs.deptId == rhs.deptId else { return false }
+    guard lhs.deptName == rhs.deptName else { return false }
+    guard lhs.manageDeptId == rhs.manageDeptId else { return false }
+    guard lhs.manageDeptName == rhs.manageDeptName else { return false }
+    return true
+}
+// MARK: - AssetTaskInventoryDetailPhotograph AutoEquatable
+extension AssetTaskInventoryDetailPhotograph: Equatable {}
+internal func == (lhs: AssetTaskInventoryDetailPhotograph, rhs: AssetTaskInventoryDetailPhotograph) -> Bool {
+    guard lhs.isCheck == rhs.isCheck else { return false }
+    guard lhs.checkBillCode == rhs.checkBillCode else { return false }
+    guard lhs.assetId == rhs.assetId else { return false }
+    guard lhs.tagNumber == rhs.tagNumber else { return false }
+    guard lhs.assetName == rhs.assetName else { return false }
+    guard lhs.checkStatus == rhs.checkStatus else { return false }
+    guard lhs.checkStatusName == rhs.checkStatusName else { return false }
+    guard lhs.locationCode == rhs.locationCode else { return false }
+    guard lhs.locationName == rhs.locationName else { return false }
+    guard lhs.checkPerson == rhs.checkPerson else { return false }
+    guard lhs.manufactureName == rhs.manufactureName else { return false }
+    guard lhs.modelNumber == rhs.modelNumber else { return false }
+    guard lhs.quantity == rhs.quantity else { return false }
+    guard lhs.dutyPerson == rhs.dutyPerson else { return false }
+    guard lhs.dutyPersonName == rhs.dutyPersonName else { return false }
+    guard lhs.usePerson == rhs.usePerson else { return false }
+    guard lhs.usePersonName == rhs.usePersonName else { return false }
     guard lhs.assetCheckItemName == rhs.assetCheckItemName else { return false }
     guard lhs.deptId == rhs.deptId else { return false }
-    guard lhs.locationCode == rhs.locationCode else { return false }
-    guard lhs.modelNumber == rhs.modelNumber else { return false }
-    guard lhs.realLocationCode == rhs.realLocationCode else { return false }
-    guard lhs.quantity == rhs.quantity else { return false }
-    guard lhs.cityId == rhs.cityId else { return false }
-    guard lhs.assetCheckItem == rhs.assetCheckItem else { return false }
-    guard lhs.longitude == rhs.longitude else { return false }
     guard lhs.deptName == rhs.deptName else { return false }
-    guard lhs.assetName == rhs.assetName else { return false }
     guard lhs.manageDeptId == rhs.manageDeptId else { return false }
-    guard lhs.manufactureName == rhs.manufactureName else { return false }
-    guard lhs.dutyPersonName == rhs.dutyPersonName else { return false }
-    guard lhs.checkStatus == rhs.checkStatus else { return false }
-    guard lhs.checkBillCode == rhs.checkBillCode else { return false }
-    guard lhs.locationName == rhs.locationName else { return false }
-    guard lhs.cityName == rhs.cityName else { return false }
     guard lhs.manageDeptName == rhs.manageDeptName else { return false }
-    guard lhs.assetId == rhs.assetId else { return false }
-    guard lhs.serial == rhs.serial else { return false }
     return true
 }
 // MARK: - Credential AutoEquatable

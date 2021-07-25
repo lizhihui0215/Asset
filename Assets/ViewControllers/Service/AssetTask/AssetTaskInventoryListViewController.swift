@@ -37,6 +37,9 @@ class AssetTaskInventoryListViewController: BaseTableViewController, TableViewCo
             destination.viewModel = viewModel.viewModel(for: destination, with: sender.indexPath)
         case let destination as ScanViewController:
             destination.viewModel = viewModel.viewModel(for: destination, with: sender)
+        case let destination as AssetTaskInventoryDetailPhotographViewController:
+            guard let sender = sender as? AssetTaskInventoryListTableViewCell else { break }
+            destination.viewModel = viewModel.viewModel(for: destination, with: sender.indexPath)
         default: break
         }
     }

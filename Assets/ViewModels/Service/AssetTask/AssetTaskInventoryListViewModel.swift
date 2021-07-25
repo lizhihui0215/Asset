@@ -51,9 +51,14 @@ class AssetTaskInventoryListViewModel: PageableViewModel<AssetTaskInventoryListV
     override func viewModel<T: ViewModelRepresentable>(for action: UIKit.UIViewController, with sender: Any?) -> T {
         switch action {
         case let action as ScanViewController:
-//            {tagNumber=3221-01051146, realLocationCode=3221BG00000157, checkBillCode=QSPD-SJH-303210202104280050, realLocationName=山东省济南市市中区盛唐巷22号南楼1楼采购物流中心}
-
             return AssetTaskInventoryListScanViewModel(request: AssetTaskInventoryListScanRequest(), action: action, assetTaskDetail: assetTaskDetail) as! T
+        case let action as AssetTaskInventoryDetailPhotographViewController:
+            guard let indexPath = sender as? IndexPath else { break }
+            var assetTaskInventory = itemAtIndexPath(indexPath: indexPath)
+            assetTaskInventory.locationCode = assetTaskDetail.locationCode
+            assetTaskInventory.locationName = assetTaskDetail.locationCode
+            return AssetTaskInventoryDetailPhotographViewModel(request: AssetTaskInventoryDetailPhotographRequest(), action: action, assetTaskInventory: assetTaskInventory) as! T
+
         default: break
         }
 

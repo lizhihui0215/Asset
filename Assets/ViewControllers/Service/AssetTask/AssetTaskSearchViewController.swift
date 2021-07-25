@@ -6,18 +6,41 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
+import DropDown
 import UIKit
 
 class AssetTaskSearchViewController: BaseViewController {
     @IBOutlet var taskStatusButton: UIButton!
     @IBOutlet var locationTextField: UITextField!
+    var viewModel: AssetTaskSearchViewModel!
+    let dropDown = DropDown()
 
     @IBAction func taskStatusButton(_ sender: UIButton) {}
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        dropDown.anchorView = taskStatusButton
+        dropDown.cellNib = UINib(nibName: "DropDownOptionCell", bundle: nil)
+        dropDown.dataSource = viewModel.dropDownOptions
+        dropDown.selectionAction = { [weak self] _, item in
+            guard let self = self else { return }
+            `self`.viewModel.setAssetStatus(for: item)
+            `self`.taskStatusButton.setTitle(item, for: .normal)
+        }
 
-        // Do any additional setup after loading the view.
+        viewModel.fetchDictionary(for: .taskStatus).onSuccess { [weak self] _ in
+            guard let self = self else { return }
+            `self`.refreshDropDown()
+        }
+    }
+
+    private func refreshDropDown() {
+        dropDown.dataSource = viewModel.dropDownOptions
+        dropDown.reloadAllComponents()
+    }
+
+    @IBAction func taskStatusButtonTapped(_ sender: UIButton) {
+        dropDown.show()
     }
 
     /*

@@ -48,8 +48,8 @@ final class APIMockService {
                                                                               checkPerson: "dsadsa",
                                                                               realLocationName: "dsadsa"))
 
-    let inventoryStatus = APIRouter.inventoryStatus
-    let assetStatus = APIRouter.assetStatus
+    let assetStatus = APIRouter.dictionaryStatus(.asset)
+    let inventoryStatus = APIRouter.dictionaryStatus(.inventory)
 
     let principalStaffList = APIRouter.staffList(StaffListParameter(pageNumber: "1",
                                                                     pageSize: "2",

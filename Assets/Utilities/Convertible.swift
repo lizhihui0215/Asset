@@ -31,6 +31,12 @@ extension ServiceConfiguration.Service: Convertible {
 extension BMKLocationReGeocode: Convertible {
     func convert() -> LocationReGeocode {
         let poiRegion = poiRegion == nil ? nil : poiRegion.convert()
+        let district = district ?? nil
+        let town = town ?? nil
+        let street = street ?? nil
+        let streetNumber = streetNumber ?? nil
+        let locationDescribe = locationDescribe ?? nil
+
         return LocationReGeocode(
             countryCode: countryCode,
             province: province,
@@ -38,11 +44,11 @@ extension BMKLocationReGeocode: Convertible {
             district: district,
             town: town,
             street: street,
-            streetNumber: "this field is invalid from baidu map",
-            cityCode: cityCode,
-            adCode: adCode,
-            locationDescribe: locationDescribe,
-            country: country,
+            streetNumber: streetNumber,
+            cityCode: cityCode ?? "",
+            adCode: adCode ?? "",
+            locationDescribe: locationDescribe ?? "",
+            country: country ?? "",
             poiRegion: poiRegion
         )
     }

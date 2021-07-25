@@ -6,6 +6,7 @@
 import Foundation
 
 class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewController, DefaultSection<Asset>>, Searchable {
+    typealias InventoryStatus = [String: String]
     typealias SelectedInventoryStatus = (status: InventoryStatus.Key, name: InventoryStatus.Value)
 
     enum Keys {
@@ -58,8 +59,8 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
         super.init(request: request, action: action, dataSource: [.defaultValue])
     }
 
-    override func fetchInventoryStatus() -> ViewModelFuture<InventoryStatus?> {
-        super.fetchInventoryStatus().onSuccess { result in
+    override func fetchDictionary(for status: APIRouter.DictionaryStatus) -> ViewModelFuture<InventoryStatus?> {
+        super.fetchDictionary(for: status).onSuccess { result in
             guard let result = result else { return }
             self.inventoryStatus.merge(result) { $1 }
         }

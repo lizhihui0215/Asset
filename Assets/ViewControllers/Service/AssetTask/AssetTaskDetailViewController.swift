@@ -50,6 +50,8 @@ class AssetTaskDetailViewController: BaseViewController {
         switch segue.destination {
         case let destination as AssetTaskInventoryListViewController:
             destination.viewModel = viewModel.viewModel(for: destination, with: sender)
+        case let destination as PhotographViewController:
+            destination.viewModel = viewModel.viewModel(for: destination, with: sender)
         default: break
         }
     }

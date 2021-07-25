@@ -10,12 +10,26 @@ import Foundation
 
 class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailViewController>, StaffSelectable {
     var locationService: BDLocationService = .shared
+    typealias AssetStatus = [String: String]
+    typealias SelectedAssetStatus = (status: AssetStatus.Key, name: AssetStatus.Value)
+    var assetStatus: AssetStatus?
+    var selectedAssetStatus: SelectedAssetStatus?
+
+    public var dropDownOptions: [String] {
+        assetStatus?.values.map { $0 } ?? []
+    }
 
     private var location: CLLocation? {
         didSet {
             latitude = String(location?.coordinate.latitude ?? 0)
             longitude = String(location?.coordinate.longitude ?? 0)
         }
+    }
+
+    func setAssetStatus(for item: String) {
+        guard item != selectedAssetStatus?.name, let assetStatus = assetStatus else { return }
+        guard let status = assetStatus.key(from: item) else { return }
+        selectedAssetStatus = (status: status, name: item)
     }
 
     var rgcData: LocationReGeocode?
@@ -35,20 +49,37 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
 
     var assertUseName: String { assetTaskInventoryDetail.assetCheckItemName }
 
-    var serial: String {
-        get { assetTaskInventoryDetail.serial }
-        set { assetTaskInventoryDetail.serial = newValue }
+    var checkPerson: String { app.credential?.userAccount ?? "" }
+
+    var resourceNumber: String {
+        get { assetTaskInventoryDetail.resourceNumber }
+        set { assetTaskInventoryDetail.resourceNumber = newValue }
     }
 
     var tagNumber: String { assetTaskInventoryDetail.tagNumber }
-    var assetName: String { assetTaskInventoryDetail.assetName }
-    var manufactureName: String { assetTaskInventoryDetail.manufactureName }
-    var modelName: String { assetTaskInventoryDetail.modelNumber }
+    var assetName: String {
+        get { assetTaskInventoryDetail.assetName }
+        set { assetTaskInventoryDetail.assetName = newValue }
+    }
+
+    var manufactureName: String {
+        get { assetTaskInventoryDetail.manufactureName }
+        set { assetTaskInventoryDetail.manufactureName = newValue }
+    }
+
+    var modelName: String {
+        get { assetTaskInventoryDetail.modelNumber }
+        set { assetTaskInventoryDetail.modelNumber = newValue }
+    }
+
     var systemLocationCode: String { assetTaskInventoryDetail.locationCode }
     var locationCode: String { assetTaskInventoryDetail.realLocationCode }
     var systemLocationName: String { assetTaskInventoryDetail.locationName }
     var locationName: String { assetTaskInventoryDetail.realLocationName }
-    var quantity: String { String(assetTaskInventoryDetail.quantity) }
+    var quantity: String {
+        get { String(assetTaskInventoryDetail.quantity) }
+        set { assetTaskInventoryDetail.quantity = Int(newValue) ?? 0 }
+    }
 
     public var principalName: String {
         get { principal?.userName ?? "" }
@@ -71,6 +102,7 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
         set { assetTaskInventoryDetail.longitude = newValue }
     }
 
+    public var selectedAssetCheckItem: String = ""
     var systemLatitude: String {
         get { String(format: "%.6f", Double(assetTaskInventoryDetail.latitude) ?? 0) }
         set { assetTaskInventoryDetail.latitude = newValue }
@@ -86,6 +118,13 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
         handleAssetDetailResult(assetTaskInventoryDetail: assetTaskInventoryDetail)
     }
 
+    override func fetchDictionary(for status: APIRouter.DictionaryStatus) -> ViewModelFuture<AssetStatus?> {
+        super.fetchDictionary(for: status).onSuccess { [weak self] status in
+            guard let self = self else { return }
+            `self`.assetStatus = status
+        }
+    }
+
     func getGPSLocation() -> ViewModelFuture<CLLocation?> {
         locationService.getGPSLocation().flatMap { [weak self] result -> ViewModelFuture<CLLocation?> in
             guard let result = result, let self = self else {
@@ -98,21 +137,40 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
     }
 
     func submit() -> ViewModelFuture<AssetTaskInventoryDetail?> {
-        fatalError("")
-//        api(of: AssetTaskDetailResponse.self,
-//            router: .assetTaskDetailSubmit(AssetTaskDetailSubmitParameter(mapLocationDesc: rgcData?.eam.JSONString ?? "",
-//                                                                          checkPerson: checkPerson,
-//                                                                          checkBillCode: checkBillCode,
-//                                                                          latitude: latitude,
-//                                                                          taskNumber: taskNumber,
-//                                                                          longitude: longitude))).onSuccess { [weak self] result in
+        api(of: AssetTaskInventoryDetailSubmitResponse.self,
+            router: .assetTaskInventoryDetailSubmit(
+                AssetTaskInventoryDetailSubmitParameter(
+                    realLocationCode: assetTaskInventoryDetail.realLocationCode,
+                    quantity: quantity,
+                    checkPerson: checkPerson,
+                    latitude: latitude,
+                    dutyPersonName: principal?.userName ?? "",
+                    assetCheckItem: selectedAssetStatus?.status ?? "",
+                    resourceNumber: resourceNumber,
+                    usePersonName: userName,
+                    tagNumber: tagNumber,
+                    mapLocationDesc: rgcData?.eam.JSONString ?? "",
+                    dutyPerson: principal?.account ?? "",
+                    assetId: assetTaskInventoryDetail.assetId,
+                    checkBillCode: assetTaskInventoryDetail.checkBillCode,
+                    manufactureName: manufactureName,
+                    usePerson: principalName,
+                    assetName: assetName,
+                    realLocationName: assetTaskInventoryDetail.realLocationName,
+                    modelNumber: modelName,
+                    longitude: longitude
+                )))
+//                .onSuccess { [weak self] result in
 //            guard let self = self else { return }
-//            `self`.taskDetail?.latitude = result?.latitude ?? ""
-//            `self`.taskDetail?.longitude = result?.longitude ?? ""
+//            `self`.assetTaskInventoryDetail.latitude = result?.latitude ?? ""
+//            `self`.assetTaskInventoryDetail.longitude = result?.longitude ?? ""
 //        }
     }
 
     func handleAssetDetailResult(assetTaskInventoryDetail: AssetTaskInventoryDetail) {
+        let checkStatusName = assetTaskInventoryDetail.assetCheckItemName
+        let checkStatus = assetStatus?.key(from: checkStatusName) ?? "0"
+        selectedAssetStatus = (status: checkStatus, name: checkStatusName)
         let dutyPerson = assetTaskInventoryDetail.dutyPerson
         let dutyPersonName = assetTaskInventoryDetail.dutyPersonName
         let usePerson = assetTaskInventoryDetail.usePerson
@@ -141,6 +199,17 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
             return StaffListViewModel(request: StaffListRequest(),
                                       action: action,
                                       category: sender as! Staff.Category, segue: .unwindFromStaffSelectedToAssetTaskInventoryDetail) as! T
+        case let action as PhotographViewController:
+
+            let parameters = PhotographUploadParameter(category: .asset(tagNumber: tagNumber),
+                                                       longitude: longitude,
+                                                       latitude: latitude)
+            return AssetPhotographViewModel(title: "资产照片采集",
+                                            key: "资产标签号",
+                                            viewStates: (first: .viewing, second: .viewing),
+                                            parameter: parameters,
+                                            request: PhotographRequest(),
+                                            action: action) as! T
         default: break
         }
         return super.viewModel(for: action, with: sender)

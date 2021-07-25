@@ -15,6 +15,8 @@ typealias ViewModelResult<Success> = Result<Success, Error>
 typealias ViewModelCompletionHandler<Success> = (ViewModelResult<Success>) -> Void
 typealias ViewModelFuture<Success> = Future<Success, Error>
 
+let defaultOption: [String: String] = ["": "全部"]
+
 protocol Action: AnyObject, WindowAble {
     func alert(title: String?,
                message: String,
@@ -85,6 +87,10 @@ class BaseViewModel<T: Action>: ViewModelRepresentable, Validation {
     weak var action: T!
     var validator = Validator.defaultValue
 
+    lazy var defaultDataDictionarySort: (String, String) throws -> Bool = {
+        { $0 == defaultOption.values.first ? true : $0 < $1 }
+    }()
+
     init(request: RequestRepresentable, action: T) {
         self.request = request
         self.action = action
@@ -122,12 +128,8 @@ class BaseViewModel<T: Action>: ViewModelRepresentable, Validation {
         }
     }
 
-    func fetchInventoryStatus() -> ViewModelFuture<InventoryStatus?> {
-        api(of: InventoryStatusResponse.self, router: .inventoryStatus)
-    }
-
-    func fetchAssetStatus() -> ViewModelFuture<AssetStatus?> {
-        api(of: AssetStatusResponse.self, router: .assetStatus)
+    func fetchDictionary(for status: APIRouter.DictionaryStatus) -> ViewModelFuture<[String: String]?> {
+        api(of: DictionaryStatusResponse.self, router: .dictionaryStatus(status))
     }
 
     func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any? = nil) -> T {

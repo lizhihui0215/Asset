@@ -14,6 +14,8 @@ struct AssetTaskInventory {
     let tagNumber: String
     let assetName: String
     let imageCount: Int
+    var locationCode: String?
+    var locationName: String?
 }
 
 extension AssetTaskInventory: Item {}

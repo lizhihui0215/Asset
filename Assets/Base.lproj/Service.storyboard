@@ -546,6 +546,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="taskStatusButton:" destination="gfd-RX-Mfx" eventType="touchUpInside" id="UoJ-mT-ge3"/>
+                                                            <action selector="taskStatusButtonTapped:" destination="oYZ-mm-CUc" eventType="touchUpInside" id="wPN-02-nHZ"/>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odq-L5-ycV">

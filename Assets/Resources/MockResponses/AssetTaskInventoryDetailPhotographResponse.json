@@ -1,0 +1,27 @@
+{
+  "status": 0,
+  "data": {
+    "isCheck": false,
+    "checkBillCode": "QSPD-SJH-303210202104280050",
+    "assetId": "8a93e7d97297436401729757f29835f2",
+    "tagNumber": "3221-01051149",
+    "assetName": "不分明细.空调",
+    "checkStatus": "0",
+    "checkStatusName": "未盘",
+    "locationCode": "3221BG00000157",
+    "locationName": "山东省济南市市中区盛唐巷22号南楼1楼采购物流中心",
+    "checkPerson": "geyi",
+    "manufactureName": "格力",
+    "modelNumber": "格力2。5P柜机KFR-5",
+    "quantity": 1,
+    "dutyPerson": "32215494",
+    "dutyPersonName": "白光昊",
+    "usePerson": "baiguanghao",
+    "usePersonName": "白光昊",
+    "assetCheckItemName": "在用",
+    "deptId": "8a93ee03627c181d0162dcd799b201b2",
+    "deptName": "济南综合部采购物流中心",
+    "manageDeptId": "8a93e58434103f580134104bb1010281",
+    "manageDeptName": "济南综合部采购物流中心"
+  }
+}

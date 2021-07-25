@@ -5,12 +5,10 @@
 
 import Foundation
 
-typealias AssetStatus = [String: String]
+struct DictionaryStatusRequest: RequestRepresentable {}
 
-struct AssetStatusRequest: RequestRepresentable {}
-
-struct AssetStatusResponse: DataResponse {
+struct DictionaryStatusResponse: DataResponse {
     var status: Int = 0
     var msg: String = App.Constants.Default.string
-    var data: AssetStatus?
+    var data: [String: String]?
 }

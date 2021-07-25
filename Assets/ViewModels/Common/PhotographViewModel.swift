@@ -21,14 +21,16 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
     }
 
     var parameter: PhotographUploadParameter
-    var viewStates: ViewStates = (first: .prepare, second: .prepare)
+    var viewStates: ViewStates
     var photos: [Photo] = [Photo(), Photo()]
     init(title: String,
          key: String,
+         viewStates: ViewStates,
          parameter: PhotographUploadParameter,
          request: RequestRepresentable,
          action: PhotographViewController)
     {
+        self.viewStates = viewStates
         self.title = title
         self.key = key
         self.parameter = parameter

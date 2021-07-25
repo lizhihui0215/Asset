@@ -1,18 +1,18 @@
 //
-//  TransformDetailViewController.swift
+//  AssetTaskInventoryDetailPhotographViewController.swift
 //  Assets
 //
-//  Created by Bernard on 2021/6/4.
+//  Created by lizhihui on 2021/7/8.
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
 import DropDown
 import UIKit
 
-class AssetTaskInventoryDetailViewController: BaseViewController {
+class AssetTaskInventoryDetailPhotographViewController: BaseViewController {
     @IBOutlet var checkStatusNameLabel: UILabel!
-    @IBOutlet var assetCheckItemNameButton: UIButton!
-    @IBOutlet var serialTextField: AnimatableTextField!
+    @IBOutlet var assetCheckItemNameLabel: UILabel!
+    @IBOutlet var serialLabel: UILabel!
     @IBOutlet var tagNumberLabel: UILabel!
     @IBOutlet var assetNameTextField: AnimatableTextField!
     @IBOutlet var manufactureNameTextField: AnimatableTextField!
@@ -31,53 +31,34 @@ class AssetTaskInventoryDetailViewController: BaseViewController {
     @IBOutlet var principalTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet var userTapGestureRecognizer: UITapGestureRecognizer!
 
-    let dropDown = DropDown()
-
-    var viewModel: AssetTaskInventoryDetailViewModel!
+    var viewModel: AssetTaskInventoryDetailPhotographViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dropDown.anchorView = assetCheckItemNameButton
-        dropDown.cellNib = UINib(nibName: "DropDownOptionCell", bundle: nil)
-        dropDown.dataSource = viewModel.dropDownOptions
-
-        dropDown.selectionAction = { [weak self] _, item in
+        viewModel.fetchTaskInventoryDetailPhotograph().onSuccess { [weak self] _ in
             guard let self = self else { return }
-            `self`.viewModel.setAssetStatus(for: item)
-            `self`.assetCheckItemNameButton.setTitle(item, for: .normal)
+            `self`.updateViews()
         }
-
-        viewModel.fetchDictionary(for: .inventory).onSuccess { [weak self] _ in
-            guard let self = self else { return }
-            `self`.refreshDropDown()
-        }
-
-        updateLocationCoordinates()
-        updateViews()
-    }
-
-    private func refreshDropDown() {
-        dropDown.dataSource = viewModel.dropDownOptions
-        dropDown.reloadAllComponents()
     }
 
     func updateViews() {
         checkStatusNameLabel.text = viewModel.checkStatusName
-        assetCheckItemNameButton.setTitle(viewModel.assertUseName, for: .normal)
-        serialTextField.text = viewModel.resourceNumber
+        assetCheckItemNameLabel.text = viewModel.assertUseName
+
+//        serialLabel.text = viewModel.resourceNumber
         tagNumberLabel.text = viewModel.tagNumber
         assetNameTextField.text = viewModel.assetName
         manufactureNameTextField.text = viewModel.manufactureName
         modelNameTextField.text = viewModel.modelName
-        systemLocationCodeLabel.text = viewModel.systemLocationCode
+//        systemLocationCodeLabel.text = viewModel.systemLocationCode
         locationCodeLabel.text = viewModel.locationCode
-        systemLocationNameLabel.text = viewModel.systemLocationName
+//        systemLocationNameLabel.text = viewModel.systemLocationName
         locationNameLabel.text = viewModel.locationName
         quantityTextField.text = viewModel.quantity
         principalTextField.text = viewModel.principalName
         userTextField.text = viewModel.userName
-        systemLongitudeLabel.text = viewModel.systemLongitude
-        systemLatitudeLabel.text = viewModel.systemLatitude
+//        systemLongitudeLabel.text = viewModel.systemLongitude
+//        systemLatitudeLabel.text = viewModel.systemLatitude
         longitudeLabel.text = viewModel.formattedLongitude
         latitudeLabel.text = viewModel.formattedLatitude
     }
@@ -92,29 +73,13 @@ class AssetTaskInventoryDetailViewController: BaseViewController {
         }
     }
 
-    @IBAction func assetStatusButtonTapped(_ sender: UIButton) {
-        dropDown.show()
-    }
-
     func save() {
 //        viewModel.selectedAssetCheckItem
-        viewModel.resourceNumber = serialTextField.eam.text
-        viewModel.assetName = assetNameTextField.eam.text
-        viewModel.manufactureName = manufactureNameTextField.eam.text
-        viewModel.modelName = modelNameTextField.eam.text
-        viewModel.quantity = quantityTextField.eam.text
-    }
-
-    @IBAction func updateLocationCoordinatesTapped(_ sender: UIButton) {
-        updateLocationCoordinates()
-    }
-
-    func updateLocationCoordinates() {
-        viewModel.getGPSLocation().onSuccess { [weak self] _ in
-            guard let self = self else { return }
-            `self`.longitudeLabel.text = `self`.viewModel.formattedLongitude
-            `self`.latitudeLabel.text = `self`.viewModel.formattedLatitude
-        }
+//        viewModel.resourceNumber = serialLabel.text ?? ""
+//        viewModel.assetName = assetNameTextField.eam.text
+//        viewModel.manufactureName = manufactureNameTextField.eam.text
+//        viewModel.modelName = modelNameTextField.eam.text
+//        viewModel.quantity = quantityTextField.eam.text
     }
 
     // MARK: - Navigation
@@ -122,12 +87,6 @@ class AssetTaskInventoryDetailViewController: BaseViewController {
     @IBAction func unwindToAssetTaskInventoryDetailViewController(sender: UIStoryboardSegue) {
         let source = sender.source
         switch source {
-        case let source as ScanViewController:
-            guard let messageString = source.viewModel.metadataObject.messageString else {
-                return
-            }
-            viewModel.resourceNumber = messageString
-            serialTextField.text = viewModel.resourceNumber
         case _ as StaffListViewController:
             updateViews()
         default: break

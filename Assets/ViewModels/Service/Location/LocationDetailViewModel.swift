@@ -92,8 +92,9 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
                                                        longitude: String(locationDetail.longitude),
                                                        latitude: String(locationDetail.latitude))
 
-            return LocationPhotographViewModel(title: "资产照片采集",
-                                               key: "资产标签号",
+            return LocationPhotographViewModel(title: "地点照片采集",
+                                               key: "地点编码",
+                                               viewStates: (first: .prepare, second: .prepare),
                                                parameter: parameters,
                                                request: PhotographUploadRequest(),
                                                action: action) as! T

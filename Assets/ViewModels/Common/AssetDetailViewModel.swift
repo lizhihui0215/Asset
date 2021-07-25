@@ -35,6 +35,8 @@ protocol AssetDetailed {
 }
 
 class AssetDetailViewModel: BaseViewModel<AssetDetailViewController>, StaffSelectable {
+    typealias AssetStatus = [String: String]
+
     var parameters: AssetDetailParameterRepresentable!
 
     typealias SelectedAssetStatus = (status: AssetStatus.Key, name: AssetStatus.Value)
@@ -197,7 +199,7 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController>, StaffSelec
 
         return assetDetailFuture.flatMap { [weak self] _ -> Future<AssetStatus?, Never> in
             guard let self = self else { return Future(value: nil) }
-            return `self`.fetchAssetStatus().recover { error in
+            return `self`.fetchDictionary(for: .asset).recover { error in
                 log.debug("fetch asset status error \(error)")
                 return nil
             }
@@ -214,8 +216,8 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController>, StaffSelec
         return fetchAssetDetail()
     }
 
-    override func fetchAssetStatus() -> ViewModelFuture<AssetStatus?> {
-        super.fetchAssetStatus().onSuccess { [weak self] status in
+    override func fetchDictionary(for status: APIRouter.DictionaryStatus) -> ViewModelFuture<AssetStatus?> {
+        super.fetchDictionary(for: status).onSuccess { [weak self] status in
             guard let self = self else { return }
             `self`.assetStatus = status
         }
@@ -262,6 +264,7 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController>, StaffSelec
                                                        latitude: assetDetail.latitude)
             return AssetPhotographViewModel(title: "资产照片采集",
                                             key: "资产标签号",
+                                            viewStates: (first: .prepare, second: .prepare),
                                             parameter: parameters,
                                             request: PhotographRequest(),
                                             action: action) as! T
