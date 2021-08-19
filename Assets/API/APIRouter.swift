@@ -16,6 +16,7 @@ enum APIRouter: URLRequestConvertible {
         case taskStatus = "check_task_status"
     }
 
+    // TODO: enhancement to module, e.g: asset, transform
     enum Constants {
         static let login = "appSys/login"
         static let locationList = "app/location/findByPage"
@@ -50,6 +51,19 @@ enum APIRouter: URLRequestConvertible {
         static var assetTaskInventoryDetailSubmit = "app/check/saveScanResult"
 
         static var assetTaskInventoryDetailPhotograph = "app/check/getResultByPk"
+
+        static var transformInventoryDetailPhotograph = "app/receive/getResultByPk"
+
+        static var transformInventoryDetailSubmit = ""
+
+        static var transformAssetList = "app/receive/findResultByPage"
+
+        static var transformAssetDetailByScan = "app/receive/getResultByScan"
+
+        static var transformDetail = "app/receive/getTaskByPk"
+
+        static var transformDetailUpdateLocationCoordination = "app/receive/saveTaskInfo"
+        static var transformChangeCheckPerson = "app/receive/changeCheckPersonByTask"
 
         static func staffList(_ category: Staff.Category) -> String {
             switch category {
@@ -96,6 +110,13 @@ enum APIRouter: URLRequestConvertible {
     case assetTaskInventoryDetailByScan(AssetTaskInventoryListScanParameter)
     case assetTaskInventoryDetailSubmit(AssetTaskInventoryDetailSubmitParameter)
     case assetTaskInventoryDetailPhotograph(AssetTaskInventoryDetailPhotographParameter)
+    case transformAssetDetailPhotograph(TransformAssetDetailPhotographParameter)
+    case transformInventoryDetailSubmit(TransformAssetDetailSubmitParameter)
+    case transformAssetList(TransformAssetListParameter)
+    case transformAssetDetailByScan(TransformAssetListScanParameter)
+    case transformDetail(TransformDetailParameter)
+    case transformDetailUpdateLocationCoordination(TransformDetailUpdateLocationCoordinationParameter)
+    case transformChangeCheckPerson(TransformChangeCheckPersonParameter)
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -137,6 +158,13 @@ enum APIRouter: URLRequestConvertible {
         case .assetTaskInventoryDetailByScan: return pathComponents(with: Constants.assetTaskInventoryDetailByScan)
         case .assetTaskInventoryDetailSubmit: return pathComponents(with: Constants.assetTaskInventoryDetailSubmit)
         case .assetTaskInventoryDetailPhotograph: return pathComponents(with: Constants.assetTaskInventoryDetailPhotograph)
+        case .transformAssetDetailPhotograph: return pathComponents(with: Constants.transformInventoryDetailPhotograph)
+        case .transformInventoryDetailSubmit: return pathComponents(with: Constants.transformInventoryDetailSubmit)
+        case .transformAssetList: return pathComponents(with: Constants.transformAssetList)
+        case .transformAssetDetailByScan: return pathComponents(with: Constants.transformAssetDetailByScan)
+        case .transformDetail: return pathComponents(with: Constants.transformDetail)
+        case .transformDetailUpdateLocationCoordination: return pathComponents(with: Constants.transformDetailUpdateLocationCoordination)
+        case .transformChangeCheckPerson: return pathComponents(with: Constants.transformChangeCheckPerson)
         }
     }
 
@@ -213,6 +241,20 @@ enum APIRouter: URLRequestConvertible {
         case .assetTaskInventoryDetailSubmit(let parameters):
             request = try encode(parameters, into: request)
         case .assetTaskInventoryDetailPhotograph(let parameters):
+            request = try encode(parameters, into: request)
+        case .transformAssetDetailPhotograph(let parameters):
+            request = try encode(parameters, into: request)
+        case .transformInventoryDetailSubmit(let parameters):
+            request = try encode(parameters, into: request)
+        case .transformAssetList(let parameters):
+            request = try encode(parameters, into: request)
+        case .transformAssetDetailByScan(let parameters):
+            request = try encode(parameters, into: request)
+        case .transformDetail(let parameters):
+            request = try encode(parameters, into: request)
+        case .transformDetailUpdateLocationCoordination(let parameters):
+            request = try encode(parameters, into: request)
+        case .transformChangeCheckPerson(let parameters):
             request = try encode(parameters, into: request)
         }
 

@@ -46,6 +46,19 @@ extension RequestRepresentable {
         NetworkManager.default
     }
 
+    func messageRequest(router: APIRouter) -> APIFuture<String> {
+        apiClient.sendRequest(of: MessageResponse.self, router: router).flatMap { response in
+            APIFuture { complete in
+                do {
+                    let data = try response.result.get()
+                    complete(.success(data.msg))
+                } catch {
+                    complete(.failure(error))
+                }
+            }
+        }
+    }
+
     func dataRequest<T: DataResponse>(of type: T.Type, router: APIRouter) -> APIFuture<T.Model?> {
         apiClient.sendRequest(of: type, router: router).flatMap { response in
             APIFuture { complete in

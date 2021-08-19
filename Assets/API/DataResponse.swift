@@ -20,6 +20,11 @@ protocol DataResponse: ResponseRepresentable {
     init()
 }
 
+struct MessageResponse: ResponseRepresentable {
+    var status: Int
+    var msg: String
+}
+
 protocol ListResponse: ResponseRepresentable {
     associatedtype Model: Decodable
     var data: [Model] { get set }

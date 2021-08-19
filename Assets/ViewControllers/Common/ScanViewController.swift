@@ -87,6 +87,8 @@ class ScanViewController: BaseViewController {
             destination.viewModel = viewModel.viewModel(for: destination)
         case let destination as AssetTaskInventoryDetailViewController where segue.identifier != StoryboardSegue.Common.unwindToAssetTaskInventoryDetail.rawValue:
             destination.viewModel = viewModel.viewModel(for: destination)
+        case let destination as TransformAssetDetailViewController:
+            destination.viewModel = viewModel.viewModel(for: destination)
         default: break
         }
     }

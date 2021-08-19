@@ -78,11 +78,13 @@ internal enum StoryboardScene {
   internal enum Transform: StoryboardType {
     internal static let storyboardName = "Transform"
 
-    internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: Transform.self)
+    internal static let initialScene = InitialSceneType<Assets.TransformDetailViewController>(storyboard: Transform.self)
 
-    internal static let assetDetailViewController = SceneType<Assets.TransformAssetDetailViewController>(storyboard: Transform.self, identifier: "AssetDetailViewController")
+    internal static let assetTaskInventoryDetailPhotographViewController = SceneType<Assets.TransformAssetDetailPhotographViewController>(storyboard: Transform.self, identifier: "AssetTaskInventoryDetailPhotographViewController")
 
-    internal static let assetInventoryListViewController = SceneType<Assets.AssetInventoryListViewController>(storyboard: Transform.self, identifier: "AssetInventoryListViewController")
+    internal static let assetTaskInventoryListViewController = SceneType<Assets.TransformAssetListViewController>(storyboard: Transform.self, identifier: "AssetTaskInventoryListViewController")
+
+    internal static let transformAssetDetailViewController = SceneType<Assets.TransformAssetDetailViewController>(storyboard: Transform.self, identifier: "TransformAssetDetailViewController")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

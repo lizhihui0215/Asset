@@ -119,6 +119,7 @@ public enum EAMError: Error {
     public enum UIError: Error {
         case usernameEmpty
         case passwordEmpty
+        case transformChangePersonNotSelected
     }
 
     public enum LocationServiceError: Error {
@@ -176,6 +177,7 @@ extension EAMError.UIError: LocalizedError {
         switch self {
         case .usernameEmpty: return "用户名不能为空！"
         case .passwordEmpty: return "密码不能为空！"
+        case .transformChangePersonNotSelected: return "请选择新的执行人！"
         }
     }
 }

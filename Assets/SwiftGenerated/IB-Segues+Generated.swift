@@ -23,11 +23,14 @@ internal enum StoryboardSegue {
     case submitted
     case successToAssetTaskInventoryDetail
     case successToInventory
+    case successToTransformAssetDetail
     case toScan
     case toSelectPrincipal
     case toSelectUser
+    case unwindFromStaffListToTransformDetailViewController
     case unwindFromStaffSelected
     case unwindFromStaffSelectedToAssetTaskInventoryDetail
+    case unwindFromStaffSelectedToTransformInventoryDetail
     case unwindToAssetTaskInventoryDetail
   }
   internal enum Location: String, SegueType {
@@ -48,9 +51,9 @@ internal enum StoryboardSegue {
     case toTransformList
   }
   internal enum Transform: String, SegueType {
-    case toScan
+    case toPhotograph
     case toSearch
-    case toStaffList
+    case unwindFromFromTransformDetailChangeCheckPerson
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

@@ -1,0 +1,18 @@
+{
+    "page": "1",
+    "total": "2",
+    "records": "15",
+    "rows": [{
+        "billLineId": "8a93ee037724e7bf01781b72e7273df0",
+        "tagNumber": "303232G00794761",
+        "assetName": "通信光缆",
+        "confirmFlag": "N",
+        "confirmDesc": "未盘"
+    }, {
+        "billLineId": "8a93ee037724e7bf01781b72e77c3df1",
+        "tagNumber": "303232G00794762",
+        "assetName": "通信光缆",
+        "confirmFlag": "N",
+        "confirmDesc": "未盘"
+    }]
+}

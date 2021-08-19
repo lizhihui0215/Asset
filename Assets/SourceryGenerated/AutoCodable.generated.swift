@@ -686,6 +686,636 @@ extension Transform {
 
 }
 
+extension TransformAsset {
+
+    enum CodingKeys: String, CodingKey {
+        case billLineId
+        case tagNumber
+        case assetName
+        case matchedFlag
+        case matchedDesc
+        case confirmFlag
+        case confirmDesc
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        billLineId = (try? container.decode(String.self, forKey: .billLineId)) ?? TransformAsset.defaultBillLineId
+        tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? TransformAsset.defaultTagNumber
+        assetName = (try? container.decode(String.self, forKey: .assetName)) ?? TransformAsset.defaultAssetName
+        matchedFlag = (try? container.decode(String.self, forKey: .matchedFlag)) ?? TransformAsset.defaultMatchedFlag
+        matchedDesc = (try? container.decode(String.self, forKey: .matchedDesc)) ?? TransformAsset.defaultMatchedDesc
+        confirmFlag = (try? container.decode(String.self, forKey: .confirmFlag)) ?? TransformAsset.defaultConfirmFlag
+        confirmDesc = (try? container.decode(String.self, forKey: .confirmDesc)) ?? TransformAsset.defaultConfirmDesc
+    }
+
+}
+
+extension TransformAssetDetail {
+
+    enum CodingKeys: String, CodingKey {
+        case billLineId
+        case billLineCode
+        case billHeadId
+        case assetLocationId
+        case assetLocationCode
+        case assetLocationName
+        case wbsLocation
+        case assetId
+        case assetNumber
+        case tagNumber
+        case assetName
+        case manufactureName
+        case modelNumber
+        case quantity
+        case uom
+        case typeId
+        case regionIdDept
+        case dutyPersonId
+        case keyId
+        case taskId
+        case taskCode
+        case taskName
+        case confirmorId
+        case confirmorCode
+        case confirmorName
+        case matchedFlag
+        case capitalizedDat
+        case datePlacedInService
+        case createdBy
+        case creationDate
+        case lastUpdatedBy
+        case lastUpdateDate
+        case custText01
+        case custText02
+        case custText03
+        case custText04
+        case custText05
+        case custText06
+        case custText07
+        case custText08
+        case custText09
+        case custNumber01
+        case custNumber02
+        case custDate01
+        case custDate02
+        case remark
+        case serialNumber
+        case typeDescriptionName
+        case typeDescriptionCode
+        case regionManageSegment
+        case regionCodeManage
+        case regionUsedSegment
+        case regionCodeUsed
+        case networkLevelName
+        case networkLevelCode
+        case networkLevelId
+        case businessPlatformName
+        case businessPlatformCode
+        case businessPlatformId
+        case invenstmentTypeName
+        case invenstmentTypeCode
+        case invenstmentTypeId
+        case networkElementName
+        case networkElementCode
+        case networkElementId
+        case supportNetDeviceTypeName
+        case supportNetDeviceTypeCode
+        case assetsBuild
+        case assetsShared
+        case importAssetFlag
+        case projectId
+        case regionIdUsed
+        case regionIdManage
+        case matchedDesc
+        case confirmorAccount
+        case dutyPersonName
+        case dutyPersonCode
+        case sourceSystem
+        case bookTypeCode
+        case sourceSystemId
+        case usedPersonId
+        case usedPersonAccount
+        case usedPersonName
+        case operatePersonId
+        case operatePersonCode
+        case operatePersonName
+        case confirmPersonId
+        case confirmPersonAccount
+        case confirmPersonName
+        case confirmFlag
+        case confirmDate
+        case confirmDesc
+        case scanningPersonId
+        case scanningPersonAccount
+        case scanningPersonName
+        case scanningDate
+        case operatePersonAccount
+        case newTypeId
+        case newTypeDescriptionName
+        case newTypeDescriptionCode
+        case billLineStatus
+        case dutyIsChanged
+        case erpAssetsBuild
+        case erpSupportCode
+        case erpSupportName
+        case erpBusinessPlatformId
+        case erpBusinessPlatformCode
+        case erpBusinessPlatformName
+        case erpNetworkLevelId
+        case erpNetworkLevelCode
+        case erpNetworkLevelName
+        case parentBillCode
+        case isExpensionAssets
+        case uomOfTransfer
+        case quantitiyOfTransfer
+        case vendorId
+        case vendorName
+        case qrcode
+        case appTaskCode
+        case isautomatic
+        case zhLabel
+        case longitude
+        case latitude
+        case mapLocationDesc
+        case photoRequired
+        case locationRequired
+        case assetCheckItem
+        case assetCheckItemName
+        case resourceNumber
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        billLineId = (try? container.decode(String.self, forKey: .billLineId)) ?? TransformAssetDetail.defaultBillLineId
+        billLineCode = (try? container.decode(String.self, forKey: .billLineCode)) ?? TransformAssetDetail.defaultBillLineCode
+        billHeadId = (try? container.decode(String.self, forKey: .billHeadId)) ?? TransformAssetDetail.defaultBillHeadId
+        assetLocationId = (try? container.decode(String.self, forKey: .assetLocationId)) ?? TransformAssetDetail.defaultAssetLocationId
+        assetLocationCode = (try? container.decode(String.self, forKey: .assetLocationCode)) ?? TransformAssetDetail.defaultAssetLocationCode
+        assetLocationName = (try? container.decode(String.self, forKey: .assetLocationName)) ?? TransformAssetDetail.defaultAssetLocationName
+        wbsLocation = (try? container.decode(String.self, forKey: .wbsLocation)) ?? TransformAssetDetail.defaultWbsLocation
+        assetId = (try? container.decode(String.self, forKey: .assetId)) ?? TransformAssetDetail.defaultAssetId
+        assetNumber = (try? container.decode(String.self, forKey: .assetNumber)) ?? TransformAssetDetail.defaultAssetNumber
+        tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? TransformAssetDetail.defaultTagNumber
+        assetName = (try? container.decode(String.self, forKey: .assetName)) ?? TransformAssetDetail.defaultAssetName
+        manufactureName = (try? container.decode(String.self, forKey: .manufactureName)) ?? TransformAssetDetail.defaultManufactureName
+        modelNumber = (try? container.decode(String.self, forKey: .modelNumber)) ?? TransformAssetDetail.defaultModelNumber
+        quantity = (try? container.decode(String.self, forKey: .quantity)) ?? TransformAssetDetail.defaultQuantity
+        uom = (try? container.decode(String.self, forKey: .uom)) ?? TransformAssetDetail.defaultUom
+        typeId = (try? container.decode(String.self, forKey: .typeId)) ?? TransformAssetDetail.defaultTypeId
+        regionIdDept = (try? container.decode(String.self, forKey: .regionIdDept)) ?? TransformAssetDetail.defaultRegionIdDept
+        dutyPersonId = (try? container.decode(String.self, forKey: .dutyPersonId)) ?? TransformAssetDetail.defaultDutyPersonId
+        keyId = (try? container.decode(String.self, forKey: .keyId)) ?? TransformAssetDetail.defaultKeyId
+        taskId = (try? container.decode(String.self, forKey: .taskId)) ?? TransformAssetDetail.defaultTaskId
+        taskCode = (try? container.decode(String.self, forKey: .taskCode)) ?? TransformAssetDetail.defaultTaskCode
+        taskName = (try? container.decode(String.self, forKey: .taskName)) ?? TransformAssetDetail.defaultTaskName
+        confirmorId = (try? container.decode(String.self, forKey: .confirmorId)) ?? TransformAssetDetail.defaultConfirmorId
+        confirmorCode = (try? container.decode(String.self, forKey: .confirmorCode)) ?? TransformAssetDetail.defaultConfirmorCode
+        confirmorName = (try? container.decode(String.self, forKey: .confirmorName)) ?? TransformAssetDetail.defaultConfirmorName
+        matchedFlag = (try? container.decode(String.self, forKey: .matchedFlag)) ?? TransformAssetDetail.defaultMatchedFlag
+        capitalizedDat = (try? container.decode(String.self, forKey: .capitalizedDat)) ?? TransformAssetDetail.defaultCapitalizedDat
+        datePlacedInService = (try? container.decode(String.self, forKey: .datePlacedInService)) ?? TransformAssetDetail.defaultDatePlacedInService
+        createdBy = (try? container.decode(String.self, forKey: .createdBy)) ?? TransformAssetDetail.defaultCreatedBy
+        creationDate = (try? container.decode(String.self, forKey: .creationDate)) ?? TransformAssetDetail.defaultCreationDate
+        lastUpdatedBy = (try? container.decode(String.self, forKey: .lastUpdatedBy)) ?? TransformAssetDetail.defaultLastUpdatedBy
+        lastUpdateDate = (try? container.decode(String.self, forKey: .lastUpdateDate)) ?? TransformAssetDetail.defaultLastUpdateDate
+        custText01 = (try? container.decode(String.self, forKey: .custText01)) ?? TransformAssetDetail.defaultCustText01
+        custText02 = (try? container.decode(String.self, forKey: .custText02)) ?? TransformAssetDetail.defaultCustText02
+        custText03 = (try? container.decode(String.self, forKey: .custText03)) ?? TransformAssetDetail.defaultCustText03
+        custText04 = (try? container.decode(String.self, forKey: .custText04)) ?? TransformAssetDetail.defaultCustText04
+        custText05 = (try? container.decode(String.self, forKey: .custText05)) ?? TransformAssetDetail.defaultCustText05
+        custText06 = (try? container.decode(String.self, forKey: .custText06)) ?? TransformAssetDetail.defaultCustText06
+        custText07 = (try? container.decode(String.self, forKey: .custText07)) ?? TransformAssetDetail.defaultCustText07
+        custText08 = (try? container.decode(String.self, forKey: .custText08)) ?? TransformAssetDetail.defaultCustText08
+        custText09 = (try? container.decode(String.self, forKey: .custText09)) ?? TransformAssetDetail.defaultCustText09
+        custNumber01 = (try? container.decode(String.self, forKey: .custNumber01)) ?? TransformAssetDetail.defaultCustNumber01
+        custNumber02 = (try? container.decode(String.self, forKey: .custNumber02)) ?? TransformAssetDetail.defaultCustNumber02
+        custDate01 = (try? container.decode(String.self, forKey: .custDate01)) ?? TransformAssetDetail.defaultCustDate01
+        custDate02 = (try? container.decode(String.self, forKey: .custDate02)) ?? TransformAssetDetail.defaultCustDate02
+        remark = (try? container.decode(String.self, forKey: .remark)) ?? TransformAssetDetail.defaultRemark
+        serialNumber = (try? container.decode(String.self, forKey: .serialNumber)) ?? TransformAssetDetail.defaultSerialNumber
+        typeDescriptionName = (try? container.decode(String.self, forKey: .typeDescriptionName)) ?? TransformAssetDetail.defaultTypeDescriptionName
+        typeDescriptionCode = (try? container.decode(String.self, forKey: .typeDescriptionCode)) ?? TransformAssetDetail.defaultTypeDescriptionCode
+        regionManageSegment = (try? container.decode(String.self, forKey: .regionManageSegment)) ?? TransformAssetDetail.defaultRegionManageSegment
+        regionCodeManage = (try? container.decode(String.self, forKey: .regionCodeManage)) ?? TransformAssetDetail.defaultRegionCodeManage
+        regionUsedSegment = (try? container.decode(String.self, forKey: .regionUsedSegment)) ?? TransformAssetDetail.defaultRegionUsedSegment
+        regionCodeUsed = (try? container.decode(String.self, forKey: .regionCodeUsed)) ?? TransformAssetDetail.defaultRegionCodeUsed
+        networkLevelName = (try? container.decode(String.self, forKey: .networkLevelName)) ?? TransformAssetDetail.defaultNetworkLevelName
+        networkLevelCode = (try? container.decode(String.self, forKey: .networkLevelCode)) ?? TransformAssetDetail.defaultNetworkLevelCode
+        networkLevelId = (try? container.decode(String.self, forKey: .networkLevelId)) ?? TransformAssetDetail.defaultNetworkLevelId
+        businessPlatformName = (try? container.decode(String.self, forKey: .businessPlatformName)) ?? TransformAssetDetail.defaultBusinessPlatformName
+        businessPlatformCode = (try? container.decode(String.self, forKey: .businessPlatformCode)) ?? TransformAssetDetail.defaultBusinessPlatformCode
+        businessPlatformId = (try? container.decode(String.self, forKey: .businessPlatformId)) ?? TransformAssetDetail.defaultBusinessPlatformId
+        invenstmentTypeName = (try? container.decode(String.self, forKey: .invenstmentTypeName)) ?? TransformAssetDetail.defaultInvenstmentTypeName
+        invenstmentTypeCode = (try? container.decode(String.self, forKey: .invenstmentTypeCode)) ?? TransformAssetDetail.defaultInvenstmentTypeCode
+        invenstmentTypeId = (try? container.decode(String.self, forKey: .invenstmentTypeId)) ?? TransformAssetDetail.defaultInvenstmentTypeId
+        networkElementName = (try? container.decode(String.self, forKey: .networkElementName)) ?? TransformAssetDetail.defaultNetworkElementName
+        networkElementCode = (try? container.decode(String.self, forKey: .networkElementCode)) ?? TransformAssetDetail.defaultNetworkElementCode
+        networkElementId = (try? container.decode(String.self, forKey: .networkElementId)) ?? TransformAssetDetail.defaultNetworkElementId
+        supportNetDeviceTypeName = (try? container.decode(String.self, forKey: .supportNetDeviceTypeName)) ?? TransformAssetDetail.defaultSupportNetDeviceTypeName
+        supportNetDeviceTypeCode = (try? container.decode(String.self, forKey: .supportNetDeviceTypeCode)) ?? TransformAssetDetail.defaultSupportNetDeviceTypeCode
+        assetsBuild = (try? container.decode(String.self, forKey: .assetsBuild)) ?? TransformAssetDetail.defaultAssetsBuild
+        assetsShared = (try? container.decode(String.self, forKey: .assetsShared)) ?? TransformAssetDetail.defaultAssetsShared
+        importAssetFlag = (try? container.decode(String.self, forKey: .importAssetFlag)) ?? TransformAssetDetail.defaultImportAssetFlag
+        projectId = (try? container.decode(String.self, forKey: .projectId)) ?? TransformAssetDetail.defaultProjectId
+        regionIdUsed = (try? container.decode(String.self, forKey: .regionIdUsed)) ?? TransformAssetDetail.defaultRegionIdUsed
+        regionIdManage = (try? container.decode(String.self, forKey: .regionIdManage)) ?? TransformAssetDetail.defaultRegionIdManage
+        matchedDesc = (try? container.decode(String.self, forKey: .matchedDesc)) ?? TransformAssetDetail.defaultMatchedDesc
+        confirmorAccount = (try? container.decode(String.self, forKey: .confirmorAccount)) ?? TransformAssetDetail.defaultConfirmorAccount
+        dutyPersonName = (try? container.decode(String.self, forKey: .dutyPersonName)) ?? TransformAssetDetail.defaultDutyPersonName
+        dutyPersonCode = (try? container.decode(String.self, forKey: .dutyPersonCode)) ?? TransformAssetDetail.defaultDutyPersonCode
+        sourceSystem = (try? container.decode(String.self, forKey: .sourceSystem)) ?? TransformAssetDetail.defaultSourceSystem
+        bookTypeCode = (try? container.decode(String.self, forKey: .bookTypeCode)) ?? TransformAssetDetail.defaultBookTypeCode
+        sourceSystemId = (try? container.decode(String.self, forKey: .sourceSystemId)) ?? TransformAssetDetail.defaultSourceSystemId
+        usedPersonId = (try? container.decode(String.self, forKey: .usedPersonId)) ?? TransformAssetDetail.defaultUsedPersonId
+        usedPersonAccount = (try? container.decode(String.self, forKey: .usedPersonAccount)) ?? TransformAssetDetail.defaultUsedPersonAccount
+        usedPersonName = (try? container.decode(String.self, forKey: .usedPersonName)) ?? TransformAssetDetail.defaultUsedPersonName
+        operatePersonId = (try? container.decode(String.self, forKey: .operatePersonId)) ?? TransformAssetDetail.defaultOperatePersonId
+        operatePersonCode = (try? container.decode(String.self, forKey: .operatePersonCode)) ?? TransformAssetDetail.defaultOperatePersonCode
+        operatePersonName = (try? container.decode(String.self, forKey: .operatePersonName)) ?? TransformAssetDetail.defaultOperatePersonName
+        confirmPersonId = (try? container.decode(String.self, forKey: .confirmPersonId)) ?? TransformAssetDetail.defaultConfirmPersonId
+        confirmPersonAccount = (try? container.decode(String.self, forKey: .confirmPersonAccount)) ?? TransformAssetDetail.defaultConfirmPersonAccount
+        confirmPersonName = (try? container.decode(String.self, forKey: .confirmPersonName)) ?? TransformAssetDetail.defaultConfirmPersonName
+        confirmFlag = (try? container.decode(String.self, forKey: .confirmFlag)) ?? TransformAssetDetail.defaultConfirmFlag
+        confirmDate = (try? container.decode(String.self, forKey: .confirmDate)) ?? TransformAssetDetail.defaultConfirmDate
+        confirmDesc = (try? container.decode(String.self, forKey: .confirmDesc)) ?? TransformAssetDetail.defaultConfirmDesc
+        scanningPersonId = (try? container.decode(String.self, forKey: .scanningPersonId)) ?? TransformAssetDetail.defaultScanningPersonId
+        scanningPersonAccount = (try? container.decode(String.self, forKey: .scanningPersonAccount)) ?? TransformAssetDetail.defaultScanningPersonAccount
+        scanningPersonName = (try? container.decode(String.self, forKey: .scanningPersonName)) ?? TransformAssetDetail.defaultScanningPersonName
+        scanningDate = (try? container.decode(String.self, forKey: .scanningDate)) ?? TransformAssetDetail.defaultScanningDate
+        operatePersonAccount = (try? container.decode(String.self, forKey: .operatePersonAccount)) ?? TransformAssetDetail.defaultOperatePersonAccount
+        newTypeId = (try? container.decode(String.self, forKey: .newTypeId)) ?? TransformAssetDetail.defaultNewTypeId
+        newTypeDescriptionName = (try? container.decode(String.self, forKey: .newTypeDescriptionName)) ?? TransformAssetDetail.defaultNewTypeDescriptionName
+        newTypeDescriptionCode = (try? container.decode(String.self, forKey: .newTypeDescriptionCode)) ?? TransformAssetDetail.defaultNewTypeDescriptionCode
+        billLineStatus = (try? container.decode(String.self, forKey: .billLineStatus)) ?? TransformAssetDetail.defaultBillLineStatus
+        dutyIsChanged = (try? container.decode(String.self, forKey: .dutyIsChanged)) ?? TransformAssetDetail.defaultDutyIsChanged
+        erpAssetsBuild = (try? container.decode(String.self, forKey: .erpAssetsBuild)) ?? TransformAssetDetail.defaultErpAssetsBuild
+        erpSupportCode = (try? container.decode(String.self, forKey: .erpSupportCode)) ?? TransformAssetDetail.defaultErpSupportCode
+        erpSupportName = (try? container.decode(String.self, forKey: .erpSupportName)) ?? TransformAssetDetail.defaultErpSupportName
+        erpBusinessPlatformId = (try? container.decode(String.self, forKey: .erpBusinessPlatformId)) ?? TransformAssetDetail.defaultErpBusinessPlatformId
+        erpBusinessPlatformCode = (try? container.decode(String.self, forKey: .erpBusinessPlatformCode)) ?? TransformAssetDetail.defaultErpBusinessPlatformCode
+        erpBusinessPlatformName = (try? container.decode(String.self, forKey: .erpBusinessPlatformName)) ?? TransformAssetDetail.defaultErpBusinessPlatformName
+        erpNetworkLevelId = (try? container.decode(String.self, forKey: .erpNetworkLevelId)) ?? TransformAssetDetail.defaultErpNetworkLevelId
+        erpNetworkLevelCode = (try? container.decode(String.self, forKey: .erpNetworkLevelCode)) ?? TransformAssetDetail.defaultErpNetworkLevelCode
+        erpNetworkLevelName = (try? container.decode(String.self, forKey: .erpNetworkLevelName)) ?? TransformAssetDetail.defaultErpNetworkLevelName
+        parentBillCode = (try? container.decode(String.self, forKey: .parentBillCode)) ?? TransformAssetDetail.defaultParentBillCode
+        isExpensionAssets = (try? container.decode(String.self, forKey: .isExpensionAssets)) ?? TransformAssetDetail.defaultIsExpensionAssets
+        uomOfTransfer = (try? container.decode(String.self, forKey: .uomOfTransfer)) ?? TransformAssetDetail.defaultUomOfTransfer
+        quantitiyOfTransfer = (try? container.decode(String.self, forKey: .quantitiyOfTransfer)) ?? TransformAssetDetail.defaultQuantitiyOfTransfer
+        vendorId = (try? container.decode(String.self, forKey: .vendorId)) ?? TransformAssetDetail.defaultVendorId
+        vendorName = (try? container.decode(String.self, forKey: .vendorName)) ?? TransformAssetDetail.defaultVendorName
+        qrcode = (try? container.decode(String.self, forKey: .qrcode)) ?? TransformAssetDetail.defaultQrcode
+        appTaskCode = (try? container.decode(String.self, forKey: .appTaskCode)) ?? TransformAssetDetail.defaultAppTaskCode
+        isautomatic = (try? container.decode(String.self, forKey: .isautomatic)) ?? TransformAssetDetail.defaultIsautomatic
+        zhLabel = (try? container.decode(String.self, forKey: .zhLabel)) ?? TransformAssetDetail.defaultZhLabel
+        longitude = (try? container.decode(String.self, forKey: .longitude)) ?? TransformAssetDetail.defaultLongitude
+        latitude = (try? container.decode(String.self, forKey: .latitude)) ?? TransformAssetDetail.defaultLatitude
+        mapLocationDesc = (try? container.decode(String.self, forKey: .mapLocationDesc)) ?? TransformAssetDetail.defaultMapLocationDesc
+        photoRequired = (try? container.decode(String.self, forKey: .photoRequired)) ?? TransformAssetDetail.defaultPhotoRequired
+        locationRequired = (try? container.decode(String.self, forKey: .locationRequired)) ?? TransformAssetDetail.defaultLocationRequired
+        assetCheckItem = (try? container.decode(String.self, forKey: .assetCheckItem)) ?? TransformAssetDetail.defaultAssetCheckItem
+        assetCheckItemName = (try? container.decode(String.self, forKey: .assetCheckItemName)) ?? TransformAssetDetail.defaultAssetCheckItemName
+        resourceNumber = (try? container.decode(String.self, forKey: .resourceNumber)) ?? TransformAssetDetail.defaultResourceNumber
+    }
+
+}
+
+extension TransformAssetDetailPhotograph {
+
+    enum CodingKeys: String, CodingKey {
+        case billLineId
+        case billLineCode
+        case billHeadId
+        case assetLocationId
+        case assetLocationCode
+        case assetLocationName
+        case wbsLocation
+        case assetId
+        case assetNumber
+        case tagNumber
+        case assetName
+        case manufactureName
+        case modelNumber
+        case quantity
+        case uom
+        case typeId
+        case regionIdDept
+        case dutyPersonId
+        case keyId
+        case taskId
+        case taskCode
+        case taskName
+        case confirmorId
+        case confirmorCode
+        case confirmorName
+        case matchedFlag
+        case capitalizedDat
+        case datePlacedInService
+        case createdBy
+        case creationDate
+        case lastUpdatedBy
+        case lastUpdateDate
+        case custText01
+        case custText02
+        case custText03
+        case custText04
+        case custText05
+        case custText06
+        case custText07
+        case custText08
+        case custText09
+        case custNumber01
+        case custNumber02
+        case custDate01
+        case custDate02
+        case remark
+        case serialNumber
+        case typeDescriptionName
+        case typeDescriptionCode
+        case regionManageSegment
+        case regionCodeManage
+        case regionUsedSegment
+        case regionCodeUsed
+        case networkLevelName
+        case networkLevelCode
+        case networkLevelId
+        case businessPlatformName
+        case businessPlatformCode
+        case businessPlatformId
+        case invenstmentTypeName
+        case invenstmentTypeCode
+        case invenstmentTypeId
+        case networkElementName
+        case networkElementCode
+        case networkElementId
+        case supportNetDeviceTypeName
+        case supportNetDeviceTypeCode
+        case assetsBuild
+        case assetsShared
+        case importAssetFlag
+        case projectId
+        case regionIdUsed
+        case regionIdManage
+        case matchedDesc
+        case confirmorAccount
+        case dutyPersonName
+        case dutyPersonCode
+        case sourceSystem
+        case bookTypeCode
+        case sourceSystemId
+        case usedPersonId
+        case usedPersonAccount
+        case usedPersonName
+        case operatePersonId
+        case operatePersonCode
+        case operatePersonName
+        case confirmPersonId
+        case confirmPersonAccount
+        case confirmPersonName
+        case confirmFlag
+        case confirmDate
+        case confirmDesc
+        case scanningPersonId
+        case scanningPersonAccount
+        case scanningPersonName
+        case scanningDate
+        case operatePersonAccount
+        case newTypeId
+        case newTypeDescriptionName
+        case newTypeDescriptionCode
+        case billLineStatus
+        case dutyIsChanged
+        case erpAssetsBuild
+        case erpSupportCode
+        case erpSupportName
+        case erpBusinessPlatformId
+        case erpBusinessPlatformCode
+        case erpBusinessPlatformName
+        case erpNetworkLevelId
+        case erpNetworkLevelCode
+        case erpNetworkLevelName
+        case parentBillCode
+        case isExpensionAssets
+        case uomOfTransfer
+        case quantitiyOfTransfer
+        case vendorId
+        case vendorName
+        case qrcode
+        case appTaskCode
+        case isautomatic
+        case zhLabel
+        case longitude
+        case latitude
+        case mapLocationDesc
+        case photoRequired
+        case locationRequired
+        case assetCheckItem
+        case assetCheckItemName
+        case resourceNumber
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        billLineId = (try? container.decode(String.self, forKey: .billLineId)) ?? TransformAssetDetailPhotograph.defaultBillLineId
+        billLineCode = (try? container.decode(String.self, forKey: .billLineCode)) ?? TransformAssetDetailPhotograph.defaultBillLineCode
+        billHeadId = (try? container.decode(String.self, forKey: .billHeadId)) ?? TransformAssetDetailPhotograph.defaultBillHeadId
+        assetLocationId = (try? container.decode(String.self, forKey: .assetLocationId)) ?? TransformAssetDetailPhotograph.defaultAssetLocationId
+        assetLocationCode = (try? container.decode(String.self, forKey: .assetLocationCode)) ?? TransformAssetDetailPhotograph.defaultAssetLocationCode
+        assetLocationName = (try? container.decode(String.self, forKey: .assetLocationName)) ?? TransformAssetDetailPhotograph.defaultAssetLocationName
+        wbsLocation = (try? container.decode(String.self, forKey: .wbsLocation)) ?? TransformAssetDetailPhotograph.defaultWbsLocation
+        assetId = (try? container.decode(String.self, forKey: .assetId)) ?? TransformAssetDetailPhotograph.defaultAssetId
+        assetNumber = (try? container.decode(String.self, forKey: .assetNumber)) ?? TransformAssetDetailPhotograph.defaultAssetNumber
+        tagNumber = (try? container.decode(String.self, forKey: .tagNumber)) ?? TransformAssetDetailPhotograph.defaultTagNumber
+        assetName = (try? container.decode(String.self, forKey: .assetName)) ?? TransformAssetDetailPhotograph.defaultAssetName
+        manufactureName = (try? container.decode(String.self, forKey: .manufactureName)) ?? TransformAssetDetailPhotograph.defaultManufactureName
+        modelNumber = (try? container.decode(String.self, forKey: .modelNumber)) ?? TransformAssetDetailPhotograph.defaultModelNumber
+        quantity = (try? container.decode(String.self, forKey: .quantity)) ?? TransformAssetDetailPhotograph.defaultQuantity
+        uom = (try? container.decode(String.self, forKey: .uom)) ?? TransformAssetDetailPhotograph.defaultUom
+        typeId = (try? container.decode(String.self, forKey: .typeId)) ?? TransformAssetDetailPhotograph.defaultTypeId
+        regionIdDept = (try? container.decode(String.self, forKey: .regionIdDept)) ?? TransformAssetDetailPhotograph.defaultRegionIdDept
+        dutyPersonId = (try? container.decode(String.self, forKey: .dutyPersonId)) ?? TransformAssetDetailPhotograph.defaultDutyPersonId
+        keyId = (try? container.decode(String.self, forKey: .keyId)) ?? TransformAssetDetailPhotograph.defaultKeyId
+        taskId = (try? container.decode(String.self, forKey: .taskId)) ?? TransformAssetDetailPhotograph.defaultTaskId
+        taskCode = (try? container.decode(String.self, forKey: .taskCode)) ?? TransformAssetDetailPhotograph.defaultTaskCode
+        taskName = (try? container.decode(String.self, forKey: .taskName)) ?? TransformAssetDetailPhotograph.defaultTaskName
+        confirmorId = (try? container.decode(String.self, forKey: .confirmorId)) ?? TransformAssetDetailPhotograph.defaultConfirmorId
+        confirmorCode = (try? container.decode(String.self, forKey: .confirmorCode)) ?? TransformAssetDetailPhotograph.defaultConfirmorCode
+        confirmorName = (try? container.decode(String.self, forKey: .confirmorName)) ?? TransformAssetDetailPhotograph.defaultConfirmorName
+        matchedFlag = (try? container.decode(String.self, forKey: .matchedFlag)) ?? TransformAssetDetailPhotograph.defaultMatchedFlag
+        capitalizedDat = (try? container.decode(String.self, forKey: .capitalizedDat)) ?? TransformAssetDetailPhotograph.defaultCapitalizedDat
+        datePlacedInService = (try? container.decode(String.self, forKey: .datePlacedInService)) ?? TransformAssetDetailPhotograph.defaultDatePlacedInService
+        createdBy = (try? container.decode(String.self, forKey: .createdBy)) ?? TransformAssetDetailPhotograph.defaultCreatedBy
+        creationDate = (try? container.decode(String.self, forKey: .creationDate)) ?? TransformAssetDetailPhotograph.defaultCreationDate
+        lastUpdatedBy = (try? container.decode(String.self, forKey: .lastUpdatedBy)) ?? TransformAssetDetailPhotograph.defaultLastUpdatedBy
+        lastUpdateDate = (try? container.decode(String.self, forKey: .lastUpdateDate)) ?? TransformAssetDetailPhotograph.defaultLastUpdateDate
+        custText01 = (try? container.decode(String.self, forKey: .custText01)) ?? TransformAssetDetailPhotograph.defaultCustText01
+        custText02 = (try? container.decode(String.self, forKey: .custText02)) ?? TransformAssetDetailPhotograph.defaultCustText02
+        custText03 = (try? container.decode(String.self, forKey: .custText03)) ?? TransformAssetDetailPhotograph.defaultCustText03
+        custText04 = (try? container.decode(String.self, forKey: .custText04)) ?? TransformAssetDetailPhotograph.defaultCustText04
+        custText05 = (try? container.decode(String.self, forKey: .custText05)) ?? TransformAssetDetailPhotograph.defaultCustText05
+        custText06 = (try? container.decode(String.self, forKey: .custText06)) ?? TransformAssetDetailPhotograph.defaultCustText06
+        custText07 = (try? container.decode(String.self, forKey: .custText07)) ?? TransformAssetDetailPhotograph.defaultCustText07
+        custText08 = (try? container.decode(String.self, forKey: .custText08)) ?? TransformAssetDetailPhotograph.defaultCustText08
+        custText09 = (try? container.decode(String.self, forKey: .custText09)) ?? TransformAssetDetailPhotograph.defaultCustText09
+        custNumber01 = (try? container.decode(String.self, forKey: .custNumber01)) ?? TransformAssetDetailPhotograph.defaultCustNumber01
+        custNumber02 = (try? container.decode(String.self, forKey: .custNumber02)) ?? TransformAssetDetailPhotograph.defaultCustNumber02
+        custDate01 = (try? container.decode(String.self, forKey: .custDate01)) ?? TransformAssetDetailPhotograph.defaultCustDate01
+        custDate02 = (try? container.decode(String.self, forKey: .custDate02)) ?? TransformAssetDetailPhotograph.defaultCustDate02
+        remark = (try? container.decode(String.self, forKey: .remark)) ?? TransformAssetDetailPhotograph.defaultRemark
+        serialNumber = (try? container.decode(String.self, forKey: .serialNumber)) ?? TransformAssetDetailPhotograph.defaultSerialNumber
+        typeDescriptionName = (try? container.decode(String.self, forKey: .typeDescriptionName)) ?? TransformAssetDetailPhotograph.defaultTypeDescriptionName
+        typeDescriptionCode = (try? container.decode(String.self, forKey: .typeDescriptionCode)) ?? TransformAssetDetailPhotograph.defaultTypeDescriptionCode
+        regionManageSegment = (try? container.decode(String.self, forKey: .regionManageSegment)) ?? TransformAssetDetailPhotograph.defaultRegionManageSegment
+        regionCodeManage = (try? container.decode(String.self, forKey: .regionCodeManage)) ?? TransformAssetDetailPhotograph.defaultRegionCodeManage
+        regionUsedSegment = (try? container.decode(String.self, forKey: .regionUsedSegment)) ?? TransformAssetDetailPhotograph.defaultRegionUsedSegment
+        regionCodeUsed = (try? container.decode(String.self, forKey: .regionCodeUsed)) ?? TransformAssetDetailPhotograph.defaultRegionCodeUsed
+        networkLevelName = (try? container.decode(String.self, forKey: .networkLevelName)) ?? TransformAssetDetailPhotograph.defaultNetworkLevelName
+        networkLevelCode = (try? container.decode(String.self, forKey: .networkLevelCode)) ?? TransformAssetDetailPhotograph.defaultNetworkLevelCode
+        networkLevelId = (try? container.decode(String.self, forKey: .networkLevelId)) ?? TransformAssetDetailPhotograph.defaultNetworkLevelId
+        businessPlatformName = (try? container.decode(String.self, forKey: .businessPlatformName)) ?? TransformAssetDetailPhotograph.defaultBusinessPlatformName
+        businessPlatformCode = (try? container.decode(String.self, forKey: .businessPlatformCode)) ?? TransformAssetDetailPhotograph.defaultBusinessPlatformCode
+        businessPlatformId = (try? container.decode(String.self, forKey: .businessPlatformId)) ?? TransformAssetDetailPhotograph.defaultBusinessPlatformId
+        invenstmentTypeName = (try? container.decode(String.self, forKey: .invenstmentTypeName)) ?? TransformAssetDetailPhotograph.defaultInvenstmentTypeName
+        invenstmentTypeCode = (try? container.decode(String.self, forKey: .invenstmentTypeCode)) ?? TransformAssetDetailPhotograph.defaultInvenstmentTypeCode
+        invenstmentTypeId = (try? container.decode(String.self, forKey: .invenstmentTypeId)) ?? TransformAssetDetailPhotograph.defaultInvenstmentTypeId
+        networkElementName = (try? container.decode(String.self, forKey: .networkElementName)) ?? TransformAssetDetailPhotograph.defaultNetworkElementName
+        networkElementCode = (try? container.decode(String.self, forKey: .networkElementCode)) ?? TransformAssetDetailPhotograph.defaultNetworkElementCode
+        networkElementId = (try? container.decode(String.self, forKey: .networkElementId)) ?? TransformAssetDetailPhotograph.defaultNetworkElementId
+        supportNetDeviceTypeName = (try? container.decode(String.self, forKey: .supportNetDeviceTypeName)) ?? TransformAssetDetailPhotograph.defaultSupportNetDeviceTypeName
+        supportNetDeviceTypeCode = (try? container.decode(String.self, forKey: .supportNetDeviceTypeCode)) ?? TransformAssetDetailPhotograph.defaultSupportNetDeviceTypeCode
+        assetsBuild = (try? container.decode(String.self, forKey: .assetsBuild)) ?? TransformAssetDetailPhotograph.defaultAssetsBuild
+        assetsShared = (try? container.decode(String.self, forKey: .assetsShared)) ?? TransformAssetDetailPhotograph.defaultAssetsShared
+        importAssetFlag = (try? container.decode(String.self, forKey: .importAssetFlag)) ?? TransformAssetDetailPhotograph.defaultImportAssetFlag
+        projectId = (try? container.decode(String.self, forKey: .projectId)) ?? TransformAssetDetailPhotograph.defaultProjectId
+        regionIdUsed = (try? container.decode(String.self, forKey: .regionIdUsed)) ?? TransformAssetDetailPhotograph.defaultRegionIdUsed
+        regionIdManage = (try? container.decode(String.self, forKey: .regionIdManage)) ?? TransformAssetDetailPhotograph.defaultRegionIdManage
+        matchedDesc = (try? container.decode(String.self, forKey: .matchedDesc)) ?? TransformAssetDetailPhotograph.defaultMatchedDesc
+        confirmorAccount = (try? container.decode(String.self, forKey: .confirmorAccount)) ?? TransformAssetDetailPhotograph.defaultConfirmorAccount
+        dutyPersonName = (try? container.decode(String.self, forKey: .dutyPersonName)) ?? TransformAssetDetailPhotograph.defaultDutyPersonName
+        dutyPersonCode = (try? container.decode(String.self, forKey: .dutyPersonCode)) ?? TransformAssetDetailPhotograph.defaultDutyPersonCode
+        sourceSystem = (try? container.decode(String.self, forKey: .sourceSystem)) ?? TransformAssetDetailPhotograph.defaultSourceSystem
+        bookTypeCode = (try? container.decode(String.self, forKey: .bookTypeCode)) ?? TransformAssetDetailPhotograph.defaultBookTypeCode
+        sourceSystemId = (try? container.decode(String.self, forKey: .sourceSystemId)) ?? TransformAssetDetailPhotograph.defaultSourceSystemId
+        usedPersonId = (try? container.decode(String.self, forKey: .usedPersonId)) ?? TransformAssetDetailPhotograph.defaultUsedPersonId
+        usedPersonAccount = (try? container.decode(String.self, forKey: .usedPersonAccount)) ?? TransformAssetDetailPhotograph.defaultUsedPersonAccount
+        usedPersonName = (try? container.decode(String.self, forKey: .usedPersonName)) ?? TransformAssetDetailPhotograph.defaultUsedPersonName
+        operatePersonId = (try? container.decode(String.self, forKey: .operatePersonId)) ?? TransformAssetDetailPhotograph.defaultOperatePersonId
+        operatePersonCode = (try? container.decode(String.self, forKey: .operatePersonCode)) ?? TransformAssetDetailPhotograph.defaultOperatePersonCode
+        operatePersonName = (try? container.decode(String.self, forKey: .operatePersonName)) ?? TransformAssetDetailPhotograph.defaultOperatePersonName
+        confirmPersonId = (try? container.decode(String.self, forKey: .confirmPersonId)) ?? TransformAssetDetailPhotograph.defaultConfirmPersonId
+        confirmPersonAccount = (try? container.decode(String.self, forKey: .confirmPersonAccount)) ?? TransformAssetDetailPhotograph.defaultConfirmPersonAccount
+        confirmPersonName = (try? container.decode(String.self, forKey: .confirmPersonName)) ?? TransformAssetDetailPhotograph.defaultConfirmPersonName
+        confirmFlag = (try? container.decode(String.self, forKey: .confirmFlag)) ?? TransformAssetDetailPhotograph.defaultConfirmFlag
+        confirmDate = (try? container.decode(String.self, forKey: .confirmDate)) ?? TransformAssetDetailPhotograph.defaultConfirmDate
+        confirmDesc = (try? container.decode(String.self, forKey: .confirmDesc)) ?? TransformAssetDetailPhotograph.defaultConfirmDesc
+        scanningPersonId = (try? container.decode(String.self, forKey: .scanningPersonId)) ?? TransformAssetDetailPhotograph.defaultScanningPersonId
+        scanningPersonAccount = (try? container.decode(String.self, forKey: .scanningPersonAccount)) ?? TransformAssetDetailPhotograph.defaultScanningPersonAccount
+        scanningPersonName = (try? container.decode(String.self, forKey: .scanningPersonName)) ?? TransformAssetDetailPhotograph.defaultScanningPersonName
+        scanningDate = (try? container.decode(String.self, forKey: .scanningDate)) ?? TransformAssetDetailPhotograph.defaultScanningDate
+        operatePersonAccount = (try? container.decode(String.self, forKey: .operatePersonAccount)) ?? TransformAssetDetailPhotograph.defaultOperatePersonAccount
+        newTypeId = (try? container.decode(String.self, forKey: .newTypeId)) ?? TransformAssetDetailPhotograph.defaultNewTypeId
+        newTypeDescriptionName = (try? container.decode(String.self, forKey: .newTypeDescriptionName)) ?? TransformAssetDetailPhotograph.defaultNewTypeDescriptionName
+        newTypeDescriptionCode = (try? container.decode(String.self, forKey: .newTypeDescriptionCode)) ?? TransformAssetDetailPhotograph.defaultNewTypeDescriptionCode
+        billLineStatus = (try? container.decode(String.self, forKey: .billLineStatus)) ?? TransformAssetDetailPhotograph.defaultBillLineStatus
+        dutyIsChanged = (try? container.decode(String.self, forKey: .dutyIsChanged)) ?? TransformAssetDetailPhotograph.defaultDutyIsChanged
+        erpAssetsBuild = (try? container.decode(String.self, forKey: .erpAssetsBuild)) ?? TransformAssetDetailPhotograph.defaultErpAssetsBuild
+        erpSupportCode = (try? container.decode(String.self, forKey: .erpSupportCode)) ?? TransformAssetDetailPhotograph.defaultErpSupportCode
+        erpSupportName = (try? container.decode(String.self, forKey: .erpSupportName)) ?? TransformAssetDetailPhotograph.defaultErpSupportName
+        erpBusinessPlatformId = (try? container.decode(String.self, forKey: .erpBusinessPlatformId)) ?? TransformAssetDetailPhotograph.defaultErpBusinessPlatformId
+        erpBusinessPlatformCode = (try? container.decode(String.self, forKey: .erpBusinessPlatformCode)) ?? TransformAssetDetailPhotograph.defaultErpBusinessPlatformCode
+        erpBusinessPlatformName = (try? container.decode(String.self, forKey: .erpBusinessPlatformName)) ?? TransformAssetDetailPhotograph.defaultErpBusinessPlatformName
+        erpNetworkLevelId = (try? container.decode(String.self, forKey: .erpNetworkLevelId)) ?? TransformAssetDetailPhotograph.defaultErpNetworkLevelId
+        erpNetworkLevelCode = (try? container.decode(String.self, forKey: .erpNetworkLevelCode)) ?? TransformAssetDetailPhotograph.defaultErpNetworkLevelCode
+        erpNetworkLevelName = (try? container.decode(String.self, forKey: .erpNetworkLevelName)) ?? TransformAssetDetailPhotograph.defaultErpNetworkLevelName
+        parentBillCode = (try? container.decode(String.self, forKey: .parentBillCode)) ?? TransformAssetDetailPhotograph.defaultParentBillCode
+        isExpensionAssets = (try? container.decode(String.self, forKey: .isExpensionAssets)) ?? TransformAssetDetailPhotograph.defaultIsExpensionAssets
+        uomOfTransfer = (try? container.decode(String.self, forKey: .uomOfTransfer)) ?? TransformAssetDetailPhotograph.defaultUomOfTransfer
+        quantitiyOfTransfer = (try? container.decode(String.self, forKey: .quantitiyOfTransfer)) ?? TransformAssetDetailPhotograph.defaultQuantitiyOfTransfer
+        vendorId = (try? container.decode(String.self, forKey: .vendorId)) ?? TransformAssetDetailPhotograph.defaultVendorId
+        vendorName = (try? container.decode(String.self, forKey: .vendorName)) ?? TransformAssetDetailPhotograph.defaultVendorName
+        qrcode = (try? container.decode(String.self, forKey: .qrcode)) ?? TransformAssetDetailPhotograph.defaultQrcode
+        appTaskCode = (try? container.decode(String.self, forKey: .appTaskCode)) ?? TransformAssetDetailPhotograph.defaultAppTaskCode
+        isautomatic = (try? container.decode(String.self, forKey: .isautomatic)) ?? TransformAssetDetailPhotograph.defaultIsautomatic
+        zhLabel = (try? container.decode(String.self, forKey: .zhLabel)) ?? TransformAssetDetailPhotograph.defaultZhLabel
+        longitude = (try? container.decode(String.self, forKey: .longitude)) ?? TransformAssetDetailPhotograph.defaultLongitude
+        latitude = (try? container.decode(String.self, forKey: .latitude)) ?? TransformAssetDetailPhotograph.defaultLatitude
+        mapLocationDesc = (try? container.decode(String.self, forKey: .mapLocationDesc)) ?? TransformAssetDetailPhotograph.defaultMapLocationDesc
+        photoRequired = (try? container.decode(String.self, forKey: .photoRequired)) ?? TransformAssetDetailPhotograph.defaultPhotoRequired
+        locationRequired = (try? container.decode(String.self, forKey: .locationRequired)) ?? TransformAssetDetailPhotograph.defaultLocationRequired
+        assetCheckItem = (try? container.decode(String.self, forKey: .assetCheckItem)) ?? TransformAssetDetailPhotograph.defaultAssetCheckItem
+        assetCheckItemName = (try? container.decode(String.self, forKey: .assetCheckItemName)) ?? TransformAssetDetailPhotograph.defaultAssetCheckItemName
+        resourceNumber = (try? container.decode(String.self, forKey: .resourceNumber)) ?? TransformAssetDetailPhotograph.defaultResourceNumber
+    }
+
+}
+
+extension TransformDetail {
+
+    enum CodingKeys: String, CodingKey {
+        case appTaskId
+        case appTaskCode
+        case appTaskSource
+        case appTaskStatus
+        case billCode
+        case operatorId
+        case operatorCode
+        case operatorName
+        case locationId
+        case locationCode
+        case locationName
+        case taskType
+        case createdBy
+        case lastUpdateDate
+        case deliveryDate
+        case urgeTimes
+        case assetSum
+        case assetFinished
+        case assetUnfinished
+        case treatmentStatus
+        case longitude
+        case latitude
+        case mapLocationDesc
+        case photoRequired
+        case locationRequired
+        case appTaskStatusName
+    }
+
+    internal init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        appTaskId = (try? container.decode(String.self, forKey: .appTaskId)) ?? TransformDetail.defaultAppTaskId
+        appTaskCode = (try? container.decode(String.self, forKey: .appTaskCode)) ?? TransformDetail.defaultAppTaskCode
+        appTaskSource = (try? container.decode(String.self, forKey: .appTaskSource)) ?? TransformDetail.defaultAppTaskSource
+        appTaskStatus = (try? container.decode(String.self, forKey: .appTaskStatus)) ?? TransformDetail.defaultAppTaskStatus
+        billCode = (try? container.decode(String.self, forKey: .billCode)) ?? TransformDetail.defaultBillCode
+        operatorId = (try? container.decode(String.self, forKey: .operatorId)) ?? TransformDetail.defaultOperatorId
+        operatorCode = (try? container.decode(String.self, forKey: .operatorCode)) ?? TransformDetail.defaultOperatorCode
+        operatorName = (try? container.decode(String.self, forKey: .operatorName)) ?? TransformDetail.defaultOperatorName
+        locationId = (try? container.decode(String.self, forKey: .locationId)) ?? TransformDetail.defaultLocationId
+        locationCode = (try? container.decode(String.self, forKey: .locationCode)) ?? TransformDetail.defaultLocationCode
+        locationName = (try? container.decode(String.self, forKey: .locationName)) ?? TransformDetail.defaultLocationName
+        taskType = (try? container.decode(String.self, forKey: .taskType)) ?? TransformDetail.defaultTaskType
+        createdBy = (try? container.decode(String.self, forKey: .createdBy)) ?? TransformDetail.defaultCreatedBy
+        lastUpdateDate = (try? container.decode(String.self, forKey: .lastUpdateDate)) ?? TransformDetail.defaultLastUpdateDate
+        deliveryDate = (try? container.decode(String.self, forKey: .deliveryDate)) ?? TransformDetail.defaultDeliveryDate
+        urgeTimes = (try? container.decode(Int.self, forKey: .urgeTimes)) ?? TransformDetail.defaultUrgeTimes
+        assetSum = (try? container.decode(Int.self, forKey: .assetSum)) ?? TransformDetail.defaultAssetSum
+        assetFinished = (try? container.decode(Int.self, forKey: .assetFinished)) ?? TransformDetail.defaultAssetFinished
+        assetUnfinished = (try? container.decode(Int.self, forKey: .assetUnfinished)) ?? TransformDetail.defaultAssetUnfinished
+        treatmentStatus = (try? container.decode(String.self, forKey: .treatmentStatus)) ?? TransformDetail.defaultTreatmentStatus
+        longitude = (try? container.decode(String.self, forKey: .longitude)) ?? TransformDetail.defaultLongitude
+        latitude = (try? container.decode(String.self, forKey: .latitude)) ?? TransformDetail.defaultLatitude
+        mapLocationDesc = (try? container.decode(String.self, forKey: .mapLocationDesc)) ?? TransformDetail.defaultMapLocationDesc
+        photoRequired = (try? container.decode(String.self, forKey: .photoRequired)) ?? TransformDetail.defaultPhotoRequired
+        locationRequired = (try? container.decode(String.self, forKey: .locationRequired)) ?? TransformDetail.defaultLocationRequired
+        appTaskStatusName = (try? container.decode(String.self, forKey: .appTaskStatusName)) ?? TransformDetail.defaultAppTaskStatusName
+    }
+
+}
+
 extension Version {
 
     enum CodingKeys: String, CodingKey {

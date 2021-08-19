@@ -40,6 +40,8 @@ class StaffListViewController: BaseTableViewController, TableViewControllerPagea
             prepareSelectedStaff(for: destination.viewModel, with: indexPath)
         case let destination as AssetTaskInventoryDetailViewController:
             prepareSelectedStaff(for: destination.viewModel, with: indexPath)
+        case let destination as TransformDetailViewController:
+            prepareSelectedStaff(for: destination.viewModel, with: indexPath)
         default: break
         }
     }

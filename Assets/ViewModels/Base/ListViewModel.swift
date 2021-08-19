@@ -53,7 +53,7 @@ extension Pageable {
             fatalError("isPaging has not been implemented")
         }
         set {
-            if newValue { page += 1 } else { page = 1 }
+            if newValue { page += 1 } else { page = 0 }
         }
     }
 }

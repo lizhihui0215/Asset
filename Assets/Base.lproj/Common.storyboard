@@ -472,6 +472,9 @@
                         <outlet property="tableView" destination="DBv-ZQ-FTo" id="Hxw-ro-U3b"/>
                         <segue destination="cFM-50-vg2" kind="unwind" identifier="unwindFromStaffSelectedToAssetTaskInventoryDetail" unwindAction="unwindToAssetTaskInventoryDetailViewControllerWithSender:" id="sqh-vV-0eJ"/>
                         <segue destination="cFM-50-vg2" kind="unwind" identifier="unwindFromStaffSelected" unwindAction="unwindFromStaffSelectedWithSegue:" id="ZNC-kJ-TWs"/>
+                        <segue destination="cFM-50-vg2" kind="unwind" identifier="unwindFromStaffSelectedToTransformInventoryDetail" unwindAction="unwindToTransformInventoryDetailViewControllerWithSender:" id="XOT-ay-Dk5"/>
+                        <segue destination="cFM-50-vg2" kind="unwind" identifier="unwindFromStaffSelectedToTransformInventoryDetail" unwindAction="unwindToTransformInventoryDetailViewControllerWithSender:" id="zYM-NS-Aw7"/>
+                        <segue destination="cFM-50-vg2" kind="unwind" identifier="unwindFromStaffListToTransformDetailViewController" unwindAction="unwindFromStaffListToTransformDetailViewControllerWithSegue:" id="6d6-UG-tGa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIr-2x-kMV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -569,6 +572,7 @@
                         <segue destination="92x-lN-mvy" kind="show" identifier="successToInventory" id="HwG-Gb-hC6"/>
                         <segue destination="cga-6G-Nwg" kind="show" identifier="successToAssetTaskInventoryDetail" id="JNC-L3-glb"/>
                         <segue destination="ktR-P1-Ecj" kind="unwind" identifier="unwindToAssetTaskInventoryDetail" unwindAction="unwindToAssetTaskInventoryDetailViewControllerWithSender:" id="BJ9-iq-cdW"/>
+                        <segue destination="8ap-eh-cdg" kind="show" identifier="successToTransformAssetDetail" id="zdY-bR-eMS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLF-FJ-xx2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -585,6 +589,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69m-HB-HTU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3086" y="1063"/>
+        </scene>
+        <!--TransformAssetDetailViewController-->
+        <scene sceneID="uDn-gg-pNq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Transform" referencedIdentifier="TransformAssetDetailViewController" id="8ap-eh-cdg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="f9V-zp-Pi7"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tXD-cy-8wY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3068" y="1220"/>
         </scene>
         <!--资产明细-->
         <scene sceneID="LpK-qo-oMq">

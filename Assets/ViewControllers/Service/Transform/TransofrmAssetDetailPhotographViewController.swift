@@ -1,5 +1,5 @@
 //
-//  AssetTaskInventoryDetailPhotographViewController.swift
+//  TransformAssetDetailPhotographViewController.swift
 //  Assets
 //
 //  Created by lizhihui on 2021/7/8.
@@ -9,7 +9,7 @@
 import DropDown
 import UIKit
 
-class AssetTaskInventoryDetailPhotographViewController: BaseViewController {
+class TransformAssetDetailPhotographViewController: BaseViewController {
     @IBOutlet var checkStatusNameLabel: UILabel!
     @IBOutlet var assetCheckItemNameLabel: UILabel!
     @IBOutlet var serialLabel: UILabel!
@@ -17,13 +17,10 @@ class AssetTaskInventoryDetailPhotographViewController: BaseViewController {
     @IBOutlet var assetNameTextField: AnimatableTextField!
     @IBOutlet var manufactureNameTextField: AnimatableTextField!
     @IBOutlet var modelNameTextField: AnimatableTextField!
-    @IBOutlet var systemLocationCodeLabel: UILabel!
     @IBOutlet var locationCodeLabel: UILabel!
     @IBOutlet var systemLocationNameLabel: UILabel!
-    @IBOutlet var locationNameLabel: UILabel!
     @IBOutlet var quantityTextField: AnimatableTextField!
     @IBOutlet var principalTextField: AnimatableTextField!
-    @IBOutlet var userTextField: AnimatableTextField!
     @IBOutlet var systemLongitudeLabel: UILabel!
     @IBOutlet var systemLatitudeLabel: UILabel!
     @IBOutlet var longitudeLabel: UILabel!
@@ -31,11 +28,11 @@ class AssetTaskInventoryDetailPhotographViewController: BaseViewController {
     @IBOutlet var principalTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet var userTapGestureRecognizer: UITapGestureRecognizer!
 
-    var viewModel: AssetTaskInventoryDetailPhotographViewModel!
+    var viewModel: TransformAssetDetailPhotographViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchTaskInventoryDetailPhotograph().onSuccess { [weak self] _ in
+        viewModel.fetchTransformAssetDetailPhotograph().onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.updateViews()
         }
@@ -44,47 +41,22 @@ class AssetTaskInventoryDetailPhotographViewController: BaseViewController {
     func updateViews() {
         checkStatusNameLabel.text = viewModel.checkStatusName
         assetCheckItemNameLabel.text = viewModel.assertUseName
-
-//        serialLabel.text = viewModel.resourceNumber
+        serialLabel.text = viewModel.resourceNumber
         tagNumberLabel.text = viewModel.tagNumber
         assetNameTextField.text = viewModel.assetName
         manufactureNameTextField.text = viewModel.manufactureName
         modelNameTextField.text = viewModel.modelName
-//        systemLocationCodeLabel.text = viewModel.systemLocationCode
         locationCodeLabel.text = viewModel.locationCode
-//        systemLocationNameLabel.text = viewModel.systemLocationName
-        locationNameLabel.text = viewModel.locationName
         quantityTextField.text = viewModel.quantity
         principalTextField.text = viewModel.principalName
-        userTextField.text = viewModel.userName
-//        systemLongitudeLabel.text = viewModel.systemLongitude
-//        systemLatitudeLabel.text = viewModel.systemLatitude
         longitudeLabel.text = viewModel.formattedLongitude
         latitudeLabel.text = viewModel.formattedLatitude
-    }
-
-    @IBAction func rightBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        save()
-        viewModel.submit().onSuccess { [weak self] _ in
-            guard let self = self else { return }
-            `self`.alert(message: "操作成功！", defaultAction: Self.defaultAlertAction {
-                `self`.perform(segue: StoryboardSegue.AssetTask.toPhotograph)
-            })
-        }
-    }
-
-    func save() {
-//        viewModel.selectedAssetCheckItem
-//        viewModel.resourceNumber = serialLabel.text ?? ""
-//        viewModel.assetName = assetNameTextField.eam.text
-//        viewModel.manufactureName = manufactureNameTextField.eam.text
-//        viewModel.modelName = modelNameTextField.eam.text
-//        viewModel.quantity = quantityTextField.eam.text
+        systemLocationNameLabel.text = viewModel.locationName
     }
 
     // MARK: - Navigation
 
-    @IBAction func unwindToAssetTaskInventoryDetailViewController(sender: UIStoryboardSegue) {
+    @IBAction func unwindToTransformInventoryDetailViewController(sender: UIStoryboardSegue) {
         let source = sender.source
         switch source {
         case _ as StaffListViewController:

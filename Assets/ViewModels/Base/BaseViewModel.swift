@@ -138,6 +138,19 @@ class BaseViewModel<T: Action>: ViewModelRepresentable, Validation {
 }
 
 extension BaseViewModel {
+    final func api(router: APIRouter) -> ViewModelFuture<String> {
+        beforeApi(router: router)
+        return request.messageRequest(router: router)
+            .onFailure { [weak self] in
+                guard let self = self else { return }
+                `self`.handApiError(router: router, error: $0)
+            }
+            .onComplete { [weak self] _ in
+                guard let self = self else { return }
+                `self`.apiFinished(router: router)
+            }
+    }
+
     final func api<T: DataResponse>(of type: T.Type = T.self, router: APIRouter) -> ViewModelFuture<T.Model?> {
         beforeApi(router: router)
         return request.dataRequest(of: type, router: router)

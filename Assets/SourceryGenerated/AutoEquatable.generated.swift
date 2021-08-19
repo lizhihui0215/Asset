@@ -335,6 +335,49 @@ internal func == (lhs: Transform, rhs: Transform) -> Bool {
     guard lhs.assetUnfinished == rhs.assetUnfinished else { return false }
     return true
 }
+// MARK: - TransformAsset AutoEquatable
+extension TransformAsset: Equatable {}
+internal func == (lhs: TransformAsset, rhs: TransformAsset) -> Bool {
+    guard lhs.billLineId == rhs.billLineId else { return false }
+    guard lhs.tagNumber == rhs.tagNumber else { return false }
+    guard lhs.assetName == rhs.assetName else { return false }
+    guard lhs.matchedFlag == rhs.matchedFlag else { return false }
+    guard lhs.matchedDesc == rhs.matchedDesc else { return false }
+    guard lhs.confirmFlag == rhs.confirmFlag else { return false }
+    guard lhs.confirmDesc == rhs.confirmDesc else { return false }
+    return true
+}
+// MARK: - TransformDetail AutoEquatable
+extension TransformDetail: Equatable {}
+internal func == (lhs: TransformDetail, rhs: TransformDetail) -> Bool {
+    guard lhs.appTaskId == rhs.appTaskId else { return false }
+    guard lhs.appTaskCode == rhs.appTaskCode else { return false }
+    guard lhs.appTaskSource == rhs.appTaskSource else { return false }
+    guard lhs.appTaskStatus == rhs.appTaskStatus else { return false }
+    guard lhs.billCode == rhs.billCode else { return false }
+    guard lhs.operatorId == rhs.operatorId else { return false }
+    guard lhs.operatorCode == rhs.operatorCode else { return false }
+    guard lhs.operatorName == rhs.operatorName else { return false }
+    guard lhs.locationId == rhs.locationId else { return false }
+    guard lhs.locationCode == rhs.locationCode else { return false }
+    guard lhs.locationName == rhs.locationName else { return false }
+    guard lhs.taskType == rhs.taskType else { return false }
+    guard lhs.createdBy == rhs.createdBy else { return false }
+    guard lhs.lastUpdateDate == rhs.lastUpdateDate else { return false }
+    guard lhs.deliveryDate == rhs.deliveryDate else { return false }
+    guard lhs.urgeTimes == rhs.urgeTimes else { return false }
+    guard lhs.assetSum == rhs.assetSum else { return false }
+    guard lhs.assetFinished == rhs.assetFinished else { return false }
+    guard lhs.assetUnfinished == rhs.assetUnfinished else { return false }
+    guard lhs.treatmentStatus == rhs.treatmentStatus else { return false }
+    guard lhs.longitude == rhs.longitude else { return false }
+    guard lhs.latitude == rhs.latitude else { return false }
+    guard lhs.mapLocationDesc == rhs.mapLocationDesc else { return false }
+    guard lhs.photoRequired == rhs.photoRequired else { return false }
+    guard lhs.locationRequired == rhs.locationRequired else { return false }
+    guard lhs.appTaskStatusName == rhs.appTaskStatusName else { return false }
+    return true
+}
 // MARK: - Version AutoEquatable
 extension Version: Equatable {}
 internal func == (lhs: Version, rhs: Version) -> Bool {

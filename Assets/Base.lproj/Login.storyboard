@@ -338,7 +338,7 @@
     </scenes>
     <designables>
         <designable name="Ine-iO-AMy">
-            <size key="intrinsicContentSize" width="265" height="29.5"/>
+            <size key="intrinsicContentSize" width="253" height="18.5"/>
         </designable>
         <designable name="JjL-Rf-l6Y">
             <size key="intrinsicContentSize" width="31" height="30"/>
@@ -347,7 +347,7 @@
             <size key="intrinsicContentSize" width="101.5" height="17"/>
         </designable>
         <designable name="h1G-Km-oLC">
-            <size key="intrinsicContentSize" width="325" height="29.5"/>
+            <size key="intrinsicContentSize" width="313" height="18.5"/>
         </designable>
         <designable name="koW-B9-VE2">
             <size key="intrinsicContentSize" width="-1" height="44"/>

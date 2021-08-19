@@ -1,0 +1,31 @@
+{
+    "status": 0,
+    "data": {
+        "appTaskId": "8a93ee037724e7bf01781b7306413e87",
+        "appTaskCode": "GD-ZZ-3032322021031013438-438265",
+        "appTaskSource": "EAM系统",
+        "appTaskStatus": "1",
+        "billCode": "GD-ZZ-3032322021031013438",
+        "operatorId": "8a93e58434103f58013410593eb9509c",
+        "operatorCode": "mengqiang",
+        "operatorName": "孟强",
+        "locationId": "8a93e58453004e45015317b759155314",
+        "locationCode": "3232ZH00012606",
+        "locationName": "山东省济宁市嘉祥县疃里朱井村南部",
+        "taskType": "5",
+        "createdBy": "8a93e58434103f58013410593eb9509c",
+        "lastUpdateDate": "2021-06-04 20:38:12",
+        "deliveryDate": "2021-03-10 17:24:21",
+        "urgeTimes": 0,
+        "assetSum": 2,
+        "assetFinished": 1,
+        "assetUnfinished": 1,
+        "treatmentStatus": "Y",
+        "longitude": "108.877199",
+        "latitude": "34.23233",
+        "mapLocationDesc": "{longitude='108.877199', latitude='34.23233', address='中国陕西省西安市雁塔区丈八街道高新六路10号', addrStr='中国陕西省西安市雁塔区丈八街道高新六路10号', altitude='null', countryName='中国', provinceName='陕西省', cityName='西安市', district='雁塔区', town='丈八街道', street='高新六路', streetNumber='10号', floor='null', locTypeDescription='NetWork location successful!'}",
+        "photoRequired": "Y",
+        "locationRequired": "Y",
+        "appTaskStatusName": "已下发"
+    }
+}
