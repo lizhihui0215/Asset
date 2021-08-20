@@ -164,7 +164,7 @@ class TransformDetailViewModel: BaseViewModel<TransformDetailViewController>, St
                                                        latitude: latitude)
             return LocationPhotographViewModel(title: "地点照片采集",
                                                key: "地点编码",
-                                               viewStates: (first: .viewing, second: .viewing),
+                                               viewStates: (first: .viewing(), second: .viewing()),
                                                parameter: parameters,
                                                request: PhotographUploadRequest(),
                                                action: action) as! T

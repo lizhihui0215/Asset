@@ -10,8 +10,8 @@ import Foundation
 
 class TransformSearchViewModel: BaseViewModel<TransformSearchViewController> {
     enum TaskStatus: String {
-        case processing = "0"
-        case finished = "1"
+        case processing = "1"
+        case finished = "2"
 
         init(intValue: Int) {
             if intValue == 0 {

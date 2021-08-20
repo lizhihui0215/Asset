@@ -23,6 +23,8 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
     var parameter: PhotographUploadParameter
     var viewStates: ViewStates
     var photos: [Photo] = [Photo(), Photo()]
+    var isViewing: Bool
+
     init(title: String,
          key: String,
          viewStates: ViewStates,
@@ -34,6 +36,7 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
         self.title = title
         self.key = key
         self.parameter = parameter
+        isViewing = viewStates.first == .viewing() && viewStates.second == .viewing()
         super.init(request: request, action: action)
     }
 
@@ -65,6 +68,22 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
 
     func fetchImages() -> ViewModelFuture<ViewStates> {
         func viewStates(from photos: [Photo]) -> ViewModelFuture<ViewStates> {
+            guard !isViewing else {
+                var viewStates: ViewStates = self.viewStates
+
+                if let first = photos.first, let url = URL(string: first.url) {
+                    viewStates.first = .viewing(url: url, info: info(for: first.uploadPerson, at: first.uploadTime))
+                }
+
+                if let second = photos.last, let url = URL(string: second.url) {
+                    viewStates.second = .viewing(url: url, info: info(for: second.uploadPerson, at: second.uploadTime))
+                }
+
+                self.viewStates = viewStates
+
+                return ViewModelFuture(value: self.viewStates)
+            }
+
             var viewStates: ViewStates = (first: .prepare, second: .prepare)
 
             if let first = photos.first, let url = URL(string: first.url) {

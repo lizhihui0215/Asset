@@ -206,7 +206,7 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
                                                        latitude: latitude)
             return AssetPhotographViewModel(title: "资产照片采集",
                                             key: "资产标签号",
-                                            viewStates: (first: .viewing, second: .viewing),
+                                            viewStates: (first: .viewing(), second: .viewing()),
                                             parameter: parameters,
                                             request: PhotographRequest(),
                                             action: action) as! T

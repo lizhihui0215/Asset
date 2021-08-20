@@ -80,9 +80,9 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<Assets.TransformDetailViewController>(storyboard: Transform.self)
 
-    internal static let assetTaskInventoryDetailPhotographViewController = SceneType<Assets.TransformAssetDetailPhotographViewController>(storyboard: Transform.self, identifier: "AssetTaskInventoryDetailPhotographViewController")
-
     internal static let assetTaskInventoryListViewController = SceneType<Assets.TransformAssetListViewController>(storyboard: Transform.self, identifier: "AssetTaskInventoryListViewController")
+
+    internal static let transformAssetDetailPhotographViewController = SceneType<Assets.TransformAssetDetailPhotographViewController>(storyboard: Transform.self, identifier: "TransformAssetDetailPhotographViewController")
 
     internal static let transformAssetDetailViewController = SceneType<Assets.TransformAssetDetailViewController>(storyboard: Transform.self, identifier: "TransformAssetDetailViewController")
   }

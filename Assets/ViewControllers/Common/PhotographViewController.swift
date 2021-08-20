@@ -12,7 +12,7 @@ import ZLPhotoBrowser
 
 class PhotographViewController: BaseViewController {
     enum ViewState: Equatable {
-        case viewing // 查看照片
+        case viewing(url: URL? = nil, info: String? = nil) // 查看照片
         case prepare // 没有照片
         case ready(UIImage) // 照片选好了
         case finished(url: URL, info: String) // 上传完毕
@@ -138,7 +138,15 @@ class PhotographViewController: BaseViewController {
         let deleteButton: AnimatableButton = view.deleteButton
         clean(view: view, for: state)
         switch state {
-        case .viewing: break
+        case .viewing(let url, let info):
+            if let url = url {
+                imageView.af.setImage(withURL: url)
+            }
+
+            if let info = info {
+                informationLabel.text = info
+                containerStackView.insertArrangedSubview(informationLabel, at: 1)
+            }
         case .prepare:
             buttonStackView.addArrangedSubview(photographButton)
             buttonStackView.addArrangedSubview(photoAlbumButton)

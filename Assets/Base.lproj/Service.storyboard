@@ -292,28 +292,28 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="107.5" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="djc-bh-bG3">
                                                             <rect key="frame" x="70" y="5" width="339" height="100.5"/>
                                                             <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="GD-213213213ASDKJHD" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bJ-xq-dbX">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="339" height="39"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" name="primaryTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="山东省" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD5-QB-AMb">
+                                                                    <rect key="frame" x="0.0" y="49" width="339" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" name="primaryTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                                </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" text="39238789217892379821" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiY-os-xgP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="339" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="79.5" width="339" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="GGH-34-Dv0"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" name="primaryTextColor"/>
                                                                     <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="山东省" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD5-QB-AMb">
-                                                                    <rect key="frame" x="0.0" y="31" width="339" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" name="primaryTextColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="GD-213213213ASDKJHD" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bJ-xq-dbX">
-                                                                    <rect key="frame" x="0.0" y="61.5" width="339" height="39"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" name="primaryTextColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
@@ -473,8 +473,8 @@
                                             <color key="titleColor" name="secondaryTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="searchTapped:" destination="qk7-BG-BKx" eventType="touchUpInside" id="Nog-83-Lvu"/>
-                                            <segue destination="15w-MP-qAJ" kind="unwind" unwindAction="unwindFromSearchCompletionWithSegue:" id="bhu-b5-d3m"/>
+                                            <action selector="searchButtonTapped:" destination="qk7-BG-BKx" eventType="touchDown" id="V0P-9B-d37"/>
+                                            <segue destination="15w-MP-qAJ" kind="unwind" unwindAction="unwindFromTransformSearchCompletionWithSegue:" id="bhu-b5-d3m"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -491,8 +491,8 @@
                     <navigationItem key="navigationItem" title="转资任务列表" id="3G5-vk-n5Q"/>
                     <connections>
                         <outlet property="locationTextField" destination="gag-9L-JZe" id="Jv1-oI-z3n"/>
-                        <outlet property="radioGroupView" destination="EuJ-PU-MXt" id="Y5Z-Qq-wrS"/>
                         <outlet property="taskCodeTextField" destination="AVf-Dk-2an" id="Vs9-Ds-1Qb"/>
+                        <outlet property="taskStatusRadioGroup" destination="EuJ-PU-MXt" id="o7U-Q8-boh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6g-Gj-Ryf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

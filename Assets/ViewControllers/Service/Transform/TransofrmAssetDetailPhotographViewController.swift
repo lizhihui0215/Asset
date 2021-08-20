@@ -25,8 +25,6 @@ class TransformAssetDetailPhotographViewController: BaseViewController {
     @IBOutlet var systemLatitudeLabel: UILabel!
     @IBOutlet var longitudeLabel: UILabel!
     @IBOutlet var latitudeLabel: UILabel!
-    @IBOutlet var principalTapGestureRecognizer: UITapGestureRecognizer!
-    @IBOutlet var userTapGestureRecognizer: UITapGestureRecognizer!
 
     var viewModel: TransformAssetDetailPhotographViewModel!
 
@@ -70,10 +68,6 @@ class TransformAssetDetailPhotographViewController: BaseViewController {
         switch segue.destination {
         case let destination as ScanViewController:
             destination.viewModel = viewModel.viewModel(for: destination, with: sender)
-        case let destination as StaffListViewController:
-            // swiftlint:disable:next force_cast
-            let category: Staff.Category = (sender as! NSObject) == principalTapGestureRecognizer ? .principal : .user
-            destination.viewModel = viewModel.viewModel(for: destination, with: category)
         case let destination as PhotographViewController:
             destination.viewModel = viewModel.viewModel(for: destination, with: sender)
         default: break

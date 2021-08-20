@@ -73,7 +73,7 @@ class TransformAssetDetailPhotographViewModel: BaseViewModel<TransformAssetDetai
                                                        latitude: latitude)
             return AssetPhotographViewModel(title: "资产照片采集",
                                             key: "资产标签号",
-                                            viewStates: (first: .prepare, second: .prepare),
+                                            viewStates: (first: .viewing(), second: .viewing()),
                                             parameter: parameters,
                                             request: PhotographRequest(),
                                             action: action) as! T
