@@ -70,6 +70,7 @@ class TransformAssetDetailViewController: BaseViewController {
         systemLatitudeLabel.text = viewModel.systemLatitude
         longitudeLabel.text = viewModel.formattedLongitude
         latitudeLabel.text = viewModel.formattedLatitude
+        principalTextField.text = viewModel.principalName
     }
 
     @IBAction func rightBarButtonItemTapped(_ sender: UIBarButtonItem) {
@@ -87,12 +88,7 @@ class TransformAssetDetailViewController: BaseViewController {
     }
 
     func save() {
-//        viewModel.selectedAssetCheckItem
-//        viewModel.resourceNumber = serialTextField.eam.text
-//        viewModel.assetName = assetNameTextField.eam.text
-//        viewModel.manufactureName = manufactureNameTextField.eam.text
-//        viewModel.modelName = modelNameTextField.eam.text
-//        viewModel.quantity = quantityTextField.eam.text
+        viewModel.resourceNumber = serialTextField.eam.text
     }
 
     @IBAction func updateLocationCoordinatesTapped(_ sender: UIButton) {
@@ -109,15 +105,15 @@ class TransformAssetDetailViewController: BaseViewController {
 
     // MARK: - Navigation
 
-    @IBAction func unwindToTransformInventoryDetailViewController(sender: UIStoryboardSegue) {
-        let source = sender.source
+    @IBAction func unwindFromScanViewControllerToTransformAssetDetailController(segue: UIStoryboardSegue) {
+        let source = segue.source
         switch source {
         case let source as ScanViewController:
             guard let messageString = source.viewModel.metadataObject.messageString else {
                 return
             }
-//            viewModel.resourceNumber = messageString
-            serialTextField.text = viewModel.resourceNumber
+            viewModel.resourceNumber = messageString
+            serialTextField.text = messageString
         case _ as StaffListViewController:
             updateViews()
         default: break

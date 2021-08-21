@@ -19,7 +19,7 @@ struct TransformAssetDetail {
     let assetName: String
     let manufactureName: String
     let modelNumber: String
-    let quantity: String
+    let quantity: Double
     let uom: String
     let typeId: String
     let regionIdDept: String
@@ -134,7 +134,7 @@ struct TransformAssetDetail {
     let locationRequired: String
     var assetCheckItem: String
     var assetCheckItemName: String
-    let resourceNumber: String
+    var resourceNumber: String
 }
 
 extension TransformAssetDetail: AutoCodable {
@@ -151,7 +151,7 @@ extension TransformAssetDetail: AutoCodable {
     static var defaultAssetName = ""
     static var defaultManufactureName = ""
     static var defaultModelNumber = ""
-    static var defaultQuantity = ""
+    static var defaultQuantity: Double = 0
     static var defaultUom = ""
     static var defaultTypeId = ""
     static var defaultRegionIdDept = ""

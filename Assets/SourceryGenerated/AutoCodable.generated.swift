@@ -2,7 +2,6 @@
 // DO NOT EDIT
 
 extension Asset {
-
     enum CodingKeys: String, CodingKey {
         case checkStatus
         case tagNumber
@@ -12,7 +11,7 @@ extension Asset {
         case checkStatusName
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         checkStatus = (try? container.decode(InventoryType.self, forKey: .checkStatus)) ?? Asset.defaultCheckStatus
@@ -22,11 +21,9 @@ extension Asset {
         assetId = (try? container.decode(String.self, forKey: .assetId)) ?? Asset.defaultAssetId
         checkStatusName = (try? container.decode(String.self, forKey: .checkStatusName)) ?? Asset.defaultCheckStatusName
     }
-
 }
 
 extension AssetInventoryListDetail {
-
     enum CodingKeys: String, CodingKey {
         case isCheck
         case assetId
@@ -58,7 +55,7 @@ extension AssetInventoryListDetail {
         case resourceNumber
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetInventoryListDetail.defaultIsCheck
@@ -90,11 +87,9 @@ extension AssetInventoryListDetail {
         assetCheckItemName = (try? container.decode(String.self, forKey: .assetCheckItemName)) ?? AssetInventoryListDetail.defaultAssetCheckItemName
         resourceNumber = (try? container.decode(String.self, forKey: .resourceNumber)) ?? AssetInventoryListDetail.defaultResourceNumber
     }
-
 }
 
 extension AssetListDetail {
-
     enum CodingKeys: String, CodingKey {
         case isCheck
         case assetId
@@ -139,7 +134,7 @@ extension AssetListDetail {
         case queryStatus
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetListDetail.defaultIsCheck
@@ -184,11 +179,9 @@ extension AssetListDetail {
         isWlKind = (try? container.decode(String.self, forKey: .isWlKind)) ?? AssetListDetail.defaultIsWlKind
         queryStatus = (try? container.decode(String.self, forKey: .queryStatus)) ?? AssetListDetail.defaultQueryStatus
     }
-
 }
 
 extension AssetTask {
-
     enum CodingKeys: String, CodingKey {
         case isCheck
         case checkBillCode
@@ -198,7 +191,7 @@ extension AssetTask {
         case taskName
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetTask.defaultIsCheck
@@ -208,11 +201,9 @@ extension AssetTask {
         taskStatusName = (try? container.decode(String.self, forKey: .taskStatusName)) ?? AssetTask.defaultTaskStatusName
         taskName = (try? container.decode(String.self, forKey: .taskName)) ?? AssetTask.defaultTaskName
     }
-
 }
 
 extension AssetTaskDetail {
-
     enum CodingKeys: String, CodingKey {
         case isCheck
         case checkBillCode
@@ -235,7 +226,7 @@ extension AssetTaskDetail {
         case checkTaskTime
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetTaskDetail.defaultIsCheck
@@ -258,11 +249,9 @@ extension AssetTaskDetail {
         checkTaskStatusName = (try? container.decode(String.self, forKey: .checkTaskStatusName)) ?? AssetTaskDetail.defaultCheckTaskStatusName
         checkTaskTime = (try? container.decode(String.self, forKey: .checkTaskTime)) ?? AssetTaskDetail.defaultCheckTaskTime
     }
-
 }
 
 extension AssetTaskInventory {
-
     enum CodingKeys: String, CodingKey {
         case isCheck
         case assetId
@@ -276,7 +265,7 @@ extension AssetTaskInventory {
         case locationName
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetTaskInventory.defaultIsCheck
@@ -290,11 +279,9 @@ extension AssetTaskInventory {
         locationCode = try container.decodeIfPresent(String.self, forKey: .locationCode)
         locationName = try container.decodeIfPresent(String.self, forKey: .locationName)
     }
-
 }
 
 extension AssetTaskInventoryDetail {
-
     enum CodingKeys: String, CodingKey {
         case isCheck
         case checkBillCode
@@ -330,7 +317,7 @@ extension AssetTaskInventoryDetail {
         case manageDeptName
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetTaskInventoryDetail.defaultIsCheck
@@ -366,11 +353,9 @@ extension AssetTaskInventoryDetail {
         manageDeptId = (try? container.decode(String.self, forKey: .manageDeptId)) ?? AssetTaskInventoryDetail.defaultManageDeptId
         manageDeptName = (try? container.decode(String.self, forKey: .manageDeptName)) ?? AssetTaskInventoryDetail.defaultManageDeptName
     }
-
 }
 
 extension AssetTaskInventoryDetailPhotograph {
-
     enum CodingKeys: String, CodingKey {
         case isCheck
         case checkBillCode
@@ -396,7 +381,7 @@ extension AssetTaskInventoryDetailPhotograph {
         case manageDeptName
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? AssetTaskInventoryDetailPhotograph.defaultIsCheck
@@ -422,11 +407,9 @@ extension AssetTaskInventoryDetailPhotograph {
         manageDeptId = (try? container.decode(String.self, forKey: .manageDeptId)) ?? AssetTaskInventoryDetailPhotograph.defaultManageDeptId
         manageDeptName = (try? container.decode(String.self, forKey: .manageDeptName)) ?? AssetTaskInventoryDetailPhotograph.defaultManageDeptName
     }
-
 }
 
 extension Credential {
-
     enum CodingKeys: String, CodingKey {
         case pageSize
         case userOrgId
@@ -438,7 +421,7 @@ extension Credential {
         case userOrgName
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         pageSize = (try? container.decode(String.self, forKey: .pageSize)) ?? Credential.defaultPageSize
@@ -450,11 +433,9 @@ extension Credential {
         userAccount = (try? container.decode(String.self, forKey: .userAccount)) ?? Credential.defaultUserAccount
         userOrgName = (try? container.decode(String.self, forKey: .userOrgName)) ?? Credential.defaultUserOrgName
     }
-
 }
 
 extension IsLogin {
-
     enum CodingKeys: String, CodingKey {
         case loginId
         case userToken
@@ -465,7 +446,7 @@ extension IsLogin {
         case appType
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         loginId = (try? container.decode(String.self, forKey: .loginId)) ?? IsLogin.defaultLoginId
@@ -476,11 +457,9 @@ extension IsLogin {
         tokenStatus = (try? container.decode(String.self, forKey: .tokenStatus)) ?? IsLogin.defaultTokenStatus
         appType = (try? container.decode(App.Category.self, forKey: .appType)) ?? IsLogin.defaultAppType
     }
-
 }
 
 extension Location {
-
     enum CodingKeys: String, CodingKey {
         case isCheck
         case locationCode
@@ -490,7 +469,7 @@ extension Location {
         case strLatitude
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? Location.defaultIsCheck
@@ -500,11 +479,9 @@ extension Location {
         stLongitude = (try? container.decode(String.self, forKey: .stLongitude)) ?? Location.defaultStLongitude
         strLatitude = (try? container.decode(String.self, forKey: .strLatitude)) ?? Location.defaultStrLatitude
     }
-
 }
 
 extension LocationDetail {
-
     enum CodingKeys: String, CodingKey {
         case assetLocationId
         case strLongitude
@@ -536,7 +513,7 @@ extension LocationDetail {
         case locationName
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         assetLocationId = (try? container.decode(String.self, forKey: .assetLocationId)) ?? LocationDetail.defaultAssetLocationId
@@ -568,13 +545,9 @@ extension LocationDetail {
         effectiveDate = (try? container.decode(String.self, forKey: .effectiveDate)) ?? LocationDetail.defaultEffectiveDate
         locationName = (try? container.decode(String.self, forKey: .locationName)) ?? LocationDetail.defaultLocationName
     }
-
 }
 
-
-
 extension Photo {
-
     enum CodingKeys: String, CodingKey {
         case imageId
         case imagePath
@@ -587,7 +560,7 @@ extension Photo {
         case url
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         imageId = (try? container.decode(String.self, forKey: .imageId)) ?? Photo.defaultImageId
@@ -600,11 +573,9 @@ extension Photo {
         latitude = (try? container.decode(String.self, forKey: .latitude)) ?? Photo.defaultLatitude
         url = (try? container.decode(String.self, forKey: .url)) ?? Photo.defaultUrl
     }
-
 }
 
 extension Staff {
-
     enum CodingKeys: String, CodingKey {
         case isCheck
         case account
@@ -614,7 +585,7 @@ extension Staff {
         case category
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         isCheck = (try? container.decode(Bool.self, forKey: .isCheck)) ?? Staff.defaultIsCheck
@@ -624,17 +595,15 @@ extension Staff {
         userOrgName = (try? container.decode(String.self, forKey: .userOrgName)) ?? Staff.defaultUserOrgName
         category = (try? container.decode(Category.self, forKey: .category)) ?? Staff.defaultCategory
     }
-
 }
 
 extension Staff.Category {
-
     enum CodingKeys: String, CodingKey {
         case principal
         case user
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
 
         let enumCase = try container.decode(String.self)
@@ -645,7 +614,7 @@ extension Staff.Category {
         }
     }
 
-    internal func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
 
         switch self {
@@ -653,11 +622,9 @@ extension Staff.Category {
         case .user: try container.encode(CodingKeys.user.rawValue)
         }
     }
-
 }
 
 extension Transform {
-
     enum CodingKeys: String, CodingKey {
         case appTaskId
         case appTaskCode
@@ -670,7 +637,7 @@ extension Transform {
         case assetUnfinished
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         appTaskId = (try? container.decode(String.self, forKey: .appTaskId)) ?? Transform.defaultAppTaskId
@@ -683,11 +650,9 @@ extension Transform {
         assetFinished = (try? container.decode(Int.self, forKey: .assetFinished)) ?? Transform.defaultAssetFinished
         assetUnfinished = (try? container.decode(Int.self, forKey: .assetUnfinished)) ?? Transform.defaultAssetUnfinished
     }
-
 }
 
 extension TransformAsset {
-
     enum CodingKeys: String, CodingKey {
         case billLineId
         case tagNumber
@@ -698,7 +663,7 @@ extension TransformAsset {
         case confirmDesc
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         billLineId = (try? container.decode(String.self, forKey: .billLineId)) ?? TransformAsset.defaultBillLineId
@@ -709,11 +674,9 @@ extension TransformAsset {
         confirmFlag = (try? container.decode(String.self, forKey: .confirmFlag)) ?? TransformAsset.defaultConfirmFlag
         confirmDesc = (try? container.decode(String.self, forKey: .confirmDesc)) ?? TransformAsset.defaultConfirmDesc
     }
-
 }
 
 extension TransformAssetDetail {
-
     enum CodingKeys: String, CodingKey {
         case billLineId
         case billLineCode
@@ -846,7 +809,7 @@ extension TransformAssetDetail {
         case resourceNumber
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         billLineId = (try? container.decode(String.self, forKey: .billLineId)) ?? TransformAssetDetail.defaultBillLineId
@@ -862,7 +825,7 @@ extension TransformAssetDetail {
         assetName = (try? container.decode(String.self, forKey: .assetName)) ?? TransformAssetDetail.defaultAssetName
         manufactureName = (try? container.decode(String.self, forKey: .manufactureName)) ?? TransformAssetDetail.defaultManufactureName
         modelNumber = (try? container.decode(String.self, forKey: .modelNumber)) ?? TransformAssetDetail.defaultModelNumber
-        quantity = (try? container.decode(String.self, forKey: .quantity)) ?? TransformAssetDetail.defaultQuantity
+        quantity = (try? container.decode(Double.self, forKey: .quantity)) ?? TransformAssetDetail.defaultQuantity
         uom = (try? container.decode(String.self, forKey: .uom)) ?? TransformAssetDetail.defaultUom
         typeId = (try? container.decode(String.self, forKey: .typeId)) ?? TransformAssetDetail.defaultTypeId
         regionIdDept = (try? container.decode(String.self, forKey: .regionIdDept)) ?? TransformAssetDetail.defaultRegionIdDept
@@ -979,11 +942,9 @@ extension TransformAssetDetail {
         assetCheckItemName = (try? container.decode(String.self, forKey: .assetCheckItemName)) ?? TransformAssetDetail.defaultAssetCheckItemName
         resourceNumber = (try? container.decode(String.self, forKey: .resourceNumber)) ?? TransformAssetDetail.defaultResourceNumber
     }
-
 }
 
 extension TransformAssetDetailPhotograph {
-
     enum CodingKeys: String, CodingKey {
         case billLineId
         case billLineCode
@@ -1116,7 +1077,7 @@ extension TransformAssetDetailPhotograph {
         case resourceNumber
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         billLineId = (try? container.decode(String.self, forKey: .billLineId)) ?? TransformAssetDetailPhotograph.defaultBillLineId
@@ -1249,11 +1210,9 @@ extension TransformAssetDetailPhotograph {
         assetCheckItemName = (try? container.decode(String.self, forKey: .assetCheckItemName)) ?? TransformAssetDetailPhotograph.defaultAssetCheckItemName
         resourceNumber = (try? container.decode(String.self, forKey: .resourceNumber)) ?? TransformAssetDetailPhotograph.defaultResourceNumber
     }
-
 }
 
 extension TransformDetail {
-
     enum CodingKeys: String, CodingKey {
         case appTaskId
         case appTaskCode
@@ -1283,7 +1242,7 @@ extension TransformDetail {
         case appTaskStatusName
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         appTaskId = (try? container.decode(String.self, forKey: .appTaskId)) ?? TransformDetail.defaultAppTaskId
@@ -1313,11 +1272,9 @@ extension TransformDetail {
         locationRequired = (try? container.decode(String.self, forKey: .locationRequired)) ?? TransformDetail.defaultLocationRequired
         appTaskStatusName = (try? container.decode(String.self, forKey: .appTaskStatusName)) ?? TransformDetail.defaultAppTaskStatusName
     }
-
 }
 
 extension Version {
-
     enum CodingKeys: String, CodingKey {
         case appType
         case appVersionCode
@@ -1329,7 +1286,7 @@ extension Version {
         case appExt
     }
 
-    internal init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         appType = (try? container.decode(App.Category.self, forKey: .appType)) ?? Version.defaultAppType
@@ -1341,5 +1298,4 @@ extension Version {
         appDesc = (try? container.decode(String.self, forKey: .appDesc)) ?? Version.defaultAppDesc
         appExt = (try? container.decode(String.self, forKey: .appExt)) ?? Version.defaultAppExt
     }
-
 }

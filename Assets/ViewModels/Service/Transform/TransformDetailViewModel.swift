@@ -70,9 +70,15 @@ class TransformDetailViewModel: BaseViewModel<TransformDetailViewController>, St
 
     var isHiddenTransformListButton: Bool { transformDetail?.longitude.isEmpty ?? true }
 
-    var systemLongitude: String { String(format: "%.6f", Double(transformDetail?.longitude ?? "0") ?? 0) }
+    var systemLongitude: String {
+        guard !(transformDetail?.longitude.isEmpty ?? true) else { return "" }
+        return String(format: "%.6f", Double(transformDetail?.latitude ?? "0") ?? 0)
+    }
 
-    var systemLatitude: String { String(format: "%.6f", Double(transformDetail?.latitude ?? "0") ?? 0) }
+    var systemLatitude: String {
+        guard !(transformDetail?.latitude.isEmpty ?? true) else { return "" }
+        return String(format: "%.6f", Double(transformDetail?.latitude ?? "0") ?? 0)
+    }
 
     var locationName: String { transformDetail?.locationName ?? "" }
     var taskStatusName: String { transformDetail?.appTaskStatusName ?? "" }

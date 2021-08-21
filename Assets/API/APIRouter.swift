@@ -54,7 +54,7 @@ enum APIRouter: URLRequestConvertible {
 
         static var transformInventoryDetailPhotograph = "app/receive/getResultByPk"
 
-        static var transformInventoryDetailSubmit = ""
+        static var transformAssetDetailSubmit = "app/receive/saveScanResult"
 
         static var transformAssetList = "app/receive/findResultByPage"
 
@@ -111,7 +111,7 @@ enum APIRouter: URLRequestConvertible {
     case assetTaskInventoryDetailSubmit(AssetTaskInventoryDetailSubmitParameter)
     case assetTaskInventoryDetailPhotograph(AssetTaskInventoryDetailPhotographParameter)
     case transformAssetDetailPhotograph(TransformAssetDetailPhotographParameter)
-    case transformInventoryDetailSubmit(TransformAssetDetailSubmitParameter)
+    case transformAssetDetailSubmit(TransformAssetDetailSubmitParameter)
     case transformAssetList(TransformAssetListParameter)
     case transformAssetDetailByScan(TransformAssetListScanParameter)
     case transformDetail(TransformDetailParameter)
@@ -159,7 +159,7 @@ enum APIRouter: URLRequestConvertible {
         case .assetTaskInventoryDetailSubmit: return pathComponents(with: Constants.assetTaskInventoryDetailSubmit)
         case .assetTaskInventoryDetailPhotograph: return pathComponents(with: Constants.assetTaskInventoryDetailPhotograph)
         case .transformAssetDetailPhotograph: return pathComponents(with: Constants.transformInventoryDetailPhotograph)
-        case .transformInventoryDetailSubmit: return pathComponents(with: Constants.transformInventoryDetailSubmit)
+        case .transformAssetDetailSubmit: return pathComponents(with: Constants.transformAssetDetailSubmit)
         case .transformAssetList: return pathComponents(with: Constants.transformAssetList)
         case .transformAssetDetailByScan: return pathComponents(with: Constants.transformAssetDetailByScan)
         case .transformDetail: return pathComponents(with: Constants.transformDetail)
@@ -244,7 +244,7 @@ enum APIRouter: URLRequestConvertible {
             request = try encode(parameters, into: request)
         case .transformAssetDetailPhotograph(let parameters):
             request = try encode(parameters, into: request)
-        case .transformInventoryDetailSubmit(let parameters):
+        case .transformAssetDetailSubmit(let parameters):
             request = try encode(parameters, into: request)
         case .transformAssetList(let parameters):
             request = try encode(parameters, into: request)

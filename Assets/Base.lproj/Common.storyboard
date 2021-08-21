@@ -573,6 +573,7 @@
                         <segue destination="cga-6G-Nwg" kind="show" identifier="successToAssetTaskInventoryDetail" id="JNC-L3-glb"/>
                         <segue destination="ktR-P1-Ecj" kind="unwind" identifier="unwindToAssetTaskInventoryDetail" unwindAction="unwindToAssetTaskInventoryDetailViewControllerWithSender:" id="BJ9-iq-cdW"/>
                         <segue destination="8ap-eh-cdg" kind="show" identifier="successToTransformAssetDetail" id="zdY-bR-eMS"/>
+                        <segue destination="ktR-P1-Ecj" kind="unwind" identifier="unwindFromScanViewControllerToTransformAssetDetailController" unwindAction="unwindFromScanViewControllerToTransformAssetDetailControllerWithSegue:" id="fo0-XV-rZN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLF-FJ-xx2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

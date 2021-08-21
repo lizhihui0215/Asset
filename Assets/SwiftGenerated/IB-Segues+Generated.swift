@@ -27,6 +27,7 @@ internal enum StoryboardSegue {
     case toScan
     case toSelectPrincipal
     case toSelectUser
+    case unwindFromScanViewControllerToTransformAssetDetailController
     case unwindFromStaffListToTransformDetailViewController
     case unwindFromStaffSelected
     case unwindFromStaffSelectedToAssetTaskInventoryDetail

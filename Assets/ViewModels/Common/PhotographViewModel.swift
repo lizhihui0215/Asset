@@ -23,6 +23,14 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
     var parameter: PhotographUploadParameter
     var viewStates: ViewStates
     var photos: [Photo] = [Photo(), Photo()]
+
+    var firstPhoto: Photo? { photos.first }
+
+    var secondPhoto: Photo? {
+        guard photos.count >= 2 else { return nil }
+        return photos.last
+    }
+
     var isViewing: Bool
 
     init(title: String,
@@ -71,11 +79,11 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
             guard !isViewing else {
                 var viewStates: ViewStates = self.viewStates
 
-                if let first = photos.first, let url = URL(string: first.url) {
+                if let first = firstPhoto, let url = URL(string: first.url) {
                     viewStates.first = .viewing(url: url, info: info(for: first.uploadPerson, at: first.uploadTime))
                 }
 
-                if let second = photos.last, let url = URL(string: second.url) {
+                if let second = secondPhoto, let url = URL(string: second.url) {
                     viewStates.second = .viewing(url: url, info: info(for: second.uploadPerson, at: second.uploadTime))
                 }
 
@@ -86,11 +94,11 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
 
             var viewStates: ViewStates = (first: .prepare, second: .prepare)
 
-            if let first = photos.first, let url = URL(string: first.url) {
+            if let first = firstPhoto, let url = URL(string: first.url) {
                 viewStates.first = .finished(url: url, info: info(for: first.uploadPerson, at: first.uploadTime))
             }
 
-            if let second = photos.last, let url = URL(string: second.url) {
+            if let second = secondPhoto, let url = URL(string: second.url) {
                 viewStates.second = .finished(url: url, info: info(for: second.uploadPerson, at: second.uploadTime))
             }
             self.viewStates = viewStates

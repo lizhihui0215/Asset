@@ -60,7 +60,10 @@ class TransformAssetDetailViewModel: BaseViewModel<TransformAssetDetailViewContr
 
     var checkPerson: String { app.credential?.userAccount ?? "" }
 
-    var resourceNumber: String { transformAssetDetail.resourceNumber }
+    var resourceNumber: String {
+        get { transformAssetDetail.resourceNumber }
+        set { transformAssetDetail.resourceNumber = newValue }
+    }
 
     var tagNumber: String { transformAssetDetail.tagNumber }
     var assetName: String { transformAssetDetail.assetName }
@@ -71,16 +74,23 @@ class TransformAssetDetailViewModel: BaseViewModel<TransformAssetDetailViewContr
 
     var locationCode: String { transformAssetDetail.assetLocationCode }
     var systemLocationName: String { transformAssetDetail.assetLocationName }
-    var quantity: String { transformAssetDetail.quantity }
+    var quantity: String { String(transformAssetDetail.quantity) }
 
-    public var principalName: String { principal?.userName ?? "" }
+    public var principalName: String { "\(transformAssetDetail.dutyPersonCode)/\(transformAssetDetail.dutyPersonName)" }
 
     var formattedLongitude: String { String(format: "%.6f", Double(longitude) ?? 0) }
 
     var formattedLatitude: String { String(format: "%.6f", Double(latitude) ?? 0) }
 
-    var systemLongitude: String { String(format: "%.6f", Double(transformAssetDetail.longitude) ?? 0) }
-    var systemLatitude: String { String(format: "%.6f", Double(transformAssetDetail.latitude) ?? 0) }
+    var systemLongitude: String {
+        guard !transformAssetDetail.longitude.isEmpty else { return "" }
+        return String(format: "%.6f", Double(transformAssetDetail.longitude) ?? 0)
+    }
+
+    var systemLatitude: String {
+        guard !transformAssetDetail.longitude.isEmpty else { return "" }
+        return String(format: "%.6f", Double(transformAssetDetail.latitude) ?? 0)
+    }
 
     private var transformAssetDetail: TransformAssetDetail
 
@@ -113,7 +123,7 @@ class TransformAssetDetailViewModel: BaseViewModel<TransformAssetDetailViewContr
 
     func submit() -> ViewModelFuture<TransformAssetDetail?> {
         api(of: TransformAssetDetailSubmitResponse.self,
-            router: .transformInventoryDetailSubmit(
+            router: .transformAssetDetailSubmit(
                 TransformAssetDetailSubmitParameter(
                     mapLocationDesc: rgcData?.eam.JSONString ?? "",
                     checkPerson: checkPerson,
@@ -151,8 +161,8 @@ class TransformAssetDetailViewModel: BaseViewModel<TransformAssetDetailViewContr
     override func viewModel<T: ViewModelRepresentable>(for action: UIKit.UIViewController, with sender: Any?) -> T {
         switch action {
         case let action as ScanViewController:
-            return TransformInventoryDetailScanViewModel(request: TransformInventoryDetailScanRequest(),
-                                                         action: action) as! T
+            return TransformAssetDetailScanViewModel(request: TransformInventoryDetailScanRequest(),
+                                                     action: action) as! T
         case let action as PhotographViewController:
 
             let parameters = PhotographUploadParameter(category: .asset(tagNumber: tagNumber),
@@ -160,7 +170,7 @@ class TransformAssetDetailViewModel: BaseViewModel<TransformAssetDetailViewContr
                                                        latitude: latitude)
             return AssetPhotographViewModel(title: "资产照片采集",
                                             key: "资产标签号",
-                                            viewStates: (first: .viewing(), second: .viewing()),
+                                            viewStates: (first: .prepare, second: .prepare),
                                             parameter: parameters,
                                             request: PhotographRequest(),
                                             action: action) as! T
