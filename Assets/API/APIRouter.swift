@@ -14,6 +14,7 @@ enum APIRouter: URLRequestConvertible {
         case asset = "asset_check_item"
         case inventory = "check_status_daily"
         case taskStatus = "check_task_status"
+        case confirmStatus = "app_hasystem_confirm_status"
     }
 
     // TODO: enhancement to module, e.g: asset, transform

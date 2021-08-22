@@ -40,15 +40,18 @@ class TransformAssetListViewController: BaseTableViewController, TableViewContro
         case let destination as TransformAssetDetailPhotographViewController:
             guard let sender = sender as? TransformAssetListTableViewCell else { break }
             destination.viewModel = viewModel.viewModel(for: destination, with: sender.indexPath)
+        case let destination as TransformAssetListSearchViewController:
+            destination.viewModel = viewModel.viewModel(for: destination, with: nil)
         default: break
         }
     }
 
     @IBAction func scanTapped(_ sender: UIButton) {}
 
-    @IBAction func unwindFromAssetSearchCompletion(segue: UIStoryboardSegue) {
-        guard let source = segue.source as? TransformSearchViewController else { return }
-
+    @IBAction func unwindFromTransformAssetListSearchCompletion(segue: UIStoryboardSegue) {
+        guard let source = segue.source as? TransformAssetListSearchViewController else { return }
+        viewModel.appSearchText = source.viewModel.searchText
+        viewModel.confirmFlag = source.viewModel.selectedConfirmStatus?.status ?? ""
         refreshTable()
     }
 }

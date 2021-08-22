@@ -15,7 +15,6 @@ class TransformSearchViewController: BaseViewController {
     @IBOutlet var locationTextField: UITextField!
     @IBOutlet var taskCodeTextField: UITextField!
     var viewModel: TransformSearchViewModel!
-    let dropDown = DropDown()
 
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         viewModel.taskStatus = TaskStatus(intValue: taskStatusRadioGroup.selectedIndex)

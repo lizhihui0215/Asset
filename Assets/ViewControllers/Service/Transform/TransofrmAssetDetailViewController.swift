@@ -77,6 +77,7 @@ class TransformAssetDetailViewController: BaseViewController {
         save()
         viewModel.submit().onSuccess { [weak self] _ in
             guard let self = self else { return }
+            `self`.updateViews()
             `self`.alert(message: "操作成功！", defaultAction: Self.defaultAlertAction {
                 `self`.perform(segue: StoryboardSegue.Transform.toPhotograph)
             })

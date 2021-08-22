@@ -3,6 +3,7 @@
 // Copyright (c) 2021 ZhiHui.Li. All rights reserved.
 //
 
+import AVFoundation
 import BrightFutures
 import Foundation
 import ZLPhotoBrowser
@@ -12,6 +13,7 @@ class ScanViewController: BaseViewController {
     @IBOutlet var torchButton: AnimatableButton!
     @IBOutlet var finishedButton: AnimatableButton!
     @IBOutlet var informationLabel: UILabel!
+    @IBOutlet var QRImageView: UIImageView!
 
     @IBOutlet var buttonStackView: UIStackView!
     var viewModel: ScanViewModel!
@@ -44,12 +46,14 @@ class ScanViewController: BaseViewController {
     }
 
     private func startScanning() {
+        QRImageView.isHidden = true
         `self`.finishedButton.isEnabled = false
         scanAnimationImageView.startAnimation()
         viewModel.startScanning().onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.informationLabel.text = `self`.viewModel.information
             `self`.scanAnimationImageView.stopAnimation()
+            `self`.viewModel.captureImage(delegate: self)
             `self`.finishedButton.isEnabled = true
         }.onFailure { _ in
             `self`.finishedButton.isEnabled = false
@@ -91,5 +95,50 @@ class ScanViewController: BaseViewController {
             destination.viewModel = viewModel.viewModel(for: destination)
         default: break
         }
+    }
+}
+
+extension ScanViewController: AVCapturePhotoCaptureDelegate {
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        func cropImage(image: UIImage, rect: CGRect, scale: CGFloat) -> UIImage? {
+            UIGraphicsBeginImageContextWithOptions(CGSize(width: rect.size.width * scale, height: rect.size.height * scale), true, 0.0)
+            image.draw(at: CGPoint(x: -rect.origin.x * scale, y: -rect.origin.y * scale))
+            let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return croppedImage
+        }
+
+        guard let imageData = photo.fileDataRepresentation() else {
+            log.debug("Error while generating image from photo capture data.")
+            return
+        }
+        guard var qrImage = UIImage(data: imageData) else {
+            log.debug("Unable to generate UIImage from image data.")
+            return
+        }
+
+        if qrImage.imageOrientation != .up {
+            UIGraphicsBeginImageContextWithOptions(qrImage.size, false, qrImage.scale)
+            qrImage.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: qrImage.size))
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+
+            if let image = image {
+                qrImage = image
+            }
+        }
+
+        let frame = QRImageView.convert(QRImageView.frame, to: view)
+
+        let scale = qrImage.size.width / UIScreen.main.bounds.width
+
+        guard let croppingImage = cropImage(image: qrImage, rect: frame, scale: scale) else {
+            QRImageView.image = qrImage
+            QRImageView.isHidden = false
+            return
+        }
+
+        QRImageView.image = croppingImage
+        QRImageView.isHidden = false
     }
 }

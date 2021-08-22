@@ -41,7 +41,7 @@ class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     private var input: AVCaptureDeviceInput
     private var output = AVCaptureMetadataOutput()
     private let session = AVCaptureSession()
-    private var stillImageOutput: AVCapturePhotoOutput
+    private var photoOutput: AVCapturePhotoOutput
     private let outputQueue: DispatchQueue
     private var shouldProcessingToNext = true
 
@@ -64,7 +64,7 @@ class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
                  rectOfInterest: CGRect = .zero,
                  outputQueue: DispatchQueue = .main)
     {
-        stillImageOutput = AVCapturePhotoOutput()
+        photoOutput = AVCapturePhotoOutput()
         self.outputQueue = outputQueue
         guard let device = AVCaptureDevice.default(for: .video) else { return nil }
         guard let input = try? AVCaptureDeviceInput(device: device) else { return nil }
@@ -72,7 +72,7 @@ class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         self.input = input
         if session.canAddInput(input) { session.addInput(input) }
         if session.canAddOutput(output) { session.addOutput(output) }
-        if session.canAddOutput(stillImageOutput) { session.addOutput(stillImageOutput) }
+        if session.canAddOutput(photoOutput) { session.addOutput(photoOutput) }
         previewLayer = AVCaptureVideoPreviewLayer(session: session)
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         super.init()
@@ -202,24 +202,9 @@ class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 //        return codeImage
 //    }
 
-//    open func captureImage() {
-//        guard let stillImageConnection = connectionWithMediaType(mediaType: AVMediaType.video as AVMediaType,
-//                connections: stillImageOutput.connections as [AnyObject]) else {
-//            return
-//        }
-//        stillImageOutput.captureStillImageAsynchronously(from: stillImageConnection, completionHandler: { (imageDataSampleBuffer, _) -> Void in
-//            self.stop()
-//            if let imageDataSampleBuffer = imageDataSampleBuffer,
-//               let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer) {
-//
-//                let scanImg = UIImage(data: imageData)
-//                for idx in 0 ... self.results.count - 1 {
-//                    self.results[idx].imgScanned = scanImg
-//                }
-//            }
-//            self.successBlock(self.results)
-//        })
-//    }
+    func captureImage(delegate: AVCapturePhotoCaptureDelegate) {
+        photoOutput.capturePhoto(with: .init(), delegate: delegate)
+    }
 
 //    public static func createCode128(codeString: String, size: CGSize, qrColor: UIColor, bkColor: UIColor) -> UIImage? {
 //        let stringData = codeString.data(using: String.Encoding.utf8)
@@ -246,16 +231,16 @@ class ScanService: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 //        return resizeImage(image: image, quality: CGInterpolationQuality.none, rate: 20.0)
 //    }
 
-//    open func connectionWithMediaType(mediaType: AVMediaType, connections: [AnyObject]) -> AVCaptureConnection? {
-//        log.debug("scanning received object mediaType: \(mediaType) connections: \(connections)")
-//        for connection in connections {
-//            guard let connectionTmp = connection as? AVCaptureConnection else {
-//                continue
-//            }
-//            for port in connectionTmp.inputPorts where port.mediaType == mediaType {
-//                return connectionTmp
-//            }
-//        }
-//        return nil
-//    }
+    open func connectionWithMediaType(mediaType: AVMediaType, connections: [AnyObject]) -> AVCaptureConnection? {
+        log.debug("scanning received object mediaType: \(mediaType) connections: \(connections)")
+        for connection in connections {
+            guard let connectionTmp = connection as? AVCaptureConnection else {
+                continue
+            }
+            for port in connectionTmp.inputPorts where port.mediaType == mediaType {
+                return connectionTmp
+            }
+        }
+        return nil
+    }
 }

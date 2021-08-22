@@ -54,6 +54,10 @@ class ScanViewModel: BaseViewModel<ScanViewController> {
         }
     }
 
+    func captureImage(delegate: AVCapturePhotoCaptureDelegate) {
+        scanner.captureImage(delegate: delegate)
+    }
+
     func playBee() {
         var soundId: SystemSoundID = 1
         let audioPath = Bundle.main.url(forResource: Constants.scanAudioFileName, withExtension: Constants.scanAudioFileExtension)

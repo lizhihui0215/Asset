@@ -55,6 +55,7 @@ internal enum StoryboardSegue {
     case toPhotograph
     case toSearch
     case unwindFromFromTransformDetailChangeCheckPerson
+    case unwindFromTransformAssetListSearchCompletion
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

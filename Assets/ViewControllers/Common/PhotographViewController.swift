@@ -117,13 +117,8 @@ class PhotographViewController: BaseViewController {
 
     var viewStates: PhotographViewModel.ViewStates = (first: .prepare, second: .prepare) {
         willSet {
-            if viewStates.first != newValue.first {
-                update(view: .first(self), for: newValue.first)
-            }
-
-            if viewStates.second != newValue.second {
-                update(view: .second(self), for: newValue.second)
-            }
+            update(view: .first(self), for: newValue.first)
+            update(view: .second(self), for: newValue.second)
         }
     }
 

@@ -490,7 +490,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="转资任务列表" id="3G5-vk-n5Q"/>
                     <connections>
-                        <outlet property="locationTextField" destination="gag-9L-JZe" id="Jv1-oI-z3n"/>
+                        <outlet property="locationTextField" destination="gag-9L-JZe" id="7kj-rH-mwg"/>
                         <outlet property="taskCodeTextField" destination="AVf-Dk-2an" id="Vs9-Ds-1Qb"/>
                         <outlet property="taskStatusRadioGroup" destination="EuJ-PU-MXt" id="o7U-Q8-boh"/>
                     </connections>
@@ -604,7 +604,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="查询参数" id="eKP-mH-7pG"/>
                     <connections>
-                        <outlet property="locationTextField" destination="Ivx-yr-eG8" id="MVU-aF-Hp8"/>
+                        <outlet property="searchTextField" destination="Ivx-yr-eG8" id="MVU-aF-Hp8"/>
                         <outlet property="taskCodeTextField" destination="exw-4P-IH1" id="S16-TN-XvU"/>
                         <outlet property="taskStatusRadioGroup" destination="Pd7-P1-ztB" id="vj1-Bi-BEP"/>
                     </connections>

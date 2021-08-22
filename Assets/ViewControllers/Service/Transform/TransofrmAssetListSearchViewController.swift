@@ -6,18 +6,45 @@
 //  Copyright © 2021 ZhiHui.Li. All rights reserved.
 //
 
+import DropDown
 import UIKit
 
 class TransformAssetListSearchViewController: BaseViewController {
-    @IBOutlet var taskStatusButton: UIButton!
-    @IBOutlet var locationTextField: UITextField!
-
-    @IBAction func taskStatusButton(_ sender: UIButton) {}
+    @IBOutlet var confirmStatusButton: UIButton!
+    @IBOutlet var searchTextField: UITextField!
+    var viewModel: TransformAssetListSearchViewModel!
+    let dropDown = DropDown()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        dropDown.anchorView = confirmStatusButton
+        dropDown.cellNib = UINib(nibName: "DropDownOptionCell", bundle: nil)
+        dropDown.dataSource = viewModel.dropDownOptions
+        dropDown.selectionAction = { [weak self] _, item in
+            guard let self = self else { return }
+            `self`.viewModel.setConfirmStatus(for: item)
+            `self`.confirmStatusButton.setTitle(item, for: .normal)
+        }
+
+        viewModel.fetchDictionary(for: .confirmStatus).onSuccess { [weak self] _ in
+            guard let self = self else { return }
+            `self`.refreshDropDown()
+        }
+    }
+
+    private func refreshDropDown() {
+        dropDown.dataSource = viewModel.dropDownOptions
+        dropDown.reloadAllComponents()
+    }
+
+    @IBAction func confirmStatusButtonTapped(_ sender: UIButton) {
+        dropDown.show()
+    }
+
+    @IBAction func searchButtonTapped(_ sender: UIButton) {
+        viewModel.searchText = searchTextField.eam.text
+        perform(segue: StoryboardSegue.Transform.unwindFromTransformAssetListSearchCompletion)
     }
 
     /*

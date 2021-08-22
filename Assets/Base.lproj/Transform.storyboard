@@ -840,13 +840,13 @@
         <!--转资任务列表-->
         <scene sceneID="UPA-WP-qKS">
             <objects>
-                <viewController id="vIh-BX-QrG" customClass="TransformSearchViewController" customModule="Assets" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vIh-BX-QrG" customClass="TransformAssetListSearchViewController" customModule="Assets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T90-qj-2aS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="di0-TR-vmO">
-                                <rect key="frame" x="10" y="0.0" width="394" height="120"/>
+                                <rect key="frame" x="10" y="0.0" width="394" height="140"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fG9-Tk-Y6X">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
@@ -871,6 +871,9 @@
                                                         <state key="normal" title="全部">
                                                             <color key="titleColor" systemColor="systemOrangeColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="confirmStatusButtonTapped:" destination="vIh-BX-QrG" eventType="touchUpInside" id="Epc-9Q-ObR"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7l-2E-t86">
                                                         <rect key="frame" x="0.0" y="30" width="310" height="1"/>
@@ -888,9 +891,9 @@
                                         </constraints>
                                     </stackView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入资产标签号或资产名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BDw-hw-AlJ" customClass="AnimatableTextField" customModule="Assets" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55" width="394" height="30"/>
+                                        <rect key="frame" x="0.0" y="55" width="394" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="MPW-uF-wEe"/>
+                                            <constraint firstAttribute="height" constant="40" id="MPW-uF-wEe"/>
                                         </constraints>
                                         <color key="textColor" name="primaryTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -909,14 +912,16 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwD-bM-PrZ">
-                                        <rect key="frame" x="0.0" y="90" width="394" height="30"/>
+                                        <rect key="frame" x="0.0" y="100" width="394" height="40"/>
                                         <color key="backgroundColor" name="primaryColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="TWr-Dq-ovb"/>
+                                        </constraints>
                                         <state key="normal" title="查询">
                                             <color key="titleColor" name="secondaryTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="searchTapped:" destination="vIh-BX-QrG" eventType="touchUpInside" id="g8H-sG-dSm"/>
-                                            <segue destination="uk8-0M-caM" kind="unwind" unwindAction="unwindFromSearchCompletionWithSegue:" id="OM4-w4-EzU"/>
+                                            <action selector="searchButtonTapped:" destination="vIh-BX-QrG" eventType="touchDown" id="Ewb-I1-yu6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -932,7 +937,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="转资任务列表" id="8vB-wb-aDb"/>
                     <connections>
-                        <outlet property="locationTextField" destination="BDw-hw-AlJ" id="Rz2-z2-XDa"/>
+                        <outlet property="confirmStatusButton" destination="h3k-Sz-DH1" id="B0g-KG-PLh"/>
+                        <outlet property="searchTextField" destination="BDw-hw-AlJ" id="Rz2-z2-XDa"/>
+                        <segue destination="uk8-0M-caM" kind="unwind" identifier="unwindFromTransformAssetListSearchCompletion" unwindAction="unwindFromTransformAssetListSearchCompletionWithSegue:" id="Nr2-0L-tem"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAx-qY-DcI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

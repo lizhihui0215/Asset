@@ -527,12 +527,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="447.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gco-K5-oHN">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="447.5"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="gco-K5-oHN" firstAttribute="leading" secondItem="gW0-22-QIh" secondAttribute="leading" id="1LB-Z4-aay"/>
+                                    <constraint firstItem="gco-K5-oHN" firstAttribute="top" secondItem="gW0-22-QIh" secondAttribute="top" id="3no-yA-4x9"/>
+                                    <constraint firstAttribute="bottom" secondItem="gco-K5-oHN" secondAttribute="bottom" id="5kZ-pp-kSn"/>
                                     <constraint firstAttribute="trailing" secondItem="Bjd-e1-jMW" secondAttribute="trailing" id="BDn-t6-YCt"/>
                                     <constraint firstItem="Bjd-e1-jMW" firstAttribute="top" secondItem="gW0-22-QIh" secondAttribute="top" id="N3s-v2-SZh"/>
                                     <constraint firstAttribute="bottom" secondItem="Bjd-e1-jMW" secondAttribute="bottom" id="S67-0Y-dHr"/>
+                                    <constraint firstAttribute="trailing" secondItem="gco-K5-oHN" secondAttribute="trailing" id="Ske-fp-9Ri"/>
                                     <constraint firstItem="Bjd-e1-jMW" firstAttribute="leading" secondItem="gW0-22-QIh" secondAttribute="leading" id="acn-d3-54Q"/>
                                 </constraints>
                             </view>
@@ -564,6 +571,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="QRImageView" destination="gco-K5-oHN" id="Zda-YU-2ZF"/>
                         <outlet property="buttonStackView" destination="wC6-2o-hlI" id="0hq-eL-98M"/>
                         <outlet property="finishedButton" destination="hF4-ie-lig" id="02D-tP-mDw"/>
                         <outlet property="informationLabel" destination="IFn-dw-GCp" id="RcC-tA-Whj"/>

@@ -37,7 +37,7 @@ class TransformAssetListViewModel: PageableViewModel<TransformAssetListViewContr
     var appCheckStatus: String = ""
     private var transformDetail: TransformDetail
     public var pageNumber: Int { page + 1 }
-    private var comfirmFlag: String = ""
+    public var confirmFlag: String = ""
     private var appTaskCode: String { transformDetail.appTaskCode }
 
     init(assetTaskDetail: TransformDetail, request: RequestRepresentable, action: TransformAssetListViewController) {
@@ -54,7 +54,7 @@ class TransformAssetListViewModel: PageableViewModel<TransformAssetListViewContr
             appSearchText: appSearchText,
             checkPerson: checkPerson,
             appTaskCode: appTaskCode,
-            confirmFlag: comfirmFlag,
+            confirmFlag: confirmFlag,
             total: String(total)
         )
 
@@ -76,6 +76,8 @@ class TransformAssetListViewModel: PageableViewModel<TransformAssetListViewContr
             let transformAsset = itemAtIndexPath(indexPath: indexPath)
             return TransformAssetDetailPhotographViewModel(request: TransformInventoryDetailPhotographRequest(),
                                                            action: action, transformAsset: transformAsset) as! T
+        case let action as TransformAssetListSearchViewController:
+            return TransformAssetListSearchViewModel(request: TransformAssetListSearchRequest(), action: action) as! T
 
         default: break
         }
