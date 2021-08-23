@@ -31,8 +31,8 @@ class LocationDetailViewController: BaseViewController {
     func refreshPage() {
         codeLabel.text = viewModel.code
         nameLabel.text = viewModel.name
-        originalLatitudeLabel.text = viewModel.originalLatitude
-        originalLongitudeLabel.text = viewModel.originalLongitude
+        originalLatitudeLabel.text = viewModel.systemLatitude
+        originalLongitudeLabel.text = viewModel.systemLongitude
         latitudeLabel.text = viewModel.latitude
         longitudeLabel.text = viewModel.longitude
     }

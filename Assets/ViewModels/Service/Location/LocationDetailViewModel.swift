@@ -27,24 +27,24 @@ class LocationDetailViewModel: BaseViewModel<LocationDetailViewController> {
         locationDetail?.locationName ?? ""
     }
 
-    public var originalLatitude: String {
-        guard let latitude = locationDetail?.strLatitude else { return "" }
-        return latitude
+    var systemLongitude: String {
+        guard let latitude = locationDetail?.strLatitude, !latitude.isEmpty else { return "" }
+        return String(format: "%.6f", Double(latitude) ?? 0)
     }
 
-    public var originalLongitude: String {
-        guard let longitude = locationDetail?.strLongitude else { return "" }
-        return longitude
+    var systemLatitude: String {
+        guard let longitude = locationDetail?.strLongitude, !longitude.isEmpty else { return "" }
+        return String(format: "%.6f", Double(longitude) ?? 0)
     }
 
     public var latitude: String {
         guard let latitude = location?.coordinate.latitude else { return "" }
-        return String(latitude)
+        return String(format: "%.6f", Double(latitude))
     }
 
     public var longitude: String {
         guard let longitude = location?.coordinate.longitude else { return "" }
-        return String(longitude)
+        return String(format: "%.6f", Double(longitude))
     }
 
     init(request: RequestRepresentable, action: LocationDetailViewController, assetLocationId: String) {

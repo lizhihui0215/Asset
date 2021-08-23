@@ -1494,6 +1494,9 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="18" id="Mim-at-gDN"/>
+                                                </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scT-mN-E2j">
                                                 <rect key="frame" x="0.0" y="775" width="414" height="1"/>
@@ -1544,6 +1547,9 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="18" id="wY7-5v-hsE"/>
+                                                </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoE-jZ-9y6">
                                                 <rect key="frame" x="0.0" y="814" width="414" height="1"/>
@@ -1594,6 +1600,9 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="18" id="eAw-aB-I8M"/>
+                                                </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kL5-Qh-3qb">
                                                 <rect key="frame" x="0.0" y="853" width="414" height="1"/>
@@ -1652,6 +1661,9 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="18" id="uIm-cA-Imd"/>
+                                                </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cfm-TJ-cHP">
                                                 <rect key="frame" x="0.0" y="892" width="414" height="1"/>
@@ -1913,7 +1925,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="HwG-Gb-hC6"/>
+        <segue reference="rjp-et-qSt"/>
         <segue reference="n0e-8L-cKS"/>
     </inferredMetricsTieBreakers>
     <resources>
