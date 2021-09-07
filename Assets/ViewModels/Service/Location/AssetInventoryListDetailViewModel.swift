@@ -20,7 +20,7 @@ class AssetInventoryListDetailViewModel: AssetDetailViewModel {
                                                                  resourceNumber: assetDetail.resourceNumber,
                                                                  usePersonName: assetDetail.usePersonName,
                                                                  tagNumber: assetDetail.tagNumber,
-                                                                 mapLocationDesc: rgcData?.eam.JSONString ?? "",
+                                                                 mapLocationDesc: rgcData?.JSONString ?? "",
                                                                  dutyPerson: assetDetail.dutyPerson,
                                                                  assetId: assetDetail.assetId,
                                                                  manufactureName: assetDetail.manufactureName,

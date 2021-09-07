@@ -28,6 +28,7 @@ class AssetTaskInventoryDetailPhotographViewController: BaseViewController {
     @IBOutlet var systemLatitudeLabel: UILabel!
     @IBOutlet var longitudeLabel: UILabel!
     @IBOutlet var latitudeLabel: UILabel!
+    @IBOutlet var selectedPrincipalTextField: AnimatableTextField!
     @IBOutlet var principalTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet var userTapGestureRecognizer: UITapGestureRecognizer!
 
@@ -44,42 +45,30 @@ class AssetTaskInventoryDetailPhotographViewController: BaseViewController {
     func updateViews() {
         checkStatusNameLabel.text = viewModel.checkStatusName
         assetCheckItemNameLabel.text = viewModel.assertUseName
-
-//        serialLabel.text = viewModel.resourceNumber
+        serialLabel.text = viewModel.resourceNumber
         tagNumberLabel.text = viewModel.tagNumber
         assetNameTextField.text = viewModel.assetName
         manufactureNameTextField.text = viewModel.manufactureName
         modelNameTextField.text = viewModel.modelName
-//        systemLocationCodeLabel.text = viewModel.systemLocationCode
+        systemLocationCodeLabel.text = viewModel.systemLocationCode
         locationCodeLabel.text = viewModel.locationCode
-//        systemLocationNameLabel.text = viewModel.systemLocationName
+        systemLocationNameLabel.text = viewModel.systemLocationName
         locationNameLabel.text = viewModel.locationName
         quantityTextField.text = viewModel.quantity
         principalTextField.text = viewModel.principalName
         userTextField.text = viewModel.userName
-//        systemLongitudeLabel.text = viewModel.systemLongitude
-//        systemLatitudeLabel.text = viewModel.systemLatitude
-        longitudeLabel.text = viewModel.formattedLongitude
-        latitudeLabel.text = viewModel.formattedLatitude
+        longitudeLabel.text = viewModel.systemLongitude
+        latitudeLabel.text = viewModel.systemLatitude
+        selectedPrincipalTextField.text = viewModel.selectedPrincipalText
     }
 
-    @IBAction func rightBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        save()
-        viewModel.submit().onSuccess { [weak self] _ in
+    @IBAction func changePrincipalButtonTapped(_ sender: UIButton) {
+        viewModel.changeCheckPerson().onSuccess { [weak self] message in
             guard let self = self else { return }
-            `self`.alert(message: "操作成功！", defaultAction: Self.defaultAlertAction {
-                `self`.perform(segue: StoryboardSegue.AssetTask.toPhotograph)
+            `self`.alert(message: message, defaultAction: Self.defaultAlertAction {
+                `self`.perform(segue: StoryboardSegue.AssetTask.unwindToAssetTaskInventoryListControllerFromChangeInventoryPerson)
             })
         }
-    }
-
-    func save() {
-//        viewModel.selectedAssetCheckItem
-//        viewModel.resourceNumber = serialLabel.text ?? ""
-//        viewModel.assetName = assetNameTextField.eam.text
-//        viewModel.manufactureName = manufactureNameTextField.eam.text
-//        viewModel.modelName = modelNameTextField.eam.text
-//        viewModel.quantity = quantityTextField.eam.text
     }
 
     // MARK: - Navigation

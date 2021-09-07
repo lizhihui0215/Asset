@@ -225,6 +225,16 @@ internal func == (lhs: AssetTaskInventoryDetailPhotograph, rhs: AssetTaskInvento
     guard lhs.deptName == rhs.deptName else { return false }
     guard lhs.manageDeptId == rhs.manageDeptId else { return false }
     guard lhs.manageDeptName == rhs.manageDeptName else { return false }
+    guard lhs.checkTime == rhs.checkTime else { return false }
+    guard lhs.realLocationCode == rhs.realLocationCode else { return false }
+    guard lhs.realLocationName == rhs.realLocationName else { return false }
+    guard lhs.longitude == rhs.longitude else { return false }
+    guard lhs.latitude == rhs.latitude else { return false }
+    guard lhs.mapLocationDesc == rhs.mapLocationDesc else { return false }
+    guard lhs.assetCheckItem == rhs.assetCheckItem else { return false }
+    guard lhs.cityId == rhs.cityId else { return false }
+    guard lhs.cityName == rhs.cityName else { return false }
+    guard lhs.resourceNumber == rhs.resourceNumber else { return false }
     return true
 }
 // MARK: - Credential AutoEquatable

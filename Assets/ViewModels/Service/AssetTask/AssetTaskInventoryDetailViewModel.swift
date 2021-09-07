@@ -149,7 +149,7 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
                     resourceNumber: resourceNumber,
                     usePersonName: userName,
                     tagNumber: tagNumber,
-                    mapLocationDesc: rgcData?.eam.JSONString ?? "",
+                    mapLocationDesc: rgcData?.JSONString ?? "",
                     dutyPerson: principal?.account ?? "",
                     assetId: assetTaskInventoryDetail.assetId,
                     checkBillCode: assetTaskInventoryDetail.checkBillCode,
@@ -206,7 +206,7 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
                                                        latitude: latitude)
             return AssetPhotographViewModel(title: "资产照片采集",
                                             key: "资产标签号",
-                                            viewStates: (first: .viewing(), second: .viewing()),
+                                            viewStates: (first: .prepare, second: .prepare),
                                             parameter: parameters,
                                             request: PhotographRequest(),
                                             action: action) as! T

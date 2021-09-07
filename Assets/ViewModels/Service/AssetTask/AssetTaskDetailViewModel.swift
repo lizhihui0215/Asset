@@ -80,7 +80,7 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
 
     func submit() -> ViewModelFuture<AssetTaskDetail?> {
         api(of: AssetTaskDetailResponse.self,
-            router: .assetTaskDetailSubmit(AssetTaskDetailSubmitParameter(mapLocationDesc: rgcData?.eam.JSONString ?? "",
+            router: .assetTaskDetailSubmit(AssetTaskDetailSubmitParameter(mapLocationDesc: rgcData?.JSONString ?? "",
                                                                           checkPerson: checkPerson,
                                                                           checkBillCode: checkBillCode,
                                                                           latitude: latitude,
@@ -102,12 +102,12 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
                                                    action: action) as! T
         case let action as PhotographViewController:
 
-            let parameters = PhotographUploadParameter(category: .asset(tagNumber: tagNumber),
+            let parameters = PhotographUploadParameter(category: .location(locationCode: locationCode),
                                                        longitude: longitude,
                                                        latitude: latitude)
             return LocationPhotographViewModel(title: "地点照片采集",
-                                               key: "地点编码",
-                                               viewStates: (first: .viewing(), second: .viewing()),
+                                               key: "地点编码:",
+                                               viewStates: (first: .prepare, second: .prepare),
                                                parameter: parameters,
                                                request: PhotographUploadRequest(),
                                                action: action) as! T

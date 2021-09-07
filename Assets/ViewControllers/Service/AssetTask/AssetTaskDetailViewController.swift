@@ -32,12 +32,12 @@ class AssetTaskDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchAssetTaskDetail().flatMap { [weak self] _ -> ViewModelFuture<CLLocation?> in
-            guard let self = self else {
-                return ViewModelFuture(error: .unwrapOptionalValue("\(String(describing: self)) should not be nil"))
-            }
-            return `self`.viewModel.getGPSLocation()
-        }.onSuccess { [weak self] _ in
+        `self`.viewModel.getGPSLocation().onSuccess { [weak self] _ in
+            guard let self = self else { return }
+            `self`.updateViews()
+        }
+
+        viewModel.fetchAssetTaskDetail().onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.updateViews()
         }

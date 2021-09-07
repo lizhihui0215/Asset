@@ -125,7 +125,7 @@ class TransformAssetDetailViewModel: BaseViewModel<TransformAssetDetailViewContr
         api(of: TransformAssetDetailSubmitResponse.self,
             router: .transformAssetDetailSubmit(
                 TransformAssetDetailSubmitParameter(
-                    mapLocationDesc: rgcData?.eam.JSONString ?? "",
+                    mapLocationDesc: rgcData?.JSONString ?? "",
                     checkPerson: checkPerson,
                     latitude: latitude,
                     assetCheckItem: assetCheckItem,

@@ -248,6 +248,8 @@
 		261995972635BC120046AF48 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261995812635BC120046AF48 /* Bundle+Extension.swift */; };
 		261995992635BC120046AF48 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261995832635BC120046AF48 /* Date+Extension.swift */; };
 		261C8BCA263E6DAC009A8FA0 /* ScanAnimationImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261C8BC9263E6DAC009A8FA0 /* ScanAnimationImageView.swift */; };
+		2621BBBE26DE41E700E0B8F9 /* eam-client-private.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2621BBBD26DE41E600E0B8F9 /* eam-client-private.pem */; };
+		2621BBBF26DE41E700E0B8F9 /* eam-client-private.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2621BBBD26DE41E600E0B8F9 /* eam-client-private.pem */; };
 		262605542688B49500325645 /* AssetTaskInventoryListScanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262605532688B49400325645 /* AssetTaskInventoryListScanRequest.swift */; };
 		262605552688B49500325645 /* AssetTaskInventoryListScanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262605532688B49400325645 /* AssetTaskInventoryListScanRequest.swift */; };
 		2626055A268A31CB00325645 /* AssetTaskInventoryDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26260559268A316900325645 /* AssetTaskInventoryDetailRequest.swift */; };
@@ -343,6 +345,17 @@
 		268AFAA32630588200A2854B /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFAA22630588200A2854B /* UIView+Nib.swift */; };
 		268AFAA826305BF800A2854B /* LayoutOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFAA626305BF600A2854B /* LayoutOperator.swift */; };
 		268AFAA926305BF800A2854B /* LayoutHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFAA726305BF800A2854B /* LayoutHelpers.swift */; };
+		2691CE5426DE927B0024DBE9 /* eam-server-public.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2691CE4E26DE8B4E0024DBE9 /* eam-server-public.pem */; };
+		2691CE5626DE9B230024DBE9 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691CE5526DE9B230024DBE9 /* Encodable+Extension.swift */; };
+		2691CE5726DE9B230024DBE9 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691CE5526DE9B230024DBE9 /* Encodable+Extension.swift */; };
+		2691CE5A26DFCDAC0024DBE9 /* AssetInventoryListSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691CE5926DFCDAC0024DBE9 /* AssetInventoryListSearchViewModel.swift */; };
+		2691CE5B26DFCDAD0024DBE9 /* AssetInventoryListSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691CE5926DFCDAC0024DBE9 /* AssetInventoryListSearchViewModel.swift */; };
+		2691CE5C26DFCE060024DBE9 /* AssetInventoryListSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691CE5826DFCC520024DBE9 /* AssetInventoryListSearchViewController.swift */; };
+		2691CE5D26DFCE060024DBE9 /* AssetInventoryListSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691CE5826DFCC520024DBE9 /* AssetInventoryListSearchViewController.swift */; };
+		2691CE5F26E2587A0024DBE9 /* AssetInventoryListSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691CE5E26E258760024DBE9 /* AssetInventoryListSearchRequest.swift */; };
+		2691CE6026E2587A0024DBE9 /* AssetInventoryListSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691CE5E26E258760024DBE9 /* AssetInventoryListSearchRequest.swift */; };
+		2691CE6226E612C50024DBE9 /* AssetTaskInventoryListSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691CE6126E612C30024DBE9 /* AssetTaskInventoryListSearchViewModel.swift */; };
+		2691CE6326E612C60024DBE9 /* AssetTaskInventoryListSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691CE6126E612C30024DBE9 /* AssetTaskInventoryListSearchViewModel.swift */; };
 		269A7026263F9E05006A3FD0 /* BrightFutures.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269A7025263F9E05006A3FD0 /* BrightFutures.xcframework */; };
 		269A7027263F9E05006A3FD0 /* BrightFutures.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 269A7025263F9E05006A3FD0 /* BrightFutures.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26A0540E262EC3E9000F27C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A0540D262EC3E9000F27C3 /* Assets.xcassets */; };
@@ -355,10 +368,14 @@
 		26DF76CF263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DF76CE263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework */; };
 		26DF76D0263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26DF76CE263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26E2643526429F75005CBADF /* StaffListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E2643426429F75005CBADF /* StaffListViewController.swift */; };
+		26E5F58B26E7C381004985A7 /* SwiftyRSA.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E5F58A26E7C381004985A7 /* SwiftyRSA.xcframework */; };
+		26E5F58C26E7C381004985A7 /* SwiftyRSA.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26E5F58A26E7C381004985A7 /* SwiftyRSA.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26E63EA8269710BF00A94813 /* AssetTaskInventoryDetailPhotographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E63EA7269710BE00A94813 /* AssetTaskInventoryDetailPhotographViewController.swift */; };
 		26E63EA9269710BF00A94813 /* AssetTaskInventoryDetailPhotographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E63EA7269710BE00A94813 /* AssetTaskInventoryDetailPhotographViewController.swift */; };
 		26F8961E262EC94200976042 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26F89620262EC94200976042 /* Localizable.strings */; };
 		26F8D1F8264791E800C66FCD /* AssetListDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8D1F7264791E800C66FCD /* AssetListDetail.swift */; };
+		26FB93D726E67D4D00A20884 /* AssetTaskInventoryListSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FB93D126E67D2100A20884 /* AssetTaskInventoryListSearchRequest.swift */; };
+		26FB93D826E67D4E00A20884 /* AssetTaskInventoryListSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FB93D126E67D2100A20884 /* AssetTaskInventoryListSearchRequest.swift */; };
 		26FBBCA12660D7AD003F576B /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBBCA02660D7AC003F576B /* Mocker.swift */; };
 		469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EAC783A44972C349C0389 /* Device.swift */; };
 		469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA61540B02723A9DAED3E /* UIViewController+Extension.swift */; };
@@ -1044,6 +1061,7 @@
 				260E34E426351EDD008CF3DE /* MJRefresh.xcframework in Embed Frameworks */,
 				269A7027263F9E05006A3FD0 /* BrightFutures.xcframework in Embed Frameworks */,
 				260E34F826351EE6008CF3DE /* ZLPhotoBrowser.xcframework in Embed Frameworks */,
+				26E5F58C26E7C381004985A7 /* SwiftyRSA.xcframework in Embed Frameworks */,
 				260E34F426351EE4008CF3DE /* Swiftstraints.xcframework in Embed Frameworks */,
 				260E34EC26351EE1008CF3DE /* SwiftLocation.xcframework in Embed Frameworks */,
 				260E34E026351EDB008CF3DE /* DropDown.xcframework in Embed Frameworks */,
@@ -1308,6 +1326,7 @@
 		261995812635BC120046AF48 /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		261995832635BC120046AF48 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		261C8BC9263E6DAC009A8FA0 /* ScanAnimationImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAnimationImageView.swift; sourceTree = "<group>"; };
+		2621BBBD26DE41E600E0B8F9 /* eam-client-private.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "eam-client-private.pem"; sourceTree = "<group>"; };
 		262605532688B49400325645 /* AssetTaskInventoryListScanRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryListScanRequest.swift; sourceTree = "<group>"; };
 		26260559268A316900325645 /* AssetTaskInventoryDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryDetailRequest.swift; sourceTree = "<group>"; };
 		262D535D265B5E8C0015543E /* ScanBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanBackgroundView.swift; sourceTree = "<group>"; };
@@ -1377,6 +1396,12 @@
 		268AFAA22630588200A2854B /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		268AFAA626305BF600A2854B /* LayoutOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutOperator.swift; sourceTree = "<group>"; };
 		268AFAA726305BF800A2854B /* LayoutHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutHelpers.swift; sourceTree = "<group>"; };
+		2691CE4E26DE8B4E0024DBE9 /* eam-server-public.pem */ = {isa = PBXFileReference; lastKnownFileType = text; path = "eam-server-public.pem"; sourceTree = "<group>"; };
+		2691CE5526DE9B230024DBE9 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		2691CE5826DFCC520024DBE9 /* AssetInventoryListSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInventoryListSearchViewController.swift; sourceTree = "<group>"; };
+		2691CE5926DFCDAC0024DBE9 /* AssetInventoryListSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInventoryListSearchViewModel.swift; sourceTree = "<group>"; };
+		2691CE5E26E258760024DBE9 /* AssetInventoryListSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInventoryListSearchRequest.swift; sourceTree = "<group>"; };
+		2691CE6126E612C30024DBE9 /* AssetTaskInventoryListSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryListSearchViewModel.swift; sourceTree = "<group>"; };
 		269A7025263F9E05006A3FD0 /* BrightFutures.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BrightFutures.xcframework; path = Carthage/Build/BrightFutures.xcframework; sourceTree = SOURCE_ROOT; };
 		26A0540D262EC3E9000F27C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26A739EB2631AD8900CFE3C1 /* LocationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListTableViewCell.swift; sourceTree = "<group>"; };
@@ -1388,10 +1413,12 @@
 		26CAA6EE26B6F90200AC9E73 /* TransformAssetListResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TransformAssetListResponse.json; sourceTree = "<group>"; };
 		26DF76CE263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = IQKeyboardManagerSwift.xcframework; path = Carthage/Build/IQKeyboardManagerSwift.xcframework; sourceTree = SOURCE_ROOT; };
 		26E2643426429F75005CBADF /* StaffListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffListViewController.swift; sourceTree = "<group>"; };
+		26E5F58A26E7C381004985A7 /* SwiftyRSA.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftyRSA.xcframework; path = Carthage/Build/SwiftyRSA.xcframework; sourceTree = SOURCE_ROOT; };
 		26E63EA7269710BE00A94813 /* AssetTaskInventoryDetailPhotographViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryDetailPhotographViewController.swift; sourceTree = "<group>"; };
 		26F8961F262EC94200976042 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		26F89623262EC94700976042 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		26F8D1F7264791E800C66FCD /* AssetListDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListDetail.swift; sourceTree = "<group>"; };
+		26FB93D126E67D2100A20884 /* AssetTaskInventoryListSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryListSearchRequest.swift; sourceTree = "<group>"; };
 		26FBBCA02660D7AC003F576B /* Mocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocker.swift; sourceTree = "<group>"; };
 		469EA1FCF25D4B2B9F7CD71F /* Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
 		469EA21A2AFE56567ECE31AF /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -1592,6 +1619,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E5F58B26E7C381004985A7 /* SwiftyRSA.xcframework in Frameworks */,
 				26DF76CF263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework in Frameworks */,
 				260E34D926351ED7008CF3DE /* Alamofire.xcframework in Frameworks */,
 				260FB8882637B9A500445BD7 /* Security.framework in Frameworks */,
@@ -2106,6 +2134,7 @@
 		26530D22262F11A3002BCE55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26E5F58A26E7C381004985A7 /* SwiftyRSA.xcframework */,
 				263B95D3264D24CE00AD2939 /* UITestHelper.xcframework */,
 				263B95D0264D249D00AD2939 /* AlamofireImage.xcframework */,
 				267D5CF4264AD5AA00DE1E14 /* Cucumberish.xcframework */,
@@ -2199,6 +2228,7 @@
 				5B87594724E568A83D629900 /* InitialSceneType+Extension.swift */,
 				5B875F9C53D025D2CD66ABE0 /* UIStoryboardSegue+Extension.swift */,
 				5B8759D91D25530A56C8C202 /* UIApplication+Extension.swift */,
+				2691CE5526DE9B230024DBE9 /* Encodable+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2558,6 +2588,8 @@
 				5B875ED5ACBBC3AD052447C4 /* TransformAssetListScanParameter.swift */,
 				5B8754A0CD277D8A588F3A08 /* TransformDetailRequest.swift */,
 				5B8750C0CC6FA3FA3CDC44F2 /* TransformSearchRequest.swift */,
+				2691CE5E26E258760024DBE9 /* AssetInventoryListSearchRequest.swift */,
+				26FB93D126E67D2100A20884 /* AssetTaskInventoryListSearchRequest.swift */,
 				5B87551AC9C37935FBE3D7BD /* TransformInventoryDetailRequest.swift */,
 			);
 			path = API;
@@ -2610,6 +2642,8 @@
 		9CBBDFFD2628614F00CC6294 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2621BBBD26DE41E600E0B8F9 /* eam-client-private.pem */,
+				2691CE4E26DE8B4E0024DBE9 /* eam-server-public.pem */,
 				265EC5222651634600E4EB41 /* eam-dev.cer */,
 				2672C7D52646F164007049ED /* scan.wav */,
 				260FB8782637472700445BD7 /* GCJ02.json */,
@@ -2662,6 +2696,7 @@
 		F2F618E8B107D54EABFDC951 /* AssetTask */ = {
 			isa = PBXGroup;
 			children = (
+				2691CE6126E612C30024DBE9 /* AssetTaskInventoryListSearchViewModel.swift */,
 				264C3FE726AD674900332027 /* AssetTaskDetailViewModel.swift */,
 				264C3FE626AD674900332027 /* AssetTaskInventoryDetailPhotographViewModel.swift */,
 				264C3FE826AD674A00332027 /* AssetTaskInventoryDetailScanViewModel.swift */,
@@ -2677,6 +2712,7 @@
 		F2F61C6545A8384E54EA2B31 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				2691CE5926DFCDAC0024DBE9 /* AssetInventoryListSearchViewModel.swift */,
 				F2F61F313F685D6841702133 /* LocationDetailViewModel.swift */,
 				F2F61E0BD902F06974118ABA /* LocationListViewModel.swift */,
 				F2F61B843E8CC2BDA82976DB /* LocationInventoryScanViewModel.swift */,
@@ -2722,6 +2758,7 @@
 				F2F619849B23CEA89AA246D3 /* LocationDetailViewController.swift */,
 				F2F61B10D575A5BCD34B4BBC /* LocationListViewController.swift */,
 				F2F61F2D67A854D656D60C43 /* AssetInventoryListViewController.swift */,
+				2691CE5826DFCC520024DBE9 /* AssetInventoryListSearchViewController.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -2864,6 +2901,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2691CE5426DE927B0024DBE9 /* eam-server-public.pem in Resources */,
 				26845316263C40CC0058F895 /* DropDownOptionCell.xib in Resources */,
 				26F8961E262EC94200976042 /* Localizable.strings in Resources */,
 				260F989F2630B45800A91F00 /* Asset.storyboard in Resources */,
@@ -2889,6 +2927,7 @@
 				5B875844E4AD5B17EDF9E8D4 /* AssetInventoryListResponse.json in Resources */,
 				5B8755E49F6218381E2F9E0D /* AssetDetailByInventoryListResponse.json in Resources */,
 				5B87531F26D741272A80EA81 /* InventoryStatusResponse.json in Resources */,
+				2621BBBE26DE41E700E0B8F9 /* eam-client-private.pem in Resources */,
 				5B875F45E42FFD17C4D912E6 /* PrincipalStaffListResponse.json in Resources */,
 				5B87520CFE7AECA3EB644D87 /* UserStaffListResponse.json in Resources */,
 				5B875945DEC6B42F47F0F586 /* AssetDetailByLocationScanResponse.json in Resources */,
@@ -2958,6 +2997,7 @@
 				A1FEAC27266157AB00DA5708 /* UserStaffListResponse.json in Resources */,
 				A1FEAC28266157AB00DA5708 /* AssetDetailByLocationScanResponse.json in Resources */,
 				A1FEAC29266157AB00DA5708 /* AssetStatusResponse.json in Resources */,
+				2621BBBF26DE41E700E0B8F9 /* eam-client-private.pem in Resources */,
 				A1FEAC2A266157AB00DA5708 /* AssetListResponse.json in Resources */,
 				A1FEAC2B266157AB00DA5708 /* AssetListDetailResponse.json in Resources */,
 				A1FEAC2C266157AB00DA5708 /* InventoryListDetailSubmitedResponse.json in Resources */,
@@ -3313,6 +3353,7 @@
 				469EAB900959138C826A8219 /* UITextField+Extension.swift in Sources */,
 				268381A1262EE1C000F6C23F /* IB-Scenes+Generated.swift in Sources */,
 				260E35E526351FBB008CF3DE /* TransitionType.swift in Sources */,
+				26FB93D726E67D4D00A20884 /* AssetTaskInventoryListSearchRequest.swift in Sources */,
 				469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */,
 				469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */,
 				260FB8ED2637FEF100445BD7 /* NativeLocationService.swift in Sources */,
@@ -3356,6 +3397,7 @@
 				2609228E2650BAE200B962FA /* KaedeTextField.swift in Sources */,
 				5B8750E26BA7E848BE2F6A74 /* UITableView+Cell.swift in Sources */,
 				268AFA8D2630182B00A2854B /* ServiceCollectionViewCell.swift in Sources */,
+				2691CE5B26DFCDAD0024DBE9 /* AssetInventoryListSearchViewModel.swift in Sources */,
 				260E362526351FBB008CF3DE /* ActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				260E365526351FBC008CF3DE /* BarButtonItemDesignable.swift in Sources */,
 				260E361926351FBB008CF3DE /* ActivityIndicatorAnimationCubeTransition.swift in Sources */,
@@ -3376,6 +3418,7 @@
 				260E362426351FBB008CF3DE /* ActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
 				260E360526351FBB008CF3DE /* PresentFlipSegue.swift in Sources */,
 				A13A669E266CE64D0044C010 /* AssetTaskListTableViewCell.swift in Sources */,
+				2691CE5F26E2587A0024DBE9 /* AssetInventoryListSearchRequest.swift in Sources */,
 				264C401126ADD48100332027 /* TransformAssetListScanViewModel.swift in Sources */,
 				26845307263C03680058F895 /* MockingURLProtocol.swift in Sources */,
 				264C3FF426AD674A00332027 /* AssetTaskInventoryDetailScanViewModel.swift in Sources */,
@@ -3423,6 +3466,7 @@
 				260E366426351FBC008CF3DE /* RootWindowDesignable.swift in Sources */,
 				260E366126351FBC008CF3DE /* BlurDesignable.swift in Sources */,
 				260922902650BAE200B962FA /* IsaoTextField.swift in Sources */,
+				2691CE6226E612C50024DBE9 /* AssetTaskInventoryListSearchViewModel.swift in Sources */,
 				264C3FFF26ADD47900332027 /* TransofrmAssetListSearchViewController.swift in Sources */,
 				260E360426351FBB008CF3DE /* PresentFoldWithDismissInteractionSegue.swift in Sources */,
 				264C400126ADD47900332027 /* TransofrmAssetDetailPhotographViewController.swift in Sources */,
@@ -3486,6 +3530,7 @@
 				5B8758EB53E2DCBEB4F2B62D /* APIMockService.swift in Sources */,
 				5B875658F3C7733A424600CB /* StaffListViewModel.swift in Sources */,
 				5B875CFA35ED4661952289D5 /* Staff.swift in Sources */,
+				2691CE5C26DFCE060024DBE9 /* AssetInventoryListSearchViewController.swift in Sources */,
 				5B8752F68BA545F3F63D5290 /* StaffListRequest.swift in Sources */,
 				2609228C2650BAE200B962FA /* JiroTextField.swift in Sources */,
 				5B875E98884505B170EA0195 /* AssetTaskListRequest.swift in Sources */,
@@ -3500,6 +3545,7 @@
 				5B8752E166B194BEBB121610 /* AssetInventoryListDetailRequest.swift in Sources */,
 				5B87547EBEBB99A146226E0E /* AssetInventoryListDetailSubmitRequest.swift in Sources */,
 				5B875BED31AC406B51A41735 /* PhotographUploadRequest.swift in Sources */,
+				2691CE5626DE9B230024DBE9 /* Encodable+Extension.swift in Sources */,
 				5B875CC5ECCEDD42B79930B5 /* Photo.swift in Sources */,
 				5B875FF2910FFFD631D8252A /* LocationImagesRequest.swift in Sources */,
 				2655C169268B44560063A02E /* AssetTaskInventoryDetailScanRequest.swift in Sources */,
@@ -3668,6 +3714,7 @@
 				A1FEAAD2266157AB00DA5708 /* API.swift in Sources */,
 				A1FEAAD3266157AB00DA5708 /* CALayerExtension.swift in Sources */,
 				A1FEAAD4266157AB00DA5708 /* ScanBackgroundView.swift in Sources */,
+				26FB93D826E67D4E00A20884 /* AssetTaskInventoryListSearchRequest.swift in Sources */,
 				A1FEAAD5266157AB00DA5708 /* LayoutHelpers.swift in Sources */,
 				A1FEAAD6266157AB00DA5708 /* DismissSegue.swift in Sources */,
 				A1FEAAD7266157AB00DA5708 /* ExplodeAnimator.swift in Sources */,
@@ -3676,6 +3723,7 @@
 				A1FEAADA266157AB00DA5708 /* BorderType.swift in Sources */,
 				A1FEAADB266157AB00DA5708 /* ActivityIndicatorType.swift in Sources */,
 				A1FEAADC266157AB00DA5708 /* AnimatableModalViewController.swift in Sources */,
+				2691CE5726DE9B230024DBE9 /* Encodable+Extension.swift in Sources */,
 				A1FEAADD266157AB00DA5708 /* AnimatableTabBarItem.swift in Sources */,
 				A1FEAADE266157AB00DA5708 /* EAMError.swift in Sources */,
 				A1FEAADF266157AB00DA5708 /* JSON+Generated.swift in Sources */,
@@ -3767,6 +3815,7 @@
 				A1FEAB2C266157AB00DA5708 /* UIViewController+Extension.swift in Sources */,
 				A1FEAB2D266157AB00DA5708 /* Device.swift in Sources */,
 				A1FEAB2E266157AB00DA5708 /* NativeLocationService.swift in Sources */,
+				2691CE5D26DFCE060024DBE9 /* AssetInventoryListSearchViewController.swift in Sources */,
 				A1FEAB2F266157AB00DA5708 /* MinoruTextField.swift in Sources */,
 				A1FEAB30266157AB00DA5708 /* FoldAnimator.swift in Sources */,
 				264C401626ADD48100332027 /* TransformAssetDetailPhotographViewModel.swift in Sources */,
@@ -3799,6 +3848,7 @@
 				A1FEAB48266157AB00DA5708 /* ActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				A1FEAB49266157AB00DA5708 /* IB.swift in Sources */,
 				A1FEAB4A266157AB00DA5708 /* PhotographViewController.swift in Sources */,
+				2691CE5A26DFCDAC0024DBE9 /* AssetInventoryListSearchViewModel.swift in Sources */,
 				A1FEAB4B266157AB00DA5708 /* AnimatableImageView.swift in Sources */,
 				A1FEAB4C266157AB00DA5708 /* ServiceRequest.swift in Sources */,
 				A1FEAB4D266157AB00DA5708 /* PresentationAnimationType.swift in Sources */,
@@ -3984,6 +4034,7 @@
 				F2F61B93A95A1CEEF791A885 /* LocationDetailViewModel.swift in Sources */,
 				F2F610C3F859271D200E4652 /* LocationListViewModel.swift in Sources */,
 				F2F6173E585C0559E199E13C /* LocationInventoryScanViewModel.swift in Sources */,
+				2691CE6326E612C60024DBE9 /* AssetTaskInventoryListSearchViewModel.swift in Sources */,
 				F2F61588F4BD645836B7E270 /* AssetInventoryListDetailViewModel.swift in Sources */,
 				F2F61D64090A78AD00A0C068 /* LocationPhotographViewModel.swift in Sources */,
 				F2F6196DA0B921F8E3174CB2 /* AssetListViewModel.swift in Sources */,
@@ -3991,6 +4042,7 @@
 				F2F619023121E6BDD55C5699 /* AssetPhotographViewModel.swift in Sources */,
 				F2F61D70FA15D72E0ACA1BF1 /* AssetListDetailViewModel.swift in Sources */,
 				F2F614AEE2E67CF6555AA770 /* AssetListRequest.swift in Sources */,
+				2691CE6026E2587A0024DBE9 /* AssetInventoryListSearchRequest.swift in Sources */,
 				5B8752E0B6443F986F5263BC /* AssetTaskInventoryListSearchViewController.swift in Sources */,
 				5B8755CF65258ECF8C9D1418 /* AssetTaskInventoryDetailViewController.swift in Sources */,
 				5B8757187EBD6AE0E2EC5D93 /* AssetTaskInventoryDetailPhotographRequest.swift in Sources */,

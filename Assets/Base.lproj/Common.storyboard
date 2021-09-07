@@ -348,7 +348,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vR9-7K-42v">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="请输入资产标签号或资产名称" translatesAutoresizingMaskIntoConstraints="NO" id="YsH-c3-dkN">
+                                    <searchBar contentMode="redraw" placeholder="请输入员工编号或登陆账号或用户姓名" translatesAutoresizingMaskIntoConstraints="NO" id="YsH-c3-dkN">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="wtE-Wu-JNm"/>
@@ -475,6 +475,7 @@
                         <segue destination="cFM-50-vg2" kind="unwind" identifier="unwindFromStaffSelectedToTransformInventoryDetail" unwindAction="unwindToTransformInventoryDetailViewControllerWithSender:" id="XOT-ay-Dk5"/>
                         <segue destination="cFM-50-vg2" kind="unwind" identifier="unwindFromStaffSelectedToTransformInventoryDetail" unwindAction="unwindToTransformInventoryDetailViewControllerWithSender:" id="zYM-NS-Aw7"/>
                         <segue destination="cFM-50-vg2" kind="unwind" identifier="unwindFromStaffListToTransformDetailViewController" unwindAction="unwindFromStaffListToTransformDetailViewControllerWithSegue:" id="6d6-UG-tGa"/>
+                        <segue destination="cFM-50-vg2" kind="unwind" identifier="unwindFromStaffSelectedToAssetInventoryListSearchViewController" unwindAction="unwindFromStaffSelectedToAssetInventoryListSearchViewControllerWithSegue:" id="ri7-5B-qlN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIr-2x-kMV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

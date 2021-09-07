@@ -26,3 +26,13 @@ extension Dictionary where Key: Assets.Keys, Value == String {
         return dic
     }
 }
+
+extension Dictionary {
+    func JSONString(prettify: Bool = false) -> String? {
+        guard JSONSerialization.isValidJSONObject(self) else { return nil }
+        let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization
+            .WritingOptions()
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else { return nil }
+        return String(data: jsonData, encoding: .utf8)
+    }
+}

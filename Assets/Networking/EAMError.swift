@@ -116,10 +116,17 @@ public enum EAMError: Error {
         case updateRequired
     }
 
+    public enum APIError: Error, Equatable {
+        case parametersIsNil
+        case tokenRequiredError
+        case updateRequired
+    }
+
     public enum UIError: Error {
         case usernameEmpty
         case passwordEmpty
         case transformChangePersonNotSelected
+        case assetTaskChangePersonNotSelected
     }
 
     public enum LocationServiceError: Error {
@@ -178,6 +185,7 @@ extension EAMError.UIError: LocalizedError {
         case .usernameEmpty: return "用户名不能为空！"
         case .passwordEmpty: return "密码不能为空！"
         case .transformChangePersonNotSelected: return "请选择新的执行人！"
+        case .assetTaskChangePersonNotSelected: return "请选择新的执行人！"
         }
     }
 }

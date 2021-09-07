@@ -18,6 +18,8 @@ struct AssetInventoryListParameter: Encodable, Searchable {
     let regionIdCompany: String
     let locationCode: String
     let appCheckStatus: String
+    let dutyPerson: String
+    let usePerson: String
 }
 
 struct AssetInventoryListResponse: PageableResponse {

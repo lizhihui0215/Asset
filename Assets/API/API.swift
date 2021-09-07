@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import SwiftyRSA
+
 struct API {
     enum Keys: String {
         case Schema
@@ -31,6 +33,19 @@ struct API {
 
     /// Whether to remove invalid elements instead of throwing when decoding arrays
     public static var safeArrayDecoding = true
+
+    public static var publicKey: PublicKey {
+        try! PublicKey(pemNamed: "eam-server-public")
+    }
+
+    public static var privateKey: PrivateKey {
+        try! PrivateKey(pemNamed: "eam-client-private")
+    }
+
+    static func randomAESKey(length: Int = 16) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0 ..< length).map { _ in letters.randomElement()! })
+    }
 
     @UserDefault(key: Keys.Schema, defaultValue: Constants.defaultSchema)
     static var schema: Scheme

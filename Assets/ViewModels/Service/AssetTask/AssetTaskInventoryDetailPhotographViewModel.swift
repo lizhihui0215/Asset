@@ -8,6 +8,15 @@
 
 import Foundation
 
+struct AssetTaskInventoryDetailChangeInventoryPersonParameter: Encodable {
+    let checkStatus: String
+    let checkPerson: String
+    let assetId: String
+    let checkBillCode: String
+    let newCheckPerson: String?
+    let locationCode: String
+}
+
 class AssetTaskInventoryDetailPhotographViewModel: BaseViewModel<AssetTaskInventoryDetailPhotographViewController>, StaffSelectable {
     var locationService: BDLocationService = .shared
     typealias AssetStatus = [String: String]
@@ -24,9 +33,26 @@ class AssetTaskInventoryDetailPhotographViewModel: BaseViewModel<AssetTaskInvent
     public var principal: Staff?
     public var user: Staff?
 
-    var formattedLongitude: String { String(format: "%.6f", Double(longitude) ?? 0) }
+    var formattedLongitude: String {
+        guard !longitude.isEmpty else { return "" }
+        return String(format: "%.6f", Double(longitude) ?? 0)
+    }
 
-    var formattedLatitude: String { String(format: "%.6f", Double(latitude) ?? 0) }
+    var formattedLatitude: String {
+        guard !latitude.isEmpty else { return "" }
+        return String(format: "%.6f", Double(latitude) ?? 0)
+    }
+
+    var selectedPrincipalText: String {
+        guard let principal = principal else { return "" }
+        return "\(principal.account)/\(principal.userName)"
+    }
+
+    var checkStatus: String { assetTaskInventoryDetailPhotograph.checkStatus }
+
+    var assetId: String { assetTaskInventoryDetailPhotograph.assetId }
+
+    var checkBillCode: String { assetTaskInventoryDetailPhotograph.checkBillCode }
 
     var checkStatusName: String { assetTaskInventoryDetailPhotograph.checkStatusName }
 
@@ -34,7 +60,7 @@ class AssetTaskInventoryDetailPhotographViewModel: BaseViewModel<AssetTaskInvent
 
     var checkPerson: String { app.credential?.userAccount ?? "" }
 
-//    var resourceNumber: String { assetTaskInventoryDetail. }
+    var resourceNumber: String { assetTaskInventoryDetailPhotograph.resourceNumber }
 
     var tagNumber: String { assetTaskInventoryDetailPhotograph.tagNumber }
     var assetName: String { assetTaskInventoryDetailPhotograph.assetName }
@@ -42,19 +68,31 @@ class AssetTaskInventoryDetailPhotographViewModel: BaseViewModel<AssetTaskInvent
     var manufactureName: String { assetTaskInventoryDetailPhotograph.manufactureName }
 
     var modelName: String { assetTaskInventoryDetailPhotograph.modelNumber }
+    var systemLocationCode: String { assetTaskInventoryDetailPhotograph.realLocationCode }
+    var systemLocationName: String { assetTaskInventoryDetailPhotograph.realLocationName }
 
     var locationCode: String { assetTaskInventoryDetailPhotograph.locationCode }
     var locationName: String { assetTaskInventoryDetailPhotograph.locationName }
     var quantity: String { String(assetTaskInventoryDetailPhotograph.quantity) }
 
-    public var principalName: String { assetTaskInventoryDetailPhotograph.dutyPersonName }
+    public var principalName: String {
+        "\(assetTaskInventoryDetailPhotograph.dutyPerson)/\(assetTaskInventoryDetailPhotograph.dutyPersonName)"
+    }
 
-    public var userName: String { assetTaskInventoryDetailPhotograph.usePersonName }
+    public var userName: String {
+        "\(assetTaskInventoryDetailPhotograph.usePerson)/\(assetTaskInventoryDetailPhotograph.usePersonName)"
+    }
 
-//    var systemLongitude: String { String(format: "%.6f", Double(assetTaskInventoryDetail.) ?? 0) }
+    var systemLongitude: String {
+        guard let longitude = Double(assetTaskInventoryDetailPhotograph.longitude) else { return "" }
+        return String(format: "%.6f", longitude)
+    }
 
     public var selectedAssetCheckItem: String = ""
-//    var systemLatitude: String { String(format: "%.6f", Double(assetTaskInventoryDetail.latitude) ?? 0) }
+    var systemLatitude: String {
+        guard let latitude = Double(assetTaskInventoryDetailPhotograph.latitude) else { return "" }
+        return String(format: "%.6f", latitude)
+    }
 
     private var assetTaskInventoryDetailPhotograph: AssetTaskInventoryDetailPhotograph!
 
@@ -74,36 +112,28 @@ class AssetTaskInventoryDetailPhotographViewModel: BaseViewModel<AssetTaskInvent
         }
     }
 
-    func submit() -> ViewModelFuture<AssetTaskInventoryDetail?> {
-        fatalError("not support")
-//        api(of: AssetTaskInventoryDetailSubmitResponse.self,
-//            router: .assetTaskInventoryDetailSubmit(
-//                AssetTaskInventoryDetailSubmitParameter(
-//                    realLocationCode: assetTaskInventoryDetail.realLocationCode,
-//                    quantity: quantity,
-//                    checkPerson: checkPerson,
-//                    latitude: latitude,
-//                    dutyPersonName: principal?.userName ?? "",
-//                    assetCheckItem: selectedAssetStatus?.status ?? "",
-//                    resourceNumber: resourceNumber,
-//                    usePersonName: userName,
-//                    tagNumber: tagNumber,
-//                    mapLocationDesc: rgcData?.eam.JSONString ?? "",
-//                    dutyPerson: principal?.account ?? "",
-//                    assetId: assetTaskInventoryDetail.assetId,
-//                    checkBillCode: assetTaskInventoryDetail.checkBillCode,
-//                    manufactureName: manufactureName,
-//                    usePerson: principalName,
-//                    assetName: assetName,
-//                    realLocationName: assetTaskInventoryDetail.realLocationName,
-//                    modelNumber: modelName,
-//                    longitude: longitude
-//                )))
-//                .onSuccess { [weak self] result in
-//            guard let self = self else { return }
-//            `self`.assetTaskInventoryDetail.latitude = result?.latitude ?? ""
-//            `self`.assetTaskInventoryDetail.longitude = result?.longitude ?? ""
-//        }
+    override func valid(router: APIRouter) throws {
+        if case .assetTaskChangeInventoryPerson = router {
+            guard self.validator.not(type: .empty(string: principal?.account)) else {
+                throw EAMError.UIError.assetTaskChangePersonNotSelected
+            }
+        }
+
+        return try super.valid(router: router)
+    }
+
+    func changeCheckPerson() -> ViewModelFuture<String> {
+        api(router: .assetTaskChangeInventoryPerson(
+            AssetTaskInventoryDetailChangeInventoryPersonParameter(
+                checkStatus: checkStatus,
+                checkPerson: checkPerson,
+                assetId: assetId,
+                checkBillCode: checkBillCode,
+                newCheckPerson: principal?.account,
+                locationCode: locationCode
+            )
+        )
+        )
     }
 
     func fetchTaskInventoryDetailPhotograph() -> ViewModelFuture<AssetTaskInventoryDetailPhotograph?> {

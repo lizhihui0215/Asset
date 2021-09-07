@@ -394,6 +394,16 @@ extension AssetTaskInventoryDetailPhotograph {
         case deptName
         case manageDeptId
         case manageDeptName
+        case checkTime
+        case realLocationCode
+        case realLocationName
+        case longitude
+        case latitude
+        case mapLocationDesc
+        case assetCheckItem
+        case cityId
+        case cityName
+        case resourceNumber
     }
 
     internal init(from decoder: Decoder) throws {
@@ -421,6 +431,16 @@ extension AssetTaskInventoryDetailPhotograph {
         deptName = (try? container.decode(String.self, forKey: .deptName)) ?? AssetTaskInventoryDetailPhotograph.defaultDeptName
         manageDeptId = (try? container.decode(String.self, forKey: .manageDeptId)) ?? AssetTaskInventoryDetailPhotograph.defaultManageDeptId
         manageDeptName = (try? container.decode(String.self, forKey: .manageDeptName)) ?? AssetTaskInventoryDetailPhotograph.defaultManageDeptName
+        checkTime = (try? container.decode(String.self, forKey: .checkTime)) ?? AssetTaskInventoryDetailPhotograph.defaultCheckTime
+        realLocationCode = (try? container.decode(String.self, forKey: .realLocationCode)) ?? AssetTaskInventoryDetailPhotograph.defaultRealLocationCode
+        realLocationName = (try? container.decode(String.self, forKey: .realLocationName)) ?? AssetTaskInventoryDetailPhotograph.defaultRealLocationName
+        longitude = (try? container.decode(String.self, forKey: .longitude)) ?? AssetTaskInventoryDetailPhotograph.defaultLongitude
+        latitude = (try? container.decode(String.self, forKey: .latitude)) ?? AssetTaskInventoryDetailPhotograph.defaultLatitude
+        mapLocationDesc = (try? container.decode(String.self, forKey: .mapLocationDesc)) ?? AssetTaskInventoryDetailPhotograph.defaultMapLocationDesc
+        assetCheckItem = (try? container.decode(String.self, forKey: .assetCheckItem)) ?? AssetTaskInventoryDetailPhotograph.defaultAssetCheckItem
+        cityId = (try? container.decode(String.self, forKey: .cityId)) ?? AssetTaskInventoryDetailPhotograph.defaultCityId
+        cityName = (try? container.decode(String.self, forKey: .cityName)) ?? AssetTaskInventoryDetailPhotograph.defaultCityName
+        resourceNumber = (try? container.decode(String.self, forKey: .resourceNumber)) ?? AssetTaskInventoryDetailPhotograph.defaultResourceNumber
     }
 
 }

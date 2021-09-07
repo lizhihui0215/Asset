@@ -7,12 +7,16 @@
 //
 
 import Alamofire
+import CryptoSwift
 import Foundation
+import Security
+import SwiftyRSA
 
 enum APIRouter: URLRequestConvertible {
     enum DictionaryStatus: String {
         case asset = "asset_check_item"
         case inventory = "check_status_daily"
+        case checkStatus = "check_status"
         case taskStatus = "check_task_status"
         case confirmStatus = "app_hasystem_confirm_status"
     }
@@ -52,6 +56,7 @@ enum APIRouter: URLRequestConvertible {
         static var assetTaskInventoryDetailSubmit = "app/check/saveScanResult"
 
         static var assetTaskInventoryDetailPhotograph = "app/check/getResultByPk"
+        static var assetTaskInventoryDetailPhotographMore = "app/check/getResultMore"
 
         static var transformInventoryDetailPhotograph = "app/receive/getResultByPk"
 
@@ -65,6 +70,7 @@ enum APIRouter: URLRequestConvertible {
 
         static var transformDetailUpdateLocationCoordination = "app/receive/saveTaskInfo"
         static var transformChangeCheckPerson = "app/receive/changeCheckPersonByTask"
+        static var assetTaskChangeInventoryPerson = "app/check/changeCheckPerson"
 
         static func staffList(_ category: Staff.Category) -> String {
             switch category {
@@ -118,6 +124,7 @@ enum APIRouter: URLRequestConvertible {
     case transformDetail(TransformDetailParameter)
     case transformDetailUpdateLocationCoordination(TransformDetailUpdateLocationCoordinationParameter)
     case transformChangeCheckPerson(TransformChangeCheckPersonParameter)
+    case assetTaskChangeInventoryPerson(AssetTaskInventoryDetailChangeInventoryPersonParameter)
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -158,7 +165,9 @@ enum APIRouter: URLRequestConvertible {
         case .assetTaskInventoryList: return pathComponents(with: Constants.assetTaskInventoryList)
         case .assetTaskInventoryDetailByScan: return pathComponents(with: Constants.assetTaskInventoryDetailByScan)
         case .assetTaskInventoryDetailSubmit: return pathComponents(with: Constants.assetTaskInventoryDetailSubmit)
-        case .assetTaskInventoryDetailPhotograph: return pathComponents(with: Constants.assetTaskInventoryDetailPhotograph)
+        case .assetTaskInventoryDetailPhotograph(let parameters):
+            let path = parameters.checkStatus != "3" ? Constants.assetTaskInventoryDetailPhotograph : Constants.assetTaskInventoryDetailPhotographMore
+            return pathComponents(with: path)
         case .transformAssetDetailPhotograph: return pathComponents(with: Constants.transformInventoryDetailPhotograph)
         case .transformAssetDetailSubmit: return pathComponents(with: Constants.transformAssetDetailSubmit)
         case .transformAssetList: return pathComponents(with: Constants.transformAssetList)
@@ -166,6 +175,7 @@ enum APIRouter: URLRequestConvertible {
         case .transformDetail: return pathComponents(with: Constants.transformDetail)
         case .transformDetailUpdateLocationCoordination: return pathComponents(with: Constants.transformDetailUpdateLocationCoordination)
         case .transformChangeCheckPerson: return pathComponents(with: Constants.transformChangeCheckPerson)
+        case .assetTaskChangeInventoryPerson: return pathComponents(with: Constants.assetTaskChangeInventoryPerson)
         }
     }
 
@@ -257,13 +267,59 @@ enum APIRouter: URLRequestConvertible {
             request = try encode(parameters, into: request)
         case .transformChangeCheckPerson(let parameters):
             request = try encode(parameters, into: request)
+        case .assetTaskChangeInventoryPerson(let parameters):
+            request = try encode(parameters, into: request)
         }
 
         return request
     }
 
     func encode<Parameters>(_ parameters: Parameters?, into request: URLRequest) throws -> URLRequest where Parameters: Encodable {
+//        guard let parameters = parameters else {
+//            throw EAMError.APIError.parametersIsNil
+//        }
+//
+//        var request = request
+//        let sign = try sign(parameters: parameters)
+//
+//        let paramJSONString = try parameters.asDictionary()
+//            .merging(["sign": sign]) { $1 }
+//            .JSONString()
+//
+//        let aesKey = API.randomAESKey()
+//        guard let info = paramJSONString?.bytes.toHexString() else { fatalError("to hex string error") }
+//        let clear = try ClearMessage(string: aesKey, using: .utf8)
+//        let encryptedKey = try clear.encrypted(with: API.publicKey, padding: .PKCS1)
+//
+//        let bodyData = try AES(key: aesKey.bytes, blockMode: CBC(iv: aesKey.bytes), padding: .pkcs5).encrypt(info.bytes).toBase64()
+//
+//        let param = ["bodyData": bodyData]
+//
+//        request.addValue(encryptedKey.base64String, forHTTPHeaderField: "encryptKey")
+
         try JSONParameterEncoder().encode(parameters, into: request)
+    }
+
+    func sign(parameters: Encodable) throws -> String {
+        let mirror = Mirror(reflecting: parameters)
+        var valuesString = ""
+
+        for field in mirror.children {
+            if let value = field.value as? String {
+                valuesString += value
+            } else if let value = field.value as? Int {
+                valuesString += String(value)
+            } else if let value = field.value as? Double {
+                valuesString += String(value)
+            }
+        }
+
+        let clear = try ClearMessage(string: valuesString, using: .utf8)
+        let signature = try clear.signed(with: API.privateKey, digestType: .sha256)
+
+        print(signature.base64String)
+        print(signature.data)
+        return signature.base64String
     }
 
     var multipartFormData: MultipartFormData {

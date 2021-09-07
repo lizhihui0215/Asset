@@ -18,6 +18,8 @@ internal enum StoryboardSegue {
   internal enum AssetTask: String, SegueType {
     case toPhotograph
     case toSearch
+    case unwindToAssetTaskInventoryListControllerFromChangeInventoryPerson
+    case unwindToAssetTaskInventoryListViewControllerFromSearch
   }
   internal enum Common: String, SegueType {
     case submitted
@@ -30,6 +32,7 @@ internal enum StoryboardSegue {
     case unwindFromScanViewControllerToTransformAssetDetailController
     case unwindFromStaffListToTransformDetailViewController
     case unwindFromStaffSelected
+    case unwindFromStaffSelectedToAssetInventoryListSearchViewController
     case unwindFromStaffSelectedToAssetTaskInventoryDetail
     case unwindFromStaffSelectedToTransformInventoryDetail
     case unwindToAssetTaskInventoryDetail
@@ -38,6 +41,7 @@ internal enum StoryboardSegue {
     case toAssetInventoryList
     case toPhotograph
     case toScan
+    case unwindToAssetInventoryListViewControllerFromSearch
   }
   internal enum Login: String, SegueType {
     case toSetting

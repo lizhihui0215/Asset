@@ -143,7 +143,7 @@ class TransformDetailViewModel: BaseViewModel<TransformDetailViewController>, St
         api(of: TransformDetailResponse.self,
             router: .transformDetailUpdateLocationCoordination(
                 TransformDetailUpdateLocationCoordinationParameter(
-                    mapLocationDesc: rgcData?.eam.JSONString ?? "",
+                    mapLocationDesc: rgcData?.JSONString ?? "",
                     latitude: latitude,
                     appTaskId: appTaskId,
                     longitude: longitude

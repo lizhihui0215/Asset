@@ -58,7 +58,8 @@ class AssetTaskInventoryListViewModel: PageableViewModel<AssetTaskInventoryListV
             assetTaskInventory.locationCode = assetTaskDetail.locationCode
             assetTaskInventory.locationName = assetTaskDetail.locationCode
             return AssetTaskInventoryDetailPhotographViewModel(request: AssetTaskInventoryDetailPhotographRequest(), action: action, assetTaskInventory: assetTaskInventory) as! T
-
+        case let action as AssetTaskInventoryListSearchViewController:
+            return AssetTaskInventoryListSearchViewModel(request: AssetTaskInventoryListSearchRequest(), action: action) as! T
         default: break
         }
 

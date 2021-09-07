@@ -27,8 +27,6 @@ class AssetTaskInventoryListViewController: BaseTableViewController, TableViewCo
 
     // MARK: - Navigation
 
-    @IBAction func unwindToAssetTaskInventoryListController(sender: UIStoryboardSegue) {}
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
@@ -40,15 +38,23 @@ class AssetTaskInventoryListViewController: BaseTableViewController, TableViewCo
         case let destination as AssetTaskInventoryDetailPhotographViewController:
             guard let sender = sender as? AssetTaskInventoryListTableViewCell else { break }
             destination.viewModel = viewModel.viewModel(for: destination, with: sender.indexPath)
+        case let destination as AssetTaskInventoryListSearchViewController:
+            destination.viewModel = viewModel.viewModel(for: destination, with: nil)
         default: break
         }
     }
 
     @IBAction func scanTapped(_ sender: UIButton) {}
 
-    @IBAction func unwindFromAssetSearchCompletion(segue: UIStoryboardSegue) {
-        guard let source = segue.source as? AssetTaskSearchViewController else { return }
+    @IBAction func unwindToAssetTaskInventoryListControllerFromSearch(segue: UIStoryboardSegue) {
+        guard let source = segue.source as? AssetTaskInventoryListSearchViewController else { return }
+        viewModel.checkStatus = source.viewModel.selectedInventoryStatus?.status ?? ""
+        viewModel.appCheckStatus = viewModel.checkStatus
+        viewModel.appSearchText = source.viewModel.searchText
+        refreshTable()
+    }
 
+    @IBAction func unwindToAssetTaskInventoryListControllerFromChangeInventoryPerson(segue: UIStoryboardSegue) {
         refreshTable()
     }
 }

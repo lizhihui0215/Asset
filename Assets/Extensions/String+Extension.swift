@@ -8,3 +8,10 @@ import Foundation
 extension String.StringInterpolation {
     mutating func appendInterpolation(_ value: APIRouter.Constants) {}
 }
+
+extension String {
+    var hex: String {
+        let data = Data(utf8)
+        return data.map { String(format: "%02x", $0) }.joined()
+    }
+}

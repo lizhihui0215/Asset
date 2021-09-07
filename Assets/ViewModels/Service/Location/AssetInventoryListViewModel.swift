@@ -9,23 +9,17 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
     typealias InventoryStatus = [String: String]
     typealias SelectedInventoryStatus = (status: InventoryStatus.Key, name: InventoryStatus.Value)
 
-    enum Keys {
-        enum Inventory: String {
-            case All = "-1"
-        }
-    }
+    var principal: Staff?
 
-    enum Constants {
-        static let inventoryStatusAll = "全部"
-    }
+    var user: Staff?
 
     var appSearchText: String = ""
     let regionIdCompany = app.credential?.userCityId ?? ""
     let checkPerson = app.credential?.userAccount ?? ""
     let locationDetail: LocationDetail
-    public var inventoryStatus: InventoryStatus = [Keys.Inventory.All.rawValue: Constants.inventoryStatusAll]
+    public var inventoryStatus: InventoryStatus = defaultOption
 
-    private var selectedInventoryStatus: SelectedInventoryStatus = (Keys.Inventory.All.rawValue, Constants.inventoryStatusAll)
+    public var selectedInventoryStatus: SelectedInventoryStatus?
 
     public var dropDownOptions: [String] {
         inventoryStatus.values.map { $0 }
@@ -33,13 +27,6 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
 
     private var assetLocationId: String {
         locationDetail.locationId
-    }
-
-    func setSelectedInventoryStatus(for item: String) -> ViewModelFuture<[Asset]> {
-        guard item != selectedInventoryStatus.name else { return ViewModelFuture(error: .unwrapOptionalValue("SelectedInventoryStatus")) }
-        guard let status = inventoryStatus.key(from: item) else { return ViewModelFuture(error: .unwrapOptionalValue("InventoryStatus")) }
-        selectedInventoryStatus = (status: status, name: item)
-        return fetchList()
     }
 
     private var locationId: String {
@@ -75,10 +62,12 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
             checkPerson: checkPerson,
             appSearchText: appSearchText,
             assetLocationId: assetLocationId,
-            total: "", // FIXME: where total from
+            total: "1", // FIXME: where total from
             regionIdCompany: regionIdCompany,
             locationCode: locationCode,
-            appCheckStatus: selectedInventoryStatus.status
+            appCheckStatus: selectedInventoryStatus?.status ?? "",
+            dutyPerson: principal?.account ?? "",
+            usePerson: user?.account ?? ""
         )
 
         return pageableApi(of: AssetInventoryListResponse.self, router: .assetInventoryList(parameter))
@@ -120,6 +109,8 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
                                                      action: action,
                                                      viewState: .viewing(configuration: configuration),
                                                      parameters: parameters) as! T
+        case let action as AssetInventoryListSearchViewController:
+            return AssetInventoryListSearchViewModel(request: AssetInventoryListSearchRequest(), action: action) as! T
         default: break
         }
         return super.viewModel(for: action, with: sender)

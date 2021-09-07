@@ -19,7 +19,7 @@ public extension HTTPHeader {
     }
 
     static func appInfo(_ value: [String: String]) -> HTTPHeader {
-        HTTPHeader(key: .AppInfo, value: value.eam.JSONString)
+        HTTPHeader(key: .AppInfo, value: value.JSONString)
     }
 
     static func userToken(_ value: String) -> HTTPHeader {

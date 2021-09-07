@@ -38,7 +38,9 @@ final class APIMockService {
                                                                                       total: "2",
                                                                                       regionIdCompany: "sdadsad",
                                                                                       locationCode: "dadsadsa",
-                                                                                      appCheckStatus: "dsadsa"))
+                                                                                      appCheckStatus: "dsadsa",
+                                                                                      dutyPerson: "aa",
+                                                                                      usePerson: "bb"))
 
     let assetDetailByInventoryList = APIRouter.assetDetailByInventoryList(AssetInventoryListDetailParameter(assetId: "sdasd",
                                                                                                             checkPerson: "dsadsa"))

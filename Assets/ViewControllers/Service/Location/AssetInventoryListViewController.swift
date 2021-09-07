@@ -17,60 +17,23 @@ class AssetInventoryListViewController: BaseTableViewController, TableViewContro
 
     var viewModel: AssetInventoryListViewModel!
 
-    let dropDown = DropDown()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        dropDown.anchorView = inventoryStatusButton
-        dropDown.cellNib = UINib(nibName: "DropDownOptionCell", bundle: nil)
-        dropDown.dataSource = viewModel.dropDownOptions
-        dropDown.selectionAction = { [weak self] _, item in
-            guard let self = self else { return }
-            `self`.viewModel.setSelectedInventoryStatus(for: item).onSuccess { [weak self] _ in
-                guard let self = self else { return }
-                `self`.refreshTable()
-            }
-            `self`.inventoryStatusButton.setTitle(item, for: .normal)
-        }
-
         headerRefreshingDelegate = self
-        searchBar.delegate = self
-        refreshTable(isFetchInventoryStatus: true)
+        refreshTable()
     }
 
-    func refreshTable(isPaging: Bool = false, isFetchInventoryStatus: Bool = false) {
-        let fetchList = viewModel.fetchList(isPaging: isPaging)
-        let fetchInventoryStatus = viewModel.fetchDictionary(for: .inventory)
-
-        let fetchListSuccess: ([Asset]) -> Void = { [weak self] _ in
+    func refreshTable(isPaging: Bool = false) {
+        viewModel.fetchList(isPaging: isPaging).onSuccess { [weak self] _ in
             guard let self = self else { return }
             `self`.tableView.reloadData()
             `self`.updatePagingInformation()
         }
-
-        guard isFetchInventoryStatus else {
-            fetchList.onSuccess(callback: fetchListSuccess)
-            return
-        }
-
-        fetchInventoryStatus.onSuccess { [weak self] _ in
-            guard let self = self else { return }
-            `self`.refreshDropDown()
-        }.flatMap { _ in
-            fetchList
-        }.onSuccess(callback: fetchListSuccess)
-    }
-
-    private func refreshDropDown() {
-        dropDown.dataSource = viewModel.dropDownOptions
-        dropDown.reloadAllComponents()
     }
 
     @IBAction func scanTapped(_ sender: AnimatableButton) {}
 
-    @IBAction func inventoryButtonTapped(_ sender: UIButton) {
-        dropDown.show()
-    }
+    @IBAction func inventoryButtonTapped(_ sender: UIButton) {}
 
     // MARK: - Navigation
 
@@ -82,6 +45,8 @@ class AssetInventoryListViewController: BaseTableViewController, TableViewContro
         case let destination as AssetDetailViewController:
             guard let cell = sender as? AssetInventoryTableViewCell else { break }
             destination.viewModel = viewModel.viewModel(for: destination, with: cell.indexPath)
+        case let destination as AssetInventoryListSearchViewController:
+            destination.viewModel = viewModel.viewModel(for: destination, with: nil)
         default: break
         }
     }
@@ -89,13 +54,17 @@ class AssetInventoryListViewController: BaseTableViewController, TableViewContro
     @IBAction func unwindFromScanSuccess(segue: UIStoryboardSegue) {}
 
     @IBAction func unwindFromAssetSubmited(segue: UIStoryboardSegue) {}
-}
 
-extension AssetInventoryListViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder() // hides the keyboard.
-        viewModel.appSearchText = searchBar.eam.text
-        refreshTable()
+    @IBAction func unwindToAssetInventoryListViewControllerFromSearch(segue: UIStoryboardSegue) {
+        switch segue.source {
+        case let source as AssetInventoryListSearchViewController:
+            viewModel.appSearchText = source.viewModel.searchText
+            viewModel.selectedInventoryStatus = source.viewModel.selectedInventoryStatus
+            viewModel.principal = source.viewModel.principal
+            viewModel.user = source.viewModel.user
+            refreshTable()
+        default: break
+        }
     }
 }
 

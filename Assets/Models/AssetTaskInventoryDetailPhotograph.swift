@@ -28,6 +28,17 @@ struct AssetTaskInventoryDetailPhotograph {
     let deptName: String
     let manageDeptId: String
     let manageDeptName: String
+
+    let checkTime: String
+    let realLocationCode: String
+    let realLocationName: String
+    let longitude: String
+    let latitude: String
+    let mapLocationDesc: String
+    let assetCheckItem: String
+    let cityId: String
+    let cityName: String
+    let resourceNumber: String
 }
 
 extension AssetTaskInventoryDetailPhotograph: AutoEquatable {}
@@ -55,4 +66,14 @@ extension AssetTaskInventoryDetailPhotograph: AutoCodable {
     static var defaultDeptName = ""
     static var defaultManageDeptId = ""
     static var defaultManageDeptName = ""
+    static var defaultCheckTime = ""
+    static var defaultRealLocationCode = ""
+    static var defaultRealLocationName = ""
+    static var defaultLongitude = ""
+    static var defaultLatitude = ""
+    static var defaultMapLocationDesc = ""
+    static var defaultAssetCheckItem = ""
+    static var defaultCityId = ""
+    static var defaultCityName = ""
+    static var defaultResourceNumber = ""
 }
