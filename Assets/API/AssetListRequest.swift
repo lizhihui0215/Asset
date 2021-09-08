@@ -12,6 +12,7 @@ struct AssetListParameter: Encodable, Searchable {
     let pageSize: String
     let regionIdCompany: String
     var appSearchText: String
+    let personType: String
 }
 
 struct AssetListResponse: PageableResponse {

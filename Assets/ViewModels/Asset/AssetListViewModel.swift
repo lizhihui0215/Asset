@@ -6,9 +6,15 @@
 import Foundation
 
 class AssetListViewModel: PageableViewModel<AssetListViewController, DefaultSection<Asset>>, Searchable {
+    enum UserType: String {
+        case use
+        case duty
+    }
+
     var appSearchText: String = ""
     let regionIdCompany = app.credential?.userCityId ?? ""
     let checkPerson = app.credential?.userAccount ?? ""
+    var userType: UserType = .duty
 
     public var pageNumber: Int {
         page + 1
@@ -24,7 +30,8 @@ class AssetListViewModel: PageableViewModel<AssetListViewController, DefaultSect
             pageNumber: String(page),
             pageSize: String(size),
             regionIdCompany: regionIdCompany,
-            appSearchText: appSearchText
+            appSearchText: appSearchText,
+            personType: userType.rawValue
         )
 
         return pageableApi(of: AssetListResponse.self, router: .personalAssetList(parameter))
@@ -85,4 +92,16 @@ class AssetListViewModel: PageableViewModel<AssetListViewController, DefaultSect
     }
 
     // swiftlint:enable force_cast
+}
+
+extension AssetListViewModel.UserType: ExpressibleByIntegerLiteral {
+    var index: Int {
+        self == .duty ? 0 : 1
+    }
+
+    typealias IntegerLiteralType = Int
+
+    init(integerLiteral value: Int) {
+        self = value == 0 ? .duty : .use
+    }
 }

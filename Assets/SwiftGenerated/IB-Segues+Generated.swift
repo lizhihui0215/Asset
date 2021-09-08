@@ -26,6 +26,7 @@ internal enum StoryboardSegue {
     case successToAssetTaskInventoryDetail
     case successToInventory
     case successToTransformAssetDetail
+    case toPhotograph
     case toScan
     case toSelectPrincipal
     case toSelectUser
@@ -54,6 +55,7 @@ internal enum StoryboardSegue {
     case toLocationList
     case toSearch
     case toTransformList
+    case unwindToAssetTaskListViewControllerFromSearch
   }
   internal enum Transform: String, SegueType {
     case toPhotograph

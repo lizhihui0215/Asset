@@ -48,9 +48,9 @@ class AssetTaskListViewModel: PageableViewModel<AssetTaskListViewController, Def
             let asset = itemAtIndexPath(indexPath: indexPath)
             return AssetTaskDetailViewModel(request: AssetTaskDetailRequest(),
                                             action: action, checkBillCode: asset.checkBillCode, taskNumber: asset.taskNumber) as! T
-        case let action as AssetTaskSearchViewController:
-            return AssetTaskSearchViewModel(request: AssetTaskSearchRequest(),
-                                            action: action) as! T
+        case let action as AssetTaskListSearchViewController:
+            return AssetTaskListSearchViewModel(request: AssetTaskListSearchRequest(),
+                                                action: action) as! T
         default: break
         }
 

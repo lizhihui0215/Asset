@@ -263,8 +263,6 @@
 		263EF7B126542B9400EB1155 /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263EF7AE26542B9300EB1155 /* Screens.swift */; };
 		263EF7B226542B9400EB1155 /* ServiceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263EF7AF26542B9300EB1155 /* ServiceScreen.swift */; };
 		263EF7B326542B9400EB1155 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263EF7B026542B9300EB1155 /* LoginScreen.swift */; };
-		264C3FB726A688F600332027 /* AssetTaskSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C3FB626A688F600332027 /* AssetTaskSearchRequest.swift */; };
-		264C3FB826A688F600332027 /* AssetTaskSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C3FB626A688F600332027 /* AssetTaskSearchRequest.swift */; };
 		264C3FDB26AD2A2800332027 /* Transform.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264C3FD926AD2A2800332027 /* Transform.storyboard */; };
 		264C3FEC26AD674A00332027 /* AssetTaskInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C3FE426AD674900332027 /* AssetTaskInventoryListViewModel.swift */; };
 		264C3FED26AD674A00332027 /* AssetTaskInventoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C3FE426AD674900332027 /* AssetTaskInventoryListViewModel.swift */; };
@@ -370,6 +368,14 @@
 		26E2643526429F75005CBADF /* StaffListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E2643426429F75005CBADF /* StaffListViewController.swift */; };
 		26E5F58B26E7C381004985A7 /* SwiftyRSA.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E5F58A26E7C381004985A7 /* SwiftyRSA.xcframework */; };
 		26E5F58C26E7C381004985A7 /* SwiftyRSA.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26E5F58A26E7C381004985A7 /* SwiftyRSA.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		26E5F58E26E8A14D004985A7 /* AssetTaskListSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5F58D26E8A14D004985A7 /* AssetTaskListSearchViewController.swift */; };
+		26E5F58F26E8A14D004985A7 /* AssetTaskListSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5F58D26E8A14D004985A7 /* AssetTaskListSearchViewController.swift */; };
+		26E5F59126E8A19A004985A7 /* AssetTaskListSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5F59026E8A199004985A7 /* AssetTaskListSearchViewModel.swift */; };
+		26E5F59226E8A19A004985A7 /* AssetTaskListSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5F59026E8A199004985A7 /* AssetTaskListSearchViewModel.swift */; };
+		26E5F59726E8A4C4004985A7 /* AssetTaskSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5F59626E8A4C4004985A7 /* AssetTaskSearchRequest.swift */; };
+		26E5F59826E8A4C4004985A7 /* AssetTaskSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5F59626E8A4C4004985A7 /* AssetTaskSearchRequest.swift */; };
+		26E5F59A26E8A50E004985A7 /* AssetTaskListSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5F59926E8A4F4004985A7 /* AssetTaskListSearchRequest.swift */; };
+		26E5F59B26E8A50F004985A7 /* AssetTaskListSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5F59926E8A4F4004985A7 /* AssetTaskListSearchRequest.swift */; };
 		26E63EA8269710BF00A94813 /* AssetTaskInventoryDetailPhotographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E63EA7269710BE00A94813 /* AssetTaskInventoryDetailPhotographViewController.swift */; };
 		26E63EA9269710BF00A94813 /* AssetTaskInventoryDetailPhotographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E63EA7269710BE00A94813 /* AssetTaskInventoryDetailPhotographViewController.swift */; };
 		26F8961E262EC94200976042 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26F89620262EC94200976042 /* Localizable.strings */; };
@@ -1338,7 +1344,6 @@
 		263EF7AE26542B9300EB1155 /* Screens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
 		263EF7AF26542B9300EB1155 /* ServiceScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceScreen.swift; sourceTree = "<group>"; };
 		263EF7B026542B9300EB1155 /* LoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
-		264C3FB626A688F600332027 /* AssetTaskSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskSearchRequest.swift; sourceTree = "<group>"; };
 		264C3FD126AD297A00332027 /* TransofrmAssetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransofrmAssetDetailViewController.swift; sourceTree = "<group>"; };
 		264C3FD226AD297A00332027 /* TransofrmAssetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransofrmAssetListViewController.swift; sourceTree = "<group>"; };
 		264C3FD326AD297A00332027 /* TransofrmAssetListSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransofrmAssetListSearchViewController.swift; sourceTree = "<group>"; };
@@ -1414,6 +1419,10 @@
 		26DF76CE263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = IQKeyboardManagerSwift.xcframework; path = Carthage/Build/IQKeyboardManagerSwift.xcframework; sourceTree = SOURCE_ROOT; };
 		26E2643426429F75005CBADF /* StaffListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffListViewController.swift; sourceTree = "<group>"; };
 		26E5F58A26E7C381004985A7 /* SwiftyRSA.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftyRSA.xcframework; path = Carthage/Build/SwiftyRSA.xcframework; sourceTree = SOURCE_ROOT; };
+		26E5F58D26E8A14D004985A7 /* AssetTaskListSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskListSearchViewController.swift; sourceTree = "<group>"; };
+		26E5F59026E8A199004985A7 /* AssetTaskListSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskListSearchViewModel.swift; sourceTree = "<group>"; };
+		26E5F59626E8A4C4004985A7 /* AssetTaskSearchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskSearchRequest.swift; sourceTree = "<group>"; };
+		26E5F59926E8A4F4004985A7 /* AssetTaskListSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskListSearchRequest.swift; sourceTree = "<group>"; };
 		26E63EA7269710BE00A94813 /* AssetTaskInventoryDetailPhotographViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryDetailPhotographViewController.swift; sourceTree = "<group>"; };
 		26F8961F262EC94200976042 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		26F89623262EC94700976042 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -2542,6 +2551,7 @@
 		9C6D4349262731C100FEC466 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				26E5F59626E8A4C4004985A7 /* AssetTaskSearchRequest.swift */,
 				262605532688B49400325645 /* AssetTaskInventoryListScanRequest.swift */,
 				26530D38262F19DF002BCE55 /* API.swift */,
 				9CBBE00B2628811500CC6294 /* APIRouter.swift */,
@@ -2581,13 +2591,13 @@
 				F2F61904C81E912FE888CA11 /* AssetListRequest.swift */,
 				F2F6110471023FB0C3A82FA1 /* AssetTaskDetailRequest.swift */,
 				5B87533357C24C8BAED624A3 /* AssetTaskInventoryDetailPhotographRequest.swift */,
-				264C3FB626A688F600332027 /* AssetTaskSearchRequest.swift */,
 				5B87593130CC1DEA2CBD95A4 /* TransformAssetDetailPhotographResponse.swift */,
 				5B875FC7083D436A1A29A734 /* TransformInventoryDetailScanRequest.swift */,
 				5B87577524976A8DC084053D /* TransformInventoryListScanRequest.swift */,
 				5B875ED5ACBBC3AD052447C4 /* TransformAssetListScanParameter.swift */,
 				5B8754A0CD277D8A588F3A08 /* TransformDetailRequest.swift */,
 				5B8750C0CC6FA3FA3CDC44F2 /* TransformSearchRequest.swift */,
+				26E5F59926E8A4F4004985A7 /* AssetTaskListSearchRequest.swift */,
 				2691CE5E26E258760024DBE9 /* AssetInventoryListSearchRequest.swift */,
 				26FB93D126E67D2100A20884 /* AssetTaskInventoryListSearchRequest.swift */,
 				5B87551AC9C37935FBE3D7BD /* TransformInventoryDetailRequest.swift */,
@@ -2674,6 +2684,7 @@
 		F2F6164C07CC245C1EA59E25 /* AssetTask */ = {
 			isa = PBXGroup;
 			children = (
+				26E5F58D26E8A14D004985A7 /* AssetTaskListSearchViewController.swift */,
 				A15CAFA0266C6688005C452E /* AssetTaskListViewController.swift */,
 				A19485302673DD180089F4B8 /* AssetTaskInventoryListViewController.swift */,
 				A15CAF9F266C6688005C452E /* AssetTaskSearchViewController.swift */,
@@ -2697,6 +2708,7 @@
 			isa = PBXGroup;
 			children = (
 				2691CE6126E612C30024DBE9 /* AssetTaskInventoryListSearchViewModel.swift */,
+				26E5F59026E8A199004985A7 /* AssetTaskListSearchViewModel.swift */,
 				264C3FE726AD674900332027 /* AssetTaskDetailViewModel.swift */,
 				264C3FE626AD674900332027 /* AssetTaskInventoryDetailPhotographViewModel.swift */,
 				264C3FE826AD674A00332027 /* AssetTaskInventoryDetailScanViewModel.swift */,
@@ -3228,6 +3240,7 @@
 				26F8D1F8264791E800C66FCD /* AssetListDetail.swift in Sources */,
 				260E35D826351FBB008CF3DE /* InteractiveAnimator.swift in Sources */,
 				260E361A26351FBB008CF3DE /* ActivityIndicatorAnimationBallPulseSync.swift in Sources */,
+				26E5F59726E8A4C4004985A7 /* AssetTaskSearchRequest.swift in Sources */,
 				260E361626351FBB008CF3DE /* ActivityIndicatorAnimationBallZigZag.swift in Sources */,
 				9CBBE00C2628811500CC6294 /* APIRouter.swift in Sources */,
 				260E364A26351FBC008CF3DE /* AnimatableScrollView.swift in Sources */,
@@ -3394,6 +3407,7 @@
 				261C8BCA263E6DAC009A8FA0 /* ScanAnimationImageView.swift in Sources */,
 				260E365226351FBC008CF3DE /* CornerDesignable.swift in Sources */,
 				260E35F626351FBB008CF3DE /* UIBezierPathExtension.swift in Sources */,
+				26E5F58E26E8A14D004985A7 /* AssetTaskListSearchViewController.swift in Sources */,
 				2609228E2650BAE200B962FA /* KaedeTextField.swift in Sources */,
 				5B8750E26BA7E848BE2F6A74 /* UITableView+Cell.swift in Sources */,
 				268AFA8D2630182B00A2854B /* ServiceCollectionViewCell.swift in Sources */,
@@ -3498,6 +3512,7 @@
 				5B87542855F7A7F56A3E3139 /* LoggerService.swift in Sources */,
 				5B8758E5D7FC4F86A28985C7 /* LocationServiceable.swift in Sources */,
 				5B875DE8841BA9E8A3C6E9A2 /* UpdateLocation.swift in Sources */,
+				26E5F59126E8A19A004985A7 /* AssetTaskListSearchViewModel.swift in Sources */,
 				5B8751CD384BE0B14D23B0AA /* PhotographViewModel.swift in Sources */,
 				5B875FB2C8453F2EEE391BEB /* Identifiable.swift in Sources */,
 				5B875AD3D3F740BC0C8E0DA3 /* PhotographRequest.swift in Sources */,
@@ -3546,6 +3561,7 @@
 				5B87547EBEBB99A146226E0E /* AssetInventoryListDetailSubmitRequest.swift in Sources */,
 				5B875BED31AC406B51A41735 /* PhotographUploadRequest.swift in Sources */,
 				2691CE5626DE9B230024DBE9 /* Encodable+Extension.swift in Sources */,
+				26E5F59A26E8A50E004985A7 /* AssetTaskListSearchRequest.swift in Sources */,
 				5B875CC5ECCEDD42B79930B5 /* Photo.swift in Sources */,
 				5B875FF2910FFFD631D8252A /* LocationImagesRequest.swift in Sources */,
 				2655C169268B44560063A02E /* AssetTaskInventoryDetailScanRequest.swift in Sources */,
@@ -3576,7 +3592,6 @@
 				F2F61005213FDE223D51BDCE /* LocationListViewController.swift in Sources */,
 				F2F61B6512A6C4AFE6F413F1 /* AssetInventoryListViewController.swift in Sources */,
 				264C400D26ADD48100332027 /* TransformDetailViewModel.swift in Sources */,
-				264C3FB726A688F600332027 /* AssetTaskSearchRequest.swift in Sources */,
 				F2F611DF2B1416DC1B91F503 /* LocationDetailViewModel.swift in Sources */,
 				F2F611B3800DA38FC7013266 /* LocationListViewModel.swift in Sources */,
 				F2F61606EBEF70217D8D307E /* LocationInventoryScanViewModel.swift in Sources */,
@@ -3668,6 +3683,7 @@
 				A1FEAAAA266157AB00DA5708 /* SystemTransitionAnimator.swift in Sources */,
 				A1FEAAAB266157AB00DA5708 /* ActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
 				A1FEAAAC266157AB00DA5708 /* ActivityIndicatorAnimationNewtonCradle.swift in Sources */,
+				26E5F59826E8A4C4004985A7 /* AssetTaskSearchRequest.swift in Sources */,
 				A1FEAAAD266157AB00DA5708 /* RequestAdaptor.swift in Sources */,
 				A1FEAAAE266157AB00DA5708 /* DataResponse.swift in Sources */,
 				A1FEAAAF266157AB00DA5708 /* ActivityIndicatorAnimationRupee.swift in Sources */,
@@ -3825,7 +3841,6 @@
 				A1FEAB34266157AB00DA5708 /* AnimatableView.swift in Sources */,
 				A1FEAB35266157AB00DA5708 /* APIModel.swift in Sources */,
 				A1FEAB36266157AB00DA5708 /* PresentFlipWithDismissInteractionSegue.swift in Sources */,
-				264C3FB826A688F600332027 /* AssetTaskSearchRequest.swift in Sources */,
 				A1FEAB37266157AB00DA5708 /* DropDownAnimator.swift in Sources */,
 				A1FEAB38266157AB00DA5708 /* SettingViewController.swift in Sources */,
 				A1FEAB39266157AB00DA5708 /* PresentationKeyboardTranslation.swift in Sources */,
@@ -3891,7 +3906,9 @@
 				A1FEAB6E266157AB00DA5708 /* HoshiTextField.swift in Sources */,
 				A1FEAB6F266157AB00DA5708 /* AutoEquatable.generated.swift in Sources */,
 				A1FEAB70266157AB00DA5708 /* ActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
+				26E5F59226E8A19A004985A7 /* AssetTaskListSearchViewModel.swift in Sources */,
 				A1FEAB71266157AB00DA5708 /* Constants.swift in Sources */,
+				26E5F59B26E8A50F004985A7 /* AssetTaskListSearchRequest.swift in Sources */,
 				A1FEAB72266157AB00DA5708 /* UINavigationItem+BarButtonItem.swift in Sources */,
 				A1FEAB73266157AB00DA5708 /* SettingViewModel.swift in Sources */,
 				A1FEAB74266157AB00DA5708 /* TransitionAnimationType.swift in Sources */,
@@ -3933,6 +3950,7 @@
 				A1FEAB97266157AB00DA5708 /* PresentationModalSize.swift in Sources */,
 				A1FEAB98266157AB00DA5708 /* ActivityIndicatorAnimationBallScaleRippleMultiple.swift in Sources */,
 				A1FEAB99266157AB00DA5708 /* EnvironmentConfiguration.swift in Sources */,
+				26E5F58F26E8A14D004985A7 /* AssetTaskListSearchViewController.swift in Sources */,
 				A1FEAB9A266157AB00DA5708 /* PresentExplodeSegue.swift in Sources */,
 				A1FEAB9B266157AB00DA5708 /* CheckBoxDesignable.swift in Sources */,
 				A1FEAB9C266157AB00DA5708 /* PresentPortalSegue.swift in Sources */,

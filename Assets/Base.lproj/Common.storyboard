@@ -1842,6 +1842,7 @@
                         <outletCollection property="hiddenViewsForEditing" destination="NrP-cQ-8Qy" collectionClass="NSMutableArray" id="9xr-8B-kMW"/>
                         <outletCollection property="hiddenViewsForEditing" destination="kL5-Qh-3qb" collectionClass="NSMutableArray" id="Ubm-CF-iAs"/>
                         <segue destination="1Mt-h0-dU3" kind="unwind" identifier="submitted" unwindAction="unwindFromAssetSubmitedWithSegue:" id="tHk-qg-AH6"/>
+                        <segue destination="ijw-ac-tZX" kind="show" identifier="toPhotograph" id="WAk-u6-XPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSo-yA-tKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1927,7 +1928,8 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="rjp-et-qSt"/>
-        <segue reference="n0e-8L-cKS"/>
+        <segue reference="u3x-do-IFZ"/>
+        <segue reference="WAk-u6-XPZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="qrcode_scan_btn_flash_down" width="65" height="87"/>

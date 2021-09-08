@@ -34,16 +34,16 @@ class AssetTaskListViewController: BaseTableViewController, TableViewControllerP
         case let destination as AssetTaskDetailViewController:
             guard let sender = sender as? AssetTaskListTableViewCell else { break }
             destination.viewModel = viewModel.viewModel(for: destination, with: sender.indexPath)
-        case let destination as AssetTaskSearchViewController:
+        case let destination as AssetTaskListSearchViewController:
             destination.viewModel = viewModel.viewModel(for: destination, with: nil)
         default: break
         }
     }
 
-    @IBAction func unwindFromAssetSearchCompletion(segue: UIStoryboardSegue) {
-        guard let assetTaskSearchViewController = segue.source as? AssetTaskSearchViewController else { return }
-        viewModel.taskStatus = assetTaskSearchViewController.viewModel.selectedTaskStatus?.status ?? ""
-        viewModel.appSearchText = assetTaskSearchViewController.locationTextField.text ?? ""
+    @IBAction func unwindToAssetTaskListViewControllerFromSearch(segue: UIStoryboardSegue) {
+        guard let assetTaskSearchViewController = segue.source as? AssetTaskListSearchViewController else { return }
+        viewModel.taskStatus = assetTaskSearchViewController.viewModel.selectedInventoryStatus?.status ?? ""
+        viewModel.appSearchText = assetTaskSearchViewController.searchTextField.text ?? ""
 
         refreshTable()
     }

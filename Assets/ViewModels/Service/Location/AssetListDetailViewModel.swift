@@ -6,6 +6,10 @@
 import Foundation
 
 class AssetListDetailViewModel: AssetDetailViewModel {
+    override func rightBarButtonTapped() -> ViewModelFuture<StoryboardSegue.Common> {
+        ViewModelFuture(value: .toPhotograph)
+    }
+
     override func fetchAssetDetail() -> ViewModelFuture<AssetDetailed?> {
         api(of: AssetListDetailResponse.self, router: .assetDetailByAssetList(parameters)).flatMap {
             ViewModelFuture(value: $0)
@@ -14,6 +18,28 @@ class AssetListDetailViewModel: AssetDetailViewModel {
             `self`.handleAssetDetailResult(assetDetail: assetDetail)
         }
     }
+
+    // swiftlint:disable force_cast
+    override func viewModel<T: ViewModelRepresentable>(for action: UIViewController, with sender: Any?) -> T {
+        switch action {
+        case let action as PhotographViewController:
+            guard let assetDetail = assetDetail else { break }
+
+            let parameters = PhotographUploadParameter(category: .asset(tagNumber: tagNumber),
+                                                       longitude: assetDetail.longitude,
+                                                       latitude: assetDetail.latitude)
+            return AssetPhotographViewModel(title: "资产照片采集",
+                                            key: "资产标签号",
+                                            viewStates: (first: .viewing(), second: .viewing()),
+                                            parameter: parameters,
+                                            request: PhotographRequest(),
+                                            action: action) as! T
+        default: break
+        }
+        return super.viewModel(for: action, with: sender)
+    }
+
+    // swiftlint:enable force_cast
 }
 
 extension AssetListDetail: AssetDetailed {

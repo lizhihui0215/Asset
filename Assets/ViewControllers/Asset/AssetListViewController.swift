@@ -26,6 +26,11 @@ class AssetListViewController: BaseTableViewController, TableViewControllerPagea
         headerRefreshingDelegate = self
         searchBar.delegate = self
         refreshTable()
+        radioGroupView.selectedAction = { [weak self] index in
+            guard let self = self else { return }
+            `self`.viewModel.userType = AssetListViewModel.UserType(integerLiteral: index)
+            `self`.refreshTable()
+        }
     }
 
     // MARK: - Navigation
