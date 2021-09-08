@@ -10,21 +10,35 @@ import Foundation
 
 /// Model representing a selection of results from the iTunes Lookup API.
 struct APIModel: Decodable {
-    /// Codable Coding Keys for the Top-Level iTunes Lookup API JSON response.
-    private enum CodingKeys: String, CodingKey {
-        /// The results JSON key.
-        case results = "data"
-    }
 
     /// The array of results objects from the iTunes Lookup API.
-    let results: [Results]
+    let results: Results
+   
+   init(from decoder: Decoder) throws {
+      let container = try decoder.container(keyedBy: Results.CodingKeys.self)
+      
+      let appID = try container.decode(Int.self, forKey: .appID)
+      let currentVersionReleaseDate = try? container.decode(String.self, forKey: .currentVersionReleaseDate)
+      let minimumOSVersion = try? container.decode(String.self, forKey: .minimumOSVersion)
+      let releaseNotes = try? container.decode(String.self, forKey: .releaseNotes)
+      let version = try? container.decode(String.self, forKey: .version)
+      let mainfestPlist = try? container.decode(String.self, forKey: .mainfestPlist)
+
+      
+      results = Results(appID: appID,
+                        currentVersionReleaseDate: currentVersionReleaseDate,
+                        minimumOSVersion: minimumOSVersion ?? "",
+                        releaseNotes: releaseNotes,
+                        version: version ?? "",
+                        mainfestPlist: mainfestPlist ?? "")
+   }
 
     /// The Results object from the the iTunes Lookup API.
     struct Results: Decodable {
         ///  Codable Coding Keys for the Results array in the iTunes Lookup API JSON response.
-        private enum CodingKeys: String, CodingKey {
+      enum CodingKeys: String, CodingKey {
             /// The appID JSON key.
-            case appID
+            case appID = "appId"
             /// The current version release date JSON key.
             case currentVersionReleaseDate
             /// The minimum device iOS version compatibility JSON key.

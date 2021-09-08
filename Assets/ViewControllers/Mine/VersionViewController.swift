@@ -17,9 +17,9 @@ class VersionViewController: BaseViewController {
     @UserDefault(key: SirenKeys.StoredVersionCheckDate, defaultValue: nil)
     var alertPresentationDate: Date?
 
-    var viewModel: VersionViewModel {
+    lazy var viewModel: VersionViewModel = {
         VersionViewModel(request: VersionRequest(), action: self)
-    }
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

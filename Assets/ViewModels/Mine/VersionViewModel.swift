@@ -23,13 +23,13 @@ class VersionViewModel: BaseViewModel<VersionViewController> {
 
     func fetchVersion() -> ViewModelFuture<APIModel?> {
         api(of: VersionResponse.self, router: .version).onSuccess { [weak self] model in
-            guard let self = self, let version = model?.results.first else { return }
+            guard let self = self, let version = model?.results else { return }
             `self`.model = model
             self.version = app.version
             self.targetVersion = version.version
             self.notes = version.releaseNotes ?? ""
             self.filename = version.mainfestPlist
-            self.updateType = DataParser.parseForUpdate(forInstalledVersion: app.version, andAppStoreVersion: self.version)
+            self.updateType = DataParser.parseForUpdate(forInstalledVersion: app.version, andAppStoreVersion: self.targetVersion)
         }
     }
 }

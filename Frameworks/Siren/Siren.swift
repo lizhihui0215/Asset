@@ -161,17 +161,18 @@ private extension Siren {
         }
 
         // Check and store the App ID .
-        guard let results = apiModel.results.first else {
-            // TODO: ADD ERROR HANDLER
-            // resultsHandler?(.failure(.appStoreAppIDFailure))
-            return
-        }
-
+//        guard let results = apiModel.results else {
+//            // TODO: ADD ERROR HANDLER
+//            // resultsHandler?(.failure(.appStoreAppIDFailure))
+//            return
+//        }
+        let results = apiModel.results
         // Check and store the current App Store version.
-        guard let currentAppStoreVersion = apiModel.results.first?.version else {
-            resultsHandler?(.failure(.appStoreVersionArrayFailure))
-            return
-        }
+//        guard let currentAppStoreVersion = apiModel.results.version else {
+//            resultsHandler?(.failure(.appStoreVersionArrayFailure))
+//            return
+//        }
+        let currentAppStoreVersion = apiModel.results.version
 
         // Check if the App Store version is newer than the currently installed version.
         guard DataParser.isAppStoreVersionNewer(installedVersion: currentInstalledVersion,
@@ -182,7 +183,7 @@ private extension Siren {
         }
 
         // Check the release date of the current version.
-        let currentVersionReleaseDate = apiModel.results.first?.currentVersionReleaseDate
+        let currentVersionReleaseDate = apiModel.results.currentVersionReleaseDate
         
         if let currentVersionReleaseDate = currentVersionReleaseDate,
               let daysSinceRelease = Date.days(since: currentVersionReleaseDate),

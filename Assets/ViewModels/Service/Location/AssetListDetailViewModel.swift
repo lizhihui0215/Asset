@@ -72,19 +72,19 @@ extension AssetListDetail: AssetDetailed {
     }
 
     var locationCode: String {
-        ""
-    }
-
-    var locationName: String {
-        ""
-    }
-
-    var realLocationCode: String {
         assetLocationCode
     }
 
-    var realLocationName: String {
+    var locationName: String {
         assetLocationName
+    }
+
+    var realLocationCode: String {
+        ""
+    }
+
+    var realLocationName: String {
+        ""
     }
 
     var longitude: String {
