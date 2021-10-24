@@ -329,6 +329,7 @@
 		266D128D263BBB7A00B984D6 /* JSON+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D128C263BBB7A00B984D6 /* JSON+Generated.swift */; };
 		266D12AE263BF85D00B984D6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8852637B99600445BD7 /* SystemConfiguration.framework */; };
 		2672C7D62646F164007049ED /* scan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2672C7D52646F164007049ED /* scan.wav */; };
+		26767B4627256EC4005B9862 /* Assets_Dev-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26767B4527256EC4005B9862 /* Assets_Dev-Info.plist */; };
 		267D5CFB264AD82600DE1E14 /* Features in Resources */ = {isa = PBXBuildFile; fileRef = 267D5CFA264AD82600DE1E14 /* Features */; };
 		267D5CFE264AD8EB00DE1E14 /* CucumberishLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 267D5CFD264AD8EB00DE1E14 /* CucumberishLoader.m */; };
 		2683819E262EE1C000F6C23F /* IB-Segues+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683819A262EE1BF00F6C23F /* IB-Segues+Generated.swift */; };
@@ -1385,6 +1386,7 @@
 		266D125B263B9FE500B984D6 /* AutoCodable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCodable.generated.swift; sourceTree = "<group>"; };
 		266D128C263BBB7A00B984D6 /* JSON+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Generated.swift"; sourceTree = "<group>"; };
 		2672C7D52646F164007049ED /* scan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = scan.wav; sourceTree = "<group>"; };
+		26767B4527256EC4005B9862 /* Assets_Dev-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Assets_Dev-Info.plist"; sourceTree = "<group>"; };
 		267D5CF3264AD5AA00DE1E14 /* FBSnapshotTestCase.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FBSnapshotTestCase.xcframework; path = Carthage/Build/FBSnapshotTestCase.xcframework; sourceTree = SOURCE_ROOT; };
 		267D5CF4264AD5AA00DE1E14 /* Cucumberish.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Cucumberish.xcframework; path = Carthage/Build/Cucumberish.xcframework; sourceTree = SOURCE_ROOT; };
 		267D5CFA264AD82600DE1E14 /* Features */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Features; sourceTree = "<group>"; };
@@ -2652,6 +2654,7 @@
 		9CBBDFFD2628614F00CC6294 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				26767B4527256EC4005B9862 /* Assets_Dev-Info.plist */,
 				2621BBBD26DE41E600E0B8F9 /* eam-client-private.pem */,
 				2691CE4E26DE8B4E0024DBE9 /* eam-server-public.pem */,
 				265EC5222651634600E4EB41 /* eam-dev.cer */,
@@ -2992,6 +2995,7 @@
 				A1FEAC16266157AB00DA5708 /* Tab.storyboard in Resources */,
 				A1FEAC17266157AB00DA5708 /* LaunchScreen.storyboard in Resources */,
 				A1FEAC18266157AB00DA5708 /* Login.storyboard in Resources */,
+				26767B4627256EC4005B9862 /* Assets_Dev-Info.plist in Resources */,
 				A1FEAC19266157AB00DA5708 /* Assets.xcassets in Resources */,
 				A1FEAC1A266157AB00DA5708 /* Siren.bundle in Resources */,
 				A1FEAC1B266157AB00DA5708 /* Service.storyboard in Resources */,
@@ -4308,7 +4312,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3P8C7H426Z;
 				ENABLE_BITCODE = NO;
 				ENVIRONEMENT = "";
@@ -4343,7 +4347,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 5F56XN57QC;
 				ENABLE_BITCODE = NO;
 				ENVIRONEMENT = "";
@@ -4472,7 +4476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3P8C7H426Z;
 				ENABLE_BITCODE = NO;
 				ENVIRONEMENT = "";
@@ -4480,7 +4484,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				INFOPLIST_FILE = "Assets copy-Info.plist";
+				INFOPLIST_FILE = "Assets/Resources/Assets_Dev-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4506,7 +4510,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 5F56XN57QC;
 				ENABLE_BITCODE = NO;
 				ENVIRONEMENT = "";
@@ -4514,7 +4518,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				INFOPLIST_FILE = "Assets copy-Info.plist";
+				INFOPLIST_FILE = "Assets/Resources/Assets_Dev-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
