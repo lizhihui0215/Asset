@@ -25,17 +25,21 @@ class AssetTaskDetailViewModel: BaseViewModel<AssetTaskDetailViewController> {
 
     var latitude: String = ""
 
-    var formattedLongitude: String { String(format: "%.6f", Double(longitude) ?? 0) }
+    var formattedLongitude: String {
+        DefaultCoordinateFormatter.format(longitude)
+    }
 
-    var formattedLatitude: String { String(format: "%.6f", Double(latitude) ?? 0) }
+    var formattedLatitude: String {
+        DefaultCoordinateFormatter.format(latitude)
+    }
 
     var systemLongitude: String {
-        get { String(format: "%.6f", Double(taskDetail?.longitude ?? "0") ?? 0) }
+        get { DefaultCoordinateFormatter.format(taskDetail?.longitude) }
         set { taskDetail?.longitude = newValue }
     }
 
     var systemLatitude: String {
-        get { String(format: "%.6f", Double(taskDetail?.latitude ?? "0") ?? 0) }
+        get { DefaultCoordinateFormatter.format(taskDetail?.latitude) }
         set { taskDetail?.latitude = newValue }
     }
 

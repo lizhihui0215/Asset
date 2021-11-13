@@ -815,7 +815,7 @@
                                                         <color key="textColor" name="primaryTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr9-bE-C9Z">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr9-bE-C9Z">
                                                         <rect key="frame" x="87" y="0.0" width="120" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="primaryTextColor"/>
@@ -832,7 +832,7 @@
                                                         <color key="textColor" name="primaryTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34y-1J-Hbu">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34y-1J-Hbu">
                                                         <rect key="frame" x="87" y="0.0" width="120" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="primaryTextColor"/>
@@ -3212,9 +3212,9 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Pyw-Qg-flf"/>
+        <segue reference="nBZ-GF-Nkn"/>
         <segue reference="sWd-qh-exe"/>
-        <segue reference="x4f-nQ-J6b"/>
+        <segue reference="ah5-JA-e6f"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="print" width="50" height="48"/>

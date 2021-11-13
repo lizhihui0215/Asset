@@ -33,15 +33,9 @@ class AssetTaskInventoryDetailPhotographViewModel: BaseViewModel<AssetTaskInvent
     public var principal: Staff?
     public var user: Staff?
 
-    var formattedLongitude: String {
-        guard !longitude.isEmpty else { return "" }
-        return String(format: "%.6f", Double(longitude) ?? 0)
-    }
+    var formattedLongitude: String { DefaultCoordinateFormatter.format(longitude) }
 
-    var formattedLatitude: String {
-        guard !latitude.isEmpty else { return "" }
-        return String(format: "%.6f", Double(latitude) ?? 0)
-    }
+    var formattedLatitude: String { DefaultCoordinateFormatter.format(latitude) }
 
     var selectedPrincipalText: String {
         guard let principal = principal else { return "" }
@@ -84,14 +78,12 @@ class AssetTaskInventoryDetailPhotographViewModel: BaseViewModel<AssetTaskInvent
     }
 
     var systemLongitude: String {
-        guard let longitude = Double(assetTaskInventoryDetailPhotograph.longitude) else { return "" }
-        return String(format: "%.6f", longitude)
+        DefaultCoordinateFormatter.format(assetTaskInventoryDetailPhotograph.longitude)
     }
 
     public var selectedAssetCheckItem: String = ""
     var systemLatitude: String {
-        guard let latitude = Double(assetTaskInventoryDetailPhotograph.latitude) else { return "" }
-        return String(format: "%.6f", latitude)
+        DefaultCoordinateFormatter.format(assetTaskInventoryDetailPhotograph.latitude)
     }
 
     private var assetTaskInventoryDetailPhotograph: AssetTaskInventoryDetailPhotograph!

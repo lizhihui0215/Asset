@@ -64,20 +64,22 @@ class TransformDetailViewModel: BaseViewModel<TransformDetailViewController>, St
         return "\(principal.account)/\(principal.userName)"
     }
 
-    var formattedLongitude: String { String(format: "%.6f", Double(longitude) ?? 0) }
+    var formattedLongitude: String {
+        DefaultCoordinateFormatter.format(longitude)
+    }
 
-    var formattedLatitude: String { String(format: "%.6f", Double(latitude) ?? 0) }
+    var formattedLatitude: String {
+        DefaultCoordinateFormatter.format(latitude)
+    }
 
     var isHiddenTransformListButton: Bool { transformDetail?.longitude.isEmpty ?? true }
 
     var systemLongitude: String {
-        guard !(transformDetail?.longitude.isEmpty ?? true) else { return "" }
-        return String(format: "%.6f", Double(transformDetail?.latitude ?? "0") ?? 0)
+        DefaultCoordinateFormatter.format(transformDetail?.longitude)
     }
 
     var systemLatitude: String {
-        guard !(transformDetail?.latitude.isEmpty ?? true) else { return "" }
-        return String(format: "%.6f", Double(transformDetail?.latitude ?? "0") ?? 0)
+        DefaultCoordinateFormatter.format(transformDetail?.latitude)
     }
 
     var locationName: String { transformDetail?.locationName ?? "" }

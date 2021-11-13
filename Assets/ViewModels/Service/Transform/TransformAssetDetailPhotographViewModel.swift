@@ -13,9 +13,13 @@ class TransformAssetDetailPhotographViewModel: BaseViewModel<TransformAssetDetai
 
     var latitude: String = ""
 
-    var formattedLongitude: String { String(format: "%.6f", Double(longitude) ?? 0) }
+    var formattedLongitude: String {
+        DefaultCoordinateFormatter.format(longitude)
+    }
 
-    var formattedLatitude: String { String(format: "%.6f", Double(latitude) ?? 0) }
+    var formattedLatitude: String {
+        DefaultCoordinateFormatter.format(latitude)
+    }
 
     var checkStatusName: String { transformAssetDetailPhotograph.confirmDesc }
 

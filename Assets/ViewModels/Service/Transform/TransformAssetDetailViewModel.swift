@@ -80,18 +80,20 @@ class TransformAssetDetailViewModel: BaseViewModel<TransformAssetDetailViewContr
 
     public var principalName: String { "\(transformAssetDetail.dutyPersonCode)/\(transformAssetDetail.dutyPersonName)" }
 
-    var formattedLongitude: String { String(format: "%.6f", Double(longitude) ?? 0) }
+    var formattedLongitude: String {
+        DefaultCoordinateFormatter.format(longitude)
+    }
 
-    var formattedLatitude: String { String(format: "%.6f", Double(latitude) ?? 0) }
+    var formattedLatitude: String {
+        DefaultCoordinateFormatter.format(latitude)
+    }
 
     var systemLongitude: String {
-        guard !transformAssetDetail.longitude.isEmpty else { return "" }
-        return String(format: "%.6f", Double(transformAssetDetail.longitude) ?? 0)
+        DefaultCoordinateFormatter.format(transformAssetDetail.longitude)
     }
 
     var systemLatitude: String {
-        guard !transformAssetDetail.longitude.isEmpty else { return "" }
-        return String(format: "%.6f", Double(transformAssetDetail.latitude) ?? 0)
+        DefaultCoordinateFormatter.format(transformAssetDetail.latitude)
     }
 
     private var transformAssetDetail: TransformAssetDetail

@@ -353,6 +353,8 @@
 		26845307263C03680058F895 /* MockingURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26845304263C03680058F895 /* MockingURLProtocol.swift */; };
 		26845316263C40CC0058F895 /* DropDownOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26845315263C40CC0058F895 /* DropDownOptionCell.xib */; };
 		2684531A263C41280058F895 /* DropDownOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26845319263C41280058F895 /* DropDownOptionCell.swift */; };
+		2684E07D27400C9D00F2CBCE /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684E07C27400C9D00F2CBCE /* Formatter.swift */; };
+		2684E07E27400C9D00F2CBCE /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684E07C27400C9D00F2CBCE /* Formatter.swift */; };
 		268AFA8D2630182B00A2854B /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFA8C2630182B00A2854B /* ServiceCollectionViewCell.swift */; };
 		268AFAA32630588200A2854B /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFAA22630588200A2854B /* UIView+Nib.swift */; };
 		268AFAA826305BF800A2854B /* LayoutOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFAA626305BF600A2854B /* LayoutOperator.swift */; };
@@ -1470,6 +1472,7 @@
 		26845304263C03680058F895 /* MockingURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockingURLProtocol.swift; sourceTree = "<group>"; };
 		26845315263C40CC0058F895 /* DropDownOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownOptionCell.xib; sourceTree = "<group>"; };
 		26845319263C41280058F895 /* DropDownOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownOptionCell.swift; sourceTree = "<group>"; };
+		2684E07C27400C9D00F2CBCE /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		268AFA8C2630182B00A2854B /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		268AFAA22630588200A2854B /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		268AFAA626305BF600A2854B /* LayoutOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutOperator.swift; sourceTree = "<group>"; };
@@ -2756,6 +2759,7 @@
 				5B8750AFF859F9217C034C43 /* DynamicKeys.swift */,
 				F2F616DB2D2C2969085257A4 /* WindowAble.swift */,
 				A1FEAA902661482400DA5708 /* EnvironmentConfiguration.swift */,
+				2684E07C27400C9D00F2CBCE /* Formatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -3736,6 +3740,7 @@
 				5B87547EBEBB99A146226E0E /* AssetInventoryListDetailSubmitRequest.swift in Sources */,
 				5B875BED31AC406B51A41735 /* PhotographUploadRequest.swift in Sources */,
 				2691CE5626DE9B230024DBE9 /* Encodable+Extension.swift in Sources */,
+				2684E07D27400C9D00F2CBCE /* Formatter.swift in Sources */,
 				26E5F59A26E8A50E004985A7 /* AssetTaskListSearchRequest.swift in Sources */,
 				5B875CC5ECCEDD42B79930B5 /* Photo.swift in Sources */,
 				5B875FF2910FFFD631D8252A /* LocationImagesRequest.swift in Sources */,
@@ -4134,6 +4139,7 @@
 				264C400826ADD47A00332027 /* TransofrmSearchViewController.swift in Sources */,
 				A1FEAB9E266157AB00DA5708 /* MadokaTextField.swift in Sources */,
 				264C3FFD26ADD47000332027 /* TransofrmDetailViewController.swift in Sources */,
+				2684E07E27400C9D00F2CBCE /* Formatter.swift in Sources */,
 				A1FEAB9F266157AB00DA5708 /* SegueType+Extension.swift in Sources */,
 				A194853B2673DEE00089F4B8 /* AssetTaskInventoryListTableViewCell.swift in Sources */,
 				264C3FEF26AD674A00332027 /* AssetTaskListViewModel.swift in Sources */,

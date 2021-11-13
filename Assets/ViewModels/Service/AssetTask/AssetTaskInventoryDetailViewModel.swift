@@ -43,9 +43,13 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
     public var principal: Staff?
     public var user: Staff?
 
-    var formattedLongitude: String { String(format: "%.6f", Double(longitude) ?? 0) }
+    var formattedLongitude: String {
+        DefaultCoordinateFormatter.format(longitude)
+    }
 
-    var formattedLatitude: String { String(format: "%.6f", Double(latitude) ?? 0) }
+    var formattedLatitude: String {
+        DefaultCoordinateFormatter.format(latitude)
+    }
 
     var checkStatusName: String { assetTaskInventoryDetail.checkStatusName }
 
@@ -100,13 +104,13 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
     }
 
     var systemLongitude: String {
-        get { String(format: "%.6f", Double(assetTaskInventoryDetail.longitude) ?? 0) }
+        get { DefaultCoordinateFormatter.format(assetTaskInventoryDetail.longitude) }
         set { assetTaskInventoryDetail.longitude = newValue }
     }
 
     public var selectedAssetCheckItem: String = ""
     var systemLatitude: String {
-        get { String(format: "%.6f", Double(assetTaskInventoryDetail.latitude) ?? 0) }
+        get { DefaultCoordinateFormatter.format(assetTaskInventoryDetail.latitude) }
         set { assetTaskInventoryDetail.latitude = newValue }
     }
 

@@ -150,13 +150,11 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController>, StaffSelec
     }
 
     public var longitude: String {
-        guard let longitude = location?.coordinate.longitude else { return assetDetail?.longitude ?? "" }
-        return String(format: "%.6f", Double(longitude))
+        DefaultCoordinateFormatter.format(location?.coordinate.longitude, default: assetDetail?.longitude)
     }
 
     public var latitude: String {
-        guard let latitude = location?.coordinate.latitude else { return assetDetail?.latitude ?? "" }
-        return String(format: "%.6f", Double(latitude))
+        DefaultCoordinateFormatter.format(location?.coordinate.latitude, default: assetDetail?.longitude)
     }
 
     public var inventoryStatus: String {
