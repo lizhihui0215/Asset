@@ -17,6 +17,13 @@ class ScanViewController: BaseViewController {
 
     @IBOutlet var buttonStackView: UIStackView!
     var viewModel: ScanViewModel!
+    var unwindSegueIdentifiers: [String] {
+        [
+            StoryboardSegue.Common.unwindToAssetTaskInventoryDetail.rawValue,
+            StoryboardSegue.Common.unwindFromScanViewControllerToTransformAssetDetailController.rawValue,
+            StoryboardSegue.Common.unwindFromScanToAssetDetailViewController.rawValue,
+        ]
+    }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -85,13 +92,20 @@ class ScanViewController: BaseViewController {
         photoPreviewSheet.showPhotoLibrary(sender: self)
     }
 
+    func isUnwindSegue(identifier: String?) -> Bool {
+        guard let identifier = identifier else { return false }
+        return unwindSegueIdentifiers.contains(identifier)
+    }
+
     override func prepare(for segue: UIKit.UIStoryboardSegue, sender: Any?) {
+        guard !isUnwindSegue(identifier: segue.identifier) else { return }
+
         switch segue.destination {
         case let destination as AssetDetailViewController:
             destination.viewModel = viewModel.viewModel(for: destination)
-        case let destination as AssetTaskInventoryDetailViewController where segue.identifier != StoryboardSegue.Common.unwindToAssetTaskInventoryDetail.rawValue:
+        case let destination as AssetTaskInventoryDetailViewController:
             destination.viewModel = viewModel.viewModel(for: destination)
-        case let destination as TransformAssetDetailViewController where segue.identifier != StoryboardSegue.Common.unwindFromScanViewControllerToTransformAssetDetailController.rawValue:
+        case let destination as TransformAssetDetailViewController:
             destination.viewModel = viewModel.viewModel(for: destination)
         default: break
         }

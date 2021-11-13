@@ -27,6 +27,6 @@ extension AssetTaskListTableViewCell: TableViewCellConfigurable {
         taskNumberLabel.text = viewData.taskNumber
         taskStatusNameLabel.text = viewData.taskStatusName
         checkBillCodeLabel.text = viewData.checkBillCode
-        taskNumberLabel.text = viewData.taskName
+        taskNameLabel.text = viewData.taskName
     }
 }

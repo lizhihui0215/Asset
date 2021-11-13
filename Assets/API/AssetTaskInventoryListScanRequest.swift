@@ -16,6 +16,8 @@ struct AssetTaskInventoryListScanParameter: Encodable {
     let checkPerson: String
     let realLocationName: String
     let tagNumber: String
+    let longitude: String
+    let latitude: String
 }
 
 struct AssetTaskInventoryListScanResponse: DataResponse {

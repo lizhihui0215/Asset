@@ -10,6 +10,6 @@ class AssetDetailScanViewModel: ScanViewModel {
         guard metadataObject != nil else {
             return ViewModelFuture(error: .unwrapOptionalValue("MetadataObject"))
         }
-        return ViewModelFuture(value: StoryboardSegue.Common.successToInventory.rawValue)
+        return ViewModelFuture(value: StoryboardSegue.Common.unwindFromScanToAssetDetailViewController.rawValue)
     }
 }

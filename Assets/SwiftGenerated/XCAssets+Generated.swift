@@ -29,11 +29,13 @@ internal enum XCAssets {
       internal static let locationEd = ImageAsset(name: "location_ed")
     }
     internal enum Common {
+      internal static let _1441636765881PicHd = ImageAsset(name: "1441636765881_.pic_hd")
       internal static let back = ImageAsset(name: "back")
       internal enum Checkbox {
         internal static let selected = ImageAsset(name: "selected")
         internal static let unselected = ImageAsset(name: "unselected")
       }
+      internal static let print = ImageAsset(name: "print")
       internal static let qrcodeScanBtnFlashDown = ImageAsset(name: "qrcode_scan_btn_flash_down")
       internal static let qrcodeScanBtnFlashNor = ImageAsset(name: "qrcode_scan_btn_flash_nor")
       internal static let qrcodeScanBtnPhotoDown = ImageAsset(name: "qrcode_scan_btn_photo_down")

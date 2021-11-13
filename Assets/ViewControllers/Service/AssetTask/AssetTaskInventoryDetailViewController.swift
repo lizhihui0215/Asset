@@ -134,6 +134,13 @@ class AssetTaskInventoryDetailViewController: BaseViewController {
         }
     }
 
+    @IBAction func printButtonTapped(_ sender: UIButton) {
+        PrintService.shared.preview(tagNumber: viewModel.tagNumber).onFailure { [weak self] error in
+            guard let self = self else { return }
+            `self`.alert(message: error.localizedDescription)
+        }
+    }
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {

@@ -22,7 +22,9 @@ class AssetInventoryListViewModel: PageableViewModel<AssetInventoryListViewContr
     public var selectedInventoryStatus: SelectedInventoryStatus?
 
     public var dropDownOptions: [String] {
-        inventoryStatus.values.map { $0 }
+        let options = inventoryStatus.values.map { $0 }
+        let sortedOptions = try? options.sorted(by: defaultDataDictionarySort)
+        return sortedOptions ?? options
     }
 
     private var assetLocationId: String {

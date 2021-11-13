@@ -16,7 +16,9 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
     var selectedAssetStatus: SelectedAssetStatus?
 
     public var dropDownOptions: [String] {
-        assetStatus?.values.map { $0 } ?? []
+        let options = assetStatus?.values.map { $0 } ?? []
+        let sortedOptions = try? options.sorted(by: defaultDataDictionarySort)
+        return sortedOptions ?? options
     }
 
     private var location: CLLocation? {

@@ -9,7 +9,7 @@ import UIKit
 protocol AppService: UIApplicationDelegate, UISceneDelegate {}
 
 class AppServiceManager: UIResponder, UIApplicationDelegate {
-    let window: UIWindow? = nil
+    var window: UIWindow?
 
     var windowService: WindowService? {
         service()

@@ -14,7 +14,7 @@ class AssetInventoryListDetailViewModel: AssetDetailViewModel {
         let parameters = AssetInventoryListDetailSubmitParameter(realLocationCode: assetDetail.realLocationCode,
                                                                  quantity: String(assetDetail.quantity),
                                                                  checkPerson: checkPerson,
-                                                                 latitude: assetDetail.longitude,
+                                                                 latitude: latitude,
                                                                  dutyPersonName: assetDetail.dutyPersonName,
                                                                  assetCheckItem: selectedAssetStatus?.status ?? "",
                                                                  resourceNumber: assetDetail.resourceNumber,
@@ -28,7 +28,7 @@ class AssetInventoryListDetailViewModel: AssetDetailViewModel {
                                                                  assetName: assetDetail.assetName,
                                                                  realLocationName: assetDetail.realLocationName,
                                                                  modelNumber: assetDetail.modelNumber,
-                                                                 longitude: assetDetail.latitude)
+                                                                 longitude: longitude)
 
         return api(of: AssetInventoryListDetailSubmitResponse.self,
                    router: APIRouter.assetDetailInventoryListDetailSubmit(parameters))
@@ -42,11 +42,17 @@ class AssetInventoryListDetailViewModel: AssetDetailViewModel {
     }
 
     override func rightBarButtonTapped() -> ViewModelFuture<StoryboardSegue.Common> {
-        ViewModelFuture { complete in
+        guard state == .editing else {
+            return ViewModelFuture { complete in
+                complete(.success(.toPhotograph))
+            }
+        }
+
+        return ViewModelFuture { complete in
             submit().onSuccess { [weak self] _ in
                 guard let self = self else { return }
                 `self`.action.alert(message: "操作成功！", defaultAction: UIViewController.defaultAlertAction {
-                    complete(.success(.submitted))
+                    complete(.success(.toPhotograph))
                 })
             }
         }

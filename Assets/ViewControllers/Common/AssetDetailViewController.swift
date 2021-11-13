@@ -160,7 +160,7 @@ class AssetDetailViewController: BaseViewController {
             `self`.viewModel.setAssetStatus(for: item)
             `self`.statusButton.setTitle(item, for: .normal)
         }
-        viewModel.viewState(isFetch: state == .editing).onSuccess { [weak self] state in
+        viewModel.viewState().onSuccess { [weak self] state in
             guard let self = self else { return }
             `self`.update(for: state)
             `self`.refreshDropDown()
@@ -168,6 +168,17 @@ class AssetDetailViewController: BaseViewController {
             guard let index = self.dropDown.dataSource.firstIndex(of: item) else { return }
             `self`.dropDown.selectRow(index)
         }
+    }
+
+    @IBAction func printButtonTapped(_ sender: UIButton) {
+        PrintService.shared.preview(tagNumber: viewModel.tagNumber).onFailure { [weak self] error in
+            guard let self = self else { return }
+            `self`.alert(message: error.localizedDescription)
+        }
+    }
+
+    @IBAction func statusButtonTapped(_ sender: UIButton) {
+        dropDown.show()
     }
 
     private func refreshDropDown() {
@@ -180,6 +191,7 @@ class AssetDetailViewController: BaseViewController {
         case .editing:
             for view in hiddenViewsForEditing {
                 containerStackView.removeArrangedSubview(view)
+                deviceSerialTextField.placeholder = "扫描不出来可直接填写"
                 view.removeFromSuperview()
             }
         case .viewing(let configuration):
@@ -201,9 +213,9 @@ class AssetDetailViewController: BaseViewController {
             nameTextField.isUserInteractionEnabled = false
             deviceSerialTextField.isUserInteractionEnabled = false
             statusButton.isUserInteractionEnabled = false
+            deviceSerialTextField.placeholder = nil
             longitudeTitleLabel.text = configuration.longitudeTitle
             latitudeTitleLabel.text = configuration.latitudeTitle
-            photographButton.heightAnchor ~ 0
             locationCodeTitleLabel.text = configuration.locationCodeTitle
             locationNameTitleLabel.text = configuration.locationNameTitle
             rightBarButtonItem.title = configuration.rightBarButtonItemTitle
@@ -298,11 +310,27 @@ class AssetDetailViewController: BaseViewController {
             `self`.longitudeLabel.text = `self`.viewModel.longitude
             `self`.latitudeLabel.text = `self`.viewModel.latitude
             `self`.stopLoadingIndicator()
+        }.onFailure { [weak self] error in
+            guard let self = self else { return }
+            self.alert(message: error.localizedDescription)
         }
     }
 
     @IBAction func unwindFromStaffSelected(segue: UIStoryboardSegue) {
         refreshViews()
+    }
+
+    @IBAction func unwindFromScanToAssetDetailViewController(segue: UIStoryboardSegue) {
+        let source = segue.source
+        switch source {
+        case let source as ScanViewController:
+            guard let messageString = source.viewModel.metadataObject.messageString else {
+                return
+            }
+            viewModel.deviceSerial = messageString
+            deviceSerialTextField.text = messageString
+        default: break
+        }
     }
 
     // MARK: - Navigation
@@ -314,6 +342,8 @@ class AssetDetailViewController: BaseViewController {
             let category: Staff.Category = (sender as! NSObject) == principalTapGestureRecognizer ? .principal : .user
             destination.viewModel = viewModel.viewModel(for: destination, with: category)
         case let destination as PhotographViewController:
+            destination.viewModel = viewModel.viewModel(for: destination, with: sender)
+        case let destination as ScanViewController:
             destination.viewModel = viewModel.viewModel(for: destination, with: sender)
         default: break
         }

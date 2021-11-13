@@ -35,10 +35,12 @@ struct API {
     public static var safeArrayDecoding = true
 
     public static var publicKey: PublicKey {
+        // swiftlint:disable:next force_try
         try! PublicKey(pemNamed: "eam-server-public")
     }
 
     public static var privateKey: PrivateKey {
+        // swiftlint:disable:next force_try
         try! PrivateKey(pemNamed: "eam-client-private")
     }
 

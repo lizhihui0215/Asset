@@ -27,8 +27,6 @@
 		260ACFA626D1666C006104B3 /* TransformAssetListSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260ACFA326D1662D006104B3 /* TransformAssetListSearchViewModel.swift */; };
 		260ACFAB26D1EC2B006104B3 /* TransformAssetListSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260ACFAA26D1EC1F006104B3 /* TransformAssetListSearchRequest.swift */; };
 		260ACFAC26D1EC2C006104B3 /* TransformAssetListSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260ACFAA26D1EC1F006104B3 /* TransformAssetListSearchRequest.swift */; };
-		260E34D926351ED7008CF3DE /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260E34CB26351ED0008CF3DE /* Alamofire.xcframework */; };
-		260E34DA26351ED7008CF3DE /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 260E34CB26351ED0008CF3DE /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		260E34DB26351ED9008CF3DE /* CryptoSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260E34CD26351ED0008CF3DE /* CryptoSwift.xcframework */; };
 		260E34DC26351ED9008CF3DE /* CryptoSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 260E34CD26351ED0008CF3DE /* CryptoSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		260E34DF26351EDB008CF3DE /* DropDown.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260E34C826351ED0008CF3DE /* DropDown.xcframework */; };
@@ -330,6 +328,21 @@
 		266D12AE263BF85D00B984D6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260FB8852637B99600445BD7 /* SystemConfiguration.framework */; };
 		2672C7D62646F164007049ED /* scan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2672C7D52646F164007049ED /* scan.wav */; };
 		26767B4627256EC4005B9862 /* Assets_Dev-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26767B4527256EC4005B9862 /* Assets_Dev-Info.plist */; };
+		26767B5F27393225005B9862 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26767B52273931DE005B9862 /* Alamofire.framework */; };
+		26767B6027393225005B9862 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26767B52273931DE005B9862 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		26767B6F273C1939005B9862 /* CM3.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 26767B63273C1938005B9862 /* CM3.bmp */; };
+		26767B70273C1939005B9862 /* CM3.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 26767B63273C1938005B9862 /* CM3.bmp */; };
+		26767B71273C1939005B9862 /* WewinPrintExtApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26767B64273C1938005B9862 /* WewinPrintExtApi.framework */; };
+		26767B72273C1939005B9862 /* WewinPrintExtApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26767B64273C1938005B9862 /* WewinPrintExtApi.framework */; };
+		26767B73273C1939005B9862 /* libSDYDZC_ExPrintKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26767B66273C1938005B9862 /* libSDYDZC_ExPrintKit.a */; };
+		26767B74273C193A005B9862 /* libSDYDZC_ExPrintKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26767B66273C1938005B9862 /* libSDYDZC_ExPrintKit.a */; };
+		26767B75273C193A005B9862 /* WewinPrintLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26767B67273C1938005B9862 /* WewinPrintLib.framework */; };
+		26767B76273C193A005B9862 /* WewinPrintLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26767B67273C1938005B9862 /* WewinPrintLib.framework */; };
+		26767B78273C19F0005B9862 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26767B77273C19D3005B9862 /* libxml2.tbd */; };
+		26767BC6273C223A005B9862 /* PrintService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26767BC5273C223A005B9862 /* PrintService.swift */; };
+		26767BC7273C223A005B9862 /* PrintService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26767BC5273C223A005B9862 /* PrintService.swift */; };
+		26767BCC273D6185005B9862 /* PrintTemplateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26767BCB273D606D005B9862 /* PrintTemplateRequest.swift */; };
+		26767BCD273D6186005B9862 /* PrintTemplateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26767BCB273D606D005B9862 /* PrintTemplateRequest.swift */; };
 		267D5CFB264AD82600DE1E14 /* Features in Resources */ = {isa = PBXBuildFile; fileRef = 267D5CFA264AD82600DE1E14 /* Features */; };
 		267D5CFE264AD8EB00DE1E14 /* CucumberishLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 267D5CFD264AD8EB00DE1E14 /* CucumberishLoader.m */; };
 		2683819E262EE1C000F6C23F /* IB-Segues+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683819A262EE1BF00F6C23F /* IB-Segues+Generated.swift */; };
@@ -1012,6 +1025,55 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		26767B51273931DE005B9862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26767B47273931DD005B9862 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		26767B53273931DE005B9862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26767B47273931DD005B9862 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		26767B55273931DE005B9862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26767B47273931DD005B9862 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire macOS";
+		};
+		26767B57273931DE005B9862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26767B47273931DD005B9862 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire macOS Tests";
+		};
+		26767B59273931DE005B9862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26767B47273931DD005B9862 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626EF1BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS";
+		};
+		26767B5B273931DE005B9862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26767B47273931DD005B9862 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626F81BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS Tests";
+		};
+		26767B5D273931DE005B9862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26767B47273931DD005B9862 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4202FE01B667AA100C997FB;
+			remoteInfo = "Alamofire watchOS";
+		};
 		9C6D430F2627146F00FEC466 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9C6D42F02627146600FEC466 /* Project object */;
@@ -1061,8 +1123,8 @@
 			files = (
 				263B95D2264D249E00AD2939 /* AlamofireImage.xcframework in Embed Frameworks */,
 				26DF76D0263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework in Embed Frameworks */,
+				26767B6027393225005B9862 /* Alamofire.framework in Embed Frameworks */,
 				260E34DC26351ED9008CF3DE /* CryptoSwift.xcframework in Embed Frameworks */,
-				260E34DA26351ED7008CF3DE /* Alamofire.xcframework in Embed Frameworks */,
 				26AB8D4E2636AC1A002E4B95 /* SwiftyBeaver.xcframework in Embed Frameworks */,
 				260E34E826351EDE008CF3DE /* PKHUD.xcframework in Embed Frameworks */,
 				260E34E426351EDD008CF3DE /* MJRefresh.xcframework in Embed Frameworks */,
@@ -1387,6 +1449,15 @@
 		266D128C263BBB7A00B984D6 /* JSON+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Generated.swift"; sourceTree = "<group>"; };
 		2672C7D52646F164007049ED /* scan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = scan.wav; sourceTree = "<group>"; };
 		26767B4527256EC4005B9862 /* Assets_Dev-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Assets_Dev-Info.plist"; sourceTree = "<group>"; };
+		26767B47273931DD005B9862 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Carthage/Checkouts/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		26767B63273C1938005B9862 /* CM3.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = CM3.bmp; sourceTree = "<group>"; };
+		26767B64273C1938005B9862 /* WewinPrintExtApi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WewinPrintExtApi.framework; sourceTree = "<group>"; };
+		26767B65273C1938005B9862 /* WwTABUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WwTABUtil.h; sourceTree = "<group>"; };
+		26767B66273C1938005B9862 /* libSDYDZC_ExPrintKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSDYDZC_ExPrintKit.a; sourceTree = "<group>"; };
+		26767B67273C1938005B9862 /* WewinPrintLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WewinPrintLib.framework; sourceTree = "<group>"; };
+		26767B77273C19D3005B9862 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		26767BC5273C223A005B9862 /* PrintService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintService.swift; sourceTree = "<group>"; };
+		26767BCB273D606D005B9862 /* PrintTemplateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintTemplateRequest.swift; sourceTree = "<group>"; };
 		267D5CF3264AD5AA00DE1E14 /* FBSnapshotTestCase.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FBSnapshotTestCase.xcframework; path = Carthage/Build/FBSnapshotTestCase.xcframework; sourceTree = SOURCE_ROOT; };
 		267D5CF4264AD5AA00DE1E14 /* Cucumberish.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Cucumberish.xcframework; path = Carthage/Build/Cucumberish.xcframework; sourceTree = SOURCE_ROOT; };
 		267D5CFA264AD82600DE1E14 /* Features */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Features; sourceTree = "<group>"; };
@@ -1632,8 +1703,8 @@
 			files = (
 				26E5F58B26E7C381004985A7 /* SwiftyRSA.xcframework in Frameworks */,
 				26DF76CF263C7DB9007C01F4 /* IQKeyboardManagerSwift.xcframework in Frameworks */,
-				260E34D926351ED7008CF3DE /* Alamofire.xcframework in Frameworks */,
 				260FB8882637B9A500445BD7 /* Security.framework in Frameworks */,
+				26767B5F27393225005B9862 /* Alamofire.framework in Frameworks */,
 				260FB8E02637FE3B00445BD7 /* libc++.tbd in Frameworks */,
 				260FB8E32637FE3F00445BD7 /* libsqlite3.0.tbd in Frameworks */,
 				263B95D1264D249E00AD2939 /* AlamofireImage.xcframework in Frameworks */,
@@ -1642,12 +1713,16 @@
 				260FB88B2637B9B600445BD7 /* CoreTelephony.framework in Frameworks */,
 				260E34EB26351EE1008CF3DE /* SwiftLocation.xcframework in Frameworks */,
 				260E34F326351EE4008CF3DE /* Swiftstraints.xcframework in Frameworks */,
+				26767B73273C1939005B9862 /* libSDYDZC_ExPrintKit.a in Frameworks */,
 				260E34E326351EDD008CF3DE /* MJRefresh.xcframework in Frameworks */,
+				26767B71273C1939005B9862 /* WewinPrintExtApi.framework in Frameworks */,
 				260E34F726351EE6008CF3DE /* ZLPhotoBrowser.xcframework in Frameworks */,
 				26199532263555A70046AF48 /* CoreLocation.framework in Frameworks */,
+				26767B75273C193A005B9862 /* WewinPrintLib.framework in Frameworks */,
 				260FB8D82637F4AB00445BD7 /* BMKLocationKit.xcframework in Frameworks */,
 				260E34E726351EDE008CF3DE /* PKHUD.xcframework in Frameworks */,
 				269A7026263F9E05006A3FD0 /* BrightFutures.xcframework in Frameworks */,
+				26767B78273C19F0005B9862 /* libxml2.tbd in Frameworks */,
 				260E34DB26351ED9008CF3DE /* CryptoSwift.xcframework in Frameworks */,
 				260E34DF26351EDB008CF3DE /* DropDown.xcframework in Frameworks */,
 			);
@@ -1674,6 +1749,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26767B72273C1939005B9862 /* WewinPrintExtApi.framework in Frameworks */,
+				26767B74273C193A005B9862 /* libSDYDZC_ExPrintKit.a in Frameworks */,
 				A1FEABFB266157AB00DA5708 /* IQKeyboardManagerSwift.xcframework in Frameworks */,
 				A1FEABFC266157AB00DA5708 /* Alamofire.xcframework in Frameworks */,
 				A1FEABFD266157AB00DA5708 /* Security.framework in Frameworks */,
@@ -1681,6 +1758,7 @@
 				A1FEABFF266157AB00DA5708 /* libsqlite3.0.tbd in Frameworks */,
 				A1FEAC00266157AB00DA5708 /* AlamofireImage.xcframework in Frameworks */,
 				A1FEAC01266157AB00DA5708 /* SwiftyBeaver.xcframework in Frameworks */,
+				26767B76273C193A005B9862 /* WewinPrintLib.framework in Frameworks */,
 				A1FEAC02266157AB00DA5708 /* SystemConfiguration.framework in Frameworks */,
 				A1FEAC03266157AB00DA5708 /* CoreTelephony.framework in Frameworks */,
 				A1FEAC04266157AB00DA5708 /* SwiftLocation.xcframework in Frameworks */,
@@ -2145,6 +2223,8 @@
 		26530D22262F11A3002BCE55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26767B77273C19D3005B9862 /* libxml2.tbd */,
+				26767B62273C1937005B9862 /* WeWinFramework */,
 				26E5F58A26E7C381004985A7 /* SwiftyRSA.xcframework */,
 				263B95D3264D24CE00AD2939 /* UITestHelper.xcframework */,
 				263B95D0264D249D00AD2939 /* AlamofireImage.xcframework */,
@@ -2193,6 +2273,32 @@
 				266D11B2263ABD9900B984D6 /* AutoEquatable.generated.swift */,
 			);
 			path = SourceryGenerated;
+			sourceTree = "<group>";
+		};
+		26767B48273931DD005B9862 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				26767B52273931DE005B9862 /* Alamofire.framework */,
+				26767B54273931DE005B9862 /* Alamofire iOS Tests.xctest */,
+				26767B56273931DE005B9862 /* Alamofire.framework */,
+				26767B58273931DE005B9862 /* Alamofire macOS Tests.xctest */,
+				26767B5A273931DE005B9862 /* Alamofire.framework */,
+				26767B5C273931DE005B9862 /* Alamofire tvOS Tests.xctest */,
+				26767B5E273931DE005B9862 /* Alamofire.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		26767B62273C1937005B9862 /* WeWinFramework */ = {
+			isa = PBXGroup;
+			children = (
+				26767B63273C1938005B9862 /* CM3.bmp */,
+				26767B64273C1938005B9862 /* WewinPrintExtApi.framework */,
+				26767B65273C1938005B9862 /* WwTABUtil.h */,
+				26767B66273C1938005B9862 /* libSDYDZC_ExPrintKit.a */,
+				26767B67273C1938005B9862 /* WewinPrintLib.framework */,
+			);
+			path = WeWinFramework;
 			sourceTree = "<group>";
 		};
 		26838199262EE1BF00F6C23F /* SwiftGenerated */ = {
@@ -2395,6 +2501,7 @@
 		9C6D42EF2627146600FEC466 = {
 			isa = PBXGroup;
 			children = (
+				26767B47273931DD005B9862 /* Alamofire.xcodeproj */,
 				265EC5242652157A00E4EB41 /* fastlane */,
 				26530D22262F11A3002BCE55 /* Frameworks */,
 				2605FED2265583750045CABA /* Configuration */,
@@ -2560,6 +2667,7 @@
 				9C6D434A262731DB00FEC466 /* RequestRepresentable.swift */,
 				9CBBE007262873AE00CC6294 /* DataResponse.swift */,
 				9C6D434C2627320D00FEC466 /* LoginRequest.swift */,
+				26767BCB273D606D005B9862 /* PrintTemplateRequest.swift */,
 				26B0DCC22656B6AF003A3FF1 /* VersionRequest.swift */,
 				5B875234EAB7404922020237 /* ServiceRequest.swift */,
 				5B875E2B31EBA291112B1127 /* LocationListRequest.swift */,
@@ -2622,6 +2730,7 @@
 				5B8752391D9A031F1106D51D /* AppStartupService.swift */,
 				5B875CC1F28E5AA6D4B8EEC6 /* APIMockService.swift */,
 				5B87573DFCF48BB306233941 /* SirenService.swift */,
+				26767BC5273C223A005B9862 /* PrintService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -2901,6 +3010,12 @@
 			mainGroup = 9C6D42EF2627146600FEC466;
 			productRefGroup = 9C6D42F92627146600FEC466 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 26767B48273931DD005B9862 /* Products */;
+					ProjectRef = 26767B47273931DD005B9862 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9C6D42F72627146600FEC466 /* Assets */,
@@ -2910,6 +3025,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		26767B52273931DE005B9862 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 26767B51273931DE005B9862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		26767B54273931DE005B9862 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = 26767B53273931DE005B9862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		26767B56273931DE005B9862 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 26767B55273931DE005B9862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		26767B58273931DE005B9862 /* Alamofire macOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire macOS Tests.xctest";
+			remoteRef = 26767B57273931DE005B9862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		26767B5A273931DE005B9862 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 26767B59273931DE005B9862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		26767B5C273931DE005B9862 /* Alamofire tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire tvOS Tests.xctest";
+			remoteRef = 26767B5B273931DE005B9862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		26767B5E273931DE005B9862 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 26767B5D273931DE005B9862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9C6D42F62627146600FEC466 /* Resources */ = {
@@ -2959,6 +3126,7 @@
 				F2F61EF3BD44962930EBE3FF /* AssetTaskDetailResponse.json in Resources */,
 				F2F61FFE01CC001518F1B6FE /* AssetTaskInventoryListResponse.json in Resources */,
 				5B875CE1C776340FFE401B99 /* AssetTaskInventoryListScanResponse.json in Resources */,
+				26767B6F273C1939005B9862 /* CM3.bmp in Resources */,
 				5B8752812D5A7B8812A00F0A /* AssetTaskInventoryDetailPhotographResponse.json in Resources */,
 				5B8759AC4A0212C972325ED8 /* TransformListResponse copy.json in Resources */,
 			);
@@ -3000,6 +3168,7 @@
 				A1FEAC1A266157AB00DA5708 /* Siren.bundle in Resources */,
 				A1FEAC1B266157AB00DA5708 /* Service.storyboard in Resources */,
 				A1FEAC1C266157AB00DA5708 /* Mine.storyboard in Resources */,
+				26767B70273C1939005B9862 /* CM3.bmp in Resources */,
 				A1FEAC1D266157AB00DA5708 /* LoginResponse.json in Resources */,
 				A1FEAC1E266157AB00DA5708 /* Location.storyboard in Resources */,
 				A1FEAC1F266157AB00DA5708 /* LocationListResponse.json in Resources */,
@@ -3208,6 +3377,7 @@
 				260E35D326351FBB008CF3DE /* FadeAnimator.swift in Sources */,
 				260E35E126351FBB008CF3DE /* Udra.swift in Sources */,
 				260E364926351FBC008CF3DE /* AnimatableActivityIndicatorView.swift in Sources */,
+				26767BCC273D6185005B9862 /* PrintTemplateRequest.swift in Sources */,
 				264C400026ADD47900332027 /* TransofrmListViewController.swift in Sources */,
 				260E365A26351FBC008CF3DE /* FillDesignable.swift in Sources */,
 				A15CAFA1266C6FA0005C452E /* AssetTaskSearchViewController.swift in Sources */,
@@ -3396,6 +3566,7 @@
 				260E366B26351FBC008CF3DE /* ActivityIndicatorAnimating.swift in Sources */,
 				260E365026351FBC008CF3DE /* NavigationBarDesginable.swift in Sources */,
 				260E366726351FBC008CF3DE /* ViewControllerAnimatedTransitioning.swift in Sources */,
+				26767BC6273C223A005B9862 /* PrintService.swift in Sources */,
 				260E361E26351FBB008CF3DE /* ActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				260E360B26351FBB008CF3DE /* _SwiftSupport.swift in Sources */,
 				260E35CE26351FBB008CF3DE /* NatGeoAnimator.swift in Sources */,
@@ -4028,6 +4199,7 @@
 				A1FEABE0266157AB00DA5708 /* AssetInventoryListDetailRequest.swift in Sources */,
 				A1FEABE1266157AB00DA5708 /* AssetInventoryListDetailSubmitRequest.swift in Sources */,
 				A1FEABE2266157AB00DA5708 /* PhotographUploadRequest.swift in Sources */,
+				26767BCD273D6186005B9862 /* PrintTemplateRequest.swift in Sources */,
 				264C400926ADD47A00332027 /* TransofrmAssetListViewController.swift in Sources */,
 				A1FEABE3266157AB00DA5708 /* Photo.swift in Sources */,
 				A1FEABE4266157AB00DA5708 /* LocationImagesRequest.swift in Sources */,
@@ -4040,6 +4212,7 @@
 				A1FEABED266157AB00DA5708 /* MineRequest.swift in Sources */,
 				A1FEABEE266157AB00DA5708 /* IsLoginRequest.swift in Sources */,
 				A1FEABEF266157AB00DA5708 /* IsLogin.swift in Sources */,
+				26767BC7273C223A005B9862 /* PrintService.swift in Sources */,
 				A1FEABF0266157AB00DA5708 /* VersionCheckRequest.swift in Sources */,
 				A1FEABF1266157AB00DA5708 /* Version.swift in Sources */,
 				A1FEABF2266157AB00DA5708 /* SirenService.swift in Sources */,
@@ -4319,12 +4492,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/WeWinFramework",
 				);
 				INFOPLIST_FILE = Assets/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/WeWinFramework",
 				);
 				MARKETING_VERSION = 0.0.1;
 				MOCK = YES;
@@ -4354,12 +4532,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/WeWinFramework",
 				);
 				INFOPLIST_FILE = Assets/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/WeWinFramework",
 				);
 				MARKETING_VERSION = 0.0.1;
 				MOCK = "";
@@ -4483,12 +4666,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/WeWinFramework",
 				);
 				INFOPLIST_FILE = "Assets/Resources/Assets_Dev-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/WeWinFramework",
 				);
 				MARKETING_VERSION = 0.0.1;
 				OTHER_LDFLAGS = "-ObjC";
@@ -4517,12 +4705,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/WeWinFramework",
 				);
 				INFOPLIST_FILE = "Assets/Resources/Assets_Dev-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/WeWinFramework",
 				);
 				MARKETING_VERSION = 0.0.1;
 				OTHER_LDFLAGS = "-ObjC";

@@ -14,6 +14,8 @@ class AssetTaskInventoryListScanViewModel: ScanViewModel {
     private var realLocationName: String { assetTaskDetail.locationCode }
     private var tagNumber: String { metadataObject?.messageString ?? "" }
     private var checkPerson: String { app.credential?.userAccount ?? "" }
+    private var longitude: String { assetTaskDetail.longitude }
+    private var latitude: String { assetTaskDetail.latitude }
     private var assetTaskDetail: AssetTaskDetail
     private var assetTaskInventoryDetail: AssetTaskInventoryDetail?
 
@@ -28,7 +30,9 @@ class AssetTaskInventoryListScanViewModel: ScanViewModel {
             checkBillCode: checkBillCode,
             checkPerson: checkPerson,
             realLocationName: realLocationName,
-            tagNumber: tagNumber
+            tagNumber: tagNumber,
+            longitude: longitude,
+            latitude: latitude
         )
         return api(of: AssetTaskInventoryListScanResponse.self, router: .assetTaskInventoryDetailByScan(assetInventoryListScanParameters))
     }

@@ -71,6 +71,7 @@ enum APIRouter: URLRequestConvertible {
         static var transformDetailUpdateLocationCoordination = "app/receive/saveTaskInfo"
         static var transformChangeCheckPerson = "app/receive/changeCheckPersonByTask"
         static var assetTaskChangeInventoryPerson = "app/check/changeCheckPerson"
+        static var printTemplate = "appSys/getAssetPrintXml"
 
         static func staffList(_ category: Staff.Category) -> String {
             switch category {
@@ -125,6 +126,7 @@ enum APIRouter: URLRequestConvertible {
     case transformDetailUpdateLocationCoordination(TransformDetailUpdateLocationCoordinationParameter)
     case transformChangeCheckPerson(TransformChangeCheckPersonParameter)
     case assetTaskChangeInventoryPerson(AssetTaskInventoryDetailChangeInventoryPersonParameter)
+    case printTemplate(PrintTemplateParameter)
 
     var baseURL: URL {
         URL(string: "\(API.schema)://\(API.domain)/")!
@@ -176,6 +178,7 @@ enum APIRouter: URLRequestConvertible {
         case .transformDetailUpdateLocationCoordination: return pathComponents(with: Constants.transformDetailUpdateLocationCoordination)
         case .transformChangeCheckPerson: return pathComponents(with: Constants.transformChangeCheckPerson)
         case .assetTaskChangeInventoryPerson: return pathComponents(with: Constants.assetTaskChangeInventoryPerson)
+        case .printTemplate: return pathComponents(with: Constants.printTemplate)
         }
     }
 
@@ -268,6 +271,8 @@ enum APIRouter: URLRequestConvertible {
         case .transformChangeCheckPerson(let parameters):
             request = try encode(parameters, into: request)
         case .assetTaskChangeInventoryPerson(let parameters):
+            request = try encode(parameters, into: request)
+        case .printTemplate(let parameters):
             request = try encode(parameters, into: request)
         }
 

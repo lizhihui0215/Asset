@@ -66,7 +66,11 @@ final class BDLocationService: NSObject, LocationServiceable {
     }
 
     func launchService() {
-        BMKLocationAuth.sharedInstance().checkPermision(withKey: "FmUUtWy0Ua1m70Vi7zm1hnpn450GCItr", authDelegate: self)
+        #if DEBUG
+            BMKLocationAuth.sharedInstance().checkPermision(withKey: "A6PHX4uUtqLAckqPwTVgRKt2EGs3GEzN", authDelegate: self)
+        #else
+            BMKLocationAuth.sharedInstance().checkPermision(withKey: "FmUUtWy0Ua1m70Vi7zm1hnpn450GCItr", authDelegate: self)
+        #endif
     }
 
     func with(optional: () -> DBOptional) -> Self {

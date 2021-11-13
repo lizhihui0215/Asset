@@ -63,3 +63,17 @@ extension BMKLocationPoiRegion: Convertible {
         )
     }
 }
+
+extension WwPrintResult: Convertible {
+    func convert() -> EAMError.PrintServiceError {
+        guard self != .wwPrintSuccess else {
+            fatalError("wwPrintSuccess could not convert to EAMError.PrintServiceError")
+        }
+
+        guard let error = EAMError.PrintServiceError(printResult: self) else {
+            fatalError("WwPrintResult error could not convert to EAMError.PrintServiceError")
+        }
+
+        return error
+    }
+}

@@ -64,7 +64,10 @@ After carthage install excuted successfully you can now open the Xcode to run th
    - all list related ViewModel should inhert from this **ListViewModel** provide
    lots of list related beheiver
 
+## Unit Test
 
+## UI Test
+UI Test use [Cucumberish](https://github.com/lizhihui0215/Cucumberish) which is a test automation framework for Behaviour Driven Development (BDD)
 
 ## Beta
 Assets is used `fastlane` to upload the bate version ipa automatically to [pgyer](https://www.pgyer.com/)

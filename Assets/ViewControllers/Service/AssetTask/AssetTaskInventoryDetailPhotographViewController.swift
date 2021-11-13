@@ -71,6 +71,13 @@ class AssetTaskInventoryDetailPhotographViewController: BaseViewController {
         }
     }
 
+    @IBAction func printButtonTapped(_ sender: UIButton) {
+        PrintService.shared.preview(tagNumber: viewModel.tagNumber).onFailure { [weak self] error in
+            guard let self = self else { return }
+            `self`.alert(message: error.localizedDescription)
+        }
+    }
+
     // MARK: - Navigation
 
     @IBAction func unwindToAssetTaskInventoryDetailViewController(sender: UIStoryboardSegue) {

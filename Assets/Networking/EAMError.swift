@@ -145,6 +145,41 @@ public enum EAMError: Error {
         case cancel
         case apiFailure(Error)
     }
+
+    public enum PrintServiceError: Error {
+        /// 未知异常
+        case unknowError
+        /// >连接操作异常
+        case connectError
+        /// 连接设备异常
+        case connectDeviceError
+        /// 创建标签异常
+        case createLabelError
+        /// 打印异常
+        case printError
+        /// 打印机被占用（或正在打印）
+        case printingError
+        /// 预览异常
+        case previewError
+        /// 标签类型错误
+        case labelTypeError
+        /// API Error
+        case apiFailure(Error)
+
+        init?(printResult: WwPrintResult) {
+            switch printResult {
+            case .wwUnknowError: self = .unknowError
+            case .wwConnectError: self = .connectError
+            case .wwConnectDeviceError: self = .connectDeviceError
+            case .wwCreateLabelError: self = .createLabelError
+            case .wwPrintError: self = .printError
+            case .wwPrintingError: self = .printingError
+            case .wwPreviewError: self = .previewError
+            case .wwLabelTypeError: self = .labelTypeError
+            default: self = .unknowError
+            }
+        }
+    }
 }
 
 public extension AFError {
@@ -167,6 +202,30 @@ extension EAMError: LocalizedError {
         case .unknown, .weakSelfUnWrapError: return "未知错误，请稍后再尝试！"
         case .unwrapOptionalValueError(let `class`):
             return "unwrap optional value \(`class`) is nil"
+        }
+    }
+}
+
+public extension EAMError.PrintServiceError {
+    var errorDescription: String? {
+        failureReason
+    }
+
+    var recoverySuggestion: String? {
+        failureReason
+    }
+
+    var failureReason: String? {
+        switch self {
+        case .unknowError: return "未知异常"
+        case .connectError: return "连接操作异常"
+        case .connectDeviceError: return "连接设备异常"
+        case .createLabelError: return "创建标签异常"
+        case .printError: return "打印异常"
+        case .printingError: return "打印机被占用（或正在打印）"
+        case .previewError: return "预览异常"
+        case .labelTypeError: return "标签类型错误"
+        case .apiFailure(let error): return error.localizedDescription
         }
     }
 }

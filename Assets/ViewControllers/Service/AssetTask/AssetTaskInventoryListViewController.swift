@@ -13,6 +13,9 @@ class AssetTaskInventoryListViewController: BaseTableViewController, TableViewCo
     typealias Action = AssetTaskInventoryListViewController
     typealias S = DefaultSection<AssetTaskInventory>
 
+    @IBOutlet var longitudeLabel: UILabel!
+    @IBOutlet var latitudeLabel: UILabel!
+
     var viewModel: AssetTaskInventoryListViewModel!
 
     override func awakeFromNib() {
@@ -23,6 +26,8 @@ class AssetTaskInventoryListViewController: BaseTableViewController, TableViewCo
         super.viewDidLoad()
         headerRefreshingDelegate = self
         refreshTable()
+        longitudeLabel.text = viewModel.longitude
+        latitudeLabel.text = viewModel.latitude
     }
 
     // MARK: - Navigation

@@ -18,6 +18,8 @@ class AssetTaskInventoryListViewModel: PageableViewModel<AssetTaskInventoryListV
     public var pageNumber: Int { page + 1 }
     private var locationCode: String { assetTaskDetail.locationCode }
     private var checkBillCode: String { assetTaskDetail.checkBillCode }
+    var longitude: String { assetTaskDetail.longitude }
+    var latitude: String { assetTaskDetail.latitude }
 
     init(assetTaskDetail: AssetTaskDetail, request: RequestRepresentable, action: AssetTaskInventoryListViewController) {
         self.assetTaskDetail = assetTaskDetail
