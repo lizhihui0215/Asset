@@ -88,7 +88,10 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
     }
 
     public var principalName: String {
-        get { principal?.userName ?? "" }
+        get {
+            guard let principal = principal else { return "" }
+            return "\(principal.account)/\(principal.userName)"
+        }
         set {
             assetTaskInventoryDetail.dutyPersonName = principal?.userName ?? ""
             assetTaskInventoryDetail.dutyPerson = principal?.userCode ?? ""
@@ -96,7 +99,10 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
     }
 
     public var userName: String {
-        get { user?.userName ?? "" }
+        get {
+            guard let user = user else { return "" }
+            return "\(user.account)/\(user.userName)"
+        }
         set {
             assetTaskInventoryDetail.usePerson = user?.userName ?? ""
             assetTaskInventoryDetail.usePersonName = user?.userCode ?? ""
@@ -153,14 +159,14 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
                     dutyPersonName: principal?.userName ?? "",
                     assetCheckItem: selectedAssetStatus?.status ?? "",
                     resourceNumber: resourceNumber,
-                    usePersonName: userName,
+                    usePersonName: user?.userName ?? "",
                     tagNumber: tagNumber,
                     mapLocationDesc: rgcData?.JSONString ?? "",
                     dutyPerson: principal?.account ?? "",
                     assetId: assetTaskInventoryDetail.assetId,
                     checkBillCode: assetTaskInventoryDetail.checkBillCode,
                     manufactureName: manufactureName,
-                    usePerson: principalName,
+                    usePerson: user?.account ?? "",
                     assetName: assetName,
                     realLocationName: assetTaskInventoryDetail.realLocationName,
                     modelNumber: modelName,

@@ -104,6 +104,10 @@ public final class App {
         let version = ProcessInfo.processInfo.operatingSystemVersion
         return "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
     }
+    
+    public var appUpdateURL: URL! {
+        URL(string: "itms-services://?action=download-manifest&url=你的plist文件的下载链接")
+    }
 }
 
 extension App {

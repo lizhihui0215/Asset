@@ -14,8 +14,8 @@ class AssetTaskInventoryListScanViewModel: ScanViewModel {
     private var realLocationName: String { assetTaskDetail.locationCode }
     private var tagNumber: String { metadataObject?.messageString ?? "" }
     private var checkPerson: String { app.credential?.userAccount ?? "" }
-    private var longitude: String { assetTaskDetail.longitude }
-    private var latitude: String { assetTaskDetail.latitude }
+    private var longitude: String { DefaultCoordinateFormatter.format(assetTaskDetail.longitude) }
+    private var latitude: String { DefaultCoordinateFormatter.format(assetTaskDetail.latitude) }
     private var assetTaskDetail: AssetTaskDetail
     private var assetTaskInventoryDetail: AssetTaskInventoryDetail?
 

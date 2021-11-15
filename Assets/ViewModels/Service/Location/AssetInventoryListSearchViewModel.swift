@@ -21,8 +21,20 @@ class AssetInventoryListSearchViewModel: BaseViewModel<AssetInventoryListSearchV
 
     var inventoryStatus: InventoryStatus = defaultOption
     var selectedInventoryStatus: SelectedInventoryStatus?
-    var userName: String { user?.userName ?? "" }
-    var principalName: String { principal?.userName ?? "" }
+    var userName: String {
+        guard let user = user else {
+            return ""
+        }
+
+        return "\(user.account)/\(user.userName)"
+    }
+
+    var principalName: String {
+        guard let principal = principal else {
+            return ""
+        }
+        return "\(principal.account)/\(principal.userName)"
+    }
 
     public var dropDownOptions: [String] {
         let options = inventoryStatus.values.map { $0 }

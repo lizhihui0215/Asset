@@ -9,12 +9,12 @@
 import Foundation
 
 /// Model representing a selection of results from the iTunes Lookup API.
-struct APIModel: Decodable {
+public struct APIModel: Decodable {
 
     /// The array of results objects from the iTunes Lookup API.
     let results: Results
    
-   init(from decoder: Decoder) throws {
+   public init(from decoder: Decoder) throws {
       let container = try decoder.container(keyedBy: Results.CodingKeys.self)
       
       let appID = try container.decode(Int.self, forKey: .appID)

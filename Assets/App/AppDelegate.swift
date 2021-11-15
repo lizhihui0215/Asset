@@ -16,6 +16,7 @@ class AppDelegate: AppServiceManager {
         [
             WindowService(window: window),
             AppStartupService(),
+            SirenService(),
         ]
     }
 }

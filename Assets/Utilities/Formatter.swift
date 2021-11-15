@@ -10,8 +10,8 @@ import Foundation
 
 struct DefaultCoordinateFormatter {
     static func format(_ value: String?, default: String? = nil) -> String {
-        guard let value = value, !value.isEmpty else { return `default` ?? "" }
-        return String(format: "%.6f", value)
+        guard let value = value, let doubleValue = Double(value) else { return `default` ?? "" }
+        return String(format: "%.6f", doubleValue)
     }
 
     static func format(_ value: Float?, default: String? = nil) -> String {

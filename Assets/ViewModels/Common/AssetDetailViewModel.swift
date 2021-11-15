@@ -112,7 +112,10 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController>, StaffSelec
     }
 
     public var principalName: String {
-        get { principal?.userName ?? "" }
+        get {
+            guard let principal = principal else { return "" }
+            return "\(principal.account)/\(principal.userName)"
+        }
         set {
             assetDetail?.dutyPersonName = principal?.userName ?? ""
             assetDetail?.dutyPerson = principal?.userCode ?? ""
@@ -120,7 +123,10 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController>, StaffSelec
     }
 
     public var userName: String {
-        get { user?.userName ?? "" }
+        get {
+            guard let user = user else { return "" }
+            return "\(user.account)/\(user.userName)"
+        }
         set {
             assetDetail?.usePerson = user?.userName ?? ""
             assetDetail?.usePersonName = user?.userCode ?? ""
@@ -128,7 +134,7 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController>, StaffSelec
     }
 
     public var systemLongitude: String {
-        assetDetail?.longitude ?? ""
+        DefaultCoordinateFormatter.format(assetDetail?.longitude)
     }
 
     public var dropDownOptions: [String] {
@@ -138,7 +144,7 @@ class AssetDetailViewModel: BaseViewModel<AssetDetailViewController>, StaffSelec
     }
 
     public var systemLatitude: String {
-        assetDetail?.latitude ?? ""
+        DefaultCoordinateFormatter.format(assetDetail?.latitude)
     }
 
     public var userAccount: String {

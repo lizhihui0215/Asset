@@ -13,6 +13,7 @@ class SirenService: NSObject, AppService {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let siren = Siren.shared
+        siren.apiManager = self
         siren.rulesManager = RulesManager(globalRules: .critical,
                                           showAlertAfterCurrentVersionHasBeenReleasedForDays: 0)
 
@@ -23,12 +24,17 @@ class SirenService: NSObject, AppService {
                 log.info("Localization ", context: updateResults.localization)
                 log.info("Model ", context: updateResults.model)
                 log.info("UpdateType ", context: updateResults.updateType)
+                SirenService.downloadApp()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
 
         return true
+    }
+    
+    static func downloadApp()  {
+        UIApplication.shared.open(app.appUpdateURL, options: [:])
     }
 }
 

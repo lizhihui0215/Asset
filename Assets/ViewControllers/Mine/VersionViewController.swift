@@ -58,7 +58,9 @@ class VersionViewController: BaseViewController {
         }
     }
 
-    @IBAction func updateTapped(_ sender: AnimatableButton) {}
+    @IBAction func updateTapped(_ sender: AnimatableButton) {
+        SirenService.downloadApp()
+    }
 
     /*
      // MARK: - Navigation

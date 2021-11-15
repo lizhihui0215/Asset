@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol APIManager {
+public protocol APIManager {
     /// Return results or errors obtained from performing a version check with Siren.
     typealias CompletionHandler = (Result<APIModel, VersionError>) -> Void
     func performVersionCheckRequest(completion handler: CompletionHandler?)
@@ -69,7 +69,7 @@ public final class Siren: NSObject {
     @UserDefault(key: SirenKeys.StoredSkippedVersion, defaultValue: nil)
     private var storedSkippedVersion: String?
 
-    private var apiManager: APIManager?
+    public var apiManager: APIManager?
 
     /// The completion handler used to return the results or errors returned by Siren.
     private var resultsHandler: ResultsHandler?
