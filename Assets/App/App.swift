@@ -104,9 +104,9 @@ public final class App {
         let version = ProcessInfo.processInfo.operatingSystemVersion
         return "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
     }
-    
+
     public var appUpdateURL: URL! {
-        URL(string: "itms-services://?action=download-manifest&url=你的plist文件的下载链接")
+        URL(string: "itms-services://?action=download-manifest&url=http://223.99.142.6/app/sd_ios.plist")
     }
 }
 

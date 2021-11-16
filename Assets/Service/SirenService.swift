@@ -32,8 +32,8 @@ class SirenService: NSObject, AppService {
 
         return true
     }
-    
-    static func downloadApp()  {
+
+    static func downloadApp() {
         UIApplication.shared.open(app.appUpdateURL, options: [:])
     }
 }

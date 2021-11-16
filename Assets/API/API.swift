@@ -24,7 +24,7 @@ struct API {
 
     enum Constants {
         static let defaultSchema: Scheme = .http
-        static let defaultDomain = "152.136.255.61:8091"
+        static let defaultDomain = "223.99.142.6"
         static let defaultServiceDictionary = "eam-phone"
     }
 

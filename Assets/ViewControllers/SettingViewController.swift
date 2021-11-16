@@ -27,5 +27,7 @@ class SettingViewController: BaseViewController {
         viewModel.serviceDictionary = serviceDictionaryTextField.eam.text
         viewModel.scheme = API.Scheme(integerLiteral: schemeOptionsView.selectedIndex)
         alert(message: "保存成功！")
+        domainTextField.resignFirstResponder()
+        serviceDictionaryTextField.resignFirstResponder()
     }
 }
