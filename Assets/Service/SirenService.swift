@@ -39,6 +39,12 @@ class SirenService: NSObject, AppService {
 }
 
 class SirenViewModel: BaseViewModel<SirenService> {
+    override func apiStart(router _: APIRouter) {}
+
+    override func apiFinished(router _: APIRouter) {}
+
+    override func handApiError(router _: APIRouter, error: Error) {}
+
     func fetchVersion() -> ViewModelFuture<APIModel?> {
         api(of: VersionResponse.self, router: .version)
     }
