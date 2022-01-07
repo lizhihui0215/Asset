@@ -42,6 +42,7 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
 
     public var principal: Staff?
     public var user: Staff?
+    var assetTaskDetail: AssetTaskDetail
 
     var formattedLongitude: String {
         DefaultCoordinateFormatter.format(longitude)
@@ -79,9 +80,9 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
     }
 
     var systemLocationCode: String { assetTaskInventoryDetail.locationCode }
-    var locationCode: String { assetTaskInventoryDetail.realLocationCode }
+    var locationCode: String { assetTaskDetail.locationCode }
     var systemLocationName: String { assetTaskInventoryDetail.locationName }
-    var locationName: String { assetTaskInventoryDetail.realLocationName }
+    var locationName: String { assetTaskDetail.locationName }
     var quantity: String {
         get { String(assetTaskInventoryDetail.quantity) }
         set { assetTaskInventoryDetail.quantity = Int(newValue) ?? 0 }
@@ -122,9 +123,12 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
 
     private var assetTaskInventoryDetail: AssetTaskInventoryDetail
 
-    init(request: RequestRepresentable, action: AssetTaskInventoryDetailViewController,
-         assetTaskInventoryDetail: AssetTaskInventoryDetail)
+    init(request: RequestRepresentable,
+         action: AssetTaskInventoryDetailViewController,
+         assetTaskInventoryDetail: AssetTaskInventoryDetail,
+         assetTaskDetail: AssetTaskDetail)
     {
+        self.assetTaskDetail = assetTaskDetail
         self.assetTaskInventoryDetail = assetTaskInventoryDetail
         super.init(request: request, action: action)
         handleAssetDetailResult(assetTaskInventoryDetail: assetTaskInventoryDetail)
@@ -152,7 +156,7 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
         api(of: AssetTaskInventoryDetailSubmitResponse.self,
             router: .assetTaskInventoryDetailSubmit(
                 AssetTaskInventoryDetailSubmitParameter(
-                    realLocationCode: assetTaskInventoryDetail.realLocationCode,
+                    realLocationCode: locationCode,
                     quantity: quantity,
                     checkPerson: checkPerson,
                     latitude: latitude,
@@ -168,7 +172,7 @@ class AssetTaskInventoryDetailViewModel: BaseViewModel<AssetTaskInventoryDetailV
                     manufactureName: manufactureName,
                     usePerson: user?.account ?? "",
                     assetName: assetName,
-                    realLocationName: assetTaskInventoryDetail.realLocationName,
+                    realLocationName: locationName,
                     modelNumber: modelName,
                     longitude: longitude
                 )))

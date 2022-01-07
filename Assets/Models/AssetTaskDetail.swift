@@ -11,6 +11,7 @@ struct AssetTaskDetail {
     let taskNumber: String
     let taskName: String
     let locationCode: String
+    let locationName: String
     let checkPerson: String
     let checkCount: Int
     let unCheckCount: Int
@@ -49,4 +50,5 @@ extension AssetTaskDetail: AutoCodable {
     static var defaultCheckTaskStatus = ""
     static var defaultCheckTaskStatusName = ""
     static var defaultCheckTaskTime = ""
+    static var defaultLocationName = ""
 }

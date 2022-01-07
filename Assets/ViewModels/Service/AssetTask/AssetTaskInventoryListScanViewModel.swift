@@ -51,7 +51,9 @@ class AssetTaskInventoryListScanViewModel: ScanViewModel {
         case let action as AssetTaskInventoryDetailViewController:
             guard let assetTaskInventoryDetail = assetTaskInventoryDetail else { break }
             return AssetTaskInventoryDetailViewModel(request: AssetTaskInventoryDetailRequest(),
-                                                     action: action, assetTaskInventoryDetail: assetTaskInventoryDetail) as! T
+                                                     action: action,
+                                                     assetTaskInventoryDetail: assetTaskInventoryDetail,
+                                                     assetTaskDetail: assetTaskDetail) as! T
         default: break
         }
         return super.viewModel(for: action, with: sender)

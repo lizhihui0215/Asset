@@ -280,29 +280,37 @@ enum APIRouter: URLRequestConvertible {
     }
 
     func encode<Parameters>(_ parameters: Parameters?, into request: URLRequest) throws -> URLRequest where Parameters: Encodable {
-//        guard let parameters = parameters else {
-//            throw EAMError.APIError.parametersIsNil
-//        }
-//
-//        var request = request
-//        let sign = try sign(parameters: parameters)
-//
-//        let paramJSONString = try parameters.asDictionary()
-//            .merging(["sign": sign]) { $1 }
-//            .JSONString()
-//
-//        let aesKey = API.randomAESKey()
-//        guard let info = paramJSONString?.bytes.toHexString() else { fatalError("to hex string error") }
-//        let clear = try ClearMessage(string: aesKey, using: .utf8)
-//        let encryptedKey = try clear.encrypted(with: API.publicKey, padding: .PKCS1)
-//
-//        let bodyData = try AES(key: aesKey.bytes, blockMode: CBC(iv: aesKey.bytes), padding: .pkcs5).encrypt(info.bytes).toBase64()
-//
-//        let param = ["bodyData": bodyData]
-//
-//        request.addValue(encryptedKey.base64String, forHTTPHeaderField: "encryptKey")
+        /** tempory disable rsa encryption
+         guard let parameters = parameters else {
+             throw EAMError.APIError.parametersIsNil
+         }
 
-        try JSONParameterEncoder().encode(parameters, into: request)
+         var request = request
+         let sign = try sign(parameters: parameters)
+
+         let paramJSONString = try parameters.asDictionary()
+             .merging(["sign": sign]) { $1 }
+             .JSONString()
+
+         let aesKey = API.randomAESKey()
+         guard let info = paramJSONString?.bytes.toHexString() else { fatalError("to hex string error") }
+         let clear = try ClearMessage(string: aesKey, using: .utf8)
+         let encryptedKey = try clear.encrypted(with: API.publicKey, padding: .PKCS1)
+
+         let bodyData = try AES(key: aesKey.bytes, blockMode: CBC(iv: aesKey.bytes), padding: .pkcs5).encrypt(info.bytes).toBase64()
+
+         let param = ["bodyData": bodyData]
+
+         request.addValue(encryptedKey.base64String, forHTTPHeaderField: "encryptKey")
+         */
+        guard let parameters = parameters else {
+            throw EAMError.APIError.parametersIsNil
+        }
+        
+        
+        
+
+        return try JSONParameterEncoder().encode(parameters, into: request)
     }
 
     func sign(parameters: Encodable) throws -> String {
@@ -322,8 +330,6 @@ enum APIRouter: URLRequestConvertible {
         let clear = try ClearMessage(string: valuesString, using: .utf8)
         let signature = try clear.signed(with: API.privateKey, digestType: .sha256)
 
-        print(signature.base64String)
-        print(signature.data)
         return signature.base64String
     }
 

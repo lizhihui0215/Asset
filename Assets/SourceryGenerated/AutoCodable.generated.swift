@@ -219,6 +219,7 @@ extension AssetTaskDetail {
         case taskNumber
         case taskName
         case locationCode
+        case locationName
         case checkPerson
         case checkCount
         case unCheckCount
@@ -243,6 +244,7 @@ extension AssetTaskDetail {
         taskNumber = (try? container.decode(String.self, forKey: .taskNumber)) ?? AssetTaskDetail.defaultTaskNumber
         taskName = (try? container.decode(String.self, forKey: .taskName)) ?? AssetTaskDetail.defaultTaskName
         locationCode = (try? container.decode(String.self, forKey: .locationCode)) ?? AssetTaskDetail.defaultLocationCode
+        locationName = (try? container.decode(String.self, forKey: .locationName)) ?? AssetTaskDetail.defaultLocationName
         checkPerson = (try? container.decode(String.self, forKey: .checkPerson)) ?? AssetTaskDetail.defaultCheckPerson
         checkCount = (try? container.decode(Int.self, forKey: .checkCount)) ?? AssetTaskDetail.defaultCheckCount
         unCheckCount = (try? container.decode(Int.self, forKey: .unCheckCount)) ?? AssetTaskDetail.defaultUnCheckCount

@@ -132,6 +132,7 @@ internal func == (lhs: AssetTaskDetail, rhs: AssetTaskDetail) -> Bool {
     guard lhs.taskNumber == rhs.taskNumber else { return false }
     guard lhs.taskName == rhs.taskName else { return false }
     guard lhs.locationCode == rhs.locationCode else { return false }
+    guard lhs.locationName == rhs.locationName else { return false }
     guard lhs.checkPerson == rhs.checkPerson else { return false }
     guard lhs.checkCount == rhs.checkCount else { return false }
     guard lhs.unCheckCount == rhs.unCheckCount else { return false }
