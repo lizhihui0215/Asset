@@ -16,7 +16,6 @@ enum Crypto {
 }
 
 extension String {
-
     /// Encrypts message with AES algorithm
     func aes(_ crypto: Crypto) throws -> String {
         switch crypto {

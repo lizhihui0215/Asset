@@ -21,7 +21,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>11</string>
+	<string>12</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -29,14 +29,14 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>是否允许拍照</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>是否允许访问您的地点信息</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>需要使用蓝牙来进行打印</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>需要使用蓝牙与打印机进行数据传输您是否允许打开蓝牙?</string>
+	<key>NSCameraUsageDescription</key>
+	<string>是否允许拍照</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>是否允许访问您的地点信息</string>
 	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
 	<dict>
 		<key>TempRequestFullLocAccuracy</key>
