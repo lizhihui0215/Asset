@@ -22,7 +22,13 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
 
     var parameter: PhotographUploadParameter
     var viewStates: ViewStates
-    var photos: [Photo] = [Photo(), Photo()]
+    var photos: [Photo] = [Photo(), Photo()] {
+        didSet {
+            if photos.count < 2 {
+                photos.append(Photo())
+            }
+        }
+    }
 
     var firstPhoto: Photo? { photos.first }
 
@@ -49,7 +55,7 @@ class PhotographViewModel: BaseViewModel<PhotographViewController> {
     }
 
     func upload(_ image: UIImage, at index: Int) -> ViewModelFuture<ViewState> {
-        guard let imageData = image.jpegData(compressionQuality: 1) else {
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             return ViewModelFuture(error: .unwrapOptionalValue("imageData should not be nil"))
         }
 

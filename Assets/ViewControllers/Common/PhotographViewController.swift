@@ -255,8 +255,9 @@ class PhotographViewController: BaseViewController {
 
     func submitTapped(for editingView: EditingView) {
         guard let image = editingView.imageView.image else { return }
-        viewModel.upload(image, at: editingView.index).onSuccess { result in
+        viewModel.upload(image, at: editingView.index).onSuccess { [weak self] result in
             editingView.update(viewState: result)
+            self?.alert(message: "操作成功")
         }
     }
 

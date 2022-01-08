@@ -10,9 +10,9 @@ import Foundation
 import SwiftyRSA
 
 struct API {
-    enum DESKey: String {
-        case request = "requ2022"
-        case response = "resp2022"
+    enum AESKey: String {
+        case request = "requ2022requ2022"
+        case response = "resp2022resp2022"
     }
 
     enum Keys: String {

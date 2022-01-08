@@ -13,7 +13,7 @@ class EAMParameterEncoder: ParameterEncoder {
         case des
         case none
         func encrpty<Parameters: Encodable>(parameters: Parameters) throws -> Data {
-            guard let data = try parameters.JSONString.des(.encrypt, key: API.DESKey.request.rawValue).data(using: .utf8) else {
+            guard let data = try parameters.JSONString.aes(.encrypt()).data(using: .utf8) else {
                 throw EAMError.CryptoError.encryptoError
             }
 

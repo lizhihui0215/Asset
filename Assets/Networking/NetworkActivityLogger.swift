@@ -111,7 +111,7 @@ public class NetworkActivityLogger {
                 guard let data = dataRequest.data else { return }
                 do {
                     if let dataString = String(data: data, encoding: .utf8),
-                       let decrypt = try? dataString.des(.decrypt, key: API.DESKey.response.rawValue).data(using: .utf8),
+                       let decrypt = try? dataString.aes(.decrypt()).data(using: .utf8),
                        let prettyData = try? self.prettyPrinted(data: decrypt),
                        let prettyString = String(data: prettyData, encoding: .utf8)
                     {
@@ -205,11 +205,11 @@ public extension Request {
             var escapedBody = httpBody.replacingOccurrences(of: "\\\"", with: "\\\\\"")
             escapedBody = escapedBody.replacingOccurrences(of: "\"", with: "\\\"")
 
-            if let decrypt = try? escapedBody.des(.decrypt, key: API.DESKey.request.rawValue) {
+            if let decrypt = try? escapedBody.aes(.decrypt(API.AESKey.request.rawValue)) {
                 components.append("-d \"\(decrypt)\"")
             }
             escapedBody = escapedBody.replacingOccurrences(of: "\r", with: "\\r")
-            components.append("-d encrypted \"\(escapedBody)\"")
+            components.append("#E \"\(escapedBody)\"")
         }
 
         components.append("\"\(url.absoluteString)\"")
