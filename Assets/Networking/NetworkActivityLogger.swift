@@ -208,6 +208,7 @@ public extension Request {
             if let decrypt = try? escapedBody.des(.decrypt, key: API.DESKey.request.rawValue) {
                 components.append("-d \"\(decrypt)\"")
             }
+            escapedBody = escapedBody.replacingOccurrences(of: "\r", with: "\\r")
             components.append("-d encrypted \"\(escapedBody)\"")
         }
 

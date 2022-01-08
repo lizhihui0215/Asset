@@ -53,8 +53,9 @@ extension String {
         let cryptStatus = CCCrypt(operation,
                                   algorithm,
                                   UInt32(options),
-                                  keyData.bytes, keyLength,
-                                  nil,
+                                  keyData.bytes,
+                                  keyLength,
+                                  keyData.bytes,
                                   data.bytes, data.length,
                                   cryptData.mutableBytes, cryptData.length,
                                   &numBytesEncrypted)
@@ -91,7 +92,7 @@ extension String {
                                       algorithm,
                                       UInt32(options),
                                       (keyData as NSData).bytes, keyLength,
-                                      nil,
+                                      keyData.bytes,
                                       data.bytes, data.length,
                                       cryptData.mutableBytes, cryptData.length,
                                       &numBytesEncrypted)

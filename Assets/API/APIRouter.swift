@@ -128,8 +128,8 @@ enum APIRouter: URLRequestConvertible {
     case assetTaskChangeInventoryPerson(AssetTaskInventoryDetailChangeInventoryPersonParameter)
     case printTemplate(PrintTemplateParameter)
 
-    var baseURL: URL {
-        URL(string: "\(API.schema)://\(API.domain)/")!
+    var baseURL: URL? {
+        URL(string: "\(API.schema)://\(API.domain)/")
     }
 
     var method: HTTPMethod {
@@ -187,6 +187,8 @@ enum APIRouter: URLRequestConvertible {
     }
 
     func asURLRequest() throws -> URLRequest {
+        guard let baseURL = baseURL else { throw EAMError.APIError.serverURLSettingError }
+
         let url = baseURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         request.method = method

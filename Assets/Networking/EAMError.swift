@@ -120,6 +120,7 @@ public enum EAMError: Error {
         case parametersIsNil
         case tokenRequiredError
         case updateRequired
+        case serverURLSettingError
     }
 
     public enum UIError: Error {

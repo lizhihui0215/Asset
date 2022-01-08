@@ -7,7 +7,7 @@ import Foundation
 
 extension APIRouter {
     var url: URL {
-        baseURL.appendingPathComponent(path)
+        baseURL?.appendingPathComponent(path) ?? URL(string: "http://baidu.com")!
     }
 }
 
