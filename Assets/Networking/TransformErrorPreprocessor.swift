@@ -17,10 +17,13 @@ struct TransformErrorPreprocessor<T: ResponseRepresentable>: DataPreprocessor {
     }
 
     public func preprocess(_ data: Data) throws -> Data {
-        guard let response = try? decoder.decode(T.self, from: data) else {
+        let dataString = String(data: data, encoding: .utf8)
+
+        guard let decrptyData = try? dataString?.des(.decrypt, key: API.DESKey.response.rawValue).data(using: .utf8) else {
             return data
         }
 
+        let response = try decoder.decode(T.self, from: decrptyData)
         switch response.status {
         case 3: throw EAMError.ServerError.updateRequired
         case 4: throw EAMError.ServerError.tokenRequiredError

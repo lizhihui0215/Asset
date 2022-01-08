@@ -282,6 +282,7 @@
 		264C401126ADD48100332027 /* TransformAssetListScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C3FE126AD671800332027 /* TransformAssetListScanViewModel.swift */; };
 		2652096E2788671400D07910 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26767B52273931DE005B9862 /* Alamofire.framework */; };
 		2652096F2788671400D07910 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26767B52273931DE005B9862 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2652099127889FE300D07910 /* RequestEncryptAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2652099027889FE300D07910 /* RequestEncryptAdaptor.swift */; };
 		26530D2F262F187E002BCE55 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26530D2E262F187D002BCE55 /* Coding.swift */; };
 		26530D34262F18C1002BCE55 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26530D33262F18C1002BCE55 /* AnyCodable.swift */; };
 		26530D39262F19DF002BCE55 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26530D38262F19DF002BCE55 /* API.swift */; };
@@ -351,6 +352,7 @@
 		26F8D1F8264791E800C66FCD /* AssetListDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8D1F7264791E800C66FCD /* AssetListDetail.swift */; };
 		26FB93D726E67D4D00A20884 /* AssetTaskInventoryListSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FB93D126E67D2100A20884 /* AssetTaskInventoryListSearchRequest.swift */; };
 		26FBBCA12660D7AD003F576B /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBBCA02660D7AC003F576B /* Mocker.swift */; };
+		26FF4BB127895CB800889EA5 /* EAMParameterEncoderswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF4BB027895CB800889EA5 /* EAMParameterEncoderswift.swift */; };
 		469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EAC783A44972C349C0389 /* Device.swift */; };
 		469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA61540B02723A9DAED3E /* UIViewController+Extension.swift */; };
 		469EA1E4B76D35DF1914E903 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA7D5589988661F72393A /* Defaultable.swift */; };
@@ -908,6 +910,7 @@
 		264C3FE926AD674A00332027 /* AssetTaskInventoryListScanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryListScanViewModel.swift; sourceTree = "<group>"; };
 		264C3FEA26AD674A00332027 /* AssetTaskInventoryDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryDetailViewModel.swift; sourceTree = "<group>"; };
 		264C3FEB26AD674A00332027 /* AssetTaskSearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskSearchViewModel.swift; sourceTree = "<group>"; };
+		2652099027889FE300D07910 /* RequestEncryptAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEncryptAdaptor.swift; sourceTree = "<group>"; };
 		26530D2E262F187D002BCE55 /* Coding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
 		26530D33262F18C1002BCE55 /* AnyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
 		26530D38262F19DF002BCE55 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -980,6 +983,7 @@
 		26F8D1F7264791E800C66FCD /* AssetListDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListDetail.swift; sourceTree = "<group>"; };
 		26FB93D126E67D2100A20884 /* AssetTaskInventoryListSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryListSearchRequest.swift; sourceTree = "<group>"; };
 		26FBBCA02660D7AC003F576B /* Mocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocker.swift; sourceTree = "<group>"; };
+		26FF4BB027895CB800889EA5 /* EAMParameterEncoderswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAMParameterEncoderswift.swift; sourceTree = "<group>"; };
 		469EA1FCF25D4B2B9F7CD71F /* Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
 		469EA21A2AFE56567ECE31AF /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		469EA61540B02723A9DAED3E /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -1668,6 +1672,62 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		2652098F27889EEC00D07910 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				26E5F59626E8A4C4004985A7 /* AssetTaskSearchRequest.swift */,
+				262605532688B49400325645 /* AssetTaskInventoryListScanRequest.swift */,
+				9C6D434A262731DB00FEC466 /* RequestRepresentable.swift */,
+				9CBBE007262873AE00CC6294 /* DataResponse.swift */,
+				9C6D434C2627320D00FEC466 /* LoginRequest.swift */,
+				26767BCB273D606D005B9862 /* PrintTemplateRequest.swift */,
+				26B0DCC22656B6AF003A3FF1 /* VersionRequest.swift */,
+				5B875234EAB7404922020237 /* ServiceRequest.swift */,
+				5B875E2B31EBA291112B1127 /* LocationListRequest.swift */,
+				5B87587F55DE950C478C1950 /* UpdateLocation.swift */,
+				5B875A192F3CF3047BC4AD2E /* PhotographRequest.swift */,
+				260ACFAA26D1EC1F006104B3 /* TransformAssetListSearchRequest.swift */,
+				5B8756CA0572E8165EE7BF98 /* LocationDetailRequest.swift */,
+				5B8754A37EA78B899A488A21 /* AssetInventoryListRequest.swift */,
+				5B875207E60644377F816FBD /* AssetDetailRequest.swift */,
+				5B875DCE54BC6E0E173BA3C3 /* StaffListRequest.swift */,
+				5B875602A3931DA4E491CAF0 /* AssetTaskListRequest.swift */,
+				A19485362673DE7F0089F4B8 /* AssetTaskInventoryListRequest.swift */,
+				5B875396A28DED28579946EE /* LocationScanlRequest.swift */,
+				5B87559B580F9BD19EE07D6C /* AssetDetailScanlRequest.swift */,
+				26260559268A316900325645 /* AssetTaskInventoryDetailRequest.swift */,
+				5B87579C1030CB0B0B4FA619 /* DictionaryStatusRequest.swift */,
+				5B875E86DA8709733068D2C3 /* AssetListDetailRequest.swift */,
+				5B87553B3FE924E067FB41C5 /* AssetInventoryListDetailRequest.swift */,
+				5B8751EA80E156536D9B2263 /* AssetInventoryListDetailSubmitRequest.swift */,
+				5B875F03E1399451D755ED78 /* PhotographUploadRequest.swift */,
+				5B8754F2A431E870B2A02552 /* LocationImagesRequest.swift */,
+				5B87587FE2E0F4D625DAE454 /* LocationImageOperatorByDeleteRequest.swift */,
+				5B8757B0788173D53CDE84F4 /* AssetImagesRequest.swift */,
+				5B87593E64DE39CB6D9A1F36 /* AssetImageOperatorByDeleteRequest.swift */,
+				5B87554EAC2333B2D2D99749 /* SettingRequest.swift */,
+				5B875FC7EE43A602E21A3D88 /* MineRequest.swift */,
+				5B8752C5F9ADC034A9A8648A /* IsLoginRequest.swift */,
+				5B875DD2B779668B72679093 /* VersionCheckRequest.swift */,
+				2655C168268B43FE0063A02E /* AssetTaskInventoryDetailScanRequest.swift */,
+				F2F612228279068AEE9C95A5 /* TransformListRequest.swift */,
+				F2F61904C81E912FE888CA11 /* AssetListRequest.swift */,
+				F2F6110471023FB0C3A82FA1 /* AssetTaskDetailRequest.swift */,
+				5B87533357C24C8BAED624A3 /* AssetTaskInventoryDetailPhotographRequest.swift */,
+				5B87593130CC1DEA2CBD95A4 /* TransformAssetDetailPhotographResponse.swift */,
+				5B875FC7083D436A1A29A734 /* TransformInventoryDetailScanRequest.swift */,
+				5B87577524976A8DC084053D /* TransformInventoryListScanRequest.swift */,
+				5B875ED5ACBBC3AD052447C4 /* TransformAssetListScanParameter.swift */,
+				5B8754A0CD277D8A588F3A08 /* TransformDetailRequest.swift */,
+				5B8750C0CC6FA3FA3CDC44F2 /* TransformSearchRequest.swift */,
+				26E5F59926E8A4F4004985A7 /* AssetTaskListSearchRequest.swift */,
+				2691CE5E26E258760024DBE9 /* AssetInventoryListSearchRequest.swift */,
+				26FB93D126E67D2100A20884 /* AssetTaskInventoryListSearchRequest.swift */,
+				5B87551AC9C37935FBE3D7BD /* TransformInventoryDetailRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		26530D22262F11A3002BCE55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2098,7 +2158,9 @@
 				9CBBE00426286EF500CC6294 /* TransformErrorPreprocessor.swift */,
 				9CBBE00226286DFB00CC6294 /* RequestRetrier.swift */,
 				9CBBE0002628654700CC6294 /* RequestAdaptor.swift */,
+				2652099027889FE300D07910 /* RequestEncryptAdaptor.swift */,
 				9CBBE00926287A7C00CC6294 /* EAMError.swift */,
+				26FF4BB027895CB800889EA5 /* EAMParameterEncoderswift.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -2106,57 +2168,9 @@
 		9C6D4349262731C100FEC466 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				26E5F59626E8A4C4004985A7 /* AssetTaskSearchRequest.swift */,
-				262605532688B49400325645 /* AssetTaskInventoryListScanRequest.swift */,
 				26530D38262F19DF002BCE55 /* API.swift */,
 				9CBBE00B2628811500CC6294 /* APIRouter.swift */,
-				9C6D434A262731DB00FEC466 /* RequestRepresentable.swift */,
-				9CBBE007262873AE00CC6294 /* DataResponse.swift */,
-				9C6D434C2627320D00FEC466 /* LoginRequest.swift */,
-				26767BCB273D606D005B9862 /* PrintTemplateRequest.swift */,
-				26B0DCC22656B6AF003A3FF1 /* VersionRequest.swift */,
-				5B875234EAB7404922020237 /* ServiceRequest.swift */,
-				5B875E2B31EBA291112B1127 /* LocationListRequest.swift */,
-				5B87587F55DE950C478C1950 /* UpdateLocation.swift */,
-				5B875A192F3CF3047BC4AD2E /* PhotographRequest.swift */,
-				260ACFAA26D1EC1F006104B3 /* TransformAssetListSearchRequest.swift */,
-				5B8756CA0572E8165EE7BF98 /* LocationDetailRequest.swift */,
-				5B8754A37EA78B899A488A21 /* AssetInventoryListRequest.swift */,
-				5B875207E60644377F816FBD /* AssetDetailRequest.swift */,
-				5B875DCE54BC6E0E173BA3C3 /* StaffListRequest.swift */,
-				5B875602A3931DA4E491CAF0 /* AssetTaskListRequest.swift */,
-				A19485362673DE7F0089F4B8 /* AssetTaskInventoryListRequest.swift */,
-				5B875396A28DED28579946EE /* LocationScanlRequest.swift */,
-				5B87559B580F9BD19EE07D6C /* AssetDetailScanlRequest.swift */,
-				26260559268A316900325645 /* AssetTaskInventoryDetailRequest.swift */,
-				5B87579C1030CB0B0B4FA619 /* DictionaryStatusRequest.swift */,
-				5B875E86DA8709733068D2C3 /* AssetListDetailRequest.swift */,
-				5B87553B3FE924E067FB41C5 /* AssetInventoryListDetailRequest.swift */,
-				5B8751EA80E156536D9B2263 /* AssetInventoryListDetailSubmitRequest.swift */,
-				5B875F03E1399451D755ED78 /* PhotographUploadRequest.swift */,
-				5B8754F2A431E870B2A02552 /* LocationImagesRequest.swift */,
-				5B87587FE2E0F4D625DAE454 /* LocationImageOperatorByDeleteRequest.swift */,
-				5B8757B0788173D53CDE84F4 /* AssetImagesRequest.swift */,
-				5B87593E64DE39CB6D9A1F36 /* AssetImageOperatorByDeleteRequest.swift */,
-				5B87554EAC2333B2D2D99749 /* SettingRequest.swift */,
-				5B875FC7EE43A602E21A3D88 /* MineRequest.swift */,
-				5B8752C5F9ADC034A9A8648A /* IsLoginRequest.swift */,
-				5B875DD2B779668B72679093 /* VersionCheckRequest.swift */,
-				2655C168268B43FE0063A02E /* AssetTaskInventoryDetailScanRequest.swift */,
-				F2F612228279068AEE9C95A5 /* TransformListRequest.swift */,
-				F2F61904C81E912FE888CA11 /* AssetListRequest.swift */,
-				F2F6110471023FB0C3A82FA1 /* AssetTaskDetailRequest.swift */,
-				5B87533357C24C8BAED624A3 /* AssetTaskInventoryDetailPhotographRequest.swift */,
-				5B87593130CC1DEA2CBD95A4 /* TransformAssetDetailPhotographResponse.swift */,
-				5B875FC7083D436A1A29A734 /* TransformInventoryDetailScanRequest.swift */,
-				5B87577524976A8DC084053D /* TransformInventoryListScanRequest.swift */,
-				5B875ED5ACBBC3AD052447C4 /* TransformAssetListScanParameter.swift */,
-				5B8754A0CD277D8A588F3A08 /* TransformDetailRequest.swift */,
-				5B8750C0CC6FA3FA3CDC44F2 /* TransformSearchRequest.swift */,
-				26E5F59926E8A4F4004985A7 /* AssetTaskListSearchRequest.swift */,
-				2691CE5E26E258760024DBE9 /* AssetInventoryListSearchRequest.swift */,
-				26FB93D126E67D2100A20884 /* AssetTaskInventoryListSearchRequest.swift */,
-				5B87551AC9C37935FBE3D7BD /* TransformInventoryDetailRequest.swift */,
+				2652098F27889EEC00D07910 /* Requests */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -2685,6 +2699,7 @@
 				268381A9262EE39100F6C23F /* XCAssets+Generated.swift in Sources */,
 				9C6D434B262731DB00FEC466 /* RequestRepresentable.swift in Sources */,
 				260E35C926351FBB008CF3DE /* PresentationPresenter.swift in Sources */,
+				2652099127889FE300D07910 /* RequestEncryptAdaptor.swift in Sources */,
 				260E364626351FBC008CF3DE /* DesignableNavigationBar.swift in Sources */,
 				9CBBE00526286EF500CC6294 /* TransformErrorPreprocessor.swift in Sources */,
 				2609228B2650BAE200B962FA /* TextFieldEffects.swift in Sources */,
@@ -2840,6 +2855,7 @@
 				260E35E526351FBB008CF3DE /* TransitionType.swift in Sources */,
 				26FB93D726E67D4D00A20884 /* AssetTaskInventoryListSearchRequest.swift in Sources */,
 				469EA165234F6ACA6DA91726 /* UIViewController+Extension.swift in Sources */,
+				26FF4BB127895CB800889EA5 /* EAMParameterEncoderswift.swift in Sources */,
 				469EA0FA1CC159E87F74E0E7 /* Device.swift in Sources */,
 				260FB8ED2637FEF100445BD7 /* NativeLocationService.swift in Sources */,
 				260922892650BAE200B962FA /* MinoruTextField.swift in Sources */,

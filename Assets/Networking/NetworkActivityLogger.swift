@@ -110,11 +110,18 @@ public class NetworkActivityLogger {
                 self.logHeaders(headers: response.allHeaderFields)
                 guard let data = dataRequest.data else { return }
                 do {
-                    let jsonObject = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-                    let prettyData = try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
+                    if let dataString = String(data: data, encoding: .utf8),
+                       let decrypt = try? dataString.des(.decrypt, key: API.DESKey.response.rawValue).data(using: .utf8),
+                       let prettyData = try? self.prettyPrinted(data: decrypt),
+                       let prettyString = String(data: prettyData, encoding: .utf8)
+                    {
+                        log.debug("Body: \n", context: prettyString)
+                    }
+
+                    let prettyData = try self.prettyPrinted(data: data)
 
                     if let prettyString = String(data: prettyData, encoding: .utf8) {
-                        log.debug("Body: \n", context: prettyString)
+                        log.debug("Body encrypt: \n", context: prettyString)
                     }
                 } catch {
                     if let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
@@ -123,6 +130,90 @@ public class NetworkActivityLogger {
                 }
             }
         }
+    }
+
+    func prettyPrinted(data: Data) throws -> Data {
+        let jsonObject = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+        return try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
+    }
+}
+
+public extension Request {
+    /// cURL representation of the instance.
+    ///
+    /// - Returns: The cURL equivalent of the instance.
+    func cURLDescription() -> String {
+        guard
+            let request = lastRequest,
+            let url = request.url,
+            let host = url.host,
+            let method = request.httpMethod else { return "$ curl command could not be created" }
+
+        var components = ["$ curl -v"]
+
+        components.append("-X \(method)")
+
+        if let credentialStorage = delegate?.sessionConfiguration.urlCredentialStorage {
+            let protectionSpace = URLProtectionSpace(host: host,
+                                                     port: url.port ?? 0,
+                                                     protocol: url.scheme,
+                                                     realm: host,
+                                                     authenticationMethod: NSURLAuthenticationMethodHTTPBasic)
+
+            if let credentials = credentialStorage.credentials(for: protectionSpace)?.values {
+                for credential in credentials {
+                    guard let user = credential.user, let password = credential.password else { continue }
+                    components.append("-u \(user):\(password)")
+                }
+            } else {
+                if let credential = credential, let user = credential.user, let password = credential.password {
+                    components.append("-u \(user):\(password)")
+                }
+            }
+        }
+
+        if let configuration = delegate?.sessionConfiguration, configuration.httpShouldSetCookies {
+            if
+                let cookieStorage = configuration.httpCookieStorage,
+                let cookies = cookieStorage.cookies(for: url), !cookies.isEmpty
+            {
+                let allCookies = cookies.map { "\($0.name)=\($0.value)" }.joined(separator: ";")
+
+                components.append("-b \"\(allCookies)\"")
+            }
+        }
+
+        var headers = HTTPHeaders()
+
+        if let sessionHeaders = delegate?.sessionConfiguration.headers {
+            for header in sessionHeaders where header.name != "Cookie" {
+                headers[header.name] = header.value
+            }
+        }
+
+        for header in request.headers where header.name != "Cookie" {
+            headers[header.name] = header.value
+        }
+
+        for header in headers {
+            let escapedValue = header.value.replacingOccurrences(of: "\"", with: "\\\"")
+            components.append("-H \"\(header.name): \(escapedValue)\"")
+        }
+
+        if let httpBodyData = request.httpBody {
+            let httpBody = String(decoding: httpBodyData, as: UTF8.self)
+            var escapedBody = httpBody.replacingOccurrences(of: "\\\"", with: "\\\\\"")
+            escapedBody = escapedBody.replacingOccurrences(of: "\"", with: "\\\"")
+
+            if let decrypt = try? escapedBody.des(.decrypt, key: API.DESKey.request.rawValue) {
+                components.append("-d \"\(decrypt)\"")
+            }
+            components.append("-d encrypted \"\(escapedBody)\"")
+        }
+
+        components.append("\"\(url.absoluteString)\"")
+
+        return components.joined(separator: " \\\n\t")
     }
 }
 

@@ -280,7 +280,8 @@ enum APIRouter: URLRequestConvertible {
     }
 
     func encode<Parameters>(_ parameters: Parameters?, into request: URLRequest) throws -> URLRequest where Parameters: Encodable {
-        /** tempory disable rsa encryption
+        /**
+         tempory disable rsa encryption
          guard let parameters = parameters else {
              throw EAMError.APIError.parametersIsNil
          }
@@ -306,11 +307,8 @@ enum APIRouter: URLRequestConvertible {
         guard let parameters = parameters else {
             throw EAMError.APIError.parametersIsNil
         }
-        
-        
-        
 
-        return try JSONParameterEncoder().encode(parameters, into: request)
+        return try EAMParameterEncoder().encode(parameters, into: request)
     }
 
     func sign(parameters: Encodable) throws -> String {

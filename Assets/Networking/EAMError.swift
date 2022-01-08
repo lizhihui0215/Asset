@@ -129,6 +129,11 @@ public enum EAMError: Error {
         case assetTaskChangePersonNotSelected
     }
 
+    public enum CryptoError: Error {
+        case encryptoError
+        case decryptoErrpr
+    }
+
     public enum LocationServiceError: Error {
         case coordinateEmpty
         case coordinateNeedsUpdate

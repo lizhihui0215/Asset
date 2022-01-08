@@ -39,6 +39,7 @@ class NetworkManager {
 
     init() {
         let adapterAndRetrier = Interceptor(adapter: NetworkManager.adapter, retrier: NetworkManager.retrier)
+
         let composite = Interceptor(interceptors: [adapterAndRetrier])
         let configuration = URLSessionConfiguration.af.default
         #if MOCK
