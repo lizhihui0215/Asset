@@ -1,0 +1,11 @@
+framework module Swiftstraints {
+  umbrella header "Swiftstraints.h"
+
+  export *
+  module * { export * }
+}
+
+module Swiftstraints.Swift {
+    header "Swiftstraints-Swift.h"
+    requires objc
+}

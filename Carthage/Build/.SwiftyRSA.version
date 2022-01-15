@@ -1,0 +1,54 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "76fe7375fbce3437b8a49b62dcd5a3d6f3a64bc368d1de652b1c518544caa25c",
+      "name" : "SwiftyRSA",
+      "container" : "SwiftyRSA.xcframework",
+      "identifier" : "watchos-arm64_32_armv7k"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "dd7e524abe02355b046dc4ffb759f8839fa1bb4942fd469fccfe105c0bf54e4d",
+      "name" : "SwiftyRSA",
+      "container" : "SwiftyRSA.xcframework",
+      "identifier" : "watchos-arm64_i386_x86_64-simulator"
+    }
+  ],
+  "tvOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "dd2254b079cda699c9fb7cd467e8f095cf2def7ee2a7beda990f23cad547a29b",
+      "name" : "SwiftyRSA",
+      "container" : "SwiftyRSA.xcframework",
+      "identifier" : "tvos-arm64"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "a40e983ed3abb042412677f0c02d5bad5a5bab7a7df0f129fc8bfc827b7bb251",
+      "name" : "SwiftyRSA",
+      "container" : "SwiftyRSA.xcframework",
+      "identifier" : "tvos-arm64_x86_64-simulator"
+    }
+  ],
+  "commitish" : "1.7.0",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "a7afd46b91663adad6f1933cf0f5371b76150084405f0370e2c977800c6e02ce",
+      "name" : "SwiftyRSA",
+      "container" : "SwiftyRSA.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "5bfcfd5d2f631376978fe68fb77b4bf538abf900e9fd84969c45024c1acbe9aa",
+      "name" : "SwiftyRSA",
+      "container" : "SwiftyRSA.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    }
+  ]
+}

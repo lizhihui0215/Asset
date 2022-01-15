@@ -1,0 +1,28 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "1.2.4",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)",
+      "hash" : "e0543bb43ab5a2b1fb9b35ca745a587863039067e12d626c284450a613d88f06",
+      "name" : "SwiftScan",
+      "container" : "SwiftScan.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)",
+      "hash" : "3a94f6c66837fcd72c9d1f499d6334bb486b8ac249b7b805e68fc13184e1b0af",
+      "name" : "SwiftScan",
+      "container" : "SwiftScan.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    }
+  ]
+}

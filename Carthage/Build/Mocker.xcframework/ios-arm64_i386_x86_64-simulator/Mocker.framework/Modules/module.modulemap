@@ -1,0 +1,11 @@
+framework module Mocker {
+  umbrella header "Mocker.h"
+
+  export *
+  module * { export * }
+}
+
+module Mocker.Swift {
+    header "Mocker-Swift.h"
+    requires objc
+}

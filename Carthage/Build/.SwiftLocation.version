@@ -1,0 +1,28 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "5.1.2",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "1af76dd5965c13d59036f2d2830bd61806708205164a3062f073f23ca052f27d",
+      "name" : "SwiftLocation",
+      "container" : "SwiftLocation.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "86b5b4f163daa9fdd1318cbeb722c8f7dadad271d80131773ed42ea9d8aa58f9",
+      "name" : "SwiftLocation",
+      "container" : "SwiftLocation.xcframework",
+      "identifier" : "ios-arm64"
+    }
+  ]
+}

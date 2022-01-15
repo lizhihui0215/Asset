@@ -1,0 +1,41 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "1e882da2289879f08baacbba3d8d48e10e4f4be9c7f271d7a3c544bb476313a6",
+      "name" : "Swiftstraints",
+      "container" : "Swiftstraints.xcframework",
+      "identifier" : "tvos-arm64"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "278b1d76d980dd983c72ac21cd889da5ffa4a45899ea70a34d46103a18f3c9c5",
+      "name" : "Swiftstraints",
+      "container" : "Swiftstraints.xcframework",
+      "identifier" : "tvos-arm64_x86_64-simulator"
+    }
+  ],
+  "commitish" : "5.2.0",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "1bc4561d6f0088279b93ea860c59634cc15e423ed1e8f7e9d7dca12115b2f0da",
+      "name" : "Swiftstraints",
+      "container" : "Swiftstraints.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "2a7dcca8026b961e40ad2fc7da3555336f80ce86fa1d645123dba0f7cd95e786",
+      "name" : "Swiftstraints",
+      "container" : "Swiftstraints.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    }
+  ]
+}

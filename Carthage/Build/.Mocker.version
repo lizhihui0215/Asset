@@ -1,0 +1,28 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "2.5.3",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "d0cea1bb64a8ffe9485273d24b1c7fbd1679319d772d882473df48a179569fa2",
+      "name" : "Mocker",
+      "container" : "Mocker.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "7ec6dbb12e8cfe6545601b3c1093fb42682e7b3382d1cc1a82c29ab95d7757aa",
+      "name" : "Mocker",
+      "container" : "Mocker.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    }
+  ]
+}

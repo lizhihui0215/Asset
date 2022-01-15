@@ -1,0 +1,28 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "5.4.0",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "81777097abfb7975f966895bd833b2bdce57c58ccda681df2baee986edc6542d",
+      "name" : "PKHUD",
+      "container" : "PKHUD.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "9e786a440fbf213d3193e60c471085245b962b7d81d1ecddbbf259ad45c0e6b6",
+      "name" : "PKHUD",
+      "container" : "PKHUD.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    }
+  ]
+}

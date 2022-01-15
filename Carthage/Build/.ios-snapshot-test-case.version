@@ -1,0 +1,34 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "001ffddc0994fddacef95648e97547a15c259969a838d44373bd4b6694cc3a57",
+      "name" : "FBSnapshotTestCase",
+      "container" : "FBSnapshotTestCase.xcframework",
+      "identifier" : "tvos-arm64_x86_64-simulator"
+    }
+  ],
+  "commitish" : "6.2.0",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "6364d763f2403cb68e2a34741248397cde12f742baf659a405c88f1bca93938e",
+      "name" : "FBSnapshotTestCase",
+      "container" : "FBSnapshotTestCase.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "94dfc469e5064577917483c125513b50d981b147294f3b07e801e22456773021",
+      "name" : "FBSnapshotTestCase",
+      "container" : "FBSnapshotTestCase.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    }
+  ]
+}

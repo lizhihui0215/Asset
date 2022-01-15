@@ -1,0 +1,60 @@
+{
+  "Mac" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "618b84bf9dafa9b6d52ff6515d6e37d9967739981375ba25bd1055ca0be8606a",
+      "name" : "BrightFutures",
+      "container" : "BrightFutures.xcframework",
+      "identifier" : "macos-arm64_x86_64"
+    }
+  ],
+  "watchOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "80d2d62d49dc523a11e5cfe37dcfc621d30c7587a25ef28629deda04b6987cf6",
+      "name" : "BrightFutures",
+      "container" : "BrightFutures.xcframework",
+      "identifier" : "watchos-arm64_i386_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "46f92a022709931d7257855e6bc58b694d1b9c0f7da9284140f2ed33737d37d0",
+      "name" : "BrightFutures",
+      "container" : "BrightFutures.xcframework",
+      "identifier" : "watchos-arm64_32_armv7k"
+    }
+  ],
+  "tvOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "ba8ccf03025ca15b965f30b2f5588b5494ad6a8768c0601483008360daeb60f4",
+      "name" : "BrightFutures",
+      "container" : "BrightFutures.xcframework",
+      "identifier" : "tvos-arm64"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "d69867084786fe791a0596c4597717c78c2e577825134e5f506b1b6868bfe334",
+      "name" : "BrightFutures",
+      "container" : "BrightFutures.xcframework",
+      "identifier" : "tvos-arm64_x86_64-simulator"
+    }
+  ],
+  "commitish" : "8.1.0",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "555b065d51b48048301bb4875ad32977be69efda39cc19bbf8541fb8f6fea5cc",
+      "name" : "BrightFutures",
+      "container" : "BrightFutures.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "636875c4b68cabc59c39d2a1b9aa643b0961b65191d3ecac973d5936c58ce6c7",
+      "name" : "BrightFutures",
+      "container" : "BrightFutures.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "1.0.2",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "1a3d127ec24b29c388b474dd6f090bb6d93146fff0496a51735b1e2287a7aa18",
+      "name" : "JZLocationConverter",
+      "container" : "JZLocationConverter.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "9b71847a86a1e547e451c4e2a234694f0dc2ee715706d54aa0768455844cf59e",
+      "name" : "JZLocationConverter",
+      "container" : "JZLocationConverter.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    }
+  ]
+}

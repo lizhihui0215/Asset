@@ -1,0 +1,60 @@
+{
+  "Mac" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "e06bd920850da95e1690f1d06ab7a0a3cf142f0cdcc693230cd6618c821fe138",
+      "name" : "SwiftyBeaver",
+      "container" : "SwiftyBeaver.xcframework",
+      "identifier" : "macos-arm64_x86_64"
+    }
+  ],
+  "watchOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "dec610eca5e4e44ee61a1c8153078fb3997fb511610df3e538a324c9678fad9a",
+      "name" : "SwiftyBeaver",
+      "container" : "SwiftyBeaver.xcframework",
+      "identifier" : "watchos-arm64_i386_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "ad158dde222f84b63c363ed1225bcc586b6841713ff57594378c01861f8dcc01",
+      "name" : "SwiftyBeaver",
+      "container" : "SwiftyBeaver.xcframework",
+      "identifier" : "watchos-arm64_32_armv7k"
+    }
+  ],
+  "tvOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "b57354f9a46e976ec987a6b149c519c88b3e0eab5da71aa6cce2471923759b9d",
+      "name" : "SwiftyBeaver",
+      "container" : "SwiftyBeaver.xcframework",
+      "identifier" : "tvos-arm64_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "474c3347993817786794dd3c5fe10c40b4f3e41e300737c61fffef83875d11d6",
+      "name" : "SwiftyBeaver",
+      "container" : "SwiftyBeaver.xcframework",
+      "identifier" : "tvos-arm64"
+    }
+  ],
+  "commitish" : "1.9.5",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "8a009fb7f7df4e327bb8aec30721ddd75cbb733f9624480d79162fb27985a88f",
+      "name" : "SwiftyBeaver",
+      "container" : "SwiftyBeaver.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "4eb81c781a1306e8296b1bf079185a44b7fd33783441b3fbc097f3003fa787e3",
+      "name" : "SwiftyBeaver",
+      "container" : "SwiftyBeaver.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    }
+  ]
+}

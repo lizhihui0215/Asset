@@ -1,0 +1,31 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+    {
+      "hash" : "a743b4a1ca7540f2a3f0dd5e7c4251ad00f5f81cc8d1f0091b8bf42b388e4b9b",
+      "name" : "Cucumberish",
+      "container" : "Cucumberish.xcframework",
+      "identifier" : "tvos-arm64_x86_64-simulator"
+    }
+  ],
+  "commitish" : "v1.4.4",
+  "iOS" : [
+    {
+      "hash" : "15b98bb2a4d57bef7430161f1c7bace6ede31d2795c86f7fe6e67c9076303fa4",
+      "name" : "Cucumberish",
+      "container" : "Cucumberish.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "hash" : "22b794440ee56fa1a7a0aae4d0b89f8d9ee42b906c171ceaf7a98c1adc0c67d5",
+      "name" : "Cucumberish",
+      "container" : "Cucumberish.xcframework",
+      "identifier" : "ios-arm64"
+    }
+  ]
+}

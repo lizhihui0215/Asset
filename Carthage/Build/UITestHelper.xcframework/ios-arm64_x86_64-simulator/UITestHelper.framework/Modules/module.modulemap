@@ -1,0 +1,11 @@
+framework module UITestHelper {
+  umbrella header "UITestHelper.h"
+
+  export *
+  module * { export * }
+}
+
+module UITestHelper.Swift {
+    header "UITestHelper-Swift.h"
+    requires objc
+}

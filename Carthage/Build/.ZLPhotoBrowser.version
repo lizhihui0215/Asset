@@ -1,0 +1,28 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "4.1.6",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "caa462b57043f4b71c8795b3183081180a27cc976a9d31219234630a8e50d96d",
+      "name" : "ZLPhotoBrowser",
+      "container" : "ZLPhotoBrowser.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "de925a8e05080af4ed1ed97f235f2f28c91439edc1ab1692b18897f5b0d3911f",
+      "name" : "ZLPhotoBrowser",
+      "container" : "ZLPhotoBrowser.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    }
+  ]
+}

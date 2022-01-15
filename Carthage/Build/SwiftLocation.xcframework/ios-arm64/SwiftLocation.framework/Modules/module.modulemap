@@ -1,0 +1,11 @@
+framework module SwiftLocation {
+  umbrella header "SwiftLocation.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftLocation.Swift {
+    header "SwiftLocation-Swift.h"
+    requires objc
+}

@@ -1,0 +1,28 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "1.5.4",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "6a9c23b1841153a38f5bebf9fecb8596a7cc0336903de6d3c6e107f28aef295a",
+      "name" : "UITestHelper",
+      "container" : "UITestHelper.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "393fdb33fb0d93d3044f54b1146fc83e87b6d1a01b405c3d8da7e345f1f1d274",
+      "name" : "UITestHelper",
+      "container" : "UITestHelper.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    }
+  ]
+}
