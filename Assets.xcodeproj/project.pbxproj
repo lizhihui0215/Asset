@@ -247,6 +247,7 @@
 		2626055A268A31CB00325645 /* AssetTaskInventoryDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26260559268A316900325645 /* AssetTaskInventoryDetailRequest.swift */; };
 		2627EE83278A069000C37C77 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2627EE7A278A063200C37C77 /* CryptoSwift.framework */; };
 		2627EE84278A069000C37C77 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2627EE7A278A063200C37C77 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2627EEA5278FEF6300C37C77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2627EEA4278FEF6300C37C77 /* LoginView.swift */; };
 		262D535E265B5E8D0015543E /* ScanBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262D535D265B5E8C0015543E /* ScanBackgroundView.swift */; };
 		262D5360265B5EE50015543E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262D535F265B5EE50015543E /* UIView+Extension.swift */; };
 		262D5362265B6B980015543E /* VersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262D5361265B6B980015543E /* VersionViewController.swift */; };
@@ -912,6 +913,7 @@
 		262605532688B49400325645 /* AssetTaskInventoryListScanRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryListScanRequest.swift; sourceTree = "<group>"; };
 		26260559268A316900325645 /* AssetTaskInventoryDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTaskInventoryDetailRequest.swift; sourceTree = "<group>"; };
 		2627EE6A278A063100C37C77 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = Carthage/Checkouts/CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		2627EEA4278FEF6300C37C77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		262D535D265B5E8C0015543E /* ScanBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanBackgroundView.swift; sourceTree = "<group>"; };
 		262D535F265B5EE50015543E /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		262D5361265B6B980015543E /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
@@ -1709,6 +1711,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2627EE97278FEF4700C37C77 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				2627EEA4278FEF6300C37C77 /* LoginView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		263EF7AD26542B9300EB1155 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -2079,6 +2089,7 @@
 		9C6D42FA2627146600FEC466 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2627EE97278FEF4700C37C77 /* SwiftUI */,
 				26A59FD22641226A00217F91 /* App */,
 				9C6D432D262714E200FEC466 /* Views */,
 				9C6D432E262714E600FEC466 /* ViewModels */,
@@ -2792,6 +2803,7 @@
 				261995972635BC120046AF48 /* Bundle+Extension.swift in Sources */,
 				260E362326351FBB008CF3DE /* ActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				260E365626351FBC008CF3DE /* BackgroundImageDesignable.swift in Sources */,
+				2627EEA5278FEF6300C37C77 /* LoginView.swift in Sources */,
 				262D5360265B5EE50015543E /* UIView+Extension.swift in Sources */,
 				A19485372673DEAA0089F4B8 /* AssetTaskInventoryListRequest.swift in Sources */,
 				260E363626351FBC008CF3DE /* AnimatableNavigationController.swift in Sources */,
@@ -3485,6 +3497,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.Assets.cert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFTUI = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_GEN_INPUT = Assets;
 				SWIFT_OBJC_BRIDGING_HEADER = "Assets/Resources/Assets-Bridging-Header.h";
@@ -3525,6 +3538,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pccw.cmcc.Assets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "eam sd new app";
+				SWIFTUI = NO;
 				SWIFT_GEN_INPUT = Assets;
 				SWIFT_OBJC_BRIDGING_HEADER = "Assets/Resources/Assets-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

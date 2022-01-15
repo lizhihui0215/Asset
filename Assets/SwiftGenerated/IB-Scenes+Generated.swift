@@ -54,7 +54,7 @@ internal enum StoryboardScene {
   internal enum Login: StoryboardType {
     internal static let storyboardName = "Login"
 
-    internal static let initialScene = InitialSceneType<Assets.NavigationViewController>(storyboard: Login.self)
+    internal static let initialScene = InitialSceneType<Assets.LoginHostingController>(storyboard: Login.self)
 
     internal static let loginViewController = SceneType<Assets.LoginViewController>(storyboard: Login.self, identifier: "LoginViewController")
 
